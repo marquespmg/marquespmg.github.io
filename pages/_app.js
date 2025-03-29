@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-89LSRYEHF1');
+  }, []);
 
   // Adiciona produto ao carrinho
   const addToCart = (product) => {
@@ -25,9 +33,28 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Marques Vendaspmg</title>
+        <title>Marques Vendas PMG</title>
         <meta name="description" content="Carrinho de compras profissional" />
       </Head>
+
+      {/* Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-89LSRYEHF1"
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-89LSRYEHF1');
+          `,
+        }}
+      />
+
       <Component 
         {...pageProps} 
         cart={cart}
