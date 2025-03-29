@@ -227,7 +227,7 @@ export default function Home() {
               }
             }}
           >
-            ACESSAR CATÁLOGO COMPLETO →
+            FAÇA SEU PEDIDO →
           </Link>
         </section>
 
