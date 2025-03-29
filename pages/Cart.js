@@ -45,7 +45,7 @@ const Cart = ({ cart, total, removeFromCart }) => {
       `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
       `💰 *TOTAL: R$ ${total.toFixed(2)}*\n` +
       `💳 *Pagamento:* ${paymentMethod}\n` +
-      `📦 *Entrega:* Pagar na entrega\n\n` +
+      `📦 *Entrega:* Frete gratis\n\n` +
       `Por favor, confirme meu pedido!`
     )}`;
   };
