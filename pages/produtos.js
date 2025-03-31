@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
-import { supabase } from './supabaseCliente';
+import { supabase } from './supabaseClient';
 
 // Lista de categorias (mantida igual)
 const categories = [
