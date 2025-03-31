@@ -1,9 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
-const Cart = ({ cart, total, removeFromCart }) => {
+const Cart = ({ cart, removeFromCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Função para calcular preço de produtos pesáveis
+  const calculateProductPrice = (product) => {
+    // Verifica se o nome contém "KG" (produto pesável)
+    const weightMatch = product.name.match(/(\d+\.?\d*)\s*KG/i);
+    
+    if (weightMatch) {
+      const weight = parseFloat(weightMatch[1]);
+      return {
+        unitPrice: product.price,
+        totalPrice: product.price * weight,
+        weight: weight
+      };
+    }
+    
+    // Para produtos não pesáveis
+    return {
+      unitPrice: product.price,
+      totalPrice: product.price,
+      weight: null
+    };
+  };
 
   // Detecta o tamanho da tela
   useEffect(() => {
@@ -20,26 +42,36 @@ const Cart = ({ cart, total, removeFromCart }) => {
   // Agrupa produtos por nome e calcula totais
   const groupedCart = cart.reduce((acc, product) => {
     const existing = acc.find(p => p.id === product.id);
+    const calculated = calculateProductPrice(product);
+    
     if (existing) {
       existing.quantity++;
-      existing.totalPrice += product.price;
+      existing.totalPrice += calculated.totalPrice;
     } else {
       acc.push({
         ...product,
         quantity: 1,
-        totalPrice: product.price
+        unitPrice: calculated.unitPrice,
+        totalPrice: calculated.totalPrice,
+        weight: calculated.weight
       });
     }
     return acc;
   }, []);
 
+  // Calcula o TOTAL CORRETAMENTE considerando produtos pesáveis
+  const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 750;
 
   // WhatsApp Message Generator
   const generateWhatsAppMessage = () => {
-    const itemsText = groupedCart.map(p => (
-      `▪ ${p.name} (${p.quantity}x) - R$ ${p.totalPrice.toFixed(2)}`
-    )).join('\n');
+    const itemsText = groupedCart.map(p => {
+      const baseText = `▪ ${p.name}`;
+      if (p.weight) {
+        return `${baseText} (${p.quantity}x ${p.weight}KG) - R$ ${p.unitPrice.toFixed(2)}/KG = R$ ${p.totalPrice.toFixed(2)}`;
+      }
+      return `${baseText} (${p.quantity}x) - R$ ${p.totalPrice.toFixed(2)}`;
+    }).join('\n');
 
     return `https://wa.me/5511913572902?text=${encodeURIComponent(
       `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
@@ -172,95 +204,109 @@ const Cart = ({ cart, total, removeFromCart }) => {
               overflowY: 'auto',
               overflowX: 'hidden'
             }}>
-              {groupedCart.map((product) => (
-                <li key={`${product.id}-${product.quantity}`} style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  padding: '14px 0',
-                  borderBottom: '1px solid #f0f0f0',
-                  gap: '10px'
-                }}>
-                  <div style={{ 
-                    display: 'flex', 
-                    alignItems: 'flex-start',
-                    gap: '12px'
-                  }}>
-                    <img 
-                      src={product.image} 
-                      alt={product.name}
-                      style={{
-                        width: '50px',
-                        height: '50px',
-                        borderRadius: '6px',
-                        objectFit: 'cover',
-                        border: '1px solid #eee',
-                        flexShrink: 0
-                      }} 
-                    />
-                    <div style={{
-                      flex: 1,
-                      minWidth: 0
-                    }}>
-                      <p style={{ 
-                        fontWeight: 600, 
-                        margin: 0,
-                        color: '#333',
-                        wordBreak: 'break-word',
-                        whiteSpace: 'normal'
-                      }}>
-                        {product.name}
-                      </p>
-                      <p style={{ 
-                        margin: '4px 0 0',
-                        fontSize: '14px',
-                        color: '#666'
-                      }}>
-                        {product.quantity}x • R$ {product.price.toFixed(2)}
-                      </p>
-                    </div>
-                  </div>
-                  <div style={{ 
+              {groupedCart.map((product) => {
+                const calculated = calculateProductPrice(product);
+                
+                return (
+                  <li key={`${product.id}-${product.quantity}`} style={{
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    marginLeft: '62px' // Alinhar com o texto do produto
+                    flexDirection: 'column',
+                    padding: '14px 0',
+                    borderBottom: '1px solid #f0f0f0',
+                    gap: '10px'
                   }}>
-                    <p style={{ 
-                      fontWeight: 600,
-                      margin: 0,
-                      color: '#E74C3C'
+                    <div style={{ 
+                      display: 'flex', 
+                      alignItems: 'flex-start',
+                      gap: '12px'
                     }}>
-                      R$ {product.totalPrice.toFixed(2)}
-                    </p>
-                    <button
-                      onClick={() => removeFromCart(product.id)}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        color: '#E74C3C',
-                        cursor: 'pointer',
-                        fontSize: '13px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '4px',
-                        padding: '4px 8px',
-                        borderRadius: '4px',
-                        transition: 'all 0.2s'
-                      }}
-                      onMouseOver={e => {
-                        e.currentTarget.style.background = '#FFEEEE';
-                        e.currentTarget.style.textDecoration = 'underline';
-                      }}
-                      onMouseOut={e => {
-                        e.currentTarget.style.background = 'none';
-                        e.currentTarget.style.textDecoration = 'none';
-                      }}
-                    >
-                      <span>×</span> Remover
-                    </button>
-                  </div>
-                </li>
-              ))}
+                      <img 
+                        src={product.image} 
+                        alt={product.name}
+                        style={{
+                          width: '50px',
+                          height: '50px',
+                          borderRadius: '6px',
+                          objectFit: 'cover',
+                          border: '1px solid #eee',
+                          flexShrink: 0
+                        }} 
+                      />
+                      <div style={{
+                        flex: 1,
+                        minWidth: 0
+                      }}>
+                        <p style={{ 
+                          fontWeight: 600, 
+                          margin: 0,
+                          color: '#333',
+                          wordBreak: 'break-word',
+                          whiteSpace: 'normal'
+                        }}>
+                          {product.name}
+                        </p>
+                        {calculated.weight ? (
+                          <p style={{ 
+                            margin: '4px 0 0',
+                            fontSize: '14px',
+                            color: '#666'
+                          }}>
+                            {product.quantity}x • {calculated.weight} KG × R$ {calculated.unitPrice.toFixed(2)}/KG
+                          </p>
+                        ) : (
+                          <p style={{ 
+                            margin: '4px 0 0',
+                            fontSize: '14px',
+                            color: '#666'
+                          }}>
+                            {product.quantity}x • R$ {calculated.unitPrice.toFixed(2)}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    <div style={{ 
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      marginLeft: '62px'
+                    }}>
+                      <p style={{ 
+                        fontWeight: 600,
+                        margin: 0,
+                        color: '#E74C3C'
+                      }}>
+                        R$ {product.totalPrice.toFixed(2)}
+                      </p>
+                      <button
+                        onClick={() => removeFromCart(product.id)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: '#E74C3C',
+                          cursor: 'pointer',
+                          fontSize: '13px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          padding: '4px 8px',
+                          borderRadius: '4px',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseOver={e => {
+                          e.currentTarget.style.background = '#FFEEEE';
+                          e.currentTarget.style.textDecoration = 'underline';
+                        }}
+                        onMouseOut={e => {
+                          e.currentTarget.style.background = 'none';
+                          e.currentTarget.style.textDecoration = 'none';
+                        }}
+                      >
+                        <span>×</span> Remover
+                      </button>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
 
             {/* MENSAGEM DE AVISO */}
