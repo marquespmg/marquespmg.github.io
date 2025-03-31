@@ -5,9 +5,24 @@ const Cart = ({ cart, removeFromCart }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Função para calcular preço de produtos pesáveis
+  // Função para verificar se o produto é vendido por caixa (tem "CX" na descrição)
+  const isBoxProduct = (productName) => {
+    return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
+  };
+
+  // Função para calcular preço de produtos pesáveis (apenas para produtos que não são por caixa)
   const calculateProductPrice = (product) => {
-    // Verifica se o nome contém "KG" (produto pesável)
+    // Se for produto vendido por caixa, retorna o preço normal sem cálculo por KG
+    if (isBoxProduct(product.name)) {
+      return {
+        unitPrice: product.price,
+        totalPrice: product.price,
+        weight: null,
+        isBox: true
+      };
+    }
+
+    // Verifica se o nome contém "KG" (produto pesável normal)
     const weightMatch = product.name.match(/(\d+\.?\d*)\s*KG/i);
     
     if (weightMatch) {
@@ -15,7 +30,8 @@ const Cart = ({ cart, removeFromCart }) => {
       return {
         unitPrice: product.price,
         totalPrice: product.price * weight,
-        weight: weight
+        weight: weight,
+        isBox: false
       };
     }
     
@@ -23,8 +39,15 @@ const Cart = ({ cart, removeFromCart }) => {
     return {
       unitPrice: product.price,
       totalPrice: product.price,
-      weight: null
+      weight: null,
+      isBox: false
     };
+  };
+
+  // Função para extrair o peso da caixa quando for produto vendido por caixa
+  const extractBoxWeight = (productName) => {
+    const weightMatch = productName.match(/\(?\s*CX\s*(\d+\.?\d*)\s*KG\s*\)?/i);
+    return weightMatch ? parseFloat(weightMatch[1]) : null;
   };
 
   // Detecta o tamanho da tela
@@ -53,24 +76,29 @@ const Cart = ({ cart, removeFromCart }) => {
         quantity: 1,
         unitPrice: calculated.unitPrice,
         totalPrice: calculated.totalPrice,
-        weight: calculated.weight
+        weight: calculated.weight,
+        isBox: calculated.isBox,
+        boxWeight: calculated.isBox ? extractBoxWeight(product.name) : null
       });
     }
     return acc;
   }, []);
 
-  // Calcula o TOTAL CORRETAMENTE considerando produtos pesáveis
+  // Calcula o TOTAL corretamente considerando ambos os tipos de produtos
   const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 750;
 
   // WhatsApp Message Generator
   const generateWhatsAppMessage = () => {
-    const itemsText = groupedCart.map(p => {
-      const baseText = `▪ ${p.name}`;
-      if (p.weight) {
-        return `${baseText} (${p.quantity}x ${p.weight}KG) - R$ ${p.unitPrice.toFixed(2)}/KG = R$ ${p.totalPrice.toFixed(2)}`;
+    const itemsText = groupedCart.map(product => {
+      const baseText = `▪ ${product.name}`;
+      
+      if (product.isBox && product.boxWeight) {
+        return `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${product.totalPrice.toFixed(2)}`;
+      } else if (product.weight) {
+        return `${baseText} (${product.quantity}x ${product.weight}KG) - R$ ${product.unitPrice.toFixed(2)}/KG = R$ ${product.totalPrice.toFixed(2)}`;
       }
-      return `${baseText} (${p.quantity}x) - R$ ${p.totalPrice.toFixed(2)}`;
+      return `${baseText} (${product.quantity}x) - R$ ${product.totalPrice.toFixed(2)}`;
     }).join('\n');
 
     return `https://wa.me/5511913572902?text=${encodeURIComponent(
@@ -245,7 +273,15 @@ const Cart = ({ cart, removeFromCart }) => {
                         }}>
                           {product.name}
                         </p>
-                        {calculated.weight ? (
+                        {product.isBox && product.boxWeight ? (
+                          <p style={{ 
+                            margin: '4px 0 0',
+                            fontSize: '14px',
+                            color: '#666'
+                          }}>
+                            {product.quantity}x Caixa • {product.boxWeight}KG
+                          </p>
+                        ) : calculated.weight ? (
                           <p style={{ 
                             margin: '4px 0 0',
                             fontSize: '14px',
