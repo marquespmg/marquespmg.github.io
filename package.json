@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-build": "NODE_ENV=production next build"
+    "postinstall": "npm install @supabase/supabase-js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
