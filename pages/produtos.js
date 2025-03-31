@@ -12,10 +12,10 @@ const categories = [
 
 // Lista de produtos (MANTIDA EXATAMENTE como você especificou)
 const products = [
-  { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/xRNNoJ1.png' },
-  { id: 2, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://i.imgur.com/vdFl2eF.png' },
-  { id: 3, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/VkoKK8b.png' },
-  { id: 4, name: 'PRODUTO EM FALTA', category: 'Salgados', price: 0, image: 'https://i.imgur.com/9CQc9lS.png' },
+  { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
+  { id: 2, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
+  { id: 3, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
+  { id: 4, name: 'PRODUTO EM FALTA', category: 'Salgados', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 5, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 6, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 705, image: 'https://i.imgur.com/xRNNoJ1.png' },
