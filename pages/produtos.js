@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Cart from './Cart';
-import { supabase } from './supabaseClient';
 
-// Lista de categorias (mantida igual)
+// Lista de categorias
 const categories = [
   'Acessórios', 'Bebidas', 'Conservas/Enlatados', 'Derivados de Ave', 
   'Derivados de Bovino', 'Derivados de Leite', 'Derivados de Suíno', 
@@ -10,12 +9,12 @@ const categories = [
   'Farináceos', 'Higiene', 'Orientais', 'Panificação', 'Salgados'
 ];
 
-// Lista de produtos (MANTIDA EXATAMENTE como você especificou)
+// Lista completa de produtos (exemplo com alguns produtos, adicione todos os seus)
 const products = [
-  { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/xRNNoJ1.png' },
-  { id: 2, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://i.imgur.com/vdFl2eF.png' },
-  { id: 3, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/VkoKK8b.png' },
-  { id: 4, name: 'PRODUTO EM FALTA', category: 'Salgados', price: 0, image: 'https://i.imgur.com/9CQc9lS.png' },
+  { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
+  { id: 2, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
+  { id: 3, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
+  { id: 4, name: 'PRODUTO EM FALTA', category: 'Salgados', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 5, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 6, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 705, image: 'https://i.imgur.com/xRNNoJ1.png' },
@@ -1764,7 +1763,8 @@ const products = [
   { id: 1750, name: 'FARINHA DE TRIGO PIZZA MIRELLA 5 KG', category: 'Farináceos', price: 82, image: 'https://i.imgur.com/eAhQSzQ.png' },
   { id: 1751, name: 'FARINHA DE TRIGO PIZZA NITA 5 KG', category: 'Farináceos', price: 75, image: 'https://i.imgur.com/IGFGz0O.png' },
   { id: 1752, name: 'FARINHA DE TRIGO PIZZA ROSA BRANCA 5 KG', category: 'Farináceos', price: 96, image: 'https://i.imgur.com/a8jOHCh.png' },
-  { id: 1753, name: 'FARINHA DE TRIGO PIZZA SUPREMA BUNGE 5 KG', category: 'Farináceos', price: 84, image: 'https://i.imgur.com/i78vKiK.png' },
+  { id: 1753, name: 'FARINHA DE TRIGO PIZZA SUPREMA BUNGE 5 KG', 
+category: 'Farináceos', price: 84, image: 'https://i.imgur.com/i78vKiK.png' },
   { id: 1754, name: 'FARINHA DE TRIGO PIZZA VENTURELLI 5 KG', category: 'Farináceos', price: 83, image: 'https://i.imgur.com/eoPwdNt.png' },
   { id: 1755, name: 'FARINHA DE TRIGO PREMIUM 101 5 KG', category: 'Farináceos', price: 106, image: 'https://i.imgur.com/PgOFKAv.png' },
   { id: 1756, name: 'FARINHA DE TRIGO PREMIUM ANACONDA 5 KG', category: 'Farináceos', price: 134, image: 'https://i.imgur.com/fe6V8D2.png' },
@@ -1914,7 +1914,6 @@ const products = [
 ];
 
 const ProductsPage = () => {
-  // Estados originais
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -1922,86 +1921,9 @@ const ProductsPage = () => {
   const [total, setTotal] = useState(0);
   const productsPerPage = 20;
 
-  // Estados para autenticação
-  const [user, setUser] = useState(null);
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authType, setAuthType] = useState('login');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [cpfCnpj, setCpfCnpj] = useState('');
-  const [authError, setAuthError] = useState('');
-  const [pageBlocked, setPageBlocked] = useState(true);
-
-  // Verifica usuário ao carregar
-  useEffect(() => {
-    const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        setUser(user);
-        setPageBlocked(false);
-      }
-    };
-    checkUser();
-  }, []);
-
-  // Função de login
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-      if (error) throw error;
-      setUser(data.user);
-      setShowAuthModal(false);
-      setPageBlocked(false);
-    } catch (error) {
-      setAuthError(error.message);
-    }
-  };
-
-  // Função de cadastro
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: name,
-            phone,
-            cpf_cnpj: cpfCnpj
-          }
-        }
-      });
-      if (error) throw error;
-      alert('Cadastro realizado! Verifique seu e-mail para confirmar.');
-      setAuthType('login');
-    } catch (error) {
-      setAuthError(error.message);
-    }
-  };
-
-  // Função de logout
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    setUser(null);
-    setPageBlocked(true);
-    setCart([]);
-    setTotal(0);
-  };
-
   // Função para adicionar ao carrinho
   const addToCart = (product) => {
-    if (!user) {
-      setShowAuthModal(true);
-      return;
-    }
-    if (product.price > 0) {
+    if (product.price > 0) { // Não adiciona produtos indisponíveis
       setCart([...cart, product]);
       setTotal(total + product.price);
     }
@@ -2015,7 +1937,7 @@ const ProductsPage = () => {
     setTotal(total - (removedItem ? removedItem.price : 0));
   };
 
-  // Filtros e paginação (AJUSTADOS para usar 'category' e 'price')
+  // Filtros combinados
   const filteredProducts = products
     .filter(product => product.category === selectedCategory)
     .filter(product => 
@@ -2023,12 +1945,13 @@ const ProductsPage = () => {
       product.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+  // Paginação
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Estilos originais (completos)
+  // Estilos profissionais
   const styles = {
     container: {
       maxWidth: '1200px',
@@ -2040,23 +1963,11 @@ const ProductsPage = () => {
     },
     header: {
       textAlign: 'center',
-      marginBottom: '20px',
+      marginBottom: '40px',
       padding: '20px',
       backgroundColor: '#fff',
       borderRadius: '10px',
       boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
-    },
-    logoutButton: {
-      display: 'block',
-      margin: '0 auto 20px',
-      padding: '10px 20px',
-      backgroundColor: '#f0f0f0',
-      border: 'none',
-      borderRadius: '30px',
-      fontSize: '14px',
-      fontWeight: '600',
-      cursor: 'pointer',
-      transition: 'all 0.3s'
     },
     searchBar: {
       display: 'flex',
@@ -2189,75 +2100,11 @@ const ProductsPage = () => {
       color: '#666',
       margin: '20px 0',
       fontSize: '14px'
-    },
-    // Estilos para o modal de autenticação
-    authModal: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0,0,0,0.7)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      zIndex: 1000
-    },
-    authBox: {
-      backgroundColor: '#fff',
-      borderRadius: '10px',
-      padding: '30px',
-      width: '90%',
-      maxWidth: '400px',
-      boxShadow: '0 5px 20px rgba(0,0,0,0.2)'
-    },
-    authToggle: {
-      background: 'none',
-      border: 'none',
-      color: '#095400',
-      cursor: 'pointer',
-      fontWeight: '600',
-      textDecoration: 'underline',
-      marginLeft: '5px'
-    },
-    // Estilo para bloquear a página
-    pageBlocker: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(255,255,255,0.9)',
-      zIndex: 999,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'column'
-    },
-    blockerMessage: {
-      fontSize: '24px',
-      fontWeight: 'bold',
-      marginBottom: '20px',
-      color: '#095400',
-      textAlign: 'center'
     }
   };
 
   return (
     <div style={styles.container}>
-      {/* Bloqueio quando não logado */}
-      {pageBlocked && (
-        <div style={styles.pageBlocker}>
-          <p style={styles.blockerMessage}>Faça login para acessar os preços e comprar</p>
-          <button
-            onClick={() => setShowAuthModal(true)}
-            style={styles.addButton}
-          >
-            Acessar minha conta
-          </button>
-        </div>
-      )}
-
       {/* Cabeçalho */}
       <div style={styles.header}>
         <img 
@@ -2277,16 +2124,6 @@ const ProductsPage = () => {
           Encontre os melhores produtos para seu negócio
         </p>
       </div>
-
-      {/* Botão Sair - POSIÇÃO SOLICITADA */}
-      {user && (
-        <button
-          onClick={handleLogout}
-          style={styles.logoutButton}
-        >
-          Sair da Conta
-        </button>
-      )}
 
       {/* Barra de pesquisa */}
       <div style={styles.searchBar}>
@@ -2321,7 +2158,18 @@ const ProductsPage = () => {
         ))}
       </div>
 
-      {/* Grade de produtos - CORRIGIDA para usar 'name', 'category' e 'price' */}
+      {/* Informações de resultados */}
+      <div style={styles.resultsInfo}>
+        {filteredProducts.length > 0 ? (
+          <p>
+            Mostrando {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, filteredProducts.length)} de {filteredProducts.length} produtos em "{selectedCategory}"
+          </p>
+        ) : (
+          <p>Nenhum produto encontrado para "{searchTerm}" em "{selectedCategory}"</p>
+        )}
+      </div>
+
+      {/* Grade de produtos */}
       <div style={styles.productsGrid}>
         {currentProducts.map(product => (
           <div 
@@ -2329,6 +2177,16 @@ const ProductsPage = () => {
             style={{
               ...styles.productCard,
               ...(product.price === 0 && { opacity: 0.7 })
+            }}
+            onMouseEnter={e => {
+              if (product.price > 0) {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.12)';
+              }
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.08)';
             }}
           >
             <img 
@@ -2341,129 +2199,68 @@ const ProductsPage = () => {
             />
             <div style={styles.productInfo}>
               <h3 style={styles.productName}>{product.name}</h3>
-              
-              {user ? (
-                <p style={product.price > 0 ? styles.productPrice : styles.unavailablePrice}>
-                  {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
-                </p>
-              ) : (
-                <p style={{ color: '#666', fontStyle: 'italic' }}>
-                  Faça login para ver o preço
-                </p>
-              )}
-
-              {user && (
-                <button
-                  onClick={() => addToCart(product)}
-                  disabled={product.price === 0}
-                  style={{
-                    ...styles.addButton,
-                    ...(product.price === 0 && styles.disabledButton)
-                  }}
-                >
-                  {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
-                </button>
-              )}
+              <p style={product.price > 0 ? styles.productPrice : styles.unavailablePrice}>
+                {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
+              </p>
+              <button
+                onClick={() => addToCart(product)}
+                disabled={product.price === 0}
+                style={{
+                  ...styles.addButton,
+                  ...(product.price === 0 && styles.disabledButton)
+                }}
+              >
+                {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
+              </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal de autenticação */}
-      {showAuthModal && (
-        <div style={styles.authModal}>
-          <div style={styles.authBox}>
-            <h2 style={{ 
-              color: '#095400', 
-              textAlign: 'center',
-              marginBottom: '20px'
-            }}>
-              {authType === 'login' ? 'Acesse Sua Conta' : 'Crie Sua Conta'}
-            </h2>
-
-            {authError && (
-              <p style={{ 
-                color: '#e53935', 
-                textAlign: 'center',
-                marginBottom: '15px'
-              }}>
-                {authError}
-              </p>
-            )}
-
-            <form onSubmit={authType === 'login' ? handleLogin : handleRegister}>
-              {authType === 'register' && (
-                <input
-                  type="text"
-                  placeholder="Nome Completo"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  style={{ ...styles.searchInput, marginBottom: '15px' }}
-                  required
-                />
-              )}
-
-              <input
-                type="email"
-                placeholder="E-mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{ ...styles.searchInput, marginBottom: '15px' }}
-                required
-              />
-
-              {authType === 'register' && (
-                <>
-                  <input
-                    type="tel"
-                    placeholder="Telefone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    style={{ ...styles.searchInput, marginBottom: '15px' }}
-                    required
-                  />
-                  <input
-                    type="text"
-                    placeholder="CPF/CNPJ"
-                    value={cpfCnpj}
-                    onChange={(e) => setCpfCnpj(e.target.value)}
-                    style={{ ...styles.searchInput, marginBottom: '15px' }}
-                    required
-                  />
-                </>
-              )}
-
-              <input
-                type="password"
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{ ...styles.searchInput, marginBottom: '20px' }}
-                required
-              />
-
+      {/* Paginação */}
+      {filteredProducts.length > productsPerPage && (
+        <div style={styles.pagination}>
+          <button
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            style={styles.pageButton}
+          >
+            Anterior
+          </button>
+          
+          {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+            let pageNum;
+            if (totalPages <= 5) {
+              pageNum = i + 1;
+            } else if (currentPage <= 3) {
+              pageNum = i + 1;
+            } else if (currentPage >= totalPages - 2) {
+              pageNum = totalPages - 4 + i;
+            } else {
+              pageNum = currentPage - 2 + i;
+            }
+            
+            return (
               <button
-                type="submit"
-                style={styles.addButton}
+                key={pageNum}
+                onClick={() => setCurrentPage(pageNum)}
+                style={{
+                  ...styles.pageButton,
+                  ...(currentPage === pageNum && styles.activePage)
+                }}
               >
-                {authType === 'login' ? 'Entrar' : 'Cadastrar'}
+                {pageNum}
               </button>
-
-              <p style={{ textAlign: 'center', marginTop: '15px' }}>
-                {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setAuthType(authType === 'login' ? 'register' : 'login');
-                    setAuthError('');
-                  }}
-                  style={styles.authToggle}
-                >
-                  {authType === 'login' ? 'Cadastre-se' : 'Faça login'}
-                </button>
-              </p>
-            </form>
-          </div>
+            );
+          })}
+          
+          <button
+            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            style={styles.pageButton}
+          >
+            Próxima
+          </button>
         </div>
       )}
 
