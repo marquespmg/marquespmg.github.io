@@ -6,18 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "vercel-build": "NODE_ENV=production next build",
-    "postinstall": "npm install @supabase/supabase-js"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.49.4",
     "next": "^15.2.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-router-dom": "^7.4.1"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "react-dom": "^19.0.0"
   }
 }
