@@ -1914,15 +1914,11 @@ const products = [
 ];
 
 const ProductsPage = () => {
-  // Estados originais
+  // Estados originais (MANTIDOS IGUAIS)
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
-  const productsPerPage = 20;
-
-  // Estados para autenticação
   const [user, setUser] = useState(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authType, setAuthType] = useState('login');
@@ -1934,7 +1930,11 @@ const ProductsPage = () => {
   const [authError, setAuthError] = useState('');
   const [pageBlocked, setPageBlocked] = useState(true);
 
-  // Verifica usuário ao carregar
+  // ÚNICA ALTERAÇÃO: Adicionado estados para paginação
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 20;
+
+  // Verifica usuário ao carregar (mantido igual)
   useEffect(() => {
     const checkUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
@@ -1946,7 +1946,7 @@ const ProductsPage = () => {
     checkUser();
   }, []);
 
-  // Função de login
+  // Função de login (mantida igual)
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -1963,7 +1963,7 @@ const ProductsPage = () => {
     }
   };
 
-  // Função de cadastro
+  // Função de cadastro (mantida igual)
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
@@ -1986,7 +1986,7 @@ const ProductsPage = () => {
     }
   };
 
-  // Função de logout
+  // Função de logout (mantida igual)
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
@@ -1995,7 +1995,7 @@ const ProductsPage = () => {
     setTotal(0);
   };
 
-  // Função para adicionar ao carrinho
+  // Função para adicionar ao carrinho (mantida igual)
   const addToCart = (product) => {
     if (!user) {
       setShowAuthModal(true);
@@ -2007,7 +2007,7 @@ const ProductsPage = () => {
     }
   };
 
-  // Função para remover do carrinho
+  // Função para remover do carrinho (mantida igual)
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter(item => item.id !== productId);
     const removedItem = cart.find(item => item.id === productId);
@@ -2015,7 +2015,7 @@ const ProductsPage = () => {
     setTotal(total - (removedItem ? removedItem.price : 0));
   };
 
-  // Filtros e paginação (AJUSTADOS para usar 'category' e 'price')
+  // Filtros ORIGINAIS com adição da paginação
   const filteredProducts = products
     .filter(product => product.category === selectedCategory)
     .filter(product => 
@@ -2023,12 +2023,13 @@ const ProductsPage = () => {
       product.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+  // LÓGICA DA PAGINAÇÃO ADICIONADA (única modificação real)
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Estilos originais (completos)
+  // Estilos originais (completos e MANTIDOS IGUAIS)
   const styles = {
     container: {
       maxWidth: '1200px',
@@ -2190,7 +2191,6 @@ const ProductsPage = () => {
       margin: '20px 0',
       fontSize: '14px'
     },
-    // Estilos para o modal de autenticação
     authModal: {
       position: 'fixed',
       top: 0,
@@ -2220,7 +2220,6 @@ const ProductsPage = () => {
       textDecoration: 'underline',
       marginLeft: '5px'
     },
-    // Estilo para bloquear a página
     pageBlocker: {
       position: 'fixed',
       top: 0,
@@ -2245,7 +2244,7 @@ const ProductsPage = () => {
 
   return (
     <div style={styles.container}>
-      {/* Bloqueio quando não logado */}
+      {/* Bloqueio quando não logado (mantido igual) */}
       {pageBlocked && (
         <div style={styles.pageBlocker}>
           <p style={styles.blockerMessage}>Faça login para acessar os preços e comprar</p>
@@ -2258,7 +2257,7 @@ const ProductsPage = () => {
         </div>
       )}
 
-      {/* Cabeçalho */}
+      {/* Cabeçalho (mantido igual) */}
       <div style={styles.header}>
         <img 
           src="https://i.imgur.com/8EagMV6.png" 
@@ -2278,7 +2277,7 @@ const ProductsPage = () => {
         </p>
       </div>
 
-      {/* Botão Sair - POSIÇÃO SOLICITADA */}
+      {/* Botão Sair (mantido igual) */}
       {user && (
         <button
           onClick={handleLogout}
@@ -2288,7 +2287,7 @@ const ProductsPage = () => {
         </button>
       )}
 
-      {/* Barra de pesquisa */}
+      {/* Barra de pesquisa (mantido igual) */}
       <div style={styles.searchBar}>
         <input
           type="text"
@@ -2296,20 +2295,20 @@ const ProductsPage = () => {
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value);
-            setCurrentPage(1);
+            setCurrentPage(1); // Reset para a primeira página ao pesquisar
           }}
           style={styles.searchInput}
         />
       </div>
 
-      {/* Menu de categorias */}
+      {/* Menu de categorias (mantido igual) */}
       <div style={styles.categoryMenu}>
         {categories.map(category => (
           <button
             key={category}
             onClick={() => {
               setSelectedCategory(category);
-              setCurrentPage(1);
+              setCurrentPage(1); // Reset para a primeira página ao mudar de categoria
             }}
             style={{
               ...styles.categoryButton,
@@ -2321,7 +2320,7 @@ const ProductsPage = () => {
         ))}
       </div>
 
-      {/* Grade de produtos - CORRIGIDA para usar 'name', 'category' e 'price' */}
+      {/* Grade de produtos (alterado para usar currentProducts em vez de filteredProducts) */}
       <div style={styles.productsGrid}>
         {currentProducts.map(product => (
           <div 
@@ -2369,7 +2368,47 @@ const ProductsPage = () => {
         ))}
       </div>
 
-      {/* Modal de autenticação */}
+      {/* PAGINAÇÃO ADICIONADA (nova seção) */}
+      {filteredProducts.length > productsPerPage && (
+        <div style={styles.pagination}>
+          <button
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            style={{
+              ...styles.pageButton,
+              ...(currentPage === 1 && { cursor: 'not-allowed', opacity: 0.5 })
+            }}
+          >
+            Anterior
+          </button>
+          
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              style={{
+                ...styles.pageButton,
+                ...(page === currentPage && styles.activePage)
+              }}
+            >
+              {page}
+            </button>
+          ))}
+          
+          <button
+            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            style={{
+              ...styles.pageButton,
+              ...(currentPage === totalPages && { cursor: 'not-allowed', opacity: 0.5 })
+            }}
+          >
+            Próxima
+          </button>
+        </div>
+      )}
+
+      {/* Modal de autenticação (mantido igual) */}
       {showAuthModal && (
         <div style={styles.authModal}>
           <div style={styles.authBox}>
@@ -2467,7 +2506,7 @@ const ProductsPage = () => {
         </div>
       )}
 
-      {/* Carrinho flutuante */}
+      {/* Carrinho flutuante (mantido igual) */}
       <Cart cart={cart} total={total} removeFromCart={removeFromCart} />
     </div>
   );
