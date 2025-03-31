@@ -3,44 +3,53 @@ import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
-  // Dados do carrossel
+  // Dados do carrossel com versões otimizadas para desktop e mobile
   const banners = [
     { 
       id: 1,
       desktop: 'https://i.imgur.com/MiXi0pu.png',
-      mobile: 'https://i.imgur.com/E4Lsuky.png' // Substitua pela versão mobile se tiver
+      mobile: 'https://i.imgur.com/E4Lsuky.png'
     },
     { 
       id: 2,
       desktop: 'https://i.imgur.com/0MUR4Yf.png',
-      mobile: 'https://i.imgur.com/0MUR4Yf.png' // Substitua pela versão mobile se tiver
+      mobile: 'https://i.imgur.com/0MUR4Yf.png'
     },
     { 
       id: 3,
       desktop: 'https://i.imgur.com/ennvys5.png',
-      mobile: 'https://i.imgur.com/J6hMBld.png' // Substitua pela versão mobile se tiver
+      mobile: 'https://i.imgur.com/J6hMBld.png'
     },
     { 
       id: 4,
       desktop: 'https://i.imgur.com/8toaBek.png',
-      mobile: 'https://i.imgur.com/CAbEHOP.png' // Substitua pela versão mobile se tiver
+      mobile: 'https://i.imgur.com/CAbEHOP.png'
     },
     { 
       id: 5,
       desktop: 'https://i.imgur.com/fRuEjY3.png',
-      mobile: 'https://i.imgur.com/fRuEjY3.png' // Substitua pela versão mobile se tiver
+      mobile: 'https://i.imgur.com/fRuEjY3.png'
     }
   ];
 
   // Estado do carrossel
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [dimensions, setDimensions] = useState({ width: 1200, height: 400 });
   const slideInterval = useRef(null);
+  const carouselRef = useRef(null);
 
-  // Verifica o tamanho da tela
+  // Verifica o tamanho da tela e calcula proporções
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      
+      if (carouselRef.current) {
+        const width = carouselRef.current.offsetWidth;
+        const height = mobile ? width / 3 : Math.min(width / 3, 400);
+        setDimensions({ width, height });
+      }
     };
     
     checkScreenSize();
@@ -210,39 +219,51 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Novo Carrossel Responsivo */}
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          maxWidth: '1200px',
-          margin: '40px auto',
-          overflow: 'hidden',
-          borderRadius: '10px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-          height: isMobile ? '120px' : '400px' // Altura conforme o dispositivo
-        }}>
+        {/* Carrossel Otimizado */}
+        <div 
+          ref={carouselRef}
+          style={{
+            position: 'relative',
+            width: '100%',
+            maxWidth: '1200px',
+            margin: '40px auto',
+            overflow: 'hidden',
+            borderRadius: '10px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+            height: `${dimensions.height}px`,
+            backgroundColor: '#f8f8f8' // Fundo para áreas não cobertas pela imagem
+          }}
+        >
           <div style={{
             display: 'flex',
             transition: 'transform 0.5s ease',
             transform: `translateX(-${currentSlide * 100}%)`,
             height: '100%'
           }}>
-            {banners.map((banner, index) => (
-              <div key={banner.id} style={{
-                width: '100%',
-                flexShrink: 0,
-                height: '100%',
-                position: 'relative'
-              }}>
+            {banners.map((banner) => (
+              <div 
+                key={banner.id} 
+                style={{
+                  width: '100%',
+                  flexShrink: 0,
+                  height: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
                 <img 
                   src={isMobile ? banner.mobile : banner.desktop}
-                  alt={`Banner ${index + 1}`}
+                  alt={`Banner ${banner.id}`}
                   style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover', // Garante que a imagem cubra todo o espaço sem distorcer
+                    width: 'auto',
+                    height: 'auto',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    objectFit: 'contain', // Mantém a proporção sem cortar
                     display: 'block'
                   }}
+                  loading="lazy" // Otimização de carregamento
                 />
               </div>
             ))}
