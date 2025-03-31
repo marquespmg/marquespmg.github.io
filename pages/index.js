@@ -1,7 +1,89 @@
 import Link from 'next/link';
 import Head from 'next/head';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
+  // Dados do carrossel
+  const banners = [
+    { 
+      id: 1,
+      desktop: 'https://i.imgur.com/MiXi0pu.png',
+      mobile: 'https://i.imgur.com/E4Lsuky.png' // Substitua pela versão mobile se tiver
+    },
+    { 
+      id: 2,
+      desktop: 'https://i.imgur.com/0MUR4Yf.png',
+      mobile: 'https://i.imgur.com/0MUR4Yf.png' // Substitua pela versão mobile se tiver
+    },
+    { 
+      id: 3,
+      desktop: 'https://i.imgur.com/ennvys5.png',
+      mobile: 'https://i.imgur.com/J6hMBld.png' // Substitua pela versão mobile se tiver
+    },
+    { 
+      id: 4,
+      desktop: 'https://i.imgur.com/8toaBek.png',
+      mobile: 'https://i.imgur.com/CAbEHOP.png' // Substitua pela versão mobile se tiver
+    },
+    { 
+      id: 5,
+      desktop: 'https://i.imgur.com/fRuEjY3.png',
+      mobile: 'https://i.imgur.com/fRuEjY3.png' // Substitua pela versão mobile se tiver
+    }
+  ];
+
+  // Estado do carrossel
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const slideInterval = useRef(null);
+
+  // Verifica o tamanho da tela
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
+  // Navegação do carrossel
+  const goToNextSlide = () => {
+    setCurrentSlide((prev) => (prev === banners.length - 1 ? 0 : prev + 1));
+    resetInterval();
+  };
+
+  const goToPrevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
+    resetInterval();
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+    resetInterval();
+  };
+
+  // Controle do intervalo automático
+  const resetInterval = () => {
+    clearInterval(slideInterval.current);
+    startInterval();
+  };
+
+  const startInterval = () => {
+    slideInterval.current = setInterval(() => {
+      goToNextSlide();
+    }, 5000); // Muda a cada 5 segundos
+  };
+
+  useEffect(() => {
+    startInterval();
+    return () => clearInterval(slideInterval.current);
+  }, []);
+
   return (
     <>
       <Head>
@@ -17,7 +99,7 @@ export default function Home() {
         backgroundColor: '#ffffff',
         fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
       }}>
-        {/* Cabeçalho Premium */}
+        {/* Cabeçalho Premium (mantido igual) */}
         <header style={{
           display: 'flex',
           flexDirection: 'column',
@@ -71,7 +153,7 @@ export default function Home() {
           </p>
         </header>
 
-        {/* Destaques de Credibilidade */}
+        {/* Destaques de Credibilidade (mantido igual) */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -128,7 +210,124 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Seção do Vídeo (Reduzido) */}
+        {/* Novo Carrossel Responsivo */}
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          maxWidth: '1200px',
+          margin: '40px auto',
+          overflow: 'hidden',
+          borderRadius: '10px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          height: isMobile ? '120px' : '400px' // Altura conforme o dispositivo
+        }}>
+          <div style={{
+            display: 'flex',
+            transition: 'transform 0.5s ease',
+            transform: `translateX(-${currentSlide * 100}%)`,
+            height: '100%'
+          }}>
+            {banners.map((banner, index) => (
+              <div key={banner.id} style={{
+                width: '100%',
+                flexShrink: 0,
+                height: '100%',
+                position: 'relative'
+              }}>
+                <img 
+                  src={isMobile ? banner.mobile : banner.desktop}
+                  alt={`Banner ${index + 1}`}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover', // Garante que a imagem cubra todo o espaço sem distorcer
+                    display: 'block'
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+          
+          {/* Botões de navegação */}
+          <button 
+            onClick={goToPrevSlide}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '15px',
+              transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.7)',
+              border: 'none',
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 10,
+              boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+            }}
+            aria-label="Slide anterior"
+          >
+            <span style={{ fontSize: '20px', color: '#095400' }}>❮</span>
+          </button>
+          
+          <button 
+            onClick={goToNextSlide}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              right: '15px',
+              transform: 'translateY(-50%)',
+              background: 'rgba(255,255,255,0.7)',
+              border: 'none',
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 10,
+              boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+            }}
+            aria-label="Próximo slide"
+          >
+            <span style={{ fontSize: '20px', color: '#095400' }}>❯</span>
+          </button>
+          
+          {/* Indicadores de slide */}
+          <div style={{
+            position: 'absolute',
+            bottom: '15px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            gap: '8px',
+            zIndex: 10
+          }}>
+            {banners.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                style={{
+                  width: '10px',
+                  height: '10px',
+                  borderRadius: '50%',
+                  border: 'none',
+                  padding: 0,
+                  cursor: 'pointer',
+                  backgroundColor: currentSlide === index ? '#095400' : 'rgba(255,255,255,0.5)',
+                  transition: 'background-color 0.3s'
+                }}
+                aria-label={`Ir para slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Restante do seu site (mantido igual) */}
         <section style={{
           display: 'flex',
           flexDirection: 'column',
@@ -179,7 +378,6 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Chamada para Ação Premium */}
         <section style={{
           textAlign: 'center',
           margin: '50px 0',
@@ -231,7 +429,6 @@ export default function Home() {
           </Link>
         </section>
 
-        {/* Rodapé Profissional */}
         <footer style={{
           marginTop: '50px',
           padding: '30px 20px',
