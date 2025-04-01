@@ -10,7 +10,7 @@ const categories = [
   'Farináceos', 'Higiene', 'Orientais', 'Panificação', 'Salgados'
 ];
 
-// Lista de produtos (MANTIDA EXATAMENTE como você especificou)
+// Lista de produtos (mantida exatamente igual)
 const products = [
   { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 2, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
@@ -1914,7 +1914,7 @@ const products = [
 ];
 
 const ProductsPage = () => {
-  // Estados originais (MANTIDOS IGUAIS)
+  // Estados originais (mantidos exatamente iguais)
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
@@ -1929,12 +1929,10 @@ const ProductsPage = () => {
   const [cpfCnpj, setCpfCnpj] = useState('');
   const [authError, setAuthError] = useState('');
   const [pageBlocked, setPageBlocked] = useState(true);
-  
-  // ÚNICA ALTERAÇÃO: Adicionado estados para paginação
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 20;
 
-  // NOVO ESTADO ADICIONADO: Loading state
+  // NOVO ESTADO ADICIONADO (única adição)
   const [loading, setLoading] = useState(false);
 
   // Verifica usuário ao carregar (mantido igual)
@@ -1949,7 +1947,7 @@ const ProductsPage = () => {
     checkUser();
   }, []);
 
-  // Função de login (mantida igual)
+  // Função de login (mantida exatamente igual)
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -1966,13 +1964,12 @@ const ProductsPage = () => {
     }
   };
 
-  // Função de cadastro (ATUALIZADA com sistema de loading)
+  // Função de cadastro (MODIFICADA APENAS PARA ADICIONAR LOADING)
   const handleRegister = async (e) => {
     e.preventDefault();
-    setLoading(true); // Ativa o loading
+    setLoading(true); // Ativa loading
 
     try {
-      // Criar usuário no Supabase Auth
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
@@ -1994,10 +1991,8 @@ const ProductsPage = () => {
 
       console.log("Novo usuário cadastrado no Auth:", user);
 
-      // Aguarda alguns segundos antes de inserir na tabela "usuarios"
       await new Promise(resolve => setTimeout(resolve, 1000));
 
-      // Agora salva os dados na tabela correta "usuarios"
       const { error: insertError } = await supabase
         .from('usuarios')  
         .insert([
@@ -2011,19 +2006,14 @@ const ProductsPage = () => {
           }
         ]);
 
-      if (insertError) {
-        console.error("Erro ao salvar na tabela usuarios:", insertError.message);
-        throw insertError;
-      }
+      if (insertError) throw insertError;
 
       alert('Cadastro realizado com sucesso! Verifique seu e-mail para confirmação.');
       setAuthType('login');
-
     } catch (error) {
-      console.error("Erro no cadastro:", error.message);
       setAuthError(error.message);
     } finally {
-      setLoading(false); // Desativa o loading
+      setLoading(false); // Desativa loading
     }
   };
 
@@ -2036,7 +2026,7 @@ const ProductsPage = () => {
     setTotal(0);
   };
 
-  // Função para adicionar ao carrinho (mantida igual)
+  // Funções do carrinho (mantidas exatamente iguais)
   const addToCart = (product) => {
     if (!user) {
       setShowAuthModal(true);
@@ -2048,7 +2038,6 @@ const ProductsPage = () => {
     }
   };
 
-  // Função para remover do carrinho (mantida igual)
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter(item => item.id !== productId);
     const removedItem = cart.find(item => item.id === productId);
@@ -2056,7 +2045,7 @@ const ProductsPage = () => {
     setTotal(total - (removedItem ? removedItem.price : 0));
   };
 
-  // Filtros ORIGINAIS com adição da paginação
+  // Filtros e paginação (mantidos exatamente iguais)
   const filteredProducts = products
     .filter(product => product.category === selectedCategory)
     .filter(product => 
@@ -2064,13 +2053,12 @@ const ProductsPage = () => {
       product.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-  // LÓGICA DA PAGINAÇÃO (mantida igual)
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Estilos originais (completos e MANTIDOS IGUAIS)
+  // Estilos COMPLETOS (mantidos exatamente iguais)
   const styles = {
     container: {
       maxWidth: '1200px',
@@ -2285,7 +2273,7 @@ const ProductsPage = () => {
 
   return (
     <>
-      {/* NOVO COMPONENTE DE LOADING ADICIONADO */}
+      {/* OVERLAY DE LOADING ADICIONADO (única adição no JSX) */}
       {loading && (
         <div style={{
           position: 'fixed',
@@ -2306,9 +2294,8 @@ const ProductsPage = () => {
         </div>
       )}
 
-      {/* TODO O RESTO DO SEU CÓDIGO PERMANECE EXATAMENTE IGUAL */}
+      {/* TODO O RESTO DO CÓDIGO PERMANECE EXATAMENTE IGUAL */}
       <div style={styles.container}>
-        {/* Bloqueio quando não logado (mantido igual) */}
         {pageBlocked && (
           <div style={styles.pageBlocker}>
             <p style={styles.blockerMessage}>Faça login para acessar os preços e comprar</p>
@@ -2321,7 +2308,6 @@ const ProductsPage = () => {
           </div>
         )}
 
-        {/* Cabeçalho (mantido igual) */}
         <div style={styles.header}>
           <img 
             src="https://i.imgur.com/8EagMV6.png" 
@@ -2341,7 +2327,6 @@ const ProductsPage = () => {
           </p>
         </div>
 
-        {/* Botão Sair (mantido igual) */}
         {user && (
           <button
             onClick={handleLogout}
@@ -2351,7 +2336,6 @@ const ProductsPage = () => {
           </button>
         )}
 
-        {/* Barra de pesquisa (mantido igual) */}
         <div style={styles.searchBar}>
           <input
             type="text"
@@ -2365,7 +2349,6 @@ const ProductsPage = () => {
           />
         </div>
 
-        {/* Menu de categorias (mantido igual) */}
         <div style={styles.categoryMenu}>
           {categories.map(category => (
             <button
@@ -2384,7 +2367,6 @@ const ProductsPage = () => {
           ))}
         </div>
 
-        {/* Grade de produtos (mantido igual) */}
         <div style={styles.productsGrid}>
           {currentProducts.map(product => (
             <div 
@@ -2432,7 +2414,6 @@ const ProductsPage = () => {
           ))}
         </div>
 
-        {/* Paginação (mantido igual) */}
         {filteredProducts.length > productsPerPage && (
           <div style={styles.pagination}>
             <button
@@ -2472,7 +2453,6 @@ const ProductsPage = () => {
           </div>
         )}
 
-        {/* Modal de autenticação (mantido igual) */}
         {showAuthModal && (
           <div style={styles.authModal}>
             <div style={styles.authBox}>
@@ -2570,7 +2550,6 @@ const ProductsPage = () => {
           </div>
         )}
 
-        {/* Carrinho flutuante (mantido igual) */}
         <Cart cart={cart} total={total} removeFromCart={removeFromCart} />
       </div>
     </>
