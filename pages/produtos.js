@@ -1914,21 +1914,22 @@ const products = [
 ];
 
 const ProductsPage = () => {
-  // Estados originais (MANTIDOS IGUAIS)
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [cart, setCart] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [user, setUser] = useState(null);
-  const [showAuthModal, setShowAuthModal] = useState(false);
-  const [authType, setAuthType] = useState('login');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [cpfCnpj, setCpfCnpj] = useState('');
-  const [authError, setAuthError] = useState('');
-  const [pageBlocked, setPageBlocked] = useState(true);
+// Estados originais (MANTIDOS IGUAIS)
+const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+const [searchTerm, setSearchTerm] = useState('');
+const [cart, setCart] = useState([]);
+const [total, setTotal] = useState(0);
+const [user, setUser] = useState(null);
+const [showAuthModal, setShowAuthModal] = useState(false);
+const [authType, setAuthType] = useState('login');
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [name, setName] = useState('');
+const [phone, setPhone] = useState('');
+const [cpfCnpj, setCpfCnpj] = useState('');
+const [authError, setAuthError] = useState('');
+const [pageBlocked, setPageBlocked] = useState(true);
+const [loading, setLoading] = useState(false); // ADICIONE ESTA LINHA
 
   // ÚNICA ALTERAÇÃO: Adicionado estados para paginação
   const [currentPage, setCurrentPage] = useState(1);
@@ -1966,6 +1967,8 @@ const handleLogin = async (e) => {
 // Função de cadastro (ATUALIZADA)
 const handleRegister = async (e) => {
   e.preventDefault();
+  setLoading(true); // Ativa o loading
+
   try {
     // Criar usuário no Supabase Auth
     const { data, error } = await supabase.auth.signUp({
@@ -1990,19 +1993,19 @@ const handleRegister = async (e) => {
     console.log("Novo usuário cadastrado no Auth:", user);
 
     // Aguarda alguns segundos antes de inserir na tabela "usuarios"
-    await new Promise(resolve => setTimeout(resolve, 1000));  // Tempo para garantir que o usuário foi criado no auth
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     // Agora salva os dados na tabela correta "usuarios"
     const { error: insertError } = await supabase
       .from('usuarios')  
       .insert([
         {
-          id: user.id,  // O ID do auth.users será usado como chave
+          id: user.id, 
           nome: name,
           email: email,
           telefone: phone,
           cpf_cnpj: cpfCnpj,
-          senha: password // (Se não for seguro, remova esta linha e armazene só no Auth)
+          senha: password
         }
       ]);
 
@@ -2017,6 +2020,8 @@ const handleRegister = async (e) => {
   } catch (error) {
     console.error("Erro no cadastro:", error.message);
     setAuthError(error.message);
+  } finally {
+    setLoading(false); // Desativa o loading
   }
 };
 
@@ -2290,6 +2295,26 @@ const handleLogout = async () => {
           </button>
         </div>
       )}
+return (
+  <>
+    {loading && (
+      <div style={{
+        position: 'fixed',
+        top: 0, left: 0, width: '100%', height: '100%',
+        background: 'rgba(0, 0, 0, 0.7)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        color: '#fff', fontSize: '20px', fontWeight: 'bold', zIndex: 9999
+      }}>
+        Aguarde...
+      </div>
+    )}
+
+    {/* O restante do seu código permanece EXATAMENTE IGUAL */}
+    <div style={styles.container}>
+      {/* ... todo o resto do seu código atual ... */}
+    </div>
+  </>
+);
 
       {/* Cabeçalho (mantido igual) */}
       <div style={styles.header}>
