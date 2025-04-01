@@ -1981,44 +1981,28 @@ const handleRegister = async (e) => {
     });
 
     if (error) throw error;
-    const userId = data?.user?.id;
-    if (!userId) {
+    
+    const user = data?.user;
+    if (!user || !user.id) {
       throw new Error("Erro ao obter o ID do usuário.");
     }
 
-    // Agora salva os dados na tabela personalizada "users"
-const handleRegister = async (e) => {
-  e.preventDefault();
-  try {
-    // Criar usuário no Supabase Auth
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          full_name: name,
-          phone,
-          cpf_cnpj: cpfCnpj
-        }
-      }
-    });
+    console.log("Novo usuário cadastrado no Auth:", user);
 
-    if (error) throw error;
-    const userId = data?.user?.id;
-    if (!userId) {
-      throw new Error("Erro ao obter o ID do usuário.");
-    }
+    // Aguarda alguns segundos antes de inserir na tabela "usuarios"
+    await new Promise(resolve => setTimeout(resolve, 1000));  // Tempo para garantir que o usuário foi criado no auth
 
     // Agora salva os dados na tabela correta "usuarios"
     const { error: insertError } = await supabase
-      .from('usuarios')  // Correção aqui!
+      .from('usuarios')  
       .insert([
         {
-          id: userId,  // Certifique-se de que esta coluna existe na tabela 'usuarios'
+          id: user.id,  // O ID do auth.users será usado como chave
           nome: name,
           email: email,
           telefone: phone,
-          cpf_cnpj: cpfCnpj
+          cpf_cnpj: cpfCnpj,
+          senha: password // (Se não for seguro, remova esta linha e armazene só no Auth)
         }
       ]);
 
