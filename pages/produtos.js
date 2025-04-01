@@ -1967,7 +1967,7 @@ const handleLogin = async (e) => {
 const handleRegister = async (e) => {
   e.preventDefault();
   try {
-    // 1️⃣ Criar usuário no Supabase Auth
+    // Criar usuário no Supabase Auth
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -1981,24 +1981,26 @@ const handleRegister = async (e) => {
     });
 
     if (error) throw error;
-    const user = data.user;
+    const userId = data?.user?.id;
+    if (!userId) {
+      throw new Error("Erro ao obter o ID do usuário.");
+    }
 
-    // 2️⃣ Agora salva os dados na tabela personalizada "users"
+    // Agora salva os dados na tabela personalizada "users"
     const { error: insertError } = await supabase
-      .from('users') // Nome da tabela
+      .from('users')
       .insert([
         {
-          id: user.id, // O ID do usuário autenticado
+          id: userId,
           nome: name,
           email: email,
           telefone: phone,
-          cpf_cnpj: cpfCnpj,
-          senha: password, // ⚠️ Não recomendado salvar senha em texto puro!
+          cpf_cnpj: cpfCnpj
         }
       ]);
 
     if (insertError) {
-      console.error("Erro ao salvar dados extras:", insertError.message);
+      console.error("Erro ao salvar na tabela users:", insertError.message);
       throw insertError;
     }
 
@@ -2006,6 +2008,7 @@ const handleRegister = async (e) => {
     setAuthType('login');
 
   } catch (error) {
+    console.error("Erro no cadastro:", error.message);
     setAuthError(error.message);
   }
 };
