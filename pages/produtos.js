@@ -1914,26 +1914,28 @@ const products = [
 ];
 
 const ProductsPage = () => {
-// Estados originais (MANTIDOS IGUAIS)
-const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-const [searchTerm, setSearchTerm] = useState('');
-const [cart, setCart] = useState([]);
-const [total, setTotal] = useState(0);
-const [user, setUser] = useState(null);
-const [showAuthModal, setShowAuthModal] = useState(false);
-const [authType, setAuthType] = useState('login');
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [name, setName] = useState('');
-const [phone, setPhone] = useState('');
-const [cpfCnpj, setCpfCnpj] = useState('');
-const [authError, setAuthError] = useState('');
-const [pageBlocked, setPageBlocked] = useState(true);
-const [loading, setLoading] = useState(false); // ADICIONE ESTA LINHA
-
+  // Estados originais (MANTIDOS IGUAIS)
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [user, setUser] = useState(null);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authType, setAuthType] = useState('login');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [cpfCnpj, setCpfCnpj] = useState('');
+  const [authError, setAuthError] = useState('');
+  const [pageBlocked, setPageBlocked] = useState(true);
+  
   // ÚNICA ALTERAÇÃO: Adicionado estados para paginação
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 20;
+
+  // NOVO ESTADO ADICIONADO: Loading state
+  const [loading, setLoading] = useState(false);
 
   // Verifica usuário ao carregar (mantido igual)
   useEffect(() => {
@@ -1947,92 +1949,92 @@ const [loading, setLoading] = useState(false); // ADICIONE ESTA LINHA
     checkUser();
   }, []);
 
-// Função de login (mantida igual)
-const handleLogin = async (e) => {
-  e.preventDefault();
-  try {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
-    if (error) throw error;
-    setUser(data.user);
-    setShowAuthModal(false);
-    setPageBlocked(false);
-  } catch (error) {
-    setAuthError(error.message);
-  }
-};
+  // Função de login (mantida igual)
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+      if (error) throw error;
+      setUser(data.user);
+      setShowAuthModal(false);
+      setPageBlocked(false);
+    } catch (error) {
+      setAuthError(error.message);
+    }
+  };
 
-// Função de cadastro (ATUALIZADA)
-const handleRegister = async (e) => {
-  e.preventDefault();
-  setLoading(true); // Ativa o loading
+  // Função de cadastro (ATUALIZADA com sistema de loading)
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    setLoading(true); // Ativa o loading
 
-  try {
-    // Criar usuário no Supabase Auth
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          full_name: name,
-          phone,
-          cpf_cnpj: cpfCnpj
+    try {
+      // Criar usuário no Supabase Auth
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: name,
+            phone,
+            cpf_cnpj: cpfCnpj
+          }
         }
+      });
+
+      if (error) throw error;
+      
+      const user = data?.user;
+      if (!user || !user.id) {
+        throw new Error("Erro ao obter o ID do usuário.");
       }
-    });
 
-    if (error) throw error;
-    
-    const user = data?.user;
-    if (!user || !user.id) {
-      throw new Error("Erro ao obter o ID do usuário.");
+      console.log("Novo usuário cadastrado no Auth:", user);
+
+      // Aguarda alguns segundos antes de inserir na tabela "usuarios"
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Agora salva os dados na tabela correta "usuarios"
+      const { error: insertError } = await supabase
+        .from('usuarios')  
+        .insert([
+          {
+            id: user.id, 
+            nome: name,
+            email: email,
+            telefone: phone,
+            cpf_cnpj: cpfCnpj,
+            senha: password 
+          }
+        ]);
+
+      if (insertError) {
+        console.error("Erro ao salvar na tabela usuarios:", insertError.message);
+        throw insertError;
+      }
+
+      alert('Cadastro realizado com sucesso! Verifique seu e-mail para confirmação.');
+      setAuthType('login');
+
+    } catch (error) {
+      console.error("Erro no cadastro:", error.message);
+      setAuthError(error.message);
+    } finally {
+      setLoading(false); // Desativa o loading
     }
+  };
 
-    console.log("Novo usuário cadastrado no Auth:", user);
-
-    // Aguarda alguns segundos antes de inserir na tabela "usuarios"
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Agora salva os dados na tabela correta "usuarios"
-    const { error: insertError } = await supabase
-      .from('usuarios')  
-      .insert([
-        {
-          id: user.id, 
-          nome: name,
-          email: email,
-          telefone: phone,
-          cpf_cnpj: cpfCnpj,
-          senha: password
-        }
-      ]);
-
-    if (insertError) {
-      console.error("Erro ao salvar na tabela usuarios:", insertError.message);
-      throw insertError;
-    }
-
-    alert('Cadastro realizado com sucesso! Verifique seu e-mail para confirmação.');
-    setAuthType('login');
-
-  } catch (error) {
-    console.error("Erro no cadastro:", error.message);
-    setAuthError(error.message);
-  } finally {
-    setLoading(false); // Desativa o loading
-  }
-};
-
-// Função de logout (mantida igual)
-const handleLogout = async () => {
-  await supabase.auth.signOut();
-  setUser(null);
-  setPageBlocked(true);
-  setCart([]);
-  setTotal(0);
-};
+  // Função de logout (mantida igual)
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    setPageBlocked(true);
+    setCart([]);
+    setTotal(0);
+  };
 
   // Função para adicionar ao carrinho (mantida igual)
   const addToCart = (product) => {
@@ -2062,7 +2064,7 @@ const handleLogout = async () => {
       product.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-  // LÓGICA DA PAGINAÇÃO ADICIONADA (única modificação real)
+  // LÓGICA DA PAGINAÇÃO (mantida igual)
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -2282,292 +2284,296 @@ const handleLogout = async () => {
   };
 
   return (
-    <div style={styles.container}>
-      {/* Bloqueio quando não logado (mantido igual) */}
-      {pageBlocked && (
-        <div style={styles.pageBlocker}>
-          <p style={styles.blockerMessage}>Faça login para acessar os preços e comprar</p>
-          <button
-            onClick={() => setShowAuthModal(true)}
-            style={styles.addButton}
-          >
-            Acessar minha conta
-          </button>
+    <>
+      {/* NOVO COMPONENTE DE LOADING ADICIONADO */}
+      {loading && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'rgba(0, 0, 0, 0.7)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: '#fff',
+          fontSize: '20px',
+          fontWeight: 'bold',
+          zIndex: 9999
+        }}>
+          Aguarde...
         </div>
       )}
-return (
-  <>
-    {loading && (
-      <div style={{
-        position: 'fixed',
-        top: 0, left: 0, width: '100%', height: '100%',
-        background: 'rgba(0, 0, 0, 0.7)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        color: '#fff', fontSize: '20px', fontWeight: 'bold', zIndex: 9999
-      }}>
-        Aguarde...
-      </div>
-    )}
 
-    {/* O restante do seu código permanece EXATAMENTE IGUAL */}
-    <div style={styles.container}>
-      {/* ... todo o resto do seu código atual ... */}
-    </div>
-  </>
-);
-
-      {/* Cabeçalho (mantido igual) */}
-      <div style={styles.header}>
-        <img 
-          src="https://i.imgur.com/8EagMV6.png" 
-          alt="Logo" 
-          style={{ height: '60px', marginBottom: '15px' }} 
-        />
-        <h1 style={{ 
-          color: '#095400', 
-          fontSize: '28px', 
-          fontWeight: '700',
-          marginBottom: '10px'
-        }}>
-          PMG ATACADISTA
-        </h1>
-        <p style={{ color: '#666', fontSize: '16px' }}>
-          Encontre os melhores produtos para seu negócio
-        </p>
-      </div>
-
-      {/* Botão Sair (mantido igual) */}
-      {user && (
-        <button
-          onClick={handleLogout}
-          style={styles.logoutButton}
-        >
-          Sair da Conta
-        </button>
-      )}
-
-      {/* Barra de pesquisa (mantido igual) */}
-      <div style={styles.searchBar}>
-        <input
-          type="text"
-          placeholder="🔍 Pesquisar produtos..."
-          value={searchTerm}
-          onChange={(e) => {
-            setSearchTerm(e.target.value);
-            setCurrentPage(1); // Reset para a primeira página ao pesquisar
-          }}
-          style={styles.searchInput}
-        />
-      </div>
-
-      {/* Menu de categorias (mantido igual) */}
-      <div style={styles.categoryMenu}>
-        {categories.map(category => (
-          <button
-            key={category}
-            onClick={() => {
-              setSelectedCategory(category);
-              setCurrentPage(1); // Reset para a primeira página ao mudar de categoria
-            }}
-            style={{
-              ...styles.categoryButton,
-              ...(selectedCategory === category && styles.activeCategory)
-            }}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      {/* Grade de produtos (alterado para usar currentProducts em vez de filteredProducts) */}
-      <div style={styles.productsGrid}>
-        {currentProducts.map(product => (
-          <div 
-            key={product.id} 
-            style={{
-              ...styles.productCard,
-              ...(product.price === 0 && { opacity: 0.7 })
-            }}
-          >
-            <img 
-              src={product.image} 
-              alt={product.name} 
-              style={styles.productImage}
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
-              }}
-            />
-            <div style={styles.productInfo}>
-              <h3 style={styles.productName}>{product.name}</h3>
-              
-              {user ? (
-                <p style={product.price > 0 ? styles.productPrice : styles.unavailablePrice}>
-                  {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
-                </p>
-              ) : (
-                <p style={{ color: '#666', fontStyle: 'italic' }}>
-                  Faça login para ver o preço
-                </p>
-              )}
-
-              {user && (
-                <button
-                  onClick={() => addToCart(product)}
-                  disabled={product.price === 0}
-                  style={{
-                    ...styles.addButton,
-                    ...(product.price === 0 && styles.disabledButton)
-                  }}
-                >
-                  {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
-                </button>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* PAGINAÇÃO ADICIONADA (nova seção) */}
-      {filteredProducts.length > productsPerPage && (
-        <div style={styles.pagination}>
-          <button
-            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-            style={{
-              ...styles.pageButton,
-              ...(currentPage === 1 && { cursor: 'not-allowed', opacity: 0.5 })
-            }}
-          >
-            Anterior
-          </button>
-          
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+      {/* TODO O RESTO DO SEU CÓDIGO PERMANECE EXATAMENTE IGUAL */}
+      <div style={styles.container}>
+        {/* Bloqueio quando não logado (mantido igual) */}
+        {pageBlocked && (
+          <div style={styles.pageBlocker}>
+            <p style={styles.blockerMessage}>Faça login para acessar os preços e comprar</p>
             <button
-              key={page}
-              onClick={() => setCurrentPage(page)}
+              onClick={() => setShowAuthModal(true)}
+              style={styles.addButton}
+            >
+              Acessar minha conta
+            </button>
+          </div>
+        )}
+
+        {/* Cabeçalho (mantido igual) */}
+        <div style={styles.header}>
+          <img 
+            src="https://i.imgur.com/8EagMV6.png" 
+            alt="Logo" 
+            style={{ height: '60px', marginBottom: '15px' }} 
+          />
+          <h1 style={{ 
+            color: '#095400', 
+            fontSize: '28px', 
+            fontWeight: '700',
+            marginBottom: '10px'
+          }}>
+            PMG ATACADISTA
+          </h1>
+          <p style={{ color: '#666', fontSize: '16px' }}>
+            Encontre os melhores produtos para seu negócio
+          </p>
+        </div>
+
+        {/* Botão Sair (mantido igual) */}
+        {user && (
+          <button
+            onClick={handleLogout}
+            style={styles.logoutButton}
+          >
+            Sair da Conta
+          </button>
+        )}
+
+        {/* Barra de pesquisa (mantido igual) */}
+        <div style={styles.searchBar}>
+          <input
+            type="text"
+            placeholder="🔍 Pesquisar produtos..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1);
+            }}
+            style={styles.searchInput}
+          />
+        </div>
+
+        {/* Menu de categorias (mantido igual) */}
+        <div style={styles.categoryMenu}>
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => {
+                setSelectedCategory(category);
+                setCurrentPage(1);
+              }}
               style={{
-                ...styles.pageButton,
-                ...(page === currentPage && styles.activePage)
+                ...styles.categoryButton,
+                ...(selectedCategory === category && styles.activeCategory)
               }}
             >
-              {page}
+              {category}
             </button>
           ))}
-          
-          <button
-            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-            disabled={currentPage === totalPages}
-            style={{
-              ...styles.pageButton,
-              ...(currentPage === totalPages && { cursor: 'not-allowed', opacity: 0.5 })
-            }}
-          >
-            Próxima
-          </button>
         </div>
-      )}
 
-      {/* Modal de autenticação (mantido igual) */}
-      {showAuthModal && (
-        <div style={styles.authModal}>
-          <div style={styles.authBox}>
-            <h2 style={{ 
-              color: '#095400', 
-              textAlign: 'center',
-              marginBottom: '20px'
-            }}>
-              {authType === 'login' ? 'Acesse Sua Conta' : 'Crie Sua Conta'}
-            </h2>
+        {/* Grade de produtos (mantido igual) */}
+        <div style={styles.productsGrid}>
+          {currentProducts.map(product => (
+            <div 
+              key={product.id} 
+              style={{
+                ...styles.productCard,
+                ...(product.price === 0 && { opacity: 0.7 })
+              }}
+            >
+              <img 
+                src={product.image} 
+                alt={product.name} 
+                style={styles.productImage}
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
+                }}
+              />
+              <div style={styles.productInfo}>
+                <h3 style={styles.productName}>{product.name}</h3>
+                
+                {user ? (
+                  <p style={product.price > 0 ? styles.productPrice : styles.unavailablePrice}>
+                    {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
+                  </p>
+                ) : (
+                  <p style={{ color: '#666', fontStyle: 'italic' }}>
+                    Faça login para ver o preço
+                  </p>
+                )}
 
-            {authError && (
-              <p style={{ 
-                color: '#e53935', 
+                {user && (
+                  <button
+                    onClick={() => addToCart(product)}
+                    disabled={product.price === 0}
+                    style={{
+                      ...styles.addButton,
+                      ...(product.price === 0 && styles.disabledButton)
+                    }}
+                  >
+                    {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Paginação (mantido igual) */}
+        {filteredProducts.length > productsPerPage && (
+          <div style={styles.pagination}>
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              style={{
+                ...styles.pageButton,
+                ...(currentPage === 1 && { cursor: 'not-allowed', opacity: 0.5 })
+              }}
+            >
+              Anterior
+            </button>
+            
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                style={{
+                  ...styles.pageButton,
+                  ...(page === currentPage && styles.activePage)
+                }}
+              >
+                {page}
+              </button>
+            ))}
+            
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              style={{
+                ...styles.pageButton,
+                ...(currentPage === totalPages && { cursor: 'not-allowed', opacity: 0.5 })
+              }}
+            >
+              Próxima
+            </button>
+          </div>
+        )}
+
+        {/* Modal de autenticação (mantido igual) */}
+        {showAuthModal && (
+          <div style={styles.authModal}>
+            <div style={styles.authBox}>
+              <h2 style={{ 
+                color: '#095400', 
                 textAlign: 'center',
-                marginBottom: '15px'
+                marginBottom: '20px'
               }}>
-                {authError}
-              </p>
-            )}
+                {authType === 'login' ? 'Acesse Sua Conta' : 'Crie Sua Conta'}
+              </h2>
 
-            <form onSubmit={authType === 'login' ? handleLogin : handleRegister}>
-              {authType === 'register' && (
+              {authError && (
+                <p style={{ 
+                  color: '#e53935', 
+                  textAlign: 'center',
+                  marginBottom: '15px'
+                }}>
+                  {authError}
+                </p>
+              )}
+
+              <form onSubmit={authType === 'login' ? handleLogin : handleRegister}>
+                {authType === 'register' && (
+                  <input
+                    type="text"
+                    placeholder="Nome Completo"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    style={{ ...styles.searchInput, marginBottom: '15px' }}
+                    required
+                  />
+                )}
+
                 <input
-                  type="text"
-                  placeholder="Nome Completo"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  type="email"
+                  placeholder="E-mail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   style={{ ...styles.searchInput, marginBottom: '15px' }}
                   required
                 />
-              )}
 
-              <input
-                type="email"
-                placeholder="E-mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                style={{ ...styles.searchInput, marginBottom: '15px' }}
-                required
-              />
+                {authType === 'register' && (
+                  <>
+                    <input
+                      type="tel"
+                      placeholder="Telefone"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      style={{ ...styles.searchInput, marginBottom: '15px' }}
+                      required
+                    />
+                    <input
+                      type="text"
+                      placeholder="CPF/CNPJ"
+                      value={cpfCnpj}
+                      onChange={(e) => setCpfCnpj(e.target.value)}
+                      style={{ ...styles.searchInput, marginBottom: '15px' }}
+                      required
+                    />
+                  </>
+                )}
 
-              {authType === 'register' && (
-                <>
-                  <input
-                    type="tel"
-                    placeholder="Telefone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    style={{ ...styles.searchInput, marginBottom: '15px' }}
-                    required
-                  />
-                  <input
-                    type="text"
-                    placeholder="CPF/CNPJ"
-                    value={cpfCnpj}
-                    onChange={(e) => setCpfCnpj(e.target.value)}
-                    style={{ ...styles.searchInput, marginBottom: '15px' }}
-                    required
-                  />
-                </>
-              )}
+                <input
+                  type="password"
+                  placeholder="Senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  style={{ ...styles.searchInput, marginBottom: '20px' }}
+                  required
+                />
 
-              <input
-                type="password"
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{ ...styles.searchInput, marginBottom: '20px' }}
-                required
-              />
-
-              <button
-                type="submit"
-                style={styles.addButton}
-              >
-                {authType === 'login' ? 'Entrar' : 'Cadastrar'}
-              </button>
-
-              <p style={{ textAlign: 'center', marginTop: '15px' }}>
-                {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
                 <button
-                  type="button"
-                  onClick={() => {
-                    setAuthType(authType === 'login' ? 'register' : 'login');
-                    setAuthError('');
-                  }}
-                  style={styles.authToggle}
+                  type="submit"
+                  style={styles.addButton}
                 >
-                  {authType === 'login' ? 'Cadastre-se' : 'Faça login'}
+                  {authType === 'login' ? 'Entrar' : 'Cadastrar'}
                 </button>
-              </p>
-            </form>
-          </div>
-        </div>
-      )}
 
-      {/* Carrinho flutuante (mantido igual) */}
-      <Cart cart={cart} total={total} removeFromCart={removeFromCart} />
-    </div>
+                <p style={{ textAlign: 'center', marginTop: '15px' }}>
+                  {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuthType(authType === 'login' ? 'register' : 'login');
+                      setAuthError('');
+                    }}
+                    style={styles.authToggle}
+                  >
+                    {authType === 'login' ? 'Cadastre-se' : 'Faça login'}
+                  </button>
+                </p>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* Carrinho flutuante (mantido igual) */}
+        <Cart cart={cart} total={total} removeFromCart={removeFromCart} />
+      </div>
+    </>
   );
 };
 
