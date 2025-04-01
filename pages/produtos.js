@@ -1946,54 +1946,78 @@ const ProductsPage = () => {
     checkUser();
   }, []);
 
-  // Função de login (mantida igual)
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-      if (error) throw error;
-      setUser(data.user);
-      setShowAuthModal(false);
-      setPageBlocked(false);
-    } catch (error) {
-      setAuthError(error.message);
-    }
-  };
+// Função de login (mantida igual)
+const handleLogin = async (e) => {
+  e.preventDefault();
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+    if (error) throw error;
+    setUser(data.user);
+    setShowAuthModal(false);
+    setPageBlocked(false);
+  } catch (error) {
+    setAuthError(error.message);
+  }
+};
 
-  // Função de cadastro (mantida igual)
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: name,
-            phone,
-            cpf_cnpj: cpfCnpj
-          }
+// Função de cadastro (ATUALIZADA)
+const handleRegister = async (e) => {
+  e.preventDefault();
+  try {
+    // 1️⃣ Criar usuário no Supabase Auth
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          full_name: name,
+          phone,
+          cpf_cnpj: cpfCnpj
         }
-      });
-      if (error) throw error;
-      alert('Cadastro realizado! Verifique seu e-mail para confirmar.');
-      setAuthType('login');
-    } catch (error) {
-      setAuthError(error.message);
-    }
-  };
+      }
+    });
 
-  // Função de logout (mantida igual)
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    setUser(null);
-    setPageBlocked(true);
-    setCart([]);
-    setTotal(0);
-  };
+    if (error) throw error;
+    const user = data.user;
+
+    // 2️⃣ Agora salva os dados na tabela personalizada "users"
+    const { error: insertError } = await supabase
+      .from('users') // Nome da tabela
+      .insert([
+        {
+          id: user.id, // O ID do usuário autenticado
+          nome: name,
+          email: email,
+          telefone: phone,
+          cpf_cnpj: cpfCnpj,
+          senha: password, // ⚠️ Não recomendado salvar senha em texto puro!
+        }
+      ]);
+
+    if (insertError) {
+      console.error("Erro ao salvar dados extras:", insertError.message);
+      throw insertError;
+    }
+
+    alert('Cadastro realizado! Verifique seu e-mail para confirmar.');
+    setAuthType('login');
+
+  } catch (error) {
+    setAuthError(error.message);
+  }
+};
+
+// Função de logout (mantida igual)
+const handleLogout = async () => {
+  await supabase.auth.signOut();
+  setUser(null);
+  setPageBlocked(true);
+  setCart([]);
+  setTotal(0);
+};
 
   // Função para adicionar ao carrinho (mantida igual)
   const addToCart = (product) => {
