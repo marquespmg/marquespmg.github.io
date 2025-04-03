@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
 const Cart = ({ cart, removeFromCart, updateCart }) => {
+  // Estados do componente
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [userId, setUserId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Função para verificar se o produto é vendido por caixa
+  // Função para identificar produtos vendidos por caixa
   const isBoxProduct = (productName) => {
     return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
   };
 
-  // Função para calcular preço de produtos pesáveis
+  // Função para calcular preços
   const calculateProductPrice = (product) => {
     if (isBoxProduct(product.name)) {
       return {
@@ -25,7 +26,6 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     }
 
     const weightMatch = product.name.match(/(\d+\.?\d*)\s*KG/i);
-    
     if (weightMatch) {
       const weight = parseFloat(weightMatch[1]);
       return {
@@ -90,6 +90,8 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
 
       if (data?.cart_items) {
         updateCart(data.cart_items);
+      } else {
+        updateCart([]);
       }
     } catch (error) {
       console.error('Erro ao carregar carrinho:', error);
@@ -104,32 +106,31 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session?.user) {
         setUserId(session.user.id);
+        await loadCart();
+      } else {
+        setUserId(null);
+        updateCart([]);
       }
     };
 
     checkSession();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       if (session?.user) {
         setUserId(session.user.id);
+        await loadCart();
       } else {
         setUserId(null);
+        updateCart([]);
       }
     });
 
     return () => subscription.unsubscribe();
   }, []);
 
-  // Carregar carrinho quando o userId mudar
+  // Salvar carrinho quando ele é alterado
   useEffect(() => {
     if (userId) {
-      loadCart();
-    }
-  }, [userId]);
-
-  // Salvar carrinho quando ele for alterado
-  useEffect(() => {
-    if (userId && cart.length > 0) {
       const timer = setTimeout(() => {
         saveCart();
       }, 500);
@@ -138,7 +139,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     }
   }, [cart, userId]);
 
-  // Detecta o tamanho da tela
+  // Detectar tamanho da tela
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -150,7 +151,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Agrupa produtos por nome e calcula totais
+  // Agrupar itens do carrinho
   const groupedCart = cart.reduce((acc, product) => {
     const existing = acc.find(p => p.id === product.id);
     const calculated = calculateProductPrice(product);
@@ -172,11 +173,11 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     return acc;
   }, []);
 
-  // Calcula o TOTAL
+  // Calcular total do pedido
   const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 750;
 
-  // WhatsApp Message Generator
+  // Gerar mensagem para WhatsApp
   const generateWhatsAppMessage = () => {
     const itemsText = groupedCart.map(product => {
       const baseText = `▪ ${product.name}`;
@@ -198,9 +199,10 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     )}`;
   };
 
+  // Renderização do componente
   return (
     <>
-      {/* Botão de toggle para mobile */}
+      {/* Botão do carrinho para mobile */}
       <div style={{
         position: 'fixed',
         right: '15px',
@@ -224,6 +226,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
             alignItems: 'center',
             justifyContent: 'center'
           }}
+          aria-label="Abrir carrinho"
         >
           🛒 {cart.length > 0 && (
             <span style={{
@@ -246,7 +249,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         </button>
       </div>
 
-      {/* Carrinho principal */}
+      {/* Container principal do carrinho */}
       <div style={{
         position: 'fixed',
         right: isMobile ? (isOpen ? '0' : '-100%') : '25px',
@@ -279,12 +282,13 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               cursor: 'pointer',
               color: '#666'
             }}
+            aria-label="Fechar carrinho"
           >
             ×
           </button>
         )}
 
-        {/* Header */}
+        {/* Header do carrinho */}
         <div style={{
           backgroundColor: '#FFF9E6',
           color: '#E67E22',
@@ -300,8 +304,12 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
           🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$750
         </div>
 
-        {/* Product List */}
-        {groupedCart.length === 0 ? (
+        {/* Lista de produtos */}
+        {isLoading ? (
+          <div style={{ textAlign: 'center', padding: '20px' }}>
+            <p>Carregando seu carrinho...</p>
+          </div>
+        ) : groupedCart.length === 0 ? (
           <div style={{
             textAlign: 'center',
             padding: '20px',
@@ -347,6 +355,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                           border: '1px solid #eee',
                           flexShrink: 0
                         }} 
+                        loading="lazy"
                       />
                       <div style={{
                         flex: 1,
@@ -424,6 +433,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                           e.currentTarget.style.background = 'none';
                           e.currentTarget.style.textDecoration = 'none';
                         }}
+                        aria-label={`Remover ${product.name} do carrinho`}
                       >
                         <span>×</span> Remover
                       </button>
@@ -433,7 +443,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               })}
             </ul>
 
-            {/* MENSAGEM DE AVISO */}
+            {/* Mensagem de aviso */}
             <div style={{
               backgroundColor: '#FFF3E0',
               color: '#E65100',
@@ -451,7 +461,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
-            {/* Order Summary */}
+            {/* Resumo do pedido */}
             <div style={{ 
               backgroundColor: '#FAFAFA',
               padding: '16px',
@@ -492,7 +502,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               </div>
             </div>
 
-            {/* Payment Method */}
+            {/* Método de pagamento */}
             <div style={{ marginBottom: '20px' }}>
               <h3 style={{ 
                 fontSize: '16px',
@@ -534,7 +544,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               </div>
             </div>
 
-            {/* Checkout Button */}
+            {/* Botão de finalizar pedido */}
             <button
               onClick={() => window.open(generateWhatsAppMessage(), '_blank')}
               disabled={!isTotalValid || !paymentMethod}
@@ -567,6 +577,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                   e.currentTarget.style.boxShadow = 'none';
                 }
               }}
+              aria-disabled={!isTotalValid || !paymentMethod}
             >
               📲 Finalizar Pedido
             </button>
