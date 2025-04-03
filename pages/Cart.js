@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { supabase } from '../lib/supabaseClient';
 
-const Cart = ({ cart, removeFromCart }) => {
+const Cart = ({ cart, removeFromCart, updateCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Função para verificar se o produto é vendido por caixa (tem "CX" na descrição)
+  // Função para verificar se o produto é vendido por caixa
   const isBoxProduct = (productName) => {
     return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
   };
 
-  // Função para calcular preço de produtos pesáveis (apenas para produtos que não são por caixa)
+  // Função para calcular preço de produtos pesáveis
   const calculateProductPrice = (product) => {
-    // Se for produto vendido por caixa, retorna o preço normal sem cálculo por KG
     if (isBoxProduct(product.name)) {
       return {
         unitPrice: product.price,
@@ -22,7 +24,6 @@ const Cart = ({ cart, removeFromCart }) => {
       };
     }
 
-    // Verifica se o nome contém "KG" (produto pesável normal)
     const weightMatch = product.name.match(/(\d+\.?\d*)\s*KG/i);
     
     if (weightMatch) {
@@ -35,7 +36,6 @@ const Cart = ({ cart, removeFromCart }) => {
       };
     }
     
-    // Para produtos não pesáveis
     return {
       unitPrice: product.price,
       totalPrice: product.price,
@@ -44,11 +44,99 @@ const Cart = ({ cart, removeFromCart }) => {
     };
   };
 
-  // Função para extrair o peso da caixa quando for produto vendido por caixa
+  // Função para extrair o peso da caixa
   const extractBoxWeight = (productName) => {
     const weightMatch = productName.match(/\(?\s*CX\s*(\d+\.?\d*)\s*KG\s*\)?/i);
     return weightMatch ? parseFloat(weightMatch[1]) : null;
   };
+
+  // Salvar carrinho no Supabase
+  const saveCart = async () => {
+    if (!userId || cart.length === 0) return;
+    
+    try {
+      setIsLoading(true);
+      const { error } = await supabase
+        .from('user_carts')
+        .upsert({
+          user_id: userId,
+          cart_items: cart,
+          updated_at: new Date().toISOString()
+        }, {
+          onConflict: 'user_id'
+        });
+
+      if (error) throw error;
+    } catch (error) {
+      console.error('Erro ao salvar carrinho:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Carregar carrinho do Supabase
+  const loadCart = async () => {
+    if (!userId) return;
+    
+    try {
+      setIsLoading(true);
+      const { data, error } = await supabase
+        .from('user_carts')
+        .select('cart_items')
+        .eq('user_id', userId)
+        .single();
+
+      if (error && error.code !== 'PGRST116') throw error;
+
+      if (data?.cart_items) {
+        updateCart(data.cart_items);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar carrinho:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Verificar sessão do usuário
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.user) {
+        setUserId(session.user.id);
+      }
+    };
+
+    checkSession();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setUserId(session.user.id);
+      } else {
+        setUserId(null);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // Carregar carrinho quando o userId mudar
+  useEffect(() => {
+    if (userId) {
+      loadCart();
+    }
+  }, [userId]);
+
+  // Salvar carrinho quando ele for alterado
+  useEffect(() => {
+    if (userId && cart.length > 0) {
+      const timer = setTimeout(() => {
+        saveCart();
+      }, 500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [cart, userId]);
 
   // Detecta o tamanho da tela
   useEffect(() => {
@@ -84,7 +172,7 @@ const Cart = ({ cart, removeFromCart }) => {
     return acc;
   }, []);
 
-  // Calcula o TOTAL corretamente considerando ambos os tipos de produtos
+  // Calcula o TOTAL
   const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 750;
 
