@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { createClient } from '@supabase/supabase-js';
 
-const Cart = ({ cart, removeFromCart }) => {
+// Configuração do Supabase
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const Cart = ({ cart, removeFromCart, updateCart }) => {
+  // Estados do componente
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [sessionChecked, setSessionChecked] = useState(false);
 
-  // Função para verificar se o produto é vendido por caixa (tem "CX" na descrição)
+  // Função para identificar produtos vendidos por caixa
   const isBoxProduct = (productName) => {
-    return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
+    return /\(?\s*CX\s*\d*\s*UN\s*\)?/i.test(productName) || 
+           /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
   };
 
-  // Função para calcular preço de produtos pesáveis (apenas para produtos que não são por caixa)
+  // Função para calcular preços
   const calculateProductPrice = (product) => {
-    // Se for produto vendido por caixa, retorna o preço normal sem cálculo por KG
+    // Produtos por caixa (UN ou KG)
     if (isBoxProduct(product.name)) {
       return {
         unitPrice: product.price,
@@ -22,9 +33,8 @@ const Cart = ({ cart, removeFromCart }) => {
       };
     }
 
-    // Verifica se o nome contém "KG" (produto pesável normal)
+    // Produtos por peso (KG)
     const weightMatch = product.name.match(/(\d+\.?\d*)\s*KG/i);
-    
     if (weightMatch) {
       const weight = parseFloat(weightMatch[1]);
       return {
@@ -35,7 +45,7 @@ const Cart = ({ cart, removeFromCart }) => {
       };
     }
     
-    // Para produtos não pesáveis
+    // Produtos unitários
     return {
       unitPrice: product.price,
       totalPrice: product.price,
@@ -44,13 +54,154 @@ const Cart = ({ cart, removeFromCart }) => {
     };
   };
 
-  // Função para extrair o peso da caixa quando for produto vendido por caixa
-  const extractBoxWeight = (productName) => {
-    const weightMatch = productName.match(/\(?\s*CX\s*(\d+\.?\d*)\s*KG\s*\)?/i);
-    return weightMatch ? parseFloat(weightMatch[1]) : null;
+  // Função para carregar o carrinho salvo
+  const loadSavedCart = async (userId) => {
+    try {
+      // 1. Busca o carrinho no Supabase
+      const { data, error } = await supabase
+        .from('user_carts')
+        .select('cart_items')
+        .eq('user_id', userId)
+        .single();
+
+      // 2. Se não existir, cria um novo carrinho vazio
+      if (error?.code === 'PGRST116') {
+        await supabase
+          .from('user_carts')
+          .insert([{ 
+            user_id: userId, 
+            cart_items: [] 
+          }]);
+        updateCart([]);
+        return;
+      }
+
+      // 3. Se houver outro erro, lança exceção
+      if (error) throw error;
+
+      // 4. Se existir, formata os itens e atualiza o estado
+      if (data?.cart_items) {
+        const formattedCart = data.cart_items.map(item => ({
+          id: item.id,
+          name: item.name,
+          price: Number(item.price),
+          image: item.image,
+          category: item.category || ''
+        }));
+        updateCart(formattedCart);
+      }
+    } catch (error) {
+      console.error("Erro ao carregar carrinho:", error);
+      // Fallback com localStorage
+      const localCart = localStorage.getItem(`cart_${userId}`);
+      if (localCart) {
+        updateCart(JSON.parse(localCart));
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  // Detecta o tamanho da tela
+  // Função para salvar o carrinho
+  const saveCartToSupabase = async () => {
+    if (!userId || isLoading) return;
+
+    try {
+      // Formata os itens antes de salvar
+      const formattedCart = cart.map(item => ({
+        id: item.id,
+        name: item.name,
+        price: Number(item.price),
+        image: item.image,
+        category: item.category || ''
+      }));
+
+      // Salva no Supabase
+      const { error } = await supabase
+        .from('user_carts')
+        .upsert({
+          user_id: userId,
+          cart_items: formattedCart,
+          updated_at: new Date().toISOString()
+        }, {
+          onConflict: 'user_id'
+        });
+
+      if (error) throw error;
+
+      // Salva também no localStorage
+      localStorage.setItem(`cart_${userId}`, JSON.stringify(formattedCart));
+    } catch (error) {
+      console.error("Erro ao salvar carrinho:", error);
+      localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
+    }
+  };
+
+  // Função para limpar o carrinho após finalizar pedido
+  const clearCartInSupabase = async () => {
+    if (!userId) return;
+    
+    try {
+      await supabase
+        .from('user_carts')
+        .delete()
+        .eq('user_id', userId);
+      localStorage.removeItem(`cart_${userId}`);
+    } catch (error) {
+      console.error("Erro ao limpar carrinho:", error);
+    }
+  };
+
+  // Efeito para verificar a sessão ao carregar
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        // Verifica a sessão ativa
+        const { data: { session }, error } = await supabase.auth.getSession();
+        
+        if (error) throw error;
+        
+        if (session?.user) {
+          setUserId(session.user.id);
+          await loadSavedCart(session.user.id);
+        } else {
+          setUserId(null);
+          updateCart([]);
+        }
+      } catch (error) {
+        console.error("Erro ao verificar sessão:", error);
+      } finally {
+        setSessionChecked(true);
+        setIsLoading(false);
+      }
+    };
+
+    checkSession();
+
+    // Configura o listener para mudanças de autenticação
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (session?.user) {
+          setUserId(session.user.id);
+          await loadSavedCart(session.user.id);
+        } else {
+          setUserId(null);
+          updateCart([]);
+        }
+      }
+    );
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // Efeito para salvar o carrinho quando ele é alterado
+  useEffect(() => {
+    if (sessionChecked && userId) {
+      saveCartToSupabase();
+    }
+  }, [cart, userId, sessionChecked]);
+
+  // Efeito para detectar tamanho da tela
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -59,60 +210,62 @@ const Cart = ({ cart, removeFromCart }) => {
     handleResize();
     window.addEventListener('resize', handleResize);
     
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
-  // Agrupa produtos por nome e calcula totais
-  const groupedCart = cart.reduce((acc, product) => {
-    const existing = acc.find(p => p.id === product.id);
-    const calculated = calculateProductPrice(product);
+  // Lógica para agrupar itens iguais no carrinho
+  const groupedCart = cart.reduce((accumulator, product) => {
+    const existingProduct = accumulator.find(item => item.id === product.id);
+    const calculatedPrice = calculateProductPrice(product);
     
-    if (existing) {
-      existing.quantity++;
-      existing.totalPrice += calculated.totalPrice;
+    if (existingProduct) {
+      existingProduct.quantity++;
+      existingProduct.totalPrice += calculatedPrice.totalPrice;
     } else {
-      acc.push({
+      accumulator.push({
         ...product,
         quantity: 1,
-        unitPrice: calculated.unitPrice,
-        totalPrice: calculated.totalPrice,
-        weight: calculated.weight,
-        isBox: calculated.isBox,
-        boxWeight: calculated.isBox ? extractBoxWeight(product.name) : null
+        unitPrice: calculatedPrice.unitPrice,
+        totalPrice: calculatedPrice.totalPrice,
+        weight: calculatedPrice.weight,
+        isBox: calculatedPrice.isBox
       });
     }
-    return acc;
+    
+    return accumulator;
   }, []);
 
-  // Calcula o TOTAL corretamente considerando ambos os tipos de produtos
+  // Calcula o total do pedido
   const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 750;
 
-  // WhatsApp Message Generator
+  // Gera a mensagem para WhatsApp
   const generateWhatsAppMessage = () => {
     const itemsText = groupedCart.map(product => {
       const baseText = `▪ ${product.name}`;
       
-      if (product.isBox && product.boxWeight) {
-        return `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${product.totalPrice.toFixed(2)}`;
+      if (product.isBox) {
+        return `${baseText} (${product.quantity}x) - R$ ${product.totalPrice.toFixed(2)}`;
       } else if (product.weight) {
         return `${baseText} (${product.quantity}x ${product.weight}KG) - R$ ${product.unitPrice.toFixed(2)}/KG = R$ ${product.totalPrice.toFixed(2)}`;
       }
+      
       return `${baseText} (${product.quantity}x) - R$ ${product.totalPrice.toFixed(2)}`;
     }).join('\n');
 
     return `https://wa.me/5511913572902?text=${encodeURIComponent(
-      `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
-      `💰 *TOTAL: R$ ${total.toFixed(2)}*\n` +
-      `💳 *Pagamento:* ${paymentMethod}\n` +
-      `📦 *Entrega:* Frete gratis\n\n` +
+      `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n💰 *TOTAL: R$ ${total.toFixed(2)}*\n` +
+      `💳 *Pagamento:* ${paymentMethod}\n📦 *Entrega:* Frete gratis\n\n` +
       `Por favor, confirme meu pedido!`
     )}`;
   };
 
+  // Renderização do componente
   return (
     <>
-      {/* Botão de toggle para mobile */}
+      {/* Botão do carrinho para mobile */}
       <div style={{
         position: 'fixed',
         right: '15px',
@@ -158,7 +311,7 @@ const Cart = ({ cart, removeFromCart }) => {
         </button>
       </div>
 
-      {/* Carrinho principal */}
+      {/* Container principal do carrinho */}
       <div style={{
         position: 'fixed',
         right: isMobile ? (isOpen ? '0' : '-100%') : '25px',
@@ -196,7 +349,7 @@ const Cart = ({ cart, removeFromCart }) => {
           </button>
         )}
 
-        {/* Header */}
+        {/* Header do carrinho */}
         <div style={{
           backgroundColor: '#FFF9E6',
           color: '#E67E22',
@@ -212,8 +365,12 @@ const Cart = ({ cart, removeFromCart }) => {
           🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$750
         </div>
 
-        {/* Product List */}
-        {groupedCart.length === 0 ? (
+        {/* Lista de produtos */}
+        {!sessionChecked ? (
+          <div style={{ textAlign: 'center', padding: '20px' }}>
+            <p>Verificando sua sessão...</p>
+          </div>
+        ) : groupedCart.length === 0 ? (
           <div style={{
             textAlign: 'center',
             padding: '20px',
@@ -232,120 +389,101 @@ const Cart = ({ cart, removeFromCart }) => {
               overflowY: 'auto',
               overflowX: 'hidden'
             }}>
-              {groupedCart.map((product) => {
-                const calculated = calculateProductPrice(product);
-                
-                return (
-                  <li key={`${product.id}-${product.quantity}`} style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    padding: '14px 0',
-                    borderBottom: '1px solid #f0f0f0',
-                    gap: '10px'
+              {groupedCart.map((product) => (
+                <li key={`${product.id}-${product.quantity}`} style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  padding: '14px 0',
+                  borderBottom: '1px solid #f0f0f0',
+                  gap: '10px'
+                }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'flex-start',
+                    gap: '12px'
                   }}>
-                    <div style={{ 
-                      display: 'flex', 
-                      alignItems: 'flex-start',
-                      gap: '12px'
-                    }}>
-                      <img 
-                        src={product.image} 
-                        alt={product.name}
-                        style={{
-                          width: '50px',
-                          height: '50px',
-                          borderRadius: '6px',
-                          objectFit: 'cover',
-                          border: '1px solid #eee',
-                          flexShrink: 0
-                        }} 
-                      />
-                      <div style={{
-                        flex: 1,
-                        minWidth: 0
-                      }}>
-                        <p style={{ 
-                          fontWeight: 600, 
-                          margin: 0,
-                          color: '#333',
-                          wordBreak: 'break-word',
-                          whiteSpace: 'normal'
-                        }}>
-                          {product.name}
-                        </p>
-                        {product.isBox && product.boxWeight ? (
-                          <p style={{ 
-                            margin: '4px 0 0',
-                            fontSize: '14px',
-                            color: '#666'
-                          }}>
-                            {product.quantity}x Caixa • {product.boxWeight}KG
-                          </p>
-                        ) : calculated.weight ? (
-                          <p style={{ 
-                            margin: '4px 0 0',
-                            fontSize: '14px',
-                            color: '#666'
-                          }}>
-                            {product.quantity}x • {calculated.weight} KG × R$ {calculated.unitPrice.toFixed(2)}/KG
-                          </p>
-                        ) : (
-                          <p style={{ 
-                            margin: '4px 0 0',
-                            fontSize: '14px',
-                            color: '#666'
-                          }}>
-                            {product.quantity}x • R$ {calculated.unitPrice.toFixed(2)}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                    <div style={{ 
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginLeft: '62px'
-                    }}>
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      style={{
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '6px',
+                        objectFit: 'cover',
+                        border: '1px solid #eee',
+                        flexShrink: 0
+                      }} 
+                    />
+                    <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{ 
-                        fontWeight: 600,
+                        fontWeight: 600, 
                         margin: 0,
-                        color: '#E74C3C'
+                        color: '#333',
+                        wordBreak: 'break-word',
+                        whiteSpace: 'normal'
                       }}>
-                        R$ {product.totalPrice.toFixed(2)}
+                        {product.name}
                       </p>
-                      <button
-                        onClick={() => removeFromCart(product.id)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          color: '#E74C3C',
-                          cursor: 'pointer',
-                          fontSize: '13px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '4px',
-                          padding: '4px 8px',
-                          borderRadius: '4px',
-                          transition: 'all 0.2s'
-                        }}
-                        onMouseOver={e => {
-                          e.currentTarget.style.background = '#FFEEEE';
-                          e.currentTarget.style.textDecoration = 'underline';
-                        }}
-                        onMouseOut={e => {
-                          e.currentTarget.style.background = 'none';
-                          e.currentTarget.style.textDecoration = 'none';
-                        }}
-                      >
-                        <span>×</span> Remover
-                      </button>
+                      {product.isBox ? (
+                        <p style={{ margin: '4px 0 0', fontSize: '14px', color: '#666' }}>
+                          {product.quantity}x Unidade(s)
+                        </p>
+                      ) : product.weight ? (
+                        <p style={{ margin: '4px 0 0', fontSize: '14px', color: '#666' }}>
+                          {product.quantity}x • {product.weight} KG × R$ {product.unitPrice.toFixed(2)}/KG
+                        </p>
+                      ) : (
+                        <p style={{ margin: '4px 0 0', fontSize: '14px', color: '#666' }}>
+                          {product.quantity}x • R$ {product.unitPrice.toFixed(2)}
+                        </p>
+                      )}
                     </div>
-                  </li>
-                );
-              })}
+                  </div>
+                  <div style={{ 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginLeft: '62px'
+                  }}>
+                    <p style={{ 
+                      fontWeight: 600,
+                      margin: 0,
+                      color: '#E74C3C'
+                    }}>
+                      R$ {product.totalPrice.toFixed(2)}
+                    </p>
+                    <button
+                      onClick={() => removeFromCart(product.id)}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        color: '#E74C3C',
+                        cursor: 'pointer',
+                        fontSize: '13px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        padding: '4px 8px',
+                        borderRadius: '4px',
+                        transition: 'all 0.2s'
+                      }}
+                      onMouseOver={e => {
+                        e.currentTarget.style.background = '#FFEEEE';
+                        e.currentTarget.style.textDecoration = 'underline';
+                      }}
+                      onMouseOut={e => {
+                        e.currentTarget.style.background = 'none';
+                        e.currentTarget.style.textDecoration = 'none';
+                      }}
+                    >
+                      <span>×</span> Remover
+                    </button>
+                  </div>
+                </li>
+              ))}
             </ul>
 
-            {/* MENSAGEM DE AVISO */}
+            {/* Mensagem de aviso */}
             <div style={{
               backgroundColor: '#FFF3E0',
               color: '#E65100',
@@ -363,7 +501,7 @@ const Cart = ({ cart, removeFromCart }) => {
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
-            {/* Order Summary */}
+            {/* Resumo do pedido */}
             <div style={{ 
               backgroundColor: '#FAFAFA',
               padding: '16px',
@@ -404,7 +542,7 @@ const Cart = ({ cart, removeFromCart }) => {
               </div>
             </div>
 
-            {/* Payment Method */}
+            {/* Método de pagamento */}
             <div style={{ marginBottom: '20px' }}>
               <h3 style={{ 
                 fontSize: '16px',
@@ -446,9 +584,12 @@ const Cart = ({ cart, removeFromCart }) => {
               </div>
             </div>
 
-            {/* Checkout Button */}
+            {/* Botão de finalizar pedido */}
             <button
-              onClick={() => window.open(generateWhatsAppMessage(), '_blank')}
+              onClick={() => {
+                window.open(generateWhatsAppMessage(), '_blank');
+                clearCartInSupabase();
+              }}
               disabled={!isTotalValid || !paymentMethod}
               style={{
                 width: '100%',
