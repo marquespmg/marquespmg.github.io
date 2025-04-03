@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
-
-// Configuração do Supabase
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from '../lib/supabaseClient'; // Updated import for single Supabase instance
 
 const Cart = ({ cart, removeFromCart, updateCart }) => {
   // Estados do componente
@@ -54,7 +49,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     };
   };
 
-  // Função para carregar o carrinho salvo
+  // Função para carregar o carrinho salvo com melhor tratamento de erros
   const loadSavedCart = async (userId) => {
     try {
       // 1. Busca o carrinho no Supabase
@@ -66,12 +61,15 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
 
       // 2. Se não existir, cria um novo carrinho vazio
       if (error?.code === 'PGRST116') {
-        await supabase
+        const { error: insertError } = await supabase
           .from('user_carts')
           .insert([{ 
             user_id: userId, 
             cart_items: [] 
           }]);
+        
+        if (insertError) throw insertError;
+        
         updateCart([]);
         return;
       }
@@ -92,17 +90,25 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
       }
     } catch (error) {
       console.error("Erro ao carregar carrinho:", error);
-      // Fallback com localStorage
-      const localCart = localStorage.getItem(`cart_${userId}`);
-      if (localCart) {
-        updateCart(JSON.parse(localCart));
+      // Fallback com localStorage - melhorado
+      try {
+        const localCart = localStorage.getItem(`cart_${userId}`);
+        if (localCart) {
+          const parsedCart = JSON.parse(localCart);
+          if (Array.isArray(parsedCart)) {
+            updateCart(parsedCart);
+          }
+        }
+      } catch (localStorageError) {
+        console.error("Erro ao ler localStorage:", localStorageError);
+        updateCart([]);
       }
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Função para salvar o carrinho
+  // Função para salvar o carrinho com melhor tratamento de erros
   const saveCartToSupabase = async () => {
     if (!userId || isLoading) return;
 
@@ -129,11 +135,19 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
 
       if (error) throw error;
 
-      // Salva também no localStorage
-      localStorage.setItem(`cart_${userId}`, JSON.stringify(formattedCart));
+      // Salva também no localStorage com tratamento de erro
+      try {
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(formattedCart));
+      } catch (localStorageError) {
+        console.error("Erro ao salvar no localStorage:", localStorageError);
+      }
     } catch (error) {
       console.error("Erro ao salvar carrinho:", error);
-      localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
+      try {
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
+      } catch (localStorageError) {
+        console.error("Erro ao fazer fallback no localStorage:", localStorageError);
+      }
     }
   };
 
@@ -142,11 +156,18 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     if (!userId) return;
     
     try {
-      await supabase
+      const { error } = await supabase
         .from('user_carts')
         .delete()
         .eq('user_id', userId);
-      localStorage.removeItem(`cart_${userId}`);
+      
+      if (error) throw error;
+      
+      try {
+        localStorage.removeItem(`cart_${userId}`);
+      } catch (localStorageError) {
+        console.error("Erro ao limpar localStorage:", localStorageError);
+      }
     } catch (error) {
       console.error("Erro ao limpar carrinho:", error);
     }
@@ -170,6 +191,9 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         }
       } catch (error) {
         console.error("Erro ao verificar sessão:", error);
+        // Fallback para estado vazio
+        setUserId(null);
+        updateCart([]);
       } finally {
         setSessionChecked(true);
         setIsLoading(false);
