@@ -88,10 +88,14 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
 
       if (error && error.code !== 'PGRST116') throw error;
 
-      if (data?.cart_items) {
-        updateCart(data.cart_items);
+      if (typeof updateCart === 'function') { // Verificação de segurança
+        if (data?.cart_items) {
+          updateCart(data.cart_items);
+        } else {
+          updateCart([]);
+        }
       } else {
-        updateCart([]);
+        console.error('updateCart não é uma função:', updateCart);
       }
     } catch (error) {
       console.error('Erro ao carregar carrinho:', error);
@@ -310,7 +314,9 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         </div>
 
         {/* Lista de produtos */}
-        {isLoading ? (
+       
+
+ {isLoading ? (
           <div style={{ textAlign: 'center', padding: '20px' }}>
             <p>Carregando seu carrinho...</p>
           </div>
