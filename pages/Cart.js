@@ -1,52 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
-// Configuração do Supabase
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Cart = ({ cart, removeFromCart, updateCart }) => {
-  // Estados
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [userId, setUserId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [localFallback, setLocalFallback] = useState(false);
+  const [userChecked, setUserChecked] = useState(false);
 
-  // Funções de cálculo de preço (originais)
-  const isBoxProduct = (productName) => {
-    return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
-  };
+  // Funções originais de cálculo
+  const isBoxProduct = (productName) => /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
 
   const calculateProductPrice = (product) => {
     if (isBoxProduct(product.name)) {
-      return {
-        unitPrice: product.price,
-        totalPrice: product.price,
-        weight: null,
-        isBox: true
-      };
+      return { unitPrice: product.price, totalPrice: product.price, weight: null, isBox: true };
     }
-
     const weightMatch = product.name.match(/(\d+\.?\d*)\s*KG/i);
     if (weightMatch) {
       const weight = parseFloat(weightMatch[1]);
-      return {
-        unitPrice: product.price,
-        totalPrice: product.price * weight,
-        weight: weight,
-        isBox: false
-      };
+      return { unitPrice: product.price, totalPrice: product.price * weight, weight, isBox: false };
     }
-    
-    return {
-      unitPrice: product.price,
-      totalPrice: product.price,
-      weight: null,
-      isBox: false
-    };
+    return { unitPrice: product.price, totalPrice: product.price, weight: null, isBox: false };
   };
 
   const extractBoxWeight = (productName) => {
@@ -54,7 +33,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     return weightMatch ? parseFloat(weightMatch[1]) : null;
   };
 
-  // Funções de persistência (corrigidas)
+  // Funções de persistência corrigidas
   const loadSavedCart = async (userId) => {
     try {
       // 1. Tenta carregar do Supabase
@@ -69,23 +48,22 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         await supabase
           .from('user_carts')
           .insert([{ user_id: userId, cart_items: [] }]);
+        updateCart([]);
         return;
       }
 
-      // 3. Se outro erro, usa fallback
-      if (error) throw error;
-
-      // 4. Atualiza estado com dados do Supabase
+      // 3. Se encontrar dados, atualiza o estado
       if (data?.cart_items) {
         updateCart(data.cart_items);
-        localStorage.setItem(`cart_${userId}`, JSON.stringify(data.cart_items));
+      } else {
+        updateCart([]);
       }
+
     } catch (error) {
       console.error("Erro ao carregar carrinho:", error);
       // Fallback com localStorage
       const localCart = localStorage.getItem(`cart_${userId}`);
       if (localCart) {
-        setLocalFallback(true);
         updateCart(JSON.parse(localCart));
       }
     } finally {
@@ -94,11 +72,10 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
   };
 
   const saveCartToSupabase = async () => {
-    if (!userId) return;
-
+    if (!userId || isLoading) return;
+    
     try {
-      // Salva tanto no Supabase quanto no localStorage
-      const { error } = await supabase
+      await supabase
         .from('user_carts')
         .upsert({
           user_id: userId,
@@ -107,13 +84,10 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         }, {
           onConflict: 'user_id'
         });
-
-      if (error) throw error;
       
       localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
     } catch (error) {
       console.error("Erro ao salvar carrinho:", error);
-      setLocalFallback(true);
       localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
     }
   };
@@ -132,26 +106,50 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     }
   };
 
-  // Efeitos
+  // Verificação de autenticação persistente
   useEffect(() => {
-    const handleAuthChange = async (event, session) => {
-      if (session?.user) {
-        setUserId(session.user.id);
-        await loadSavedCart(session.user.id);
+    const checkUser = async () => {
+      try {
+        const { data: { user }, error } = await supabase.auth.getUser();
+        
+        if (user) {
+          setUserId(user.id);
+          await loadSavedCart(user.id);
+        } else if (error) {
+          console.error("Erro ao verificar usuário:", error);
+        }
+      } catch (error) {
+        console.error("Erro geral na verificação:", error);
+      } finally {
+        setUserChecked(true);
+        setIsLoading(false);
       }
     };
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(handleAuthChange);
-    
+    checkUser();
+
+    // Ouvinte para mudanças de autenticação
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (session?.user) {
+        setUserId(session.user.id);
+        await loadSavedCart(session.user.id);
+      } else {
+        setUserId(null);
+        updateCart([]);
+      }
+    });
+
     return () => subscription.unsubscribe();
   }, []);
 
+  // Salva automaticamente quando o carrinho muda
   useEffect(() => {
-    if (userId && !isLoading) {
+    if (userChecked && userId) {
       saveCartToSupabase();
     }
-  }, [cart, userId]);
+  }, [cart, userId, userChecked]);
 
+  // Detecta tamanho da tela
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
@@ -159,7 +157,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Lógica de agrupamento (original)
+  // Lógica de agrupamento e cálculo
   const groupedCart = cart.reduce((acc, product) => {
     const existing = acc.find(p => p.id === product.id);
     const calculated = calculateProductPrice(product);
@@ -199,7 +197,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     )}`;
   };
 
-  // Renderização completa (JSX original)
+  // Renderização completa
   return (
     <>
       {/* Botão do carrinho para mobile */}
@@ -299,13 +297,12 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
           marginTop: isMobile ? '30px' : '0'
         }}>
           🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$750
-          {localFallback && <div style={{ fontSize: '10px', marginTop: '4px' }}>(Modo offline - dados locais)</div>}
         </div>
 
         {/* Lista de produtos */}
-        {isLoading ? (
+        {!userChecked ? (
           <div style={{ textAlign: 'center', padding: '20px' }}>
-            <p>Carregando seu carrinho...</p>
+            <p>Verificando usuário...</p>
           </div>
         ) : groupedCart.length === 0 ? (
           <div style={{
