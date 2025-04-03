@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
 const Cart = ({ cart, removeFromCart, updateCart }) => {
@@ -49,79 +49,99 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     };
   };
 
-  // Função para carregar o carrinho salvo
-  const loadSavedCart = async (userId) => {
+  // Função para carregar o carrinho salvo com tratamento de erro robusto
+  const loadSavedCart = useCallback(async (userId) => {
+    setIsLoading(true);
     try {
+      // 1. Tentar carregar do Supabase
       const { data, error } = await supabase
         .from('user_carts')
         .select('cart_items')
         .eq('user_id', userId)
         .single();
 
-      if (error && error.code !== 'PGRST116') throw error;
-
-      if (!data) {
-        console.log('Nenhum carrinho encontrado para o usuário');
+      // 2. Se não existir registro (código PGRST116 é "no rows found")
+      if (error?.code === 'PGRST116') {
+        console.log('Nenhum carrinho encontrado, criando novo...');
+        await supabase
+          .from('user_carts')
+          .insert([{ user_id: userId, cart_items: [] }]);
         return;
       }
 
+      // 3. Se houver outro erro
+      if (error) throw error;
+
+      // 4. Se existir dados, atualizar o carrinho
       if (data?.cart_items) {
-        const formattedCart = data.cart_items.map(item => ({
-          id: item.id,
-          name: item.name,
-          price: Number(item.price),
-          image: item.image,
-          category: item.category || ''
-        }));
-        updateCart(formattedCart);
+        updateCart(data.cart_items);
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(data.cart_items));
       }
     } catch (error) {
-      console.error("Erro ao carregar carrinho:", error);
+      console.error("Erro ao carregar carrinho do Supabase:", error);
+      
+      // Fallback para localStorage
       try {
         const localCart = localStorage.getItem(`cart_${userId}`);
         if (localCart) {
           const parsedCart = JSON.parse(localCart);
           if (Array.isArray(parsedCart)) {
             updateCart(parsedCart);
+            // Tentar sincronizar com Supabase em segundo plano
+            saveCartToSupabase(parsedCart);
           }
         }
       } catch (localStorageError) {
-        console.error("Erro ao ler localStorage:", localStorageError);
+        console.error("Erro ao carregar do localStorage:", localStorageError);
       }
+    } finally {
+      setIsLoading(false);
     }
-  };
+  }, [updateCart]);
 
-  // Função para salvar o carrinho
-  const saveCartToSupabase = async (cartToSave = cart) => {
+  // Função para salvar o carrinho com retry automático
+  const saveCartToSupabase = useCallback(async (cartToSave = cart) => {
     if (!userId || isLoading) return;
 
-    try {
-      const formattedCart = cartToSave.map(item => ({
-        id: item.id,
-        name: item.name,
-        price: Number(item.price),
-        image: item.image,
-        category: item.category || ''
-      }));
+    const maxAttempts = 3;
+    let attempt = 1;
 
-      const { error } = await supabase
-        .from('user_carts')
-        .upsert({
-          user_id: userId,
-          cart_items: formattedCart,
-          updated_at: new Date().toISOString()
-        }, {
-          onConflict: 'user_id'
-        });
+    const saveWithRetry = async () => {
+      try {
+        const formattedCart = cartToSave.map(item => ({
+          id: item.id,
+          name: item.name,
+          price: Number(item.price),
+          image: item.image,
+          category: item.category || ''
+        }));
 
-      if (error) throw error;
+        const { error } = await supabase
+          .from('user_carts')
+          .upsert({
+            user_id: userId,
+            cart_items: formattedCart,
+            updated_at: new Date().toISOString()
+          }, { onConflict: 'user_id' });
 
-      localStorage.setItem(`cart_${userId}`, JSON.stringify(formattedCart));
-    } catch (error) {
-      console.error("Erro ao salvar carrinho:", error);
-      localStorage.setItem(`cart_${userId}`, JSON.stringify(cartToSave));
-    }
-  };
+        if (error) throw error;
+
+        // Salvar também no localStorage
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(formattedCart));
+      } catch (error) {
+        console.error(`Erro ao salvar carrinho (tentativa ${attempt}):`, error);
+        if (attempt < maxAttempts) {
+          attempt++;
+          await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+          return saveWithRetry();
+        }
+        // Último fallback: apenas localStorage
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(cartToSave));
+      }
+    };
+
+    await saveWithRetry();
+  }, [userId, cart, isLoading]);
 
   // Função para limpar o carrinho após finalizar pedido
   const clearCartInSupabase = async () => {
@@ -139,6 +159,9 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
       updateCart([]);
     } catch (error) {
       console.error("Erro ao limpar carrinho:", error);
+      // Fallback: limpar apenas localmente
+      localStorage.removeItem(`cart_${userId}`);
+      updateCart([]);
     }
   };
 
@@ -147,17 +170,23 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     let authSubscription;
 
     const checkSession = async () => {
+      setIsLoading(true);
       try {
+        // 1. Verificar sessão existente
         const { data: { session }, error } = await supabase.auth.getSession();
         
         if (error) throw error;
         
+        // 2. Se existir sessão, carregar dados
         if (session?.user) {
           setUserId(session.user.id);
           await loadSavedCart(session.user.id);
+        } else {
+          setUserId(null);
         }
       } catch (error) {
         console.error("Erro ao verificar sessão:", error);
+        setUserId(null);
       } finally {
         setSessionChecked(true);
         setIsLoading(false);
@@ -166,12 +195,14 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
 
     checkSession();
 
-    // Configura o listener para mudanças de autenticação
+    // 3. Configurar listener para mudanças de autenticação
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         if (session?.user) {
           setUserId(session.user.id);
           await loadSavedCart(session.user.id);
+        } else {
+          setUserId(null);
         }
       }
     );
@@ -183,18 +214,18 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         authSubscription.unsubscribe();
       }
     };
-  }, []);
+  }, [loadSavedCart]);
 
-  // Efeito para salvar o carrinho quando ele é alterado
+  // Efeito para salvar o carrinho quando alterado (com debounce)
   useEffect(() => {
-    if (sessionChecked && userId && cart.length > 0) {
-      const timer = setTimeout(() => {
-        saveCartToSupabase();
-      }, 500);
+    if (!sessionChecked || !userId || cart.length === 0) return;
 
-      return () => clearTimeout(timer);
-    }
-  }, [cart, userId, sessionChecked]);
+    const timer = setTimeout(() => {
+      saveCartToSupabase();
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [cart, userId, sessionChecked, saveCartToSupabase]);
 
   // Efeito para detectar tamanho da tela
   useEffect(() => {
