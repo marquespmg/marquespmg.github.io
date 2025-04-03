@@ -1,18 +1,81 @@
 import React, { useState, useEffect } from 'react';
+import { supabase } from './supabaseClient'; // Importa o cliente que você passou
 
-const Cart = ({ cart, removeFromCart }) => {
+const Cart = ({ cart, setCart, removeFromCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Função para verificar se o produto é vendido por caixa (tem "CX" na descrição)
+  // Função para carregar o carrinho do Supabase
+  const loadCartFromSupabase = async () => {
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    if (userError || !userData?.user) {
+      console.error('Erro ao pegar usuário ou usuário não logado:', userError);
+      return;
+    }
+
+    const userId = userData.user.id;
+    const { data, error } = await supabase
+      .from('user_carts')
+      .select('cart_items')
+      .eq('user_id', userId)
+      .single();
+
+    if (error) {
+      if (error.code === 'PGRST116') {
+        // Se não existe carrinho para o usuário, cria um vazio
+        const { error: insertError } = await supabase
+          .from('user_carts')
+          .insert({ user_id: userId, cart_items: [] });
+        if (insertError) {
+          console.error('Erro ao criar carrinho:', insertError);
+        } else {
+          setCart([]);
+        }
+      } else {
+        console.error('Erro ao carregar carrinho:', error);
+      }
+    } else {
+      setCart(data.cart_items || []);
+    }
+  };
+
+  // Função para atualizar o carrinho no Supabase
+  const updateCartInSupabase = async (updatedCart) => {
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    if (userError || !userData?.user) {
+      console.error('Erro ao pegar usuário:', userError);
+      return;
+    }
+
+    const userId = userData.user.id;
+    const { error } = await supabase
+      .from('user_carts')
+      .upsert({ user_id: userId, cart_items: updatedCart, updated_at: new Date().toISOString() });
+
+    if (error) {
+      console.error('Erro ao atualizar carrinho:', error);
+    }
+  };
+
+  // Carrega o carrinho ao montar o componente
+  useEffect(() => {
+    loadCartFromSupabase();
+  }, []);
+
+  // Sincroniza o carrinho no Supabase sempre que mudar
+  useEffect(() => {
+    if (cart.length > 0 || cart.length === 0) { // Evita chamada inicial desnecessária
+      updateCartInSupabase(cart);
+    }
+  }, [cart]);
+
+  // Função para verificar se o produto é vendido por caixa
   const isBoxProduct = (productName) => {
     return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
   };
 
-  // Função para calcular preço de produtos pesáveis (apenas para produtos que não são por caixa)
   const calculateProductPrice = (product) => {
-    // Se for produto vendido por caixa, retorna o preço normal sem cálculo por KG
     if (isBoxProduct(product.name)) {
       return {
         unitPrice: product.price,
@@ -22,9 +85,7 @@ const Cart = ({ cart, removeFromCart }) => {
       };
     }
 
-    // Verifica se o nome contém "KG" (produto pesável normal)
     const weightMatch = product.name.match(/(\d+\.?\d*)\s*KG/i);
-    
     if (weightMatch) {
       const weight = parseFloat(weightMatch[1]);
       return {
@@ -34,8 +95,7 @@ const Cart = ({ cart, removeFromCart }) => {
         isBox: false
       };
     }
-    
-    // Para produtos não pesáveis
+
     return {
       unitPrice: product.price,
       totalPrice: product.price,
@@ -44,29 +104,23 @@ const Cart = ({ cart, removeFromCart }) => {
     };
   };
 
-  // Função para extrair o peso da caixa quando for produto vendido por caixa
   const extractBoxWeight = (productName) => {
     const weightMatch = productName.match(/\(?\s*CX\s*(\d+\.?\d*)\s*KG\s*\)?/i);
     return weightMatch ? parseFloat(weightMatch[1]) : null;
   };
 
-  // Detecta o tamanho da tela
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
     handleResize();
     window.addEventListener('resize', handleResize);
-    
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Agrupa produtos por nome e calcula totais
   const groupedCart = cart.reduce((acc, product) => {
     const existing = acc.find(p => p.id === product.id);
     const calculated = calculateProductPrice(product);
-    
     if (existing) {
       existing.quantity++;
       existing.totalPrice += calculated.totalPrice;
@@ -84,15 +138,12 @@ const Cart = ({ cart, removeFromCart }) => {
     return acc;
   }, []);
 
-  // Calcula o TOTAL corretamente considerando ambos os tipos de produtos
   const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 750;
 
-  // WhatsApp Message Generator
   const generateWhatsAppMessage = () => {
     const itemsText = groupedCart.map(product => {
       const baseText = `▪ ${product.name}`;
-      
       if (product.isBox && product.boxWeight) {
         return `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${product.totalPrice.toFixed(2)}`;
       } else if (product.weight) {
@@ -105,14 +156,13 @@ const Cart = ({ cart, removeFromCart }) => {
       `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
       `💰 *TOTAL: R$ ${total.toFixed(2)}*\n` +
       `💳 *Pagamento:* ${paymentMethod}\n` +
-      `📦 *Entrega:* Frete gratis\n\n` +
+      `📦 *Entrega:* Frete grátis\n\n` +
       `Por favor, confirme meu pedido!`
     )}`;
   };
 
   return (
     <>
-      {/* Botão de toggle para mobile */}
       <div style={{
         position: 'fixed',
         right: '15px',
@@ -158,7 +208,6 @@ const Cart = ({ cart, removeFromCart }) => {
         </button>
       </div>
 
-      {/* Carrinho principal */}
       <div style={{
         position: 'fixed',
         right: isMobile ? (isOpen ? '0' : '-100%') : '25px',
@@ -177,7 +226,6 @@ const Cart = ({ cart, removeFromCart }) => {
         transition: 'right 0.3s ease',
         boxSizing: 'border-box'
       }}>
-        {/* Botão de fechar (mobile) */}
         {isMobile && (
           <button 
             onClick={() => setIsOpen(false)}
@@ -196,7 +244,6 @@ const Cart = ({ cart, removeFromCart }) => {
           </button>
         )}
 
-        {/* Header */}
         <div style={{
           backgroundColor: '#FFF9E6',
           color: '#E67E22',
@@ -212,7 +259,6 @@ const Cart = ({ cart, removeFromCart }) => {
           🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$750
         </div>
 
-        {/* Product List */}
         {groupedCart.length === 0 ? (
           <div style={{
             textAlign: 'center',
@@ -234,7 +280,6 @@ const Cart = ({ cart, removeFromCart }) => {
             }}>
               {groupedCart.map((product) => {
                 const calculated = calculateProductPrice(product);
-                
                 return (
                   <li key={`${product.id}-${product.quantity}`} style={{
                     display: 'flex',
@@ -345,7 +390,6 @@ const Cart = ({ cart, removeFromCart }) => {
               })}
             </ul>
 
-            {/* MENSAGEM DE AVISO */}
             <div style={{
               backgroundColor: '#FFF3E0',
               color: '#E65100',
@@ -363,7 +407,6 @@ const Cart = ({ cart, removeFromCart }) => {
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
-            {/* Order Summary */}
             <div style={{ 
               backgroundColor: '#FAFAFA',
               padding: '16px',
@@ -404,7 +447,6 @@ const Cart = ({ cart, removeFromCart }) => {
               </div>
             </div>
 
-            {/* Payment Method */}
             <div style={{ marginBottom: '20px' }}>
               <h3 style={{ 
                 fontSize: '16px',
@@ -446,7 +488,6 @@ const Cart = ({ cart, removeFromCart }) => {
               </div>
             </div>
 
-            {/* Checkout Button */}
             <button
               onClick={() => window.open(generateWhatsAppMessage(), '_blank')}
               disabled={!isTotalValid || !paymentMethod}
