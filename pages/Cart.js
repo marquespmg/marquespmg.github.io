@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
-// 1. Configuração do Supabase (com suas credenciais)
+// Configuração do Supabase
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Cart = ({ cart, removeFromCart, updateCart }) => {
-  // 2. Estados do componente
+  // Estados
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [userId, setUserId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [localFallback, setLocalFallback] = useState(false);
 
-  // 3. Funções originais (cálculo de preços)
+  // Funções de cálculo de preço (originais)
   const isBoxProduct = (productName) => {
     return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
   };
@@ -53,60 +54,96 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     return weightMatch ? parseFloat(weightMatch[1]) : null;
   };
 
-  // 4. Funções para persistência no Supabase
+  // Funções de persistência (corrigidas)
   const loadSavedCart = async (userId) => {
     try {
+      // 1. Tenta carregar do Supabase
       const { data, error } = await supabase
         .from('user_carts')
         .select('cart_items')
         .eq('user_id', userId)
         .single();
 
-      if (!error && data?.cart_items) {
+      // 2. Se não existir, cria registro vazio
+      if (error?.code === 'PGRST116') {
+        await supabase
+          .from('user_carts')
+          .insert([{ user_id: userId, cart_items: [] }]);
+        return;
+      }
+
+      // 3. Se outro erro, usa fallback
+      if (error) throw error;
+
+      // 4. Atualiza estado com dados do Supabase
+      if (data?.cart_items) {
         updateCart(data.cart_items);
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(data.cart_items));
       }
     } catch (error) {
       console.error("Erro ao carregar carrinho:", error);
+      // Fallback com localStorage
+      const localCart = localStorage.getItem(`cart_${userId}`);
+      if (localCart) {
+        setLocalFallback(true);
+        updateCart(JSON.parse(localCart));
+      }
     } finally {
       setIsLoading(false);
     }
   };
 
   const saveCartToSupabase = async () => {
-    if (!userId || cart.length === 0) return;
+    if (!userId) return;
+
     try {
-      await supabase
+      // Salva tanto no Supabase quanto no localStorage
+      const { error } = await supabase
         .from('user_carts')
         .upsert({
           user_id: userId,
           cart_items: cart,
-          updated_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        }, {
+          onConflict: 'user_id'
         });
+
+      if (error) throw error;
+      
+      localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
     } catch (error) {
       console.error("Erro ao salvar carrinho:", error);
+      setLocalFallback(true);
+      localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
     }
   };
 
   const clearCartInSupabase = async () => {
     if (!userId) return;
+    
     try {
-      await supabase.from('user_carts').delete().eq('user_id', userId);
+      await supabase
+        .from('user_carts')
+        .delete()
+        .eq('user_id', userId);
+      localStorage.removeItem(`cart_${userId}`);
     } catch (error) {
       console.error("Erro ao limpar carrinho:", error);
     }
   };
 
-  // 5. Efeitos colaterais
+  // Efeitos
   useEffect(() => {
-    const checkUserAndLoadCart = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        setUserId(user.id);
-        await loadSavedCart(user.id);
+    const handleAuthChange = async (event, session) => {
+      if (session?.user) {
+        setUserId(session.user.id);
+        await loadSavedCart(session.user.id);
       }
-      setIsLoading(false);
     };
-    checkUserAndLoadCart();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(handleAuthChange);
+    
+    return () => subscription.unsubscribe();
   }, []);
 
   useEffect(() => {
@@ -122,7 +159,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // 6. Lógica de agrupamento e cálculo
+  // Lógica de agrupamento (original)
   const groupedCart = cart.reduce((acc, product) => {
     const existing = acc.find(p => p.id === product.id);
     const calculated = calculateProductPrice(product);
@@ -162,7 +199,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     )}`;
   };
 
-  // 7. Renderização completa (JSX)
+  // Renderização completa (JSX original)
   return (
     <>
       {/* Botão do carrinho para mobile */}
@@ -262,6 +299,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
           marginTop: isMobile ? '30px' : '0'
         }}>
           🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$750
+          {localFallback && <div style={{ fontSize: '10px', marginTop: '4px' }}>(Modo offline - dados locais)</div>}
         </div>
 
         {/* Lista de produtos */}
