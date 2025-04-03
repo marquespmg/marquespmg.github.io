@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabaseClient'; // Updated import for single Supabase instance
+import { supabase } from '../lib/supabaseClient';
 
 const Cart = ({ cart, removeFromCart, updateCart }) => {
   // Estados do componente
@@ -49,35 +49,22 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     };
   };
 
-  // Função para carregar o carrinho salvo com melhor tratamento de erros
+  // Função para carregar o carrinho salvo
   const loadSavedCart = async (userId) => {
     try {
-      // 1. Busca o carrinho no Supabase
       const { data, error } = await supabase
         .from('user_carts')
         .select('cart_items')
         .eq('user_id', userId)
         .single();
 
-      // 2. Se não existir, cria um novo carrinho vazio
-      if (error?.code === 'PGRST116') {
-        const { error: insertError } = await supabase
-          .from('user_carts')
-          .insert([{ 
-            user_id: userId, 
-            cart_items: [] 
-          }]);
-        
-        if (insertError) throw insertError;
-        
-        updateCart([]);
+      if (error && error.code !== 'PGRST116') throw error;
+
+      if (!data) {
+        console.log('Nenhum carrinho encontrado para o usuário');
         return;
       }
 
-      // 3. Se houver outro erro, lança exceção
-      if (error) throw error;
-
-      // 4. Se existir, formata os itens e atualiza o estado
       if (data?.cart_items) {
         const formattedCart = data.cart_items.map(item => ({
           id: item.id,
@@ -90,7 +77,6 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
       }
     } catch (error) {
       console.error("Erro ao carregar carrinho:", error);
-      // Fallback com localStorage - melhorado
       try {
         const localCart = localStorage.getItem(`cart_${userId}`);
         if (localCart) {
@@ -101,20 +87,16 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         }
       } catch (localStorageError) {
         console.error("Erro ao ler localStorage:", localStorageError);
-        updateCart([]);
       }
-    } finally {
-      setIsLoading(false);
     }
   };
 
-  // Função para salvar o carrinho com melhor tratamento de erros
-  const saveCartToSupabase = async () => {
+  // Função para salvar o carrinho
+  const saveCartToSupabase = async (cartToSave = cart) => {
     if (!userId || isLoading) return;
 
     try {
-      // Formata os itens antes de salvar
-      const formattedCart = cart.map(item => ({
+      const formattedCart = cartToSave.map(item => ({
         id: item.id,
         name: item.name,
         price: Number(item.price),
@@ -122,7 +104,6 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         category: item.category || ''
       }));
 
-      // Salva no Supabase
       const { error } = await supabase
         .from('user_carts')
         .upsert({
@@ -135,19 +116,10 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
 
       if (error) throw error;
 
-      // Salva também no localStorage com tratamento de erro
-      try {
-        localStorage.setItem(`cart_${userId}`, JSON.stringify(formattedCart));
-      } catch (localStorageError) {
-        console.error("Erro ao salvar no localStorage:", localStorageError);
-      }
+      localStorage.setItem(`cart_${userId}`, JSON.stringify(formattedCart));
     } catch (error) {
       console.error("Erro ao salvar carrinho:", error);
-      try {
-        localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-      } catch (localStorageError) {
-        console.error("Erro ao fazer fallback no localStorage:", localStorageError);
-      }
+      localStorage.setItem(`cart_${userId}`, JSON.stringify(cartToSave));
     }
   };
 
@@ -163,11 +135,8 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
       
       if (error) throw error;
       
-      try {
-        localStorage.removeItem(`cart_${userId}`);
-      } catch (localStorageError) {
-        console.error("Erro ao limpar localStorage:", localStorageError);
-      }
+      localStorage.removeItem(`cart_${userId}`);
+      updateCart([]);
     } catch (error) {
       console.error("Erro ao limpar carrinho:", error);
     }
@@ -175,9 +144,10 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
 
   // Efeito para verificar a sessão ao carregar
   useEffect(() => {
+    let authSubscription;
+
     const checkSession = async () => {
       try {
-        // Verifica a sessão ativa
         const { data: { session }, error } = await supabase.auth.getSession();
         
         if (error) throw error;
@@ -185,15 +155,9 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         if (session?.user) {
           setUserId(session.user.id);
           await loadSavedCart(session.user.id);
-        } else {
-          setUserId(null);
-          updateCart([]);
         }
       } catch (error) {
         console.error("Erro ao verificar sessão:", error);
-        // Fallback para estado vazio
-        setUserId(null);
-        updateCart([]);
       } finally {
         setSessionChecked(true);
         setIsLoading(false);
@@ -208,20 +172,27 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         if (session?.user) {
           setUserId(session.user.id);
           await loadSavedCart(session.user.id);
-        } else {
-          setUserId(null);
-          updateCart([]);
         }
       }
     );
 
-    return () => subscription.unsubscribe();
+    authSubscription = subscription;
+
+    return () => {
+      if (authSubscription?.unsubscribe) {
+        authSubscription.unsubscribe();
+      }
+    };
   }, []);
 
   // Efeito para salvar o carrinho quando ele é alterado
   useEffect(() => {
-    if (sessionChecked && userId) {
-      saveCartToSupabase();
+    if (sessionChecked && userId && cart.length > 0) {
+      const timer = setTimeout(() => {
+        saveCartToSupabase();
+      }, 500);
+
+      return () => clearTimeout(timer);
     }
   }, [cart, userId, sessionChecked]);
 
@@ -313,6 +284,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
             alignItems: 'center',
             justifyContent: 'center'
           }}
+          aria-label="Abrir carrinho"
         >
           🛒 {cart.length > 0 && (
             <span style={{
@@ -368,6 +340,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               cursor: 'pointer',
               color: '#666'
             }}
+            aria-label="Fechar carrinho"
           >
             ×
           </button>
@@ -392,7 +365,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         {/* Lista de produtos */}
         {!sessionChecked ? (
           <div style={{ textAlign: 'center', padding: '20px' }}>
-            <p>Verificando sua sessão...</p>
+            <p>Carregando seu carrinho...</p>
           </div>
         ) : groupedCart.length === 0 ? (
           <div style={{
@@ -437,6 +410,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                         border: '1px solid #eee',
                         flexShrink: 0
                       }} 
+                      loading="lazy"
                     />
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{ 
@@ -499,6 +473,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                         e.currentTarget.style.background = 'none';
                         e.currentTarget.style.textDecoration = 'none';
                       }}
+                      aria-label={`Remover ${product.name} do carrinho`}
                     >
                       <span>×</span> Remover
                     </button>
@@ -644,6 +619,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                   e.currentTarget.style.boxShadow = 'none';
                 }
               }}
+              aria-disabled={!isTotalValid || !paymentMethod}
             >
               📲 Finalizar Pedido
             </button>
