@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
 
-// Lista de categorias (mantida igual)
 const categories = [
   'Acessórios', 'Bebidas', 'Conservas/Enlatados', 'Derivados de Ave', 
   'Derivados de Bovino', 'Derivados de Leite', 'Derivados de Suíno', 
@@ -10,7 +9,6 @@ const categories = [
   'Farináceos', 'Higiene', 'Orientais', 'Panificação', 'Salgados'
 ];
 
-// Lista de produtos (mantida exatamente igual)
 const products = [
   { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 2, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
@@ -1914,7 +1912,6 @@ const products = [
 ];
 
 const ProductsPage = () => {
-  // Estados originais (mantidos exatamente iguais)
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
@@ -1930,26 +1927,72 @@ const ProductsPage = () => {
   const [authError, setAuthError] = useState('');
   const [pageBlocked, setPageBlocked] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
   const productsPerPage = 20;
 
-  // NOVO ESTADO ADICIONADO (única adição)
-  const [loading, setLoading] = useState(false);
-
-  // Verifica usuário ao carregar (mantido igual)
+  // Carrega o usuário e o carrinho ao iniciar
   useEffect(() => {
-    const checkUser = async () => {
+    const checkUserAndCart = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         setUser(user);
         setPageBlocked(false);
+        await loadCartFromSupabase(user.id);
       }
     };
-    checkUser();
+    checkUserAndCart();
   }, []);
 
-  // Função de login (mantida exatamente igual)
+  // Função para carregar o carrinho do Supabase
+  const loadCartFromSupabase = async (userId) => {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from('user_carts')
+      .select('cart_items')
+      .eq('user_id', userId)
+      .single();
+
+    if (error) {
+      if (error.code === 'PGRST116') {
+        // Se não existe carrinho, cria um vazio
+        await supabase
+          .from('user_carts')
+          .insert({ user_id: userId, cart_items: [] });
+        setCart([]);
+        setTotal(0);
+      } else {
+        console.error('Erro ao carregar carrinho:', error);
+      }
+    } else {
+      const cartItems = data.cart_items || [];
+      setCart(cartItems);
+      setTotal(cartItems.reduce((sum, item) => sum + item.price, 0));
+    }
+    setLoading(false);
+  };
+
+  // Função para atualizar o carrinho no Supabase
+  const updateCartInSupabase = async (updatedCart) => {
+    if (!user) return;
+    const { error } = await supabase
+      .from('user_carts')
+      .upsert({ user_id: user.id, cart_items: updatedCart, updated_at: new Date().toISOString() });
+
+    if (error) {
+      console.error('Erro ao atualizar carrinho:', error);
+    }
+  };
+
+  // Sincroniza o carrinho no Supabase quando ele muda
+  useEffect(() => {
+    if (user && cart.length >= 0) { // Evita chamada inicial desnecessária
+      updateCartInSupabase(cart);
+    }
+  }, [cart, user]);
+
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
@@ -1959,16 +2002,17 @@ const ProductsPage = () => {
       setUser(data.user);
       setShowAuthModal(false);
       setPageBlocked(false);
+      await loadCartFromSupabase(data.user.id);
     } catch (error) {
       setAuthError(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Função de cadastro (MODIFICADA APENAS PARA ADICIONAR LOADING)
   const handleRegister = async (e) => {
     e.preventDefault();
-    setLoading(true); // Ativa loading
-
+    setLoading(true);
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
@@ -1981,43 +2025,32 @@ const ProductsPage = () => {
           }
         }
       });
-
       if (error) throw error;
-      
       const user = data?.user;
-      if (!user || !user.id) {
-        throw new Error("Erro ao obter o ID do usuário.");
-      }
+      if (!user || !user.id) throw new Error("Erro ao obter o ID do usuário.");
 
-      console.log("Novo usuário cadastrado no Auth:", user);
-
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      const { error: insertError } = await supabase
-        .from('usuarios')  
+      await supabase
+        .from('usuarios')
         .insert([
           {
-            id: user.id, 
+            id: user.id,
             nome: name,
             email: email,
             telefone: phone,
             cpf_cnpj: cpfCnpj,
-            senha: password 
+            senha: password
           }
         ]);
-
-      if (insertError) throw insertError;
 
       alert('Cadastro realizado com sucesso! Verifique seu e-mail para confirmação.');
       setAuthType('login');
     } catch (error) {
       setAuthError(error.message);
     } finally {
-      setLoading(false); // Desativa loading
+      setLoading(false);
     }
   };
 
-  // Função de logout (mantida igual)
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
@@ -2026,14 +2059,14 @@ const ProductsPage = () => {
     setTotal(0);
   };
 
-  // Funções do carrinho (mantidas exatamente iguais)
   const addToCart = (product) => {
     if (!user) {
       setShowAuthModal(true);
       return;
     }
     if (product.price > 0) {
-      setCart([...cart, product]);
+      const updatedCart = [...cart, product];
+      setCart(updatedCart);
       setTotal(total + product.price);
     }
   };
@@ -2045,7 +2078,6 @@ const ProductsPage = () => {
     setTotal(total - (removedItem ? removedItem.price : 0));
   };
 
-  // Filtros e paginação (mantidos exatamente iguais)
   const filteredProducts = products
     .filter(product => product.category === selectedCategory)
     .filter(product => 
@@ -2058,7 +2090,6 @@ const ProductsPage = () => {
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Estilos COMPLETOS (mantidos exatamente iguais)
   const styles = {
     container: {
       maxWidth: '1200px',
@@ -2273,7 +2304,6 @@ const ProductsPage = () => {
 
   return (
     <>
-      {/* OVERLAY DE LOADING ADICIONADO (única adição no JSX) */}
       {loading && (
         <div style={{
           position: 'fixed',
@@ -2294,7 +2324,6 @@ const ProductsPage = () => {
         </div>
       )}
 
-      {/* TODO O RESTO DO CÓDIGO PERMANECE EXATAMENTE IGUAL */}
       <div style={styles.container}>
         {pageBlocked && (
           <div style={styles.pageBlocker}>
@@ -2550,7 +2579,7 @@ const ProductsPage = () => {
           </div>
         )}
 
-        <Cart cart={cart} total={total} removeFromCart={removeFromCart} />
+        <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
       </div>
     </>
   );
