@@ -1,166 +1,72 @@
 import React, { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-const Cart = ({ cart, removeFromCart, updateCart }) => {
+const Cart = ({ cart, removeFromCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [userId, setUserId] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [userChecked, setUserChecked] = useState(false);
 
-  // Funções originais de cálculo
-  const isBoxProduct = (productName) => /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
-
-  const calculateProductPrice = (product) => {
-    if (isBoxProduct(product.name)) {
-      return { unitPrice: product.price, totalPrice: product.price, weight: null, isBox: true };
-    }
-    const weightMatch = product.name.match(/(\d+\.?\d*)\s*KG/i);
-    if (weightMatch) {
-      const weight = parseFloat(weightMatch[1]);
-      return { unitPrice: product.price, totalPrice: product.price * weight, weight, isBox: false };
-    }
-    return { unitPrice: product.price, totalPrice: product.price, weight: null, isBox: false };
+  // Função para verificar se o produto é vendido por caixa (tem "CX" na descrição)
+  const isBoxProduct = (productName) => {
+    return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
   };
 
+  // Função para calcular preço de produtos pesáveis (apenas para produtos que não são por caixa)
+  const calculateProductPrice = (product) => {
+    // Se for produto vendido por caixa, retorna o preço normal sem cálculo por KG
+    if (isBoxProduct(product.name)) {
+      return {
+        unitPrice: product.price,
+        totalPrice: product.price,
+        weight: null,
+        isBox: true
+      };
+    }
+
+    // Verifica se o nome contém "KG" (produto pesável normal)
+    const weightMatch = product.name.match(/(\d+\.?\d*)\s*KG/i);
+    
+    if (weightMatch) {
+      const weight = parseFloat(weightMatch[1]);
+      return {
+        unitPrice: product.price,
+        totalPrice: product.price * weight,
+        weight: weight,
+        isBox: false
+      };
+    }
+    
+    // Para produtos não pesáveis
+    return {
+      unitPrice: product.price,
+      totalPrice: product.price,
+      weight: null,
+      isBox: false
+    };
+  };
+
+  // Função para extrair o peso da caixa quando for produto vendido por caixa
   const extractBoxWeight = (productName) => {
     const weightMatch = productName.match(/\(?\s*CX\s*(\d+\.?\d*)\s*KG\s*\)?/i);
     return weightMatch ? parseFloat(weightMatch[1]) : null;
   };
 
-  // Funções de persistência corrigidas
-  const loadSavedCart = async (userId) => {
-    try {
-      // 1. Tenta carregar do Supabase
-      const { data, error } = await supabase
-        .from('user_carts')
-        .select('cart_items')
-        .eq('user_id', userId)
-        .single();
-
-      // 2. Se não existir, cria registro vazio
-      if (error?.code === 'PGRST116') {
-        await supabase
-          .from('user_carts')
-          .insert([{ user_id: userId, cart_items: [] }]);
-        updateCart([]);
-        return;
-      }
-
-      // 3. Se encontrar dados, atualiza o estado
-      if (data?.cart_items) {
-        updateCart(data.cart_items);
-      } else {
-        updateCart([]);
-      }
-
-    } catch (error) {
-      console.error("Erro ao carregar carrinho:", error);
-      // Fallback com localStorage
-      const localCart = localStorage.getItem(`cart_${userId}`);
-      if (localCart) {
-        updateCart(JSON.parse(localCart));
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const saveCartToSupabase = async () => {
-    if (!userId || isLoading) return;
-    
-    try {
-      await supabase
-        .from('user_carts')
-        .upsert({
-          user_id: userId,
-          cart_items: cart,
-          updated_at: new Date().toISOString()
-        }, {
-          onConflict: 'user_id'
-        });
-      
-      localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-    } catch (error) {
-      console.error("Erro ao salvar carrinho:", error);
-      localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-    }
-  };
-
-  const clearCartInSupabase = async () => {
-    if (!userId) return;
-    
-    try {
-      await supabase
-        .from('user_carts')
-        .delete()
-        .eq('user_id', userId);
-      localStorage.removeItem(`cart_${userId}`);
-    } catch (error) {
-      console.error("Erro ao limpar carrinho:", error);
-    }
-  };
-
-  // Verificação de autenticação persistente
+  // Detecta o tamanho da tela
   useEffect(() => {
-    const checkUser = async () => {
-      try {
-        const { data: { user }, error } = await supabase.auth.getUser();
-        
-        if (user) {
-          setUserId(user.id);
-          await loadSavedCart(user.id);
-        } else if (error) {
-          console.error("Erro ao verificar usuário:", error);
-        }
-      } catch (error) {
-        console.error("Erro geral na verificação:", error);
-      } finally {
-        setUserChecked(true);
-        setIsLoading(false);
-      }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
     };
-
-    checkUser();
-
-    // Ouvinte para mudanças de autenticação
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (session?.user) {
-        setUserId(session.user.id);
-        await loadSavedCart(session.user.id);
-      } else {
-        setUserId(null);
-        updateCart([]);
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  // Salva automaticamente quando o carrinho muda
-  useEffect(() => {
-    if (userChecked && userId) {
-      saveCartToSupabase();
-    }
-  }, [cart, userId, userChecked]);
-
-  // Detecta tamanho da tela
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    
     handleResize();
     window.addEventListener('resize', handleResize);
+    
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Lógica de agrupamento e cálculo
+  // Agrupa produtos por nome e calcula totais
   const groupedCart = cart.reduce((acc, product) => {
     const existing = acc.find(p => p.id === product.id);
     const calculated = calculateProductPrice(product);
+    
     if (existing) {
       existing.quantity++;
       existing.totalPrice += calculated.totalPrice;
@@ -172,18 +78,21 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         totalPrice: calculated.totalPrice,
         weight: calculated.weight,
         isBox: calculated.isBox,
-        boxWeight: calculated.isBox ? extractBoxWeight(product.name) : null,
+        boxWeight: calculated.isBox ? extractBoxWeight(product.name) : null
       });
     }
     return acc;
   }, []);
 
+  // Calcula o TOTAL corretamente considerando ambos os tipos de produtos
   const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 750;
 
+  // WhatsApp Message Generator
   const generateWhatsAppMessage = () => {
     const itemsText = groupedCart.map(product => {
       const baseText = `▪ ${product.name}`;
+      
       if (product.isBox && product.boxWeight) {
         return `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${product.totalPrice.toFixed(2)}`;
       } else if (product.weight) {
@@ -193,14 +102,17 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
     }).join('\n');
 
     return `https://wa.me/5511913572902?text=${encodeURIComponent(
-      `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n💰 *TOTAL: R$ ${total.toFixed(2)}*\n💳 *Pagamento:* ${paymentMethod}\n📦 *Entrega:* Frete gratis\n\nPor favor, confirme meu pedido!`
+      `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
+      `💰 *TOTAL: R$ ${total.toFixed(2)}*\n` +
+      `💳 *Pagamento:* ${paymentMethod}\n` +
+      `📦 *Entrega:* Frete gratis\n\n` +
+      `Por favor, confirme meu pedido!`
     )}`;
   };
 
-  // Renderização completa
   return (
     <>
-      {/* Botão do carrinho para mobile */}
+      {/* Botão de toggle para mobile */}
       <div style={{
         position: 'fixed',
         right: '15px',
@@ -246,7 +158,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         </button>
       </div>
 
-      {/* Container principal do carrinho */}
+      {/* Carrinho principal */}
       <div style={{
         position: 'fixed',
         right: isMobile ? (isOpen ? '0' : '-100%') : '25px',
@@ -265,6 +177,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
         transition: 'right 0.3s ease',
         boxSizing: 'border-box'
       }}>
+        {/* Botão de fechar (mobile) */}
         {isMobile && (
           <button 
             onClick={() => setIsOpen(false)}
@@ -283,7 +196,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
           </button>
         )}
 
-        {/* Header do carrinho */}
+        {/* Header */}
         <div style={{
           backgroundColor: '#FFF9E6',
           color: '#E67E22',
@@ -299,12 +212,8 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
           🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$750
         </div>
 
-        {/* Lista de produtos */}
-        {!userChecked ? (
-          <div style={{ textAlign: 'center', padding: '20px' }}>
-            <p>Verificando usuário...</p>
-          </div>
-        ) : groupedCart.length === 0 ? (
+        {/* Product List */}
+        {groupedCart.length === 0 ? (
           <div style={{
             textAlign: 'center',
             padding: '20px',
@@ -325,6 +234,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
             }}>
               {groupedCart.map((product) => {
                 const calculated = calculateProductPrice(product);
+                
                 return (
                   <li key={`${product.id}-${product.quantity}`} style={{
                     display: 'flex',
@@ -350,7 +260,10 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                           flexShrink: 0
                         }} 
                       />
-                      <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{
+                        flex: 1,
+                        minWidth: 0
+                      }}>
                         <p style={{ 
                           fontWeight: 600, 
                           margin: 0,
@@ -361,15 +274,27 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                           {product.name}
                         </p>
                         {product.isBox && product.boxWeight ? (
-                          <p style={{ margin: '4px 0 0', fontSize: '14px', color: '#666' }}>
+                          <p style={{ 
+                            margin: '4px 0 0',
+                            fontSize: '14px',
+                            color: '#666'
+                          }}>
                             {product.quantity}x Caixa • {product.boxWeight}KG
                           </p>
                         ) : calculated.weight ? (
-                          <p style={{ margin: '4px 0 0', fontSize: '14px', color: '#666' }}>
+                          <p style={{ 
+                            margin: '4px 0 0',
+                            fontSize: '14px',
+                            color: '#666'
+                          }}>
                             {product.quantity}x • {calculated.weight} KG × R$ {calculated.unitPrice.toFixed(2)}/KG
                           </p>
                         ) : (
-                          <p style={{ margin: '4px 0 0', fontSize: '14px', color: '#666' }}>
+                          <p style={{ 
+                            margin: '4px 0 0',
+                            fontSize: '14px',
+                            color: '#666'
+                          }}>
                             {product.quantity}x • R$ {calculated.unitPrice.toFixed(2)}
                           </p>
                         )}
@@ -381,7 +306,11 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                       justifyContent: 'space-between',
                       marginLeft: '62px'
                     }}>
-                      <p style={{ fontWeight: 600, margin: 0, color: '#E74C3C' }}>
+                      <p style={{ 
+                        fontWeight: 600,
+                        margin: 0,
+                        color: '#E74C3C'
+                      }}>
                         R$ {product.totalPrice.toFixed(2)}
                       </p>
                       <button
@@ -416,7 +345,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               })}
             </ul>
 
-            {/* Mensagem de aviso */}
+            {/* MENSAGEM DE AVISO */}
             <div style={{
               backgroundColor: '#FFF3E0',
               color: '#E65100',
@@ -434,7 +363,7 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
-            {/* Resumo do pedido */}
+            {/* Order Summary */}
             <div style={{ 
               backgroundColor: '#FAFAFA',
               padding: '16px',
@@ -442,11 +371,19 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               marginBottom: '20px',
               border: '1px solid #EEE'
             }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+              <div style={{ 
+                display: 'flex',
+                justifyContent: 'space-between',
+                marginBottom: '8px'
+              }}>
                 <span style={{ color: '#666' }}>Subtotal:</span>
                 <span style={{ fontWeight: 500 }}>R$ {total.toFixed(2)}</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+              <div style={{ 
+                display: 'flex',
+                justifyContent: 'space-between',
+                marginBottom: '12px'
+              }}>
                 <span style={{ color: '#666' }}>Frete:</span>
                 <span style={{ color: '#27AE60', fontWeight: 500 }}>Grátis</span>
               </div>
@@ -457,13 +394,17 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                 borderTop: '1px dashed #DDD'
               }}>
                 <span style={{ fontWeight: 600 }}>Total:</span>
-                <span style={{ fontWeight: 600, color: '#E74C3C', fontSize: '17px' }}>
+                <span style={{ 
+                  fontWeight: 600,
+                  color: '#E74C3C',
+                  fontSize: '17px'
+                }}>
                   R$ {total.toFixed(2)}
                 </span>
               </div>
             </div>
 
-            {/* Método de pagamento */}
+            {/* Payment Method */}
             <div style={{ marginBottom: '20px' }}>
               <h3 style={{ 
                 fontSize: '16px',
@@ -494,7 +435,10 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
                       value={method}
                       checked={paymentMethod === method}
                       onChange={() => setPaymentMethod(method)}
-                      style={{ marginRight: '10px', accentColor: '#2ECC71' }}
+                      style={{ 
+                        marginRight: '10px',
+                        accentColor: '#2ECC71'
+                      }}
                     />
                     {method}
                   </label>
@@ -502,12 +446,9 @@ const Cart = ({ cart, removeFromCart, updateCart }) => {
               </div>
             </div>
 
-            {/* Botão de finalizar pedido */}
+            {/* Checkout Button */}
             <button
-              onClick={() => {
-                window.open(generateWhatsAppMessage(), '_blank');
-                clearCartInSupabase();
-              }}
+              onClick={() => window.open(generateWhatsAppMessage(), '_blank')}
               disabled={!isTotalValid || !paymentMethod}
               style={{
                 width: '100%',
