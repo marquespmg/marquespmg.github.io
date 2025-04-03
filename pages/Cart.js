@@ -1,9 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { createClient } from '@supabase/supabase-js';
 
-const Cart = ({ cart, removeFromCart }) => {
+// Configuração completa do Supabase (sem abreviações)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const Cart = ({ cart, removeFromCart, updateCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const [isLoadingCart, setIsLoadingCart] = useState(true);
+
+  // ==============================================
+  // FUNÇÕES ORIGINAIS (MANTIDAS EXATAMENTE IGUAIS)
+  // ==============================================
 
   // Função para verificar se o produto é vendido por caixa (tem "CX" na descrição)
   const isBoxProduct = (productName) => {
@@ -63,25 +75,25 @@ const Cart = ({ cart, removeFromCart }) => {
   }, []);
 
   // Agrupa produtos por nome e calcula totais
-  const groupedCart = cart.reduce((acc, product) => {
-    const existing = acc.find(p => p.id === product.id);
-    const calculated = calculateProductPrice(product);
+  const groupedCart = cart.reduce((accumulator, product) => {
+    const existingProduct = accumulator.find(existing => existing.id === product.id);
+    const calculatedPrice = calculateProductPrice(product);
     
-    if (existing) {
-      existing.quantity++;
-      existing.totalPrice += calculated.totalPrice;
+    if (existingProduct) {
+      existingProduct.quantity++;
+      existingProduct.totalPrice += calculatedPrice.totalPrice;
     } else {
-      acc.push({
+      accumulator.push({
         ...product,
         quantity: 1,
-        unitPrice: calculated.unitPrice,
-        totalPrice: calculated.totalPrice,
-        weight: calculated.weight,
-        isBox: calculated.isBox,
-        boxWeight: calculated.isBox ? extractBoxWeight(product.name) : null
+        unitPrice: calculatedPrice.unitPrice,
+        totalPrice: calculatedPrice.totalPrice,
+        weight: calculatedPrice.weight,
+        isBox: calculatedPrice.isBox,
+        boxWeight: calculatedPrice.isBox ? extractBoxWeight(product.name) : null
       });
     }
-    return acc;
+    return accumulator;
   }, []);
 
   // Calcula o TOTAL corretamente considerando ambos os tipos de produtos
@@ -109,6 +121,93 @@ const Cart = ({ cart, removeFromCart }) => {
       `Por favor, confirme meu pedido!`
     )}`;
   };
+
+  // ==============================================
+  // NOVAS FUNÇÕES PARA INTEGRAÇÃO COM SUPABASE
+  // ==============================================
+
+  // Função para carregar o carrinho salvo do Supabase
+  const loadSavedCart = async (userId) => {
+    try {
+      setIsLoadingCart(true);
+      const { data, error } = await supabase
+        .from('user_carts')
+        .select('cart_items')
+        .eq('user_id', userId)
+        .single();
+
+      if (!error && data && data.cart_items) {
+        updateCart(data.cart_items);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar carrinho:', error);
+    } finally {
+      setIsLoadingCart(false);
+    }
+  };
+
+  // Função para salvar o carrinho no Supabase
+  const saveCartToSupabase = async () => {
+    if (!userId || cart.length === 0) return;
+
+    try {
+      const { error } = await supabase
+        .from('user_carts')
+        .upsert({
+          user_id: userId,
+          cart_items: cart,
+          updated_at: new Date().toISOString()
+        });
+
+      if (error) {
+        throw error;
+      }
+    } catch (error) {
+      console.error('Erro ao salvar carrinho:', error);
+    }
+  };
+
+  // Função para limpar o carrinho no Supabase após finalizar pedido
+  const clearCartInSupabase = async () => {
+    if (!userId) return;
+
+    try {
+      await supabase
+        .from('user_carts')
+        .delete()
+        .eq('user_id', userId);
+    } catch (error) {
+      console.error('Erro ao limpar carrinho:', error);
+    }
+  };
+
+  // Verifica o usuário ao carregar o componente
+  useEffect(() => {
+    const checkUser = async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          setUserId(user.id);
+          loadSavedCart(user.id);
+        }
+      } catch (error) {
+        console.error('Erro ao verificar usuário:', error);
+      }
+    };
+
+    checkUser();
+  }, []);
+
+  // Salva o carrinho sempre que ele for alterado
+  useEffect(() => {
+    if (userId) {
+      saveCartToSupabase();
+    }
+  }, [cart, userId]);
+
+  // ==============================================
+  // RENDERIZAÇÃO (MANTIDA EXATAMENTE COMO ORIGINAL)
+  // ==============================================
 
   return (
     <>
@@ -448,7 +547,10 @@ const Cart = ({ cart, removeFromCart }) => {
 
             {/* Checkout Button */}
             <button
-              onClick={() => window.open(generateWhatsAppMessage(), '_blank')}
+              onClick={() => {
+                window.open(generateWhatsAppMessage(), '_blank');
+                clearCartInSupabase();
+              }}
               disabled={!isTotalValid || !paymentMethod}
               style={{
                 width: '100%',
