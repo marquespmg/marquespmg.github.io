@@ -1911,6 +1911,29 @@ const products = [
   // Continue a adicionar seus produtos
 ];
 
+const banners = [
+  { 
+    id: 1,
+    desktop: 'https://i.imgur.com/NBAGNov.png',
+    mobile: 'https://i.imgur.com/NyBHpWi.png'
+  },
+  { 
+    id: 2,
+    desktop: 'https://i.imgur.com/Yy7RIna.png',
+    mobile: 'https://i.imgur.com/WiB6fYX.png'
+  },
+  { 
+    id: 3,
+    desktop: 'https://i.imgur.com/vVskyqX.png',
+    mobile: 'https://i.imgur.com/kLDkiAy.png'
+  },
+  { 
+    id: 4,
+    desktop: 'https://i.imgur.com/V3FS11U.png',
+    mobile: 'https://i.imgur.com/vYBBAd6.png'
+  }
+];
+
 const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -2299,6 +2322,25 @@ const ProductsPage = () => {
       marginBottom: '20px',
       color: '#095400',
       textAlign: 'center'
+    },
+    bannersContainer: {
+      margin: '40px 0 20px',
+      backgroundColor: '#fff',
+      borderRadius: '10px',
+      padding: '20px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
+    },
+    bannersGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: '20px',
+      alignItems: 'center'
+    },
+    bannerImage: {
+      width: '100%',
+      borderRadius: '8px',
+      transition: 'transform 0.3s',
+      cursor: 'pointer'
     }
   };
 
@@ -2481,6 +2523,22 @@ const ProductsPage = () => {
             </button>
           </div>
         )}
+
+        {/* Área dos Banners Adicionada */}
+        <div style={styles.bannersContainer}>
+          <div style={styles.bannersGrid}>
+            {banners.map(banner => (
+              <img
+                key={banner.id}
+                src={window.innerWidth > 768 ? banner.desktop : banner.mobile}
+                alt={`Banner ${banner.id}`}
+                style={styles.bannerImage}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              />
+            ))}
+          </div>
+        </div>
 
         {showAuthModal && (
           <div style={styles.authModal}>
