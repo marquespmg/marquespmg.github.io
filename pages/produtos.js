@@ -1929,7 +1929,7 @@ const banners = [
   },
   { 
     id: 4,
-    desktop: 'https://i.imgur.com/V3FS11U.png',
+    desktop: 'https://i.imgur.com/LmzBiOq.png',
     mobile: 'https://i.imgur.com/vYBBAd6.png'
   }
 ];
