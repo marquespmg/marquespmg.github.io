@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '/lib/supabaseClient'; // Importa o cliente que você passou
+import { supabase } from '../lib/supabaseClient';
 
 const Cart = ({ cart, setCart, removeFromCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
