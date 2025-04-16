@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
-import { supabase } from '/lib/supabaseClient';
+import { supabase } from '../lib/supabaseClient';
 
 const categories = [
   'Acessórios', 'Bebidas', 'Conservas/Enlatados', 'Derivados de Ave', 
@@ -1934,7 +1934,32 @@ const banners = [
   }
 ];
 
+// Hook personalizado para detectar tamanho da tela
+const useWindowSize = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowSize;
+};
+
 const ProductsPage = () => {
+  const { width: windowWidth } = useWindowSize();
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
@@ -1959,7 +1984,7 @@ const ProductsPage = () => {
   useEffect(() => {
     bannerIntervalRef.current = setInterval(() => {
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
-    }, 5000); // Muda a cada 5 segundos
+    }, 5000);
 
     return () => {
       if (bannerIntervalRef.current) {
@@ -2011,7 +2036,6 @@ const ProductsPage = () => {
 
     if (error) {
       if (error.code === 'PGRST116') {
-        // Se não existe carrinho, cria um vazio
         await supabase
           .from('user_carts')
           .insert({ user_id: userId, cart_items: [] });
@@ -2042,7 +2066,7 @@ const ProductsPage = () => {
 
   // Sincroniza o carrinho no Supabase quando ele muda
   useEffect(() => {
-    if (user && cart.length >= 0) { // Evita chamada inicial desnecessária
+    if (user && cart.length >= 0) {
       updateCartInSupabase(cart);
     }
   }, [cart, user]);
@@ -2593,10 +2617,10 @@ const ProductsPage = () => {
           </div>
         )}
 
-        {/* Área dos Banners Adicionada */}
+        {/* Área dos Banners */}
         <div style={styles.bannerContainer}>
           <img
-            src={window.innerWidth > 768 ? banners[currentBannerIndex].desktop : banners[currentBannerIndex].mobile}
+            src={windowWidth > 768 ? banners[currentBannerIndex].desktop : banners[currentBannerIndex].mobile}
             alt={`Banner ${currentBannerIndex + 1}`}
             style={styles.bannerImage}
           />
@@ -2669,69 +2693,69 @@ const ProductsPage = () => {
                   placeholder="E-mail"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  style={{ ...styles.searchInput, marginBottom: '15px' }}
-                  required
-                />
+                    style={{ ...styles.searchInput, marginBottom: '15px' }}
+                    required
+                  />
 
-                {authType === 'register' && (
-                  <>
-                    <input
-                      type="tel"
-                      placeholder="Telefone"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      style={{ ...styles.searchInput, marginBottom: '15px' }}
-                      required
-                    />
-                    <input
-                      type="text"
-                      placeholder="CPF/CNPJ"
-                      value={cpfCnpj}
-                      onChange={(e) => setCpfCnpj(e.target.value)}
-                      style={{ ...styles.searchInput, marginBottom: '15px' }}
-                      required
-                    />
-                  </>
-                )}
+                  {authType === 'register' && (
+                    <>
+                      <input
+                        type="tel"
+                        placeholder="Telefone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        style={{ ...styles.searchInput, marginBottom: '15px' }}
+                        required
+                      />
+                      <input
+                        type="text"
+                        placeholder="CPF/CNPJ"
+                        value={cpfCnpj}
+                        onChange={(e) => setCpfCnpj(e.target.value)}
+                        style={{ ...styles.searchInput, marginBottom: '15px' }}
+                        required
+                      />
+                    </>
+                  )}
 
-                <input
-                  type="password"
-                  placeholder="Senha"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  style={{ ...styles.searchInput, marginBottom: '20px' }}
-                  required
-                />
+                  <input
+                    type="password"
+                    placeholder="Senha"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={{ ...styles.searchInput, marginBottom: '20px' }}
+                    required
+                  />
 
-                <button
-                  type="submit"
-                  style={styles.addButton}
-                >
-                  {authType === 'login' ? 'Entrar' : 'Cadastrar'}
-                </button>
-
-                <p style={{ textAlign: 'center', marginTop: '15px' }}>
-                  {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
                   <button
-                    type="button"
-                    onClick={() => {
-                      setAuthType(authType === 'login' ? 'register' : 'login');
-                      setAuthError('');
-                    }}
-                    style={styles.authToggle}
+                    type="submit"
+                    style={styles.addButton}
                   >
-                    {authType === 'login' ? 'Cadastre-se' : 'Faça login'}
+                    {authType === 'login' ? 'Entrar' : 'Cadastrar'}
                   </button>
-                </p>
-              </form>
+
+                  <p style={{ textAlign: 'center', marginTop: '15px' }}>
+                    {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setAuthType(authType === 'login' ? 'register' : 'login');
+                        setAuthError('');
+                      }}
+                      style={styles.authToggle}
+                    >
+                      {authType === 'login' ? 'Cadastre-se' : 'Faça login'}
+                    </button>
+                  </p>
+                </form>
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
-      </div>
-    </>
-  );
-};
+          <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
+        </div>
+      </>
+    );
+  };
 
-export default ProductsPage;
+  export default ProductsPage;
