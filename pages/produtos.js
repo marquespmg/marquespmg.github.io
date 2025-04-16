@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
 
@@ -1951,7 +1951,41 @@ const ProductsPage = () => {
   const [pageBlocked, setPageBlocked] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const productsPerPage = 20;
+  const bannerIntervalRef = useRef(null);
+
+  // Efeito para o carrossel automático
+  useEffect(() => {
+    bannerIntervalRef.current = setInterval(() => {
+      setCurrentBannerIndex(prev => (prev + 1) % banners.length);
+    }, 5000); // Muda a cada 5 segundos
+
+    return () => {
+      if (bannerIntervalRef.current) {
+        clearInterval(bannerIntervalRef.current);
+      }
+    };
+  }, []);
+
+  const goToNextBanner = () => {
+    setCurrentBannerIndex(prev => (prev + 1) % banners.length);
+    resetBannerInterval();
+  };
+
+  const goToPrevBanner = () => {
+    setCurrentBannerIndex(prev => (prev - 1 + banners.length) % banners.length);
+    resetBannerInterval();
+  };
+
+  const resetBannerInterval = () => {
+    if (bannerIntervalRef.current) {
+      clearInterval(bannerIntervalRef.current);
+    }
+    bannerIntervalRef.current = setInterval(() => {
+      setCurrentBannerIndex(prev => (prev + 1) % banners.length);
+    }, 5000);
+  };
 
   // Carrega o usuário e o carrinho ao iniciar
   useEffect(() => {
@@ -2323,24 +2357,59 @@ const ProductsPage = () => {
       color: '#095400',
       textAlign: 'center'
     },
-    bannersContainer: {
-      margin: '40px 0 20px',
-      backgroundColor: '#fff',
+    bannerContainer: {
+      margin: '40px 0',
+      position: 'relative',
+      width: '100%',
+      overflow: 'hidden',
       borderRadius: '10px',
-      padding: '20px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
-    },
-    bannersGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-      gap: '20px',
-      alignItems: 'center'
+      boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
     },
     bannerImage: {
       width: '100%',
-      borderRadius: '8px',
-      transition: 'transform 0.3s',
-      cursor: 'pointer'
+      display: 'block',
+      transition: 'transform 0.5s ease',
+      borderRadius: '10px'
+    },
+    bannerNavButton: {
+      position: 'absolute',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      backgroundColor: 'rgba(0,0,0,0.5)',
+      color: 'white',
+      border: 'none',
+      borderRadius: '50%',
+      width: '40px',
+      height: '40px',
+      fontSize: '20px',
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 10
+    },
+    prevButton: {
+      left: '10px'
+    },
+    nextButton: {
+      right: '10px'
+    },
+    bannerDots: {
+      display: 'flex',
+      justifyContent: 'center',
+      marginTop: '10px'
+    },
+    dot: {
+      width: '12px',
+      height: '12px',
+      borderRadius: '50%',
+      backgroundColor: '#ccc',
+      margin: '0 5px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s'
+    },
+    activeDot: {
+      backgroundColor: '#095400'
     }
   };
 
@@ -2525,16 +2594,38 @@ const ProductsPage = () => {
         )}
 
         {/* Área dos Banners Adicionada */}
-        <div style={styles.bannersContainer}>
-          <div style={styles.bannersGrid}>
-            {banners.map(banner => (
-              <img
-                key={banner.id}
-                src={window.innerWidth > 768 ? banner.desktop : banner.mobile}
-                alt={`Banner ${banner.id}`}
-                style={styles.bannerImage}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+        <div style={styles.bannerContainer}>
+          <img
+            src={window.innerWidth > 768 ? banners[currentBannerIndex].desktop : banners[currentBannerIndex].mobile}
+            alt={`Banner ${currentBannerIndex + 1}`}
+            style={styles.bannerImage}
+          />
+          <button
+            onClick={goToPrevBanner}
+            style={{ ...styles.bannerNavButton, ...styles.prevButton }}
+            aria-label="Banner anterior"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={goToNextBanner}
+            style={{ ...styles.bannerNavButton, ...styles.nextButton }}
+            aria-label="Próximo banner"
+          >
+            &gt;
+          </button>
+          <div style={styles.bannerDots}>
+            {banners.map((_, index) => (
+              <div
+                key={index}
+                onClick={() => {
+                  setCurrentBannerIndex(index);
+                  resetBannerInterval();
+                }}
+                style={{
+                  ...styles.dot,
+                  ...(index === currentBannerIndex && styles.activeDot)
+                }}
               />
             ))}
           </div>
