@@ -1984,7 +1984,7 @@ const ProductsPage = () => {
   useEffect(() => {
     bannerIntervalRef.current = setInterval(() => {
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
-    }, 5000);
+    }, 10000);
 
     return () => {
       if (bannerIntervalRef.current) {
@@ -2009,7 +2009,7 @@ const ProductsPage = () => {
     }
     bannerIntervalRef.current = setInterval(() => {
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
-    }, 5000);
+    }, 10000);
   };
 
   // Carrega o usuário e o carrinho ao iniciar
