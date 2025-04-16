@@ -1977,7 +1977,8 @@ const ProductsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
-  const productsPerPage = 20;
+  const [expandedDescriptions, setExpandedDescriptions] = useState({});
+  const productsPerPage = windowWidth > 768 ? 20 : 10;
   const bannerIntervalRef = useRef(null);
 
   // Efeito para o carrossel automático
@@ -2159,6 +2160,13 @@ const ProductsPage = () => {
     setTotal(total - (removedItem ? removedItem.price : 0));
   };
 
+  const toggleDescription = (productId) => {
+    setExpandedDescriptions(prev => ({
+      ...prev,
+      [productId]: !prev[productId]
+    }));
+  };
+
   const filteredProducts = products
     .filter(product => product.category === selectedCategory)
     .filter(product => 
@@ -2171,19 +2179,20 @@ const ProductsPage = () => {
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
+  // Estilos responsivos
   const styles = {
     container: {
       maxWidth: '1200px',
       margin: '0 auto',
-      padding: '20px',
+      padding: windowWidth > 768 ? '20px' : '10px',
       backgroundColor: '#f9f9f9',
       minHeight: '100vh',
       position: 'relative'
     },
     header: {
       textAlign: 'center',
-      marginBottom: '20px',
-      padding: '20px',
+      marginBottom: windowWidth > 768 ? '20px' : '10px',
+      padding: windowWidth > 768 ? '20px' : '15px',
       backgroundColor: '#fff',
       borderRadius: '10px',
       boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
@@ -2203,16 +2212,16 @@ const ProductsPage = () => {
     searchBar: {
       display: 'flex',
       justifyContent: 'center',
-      margin: '25px 0',
+      margin: windowWidth > 768 ? '25px 0' : '15px 0',
       position: 'relative'
     },
     searchInput: {
       width: '100%',
       maxWidth: '500px',
-      padding: '12px 20px',
+      padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
       borderRadius: '30px',
       border: '1px solid #ddd',
-      fontSize: '16px',
+      fontSize: windowWidth > 768 ? '16px' : '14px',
       outline: 'none',
       boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
       transition: 'all 0.3s'
@@ -2221,20 +2230,27 @@ const ProductsPage = () => {
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'center',
-      gap: '10px',
-      margin: '30px 0',
-      padding: '15px',
+      gap: windowWidth > 768 ? '10px' : '5px',
+      margin: windowWidth > 768 ? '30px 0' : '15px 0',
+      padding: windowWidth > 768 ? '15px' : '10px',
       backgroundColor: '#fff',
       borderRadius: '10px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
+      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+      overflowX: windowWidth <= 768 ? 'auto' : 'visible',
+      whiteSpace: 'nowrap',
+      scrollbarWidth: 'none',
+      msOverflowStyle: 'none',
+      '&::-webkit-scrollbar': {
+        display: 'none'
+      }
     },
     categoryButton: {
       backgroundColor: '#f0f0f0',
       color: '#333',
       border: 'none',
-      padding: '10px 20px',
+      padding: windowWidth > 768 ? '10px 20px' : '8px 12px',
       borderRadius: '30px',
-      fontSize: '14px',
+      fontSize: windowWidth > 768 ? '14px' : '12px',
       fontWeight: '600',
       cursor: 'pointer',
       transition: 'all 0.3s',
@@ -2246,9 +2262,9 @@ const ProductsPage = () => {
     },
     productsGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-      gap: '25px',
-      margin: '30px 0'
+      gridTemplateColumns: windowWidth > 768 ? 'repeat(auto-fill, minmax(250px, 1fr))' : 'repeat(auto-fill, minmax(150px, 1fr))',
+      gap: windowWidth > 768 ? '25px' : '15px',
+      margin: windowWidth > 768 ? '30px 0' : '15px 0'
     },
     productCard: {
       backgroundColor: '#fff',
@@ -2259,45 +2275,63 @@ const ProductsPage = () => {
     },
     productImage: {
       width: '100%',
-      height: '180px',
+      height: windowWidth > 768 ? '180px' : '120px',
       objectFit: 'cover',
       borderBottom: '1px solid #eee'
     },
     productInfo: {
-      padding: '20px'
+      padding: windowWidth > 768 ? '20px' : '10px',
+      display: 'flex',
+      flexDirection: 'column',
+      height: windowWidth > 768 ? 'auto' : 'calc(100% - 120px)'
+    },
+    productNameContainer: {
+      flex: '1',
+      marginBottom: '10px'
     },
     productName: {
-      fontSize: '16px',
+      fontSize: windowWidth > 768 ? '16px' : '14px',
       fontWeight: '600',
       color: '#333',
-      marginBottom: '10px',
-      height: '40px',
-      overflow: 'hidden',
+      marginBottom: '5px',
       display: '-webkit-box',
-      WebkitLineClamp: 2,
-      WebkitBoxOrient: 'vertical'
+      WebkitLineClamp: expandedDescriptions ? 'unset' : (windowWidth > 768 ? 2 : 3),
+      WebkitBoxOrient: 'vertical',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis'
+    },
+    showMoreButton: {
+      background: 'none',
+      border: 'none',
+      color: '#095400',
+      fontSize: '12px',
+      cursor: 'pointer',
+      padding: '0',
+      marginTop: '5px',
+      textAlign: 'left',
+      fontWeight: '600'
     },
     productPrice: {
-      fontSize: '18px',
+      fontSize: windowWidth > 768 ? '18px' : '16px',
       fontWeight: '700',
       color: '#e53935',
-      margin: '15px 0'
+      margin: windowWidth > 768 ? '15px 0' : '10px 0'
     },
     unavailablePrice: {
-      fontSize: '18px',
+      fontSize: windowWidth > 768 ? '18px' : '16px',
       fontWeight: '700',
       color: '#999',
-      margin: '15px 0',
+      margin: windowWidth > 768 ? '15px 0' : '10px 0',
       textDecoration: 'line-through'
     },
     addButton: {
       width: '100%',
-      padding: '12px',
+      padding: windowWidth > 768 ? '12px' : '10px',
       backgroundColor: '#095400',
       color: '#fff',
       border: 'none',
       borderRadius: '6px',
-      fontSize: '15px',
+      fontSize: windowWidth > 768 ? '15px' : '13px',
       fontWeight: '600',
       cursor: 'pointer',
       transition: 'background-color 0.3s'
@@ -2310,16 +2344,18 @@ const ProductsPage = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      margin: '40px 0',
-      gap: '10px'
+      margin: windowWidth > 768 ? '40px 0' : '20px 0',
+      gap: windowWidth > 768 ? '10px' : '5px',
+      flexWrap: 'wrap'
     },
     pageButton: {
-      padding: '8px 15px',
+      padding: windowWidth > 768 ? '8px 15px' : '6px 10px',
       backgroundColor: '#fff',
       border: '1px solid #ddd',
       borderRadius: '6px',
       cursor: 'pointer',
-      transition: 'all 0.3s'
+      transition: 'all 0.3s',
+      fontSize: windowWidth > 768 ? '14px' : '12px'
     },
     activePage: {
       backgroundColor: '#095400',
@@ -2329,8 +2365,8 @@ const ProductsPage = () => {
     resultsInfo: {
       textAlign: 'center',
       color: '#666',
-      margin: '20px 0',
-      fontSize: '14px'
+      margin: windowWidth > 768 ? '20px 0' : '10px 0',
+      fontSize: windowWidth > 768 ? '14px' : '12px'
     },
     authModal: {
       position: 'fixed',
@@ -2342,12 +2378,13 @@ const ProductsPage = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      zIndex: 1000
+      zIndex: 1000,
+      padding: windowWidth > 768 ? '0' : '10px'
     },
     authBox: {
       backgroundColor: '#fff',
       borderRadius: '10px',
-      padding: '30px',
+      padding: windowWidth > 768 ? '30px' : '20px',
       width: '90%',
       maxWidth: '400px',
       boxShadow: '0 5px 20px rgba(0,0,0,0.2)'
@@ -2359,7 +2396,8 @@ const ProductsPage = () => {
       cursor: 'pointer',
       fontWeight: '600',
       textDecoration: 'underline',
-      marginLeft: '5px'
+      marginLeft: '5px',
+      fontSize: windowWidth > 768 ? 'inherit' : '14px'
     },
     pageBlocker: {
       position: 'fixed',
@@ -2372,17 +2410,18 @@ const ProductsPage = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      padding: '20px'
     },
     blockerMessage: {
-      fontSize: '24px',
+      fontSize: windowWidth > 768 ? '24px' : '18px',
       fontWeight: 'bold',
       marginBottom: '20px',
       color: '#095400',
       textAlign: 'center'
     },
     bannerContainer: {
-      margin: '40px 0',
+      margin: windowWidth > 768 ? '40px 0' : '20px 0',
       position: 'relative',
       width: '100%',
       overflow: 'hidden',
@@ -2403,9 +2442,9 @@ const ProductsPage = () => {
       color: 'white',
       border: 'none',
       borderRadius: '50%',
-      width: '40px',
-      height: '40px',
-      fontSize: '20px',
+      width: windowWidth > 768 ? '40px' : '30px',
+      height: windowWidth > 768 ? '40px' : '30px',
+      fontSize: windowWidth > 768 ? '20px' : '16px',
       cursor: 'pointer',
       display: 'flex',
       alignItems: 'center',
@@ -2424,8 +2463,8 @@ const ProductsPage = () => {
       marginTop: '10px'
     },
     dot: {
-      width: '12px',
-      height: '12px',
+      width: windowWidth > 768 ? '12px' : '8px',
+      height: windowWidth > 768 ? '12px' : '8px',
       borderRadius: '50%',
       backgroundColor: '#ccc',
       margin: '0 5px',
@@ -2476,17 +2515,23 @@ const ProductsPage = () => {
           <img 
             src="https://i.imgur.com/8EagMV6.png" 
             alt="Logo" 
-            style={{ height: '60px', marginBottom: '15px' }} 
+            style={{ 
+              height: windowWidth > 768 ? '60px' : '50px', 
+              marginBottom: windowWidth > 768 ? '15px' : '10px' 
+            }} 
           />
           <h1 style={{ 
             color: '#095400', 
-            fontSize: '28px', 
+            fontSize: windowWidth > 768 ? '28px' : '22px', 
             fontWeight: '700',
             marginBottom: '10px'
           }}>
             PMG ATACADISTA
           </h1>
-          <p style={{ color: '#666', fontSize: '16px' }}>
+          <p style={{ 
+            color: '#666', 
+            fontSize: windowWidth > 768 ? '16px' : '14px' 
+          }}>
             Encontre os melhores produtos para seu negócio
           </p>
         </div>
@@ -2549,7 +2594,19 @@ const ProductsPage = () => {
                 }}
               />
               <div style={styles.productInfo}>
-                <h3 style={styles.productName}>{product.name}</h3>
+                <div style={styles.productNameContainer}>
+                  <h3 style={styles.productName}>
+                    {product.name}
+                  </h3>
+                  {product.name.length > (windowWidth > 768 ? 40 : 30) && (
+                    <button 
+                      onClick={() => toggleDescription(product.id)}
+                      style={styles.showMoreButton}
+                    >
+                      {expandedDescriptions[product.id] ? 'Mostrar menos' : 'Mostrar mais'}
+                    </button>
+                  )}
+                </div>
                 
                 {user ? (
                   <p style={product.price > 0 ? styles.productPrice : styles.unavailablePrice}>
@@ -2661,7 +2718,8 @@ const ProductsPage = () => {
               <h2 style={{ 
                 color: '#095400', 
                 textAlign: 'center',
-                marginBottom: '20px'
+                marginBottom: '20px',
+                fontSize: windowWidth > 768 ? '24px' : '20px'
               }}>
                 {authType === 'login' ? 'Acesse Sua Conta' : 'Crie Sua Conta'}
               </h2>
@@ -2670,7 +2728,8 @@ const ProductsPage = () => {
                 <p style={{ 
                   color: '#e53935', 
                   textAlign: 'center',
-                  marginBottom: '15px'
+                  marginBottom: '15px',
+                  fontSize: windowWidth > 768 ? '16px' : '14px'
                 }}>
                   {authError}
                 </p>
@@ -2734,7 +2793,11 @@ const ProductsPage = () => {
                     {authType === 'login' ? 'Entrar' : 'Cadastrar'}
                   </button>
 
-                  <p style={{ textAlign: 'center', marginTop: '15px' }}>
+                  <p style={{ 
+                    textAlign: 'center', 
+                    marginTop: '15px',
+                    fontSize: windowWidth > 768 ? '16px' : '14px'
+                  }}>
                     {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
                     <button
                       type="button"
