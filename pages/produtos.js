@@ -1914,8 +1914,8 @@ const products = [
 const banners = [
   { 
     id: 1,
-    desktop: 'https://i.imgur.com/NBAGNov.png',
-    mobile: 'https://i.imgur.com/NyBHpWi.png'
+    desktop: 'https://i.imgur.com/lzxANGT.gif',
+    mobile: 'https://i.imgur.com/sS31EnX.gif'
   },
   { 
     id: 2,
