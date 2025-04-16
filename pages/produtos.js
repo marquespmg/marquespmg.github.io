@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
-import { supabase } from '/lib/supabaseClient';
+import { supabase } from 'https://marquespmg.github.io/lib/supabaseClient.js';
 
 const categories = [
   'Acessórios', 'Bebidas', 'Conservas/Enlatados', 'Derivados de Ave', 
