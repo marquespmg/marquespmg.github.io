@@ -39,6 +39,11 @@ export default function Home() {
   const slideInterval = useRef(null);
   const carouselRef = useRef(null);
 
+  // Estados para as notificações
+  const [showFreteToast, setShowFreteToast] = useState(false);
+  const [showWhatsappToast, setShowWhatsappToast] = useState(false);
+  const toastTimers = useRef([]);
+
   // Verifica o tamanho da tela e calcula proporções
   useEffect(() => {
     const checkScreenSize = () => {
@@ -47,7 +52,7 @@ export default function Home() {
       
       if (carouselRef.current) {
         const width = carouselRef.current.offsetWidth;
-        const height = mobile ? width / 3 : Math.min(width / 3, 400);
+        const height = mobile ? width / 2 : Math.min(width / 3, 400);
         setDimensions({ width, height });
       }
     };
@@ -85,12 +90,51 @@ export default function Home() {
   const startInterval = () => {
     slideInterval.current = setInterval(() => {
       goToNextSlide();
-    }, 5000); // Muda a cada 5 segundos
+    }, 5000);
   };
 
+  // Configuração das notificações
+  const showToast = (toastType) => {
+    if (toastType === 'frete') {
+      setShowFreteToast(true);
+      const timer = setTimeout(() => {
+        setShowFreteToast(false);
+      }, 10000); // 10 segundos de exibição
+      toastTimers.current.push(timer);
+    } else if (toastType === 'whatsapp') {
+      setShowWhatsappToast(true);
+      const timer = setTimeout(() => {
+        setShowWhatsappToast(false);
+      }, 10000); // 10 segundos de exibição
+      toastTimers.current.push(timer);
+    }
+  };
+
+  const hideToast = (toastType) => {
+    if (toastType === 'frete') {
+      setShowFreteToast(false);
+    } else if (toastType === 'whatsapp') {
+      setShowWhatsappToast(false);
+    }
+  };
+
+  // Iniciar temporizadores das notificações
   useEffect(() => {
-    startInterval();
-    return () => clearInterval(slideInterval.current);
+    const freteTimer = setTimeout(() => {
+      showToast('frete');
+    }, 15000); // Primeira notificação após 15 segundos
+
+    const whatsappTimer = setTimeout(() => {
+      showToast('whatsapp');
+    }, 24000); // Segunda notificação após 24 segundos (15 + 9)
+
+    toastTimers.current.push(freteTimer, whatsappTimer);
+
+    return () => {
+      // Limpar todos os temporizadores ao desmontar o componente
+      clearInterval(slideInterval.current);
+      toastTimers.current.forEach(timer => clearTimeout(timer));
+    };
   }, []);
 
   return (
@@ -98,31 +142,33 @@ export default function Home() {
       <Head>
         <title>Marques Vendas PMG - Distribuidora de Produtos de Qualidade</title>
         <meta name="description" content="Distribuidora autorizada com os melhores produtos para seu negócio. Qualidade garantida e atendimento especializado." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
 
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '20px',
+        padding: isMobile ? '10px' : '20px',
         minHeight: '100vh',
         backgroundColor: '#ffffff',
-        fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
+        fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
+        position: 'relative'
       }}>
-        {/* Cabeçalho Premium (mantido igual) */}
+        {/* Cabeçalho Premium - Adaptado para mobile */}
         <header style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          padding: '30px 0',
-          marginBottom: '10px'
+          padding: isMobile ? '15px 0' : '30px 0',
+          marginBottom: isMobile ? '5px' : '10px'
         }}>
           <div style={{
             backgroundColor: '#095400',
-            padding: '10px 25px',
+            padding: isMobile ? '8px 15px' : '10px 25px',
             borderRadius: '30px',
-            marginBottom: '15px',
+            marginBottom: isMobile ? '10px' : '15px',
             color: 'white',
-            fontSize: '0.9rem',
+            fontSize: isMobile ? '0.8rem' : '0.9rem',
             fontWeight: '600',
             boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
           }}>
@@ -133,105 +179,111 @@ export default function Home() {
             src="https://i.imgur.com/8EagMV6.png" 
             alt="Marques Vendas PMG" 
             style={{ 
-              width: '220px', 
-              margin: '15px 0',
+              width: isMobile ? '180px' : '220px',
+              margin: isMobile ? '10px 0' : '15px 0',
               filter: 'drop-shadow(0 3px 5px rgba(0,0,0,0.1))'
             }} 
           />
           
           <h1 style={{ 
             color: '#095400', 
-            fontSize: '2rem',
-            margin: '10px 0 15px',
+            fontSize: isMobile ? '1.5rem' : '2rem',
+            margin: isMobile ? '5px 0 10px' : '10px 0 15px',
             textAlign: 'center',
             fontWeight: '700',
-            lineHeight: '1.3'
+            lineHeight: '1.3',
+            padding: isMobile ? '0 10px' : '0'
           }}>
             Soluções Comerciais <span style={{whiteSpace: 'nowrap'}}>para Seu Negócio</span>
           </h1>
           
           <p style={{ 
             color: '#555', 
-            fontSize: '1rem',
+            fontSize: isMobile ? '0.9rem' : '1rem',
             maxWidth: '600px',
             textAlign: 'center',
             lineHeight: '1.6',
-            marginBottom: '20px'
+            marginBottom: isMobile ? '15px' : '20px',
+            padding: isMobile ? '0 15px' : '0'
           }}>
             Produtos de qualidade com garantia e procedência. Atendimento personalizado para revendedores e estabelecimentos comerciais.
           </p>
         </header>
 
-        {/* Destaques de Credibilidade (mantido igual) */}
+        {/* Destaques de Credibilidade - Adaptado para mobile */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
           flexWrap: 'wrap',
-          gap: '15px',
-          margin: '30px 0'
+          gap: isMobile ? '10px' : '15px',
+          margin: isMobile ? '20px 0' : '30px 0',
+          padding: isMobile ? '0 10px' : '0'
         }}>
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: '15px 20px',
+            padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            minWidth: '200px',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: '1.5rem', marginRight: '10px'}}>🚚</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🚚</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: '0.9rem'}}>Entrega Rápida</div>
-              <div style={{fontSize: '0.8rem', color: '#666'}}>Para toda região</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Entrega Rápida</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Para toda região</div>
             </div>
           </div>
           
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: '15px 20px',
+            padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            minWidth: '200px',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: '1.5rem', marginRight: '10px'}}>🏷️</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🏷️</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: '0.9rem'}}>Preço Competitivo</div>
-              <div style={{fontSize: '0.8rem', color: '#666'}}>Melhores condições</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Preço Competitivo</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Melhores condições</div>
             </div>
           </div>
           
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: '15px 20px',
+            padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            minWidth: '200px',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: '1.5rem', marginRight: '10px'}}>🛡️</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🛡️</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: '0.9rem'}}>Garantia</div>
-              <div style={{fontSize: '0.8rem', color: '#666'}}>Produtos certificados</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Garantia</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Produtos certificados</div>
             </div>
           </div>
         </div>
 
-        {/* Carrossel Otimizado */}
+        {/* Carrossel Otimizado - Melhorias para mobile */}
         <div 
           ref={carouselRef}
           style={{
             position: 'relative',
             width: '100%',
             maxWidth: '1200px',
-            margin: '40px auto',
+            margin: isMobile ? '20px auto' : '40px auto',
             overflow: 'hidden',
             borderRadius: '10px',
             boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
             height: `${dimensions.height}px`,
-            backgroundColor: '#f8f8f8' // Fundo para áreas não cobertas pela imagem
+            backgroundColor: '#f8f8f8'
           }}
         >
           <div style={{
@@ -260,28 +312,28 @@ export default function Home() {
                     height: 'auto',
                     maxWidth: '100%',
                     maxHeight: '100%',
-                    objectFit: 'contain', // Mantém a proporção sem cortar
+                    objectFit: 'contain',
                     display: 'block'
                   }}
-                  loading="lazy" // Otimização de carregamento
+                  loading="lazy"
                 />
               </div>
             ))}
           </div>
           
-          {/* Botões de navegação */}
+          {/* Botões de navegação - Melhorados para mobile */}
           <button 
             onClick={goToPrevSlide}
             style={{
               position: 'absolute',
               top: '50%',
-              left: '15px',
+              left: isMobile ? '5px' : '15px',
               transform: 'translateY(-50%)',
               background: 'rgba(255,255,255,0.7)',
               border: 'none',
               borderRadius: '50%',
-              width: '40px',
-              height: '40px',
+              width: isMobile ? '35px' : '40px',
+              height: isMobile ? '35px' : '40px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -291,7 +343,7 @@ export default function Home() {
             }}
             aria-label="Slide anterior"
           >
-            <span style={{ fontSize: '20px', color: '#095400' }}>❮</span>
+            <span style={{ fontSize: isMobile ? '16px' : '20px', color: '#095400' }}>❮</span>
           </button>
           
           <button 
@@ -299,13 +351,13 @@ export default function Home() {
             style={{
               position: 'absolute',
               top: '50%',
-              right: '15px',
+              right: isMobile ? '5px' : '15px',
               transform: 'translateY(-50%)',
               background: 'rgba(255,255,255,0.7)',
               border: 'none',
               borderRadius: '50%',
-              width: '40px',
-              height: '40px',
+              width: isMobile ? '35px' : '40px',
+              height: isMobile ? '35px' : '40px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -315,17 +367,17 @@ export default function Home() {
             }}
             aria-label="Próximo slide"
           >
-            <span style={{ fontSize: '20px', color: '#095400' }}>❯</span>
+            <span style={{ fontSize: isMobile ? '16px' : '20px', color: '#095400' }}>❯</span>
           </button>
           
-          {/* Indicadores de slide */}
+          {/* Indicadores de slide - Melhorados para mobile */}
           <div style={{
             position: 'absolute',
-            bottom: '15px',
+            bottom: isMobile ? '10px' : '15px',
             left: '50%',
             transform: 'translateX(-50%)',
             display: 'flex',
-            gap: '8px',
+            gap: isMobile ? '6px' : '8px',
             zIndex: 10
           }}>
             {banners.map((_, index) => (
@@ -333,8 +385,8 @@ export default function Home() {
                 key={index}
                 onClick={() => goToSlide(index)}
                 style={{
-                  width: '10px',
-                  height: '10px',
+                  width: isMobile ? '8px' : '10px',
+                  height: isMobile ? '8px' : '10px',
                   borderRadius: '50%',
                   border: 'none',
                   padding: 0,
@@ -348,19 +400,21 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Restante do seu site (mantido igual) */}
+        {/* Seção "Conheça Nossa Operação" - Adaptada para mobile */}
         <section style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          margin: '40px 0'
+          margin: isMobile ? '30px 0' : '40px 0',
+          padding: isMobile ? '0 10px' : '0'
         }}>
           <h2 style={{
             color: '#333',
-            fontSize: '1.4rem',
+            fontSize: isMobile ? '1.2rem' : '1.4rem',
             fontWeight: '600',
-            marginBottom: '20px',
-            textAlign: 'center'
+            marginBottom: isMobile ? '15px' : '20px',
+            textAlign: 'center',
+            padding: isMobile ? '0 10px' : '0'
           }}>
             Conheça Nossa Operação
           </h2>
@@ -371,7 +425,7 @@ export default function Home() {
             borderRadius: '10px',
             overflow: 'hidden',
             boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
-            marginBottom: '20px'
+            marginBottom: isMobile ? '15px' : '20px'
           }}>
             <video 
               width="100%" 
@@ -390,38 +444,44 @@ export default function Home() {
           
           <p style={{
             color: '#666',
-            fontSize: '0.9rem',
+            fontSize: isMobile ? '0.85rem' : '0.9rem',
             maxWidth: '500px',
             textAlign: 'center',
-            lineHeight: '1.6'
+            lineHeight: '1.6',
+            padding: isMobile ? '0 15px' : '0'
           }}>
             Nossa estrutura preparada para atender sua demanda com agilidade e qualidade.
           </p>
         </section>
 
+        {/* Seção CTA - Adaptada para mobile */}
         <section style={{
           textAlign: 'center',
-          margin: '50px 0',
-          padding: '30px 20px',
+          margin: isMobile ? '30px 0' : '50px 0',
+          padding: isMobile ? '20px 15px' : '30px 20px',
           backgroundColor: '#f8faf8',
           borderRadius: '12px',
-          boxShadow: '0 5px 15px rgba(0,0,0,0.05)'
+          boxShadow: '0 5px 15px rgba(0,0,0,0.05)',
+          width: isMobile ? 'calc(100% - 20px)' : 'auto',
+          marginLeft: isMobile ? '10px' : 'auto',
+          marginRight: isMobile ? '10px' : 'auto'
         }}>
           <h2 style={{
             color: '#095400',
-            fontSize: '1.5rem',
+            fontSize: isMobile ? '1.3rem' : '1.5rem',
             fontWeight: '600',
-            marginBottom: '15px'
+            marginBottom: isMobile ? '10px' : '15px'
           }}>
             Pronto para Melhorar Seu Estoque?
           </h2>
           
           <p style={{
             color: '#555',
-            fontSize: '1rem',
+            fontSize: isMobile ? '0.9rem' : '1rem',
             maxWidth: '600px',
-            margin: '0 auto 25px',
-            lineHeight: '1.6'
+            margin: isMobile ? '0 auto 15px' : '0 auto 25px',
+            lineHeight: '1.6',
+            padding: isMobile ? '0 10px' : '0'
           }}>
             Acesse nosso catálogo completo de produtos selecionados para atender seu negócio.
           </p>
@@ -430,12 +490,12 @@ export default function Home() {
             href="/produtos"
             style={{
               display: 'inline-block',
-              padding: '14px 32px',
+              padding: isMobile ? '12px 24px' : '14px 32px',
               backgroundColor: '#095400',
               color: '#fff',
               textDecoration: 'none',
               borderRadius: '8px',
-              fontSize: '1rem',
+              fontSize: isMobile ? '0.9rem' : '1rem',
               fontWeight: '600',
               transition: 'all 0.3s ease',
               boxShadow: '0 4px 10px rgba(9, 84, 0, 0.3)',
@@ -450,33 +510,127 @@ export default function Home() {
           </Link>
         </section>
 
+        {/* Rodapé - Adaptado para mobile */}
         <footer style={{
-          marginTop: '50px',
-          padding: '30px 20px',
+          marginTop: isMobile ? '30px' : '50px',
+          padding: isMobile ? '20px 15px' : '30px 20px',
           textAlign: 'center',
           color: '#666',
-          fontSize: '0.85rem',
+          fontSize: isMobile ? '0.8rem' : '0.85rem',
           borderTop: '1px solid #eee'
         }}>
           <div style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '20px',
-            marginBottom: '20px',
+            gap: isMobile ? '15px' : '20px',
+            marginBottom: isMobile ? '15px' : '20px',
             flexWrap: 'wrap'
           }}>
-            <a href="#" style={{color: '#095400', textDecoration: 'none'}}>Termos de Uso</a>
-            <a href="#" style={{color: '#095400', textDecoration: 'none'}}>Política de Privacidade</a>
-            <a href="#" style={{color: '#095400', textDecoration: 'none'}}>Contato</a>
+            <a href="#" style={{color: '#095400', textDecoration: 'none', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>Termos de Uso</a>
+            <a href="#" style={{color: '#095400', textDecoration: 'none', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>Política de Privacidade</a>
+            <a href="#" style={{color: '#095400', textDecoration: 'none', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>Contato</a>
           </div>
           
-          <p style={{margin: '5px 0'}}>
+          <p style={{margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>
             © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
           </p>
-          <p style={{margin: '5px 0', fontSize: '0.8rem', color: '#999'}}>
+          <p style={{margin: '5px 0', fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#999'}}>
             • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
           </p>
         </footer>
+
+        {/* Notificações - Estilo e Componentes */}
+        <style jsx>{`
+          /* Estilo das Notificações */
+          .promo-toast {
+            position: fixed;
+            bottom: ${isMobile ? '10px' : '20px'};
+            right: ${isMobile ? '10px' : '20px'};
+            background: #fff;
+            border-left: 4px solid #2ecc71;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: ${isMobile ? '12px' : '16px'};
+            max-width: ${isMobile ? '280px' : '320px'};
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.4s, transform 0.4s;
+            z-index: 1000;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            gap: ${isMobile ? '8px' : '12px'};
+          }
+          .promo-toast.show {
+            opacity: 1;
+            transform: translateX(0);
+          }
+          .promo-toast .icon {
+            font-size: ${isMobile ? '20px' : '24px'};
+            margin-top: 2px;
+          }
+          .promo-toast .content {
+            flex: 1;
+          }
+          .promo-toast .close-btn {
+            background: none;
+            border: none;
+            font-size: ${isMobile ? '16px' : '18px'};
+            cursor: pointer;
+            color: #95a5a6;
+            align-self: flex-start;
+          }
+          .promo-toast h4 {
+            margin: 0 0 ${isMobile ? '6px' : '8px'} 0;
+            color: #2c3e50;
+            font-size: ${isMobile ? '14px' : '16px'};
+            font-weight: 700;
+          }
+          .promo-toast p {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: ${isMobile ? '12px' : '14px'};
+            line-height: 1.4;
+          }
+          .promo-toast .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+          }
+          .promo-toast .whatsapp-btn {
+            display: inline-block;
+            margin-top: ${isMobile ? '8px' : '12px'};
+            background: #25D366;
+            color: white;
+            padding: ${isMobile ? '6px 10px' : '8px 12px'};
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: ${isMobile ? '12px' : '13px'};
+          }
+          .promo-toast .whatsapp-btn:hover {
+            background: #128C7E;
+          }
+        `}</style>
+
+        {/* Notificação 1: Frete Grátis */}
+        <div className={`promo-toast ${showFreteToast ? 'show' : ''}`}>
+          <div className="icon">🔔</div>
+          <div className="content">
+            <button className="close-btn" onClick={() => hideToast('frete')}>×</button>
+            <h4>Frete GRÁTIS e Pague só na entrega!</h4>
+            <p>Sem risco, sem enrolação. Receba seus produtos e <span className="highlight">pague só quando chegar</span>. Aproveite agora!</p>
+          </div>
+        </div>
+
+        {/* Notificação 2: WhatsApp */}
+        <div className={`promo-toast ${showWhatsappToast ? 'show' : ''}`}>
+          <div className="icon">📦</div>
+          <div className="content">
+            <button className="close-btn" onClick={() => hideToast('whatsapp')}>×</button>
+            <h4>Entregamos em até 48h!</h4>
+            <p>Tá com dúvida? Fala direto com a gente no WhatsApp 👉 <span className="highlight">(11) 91357-2902</span></p>
+            <a href="https://wa.me/5511913572902" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">CHAMAR NO WHATSAPP</a>
+          </div>
+        </div>
       </div>
     </>
   );
