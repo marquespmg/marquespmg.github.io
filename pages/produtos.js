@@ -1958,6 +1958,28 @@ const useWindowSize = () => {
   return windowSize;
 };
 
+// Componente de Notificação Toast
+const ToastNotification = ({ id, icon, title, message, highlight, whatsapp, onClose }) => {
+  return (
+    <div id={id} className="promo-toast">
+      <div className="icon">{icon}</div>
+      <div className="content">
+        <button className="close-btn" onClick={onClose}>×</button>
+        <h4>{title}</h4>
+        <p>
+          {message}
+          {highlight && <span className="highlight"> {highlight}</span>}
+        </p>
+        {whatsapp && (
+          <a href="https://wa.me/5511913572902" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+            CHAMAR NO WHATSAPP
+          </a>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const ProductsPage = () => {
   const { width: windowWidth } = useWindowSize();
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
@@ -1978,8 +2000,11 @@ const ProductsPage = () => {
   const [loading, setLoading] = useState(false);
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
+  const [showFreteToast, setShowFreteToast] = useState(false);
+  const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const productsPerPage = windowWidth > 768 ? 20 : 10;
   const bannerIntervalRef = useRef(null);
+  const toastTimeoutRef = useRef(null);
 
   // Efeito para o carrossel automático
   useEffect(() => {
@@ -1991,6 +2016,31 @@ const ProductsPage = () => {
       if (bannerIntervalRef.current) {
         clearInterval(bannerIntervalRef.current);
       }
+    };
+  }, []);
+
+  // Efeito para as notificações toast
+  useEffect(() => {
+    // Configuração do tempo (em milissegundos)
+    const TEMPO_INICIAL = 15000; // 15 segundos para a 1ª notificação
+    const INTERVALO = 9000;     // 9 segundos entre notificações
+    const DURACAO = 10000;       // 10 segundos de exibição
+
+    // Mostra a primeira notificação após o tempo definido
+    const firstTimeout = setTimeout(() => {
+      setShowFreteToast(true);
+      setTimeout(() => setShowFreteToast(false), DURACAO);
+    }, TEMPO_INICIAL);
+    
+    // Mostra a segunda notificação após o intervalo
+    const secondTimeout = setTimeout(() => {
+      setShowWhatsappToast(true);
+      setTimeout(() => setShowWhatsappToast(false), DURACAO);
+    }, TEMPO_INICIAL + INTERVALO);
+
+    return () => {
+      clearTimeout(firstTimeout);
+      clearTimeout(secondTimeout);
     };
   }, []);
 
@@ -2473,6 +2523,73 @@ const ProductsPage = () => {
     },
     activeDot: {
       backgroundColor: '#095400'
+    },
+    // Estilos para as notificações toast
+    toastContainer: {
+      position: 'fixed',
+      bottom: '20px',
+      right: '20px',
+      zIndex: 1000
+    },
+    promoToast: {
+      background: '#fff',
+      borderLeft: '4px solid #2ecc71',
+      borderRadius: '8px',
+      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+      padding: '16px',
+      maxWidth: '320px',
+      opacity: 0,
+      transform: 'translateX(20px)',
+      transition: 'opacity 0.4s, transform 0.4s',
+      display: 'flex',
+      gap: '12px',
+      marginBottom: '10px'
+    },
+    promoToastShow: {
+      opacity: 1,
+      transform: 'translateX(0)'
+    },
+    toastIcon: {
+      fontSize: '24px',
+      marginTop: '2px'
+    },
+    toastContent: {
+      flex: 1
+    },
+    toastCloseBtn: {
+      background: 'none',
+      border: 'none',
+      fontSize: '18px',
+      cursor: 'pointer',
+      color: '#95a5a6',
+      alignSelf: 'flex-start'
+    },
+    toastTitle: {
+      margin: '0 0 8px 0',
+      color: '#2c3e50',
+      fontSize: '16px',
+      fontWeight: 700
+    },
+    toastMessage: {
+      margin: 0,
+      color: '#7f8c8d',
+      fontSize: '14px',
+      lineHeight: 1.4
+    },
+    toastHighlight: {
+      color: '#e74c3c',
+      fontWeight: 'bold'
+    },
+    toastWhatsappBtn: {
+      display: 'inline-block',
+      marginTop: '12px',
+      background: '#25D366',
+      color: 'white',
+      padding: '8px 12px',
+      borderRadius: '6px',
+      textDecoration: 'none',
+      fontWeight: 'bold',
+      fontSize: '13px'
     }
   };
 
@@ -2497,6 +2614,53 @@ const ProductsPage = () => {
           Aguarde...
         </div>
       )}
+
+      {/* Notificações Toast */}
+      <div style={styles.toastContainer}>
+        {showFreteToast && (
+          <div style={{ ...styles.promoToast, ...styles.promoToastShow }}>
+            <div style={styles.toastIcon}>🔔</div>
+            <div style={styles.toastContent}>
+              <button 
+                style={styles.toastCloseBtn} 
+                onClick={() => setShowFreteToast(false)}
+              >
+                ×
+              </button>
+              <h4 style={styles.toastTitle}>Frete GRÁTIS + Pague só na entrega!</h4>
+              <p style={styles.toastMessage}>
+                Sem risco, sem enrolação. Receba seus produtos e <span style={styles.toastHighlight}>pague só quando chegar</span>. Aproveite agora!
+              </p>
+            </div>
+          </div>
+        )}
+
+        {showWhatsappToast && (
+          <div style={{ ...styles.promoToast, ...styles.promoToastShow }}>
+            <div style={styles.toastIcon}>📦</div>
+            <div style={styles.toastContent}>
+              <button 
+                style={styles.toastCloseBtn} 
+                onClick={() => setShowWhatsappToast(false)}
+              >
+                ×
+              </button>
+              <h4 style={styles.toastTitle}>Entregamos em até 48h!</h4>
+              <p style={styles.toastMessage}>
+                Tá com dúvida? Fala direto com a gente no WhatsApp 👉 <span style={styles.toastHighlight}>(11) 91357-2902</span>
+              </p>
+              <a 
+                href="https://wa.me/5511913572902" 
+                style={styles.toastWhatsappBtn} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                CHAMAR NO WHATSAPP
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
 
       <div style={styles.container}>
         {pageBlocked && (
