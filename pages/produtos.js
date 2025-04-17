@@ -2627,7 +2627,7 @@ const ProductsPage = () => {
               >
                 ×
               </button>
-              <h4 style={styles.toastTitle}>Frete GRÁTIS + Pague só na entrega!</h4>
+              <h4 style={styles.toastTitle}>Frete GRÁTIS e Pague só na entrega!</h4>
               <p style={styles.toastMessage}>
                 Sem risco, sem enrolação. Receba seus produtos e <span style={styles.toastHighlight}>pague só quando chegar</span>. Aproveite agora!
               </p>
