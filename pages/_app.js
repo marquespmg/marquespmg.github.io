@@ -9,29 +9,18 @@ function MyApp({ Component, pageProps }) {
   const [total, setTotal] = useState(0);
   const router = useRouter();
 
-  // Rastreia ViewContent quando a página de produto é acessada
+  // Expõe os dados do carrinho globalmente para detecção automática
   useEffect(() => {
-    if (router.pathname.includes('/produtos') {
-      // Supondo que você tenha os dados do produto disponíveis
-      const productData = getProductData(); // Você precisa implementar esta função
-      if (productData && typeof window.trackViewContent === 'function') {
-        window.trackViewContent(productData);
-      }
-    }
-  }, [router.pathname]);
+    window.__cartData = {
+      items: cart,
+      total: total
+    };
+  }, [cart, total]);
 
   const addToCart = (product) => {
     const newCart = [...cart, product];
     setCart(newCart);
     setTotal(total + product.price);
-    
-    // Dispara AddToCart
-    if (typeof window.trackAddToCart === 'function') {
-      window.trackAddToCart(product);
-      
-      // Mostra mensagem "Item adicionado!" (para compatibilidade com suas regras atuais)
-      alert('Item adicionado!');
-    }
   };
 
   const removeFromCart = (productName) => {
@@ -39,25 +28,6 @@ function MyApp({ Component, pageProps }) {
     setCart(updatedCart);
     const newTotal = updatedCart.reduce((sum, item) => sum + item.price, 0);
     setTotal(newTotal);
-  };
-
-  const initiateCheckout = () => {
-    // Dispara InitiateCheckout quando o usuário clica em "Finalizar Pedido"
-    if (typeof window.trackInitiateCheckout === 'function') {
-      window.trackInitiateCheckout(cart, total);
-    }
-    // Sua lógica de checkout aqui
-    router.push('/checkout?method=dinheiro'); // Exemplo para compatibilidade com suas regras
-  };
-
-  const handleLead = () => {
-    // Dispara Lead quando um cadastro é concluído com sucesso
-    if (typeof window.trackLead === 'function') {
-      window.trackLead();
-    }
-    // Mostra mensagem de sucesso (para compatibilidade com suas regras)
-    alert('Cadastro realizado com sucesso!');
-    router.push('/produtos');
   };
 
   return (
@@ -91,8 +61,6 @@ function MyApp({ Component, pageProps }) {
         total={total}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
-        initiateCheckout={initiateCheckout}
-        handleLead={handleLead}
       />
     </>
   );
