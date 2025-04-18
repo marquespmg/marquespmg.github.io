@@ -5,56 +5,75 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showAddedFeedback, setShowAddedFeedback] = useState(false);
 
   // Função para carregar o carrinho do Supabase
   const loadCartFromSupabase = async () => {
-    const { data: userData, error: userError } = await supabase.auth.getUser();
-    if (userError || !userData?.user) {
-      console.error('Erro ao pegar usuário ou usuário não logado:', userError);
-      return;
-    }
+    setIsLoading(true);
+    try {
+      const { data: userData, error: userError } = await supabase.auth.getUser();
+      if (userError || !userData?.user) {
+        console.error('Erro ao pegar usuário ou usuário não logado:', userError);
+        setIsLoading(false);
+        return;
+      }
 
-    const userId = userData.user.id;
-    const { data, error } = await supabase
-      .from('user_carts')
-      .select('cart_items')
-      .eq('user_id', userId)
-      .single();
+      const userId = userData.user.id;
+      const { data, error } = await supabase
+        .from('user_carts')
+        .select('cart_items')
+        .eq('user_id', userId)
+        .single();
 
-    if (error) {
-      if (error.code === 'PGRST116') {
-        // Se não existe carrinho para o usuário, cria um vazio
-        const { error: insertError } = await supabase
-          .from('user_carts')
-          .insert({ user_id: userId, cart_items: [] });
-        if (insertError) {
-          console.error('Erro ao criar carrinho:', insertError);
+      if (error) {
+        if (error.code === 'PGRST116') {
+          // Se não existe carrinho para o usuário, cria um vazio
+          const { error: insertError } = await supabase
+            .from('user_carts')
+            .insert({ user_id: userId, cart_items: [] });
+          
+          if (insertError) {
+            console.error('Erro ao criar carrinho:', insertError);
+          } else {
+            setCart([]);
+          }
         } else {
-          setCart([]);
+          console.error('Erro ao carregar carrinho:', error);
         }
       } else {
-        console.error('Erro ao carregar carrinho:', error);
+        setCart(data.cart_items || []);
       }
-    } else {
-      setCart(data.cart_items || []);
+    } catch (error) {
+      console.error('Erro inesperado:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   // Função para atualizar o carrinho no Supabase
   const updateCartInSupabase = async (updatedCart) => {
-    const { data: userData, error: userError } = await supabase.auth.getUser();
-    if (userError || !userData?.user) {
-      console.error('Erro ao pegar usuário:', userError);
-      return;
-    }
+    try {
+      const { data: userData, error: userError } = await supabase.auth.getUser();
+      if (userError || !userData?.user) {
+        console.error('Erro ao pegar usuário:', userError);
+        return;
+      }
 
-    const userId = userData.user.id;
-    const { error } = await supabase
-      .from('user_carts')
-      .upsert({ user_id: userId, cart_items: updatedCart, updated_at: new Date().toISOString() });
+      const userId = userData.user.id;
+      const { error } = await supabase
+        .from('user_carts')
+        .upsert({ 
+          user_id: userId, 
+          cart_items: updatedCart, 
+          updated_at: new Date().toISOString() 
+        });
 
-    if (error) {
-      console.error('Erro ao atualizar carrinho:', error);
+      if (error) {
+        console.error('Erro ao atualizar carrinho:', error);
+      }
+    } catch (error) {
+      console.error('Erro inesperado ao atualizar carrinho:', error);
     }
   };
 
@@ -65,10 +84,21 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 
   // Sincroniza o carrinho no Supabase sempre que mudar
   useEffect(() => {
-    if (cart.length > 0 || cart.length === 0) { // Evita chamada inicial desnecessária
+    if (cart.length > 0 || cart.length === 0) {
       updateCartInSupabase(cart);
     }
   }, [cart]);
+
+  // Feedback visual quando um item é adicionado
+  useEffect(() => {
+    if (cart.length > 0) {
+      setShowAddedFeedback(true);
+      const timer = setTimeout(() => {
+        setShowAddedFeedback(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [cart.length]);
 
   // Função para verificar se o produto é vendido por caixa
   const isBoxProduct = (productName) => {
@@ -109,18 +139,27 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     return weightMatch ? parseFloat(weightMatch[1]) : null;
   };
 
+  // Verifica se é mobile e monitora redimensionamento
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
+    
+    // Verificação inicial
     handleResize();
+    
+    // Adiciona listener para redimensionamento
     window.addEventListener('resize', handleResize);
+    
+    // Limpeza do listener
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Agrupa itens do carrinho e calcula totais
   const groupedCart = cart.reduce((acc, product) => {
     const existing = acc.find(p => p.id === product.id);
     const calculated = calculateProductPrice(product);
+    
     if (existing) {
       existing.quantity++;
       existing.totalPrice += calculated.totalPrice;
@@ -161,12 +200,32 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     )}`;
   };
 
+  // Função para ajustar quantidade
+  const adjustQuantity = (productId, adjustment) => {
+    const productIndex = cart.findIndex(item => item.id === productId);
+    if (productIndex === -1) return;
+
+    const newCart = [...cart];
+    if (adjustment === -1 && newCart[productIndex].quantity <= 1) {
+      // Remove o produto se a quantidade for 1 e o ajuste for -1
+      removeFromCart(productId);
+    } else {
+      // Ajusta a quantidade
+      newCart[productIndex] = {
+        ...newCart[productIndex],
+        quantity: newCart[productIndex].quantity + adjustment
+      };
+      setCart(newCart);
+    }
+  };
+
   return (
     <>
+      {/* Botão flutuante do carrinho */}
       <div style={{
         position: 'fixed',
         right: '15px',
-        top: '15px',
+        bottom: '15px',
         zIndex: 1001,
         display: isMobile ? 'block' : 'none'
       }}>
@@ -184,10 +243,13 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            position: 'relative'
           }}
+          aria-label="Abrir carrinho"
         >
-          🛒 {cart.length > 0 && (
+          🛒 
+          {cart.length > 0 && (
             <span style={{
               position: 'absolute',
               top: '-5px',
@@ -206,44 +268,104 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
             </span>
           )}
         </button>
+
+        {/* Feedback visual quando item é adicionado */}
+        {showAddedFeedback && (
+          <div style={{
+            position: 'absolute',
+            top: '-10px',
+            right: '-10px',
+            backgroundColor: '#27AE60',
+            color: 'white',
+            borderRadius: '12px',
+            padding: '4px 8px',
+            fontSize: '12px',
+            fontWeight: 'bold',
+            animation: 'fadeInOut 2s ease-in-out',
+            zIndex: 1002
+          }}>
+            Item adicionado!
+          </div>
+        )}
       </div>
 
+      {/* Overlay quando carrinho está aberto em mobile */}
+      {isMobile && isOpen && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            zIndex: 999,
+            backdropFilter: 'blur(2px)'
+          }}
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      {/* Container principal do carrinho */}
       <div style={{
         position: 'fixed',
         right: isMobile ? (isOpen ? '0' : '-100%') : '25px',
-        top: isMobile ? '0' : '25px',
+        bottom: isMobile ? '0' : 'auto',
+        top: isMobile ? 'auto' : '25px',
         width: isMobile ? '100%' : '380px',
-        height: isMobile ? '100vh' : 'auto',
+        height: isMobile ? '70vh' : 'auto',
         backgroundColor: '#fff',
-        borderRadius: isMobile ? '0' : '12px',
+        borderRadius: isMobile ? '12px 12px 0 0' : '12px',
         boxShadow: '0 6px 30px rgba(0, 0, 0, 0.12)',
         padding: '20px',
         zIndex: 1000,
-        maxHeight: isMobile ? '100vh' : '85vh',
+        maxHeight: isMobile ? '70vh' : '85vh',
         overflowY: 'auto',
         overflowX: 'hidden',
         fontFamily: "'Segoe UI', Roboto, sans-serif",
-        transition: 'right 0.3s ease',
-        boxSizing: 'border-box'
+        transition: isMobile ? 'transform 0.3s ease' : 'right 0.3s ease',
+        boxSizing: 'border-box',
+        transform: isMobile ? (isOpen ? 'translateY(0)' : 'translateY(100%)') : 'none'
       }}>
         {isMobile && (
-          <button 
-            onClick={() => setIsOpen(false)}
-            style={{
-              position: 'absolute',
-              top: '15px',
-              right: '15px',
-              background: 'none',
-              border: 'none',
-              fontSize: '24px',
-              cursor: 'pointer',
-              color: '#666'
-            }}
-          >
-            ×
-          </button>
+          <div style={{
+            position: 'sticky',
+            top: 0,
+            backgroundColor: '#fff',
+            paddingBottom: '10px',
+            zIndex: 1,
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            borderBottom: '1px solid #eee',
+            marginBottom: '10px'
+          }}>
+            <h2 style={{ 
+              fontSize: '18px',
+              fontWeight: 600,
+              margin: 0,
+              color: '#333'
+            }}>
+              Seu Carrinho
+            </h2>
+            <button 
+              onClick={() => setIsOpen(false)}
+              style={{
+                background: 'none',
+                border: 'none',
+                fontSize: '24px',
+                cursor: 'pointer',
+                color: '#666',
+                padding: '5px'
+              }}
+              aria-label="Fechar carrinho"
+            >
+              ×
+            </button>
+          </div>
         )}
 
+        {/* Banner de frete grátis */}
         <div style={{
           backgroundColor: '#FFF9E6',
           color: '#E67E22',
@@ -254,12 +376,28 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
           fontSize: isMobile ? '13px' : '14px',
           fontWeight: 600,
           border: '1px solid #FFEECC',
-          marginTop: isMobile ? '30px' : '0'
+          marginTop: isMobile ? '0' : '0'
         }}>
           🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$750
         </div>
 
-        {groupedCart.length === 0 ? (
+        {isLoading ? (
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100px'
+          }}>
+            <div style={{
+              border: '3px solid #f3f3f3',
+              borderTop: '3px solid #2ECC71',
+              borderRadius: '50%',
+              width: '30px',
+              height: '30px',
+              animation: 'spin 1s linear infinite'
+            }}></div>
+          </div>
+        ) : groupedCart.length === 0 ? (
           <div style={{
             textAlign: 'center',
             padding: '20px',
@@ -274,7 +412,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               listStyle: 'none', 
               padding: 0, 
               marginBottom: '20px',
-              maxHeight: isMobile ? '40vh' : 'none',
+              maxHeight: isMobile ? 'calc(70vh - 400px)' : 'none',
               overflowY: 'auto',
               overflowX: 'hidden'
             }}>
@@ -297,13 +435,14 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                         src={product.image} 
                         alt={product.name}
                         style={{
-                          width: '50px',
-                          height: '50px',
+                          width: '60px',
+                          height: '60px',
                           borderRadius: '6px',
                           objectFit: 'cover',
                           border: '1px solid #eee',
                           flexShrink: 0
                         }} 
+                        loading="lazy"
                       />
                       <div style={{
                         flex: 1,
@@ -314,7 +453,8 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                           margin: 0,
                           color: '#333',
                           wordBreak: 'break-word',
-                          whiteSpace: 'normal'
+                          whiteSpace: 'normal',
+                          fontSize: '15px'
                         }}>
                           {product.name}
                         </p>
@@ -349,47 +489,90 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      marginLeft: '62px'
+                      marginLeft: '72px'
                     }}>
-                      <p style={{ 
-                        fontWeight: 600,
-                        margin: 0,
-                        color: '#E74C3C'
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px'
                       }}>
-                        R$ {product.totalPrice.toFixed(2)}
-                      </p>
-                      <button
-                        onClick={() => removeFromCart(product.id)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
+                        <button
+                          onClick={() => adjustQuantity(product.id, -1)}
+                          style={{
+                            background: '#f0f0f0',
+                            border: 'none',
+                            borderRadius: '4px',
+                            width: '28px',
+                            height: '28px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            fontSize: '16px'
+                          }}
+                          aria-label="Reduzir quantidade"
+                        >
+                          -
+                        </button>
+                        <span style={{ fontSize: '14px' }}>{product.quantity}</span>
+                        <button
+                          onClick={() => adjustQuantity(product.id, 1)}
+                          style={{
+                            background: '#f0f0f0',
+                            border: 'none',
+                            borderRadius: '4px',
+                            width: '28px',
+                            height: '28px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            fontSize: '16px'
+                          }}
+                          aria-label="Aumentar quantidade"
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px'
+                      }}>
+                        <p style={{ 
+                          fontWeight: 600,
+                          margin: 0,
                           color: '#E74C3C',
-                          cursor: 'pointer',
-                          fontSize: '13px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '4px',
-                          padding: '4px 8px',
-                          borderRadius: '4px',
-                          transition: 'all 0.2s'
-                        }}
-                        onMouseOver={e => {
-                          e.currentTarget.style.background = '#FFEEEE';
-                          e.currentTarget.style.textDecoration = 'underline';
-                        }}
-                        onMouseOut={e => {
-                          e.currentTarget.style.background = 'none';
-                          e.currentTarget.style.textDecoration = 'none';
-                        }}
-                      >
-                        <span>×</span> Remover
-                      </button>
+                          fontSize: '15px'
+                        }}>
+                          R$ {product.totalPrice.toFixed(2)}
+                        </p>
+                        <button
+                          onClick={() => removeFromCart(product.id)}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            color: '#E74C3C',
+                            cursor: 'pointer',
+                            fontSize: '20px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            padding: '4px',
+                            borderRadius: '4px',
+                            transition: 'all 0.2s'
+                          }}
+                          aria-label="Remover item"
+                        >
+                          ×
+                        </button>
+                      </div>
                     </div>
                   </li>
                 );
               })}
             </ul>
 
+            {/* Aviso sobre pagamento */}
             <div style={{
               backgroundColor: '#FFF3E0',
               color: '#E65100',
@@ -407,6 +590,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
+            {/* Resumo do pedido */}
             <div style={{ 
               backgroundColor: '#FAFAFA',
               padding: '16px',
@@ -447,6 +631,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               </div>
             </div>
 
+            {/* Seção de pagamento */}
             <div style={{ marginBottom: '20px' }}>
               <h3 style={{ 
                 fontSize: '16px',
@@ -461,16 +646,20 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               </h3>
               <div style={{ display: 'grid', gap: '8px' }}>
                 {['Dinheiro', 'Cartão de Débito', 'Cartão de Crédito'].map(method => (
-                  <label key={method} style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: '10px 12px',
-                    borderRadius: '6px',
-                    background: paymentMethod === method ? '#E8F5E9' : '#FAFAFA',
-                    border: `1px solid ${paymentMethod === method ? '#A5D6A7' : '#EEE'}`,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s'
-                  }}>
+                  <label 
+                    key={method} 
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      padding: '12px 14px',
+                      borderRadius: '8px',
+                      background: paymentMethod === method ? '#E8F5E9' : '#FAFAFA',
+                      border: `1px solid ${paymentMethod === method ? '#A5D6A7' : '#EEE'}`,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                      fontSize: '15px'
+                    }}
+                  >
                     <input
                       type="radio"
                       name="payment"
@@ -478,7 +667,9 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       checked={paymentMethod === method}
                       onChange={() => setPaymentMethod(method)}
                       style={{ 
-                        marginRight: '10px',
+                        marginRight: '12px',
+                        width: '18px',
+                        height: '18px',
                         accentColor: '#2ECC71'
                       }}
                     />
@@ -488,25 +679,27 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               </div>
             </div>
 
+            {/* Botão de finalizar pedido */}
             <button
               onClick={() => window.open(generateWhatsAppMessage(), '_blank')}
               disabled={!isTotalValid || !paymentMethod}
               style={{
                 width: '100%',
-                padding: '14px',
+                padding: '16px',
                 background: isTotalValid && paymentMethod ? '#2ECC71' : '#95A5A6',
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
                 fontWeight: 600,
-                fontSize: '15px',
+                fontSize: '16px',
                 cursor: isTotalValid && paymentMethod ? 'pointer' : 'not-allowed',
                 transition: 'all 0.3s',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '8px',
-                marginBottom: '15px'
+                marginBottom: '15px',
+                boxShadow: isTotalValid && paymentMethod ? '0 2px 8px rgba(46, 204, 113, 0.3)' : 'none'
               }}
               onMouseOver={e => {
                 if (isTotalValid && paymentMethod) {
@@ -517,7 +710,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               onMouseOut={e => {
                 if (isTotalValid && paymentMethod) {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(46, 204, 113, 0.3)';
                 }
               }}
             >
@@ -537,6 +730,20 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
           </>
         )}
       </div>
+
+      {/* Estilos CSS para animações */}
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        @keyframes fadeInOut {
+          0% { opacity: 0; transform: translateY(10px); }
+          20% { opacity: 1; transform: translateY(0); }
+          80% { opacity: 1; transform: translateY(0); }
+          100% { opacity: 0; transform: translateY(-10px); }
+        }
+      `}</style>
     </>
   );
 };
