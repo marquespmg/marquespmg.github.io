@@ -14,18 +14,14 @@ function MyApp({ Component, pageProps }) {
     gtag('config', 'G-89LSRYEHF1');
   }, []);
 
-  // Adiciona produto ao carrinho
   const addToCart = (product) => {
     setCart([...cart, product]);
     setTotal(total + product.price);
   };
 
-  // Remove TODAS as unidades de um produto pelo NOME
   const removeFromCart = (productName) => {
     const updatedCart = cart.filter(item => item.name !== productName);
     setCart(updatedCart);
-    
-    // Recalcula o total
     const newTotal = updatedCart.reduce((sum, item) => sum + item.price, 0);
     setTotal(newTotal);
   };
@@ -52,6 +48,26 @@ function MyApp({ Component, pageProps }) {
             gtag('js', new Date());
             gtag('config', 'G-89LSRYEHF1');
           `,
+        }}
+      />
+
+      {/* Meta Pixel do Facebook */}
+      <Script
+        id="facebook-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '9491377657643670');
+            fbq('track', 'PageView');
+          `
         }}
       />
 
