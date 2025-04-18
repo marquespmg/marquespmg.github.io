@@ -20,14 +20,8 @@ function MyApp({ Component, pageProps }) {
     setTotal(total + product.price);
     
     // Evento AddToCart do Facebook Pixel
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'AddToCart', {
-        content_name: product.name,
-        content_ids: [product.id],
-        content_type: 'product',
-        value: product.price,
-        currency: 'BRL'
-      });
+    if (typeof window !== 'undefined' && typeof window.trackAddToCart === 'function') {
+      window.trackAddToCart(product);
     }
   };
 
@@ -40,38 +34,22 @@ function MyApp({ Component, pageProps }) {
 
   // Função para evento ViewContent
   const trackViewContent = (product) => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'ViewContent', {
-        content_name: product.name,
-        content_ids: [product.id],
-        content_type: 'product',
-        value: product.price,
-        currency: 'BRL'
-      });
+    if (typeof window !== 'undefined' && typeof window.trackViewContent === 'function') {
+      window.trackViewContent(product);
     }
   };
 
   // Função para evento InitiateCheckout
   const trackInitiateCheckout = () => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'InitiateCheckout', {
-        content_ids: cart.map(item => item.id),
-        content_type: 'product',
-        num_items: cart.length,
-        value: total,
-        currency: 'BRL'
-      });
+    if (typeof window !== 'undefined' && typeof window.trackInitiateCheckout === 'function') {
+      window.trackInitiateCheckout(cart, total);
     }
   };
 
   // Função para evento Lead
   const trackLead = () => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'Lead', {
-        content_name: 'Lead Form Submission',
-        currency: 'BRL',
-        value: 0.00
-      });
+    if (typeof window !== 'undefined' && typeof window.trackLead === 'function') {
+      window.trackLead();
     }
   };
 
@@ -97,26 +75,6 @@ function MyApp({ Component, pageProps }) {
             gtag('js', new Date());
             gtag('config', 'G-89LSRYEHF1');
           `,
-        }}
-      />
-
-      {/* Meta Pixel do Facebook */}
-      <Script
-        id="facebook-pixel"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '9491377657643670');
-            fbq('track', 'PageView');
-          `
         }}
       />
 
