@@ -2,24 +2,20 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import '../styles/globals.css';
-import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
-  const router = useRouter();
 
-  // Expõe os dados do carrinho globalmente para detecção automática
   useEffect(() => {
-    window.__cartData = {
-      items: cart,
-      total: total
-    };
-  }, [cart, total]);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-89LSRYEHF1');
+  }, []);
 
   const addToCart = (product) => {
-    const newCart = [...cart, product];
-    setCart(newCart);
+    setCart([...cart, product]);
     setTotal(total + product.price);
   };
 
@@ -52,6 +48,26 @@ function MyApp({ Component, pageProps }) {
             gtag('js', new Date());
             gtag('config', 'G-89LSRYEHF1');
           `,
+        }}
+      />
+
+      {/* Meta Pixel do Facebook */}
+      <Script
+        id="facebook-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '9491377657643670');
+            fbq('track', 'PageView');
+          `
         }}
       />
 
