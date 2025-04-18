@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="pt-BR">
       <Head>
-        {/* Ícone da aba do navegador */}
+        {/* Ícone e metadados */}
         <link rel="icon" href="/logo.png" />
         <meta name="description" content="Sua loja de produtos especiais" />
 
@@ -19,7 +19,7 @@ export default function Document() {
           `,
         }} />
 
-        {/* Meta Pixel Code - Versão Corrigida */}
+        {/* Meta Pixel Code - Versão Corrigida para Todos os Eventos */}
         <script dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -31,74 +31,66 @@ export default function Document() {
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
             
-            // Aguarda o carregamento completo do pixel
+            // Inicialização do Pixel
+            fbq('init', '9491377657643670');
+            fbq('track', 'PageView');
+            
+            // Função para garantir que o pixel está carregado
             function waitForFbq(callback) {
-              if(typeof fbq !== 'undefined') {
+              if(typeof fbq === 'function') {
                 callback();
               } else {
-                setTimeout(function() {
-                  waitForFbq(callback);
-                }, 100);
+                setTimeout(function() { waitForFbq(callback); }, 200);
               }
             }
             
-            waitForFbq(function() {
-              fbq('init', '9491377657643670');
-              fbq('track', 'PageView');
-              
-              // Funções globais com verificação robusta
-              window.trackFacebookEvent = function(eventName, parameters) {
-                waitForFbq(function() {
-                  fbq('track', eventName, parameters || {});
+            // Funções globais para todos os eventos
+            window.trackViewContent = function(product) {
+              waitForFbq(function() {
+                fbq('track', 'ViewContent', {
+                  content_name: product.name,
+                  content_ids: [product.id],
+                  content_type: 'product',
+                  value: product.price,
+                  currency: 'BRL'
                 });
-              };
-              
-              window.trackViewContent = function(product) {
-                waitForFbq(function() {
-                  fbq('track', 'ViewContent', {
-                    content_name: product.name,
-                    content_ids: [product.id],
-                    content_type: 'product',
-                    value: product.price,
-                    currency: 'BRL'
-                  });
+              });
+            };
+            
+            window.trackAddToCart = function(product) {
+              waitForFbq(function() {
+                fbq('track', 'AddToCart', {
+                  content_name: product.name,
+                  content_ids: [product.id],
+                  content_type: 'product',
+                  value: product.price,
+                  currency: 'BRL'
                 });
-              };
-              
-              window.trackAddToCart = function(product) {
-                waitForFbq(function() {
-                  fbq('track', 'AddToCart', {
-                    content_name: product.name,
-                    content_ids: [product.id],
-                    content_type: 'product',
-                    value: product.price,
-                    currency: 'BRL'
-                  });
+              });
+            };
+            
+            window.trackInitiateCheckout = function(products, totalValue) {
+              waitForFbq(function() {
+                fbq('track', 'InitiateCheckout', {
+                  content_ids: products.map(item => item.id),
+                  content_type: 'product',
+                  num_items: products.length,
+                  value: totalValue,
+                  currency: 'BRL'
                 });
-              };
-              
-              window.trackInitiateCheckout = function(products, total) {
-                waitForFbq(function() {
-                  fbq('track', 'InitiateCheckout', {
-                    content_ids: products.map(item => item.id),
-                    content_type: 'product',
-                    num_items: products.length,
-                    value: total,
-                    currency: 'BRL'
-                  });
+              });
+            };
+            
+            window.trackLead = function() {
+              waitForFbq(function() {
+                fbq('track', 'Lead', {
+                  content_category: 'sign_up',
+                  content_name: 'Cadastro realizado com sucesso',
+                  currency: 'BRL',
+                  value: 0.00
                 });
-              };
-              
-              window.trackLead = function() {
-                waitForFbq(function() {
-                  fbq('track', 'Lead', {
-                    content_name: 'Lead Form Submission',
-                    currency: 'BRL',
-                    value: 0.00
-                  });
-                });
-              };
-            });
+              });
+            };
           `,
         }} />
         <noscript>
