@@ -18,7 +18,7 @@ export default function Document() {
           `,
         }} />
 
-        {/* Meta Pixel Code - Detecção Automática */}
+        {/* Meta Pixel Code - Versão Simplificada e Corrigida */}
         <script dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -33,124 +33,70 @@ export default function Document() {
             fbq('init', '9491377657643670');
             fbq('track', 'PageView');
             
-            // Sistema de detecção automática
-            window.autoTrackEvents = {
-              lastProductViewed: null,
-              
-              init: function() {
-                this.detectViewContent();
-                this.detectAddToCart();
-                this.detectInitiateCheckout();
-                this.detectLead();
-              },
-              
-              detectViewContent: function() {
-                // Detecta páginas de produto
-                if(window.location.pathname.includes('/produtos/')) {
-                  const product = this.extractProductData();
-                  if(product) {
-                    fbq('track', 'ViewContent', {
-                      content_name: product.name,
-                      content_ids: [product.id],
-                      content_type: 'product',
-                      value: product.price,
-                      currency: 'BRL'
-                    });
-                    this.lastProductViewed = product;
-                  }
-                }
-              },
-              
-              extractProductData: function() {
-                // Tenta extrair dados do produto da página
-                try {
-                  const productName = document.querySelector('h1.product-title')?.innerText;
-                  const productId = window.location.pathname.split('/').pop();
-                  const productPrice = parseFloat(
-                    document.querySelector('.product-price')?.innerText
-                      .replace('R$', '')
-                      .replace(',', '.')
-                      .trim()
-                  );
-                  
-                  if(productName && productId && productPrice) {
-                    return {
-                      id: productId,
-                      name: productName,
-                      price: productPrice
-                    };
-                  }
-                } catch(e) {
-                  console.log('Erro ao extrair dados do produto:', e);
-                }
-                return null;
-              },
-              
-              detectAddToCart: function() {
-                // Monitora cliques em botões de adicionar ao carrinho
-                document.addEventListener('click', (e) => {
-                  const btn = e.target.closest('button');
-                  if(btn && (
-                    btn.innerText.includes('Adicionar ao Carrinho') || 
-                    btn.innerText.includes('Comprar') ||
-                    btn.id.includes('add-to-cart')
-                  )) {
-                    if(this.lastProductViewed) {
-                      fbq('track', 'AddToCart', {
-                        content_name: this.lastProductViewed.name,
-                        content_ids: [this.lastProductViewed.id],
-                        content_type: 'product',
-                        value: this.lastProductViewed.price,
-                        currency: 'BRL'
-                      });
-                    }
-                  }
-                });
-              },
-              
-              detectInitiateCheckout: function() {
-                // Detecta acesso à página de checkout
-                if(window.location.pathname.includes('/checkout')) {
-                  // Você precisaria ter acesso ao carrinho global
-                  if(window.__cartData) {
-                    fbq('track', 'InitiateCheckout', {
-                      content_ids: window.__cartData.items.map(i => i.id),
-                      num_items: window.__cartData.items.length,
-                      value: window.__cartData.total,
-                      currency: 'BRL'
-                    });
-                  }
-                }
-              },
-              
-              detectLead: function() {
-                // Detecta mensagens de sucesso de cadastro
-                const observer = new MutationObserver(() => {
-                  if(document.body.innerText.includes('Cadastro realizado com sucesso!')) {
-                    fbq('track', 'Lead', {
-                      content_name: 'Cadastro realizado',
-                      currency: 'BRL',
-                      value: 0.00
-                    });
-                  }
-                });
-                
-                observer.observe(document.body, {
-                  childList: true,
-                  subtree: true
-                });
+            // Função auxiliar para verificar se o pixel está carregado
+            function waitForFbq(callback) {
+              if(typeof fbq === 'function') {
+                callback();
+              } else {
+                setTimeout(function() { waitForFbq(callback); }, 100);
               }
-            };
+            }
             
-            // Inicia a detecção quando o DOM estiver pronto
-            if(document.readyState === 'complete') {
-              window.autoTrackEvents.init();
-            } else {
-              document.addEventListener('DOMContentLoaded', function() {
-                window.autoTrackEvents.init();
+            // Detecção automática de ViewContent em páginas de produto
+            if(window.location.pathname.includes('/produtos')) {
+              waitForFbq(function() {
+                fbq('track', 'ViewContent', {
+                  content_name: document.title,
+                  content_ids: [window.location.pathname.split('/').pop()],
+                  content_type: 'product',
+                  currency: 'BRL'
+                });
               });
             }
-          `,
+            
+            // Detecção de AddToCart via mutation observer
+            new MutationObserver(function(mutations) {
+              mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length) {
+                  Array.from(mutation.addedNodes).forEach(function(node) {
+                    if (node.nodeType === 1 && node.innerText && 
+                        (node.innerText.includes('Item adicionado!') || 
+                         node.innerText.includes('Adicionado ao carrinho'))) {
+                      waitForFbq(function() {
+                        fbq('track', 'AddToCart', {
+                          content_type: 'product',
+                          currency: 'BRL'
+                        });
+                      });
+                    }
+                  });
+                }
+              });
+            }).observe(document.body, {
+              childList: true,
+              subtree: true
+            });
+            
+            // Detecção de InitiateCheckout
+            if(window.location.pathname.includes('/checkout') {
+              waitForFbq(function() {
+                fbq('track', 'InitiateCheckout', {
+                  content_type: 'product',
+                  currency: 'BRL'
+                });
+              });
+            }
+            
+            // Detecção de Lead
+            if(document.body.innerText.includes('Cadastro realizado com sucesso!')) {
+              waitForFbq(function() {
+                fbq('track', 'Lead', {
+                  content_name: 'Cadastro realizado',
+                  currency: 'BRL'
+                });
+              });
+            }
+          `
         }} />
         <noscript>
           <img height="1" width="1" style={{ display: 'none' }}
