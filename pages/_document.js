@@ -19,7 +19,7 @@ export default function Document() {
           `,
         }} />
 
-        {/* Meta Pixel Code - Completo com todos os eventos padrão */}
+        {/* Meta Pixel Code - Versão Corrigida */}
         <script dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -30,68 +30,81 @@ export default function Document() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '9491377657643670');
-            fbq('track', 'PageView');
             
-            // Funções globais para eventos customizados
-            window.trackFacebookEvent = function(eventName, parameters) {
+            // Aguarda o carregamento completo do pixel
+            function waitForFbq(callback) {
               if(typeof fbq !== 'undefined') {
-                fbq('track', eventName, parameters);
+                callback();
+              } else {
+                setTimeout(function() {
+                  waitForFbq(callback);
+                }, 100);
               }
-            };
+            }
             
-            window.trackViewContent = function(product) {
-              if(typeof fbq !== 'undefined') {
-                fbq('track', 'ViewContent', {
-                  content_name: product.name,
-                  content_ids: [product.id],
-                  content_type: 'product',
-                  value: product.price,
-                  currency: 'BRL'
+            waitForFbq(function() {
+              fbq('init', '9491377657643670');
+              fbq('track', 'PageView');
+              
+              // Funções globais com verificação robusta
+              window.trackFacebookEvent = function(eventName, parameters) {
+                waitForFbq(function() {
+                  fbq('track', eventName, parameters || {});
                 });
-              }
-            };
-            
-            window.trackAddToCart = function(product) {
-              if(typeof fbq !== 'undefined') {
-                fbq('track', 'AddToCart', {
-                  content_name: product.name,
-                  content_ids: [product.id],
-                  content_type: 'product',
-                  value: product.price,
-                  currency: 'BRL'
+              };
+              
+              window.trackViewContent = function(product) {
+                waitForFbq(function() {
+                  fbq('track', 'ViewContent', {
+                    content_name: product.name,
+                    content_ids: [product.id],
+                    content_type: 'product',
+                    value: product.price,
+                    currency: 'BRL'
+                  });
                 });
-              }
-            };
-            
-            window.trackInitiateCheckout = function(products, total) {
-              if(typeof fbq !== 'undefined') {
-                fbq('track', 'InitiateCheckout', {
-                  content_ids: products.map(item => item.id),
-                  content_type: 'product',
-                  num_items: products.length,
-                  value: total,
-                  currency: 'BRL'
+              };
+              
+              window.trackAddToCart = function(product) {
+                waitForFbq(function() {
+                  fbq('track', 'AddToCart', {
+                    content_name: product.name,
+                    content_ids: [product.id],
+                    content_type: 'product',
+                    value: product.price,
+                    currency: 'BRL'
+                  });
                 });
-              }
-            };
-            
-            window.trackLead = function() {
-              if(typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                  content_name: 'Lead Form Submission',
-                  currency: 'BRL',
-                  value: 0.00
+              };
+              
+              window.trackInitiateCheckout = function(products, total) {
+                waitForFbq(function() {
+                  fbq('track', 'InitiateCheckout', {
+                    content_ids: products.map(item => item.id),
+                    content_type: 'product',
+                    num_items: products.length,
+                    value: total,
+                    currency: 'BRL'
+                  });
                 });
-              }
-            };
+              };
+              
+              window.trackLead = function() {
+                waitForFbq(function() {
+                  fbq('track', 'Lead', {
+                    content_name: 'Lead Form Submission',
+                    currency: 'BRL',
+                    value: 0.00
+                  });
+                });
+              };
+            });
           `,
         }} />
         <noscript>
           <img height="1" width="1" style={{ display: 'none' }}
             src="https://www.facebook.com/tr?id=9491377657643670&ev=PageView&noscript=1" />
         </noscript>
-        {/* End Meta Pixel Code */}
       </Head>
       <body>
         <Main />
