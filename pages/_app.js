@@ -15,8 +15,20 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    const newCart = [...cart, product];
+    setCart(newCart);
     setTotal(total + product.price);
+    
+    // Evento AddToCart do Facebook Pixel
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'AddToCart', {
+        content_name: product.name,
+        content_ids: [product.id],
+        content_type: 'product',
+        value: product.price,
+        currency: 'BRL'
+      });
+    }
   };
 
   const removeFromCart = (productName) => {
@@ -24,6 +36,43 @@ function MyApp({ Component, pageProps }) {
     setCart(updatedCart);
     const newTotal = updatedCart.reduce((sum, item) => sum + item.price, 0);
     setTotal(newTotal);
+  };
+
+  // Função para evento ViewContent
+  const trackViewContent = (product) => {
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'ViewContent', {
+        content_name: product.name,
+        content_ids: [product.id],
+        content_type: 'product',
+        value: product.price,
+        currency: 'BRL'
+      });
+    }
+  };
+
+  // Função para evento InitiateCheckout
+  const trackInitiateCheckout = () => {
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'InitiateCheckout', {
+        content_ids: cart.map(item => item.id),
+        content_type: 'product',
+        num_items: cart.length,
+        value: total,
+        currency: 'BRL'
+      });
+    }
+  };
+
+  // Função para evento Lead
+  const trackLead = () => {
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'Lead', {
+        content_name: 'Lead Form Submission',
+        currency: 'BRL',
+        value: 0.00
+      });
+    }
   };
 
   return (
@@ -77,6 +126,9 @@ function MyApp({ Component, pageProps }) {
         total={total}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
+        trackViewContent={trackViewContent}
+        trackInitiateCheckout={trackInitiateCheckout}
+        trackLead={trackLead}
       />
     </>
   );
