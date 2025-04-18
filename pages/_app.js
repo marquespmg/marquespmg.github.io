@@ -2,37 +2,35 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import '../styles/globals.css';
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
-  const [isPixelLoaded, setIsPixelLoaded] = useState(false);
+  const router = useRouter();
 
+  // Rastreia ViewContent quando a página de produto é acessada
   useEffect(() => {
-    // Google Analytics
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-89LSRYEHF1');
-
-    // Verifica se o pixel está carregado
-    const checkPixelLoaded = () => {
-      if (typeof window !== 'undefined' && typeof window.fbq !== 'undefined') {
-        setIsPixelLoaded(true);
-      } else {
-        setTimeout(checkPixelLoaded, 100);
+    if (router.pathname.includes('/produtos') {
+      // Supondo que você tenha os dados do produto disponíveis
+      const productData = getProductData(); // Você precisa implementar esta função
+      if (productData && typeof window.trackViewContent === 'function') {
+        window.trackViewContent(productData);
       }
-    };
-    checkPixelLoaded();
-  }, []);
+    }
+  }, [router.pathname]);
 
   const addToCart = (product) => {
     const newCart = [...cart, product];
     setCart(newCart);
     setTotal(total + product.price);
     
-    if (typeof window !== 'undefined' && typeof window.trackAddToCart === 'function') {
+    // Dispara AddToCart
+    if (typeof window.trackAddToCart === 'function') {
       window.trackAddToCart(product);
+      
+      // Mostra mensagem "Item adicionado!" (para compatibilidade com suas regras atuais)
+      alert('Item adicionado!');
     }
   };
 
@@ -43,22 +41,23 @@ function MyApp({ Component, pageProps }) {
     setTotal(newTotal);
   };
 
-  const trackViewContent = (product) => {
-    if (typeof window !== 'undefined' && typeof window.trackViewContent === 'function') {
-      window.trackViewContent(product);
-    }
-  };
-
-  const trackInitiateCheckout = () => {
-    if (typeof window !== 'undefined' && typeof window.trackInitiateCheckout === 'function') {
+  const initiateCheckout = () => {
+    // Dispara InitiateCheckout quando o usuário clica em "Finalizar Pedido"
+    if (typeof window.trackInitiateCheckout === 'function') {
       window.trackInitiateCheckout(cart, total);
     }
+    // Sua lógica de checkout aqui
+    router.push('/checkout?method=dinheiro'); // Exemplo para compatibilidade com suas regras
   };
 
-  const trackLead = () => {
-    if (typeof window !== 'undefined' && typeof window.trackLead === 'function') {
+  const handleLead = () => {
+    // Dispara Lead quando um cadastro é concluído com sucesso
+    if (typeof window.trackLead === 'function') {
       window.trackLead();
     }
+    // Mostra mensagem de sucesso (para compatibilidade com suas regras)
+    alert('Cadastro realizado com sucesso!');
+    router.push('/produtos');
   };
 
   return (
@@ -92,10 +91,8 @@ function MyApp({ Component, pageProps }) {
         total={total}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
-        trackViewContent={trackViewContent}
-        trackInitiateCheckout={trackInitiateCheckout}
-        trackLead={trackLead}
-        isPixelLoaded={isPixelLoaded}
+        initiateCheckout={initiateCheckout}
+        handleLead={handleLead}
       />
     </>
   );
