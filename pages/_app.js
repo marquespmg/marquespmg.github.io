@@ -6,12 +6,24 @@ import '../styles/globals.css';
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [isPixelLoaded, setIsPixelLoaded] = useState(false);
 
   useEffect(() => {
+    // Google Analytics
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-89LSRYEHF1');
+
+    // Verifica se o pixel está carregado
+    const checkPixelLoaded = () => {
+      if (typeof window !== 'undefined' && typeof window.fbq !== 'undefined') {
+        setIsPixelLoaded(true);
+      } else {
+        setTimeout(checkPixelLoaded, 100);
+      }
+    };
+    checkPixelLoaded();
   }, []);
 
   const addToCart = (product) => {
@@ -19,7 +31,6 @@ function MyApp({ Component, pageProps }) {
     setCart(newCart);
     setTotal(total + product.price);
     
-    // Evento AddToCart do Facebook Pixel
     if (typeof window !== 'undefined' && typeof window.trackAddToCart === 'function') {
       window.trackAddToCart(product);
     }
@@ -32,21 +43,18 @@ function MyApp({ Component, pageProps }) {
     setTotal(newTotal);
   };
 
-  // Função para evento ViewContent
   const trackViewContent = (product) => {
     if (typeof window !== 'undefined' && typeof window.trackViewContent === 'function') {
       window.trackViewContent(product);
     }
   };
 
-  // Função para evento InitiateCheckout
   const trackInitiateCheckout = () => {
     if (typeof window !== 'undefined' && typeof window.trackInitiateCheckout === 'function') {
       window.trackInitiateCheckout(cart, total);
     }
   };
 
-  // Função para evento Lead
   const trackLead = () => {
     if (typeof window !== 'undefined' && typeof window.trackLead === 'function') {
       window.trackLead();
@@ -87,6 +95,7 @@ function MyApp({ Component, pageProps }) {
         trackViewContent={trackViewContent}
         trackInitiateCheckout={trackInitiateCheckout}
         trackLead={trackLead}
+        isPixelLoaded={isPixelLoaded}
       />
     </>
   );
