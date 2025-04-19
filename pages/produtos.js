@@ -942,7 +942,7 @@ const products = [
   { id: 930, name: 'RICOTA FRESCA CORONATA 520 G', category: 'Derivados de Leite', price: 15.45, image: 'https://i.imgur.com/3yy6PFM.png' },
   { id: 931, name: 'RICOTA FRESCA YEMA 400 G', category: 'Derivados de Leite', price: 13.13, image: 'https://i.imgur.com/H9yDYHo.png' },
   { id: 932, name: 'APRESUNTADO AURORA 3,7 KG PÇ', category: 'Derivados de Suíno', price: 68.10, image: 'https://i.imgur.com/p0NS0so.png' },
-  { id: 933, name: 'APRESUNTADO DÁLIA – PEÇA INTEIRA (PESO MÉDIO: APROXIMADAMENTE 3,7KILO)', category: 'Derivados de Suíno', price: 55.69, image: 'https://i.imgur.com/Nw1nxqp.png' },
+  { id: 933, name: 'APRESUNTADO DÁLIA 3,7 KILO PÇ', category: 'Derivados de Suíno', price: 55.69, image: 'https://i.imgur.com/Nw1nxqp.png' },
   { id: 934, name: 'APRESUNTADO DELI GOURMET 3,35 KG PÇ', category: 'Derivados de Suíno', price: 54.80, image: 'https://i.imgur.com/C3GUInY.png' },
   { id: 935, name: 'APRESUNTADO PEPERI AURORA 3,7 KG PÇ', category: 'Derivados de Suíno', price: 62.54, image: 'https://i.imgur.com/snPNSQf.png' },
   { id: 936, name: 'APRESUNTADO PERDIGÃO 3,5 KG PÇ', category: 'Derivados de Suíno', price: 67.89, image: 'https://i.imgur.com/11gcRrt.png' },
