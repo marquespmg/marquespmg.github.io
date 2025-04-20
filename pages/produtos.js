@@ -10,7 +10,6 @@ const categories = [
 ];
 
 const products = [
-  { id: id, name: 'name', category: 'category', price: price, image: 'image' },
   { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 2, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
   { id: 3, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/8Zlhcs4.png' },
