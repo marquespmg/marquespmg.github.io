@@ -534,7 +534,7 @@ const products = [
   { id: 522, name: 'ALMÔNDEGA AVES E BOVINA CONGELADA BRASA 1 KG', category: 'Derivados de Bovino', price: 21.56, image: 'https://i.imgur.com/uoueBYP.png' },
   { id: 523, name: 'ALMÔNDEGA BOVINA ANGUS CONGELADA BRASA 500 G', category: 'Derivados de Bovino', price: 17.97, image: 'https://i.imgur.com/WTj9fRx.png' },
   { id: 524, name: 'ARANHA DA ALCATRA BOVINA CONGELADA BOI BRASIL 2 KG', category: 'Derivados de Bovino', price: 31.9, image: 'https://i.imgur.com/pNVUDBn.png' },
-  { id: 525, name: 'ARANHA DA ALCATRA BOVINA CONGELADA TODA HORA PLENA 1,5 KG', category: 'Derivados de Bovino', price: 33.1, image: 'https://i.imgur.com/rweoMII.png' },
+  { id: 525, name: 'ARANHA DA ALCATRA BOVINA CONGELADA TODA HORA PLENA 1.5 KG', category: 'Derivados de Bovino', price: 33.1, image: 'https://i.imgur.com/rweoMII.png' },
   { id: 526, name: 'CAPA DE FILÉ BOVINA RESFRIADA NOSSO BEEF FRIGO NOSSO 2 KG', category: 'Derivados de Bovino', price: 26.36, image: 'https://i.imgur.com/2anEMnB.png' },
   { id: 527, name: 'CARNE DE SOL BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Derivados de Bovino', price: 54.04, image: 'https://i.imgur.com/S4HEnZF.png' },
   { id: 528, name: 'CARNE MOÍDA BOVINA CONGELADA ACÉM BOI FORTE 1 KG', category: 'Derivados de Bovino', price: 21.06, image: 'https://i.imgur.com/ncfSGj5.png' },
