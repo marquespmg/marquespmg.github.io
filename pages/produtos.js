@@ -2070,14 +2070,14 @@ const ProductsPage = () => {
         setPageBlocked(false);
         
         // Busca o nome do usuário
-        const { data: profileData } = await supabase
-          .from('profiles')
-          .select('full_name')
+        const { data: usuarioData, error } = await supabase
+          .from('usuarios')
+          .select('nome')
           .eq('id', user.id)
           .single();
         
-        if (profileData) {
-          setUserName(profileData.full_name || '');
+        if (!error && usuarioData) {
+          setUserName(usuarioData.nome || '');
         }
         
         await loadCartFromSupabase(user.id);
@@ -2275,7 +2275,7 @@ const ProductsPage = () => {
       color: 'white',
       padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
       borderRadius: '8px',
-      marginBottom: windowWidth > 768 ? '20px' : '15px',
+      flex: 1,
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center'
@@ -2289,12 +2289,20 @@ const ProductsPage = () => {
       backgroundColor: 'white',
       color: '#095400',
       border: 'none',
-      padding: windowWidth > 768 ? '8px 16px' : '6px 12px',
+      padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
       borderRadius: '20px',
       fontSize: windowWidth > 768 ? '14px' : '12px',
       fontWeight: '600',
       cursor: 'pointer',
-      textDecoration: 'none'
+      textDecoration: 'none',
+      whiteSpace: 'nowrap'
+    },
+    topHeaderContainer: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: windowWidth > 768 ? '20px' : '15px',
+      gap: '15px'
     },
     logoutButton: {
       display: 'block',
