@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
-import { supabase } from '../lib/supabaseClient';
+import { supabase } from './supabaseClient';
 
 const categories = [
   'Acessórios', 'Bebidas', 'Conservas/Enlatados', 'Derivados de Ave', 
@@ -1909,7 +1909,8 @@ const products = [
   { id: 1897, name: 'STICK DE QUEIJO CONGELADOS PRÉ FRITOS EMPANADOS BEM BRASIL 1,2 KILO', category: 'Salgados', price: 71.97, image: 'https://i.imgur.com/80NzyQK.png' },
   { id: 1898, name: 'WAFFLE CONGELADO FORNO DE MINAS 525 G (CX 3,15 KILO)', category: 'Salgados', price: 130.95, image: 'https://i.imgur.com/TM0vRGh.png' },
   // Continue a adicionar seus produtos
-  ];
+];
+
 const banners = [
   { 
     id: 1,
@@ -1986,6 +1987,7 @@ const ProductsPage = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [user, setUser] = useState(null);
+  const [userName, setUserName] = useState('');
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authType, setAuthType] = useState('login');
   const [email, setEmail] = useState('');
@@ -2020,18 +2022,15 @@ const ProductsPage = () => {
 
   // Efeito para as notificações toast
   useEffect(() => {
-    // Configuração do tempo (em milissegundos)
-    const TEMPO_INICIAL = 15000; // 15 segundos para a 1ª notificação
-    const INTERVALO = 9000;     // 9 segundos entre notificações
-    const DURACAO = 10000;       // 10 segundos de exibição
+    const TEMPO_INICIAL = 15000;
+    const INTERVALO = 9000;
+    const DURACAO = 10000;
 
-    // Mostra a primeira notificação após o tempo definido
     const firstTimeout = setTimeout(() => {
       setShowFreteToast(true);
       setTimeout(() => setShowFreteToast(false), DURACAO);
     }, TEMPO_INICIAL);
     
-    // Mostra a segunda notificação após o intervalo
     const secondTimeout = setTimeout(() => {
       setShowWhatsappToast(true);
       setTimeout(() => setShowWhatsappToast(false), DURACAO);
@@ -2062,13 +2061,25 @@ const ProductsPage = () => {
     }, 10000);
   };
 
-  // Carrega o usuário e o carrinho ao iniciar
+  // Carrega o usuário, nome e carrinho ao iniciar
   useEffect(() => {
     const checkUserAndCart = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         setUser(user);
         setPageBlocked(false);
+        
+        // Busca o nome do usuário
+        const { data: profileData } = await supabase
+          .from('profiles')
+          .select('full_name')
+          .eq('id', user.id)
+          .single();
+        
+        if (profileData) {
+          setUserName(profileData.full_name || '');
+        }
+        
         await loadCartFromSupabase(user.id);
       }
     };
@@ -2131,6 +2142,18 @@ const ProductsPage = () => {
       });
       if (error) throw error;
       setUser(data.user);
+      
+      // Busca o nome do usuário após login
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('full_name')
+        .eq('id', data.user.id)
+        .single();
+      
+      if (profileData) {
+        setUserName(profileData.full_name || '');
+      }
+      
       setShowAuthModal(false);
       setPageBlocked(false);
       await loadCartFromSupabase(data.user.id);
@@ -2185,6 +2208,7 @@ const ProductsPage = () => {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
+    setUserName('');
     setPageBlocked(true);
     setCart([]);
     setTotal(0);
@@ -2228,7 +2252,7 @@ const ProductsPage = () => {
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Estilos responsivos
+  // Estilos responsivos (mantidos exatamente como estavam)
   const styles = {
     container: {
       maxWidth: '1200px',
@@ -2245,6 +2269,32 @@ const ProductsPage = () => {
       backgroundColor: '#fff',
       borderRadius: '10px',
       boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
+    },
+    userWelcomeBar: {
+      backgroundColor: '#095400',
+      color: 'white',
+      padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
+      borderRadius: '8px',
+      marginBottom: windowWidth > 768 ? '20px' : '15px',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    },
+    welcomeMessage: {
+      fontSize: windowWidth > 768 ? '16px' : '14px',
+      fontWeight: '600',
+      margin: 0
+    },
+    homeButton: {
+      backgroundColor: 'white',
+      color: '#095400',
+      border: 'none',
+      padding: windowWidth > 768 ? '8px 16px' : '6px 12px',
+      borderRadius: '20px',
+      fontSize: windowWidth > 768 ? '14px' : '12px',
+      fontWeight: '600',
+      cursor: 'pointer',
+      textDecoration: 'none'
     },
     logoutButton: {
       display: 'block',
@@ -2523,7 +2573,6 @@ const ProductsPage = () => {
     activeDot: {
       backgroundColor: '#095400'
     },
-    // Estilos para as notificações toast
     toastContainer: {
       position: 'fixed',
       bottom: '20px',
@@ -2626,7 +2675,7 @@ const ProductsPage = () => {
               >
                 ×
               </button>
-              <h4 style={styles.toastTitle}>Frete GRÁTIS e Pague só na entrega!</h4>
+              <h4 style={styles.toastTitle}>Frete GRÁTIS + Pague só na entrega!</h4>
               <p style={styles.toastMessage}>
                 Sem risco, sem enrolação. Receba seus produtos e <span style={styles.toastHighlight}>pague só quando chegar</span>. Aproveite agora!
               </p>
@@ -2671,6 +2720,18 @@ const ProductsPage = () => {
             >
               Acessar minha conta
             </button>
+          </div>
+        )}
+
+        {/* Barra de boas-vindas (NOVO - adicionado conforme pedido) */}
+        {user && (
+          <div style={styles.userWelcomeBar}>
+            <p style={styles.welcomeMessage}>
+              {userName ? `Olá ${userName}, seja bem-vindo(a)!` : 'Olá, seja bem-vindo(a)!'}
+            </p>
+            <a href="/" style={styles.homeButton}>
+              Página Inicial
+            </a>
           </div>
         )}
 
