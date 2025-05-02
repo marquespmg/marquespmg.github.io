@@ -32,12 +32,110 @@ export default function Home() {
     }
   ];
 
+  // Dados das avaliações
+const avaliacoes = [
+  // Femininas (8 avaliações)
+  { 
+    foto: "https://i.imgur.com/R4MCf34.png", 
+    nome: "Ana", 
+    texto: "Apesar de um pequeno atraso, o produto chegou perfeito e o preço compensou!", 
+    estrelas: 4 
+  },
+  { 
+    foto: "https://i.imgur.com/R4MCf34.png", 
+    nome: "Claudia", 
+    texto: "Site super fácil de usar e o atendimento foi super atencioso. Recomendo!", 
+    estrelas: 5 
+  },
+  { 
+    foto: "https://i.imgur.com/R4MCf34.png", 
+    nome: "Fernanda", 
+    texto: "Produto com qualidade acima do esperado pelo preço que paguei. Adorei!", 
+    estrelas: 5 
+  },
+  { 
+    foto: "https://i.imgur.com/R4MCf34.png", 
+    nome: "Juliana", 
+    texto: "Tive um problema com o pedido mas resolveram rapidinho. Ótimo serviço!", 
+    estrelas: 4 
+  },
+  { 
+    foto: "https://i.imgur.com/R4MCf34.png", 
+    nome: "Patrícia", 
+    texto: "Já é minha terceira compra e nunca me decepcionou. Entrega rápida!", 
+    estrelas: 5 
+  },
+  { 
+    foto: "https://i.imgur.com/R4MCf34.png", 
+    nome: "Camila", 
+    texto: "Produto exatamente como na descrição. Veio bem embalado e sem amassados.", 
+    estrelas: 5 
+  },
+  { 
+    foto: "https://i.imgur.com/R4MCf34.png", 
+    nome: "Luana", 
+    texto: "Adorei a variedade! Encontrar tudo num só lugar facilitou muito.", 
+    estrelas: 5 
+  },
+  { 
+    foto: "https://i.imgur.com/R4MCf34.png", 
+    nome: "Mariana", 
+    texto: "Preço justo e produto de qualidade. Virei cliente fiel!", 
+    estrelas: 5 
+  },
+
+  // Masculinas (7 avaliações)
+  { 
+    foto: "https://i.imgur.com/CL3oucA.png", 
+    nome: "Carlos", 
+    texto: "Atendimento foi excelente! Tirou todas minhas dúvidas antes de eu comprar.", 
+    estrelas: 5 
+  },
+  { 
+    foto: "https://i.imgur.com/CL3oucA.png", 
+    nome: "Ricardo", 
+    texto: "Demorou um pouco mais que o previsto, mas o produto é top. Valeu a pena!", 
+    estrelas: 4 
+  },
+  { 
+    foto: "https://i.imgur.com/CL3oucA.png", 
+    nome: "Bruno", 
+    texto: "Produto chegou antes do prazo! Muito bem embalado e sem defeitos.", 
+    estrelas: 5 
+  },
+  { 
+    foto: "https://i.imgur.com/CL3oucA.png", 
+    nome: "Lucas", 
+    texto: "Não conhecia mas arrisquei e gostei bastante. Site organizado e fácil.", 
+    estrelas: 4 
+  },
+  { 
+    foto: "https://i.imgur.com/CL3oucA.png", 
+    nome: "Marcos", 
+    texto: "Preço imbatível! Consegui um ótimo negócio para meu comércio.", 
+    estrelas: 5 
+  },
+  { 
+    foto: "https://i.imgur.com/CL3oucA.png", 
+    nome: "Gustavo", 
+    texto: "Ótimo custo-benefício. Já indiquei para vários amigos!", 
+    estrelas: 5 
+  },
+  { 
+    foto: "https://i.imgur.com/CL3oucA.png", 
+    nome: "Rodrigo", 
+    texto: "Comprei com receio mas fui surpreendido pela qualidade. Recomendo!", 
+    estrelas: 5 
+  }
+];
+
   // Estado do carrossel
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 1200, height: 400 });
   const slideInterval = useRef(null);
   const carouselRef = useRef(null);
+  const avaliacoesRef = useRef(null);
 
   // Estados para as notificações
   const [showFreteToast, setShowFreteToast] = useState(false);
@@ -99,13 +197,13 @@ export default function Home() {
       setShowFreteToast(true);
       const timer = setTimeout(() => {
         setShowFreteToast(false);
-      }, 10000); // 10 segundos de exibição
+      }, 10000);
       toastTimers.current.push(timer);
     } else if (toastType === 'whatsapp') {
       setShowWhatsappToast(true);
       const timer = setTimeout(() => {
         setShowWhatsappToast(false);
-      }, 10000); // 10 segundos de exibição
+      }, 10000);
       toastTimers.current.push(timer);
     }
   };
@@ -122,16 +220,15 @@ export default function Home() {
   useEffect(() => {
     const freteTimer = setTimeout(() => {
       showToast('frete');
-    }, 15000); // Primeira notificação após 15 segundos
+    }, 15000);
 
     const whatsappTimer = setTimeout(() => {
       showToast('whatsapp');
-    }, 24000); // Segunda notificação após 24 segundos (15 + 9)
+    }, 24000);
 
     toastTimers.current.push(freteTimer, whatsappTimer);
 
     return () => {
-      // Limpar todos os temporizadores ao desmontar o componente
       clearInterval(slideInterval.current);
       toastTimers.current.forEach(timer => clearTimeout(timer));
     };
@@ -509,6 +606,177 @@ export default function Home() {
             FAÇA SEU PEDIDO →
           </Link>
         </section>
+
+        {/* Seção de Avaliações */}
+{/* Seção de Avaliações - Versão Otimizada */}
+<section style={{
+  margin: isMobile ? '20px 0' : '40px 0',
+  padding: isMobile ? '0 10px' : '0 20px',
+  width: '100%',
+  overflow: 'hidden'
+}}>
+  <h2 style={{
+    color: '#095400',
+    fontSize: isMobile ? '1.3rem' : '1.5rem',
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: isMobile ? '15px' : '25px',
+    padding: '0 15px'
+  }}>
+    O que nossos clientes dizem
+  </h2>
+
+  <div style={{
+    position: 'relative',
+    maxWidth: '100%',
+    margin: '0 auto'
+  }}>
+    <div 
+      ref={avaliacoesRef}
+      style={{
+        display: 'flex',
+        overflowX: 'auto',
+        scrollBehavior: 'smooth',
+        gap: '15px',
+        padding: '10px',
+        scrollbarWidth: 'none', /* Firefox */
+        msOverflowStyle: 'none', /* IE/Edge */
+        '&::-webkit-scrollbar': {
+          display: 'none' /* Chrome/Safari */
+        }
+      }}
+    >
+      {avaliacoes.map((avaliacao, index) => (
+        <div key={index} style={{
+          minWidth: isMobile ? '85vw' : '28vw',
+          maxWidth: isMobile ? '85vw' : '28vw',
+          padding: '20px',
+          background: '#fff',
+          borderRadius: '10px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          flexShrink: 0,
+          boxSizing: 'border-box'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            marginBottom: '12px',
+            flexWrap: 'wrap'
+          }}>
+            <img 
+              src={avaliacao.foto} 
+              alt={avaliacao.nome} 
+              style={{ 
+                width: '45px', 
+                height: '45px', 
+                borderRadius: '50%', 
+                objectFit: 'cover',
+                marginRight: '10px'
+              }} 
+            />
+            <div>
+              <h3 style={{ 
+                color: '#095400', 
+                fontSize: isMobile ? '0.95rem' : '1rem',
+                margin: '0 0 3px 0',
+                fontWeight: '600'
+              }}>
+                {avaliacao.nome}
+              </h3>
+              <div style={{ 
+                display: 'flex',
+                gap: '2px'
+              }}>
+                {[...Array(5)].map((_, i) => (
+                  <span 
+                    key={i} 
+                    style={{ 
+                      color: i < avaliacao.estrelas ? '#FFD700' : '#e0e0e0',
+                      fontSize: isMobile ? '16px' : '18px',
+                      lineHeight: '1'
+                    }}
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <p style={{ 
+            color: '#555', 
+            fontSize: isMobile ? '0.88rem' : '0.92rem',
+            lineHeight: '1.5',
+            margin: 0,
+            wordBreak: 'break-word',
+            hyphens: 'auto'
+          }}>
+            "{avaliacao.texto}"
+          </p>
+        </div>
+      ))}
+    </div>
+
+    {/* Botões de Navegação - Estilo Melhorado */}
+    <button 
+      onClick={() => {
+        const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
+        avaliacoesRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      }}
+      style={{
+        position: 'absolute',
+        top: '50%',
+        left: isMobile ? '5px' : '10px',
+        transform: 'translateY(-50%)',
+        background: 'rgba(255,255,255,0.9)',
+        border: '1px solid #e0e0e0',
+        borderRadius: '50%',
+        width: '36px',
+        height: '36px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+        zIndex: 2,
+        color: '#095400',
+        fontSize: '18px',
+        fontWeight: 'bold'
+      }}
+      aria-label="Avaliação anterior"
+    >
+      ❮
+    </button>
+    <button 
+      onClick={() => {
+        const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
+        avaliacoesRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }}
+      style={{
+        position: 'absolute',
+        top: '50%',
+        right: isMobile ? '5px' : '10px',
+        transform: 'translateY(-50%)',
+        background: 'rgba(255,255,255,0.9)',
+        border: '1px solid #e0e0e0',
+        borderRadius: '50%',
+        width: '36px',
+        height: '36px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+        zIndex: 2,
+        color: '#095400',
+        fontSize: '18px',
+        fontWeight: 'bold'
+      }}
+      aria-label="Próxima avaliação"
+    >
+      ❯
+    </button>
+  </div>
+</section>
 
         {/* Rodapé - Adaptado para mobile */}
         <footer style={{
