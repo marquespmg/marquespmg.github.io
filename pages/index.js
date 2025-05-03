@@ -554,61 +554,76 @@ const avaliacoes = [
   </p>
 </section>
 
-        {/* Seção CTA - Adaptada para mobile */}
-        <section style={{
-          textAlign: 'center',
-          margin: isMobile ? '30px 0' : '50px 0',
-          padding: isMobile ? '20px 15px' : '30px 20px',
-          backgroundColor: '#f8faf8',
-          borderRadius: '12px',
-          boxShadow: '0 5px 15px rgba(0,0,0,0.05)',
-          width: isMobile ? 'calc(100% - 20px)' : 'auto',
-          marginLeft: isMobile ? '10px' : 'auto',
-          marginRight: isMobile ? '10px' : 'auto'
-        }}>
-          <h2 style={{
-            color: '#095400',
-            fontSize: isMobile ? '1.3rem' : '1.5rem',
-            fontWeight: '600',
-            marginBottom: isMobile ? '10px' : '15px'
-          }}>
-            Pronto para Melhorar Seu Estoque?
-          </h2>
-          
-          <p style={{
-            color: '#555',
-            fontSize: isMobile ? '0.9rem' : '1rem',
-            maxWidth: '600px',
-            margin: isMobile ? '0 auto 15px' : '0 auto 25px',
-            lineHeight: '1.6',
-            padding: isMobile ? '0 10px' : '0'
-          }}>
-            Acesse nosso catálogo completo de produtos selecionados para atender seu negócio.
-          </p>
-          
-          <Link
-            href="/produtos"
-            style={{
-              display: 'inline-block',
-              padding: isMobile ? '12px 24px' : '14px 32px',
-              backgroundColor: '#095400',
-              color: '#fff',
-              textDecoration: 'none',
-              borderRadius: '8px',
-              fontSize: isMobile ? '0.9rem' : '1rem',
-              fontWeight: '600',
-              transition: 'all 0.3s ease',
-              boxShadow: '0 4px 10px rgba(9, 84, 0, 0.3)',
-              ':hover': {
-                backgroundColor: '#0a6b00',
-                transform: 'translateY(-2px)',
-                boxShadow: '0 6px 15px rgba(9, 84, 0, 0.4)'
-              }
-            }}
-          >
-            FAÇA SEU PEDIDO →
-          </Link>
-        </section>
+{/* Seção CTA Simplificada com suas Frases */}
+<section style={{
+  textAlign: 'center',
+  margin: isMobile ? '30px 0' : '50px 0',
+  padding: isMobile ? '25px 15px' : '35px 20px',
+  backgroundColor: '#f0f8f0',
+  borderRadius: '12px',
+  boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
+  width: isMobile ? 'calc(100% - 30px)' : '90%',
+  maxWidth: '800px',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  border: '1px solid #e0f0e0'
+}}>
+  <div style={{
+    maxWidth: '600px',
+    margin: '0 auto'
+  }}>
+    <h2 style={{
+      color: '#095400',
+      fontSize: isMobile ? '1.4rem' : '1.8rem',
+      fontWeight: '700',
+      marginBottom: isMobile ? '15px' : '20px',
+      lineHeight: '1.3'
+    }}>
+      Cadastre-se gratuitamente
+    </h2>
+    
+    <p style={{
+      color: '#444',
+      fontSize: isMobile ? '1rem' : '1.1rem',
+      margin: isMobile ? '0 auto 20px' : '0 auto 30px',
+      lineHeight: '1.6'
+    }}>
+      Ganhe acesso completo ao nosso catálogo com condições especiais para seu negócio!
+    </p>
+    
+    <Link href="/produtos" passHref legacyBehavior>
+      <a style={{
+        display: 'inline-block',
+        padding: isMobile ? '14px 30px' : '16px 40px',
+        backgroundColor: '#095400',
+        color: '#fff',
+        textDecoration: 'none',
+        borderRadius: '8px',
+        fontSize: isMobile ? '1.1rem' : '1.2rem',
+        fontWeight: '700',
+        transition: 'all 0.3s ease',
+        boxShadow: '0 4px 12px rgba(9, 84, 0, 0.3)',
+        ':hover': {
+          backgroundColor: '#0a6b00',
+          transform: 'translateY(-2px)',
+          boxShadow: '0 6px 16px rgba(9, 84, 0, 0.4)'
+        },
+        marginBottom: '15px'
+      }}>
+        COMPRE AGORA →
+      </a>
+    </Link>
+
+    <p style={{
+      color: '#666',
+      fontSize: isMobile ? '0.8rem' : '0.9rem',
+      fontStyle: 'italic',
+      margin: '10px 0 0 0'
+    }}>
+      Cadastro rápido e sem complicação. Leva menos de 2 minutos!
+    </p>
+  </div>
+</section>
 
         {/* Seção de Avaliações */}
 {/* Seção de Avaliações - Versão Otimizada */}
