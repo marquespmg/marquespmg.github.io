@@ -497,59 +497,65 @@ const avaliacoes = [
           </div>
         </div>
 
-        {/* Seção "Conheça Nossa Operação" - Adaptada para mobile */}
-        <section style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          margin: isMobile ? '30px 0' : '40px 0',
-          padding: isMobile ? '0 10px' : '0'
-        }}>
-          <h2 style={{
-            color: '#333',
-            fontSize: isMobile ? '1.2rem' : '1.4rem',
-            fontWeight: '600',
-            marginBottom: isMobile ? '15px' : '20px',
-            textAlign: 'center',
-            padding: isMobile ? '0 10px' : '0'
-          }}>
-            Conheça Nossa Operação
-          </h2>
-          
-          <div style={{
-            width: '100%',
-            maxWidth: '600px',
-            borderRadius: '10px',
-            overflow: 'hidden',
-            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
-            marginBottom: isMobile ? '15px' : '20px'
-          }}>
-            <video 
-              width="100%" 
-              controls 
-              autoPlay 
-              muted 
-              loop
-              style={{
-                display: 'block'
-              }}
-            >
-              <source src="https://i.imgur.com/o4AZ76q.mp4" type="video/mp4" />
-              Seu navegador não suporta a tag de vídeo.
-            </video>
-          </div>
-          
-          <p style={{
-            color: '#666',
-            fontSize: isMobile ? '0.85rem' : '0.9rem',
-            maxWidth: '500px',
-            textAlign: 'center',
-            lineHeight: '1.6',
-            padding: isMobile ? '0 15px' : '0'
-          }}>
-            Nossa estrutura preparada para atender sua demanda com agilidade e qualidade.
-          </p>
-        </section>
+{/* Seção "Conheça Nossa Operação" - Adaptada para mobile */}
+<section style={{
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  margin: isMobile ? '30px 0' : '40px 0',
+  padding: isMobile ? '0 10px' : '0'
+}}>
+  <h2 style={{
+    color: '#333',
+    fontSize: isMobile ? '1.2rem' : '1.4rem',
+    fontWeight: '600',
+    marginBottom: isMobile ? '15px' : '20px',
+    textAlign: 'center',
+    padding: isMobile ? '0 10px' : '0'
+  }}>
+    Conheça Nossa Operação
+  </h2>
+  
+  <div style={{
+    width: '100%',
+    maxWidth: '900px', // Tamanho maior para a tela do PC
+    borderRadius: '10px',
+    overflow: 'hidden',
+    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
+    marginBottom: isMobile ? '15px' : '20px',
+    position: 'relative',
+    height: 'auto', // Ajuste a altura para manter a proporção 16:9
+  }}>
+    <video 
+      width="100%" 
+      controls 
+      autoPlay 
+      muted 
+      loop
+      style={{
+        display: 'block',
+        width: '100%', // Largura ocupa toda a tela
+        height: 'auto', // A altura se ajusta automaticamente para manter a proporção
+        objectFit: 'contain', // Garante que o vídeo seja exibido inteiro, sem cortar
+        borderRadius: '10px', // Mantém a borda arredondada
+      }}
+    >
+      <source src="https://i.imgur.com/7Xk0OYG.mp4" type="video/mp4" />
+      Seu navegador não suporta a tag de vídeo.
+    </video>
+  </div>
+  
+  <p style={{
+    color: '#666',
+    fontSize: isMobile ? '0.85rem' : '0.9rem',
+    maxWidth: '500px',
+    textAlign: 'center',
+    lineHeight: '1.6',
+    padding: isMobile ? '0 15px' : '0'
+  }}>
+    Nossa estrutura preparada para atender sua demanda com agilidade e qualidade.
+  </p>
+</section>
 
         {/* Seção CTA - Adaptada para mobile */}
         <section style={{
