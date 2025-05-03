@@ -497,19 +497,19 @@ const avaliacoes = [
           </div>
         </div>
 
-{/* Seção "Conheça Nossa Operação" - Adaptada para mobile */}
+{/* Seção "Conheça Nossa Operação" - Adaptada para mobile e desktop */}
 <section style={{
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  margin: isMobile ? '30px 0' : '40px 0',
-  padding: isMobile ? '0 10px' : '0'
+  margin: isMobile ? '30px 0' : '60px 0',
+  padding: isMobile ? '0 10px' : '0 20px'
 }}>
   <h2 style={{
     color: '#333',
-    fontSize: isMobile ? '1.2rem' : '1.4rem',
+    fontSize: isMobile ? '1.2rem' : '1.8rem',
     fontWeight: '600',
-    marginBottom: isMobile ? '15px' : '20px',
+    marginBottom: isMobile ? '15px' : '30px',
     textAlign: 'center',
     padding: isMobile ? '0 10px' : '0'
   }}>
@@ -518,26 +518,23 @@ const avaliacoes = [
   
   <div style={{
     width: '100%',
-    maxWidth: '900px', // Tamanho maior para a tela do PC
+    maxWidth: isMobile ? '100%' : '900px', // Aumentei o maxWidth para desktop
     borderRadius: '10px',
     overflow: 'hidden',
     boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
-    marginBottom: isMobile ? '15px' : '20px',
-    position: 'relative',
-    height: 'auto', // Ajuste a altura para manter a proporção 16:9
+    marginBottom: isMobile ? '15px' : '30px',
+    aspectRatio: '16/9' // Forçando a proporção 16:9
   }}>
     <video 
       width="100%" 
+      height="100%"
       controls 
       autoPlay 
       muted 
       loop
       style={{
         display: 'block',
-        width: '100%', // Largura ocupa toda a tela
-        height: 'auto', // A altura se ajusta automaticamente para manter a proporção
-        objectFit: 'contain', // Garante que o vídeo seja exibido inteiro, sem cortar
-        borderRadius: '10px', // Mantém a borda arredondada
+        objectFit: 'cover' // Garante que o vídeo preencha o contêiner mantendo a proporção
       }}
     >
       <source src="https://i.imgur.com/7Xk0OYG.mp4" type="video/mp4" />
@@ -547,8 +544,8 @@ const avaliacoes = [
   
   <p style={{
     color: '#666',
-    fontSize: isMobile ? '0.85rem' : '0.9rem',
-    maxWidth: '500px',
+    fontSize: isMobile ? '0.85rem' : '1rem',
+    maxWidth: '600px',
     textAlign: 'center',
     lineHeight: '1.6',
     padding: isMobile ? '0 15px' : '0'
