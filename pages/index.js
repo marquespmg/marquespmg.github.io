@@ -913,8 +913,8 @@ const avaliacoes = [
           <div className="content">
             <button className="close-btn" onClick={() => hideToast('whatsapp')}>×</button>
             <h4>Entregamos em até 48h!</h4>
-            <p>Tá com dúvida? Fala direto com a gente no WhatsApp 👉 <span className="highlight">(11) 91357-2902</span></p>
-            <a href="https://wa.me/5511913572902" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">CHAMAR NO WHATSAPP</a>
+            <p>Tá com dúvida? Fala direto com a gente no WhatsApp 👉 <span className="highlight">(11) 96918-0048</span></p>
+            <a href="https://wa.me/5511969180048" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">CHAMAR NO WHATSAPP</a>
           </div>
         </div>
       </div>
