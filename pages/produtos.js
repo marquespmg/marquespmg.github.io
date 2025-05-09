@@ -1971,7 +1971,7 @@ const ToastNotification = ({ id, icon, title, message, highlight, whatsapp, onCl
           {highlight && <span className="highlight"> {highlight}</span>}
         </p>
         {whatsapp && (
-          <a href="https://wa.me/5511913572902" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/5511969180048" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">
             CHAMAR NO WHATSAPP
           </a>
         )}
@@ -2703,10 +2703,10 @@ const ProductsPage = () => {
               </button>
               <h4 style={styles.toastTitle}>Entregamos em até 48h!</h4>
               <p style={styles.toastMessage}>
-                Tá com dúvida? Fala direto com a gente no WhatsApp 👉 <span style={styles.toastHighlight}>(11) 91357-2902</span>
+                Tá com dúvida? Fala direto com a gente no WhatsApp 👉 <span style={styles.toastHighlight}>(11) 96918-0048</span>
               </p>
               <a 
-                href="https://wa.me/5511913572902" 
+                href="https://wa.me/5511969180048" 
                 style={styles.toastWhatsappBtn} 
                 target="_blank" 
                 rel="noopener noreferrer"
