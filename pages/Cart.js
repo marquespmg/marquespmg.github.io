@@ -191,7 +191,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
       return `${baseText} (${product.quantity}x) - R$ ${product.totalPrice.toFixed(2)}`;
     }).join('\n');
 
-    return `https://wa.me/5511913572902?text=${encodeURIComponent(
+    return `https://wa.me/5511969180048?text=${encodeURIComponent(
       `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
       `💰 *TOTAL: R$ ${total.toFixed(2)}*\n` +
       `💳 *Pagamento:* ${paymentMethod}\n` +
