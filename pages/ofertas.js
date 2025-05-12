@@ -696,7 +696,7 @@ const OfertasPage = () => {
       <div style={styles.container}>
         {/* Barra de boas-vindas simplificada */}
         <div style={styles.userWelcomeBar}>
-          <p style={styles.welcomeMessage}>Ofertas Da Semana | Marques Vendas PMG | Pague No Ato Da Entrega!</p>
+          <p style={styles.welcomeMessage}>Ofertas Da Semana | Marques Vendas PMG!</p>
           <a href="/" style={styles.homeButton}>
             Página Inicial
           </a>
