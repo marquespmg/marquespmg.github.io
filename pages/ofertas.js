@@ -724,7 +724,7 @@ const OfertasPage = () => {
             color: '#666', 
             fontSize: windowWidth > 768 ? '16px' : '14px' 
           }}>
-            Confira nossas promoções sem necessidade de cadastro!
+            Compre em 1 clique e receba em até 48h! ⚡
           </p>
         </div>
 
