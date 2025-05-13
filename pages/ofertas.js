@@ -622,6 +622,33 @@ const OfertasPage = () => {
       {/* Carrinho */}
       <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} total={total} />
 
+                {/* CTA para página de produtos completa */}
+        <div style={{ 
+          textAlign: 'center', 
+          margin: '40px 0',
+          padding: '20px',
+          backgroundColor: '#fff',
+          borderRadius: '10px',
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+        }}>
+          <h2 style={{ color: '#095400', marginBottom: '15px' }}>Quer ver todos os nossos produtos?</h2>
+          <p style={{ marginBottom: '20px', color: '#666' }}>
+            Acesse nosso catálogo completo com centenas de itens para seu negócio.
+            Cadastro rápido e fácil!
+          </p>
+          <a 
+            href="/produtos" 
+            style={{
+              ...styles.addButton,
+              display: 'inline-block',
+              textDecoration: 'none',
+              padding: '12px 30px'
+            }}
+          >
+            Ver Catálogo Completo
+          </a>
+        </div>
+
       {/* Carrossel de banners (NA PARTE INFERIOR COMO SOLICITADO) */}
       <div style={styles.bannerContainer}>
         <img
