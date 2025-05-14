@@ -886,7 +886,7 @@ const products = [
   { id: 874, name: 'QUEIJO TIPO BURRATA DE BÚFALA DOR 180 G', category: 'Derivados de Leite', price: 21.04, image: 'https://i.imgur.com/axacJ43.png' },
   { id: 875, name: 'QUEIJO TIPO BURRATA DE BÚFALA LEVITARE 150 G', category: 'Derivados de Leite', price: 21.69, image: 'https://i.imgur.com/GQTbhuR.png' },
   { id: 876, name: 'REQUEIJÃO AFFAMATO COM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 63.58, image: 'https://i.imgur.com/VLWlv9t.png' },
-  { id: 877, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 153.52, image: 'https://i.imgur.com/12yWRVu.png' },
+  { id: 877, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 64.60, image: 'https://i.imgur.com/12yWRVu.png' },
   { id: 878, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 3,6 KILO', category: 'Derivados de Leite', price: 153.82, image: 'https://i.imgur.com/bCXwN64.png' },
   { id: 879, name: 'REQUEIJÃO CLARA MILK COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 15.89, image: 'https://i.imgur.com/HskPeT3.png' },
   { id: 880, name: 'REQUEIJÃO COPO CRIOULO SEM AMIDO 220 G (CX 24 UN)', category: 'Derivados de Leite', price: 284.85, image: 'https://i.imgur.com/psP7eqm.png' },
