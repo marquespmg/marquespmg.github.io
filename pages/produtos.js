@@ -911,7 +911,7 @@ const products = [
   { id: 899, name: 'REQUEIJÃO PARMATO COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 31.65, image: 'https://i.imgur.com/rPP20Fx.png' },
   { id: 900, name: 'REQUEIJÃO PEQUENO CORONATA COM AMIDO 400 G', category: 'Derivados de Leite', price: 8.2, image: 'https://i.imgur.com/MMfGqud.png' },
   { id: 901, name: 'REQUEIJÃO PIZZALET COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 16.42, image: 'https://i.imgur.com/lqDbp1n.png' },
-  { id: 902, name: 'REQUEIJÃO QUATÁ SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 12.27, image: 'https://i.imgur.com/m60k9Vd.png' },
+  { id: 902, name: 'REQUEIJÃO QUATÁ SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 44.87, image: 'https://i.imgur.com/m60k9Vd.png' },
   { id: 903, name: 'REQUEIJÃO REKEMINAS COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 12.37, image: 'https://i.imgur.com/zCOPyVG.png' },
   { id: 904, name: 'REQUEIJÃO ROSELI SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 48.31, image: 'https://i.imgur.com/ZYbWI5b.png' },
   { id: 905, name: 'REQUEIJÃO SABOR CHEDDAR CATUPIRY 1,010 KILO', category: 'Derivados de Leite', price: 48.31, image: 'https://i.imgur.com/L5r0pWk.png' },
