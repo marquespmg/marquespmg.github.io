@@ -6,7 +6,7 @@ const categories = [
   'Acessórios', 'Bebidas', 'Conservas/Enlatados', 'Derivados de Ave', 
   'Derivados de Bovino', 'Derivados de Leite', 'Derivados de Suíno', 
   'Derivados de Vegetal', 'Derivados do Mar', 'Doces/Frutas', 
-  'Farináceos', 'Higiene', 'Orientais', 'Panificação', 'Salgados', 'Ofertas'
+  'Farináceos', 'Higiene', 'Orientais', 'Panificação', 'Salgados', '⏳ Ofertas da Semana 🚨'
 ];
 
 const products = [
@@ -1908,21 +1908,21 @@ const products = [
   { id: 1896, name: 'DADINHO DE TAPIOCA COM QUEIJO DE COALHO CONGELADO PIF PAF 300 G', category: 'Salgados', price: 10.00, image: 'https://i.imgur.com/5P1YElQ.png' },
   { id: 1897, name: 'STICK DE QUEIJO CONGELADOS PRÉ FRITOS EMPANADOS BEM BRASIL 1,2 KILO', category: 'Salgados', price: 71.97, image: 'https://i.imgur.com/80NzyQK.png' },
   { id: 1898, name: 'WAFFLE CONGELADO FORNO DE MINAS 525 G (CX 3,15 KILO)', category: 'Salgados', price: 130.95, image: 'https://i.imgur.com/TM0vRGh.png' },
-  { id: 1899, name: 'REQUEIJÃO TOP MILK COM AMIDO 1,8 KILO', category: 'Ofertas', price: 12.99, image: 'https://i.imgur.com/OiC5Kae.png' },
-  { id: 1900, name: 'QUEIJO COALHO ESPETO CORONATA PCT 6 UN', category: 'Ofertas', price: 12.99, image: 'https://i.imgur.com/yyqOAIs.png' },
-  { id: 1901, name: 'AÇÚCAR SACHÊ PREMIUM UNIÃO 5 G (CX 400 UN)', category: 'Ofertas', price: 18.69, image: 'https://i.imgur.com/Pqt6Nef.png' },
-  { id: 1902, name: 'CATCHUP EKMA 3,3 KILO', category: 'Ofertas', price: 19.89, image: 'https://i.imgur.com/fWmgf0d.png' },
-  { id: 1903, name: 'ORÉGANO PERUANO ARCO BELLO 1,01 KILO (FDO 10 PCT)', category: 'Ofertas', price: 19.99, image: 'https://i.imgur.com/WEvE9Ev.png' },
-  { id: 1904, name: 'ATUM RALADO EM ÓLEO POUCH 88 500 G', category: 'Ofertas', price: 22.39, image: 'https://i.imgur.com/Pya1HhO.png' },
-  { id: 1905, name: 'TEMPERO SAZÓN CARNES VERMELHO AJINOMOTO 900 G', category: 'Ofertas', price: 32.59, image: 'https://i.imgur.com/i17pJGu.png' },
-  { id: 1906, name: 'REQUEIJÃO QUATÁ SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 41.89, image: 'https://i.imgur.com/m60k9Vd.png' },
-  { id: 1907, name: 'REQUEIJÃO SABOR CHEDDAR SCALA 1,5 KILO', category: 'Ofertas', price: 50.79, image: 'https://i.imgur.com/22lCytC.png' },
-  { id: 1908, name: 'GORGONZOLA QUEIJO AZUL TIROLEZ 3 KG', category: 'Ofertas', price: 53.89, image: 'https://i.imgur.com/JsUp04G.png' },
-  { id: 1909, name: 'QUEIJO BRIE FORMA YEMA 1 KG', category: 'Ofertas', price: 65.59, image: 'https://i.imgur.com/WIkEWe8.png' },
-  { id: 1910, name: 'MOLHO DE TOMATE TRADICIONAL HEINZ 1,02 KILO (CX 12 BAG)', category: 'Ofertas', price: 81.89, image: 'https://i.imgur.com/7VWOo7u.png' },
-  { id: 1911, name: 'CALABRESA PRIETO 5 KILO', category: 'Ofertas', price: 85.99, image: 'https://i.imgur.com/JbEkOwJ.png' },
-  { id: 1912, name: 'FARINHA DE TRIGO TIPO 1 FARINA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 79.39, image: 'https://i.imgur.com/cp3JWHX.png' },
-  { id: 1913, name: 'PEITO DE FRANGO CONGELADO COZIDO DESFIADO ALFAMA 1 KILO (CX 6 PCT)', category: 'Ofertas', price: 193.29, image: 'https://i.imgur.com/mASBprm.png' },
+  { id: 1899, name: 'REQUEIJÃO TOP MILK COM AMIDO 1,8 KILO', category: '⏳ Ofertas da Semana 🚨', price: 12.99, image: 'https://i.imgur.com/OiC5Kae.png' },
+  { id: 1900, name: 'QUEIJO COALHO ESPETO CORONATA PCT 6 UN', category: '⏳ Ofertas da Semana 🚨', price: 12.99, image: 'https://i.imgur.com/yyqOAIs.png' },
+  { id: 1901, name: 'AÇÚCAR SACHÊ PREMIUM UNIÃO 5 G (CX 400 UN)', category: '⏳ Ofertas da Semana 🚨', price: 18.69, image: 'https://i.imgur.com/Pqt6Nef.png' },
+  { id: 1902, name: 'CATCHUP EKMA 3,3 KILO', category: '⏳ Ofertas da Semana 🚨', price: 19.89, image: 'https://i.imgur.com/fWmgf0d.png' },
+  { id: 1903, name: 'ORÉGANO PERUANO ARCO BELLO 1,01 KILO (FDO 10 PCT)', category: '⏳ Ofertas da Semana 🚨', price: 19.99, image: 'https://i.imgur.com/WEvE9Ev.png' },
+  { id: 1904, name: 'ATUM RALADO EM ÓLEO POUCH 88 500 G', category: '⏳ Ofertas da Semana 🚨', price: 22.39, image: 'https://i.imgur.com/Pya1HhO.png' },
+  { id: 1905, name: 'TEMPERO SAZÓN CARNES VERMELHO AJINOMOTO 900 G', category: '⏳ Ofertas da Semana 🚨', price: 32.59, image: 'https://i.imgur.com/i17pJGu.png' },
+  { id: 1906, name: 'REQUEIJÃO QUATÁ SEM AMIDO 1,5 KILO', category: '⏳ Ofertas da Semana 🚨', price: 41.89, image: 'https://i.imgur.com/m60k9Vd.png' },
+  { id: 1907, name: 'REQUEIJÃO SABOR CHEDDAR SCALA 1,5 KILO', category: '⏳ Ofertas da Semana 🚨', price: 50.79, image: 'https://i.imgur.com/22lCytC.png' },
+  { id: 1908, name: 'GORGONZOLA QUEIJO AZUL TIROLEZ 3 KG', category: '⏳ Ofertas da Semana 🚨', price: 53.89, image: 'https://i.imgur.com/JsUp04G.png' },
+  { id: 1909, name: 'QUEIJO BRIE FORMA YEMA 1 KG', category: '⏳ Ofertas da Semana 🚨', price: 65.59, image: 'https://i.imgur.com/WIkEWe8.png' },
+  { id: 1910, name: 'MOLHO DE TOMATE TRADICIONAL HEINZ 1,02 KILO (CX 12 BAG)', category: '⏳ Ofertas da Semana 🚨', price: 81.89, image: 'https://i.imgur.com/7VWOo7u.png' },
+  { id: 1911, name: 'CALABRESA PRIETO 5 KILO', category: '⏳ Ofertas da Semana 🚨', price: 85.99, image: 'https://i.imgur.com/JbEkOwJ.png' },
+  { id: 1912, name: 'FARINHA DE TRIGO TIPO 1 FARINA 5 KILO (FDO 25 KILO)', category: '⏳ Ofertas da Semana 🚨', price: 79.39, image: 'https://i.imgur.com/cp3JWHX.png' },
+  { id: 1913, name: 'PEITO DE FRANGO CONGELADO COZIDO DESFIADO ALFAMA 1 KILO (CX 6 PCT)', category: '⏳ Ofertas da Semana 🚨', price: 193.29, image: 'https://i.imgur.com/mASBprm.png' },
   // Continue a adicionar seus produtos
 ];
 
