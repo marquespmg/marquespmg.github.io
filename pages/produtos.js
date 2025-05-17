@@ -918,7 +918,7 @@ const products = [
   { id: 906, name: 'REQUEIJÃO SABOR CHEDDAR CORONATA 1,5 KILO', category: 'Derivados de Leite', price: 47.74, image: 'https://i.imgur.com/Sg4CtRH.png' },
   { id: 907, name: 'REQUEIJÃO SABOR CHEDDAR PEQUENO CORONATA 240 G', category: 'Derivados de Leite', price: 9.98, image: 'https://i.imgur.com/476hY4G.png' },
   { id: 908, name: 'REQUEIJÃO SABOR CHEDDAR POLENGHI 1,5 KILO', category: 'Derivados de Leite', price: 52.64, image: 'https://i.imgur.com/iosiDVe.png' },
-  { id: 909, name: 'REQUEIJÃO SABOR CHEDDAR SCALA 1,5 KILO', category: 'Derivados de Leite', price: 32.93, image: 'https://i.imgur.com/22lCytC.png' },
+  { id: 909, name: 'REQUEIJÃO SABOR CHEDDAR SCALA 1,5 KILO', category: 'Derivados de Leite', price: 54.93, image: 'https://i.imgur.com/22lCytC.png' },
   { id: 910, name: 'REQUEIJÃO SABOR CHEDDAR SCALON 1,02 KILO', category: 'Derivados de Leite', price: 32.93, image: 'https://i.imgur.com/ISHfcEV.png' },
   { id: 911, name: 'REQUEIJÃO SABOR CHEDDAR SOFFICE 1,2 KILO', category: 'Derivados de Leite', price: 37.7, image: 'https://i.imgur.com/BhNJpjg.png' },
   { id: 912, name: 'REQUEIJÃO SABOR CHEDDAR TIROLEZ 1,5 KILO', category: 'Derivados de Leite', price: 47.73, image: 'https://i.imgur.com/USvM15z.png' },
