@@ -2065,7 +2065,7 @@ const handleGoogleLogin = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'http://localhost:3000/produtos', // <- aqui é o segredo
+        redirectTo: 'https://www.marquesvendaspmg.shop/produtos', // <- aqui é o segredo
         queryParams: {
           access_type: 'offline',
           prompt: 'consent',
