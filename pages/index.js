@@ -237,10 +237,13 @@ const avaliacoes = [
   return (
     <>
       <Head>
-        <title>Marques Vendas PMG - Distribuidora de Produtos de Qualidade</title>
-        <meta name="description" content="Distribuidora autorizada com os melhores produtos para seu negócio. Qualidade garantida e atendimento especializado." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      </Head>
+  <title>Marques Vendas PMG - Distribuidora de Produtos de Qualidade</title>
+  <meta name="description" content="Distribuidora autorizada com os melhores produtos para seu negócio. Qualidade garantida e atendimento especializado." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  {/* Adicione esta linha */}
+  <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
+</Head>
 
       <div style={{
         maxWidth: '1200px',
