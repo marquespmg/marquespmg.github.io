@@ -4,11 +4,17 @@ export default function Document() {
   return (
     <Html lang="pt-BR">
       <Head>
-        {/* Ícone da aba do navegador */}
-        <link rel="icon" href="/logo.png" />
+        {/* Meta Tags Essenciais */}
+        <meta charSet="UTF-8" />
         <meta name="description" content="Sua loja de produtos especiais" />
+        
+        {/* Verificação do Google (ADICIONE AQUI) */}
+        <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
 
-        {/* Google Analytics */}
+        {/* Ícone */}
+        <link rel="icon" href="/logo.png" />
+
+        {/* Google Analytics - Mantido no final do Head */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-89LSRYEHF1"></script>
         <script dangerouslySetInnerHTML={{
           __html: `
@@ -19,7 +25,7 @@ export default function Document() {
           `,
         }} />
 
-        {/* Meta Pixel Code */}
+        {/* Meta Pixel */}
         <script dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -38,7 +44,6 @@ export default function Document() {
           <img height="1" width="1" style={{ display: 'none' }}
             src="https://www.facebook.com/tr?id=9491377657643670&ev=PageView&noscript=1" />
         </noscript>
-        {/* End Meta Pixel Code */}
       </Head>
       <body>
         <Main />
