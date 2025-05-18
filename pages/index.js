@@ -835,46 +835,89 @@ const avaliacoes = [
   textAlign: 'center',
   color: '#666',
   fontSize: isMobile ? '0.8rem' : '0.85rem',
-  borderTop: '1px solid #eee'
+  borderTop: '1px solid #eee',
+  position: 'relative',
+  zIndex: 10,
 }}>
   <div style={{
     display: 'flex',
     justifyContent: 'center',
     gap: isMobile ? '15px' : '20px',
     marginBottom: isMobile ? '15px' : '20px',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    position: 'relative',
   }}>
-    {/* LINKS ATUALIZADOS - Versão moderna do Next.js */}
-    <Link 
-      href="/termos" 
-      style={{ 
-        color: '#095400', 
-        textDecoration: 'none', 
-        fontSize: isMobile ? '0.8rem' : '0.85rem'
-      }}>
-      Termos de Uso
-    </Link>
-    
-    <Link 
-      href="/politica"
-      style={{ 
-        color: '#095400', 
-        textDecoration: 'none', 
-        fontSize: isMobile ? '0.8rem' : '0.85rem'
-      }}>
-      Política de Privacidade
-    </Link>
-    
-    {/* Mantive o Contato como # por enquanto - pode substituir por um link real se quiser */}
-    <Link 
-      href="#contato" 
-      style={{ 
-        color: '#095400', 
-        textDecoration: 'none', 
-        fontSize: isMobile ? '0.8rem' : '0.85rem'
-      }}>
-      Contato
-    </Link>
+    {/* Link para Termos */}
+    <div style={{ 
+      position: 'relative',
+      zIndex: 2,
+      padding: '5px 0'
+    }}>
+      <Link 
+        href="/termos"
+        legacyBehavior
+      >
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none', 
+          fontSize: isMobile ? '0.8rem' : '0.85rem',
+          display: 'inline-block',
+          padding: '5px 10px',
+        }}>
+          Termos de Uso
+        </a>
+      </Link>
+    </div>
+
+    {/* Separador */}
+    <span style={{ 
+      color: '#095400',
+      padding: '5px 0'
+    }}>|</span>
+
+    {/* Link para Política */}
+    <div style={{ 
+      position: 'relative',
+      zIndex: 2,
+      padding: '5px 0'
+    }}>
+      <Link 
+        href="/politica"
+        legacyBehavior
+      >
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none', 
+          fontSize: isMobile ? '0.8rem' : '0.85rem',
+          display: 'inline-block',
+          padding: '5px 10px',
+        }}>
+          Política de Privacidade
+        </a>
+      </Link>
+    </div>
+
+    {/* Link para Contato */}
+    <div style={{ 
+      position: 'relative',
+      zIndex: 2,
+      padding: '5px 0'
+    }}>
+      <Link 
+        href="#contato"
+        legacyBehavior
+      >
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none', 
+          fontSize: isMobile ? '0.8rem' : '0.85rem',
+          display: 'inline-block',
+          padding: '5px 10px',
+        }}>
+          Contato
+        </a>
+      </Link>
+    </div>
   </div>
   
   <p style={{margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>
