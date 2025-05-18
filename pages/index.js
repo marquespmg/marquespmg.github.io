@@ -829,33 +829,61 @@ const avaliacoes = [
 </section>
 
         {/* Rodapé - Adaptado para mobile */}
-        <footer style={{
-          marginTop: isMobile ? '30px' : '50px',
-          padding: isMobile ? '20px 15px' : '30px 20px',
-          textAlign: 'center',
-          color: '#666',
-          fontSize: isMobile ? '0.8rem' : '0.85rem',
-          borderTop: '1px solid #eee'
-        }}>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: isMobile ? '15px' : '20px',
-            marginBottom: isMobile ? '15px' : '20px',
-            flexWrap: 'wrap'
-          }}>
-            <a href="#" style={{color: '#095400', textDecoration: 'none', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>Termos de Uso</a>
-            <a href="#" style={{color: '#095400', textDecoration: 'none', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>Política de Privacidade</a>
-            <a href="#" style={{color: '#095400', textDecoration: 'none', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>Contato</a>
-          </div>
-          
-          <p style={{margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>
-            © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-          </p>
-          <p style={{margin: '5px 0', fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#999'}}>
-            • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
-          </p>
-        </footer>
+<footer style={{
+  marginTop: isMobile ? '30px' : '50px',
+  padding: isMobile ? '20px 15px' : '30px 20px',
+  textAlign: 'center',
+  color: '#666',
+  fontSize: isMobile ? '0.8rem' : '0.85rem',
+  borderTop: '1px solid #eee'
+}}>
+  <div style={{
+    display: 'flex',
+    justifyContent: 'center',
+    gap: isMobile ? '15px' : '20px',
+    marginBottom: isMobile ? '15px' : '20px',
+    flexWrap: 'wrap'
+  }}>
+    {/* LINKS ATUALIZADOS - Versão moderna do Next.js */}
+    <Link 
+      href="/termos" 
+      style={{ 
+        color: '#095400', 
+        textDecoration: 'none', 
+        fontSize: isMobile ? '0.8rem' : '0.85rem'
+      }}>
+      Termos de Uso
+    </Link>
+    
+    <Link 
+      href="/politica"
+      style={{ 
+        color: '#095400', 
+        textDecoration: 'none', 
+        fontSize: isMobile ? '0.8rem' : '0.85rem'
+      }}>
+      Política de Privacidade
+    </Link>
+    
+    {/* Mantive o Contato como # por enquanto - pode substituir por um link real se quiser */}
+    <Link 
+      href="#contato" 
+      style={{ 
+        color: '#095400', 
+        textDecoration: 'none', 
+        fontSize: isMobile ? '0.8rem' : '0.85rem'
+      }}>
+      Contato
+    </Link>
+  </div>
+  
+  <p style={{margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>
+    © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+  </p>
+  <p style={{margin: '5px 0', fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#999'}}>
+    • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
+  </p>
+</footer>
 		
 {/* Botão Fixo do WhatsApp - VERSÃO PROFISSIONALIZADA (inferior esquerdo) */}
 <div style={{
