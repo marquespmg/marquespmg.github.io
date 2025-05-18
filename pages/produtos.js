@@ -2211,7 +2211,7 @@ const ProductsPage = () => {
           }
         ]);
 
-      alert('Cadastro realizado com sucesso! Verifique seu e-mail para confirmação.');
+      alert('Cadastro realizado com sucesso! Verifique seu e-mail para confirmação. Se não encontrar verifique a caixa de spam.');
       setAuthType('login');
     } catch (error) {
       setAuthError(error.message);
