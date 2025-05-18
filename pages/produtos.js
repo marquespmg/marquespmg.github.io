@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
-import { supabase } from '../lib/supabaseClient';
+import { supabase } from './supabaseClient';
 
 const categories = [
   'Acessórios', 'Bebidas', 'Conservas/Enlatados', 'Derivados de Ave', 
@@ -2003,6 +2003,7 @@ const ProductsPage = () => {
   const [total, setTotal] = useState(0);
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState('');
+  const [userAvatar, setUserAvatar] = useState('');
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authType, setAuthType] = useState('login');
   const [email, setEmail] = useState('');
@@ -2057,6 +2058,29 @@ const ProductsPage = () => {
     };
   }, []);
 
+  // Função para login com Google
+const handleGoogleLogin = async () => {
+  setLoading(true);
+  try {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: 'http://localhost:3000/produtos', // <- aqui é o segredo
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        },
+      },
+    });
+
+    if (error) throw error;
+  } catch (error) {
+    setAuthError(error.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
   const goToNextBanner = () => {
     setCurrentBannerIndex(prev => (prev + 1) % banners.length);
     resetBannerInterval();
@@ -2076,7 +2100,7 @@ const ProductsPage = () => {
     }, 10000);
   };
 
-  // Carrega o usuário, nome e carrinho ao iniciar
+  // Carrega o usuário, nome, avatar e carrinho ao iniciar
   useEffect(() => {
     const checkUserAndCart = async () => {
       const { data: { user } } = await supabase.auth.getUser();
@@ -2084,21 +2108,65 @@ const ProductsPage = () => {
         setUser(user);
         setPageBlocked(false);
         
-        // Busca o nome do usuário
+        // Pegar os dados do usuário (do Google ou cadastro normal)
+        const fullName = user.user_metadata?.full_name || '';
+        const avatarUrl = user.user_metadata?.avatar_url || '';
+        
+        setUserName(fullName);
+        setUserAvatar(avatarUrl);
+        
+        // Verificar se o usuário já existe na tabela 'usuarios'
         const { data: usuarioData, error } = await supabase
           .from('usuarios')
-          .select('nome')
+          .select('nome, avatar_url')
           .eq('id', user.id)
           .single();
         
-        if (!error && usuarioData) {
-          setUserName(usuarioData.nome || '');
+        if (error && error.code !== 'PGRST116') { // PGRST116 = nenhum resultado encontrado
+          console.error('Erro ao buscar usuário:', error);
+        }
+        
+        // Se não encontrou o usuário, cria um novo registro
+        if (!usuarioData) {
+          await supabase
+            .from('usuarios')
+            .insert({
+              id: user.id,
+              nome: fullName || user.email,
+              email: user.email,
+              avatar_url: avatarUrl
+            });
+        } else {
+          // Se encontrou, atualiza o avatar se necessário
+          if (usuarioData.avatar_url !== avatarUrl && avatarUrl) {
+            await supabase
+              .from('usuarios')
+              .update({ avatar_url: avatarUrl })
+              .eq('id', user.id);
+          }
         }
         
         await loadCartFromSupabase(user.id);
       }
     };
+    
+    // Adicionar listener para mudanças de autenticação
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
+        checkUserAndCart();
+      } else if (event === 'SIGNED_OUT') {
+        setUser(null);
+        setUserName('');
+        setUserAvatar('');
+        setPageBlocked(true);
+      }
+    });
+    
     checkUserAndCart();
+    
+    return () => {
+      if (subscription) subscription.unsubscribe();
+    };
   }, []);
 
   // Função para carregar o carrinho do Supabase
@@ -2224,6 +2292,7 @@ const ProductsPage = () => {
     await supabase.auth.signOut();
     setUser(null);
     setUserName('');
+    setUserAvatar('');
     setPageBlocked(true);
     setCart([]);
     setTotal(0);
@@ -2267,7 +2336,7 @@ const ProductsPage = () => {
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Estilos responsivos (mantidos exatamente como estavam)
+  // Estilos atualizados com os novos elementos
   const styles = {
     container: {
       maxWidth: '1200px',
@@ -2661,6 +2730,40 @@ const ProductsPage = () => {
       textDecoration: 'none',
       fontWeight: 'bold',
       fontSize: '13px'
+    },
+    googleLoginButton: {
+      width: '100%',
+      padding: '12px 20px',
+      backgroundColor: '#fff',
+      color: '#757575',
+      border: '1px solid #ddd',
+      borderRadius: '6px',
+      fontSize: '15px',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'all 0.3s',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '10px',
+      marginTop: '15px',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+    },
+    googleLogo: {
+      width: '20px',
+      height: '20px'
+    },
+    userAvatar: {
+      width: '32px',
+      height: '32px',
+      borderRadius: '50%',
+      objectFit: 'cover',
+      marginRight: '10px'
+    },
+    userInfoContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px'
     }
   };
 
@@ -2746,12 +2849,21 @@ const ProductsPage = () => {
           </div>
         )}
 
-        {/* Barra de boas-vindas (NOVO - adicionado conforme pedido) */}
+        {/* Barra de boas-vindas com foto do usuário */}
         {user && (
           <div style={styles.userWelcomeBar}>
-            <p style={styles.welcomeMessage}>
-              {userName ? `Olá ${userName}, seja bem-vindo(a)!` : 'Olá, seja bem-vindo(a)!'}
-            </p>
+            <div style={styles.userInfoContainer}>
+              {userAvatar && (
+                <img 
+                  src={userAvatar} 
+                  alt="Foto do usuário"
+                  style={styles.userAvatar} 
+                />
+              )}
+              <p style={styles.welcomeMessage}>
+                {userName ? `Olá ${userName}, seja bem-vindo(a)!` : `Olá ${user.email}, seja bem-vindo(a)!`}
+              </p>
+            </div>
             <a href="/" style={styles.homeButton}>
               Página Inicial
             </a>
@@ -2837,7 +2949,7 @@ const ProductsPage = () => {
                 alt={product.name} 
                 style={styles.productImage}
                 onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
+e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
                 }}
               />
               <div style={styles.productInfo}>
@@ -3058,6 +3170,48 @@ const ProductsPage = () => {
                     </button>
                   </p>
                 </form>
+                
+                {/* Adicionar o botão de login com Google */}
+                <div style={{ 
+                  marginTop: '20px', 
+                  textAlign: 'center',
+                  position: 'relative'
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '15px 0',
+                    color: '#757575'
+                  }}>
+                    <div style={{ 
+                      flex: 1, 
+                      height: '1px', 
+                      backgroundColor: '#ddd' 
+                    }}></div>
+                    <span style={{ 
+                      padding: '0 10px', 
+                      fontSize: '14px' 
+                    }}>ou</span>
+                    <div style={{ 
+                      flex: 1, 
+                      height: '1px', 
+                      backgroundColor: '#ddd' 
+                    }}></div>
+                  </div>
+                  
+                  <button
+                    onClick={handleGoogleLogin}
+                    style={styles.googleLoginButton}
+                  >
+                    <img 
+                      src="https://i.imgur.com/TcCOJPO.png" 
+                      alt="Google logo" 
+                      style={styles.googleLogo} 
+                    />
+                    Entrar com Google
+                  </button>
+                </div>
               </div>
             </div>
           )}
