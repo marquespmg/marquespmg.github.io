@@ -885,7 +885,7 @@ const avaliacoes = [
       padding: '5px 0'
     }}>
       <Link 
-        href="/politica"
+        href="/politica-de-privacidade"
         legacyBehavior
       >
         <a style={{ 
