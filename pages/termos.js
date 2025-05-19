@@ -161,7 +161,7 @@ export default function TermosUso() {
           </Link>
           <span>|</span>
           <Link 
-            href="/politica"
+            href="/politica-de-privacidade"
             style={{ 
               color: '#095400', 
               textDecoration: 'none',
