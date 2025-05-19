@@ -877,12 +877,21 @@ const avaliacoes = [
     <Link href="/termos" passHref legacyBehavior>
       <a style={{ 
         color: '#095400', 
-        textDecoration: 'none',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '5px 10px'
-      }}>
-        Termos de Uso
-      </a>
+        textDecoration: 'underline', // Sublinhado para melhor visibilidade
+        fontWeight: '600', // Negrito
+        fontSize: isMobile ? '0.85rem' : '0.9rem',
+        padding: '8px 12px',
+        borderRadius: '4px',
+        transition: 'all 0.3s ease',
+        ':hover': {
+          backgroundColor: '#f0f0f0'
+        }
+      }}
+      title="Termos de Uso"
+      aria-label="Leia nossos Termos de Uso Completo"
+    >
+      Termos de Uso
+    </a>
     </Link>
 
     <span style={{ color: '#095400' }}>|</span>
