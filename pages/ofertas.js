@@ -519,7 +519,7 @@ const OfertasPage = () => {
       {/* Cabeçalho */}
       <div style={styles.header}>
         <img 
-          src="https://i.imgur.com/8EagMV6.png" 
+          src="https://i.imgur.com/pBH5WpZ.png" 
           alt="Logo" 
           style={{ height: isMobile ? '50px' : '60px', marginBottom: '15px' }} 
         />
