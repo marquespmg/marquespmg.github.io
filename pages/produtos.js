@@ -2872,7 +2872,7 @@ const handleGoogleLogin = async () => {
 
         <div style={styles.header}>
           <img 
-            src="https://i.imgur.com/8EagMV6.png" 
+            src="https://i.imgur.com/pBH5WpZ.png" 
             alt="Logo" 
             style={{ 
               height: windowWidth > 768 ? '60px' : '50px', 
