@@ -272,7 +272,7 @@ const avaliacoes = [
             fontWeight: '600',
             boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
           }}>
-            DISTRIBUIDOR AUTORIZADO
+            Marques Vendas PMG
           </div>
           
           <img 
@@ -294,7 +294,7 @@ const avaliacoes = [
             lineHeight: '1.3',
             padding: isMobile ? '0 10px' : '0'
           }}>
-            Soluções Comerciais <span style={{whiteSpace: 'nowrap'}}>para Seu Negócio</span>
+            Marques Vendas PMG Soluções Comerciais <span style={{whiteSpace: 'nowrap'}}>para Seu Negócio</span>
           </h1>
           
           <p style={{ 
