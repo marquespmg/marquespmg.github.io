@@ -21,16 +21,18 @@ export default function PoliticaPrivacidade() {
       }}>
         {/* Cabeçalho */}
         <header style={{ marginBottom: '30px', textAlign: 'center' }}>
-          <Link href="/">
-            <img 
-              src="https://i.imgur.com/8EagMV6.png" 
-              alt="Marques Vendas PMG" 
-              style={{ 
-                width: isMobile ? '180px' : '220px',
-                marginBottom: '20px',
-                cursor: 'pointer'
-              }} 
-            />
+          <Link href="/" passHref legacyBehavior>
+            <a>
+              <img 
+                src="https://i.imgur.com/8EagMV6.png" 
+                alt="Marques Vendas PMG" 
+                style={{ 
+                  width: isMobile ? '180px' : '220px',
+                  marginBottom: '20px',
+                  cursor: 'pointer'
+                }} 
+              />
+            </a>
           </Link>
           <h1 style={{ 
             color: '#095400', 
@@ -159,7 +161,7 @@ export default function PoliticaPrivacidade() {
           </section>
         </div>
 
-        {/* Rodapé Atualizado */}
+        {/* Rodapé Atualizado com links corrigidos */}
         <footer style={{
           marginTop: '40px',
           textAlign: 'center',
@@ -168,34 +170,34 @@ export default function PoliticaPrivacidade() {
           padding: '20px 0',
           borderTop: '1px solid #eee'
         }}>
-          <Link 
-            href="/termos" 
-            style={{ 
+          <Link href="/termos" passHref legacyBehavior>
+            <a style={{ 
               color: '#095400', 
               textDecoration: 'none',
               margin: '0 10px'
             }}>
-            Termos de Uso
+              Termos de Uso
+            </a>
           </Link>
           <span>|</span>
-          <Link 
-            href="/politica"
-            style={{ 
+          <Link href="/politica-de-privacidade" passHref legacyBehavior>
+            <a style={{ 
               color: '#095400', 
               textDecoration: 'none',
               margin: '0 10px'
             }}>
-            Política de Privacidade
+              Política de Privacidade
+            </a>
           </Link>
           <span>|</span>
-          <Link 
-            href="/"
-            style={{ 
+          <Link href="/" passHref legacyBehavior>
+            <a style={{ 
               color: '#095400', 
               textDecoration: 'none',
               margin: '0 10px'
             }}>
-            Voltar ao Início
+              Voltar ao Início
+            </a>
           </Link>
           <p style={{ marginTop: '15px' }}>
             © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
