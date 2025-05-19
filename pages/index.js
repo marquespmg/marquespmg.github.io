@@ -276,7 +276,7 @@ const avaliacoes = [
           </div>
           
           <img 
-            src="https://i.imgur.com/8EagMV6.png" 
+            src="https://i.imgur.com/pBH5WpZ.png" 
             alt="Marques Vendas PMG" 
             style={{ 
               width: isMobile ? '180px' : '220px',
