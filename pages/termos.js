@@ -23,7 +23,7 @@ export default function TermosUso() {
         <header style={{ marginBottom: '30px', textAlign: 'center' }}>
           <Link href="/">
             <img 
-              src="https://i.imgur.com/8EagMV6.png" 
+              src="https://i.imgur.com/pBH5WpZ.png" 
               alt="Marques Vendas PMG" 
               style={{ 
                 width: isMobile ? '180px' : '220px',
