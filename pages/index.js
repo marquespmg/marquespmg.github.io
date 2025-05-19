@@ -294,7 +294,7 @@ const avaliacoes = [
             lineHeight: '1.3',
             padding: isMobile ? '0 10px' : '0'
           }}>
-            Marques Vendas PMG Soluções Comerciais <span style={{whiteSpace: 'nowrap'}}>para Seu Negócio</span>
+            Marques Vendas PMG Distribuidora <span style={{whiteSpace: 'nowrap'}}>Food Service</span>
           </h1>
           
           <p style={{ 
