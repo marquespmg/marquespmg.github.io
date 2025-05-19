@@ -839,96 +839,81 @@ const avaliacoes = [
   color: '#666',
   fontSize: isMobile ? '0.8rem' : '0.85rem',
   borderTop: '1px solid #eee',
-  position: 'relative',
-  zIndex: 10,
+  backgroundColor: '#f9f9f9' // Adicionado para melhor contraste
 }}>
-  <div style={{
+  {/* Container principal dos links legais */}
+  <div id="legal-links-container" style={{
     display: 'flex',
     justifyContent: 'center',
-    gap: isMobile ? '15px' : '20px',
-    marginBottom: isMobile ? '15px' : '20px',
+    gap: isMobile ? '10px' : '20px',
+    marginBottom: '15px',
     flexWrap: 'wrap',
-    position: 'relative',
+    alignItems: 'center'
   }}>
+    {/* Link de Política de Privacidade (versão Google-friendly) */}
+    <a 
+      href="/politica-de-privacidade" 
+      style={{ 
+        color: '#095400', 
+        textDecoration: 'underline', // Sublinhado para melhor visibilidade
+        fontWeight: '600', // Negrito
+        fontSize: isMobile ? '0.85rem' : '0.9rem',
+        padding: '8px 12px',
+        borderRadius: '4px',
+        transition: 'all 0.3s ease',
+        ':hover': {
+          backgroundColor: '#f0f0f0'
+        }
+      }}
+      title="Política de Privacidade"
+      aria-label="Leia nossa Política de Privacidade Completa"
+    >
+      Política de Privacidade
+    </a>
+
+    <span style={{ color: '#095400' }}>|</span>
+
     {/* Link para Termos */}
-    <div style={{ 
-      position: 'relative',
-      zIndex: 2,
-      padding: '5px 0'
-    }}>
-      <Link 
-        href="/termos"
-        legacyBehavior
-      >
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none', 
-          fontSize: isMobile ? '0.8rem' : '0.85rem',
-          display: 'inline-block',
-          padding: '5px 10px',
-        }}>
-          Termos de Uso
-        </a>
-      </Link>
-    </div>
+    <Link href="/termos" passHref legacyBehavior>
+      <a style={{ 
+        color: '#095400', 
+        textDecoration: 'none',
+        fontSize: isMobile ? '0.8rem' : '0.85rem',
+        padding: '5px 10px'
+      }}>
+        Termos de Uso
+      </a>
+    </Link>
 
-    {/* Separador */}
-    <span style={{ 
-      color: '#095400',
-      padding: '5px 0'
-    }}>|</span>
-
-    {/* Link para Política */}
-    <div style={{ 
-      position: 'relative',
-      zIndex: 2,
-      padding: '5px 0'
-    }}>
-      <Link 
-        href="/politica-de-privacidade"
-        legacyBehavior
-      >
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none', 
-          fontSize: isMobile ? '0.8rem' : '0.85rem',
-          display: 'inline-block',
-          padding: '5px 10px',
-        }}>
-          Política de Privacidade
-        </a>
-      </Link>
-    </div>
+    <span style={{ color: '#095400' }}>|</span>
 
     {/* Link para Contato */}
-    <div style={{ 
-      position: 'relative',
-      zIndex: 2,
-      padding: '5px 0'
-    }}>
-      <Link 
-        href="#contato"
-        legacyBehavior
-      >
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none', 
-          fontSize: isMobile ? '0.8rem' : '0.85rem',
-          display: 'inline-block',
-          padding: '5px 10px',
-        }}>
-          Contato
-        </a>
-      </Link>
-    </div>
+    <Link href="#contato" passHref legacyBehavior>
+      <a style={{ 
+        color: '#095400', 
+        textDecoration: 'none',
+        fontSize: isMobile ? '0.8rem' : '0.85rem',
+        padding: '5px 10px'
+      }}>
+        Contato
+      </a>
+    </Link>
   </div>
-  
-  <p style={{margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem'}}>
-    © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-  </p>
-  <p style={{margin: '5px 0', fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#999'}}>
-    • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
-  </p>
+
+  {/* Informações de copyright */}
+  <div style={{ marginTop: '10px' }}>
+    <p style={{ margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem' }}>
+      © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+    </p>
+    <p style={{ 
+      margin: '5px 0', 
+      fontSize: isMobile ? '0.7rem' : '0.8rem', 
+      color: '#999',
+      lineHeight: '1.4'
+    }}>
+      • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
+    </p>
+  </div>
 </footer>
 		
 {/* Botão Fixo do WhatsApp - VERSÃO PROFISSIONALIZADA (inferior esquerdo) */}
