@@ -6,22 +6,31 @@ export default function Document() {
       <Head>
         {/* Meta Tags Essenciais */}
         <meta charSet="UTF-8" />
-        <meta name="description" content="Sua loja de produtos especiais" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Distribuidora autorizada com os melhores produtos para seu negócio. Qualidade garantida e atendimento especializado." />
         
-        {/* Verificação do Google (ADICIONE AQUI) */}
+        {/* Links de Política e Termos para SEO */}
+        <link rel="privacy-policy" href="/politica-de-privacidade" />
+        <link rel="terms-of-service" href="/termos" />
+        
+        {/* Verificação do Google */}
         <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
 
         {/* Ícone */}
         <link rel="icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
 
-        {/* Google Analytics - Mantido no final do Head */}
+        {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-89LSRYEHF1"></script>
         <script dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-89LSRYEHF1');
+            gtag('config', 'G-89LSRYEHF1', {
+              page_path: window.location.pathname,
+            });
           `,
         }} />
 
@@ -48,6 +57,42 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+
+        {/* Fallback para JavaScript desabilitado */}
+        <noscript>
+          <div style={{
+            position: 'fixed',
+            bottom: '0',
+            left: '0',
+            right: '0',
+            background: '#f8f8f8',
+            padding: '10px',
+            textAlign: 'center',
+            borderTop: '1px solid #ddd',
+            zIndex: 9999
+          }}>
+            <a 
+              href="/politica-de-privacidade" 
+              style={{
+                color: '#095400',
+                textDecoration: 'underline',
+                fontWeight: 'bold',
+                margin: '0 15px'
+              }}
+            >
+              Política de Privacidade
+            </a>
+            <a 
+              href="/termos" 
+              style={{
+                color: '#095400',
+                margin: '0 15px'
+              }}
+            >
+              Termos de Uso
+            </a>
+          </div>
+        </noscript>
       </body>
     </Html>
   );
