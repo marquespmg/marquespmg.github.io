@@ -896,16 +896,25 @@ const avaliacoes = [
 
     <span style={{ color: '#095400' }}>|</span>
 
-    {/* Link para Contato */}
-    <Link href="#contato" passHref legacyBehavior>
+    {/* Link para Quem Somos */}
+    <Link href="/quem-somos" passHref legacyBehavior>
       <a style={{ 
         color: '#095400', 
-        textDecoration: 'none',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '5px 10px'
-      }}>
-        Contato
-      </a>
+        textDecoration: 'underline', // Sublinhado para melhor visibilidade
+        fontWeight: '600', // Negrito
+        fontSize: isMobile ? '0.85rem' : '0.9rem',
+        padding: '8px 12px',
+        borderRadius: '4px',
+        transition: 'all 0.3s ease',
+        ':hover': {
+          backgroundColor: '#f0f0f0'
+        }
+      }}
+      title="Quem Somos"
+      aria-label="Leia nossos Quem Somos Completo"
+    >
+      Quem Somos
+    </a>
     </Link>
   </div>
 
