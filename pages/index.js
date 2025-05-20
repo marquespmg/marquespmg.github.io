@@ -896,26 +896,46 @@ const avaliacoes = [
 
     <span style={{ color: '#095400' }}>|</span>
 
-    {/* Link para Quem Somos */}
-    <Link href="/quem-somos" passHref legacyBehavior>
-      <a style={{ 
+{/* Link para Quem Somos - VERSÃO BLINDADA */}
+<div style={{
+  position: 'relative',
+  zIndex: 9999,
+  isolation: 'isolate'
+}}>
+  <Link href="/quem-somos" passHref legacyBehavior>
+    <a 
+      onClick={(e) => {
+        // Fallback para garantir funcionamento em mobile
+        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+          e.preventDefault();
+          window.location.href = '/quem-somos';
+        }
+      }}
+      style={{ 
         color: '#095400', 
-        textDecoration: 'underline', // Sublinhado para melhor visibilidade
-        fontWeight: '600', // Negrito
+        textDecoration: 'underline',
+        fontWeight: '600',
         fontSize: isMobile ? '0.85rem' : '0.9rem',
         padding: '8px 12px',
         borderRadius: '4px',
         transition: 'all 0.3s ease',
+        display: 'inline-block',
+        position: 'relative',
+        backgroundColor: 'transparent',
         ':hover': {
           backgroundColor: '#f0f0f0'
-        }
+        },
+        // Proteções extras para mobile
+        WebkitTapHighlightColor: 'transparent',
+        touchAction: 'manipulation'
       }}
       title="Quem Somos"
       aria-label="Leia nossos Quem Somos Completo"
     >
       Quem Somos
     </a>
-    </Link>
+  </Link>
+  </div>
   </div>
 
   {/* Informações de copyright */}
