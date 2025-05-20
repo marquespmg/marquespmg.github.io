@@ -2361,8 +2361,9 @@ const handleGoogleLogin = async () => {
       borderRadius: '8px',
       flex: 1,
       display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center'
+      flexDirection: 'column',      // muda de linha
+      alignItems: 'flex-start',     // alinha à esquerda
+      gap: '6px'                    // espaço entre mensagem e botão
     },
     welcomeMessage: {
       fontSize: windowWidth > 768 ? '16px' : '14px',
@@ -2372,7 +2373,7 @@ const handleGoogleLogin = async () => {
     homeButton: {
       backgroundColor: 'white',
       color: '#095400',
-      border: 'none',
+      border: '1px solid #095400', // opcional pra destacar
       padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
       borderRadius: '20px',
       fontSize: windowWidth > 768 ? '14px' : '12px',
