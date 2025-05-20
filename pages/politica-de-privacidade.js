@@ -161,7 +161,7 @@ export default function PoliticaPrivacidade() {
           </section>
         </div>
 
-        {/* Rodapé Atualizado com links corrigidos */}
+        {/* Rodapé */}
         <footer style={{
           marginTop: '40px',
           textAlign: 'center',
@@ -170,34 +170,44 @@ export default function PoliticaPrivacidade() {
           padding: '20px 0',
           borderTop: '1px solid #eee'
         }}>
-          <Link href="/termos" passHref legacyBehavior>
-            <a style={{ 
+          <Link 
+            href="/termos" 
+            style={{ 
               color: '#095400', 
               textDecoration: 'none',
               margin: '0 10px'
             }}>
-              Termos de Uso
-            </a>
+            Termos de Uso
           </Link>
           <span>|</span>
-          <Link href="/politica-de-privacidade" passHref legacyBehavior>
-            <a style={{ 
+          <Link 
+            href="/politica-de-privacidade"
+            style={{ 
               color: '#095400', 
               textDecoration: 'none',
               margin: '0 10px'
             }}>
-              Política de Privacidade
-            </a>
+            Política de Privacidade
           </Link>
           <span>|</span>
-          <Link href="/" passHref legacyBehavior>
-            <a style={{ 
+          <Link 
+            href="/quem-somos"
+            style={{ 
               color: '#095400', 
               textDecoration: 'none',
               margin: '0 10px'
             }}>
-              Voltar ao Início
-            </a>
+            Quem Somos
+          </Link>
+          <span>|</span>
+          <Link 
+            href="/"
+            style={{ 
+              color: '#095400', 
+              textDecoration: 'none',
+              margin: '0 10px'
+            }}>
+            Voltar ao Início
           </Link>
           <p style={{ marginTop: '15px' }}>
             © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
