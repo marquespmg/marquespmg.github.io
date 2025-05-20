@@ -141,7 +141,7 @@ export default function TermosUso() {
           </section>
         </div>
 
-        {/* Rodapé Atualizado */}
+        {/* Rodapé */}
         <footer style={{
           marginTop: '40px',
           textAlign: 'center',
@@ -168,6 +168,16 @@ export default function TermosUso() {
               margin: '0 10px'
             }}>
             Política de Privacidade
+          </Link>
+          <span>|</span>
+          <Link 
+            href="/quem-somos"
+            style={{ 
+              color: '#095400', 
+              textDecoration: 'none',
+              margin: '0 10px'
+            }}>
+            Quem Somos
           </Link>
           <span>|</span>
           <Link 
