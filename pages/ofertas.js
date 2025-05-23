@@ -267,12 +267,13 @@ const OfertasPage = () => {
     userWelcomeBar: {
       backgroundColor: '#095400',
       color: 'white',
-      padding: isMobile ? '10px 15px' : '12px 20px',
+      padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
       borderRadius: '8px',
+      flex: 1,
       display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: '15px'
+      flexDirection: 'column',      // muda de linha
+      alignItems: 'flex-start',     // alinha à esquerda
+      gap: '6px'                    // espaço entre mensagem e botão
     },
     welcomeMessage: {
       fontSize: isMobile ? '14px' : '16px',
@@ -282,13 +283,14 @@ const OfertasPage = () => {
     homeButton: {
       backgroundColor: 'white',
       color: '#095400',
-      border: 'none',
-      padding: isMobile ? '6px 10px' : '8px 12px',
+      border: '1px solid #095400', // opcional pra destacar
+      padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
       borderRadius: '20px',
-      fontSize: isMobile ? '12px' : '14px',
+      fontSize: windowWidth > 768 ? '14px' : '12px',
       fontWeight: '600',
       cursor: 'pointer',
-      textDecoration: 'none'
+      textDecoration: 'none',
+      whiteSpace: 'nowrap'
     },
     header: {
       textAlign: 'center',
