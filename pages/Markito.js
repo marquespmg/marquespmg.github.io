@@ -138,14 +138,14 @@ const Markito = () => {
             width: '320px',
             height: '450px',
             backgroundColor: '#fff',
-            border: '2px solid #058789',
+            border: '2px solid #095400',
             borderRadius: '10px',
             display: 'flex',
             flexDirection: 'column',
             boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
           }}>
             <div style={{
-              backgroundColor: '#058789',
+              backgroundColor: '#095400',
               color: '#fff',
               padding: '10px',
               borderTopLeftRadius: '8px',
@@ -238,7 +238,7 @@ const Markito = () => {
               />
               <button onClick={handleSend} style={{
                 marginLeft: '8px',
-                backgroundColor: '#058789',
+                backgroundColor: '#095400',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '20px',
@@ -251,7 +251,7 @@ const Markito = () => {
           </div>
         ) : (
           <button onClick={toggleChat} style={{
-            backgroundColor: '#058789',
+            backgroundColor: '#095400',
             color: '#fff',
             border: 'none',
             borderRadius: '50%',
@@ -309,7 +309,7 @@ const Markito = () => {
         }
 
         a {
-          color: #058789;
+          color: #095400;
           text-decoration: none;
           font-weight: bold;
         }
