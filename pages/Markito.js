@@ -1,65 +1,128 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import DOMPurify from 'dompurify';
+import React, { useState, useEffect } from 'react';
 
 const Markito = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: '👋 Olá! Eu sou o Markito, seu assistente da Marques Vendas PMG. Como posso ajudar?' }
+    { sender: 'bot', text: '👋 Olá! Eu sou o Markito, seu assistente da Marques Vendas PMG. Me pergunte sobre frete, pagamento ou produtos!' }
   ]);
   const [input, setInput] = useState('');
+  const [queue, setQueue] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
-  // URL da sua API no Vercel (substitua pela sua URL real)
-  const API_URL = 'https://marques-chat-api.vercel.app/api/chat';
+  // Configuração da API - substitua pela sua URL do Vercel
+  const API_BASE_URL = 'https://marques-chat-api.vercel.app/api';
 
-  const sanitizeMessage = (text) => {
-    return DOMPurify.sanitize(text.replace(/\n/g, '<br/>'));
+  const toggleChat = () => setIsOpen(!isOpen);
+
+  const fetchProdutos = async () => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/produtos`, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      if (!res.ok) {
+        const errorText = await res.text();
+        if (errorText.startsWith('<!DOCTYPE')) {
+          throw new Error('Servidor retornou página HTML inesperada');
+        }
+        throw new Error(errorText || 'Erro ao carregar produtos');
+      }
+
+      return await res.json();
+    } catch (err) {
+      console.error('Erro ao buscar produtos:', err);
+      return [];
+    }
   };
 
-  const handleSend = useCallback(async () => {
-    if (!input.trim()) return;
-    
-    const userMessage = input.trim();
-    setMessages(prev => [...prev, { sender: 'user', text: userMessage }]);
-    setInput('');
+  const processQueue = async () => {
+    if (queue.length === 0) return;
+
+    const combinedMessage = queue.join('. ');
+    setQueue([]);
     setIsTyping(true);
 
     try {
-      const response = await fetch(API_URL, {
+      const produtos = await fetchProdutos();
+      const matchedProdutos = produtos.filter(produto =>
+        combinedMessage.toLowerCase().includes(produto.name.toLowerCase())
+      );
+
+      let produtosResposta = '';
+      if (matchedProdutos.length > 0) {
+        produtosResposta = '🔍 Produtos encontrados:\n\n';
+        matchedProdutos.forEach(prod => {
+          produtosResposta += `
+🛒 *${prod.name}*
+📦 Categoria: ${prod.category}
+💰 Preço disponível após login rápido no site
+🖼️ <img src="${prod.image}" alt="${prod.name}" class="product-image"/>
+🔗 <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank">Ver mais detalhes no site</a>
+
+👉 Faça seu cadastro em menos de 2 minutos: https://www.marquesvendaspmg.shop/produtos
+`;
+        });
+      }
+
+      const response = await fetch(`${API_BASE_URL}/chat`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage })
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: combinedMessage,
+          produtos: produtosResposta
+        })
       });
 
       if (!response.ok) {
-        throw new Error('Erro na resposta da API');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Erro ao processar sua mensagem');
       }
 
       const data = await response.json();
-      setMessages(prev => [...prev, { sender: 'bot', text: data.reply }]);
-      
+      const botReply = data.reply || '❌ Desculpe, não consegui entender.';
+
+      setMessages(prev => [...prev, { sender: 'bot', text: botReply }]);
     } catch (error) {
-      console.error('Erro:', error);
+      console.error('Erro no processamento:', error);
       setMessages(prev => [...prev, { 
         sender: 'bot', 
-        text: '⚠️ Desculpe, estou com problemas técnicos. Por favor, tente novamente mais tarde.'
+        text: `⚠️ Ocorreu um erro: ${error.message || 'Por favor, tente novamente mais tarde.'}`
       }]);
     } finally {
       setIsTyping(false);
     }
-  }, [input]);
+  };
 
-  const toggleChat = () => setIsOpen(!isOpen);
+  useEffect(() => {
+    if (queue.length === 0) return;
+
+    const timer = setTimeout(() => {
+      processQueue();
+    }, 15000);
+
+    return () => clearTimeout(timer);
+  }, [queue]);
+
+  const handleSend = () => {
+    if (!input.trim()) return;
+    const newMessage = input.trim();
+
+    setMessages(prev => [...prev, { sender: 'user', text: newMessage }]);
+    setQueue(prev => [...prev, newMessage]);
+    setInput('');
+    setIsTyping(true);
+  };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSend();
-    }
+    if (e.key === 'Enter') handleSend();
   };
 
   const renderMessage = (text) => {
-    return <div dangerouslySetInnerHTML={{ __html: sanitizeMessage(text) }} />;
+    return <div dangerouslySetInnerHTML={{ __html: text.replace(/\n/g, '<br/>') }} />;
   };
 
   return (
@@ -67,7 +130,7 @@ const Markito = () => {
       <div style={{
         position: 'fixed',
         bottom: '20px',
-        right: '20px', // Mudei para right para não conflitar com outros elementos
+        left: '20px',
         zIndex: 9999
       }}>
         {isOpen ? (
@@ -194,6 +257,7 @@ const Markito = () => {
             borderRadius: '50%',
             width: '60px',
             height: '60px',
+            fontSize: '24px',
             cursor: 'pointer',
             boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
             display: 'flex',
@@ -203,7 +267,11 @@ const Markito = () => {
             <img 
               src="https://i.imgur.com/WJkLMg6.png" 
               alt="Markito" 
-              style={{ width: '40px', height: '40px', borderRadius: '50%' }} 
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%'
+              }} 
             />
           </button>
         )}
@@ -215,10 +283,39 @@ const Markito = () => {
           opacity: 0;
         }
         
+        .typing-indicator span:nth-child(1) {
+          animation-delay: 0s;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+        
         @keyframes typing {
           0% { opacity: 0; }
           50% { opacity: 1; }
           100% { opacity: 0; }
+        }
+
+        .product-image {
+          max-width: 200px;
+          border-radius: 8px;
+          margin-top: 8px;
+          display: block;
+        }
+
+        a {
+          color: #058789;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        a:hover {
+          text-decoration: underline;
         }
       `}</style>
     </>
