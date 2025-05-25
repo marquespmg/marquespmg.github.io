@@ -9,7 +9,7 @@ const Markito = () => {
   const [queue, setQueue] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
-  const apiKey = 'Bearer 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';
+  const apiKey = 'Bearer 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';
 
   const toggleChat = () => setIsOpen(!isOpen);
 
