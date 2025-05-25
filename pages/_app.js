@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
-import Markito from '../pages/Markito'; // Importe o componente do chat
+import Markito from './pages/Markito'; // Importe o componente do chat
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
