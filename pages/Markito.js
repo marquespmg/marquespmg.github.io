@@ -156,7 +156,7 @@ const Markito = () => {
               alignItems: 'center'
             }}>
               <img 
-                src="https://i.imgur.com/WJkLMg6.png" 
+                src="https://i.imgur.com/z8LWg1n.png" 
                 alt="Markito" 
                 style={{
                   width: '30px',
@@ -255,8 +255,8 @@ const Markito = () => {
             color: '#fff',
             border: 'none',
             borderRadius: '50%',
-            width: '60px',
-            height: '60px',
+            width: '50px',
+            height: '50px',
             fontSize: '24px',
             cursor: 'pointer',
             boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
@@ -265,11 +265,11 @@ const Markito = () => {
             justifyContent: 'center'
           }}>
             <img 
-              src="https://i.imgur.com/WJkLMg6.png" 
+              src="https://i.imgur.com/z8LWg1n.png" 
               alt="Markito" 
               style={{
-                width: '40px',
-                height: '40px',
+                width: '44px',
+                height: '44px',
                 borderRadius: '50%'
               }} 
             />
