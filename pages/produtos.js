@@ -539,7 +539,7 @@ const products = [
   { id: 527, name: 'CARNE DE SOL BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Derivados de Bovino', price: 54.04, image: 'https://i.imgur.com/S4HEnZF.png' },
   { id: 528, name: 'CARNE MOÍDA BOVINA CONGELADA ACÉM BOI FORTE 1 KG', category: 'Derivados de Bovino', price: 19.86, image: 'https://i.imgur.com/ncfSGj5.png' },
   { id: 529, name: 'CARNE MOÍDA BOVINA CONGELADA ALFAMA 1 KG', category: 'Derivados de Bovino', price: 26.36, image: 'https://i.imgur.com/qf2NkLg.png' },
-  { id: 530, name: 'CARNE MOÍDA BOVINA CONGELADA ALFAMA 2,5 KILO', category: 'Derivados de Bovino', price: 61.29, image: 'https://i.imgur.com/OsvPNsm.png' },
+  { id: 530, name: 'CARNE MOÍDA BOVINA CONGELADA ALFAMA 2,5 KILO', category: 'Derivados de Bovino', price: 64.80, image: 'https://i.imgur.com/OsvPNsm.png' },
   { id: 531, name: 'CARNE MOÍDA BOVINA CONGELADA PATINHO BOI FORTE 1 KG', category: 'Derivados de Bovino', price: 20.46, image: 'https://i.imgur.com/scZdEH1.png' },
   { id: 532, name: 'CARNE MOÍDA BOVINA CONGELADA PATINHO MESTRO 1 KG', category: 'Derivados de Bovino', price: 22.87, image: 'https://i.imgur.com/JpiEpge.png' },
   { id: 533, name: 'CARNE SECA BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Derivados de Bovino', price: 56.09, image: 'https://i.imgur.com/5Immuu2.png' },
