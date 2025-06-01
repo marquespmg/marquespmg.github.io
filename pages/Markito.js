@@ -156,7 +156,7 @@ const Markito = () => {
               alignItems: 'center'
             }}>
               <img 
-                src="https://i.imgur.com/z8LWg1n.png" 
+                src="https://i.imgur.com/J0BfsSj.gif" 
                 alt="Markito" 
                 style={{
                   width: '30px',
@@ -265,7 +265,7 @@ const Markito = () => {
             justifyContent: 'center'
           }}>
             <img 
-              src="https://i.imgur.com/z8LWg1n.png" 
+              src="https://i.imgur.com/J0BfsSj.gif" 
               alt="Markito" 
               style={{
                 width: '44px',
