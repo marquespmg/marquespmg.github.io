@@ -1,118 +1,118 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
+import Link from 'next/link';
 
-// Produtos em oferta (adicione a categoria "Ofertas" aos produtos que devem aparecer aqui)
+// ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
   {
-  id: 1899,
-  name: 'CREME DE AVELÃ GRANDE COM CACAU FOOD SERVICE NUTELLA 3 KILO',
-  category: 'Ofertas',
-  price: 192.33,
-  image: 'https://i.imgur.com/QFMFc2J.png',
-},
-{
-  id: 1900,
-  name: 'ÓLEO DE ALGODÃO SOYA (BD 15,8 L)',
-  category: 'Ofertas',
-  price: 172.30,
-  image: 'https://i.imgur.com/lV3B9cU.png',
-},
-{
-  id: 1901,
-  name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL MAIS BATATA BEM BRASIL 2 KILO (CX 7 PCT)',
-  category: 'Ofertas',
-  price: 174.99,
-  image: 'https://i.imgur.com/H6CVzIj.png',
-},
-{
-  id: 1902,
-  name: 'VINHO CHILENO TINTO SECO CABERNET SAUVIGNON CASILLERO DEL DIABLO 750 ML',
-  category: 'Ofertas',
-  price: 41.30,
-  image: 'https://i.imgur.com/muoEyM2.png',
-},
-{
-  id: 1903,
-  name: 'VINHO CHILENO TINTO SECO MALBEC CASILLERO DEL DIABLO 750 ML',
-  category: 'Ofertas',
-  price: 41.30,
-  image: 'https://i.imgur.com/dVFLBxV.png',
-},
-{
-  id: 1904,
-  name: 'VINHO ARGENTINO TINTO MEIO SECO MALBEC RESERVADO CONCHA Y TORO 750 ML',
-  category: 'Ofertas',
-  price: 23.30,
-  image: 'https://i.imgur.com/F9GqjDF.png',
-},
-{
-  id: 1905,
-  name: 'VINHO CHILENO TINTO MEIO SECO CABERNET SAUVIGNON RESERVADO CONCHA Y TORO 750 ML',
-  category: 'Ofertas',
-  price: 23.30,
-  image: 'https://i.imgur.com/I2KzRC5.png',
-},
-{
-  id: 1906,
-  name: 'VINHO CHILENO TINTO MEIO SECO CARMENÉRE RESERVADO CONCHA Y TORO 750 ML',
-  category: 'Ofertas',
-  price: 23.30,
-  image: 'https://i.imgur.com/8rZ7chL.png',
-},
-{
-  id: 1907,
-  name: 'VINHO CHILENO TINTO MEIO SECO MERLOT RESERVADO CONCHA Y TORO 750 ML',
-  category: 'Ofertas',
-  price: 23.30,
-  image: 'https://i.imgur.com/z154E3m.png',
-},
-{
-  id: 1908,
-  name: 'ALHO INTEIRO DESCASCADO CONGELADO PRATIGEL 1,02 KILO',
-  category: 'Ofertas',
-  price: 22.50,
-  image: 'https://i.imgur.com/NRhdM8c.png',
-},
-{
-  id: 1909,
-  name: 'CARNE MOÍDA BOVINA CONGELADA ALFAMA 2,5 KILO',
-  category: 'Ofertas',
-  price: 61.50,
-  image: 'https://i.imgur.com/OsvPNsm.png',
-},
-{
-  id: 1910,
-  name: 'CALABRESA AURORA 5 KILO',
-  category: 'Ofertas',
-  price: 96.70,
-  image: 'https://i.imgur.com/eu9D48E.png',
-},
-{
-  id: 1911,
-  name: 'MORTADELA REZENDE 5 KG',
-  category: 'Ofertas',
-  price: 9.70,
-  image: 'https://i.imgur.com/G2TEWPo.png',
-},
-{
-  id: 1912,
-  name: 'BATATA PALHA EXTRAFINA KROCK 500 G (FDO 20 PCT)',
-  category: 'Ofertas',
-  price: 15.00,
-  image: 'https://i.imgur.com/cuy77VB.png',
-},
-{
-  id: 1913,
-  name: 'AÇÚCAR REFINADO ALTO ALEGRE 1 KILO (FDO 10 PCT)',
-  category: 'Ofertas',
-  price: 44.98,
-  image: 'https://i.imgur.com/OAA8hCL.png',
-},
-  // Adicione outros produtos em oferta aqui...
-].filter(product => product.category === 'Ofertas'); // Filtra apenas os produtos da categoria Ofertas
+    id: 1899,
+    name: 'CREME DE AVELÃ GRANDE COM CACAU FOOD SERVICE NUTELLA 3 KILO',
+    category: 'Ofertas',
+    price: 192.33,
+    image: 'https://i.imgur.com/QFMFc2J.png',
+  },
+  {
+    id: 1900,
+    name: 'ÓLEO DE ALGODÃO SOYA (BD 15,8 L)',
+    category: 'Ofertas',
+    price: 172.30,
+    image: 'https://i.imgur.com/lV3B9cU.png',
+  },
+  {
+    id: 1901,
+    name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL MAIS BATATA BEM BRASIL 2 KILO (CX 7 PCT)',
+    category: 'Ofertas',
+    price: 174.99,
+    image: 'https://i.imgur.com/H6CVzIj.png',
+  },
+  {
+    id: 1902,
+    name: 'VINHO CHILENO TINTO SECO CABERNET SAUVIGNON CASILLERO DEL DIABLO 750 ML',
+    category: 'Ofertas',
+    price: 41.30,
+    image: 'https://i.imgur.com/muoEyM2.png',
+  },
+  {
+    id: 1903,
+    name: 'VINHO CHILENO TINTO SECO MALBEC CASILLERO DEL DIABLO 750 ML',
+    category: 'Ofertas',
+    price: 41.30,
+    image: 'https://i.imgur.com/dVFLBxV.png',
+  },
+  {
+    id: 1904,
+    name: 'VINHO ARGENTINO TINTO MEIO SECO MALBEC RESERVADO CONCHA Y TORO 750 ML',
+    category: 'Ofertas',
+    price: 23.30,
+    image: 'https://i.imgur.com/F9GqjDF.png',
+  },
+  {
+    id: 1905,
+    name: 'VINHO CHILENO TINTO MEIO SECO CABERNET SAUVIGNON RESERVADO CONCHA Y TORO 750 ML',
+    category: 'Ofertas',
+    price: 23.30,
+    image: 'https://i.imgur.com/I2KzRC5.png',
+  },
+  {
+    id: 1906,
+    name: 'VINHO CHILENO TINTO MEIO SECO CARMENÉRE RESERVADO CONCHA Y TORO 750 ML',
+    category: 'Ofertas',
+    price: 23.30,
+    image: 'https://i.imgur.com/8rZ7chL.png',
+  },
+  {
+    id: 1907,
+    name: 'VINHO CHILENO TINTO MEIO SECO MERLOT RESERVADO CONCHA Y TORO 750 ML',
+    category: 'Ofertas',
+    price: 23.30,
+    image: 'https://i.imgur.com/z154E3m.png',
+  },
+  {
+    id: 1908,
+    name: 'ALHO INTEIRO DESCASCADO CONGELADO PRATIGEL 1,02 KILO',
+    category: 'Ofertas',
+    price: 22.50,
+    image: 'https://i.imgur.com/NRhdM8c.png',
+  },
+  {
+    id: 1909,
+    name: 'CARNE MOÍDA BOVINA CONGELADA ALFAMA 2,5 KILO',
+    category: 'Ofertas',
+    price: 61.50,
+    image: 'https://i.imgur.com/OsvPNsm.png',
+  },
+  {
+    id: 1910,
+    name: 'CALABRESA AURORA 5 KILO',
+    category: 'Ofertas',
+    price: 96.70,
+    image: 'https://i.imgur.com/eu9D48E.png',
+  },
+  {
+    id: 1911,
+    name: 'MORTADELA REZENDE 5 KG',
+    category: 'Ofertas',
+    price: 9.70,
+    image: 'https://i.imgur.com/G2TEWPo.png',
+  },
+  {
+    id: 1912,
+    name: 'BATATA PALHA EXTRAFINA KROCK 500 G (FDO 20 PCT)',
+    category: 'Ofertas',
+    price: 15.00,
+    image: 'https://i.imgur.com/cuy77VB.png',
+  },
+  {
+    id: 1913,
+    name: 'AÇÚCAR REFINADO ALTO ALEGRE 1 KILO (FDO 10 PCT)',
+    category: 'Ofertas',
+    price: 44.98,
+    image: 'https://i.imgur.com/OAA8hCL.png',
+  },
+].filter(product => product.category === 'Ofertas');
 
-// Banners (pode ser o mesmo da página de produtos)
+// ========== BANNERS ========== //
 const banners = [
   { 
     id: 1,
@@ -136,7 +136,15 @@ const banners = [
   }
 ];
 
-// HOOK PARA DETECTAR TAMANHO DA TELA
+// ========== IMAGENS FIFO (1080x1080) ========== //
+const fifoImages = [
+  'https://i.imgur.com/zp9OowW.jpeg',
+  'https://i.imgur.com/yEJcdbH.jpeg',
+  'https://i.imgur.com/BDBfk6g.jpeg',
+  'https://i.imgur.com/SdR1yoF.jpeg',
+];
+
+// ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
     width: undefined,
@@ -160,11 +168,12 @@ const useWindowSize = () => {
   return windowSize;
 };
 
+// ========== COMPONENTE PRINCIPAL ========== //
 const OfertasPage = () => {
   const { width: windowWidth } = useWindowSize();
   const isMobile = windowWidth <= 768;
   
-  // ESTADOS PRINCIPAIS
+  // Estados
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -172,24 +181,26 @@ const OfertasPage = () => {
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [showFreteToast, setShowFreteToast] = useState(false);
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
+  const [showFifoPopup, setShowFifoPopup] = useState(false);
+  const [selectedFifoImage, setSelectedFifoImage] = useState('');
 
-  // CONFIGURAÇÃO DE PAGINAÇÃO
+  // Configuração de paginação
   const productsPerPage = 10;
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = featuredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(featuredProducts.length / productsPerPage);
 
-  // REFS PARA INTERVALOS
+  // Refs para intervalos
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
 
-  // FUNÇÕES DE PAGINAÇÃO
+  // Funções de paginação
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const nextPage = () => currentPage < totalPages && setCurrentPage(currentPage + 1);
   const prevPage = () => currentPage > 1 && setCurrentPage(currentPage - 1);
 
-  // FUNÇÃO PARA MOSTRAR MAIS/MENOS
+  // Função para mostrar mais/menos
   const toggleDescription = (productId) => {
     setExpandedDescriptions(prev => ({
       ...prev,
@@ -197,14 +208,14 @@ const OfertasPage = () => {
     }));
   };
 
-  // EFEITOS
+  // Efeitos
   useEffect(() => {
-    // Configura carrossel automático
+    // Carrossel automático
     bannerIntervalRef.current = setInterval(() => {
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
     }, 10000);
 
-    // Configura notificações
+    // Notificações
     toastTimeoutRef.current = setTimeout(() => {
       setShowFreteToast(true);
       setTimeout(() => setShowFreteToast(false), 10000);
@@ -215,13 +226,21 @@ const OfertasPage = () => {
       }, 5000);
     }, 15000);
 
+    // Popup FIFO após 1 minuto
+    const fifoTimer = setTimeout(() => {
+      const randomImage = fifoImages[Math.floor(Math.random() * fifoImages.length)];
+      setSelectedFifoImage(randomImage);
+      setShowFifoPopup(true);
+    }, 27000);
+
     return () => {
       clearInterval(bannerIntervalRef.current);
       clearTimeout(toastTimeoutRef.current);
+      clearTimeout(fifoTimer);
     };
   }, []);
 
-  // FUNÇÕES DO CARRINHO
+  // Funções do carrinho
   const addToCart = (product) => {
     if (product.price > 0) {
       setCart([...cart, product]);
@@ -236,7 +255,7 @@ const OfertasPage = () => {
     setTotal(total - (removedItem?.price || 0));
   };
 
-  // FUNÇÕES DO BANNER
+  // Funções do banner
   const goToNextBanner = () => {
     setCurrentBannerIndex(prev => (prev + 1) % banners.length);
     resetBannerInterval();
@@ -254,7 +273,7 @@ const OfertasPage = () => {
     }, 10000);
   };
 
-  // ESTILOS COMPLETOS
+  // ========== ESTILOS ========== //
   const styles = {
     container: {
       maxWidth: '1200px',
@@ -271,9 +290,9 @@ const OfertasPage = () => {
       borderRadius: '8px',
       flex: 1,
       display: 'flex',
-      flexDirection: 'column',      // muda de linha
-      alignItems: 'flex-start',     // alinha à esquerda
-      gap: '6px'                    // espaço entre mensagem e botão
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      gap: '6px'
     },
     welcomeMessage: {
       fontSize: isMobile ? '14px' : '16px',
@@ -283,7 +302,7 @@ const OfertasPage = () => {
     homeButton: {
       backgroundColor: 'white',
       color: '#095400',
-      border: '1px solid #095400', // opcional pra destacar
+      border: '1px solid #095400',
       padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
       borderRadius: '20px',
       fontSize: windowWidth > 768 ? '14px' : '12px',
@@ -501,15 +520,81 @@ const OfertasPage = () => {
       fontSize: '13px'
     },
     footer: {
-      marginTop: '30px',
+      marginTop: isMobile ? '30px' : '50px',
       padding: isMobile ? '20px 15px' : '30px 20px',
       textAlign: 'center',
       color: '#666',
-      fontSize: isMobile ? '14px' : '16px',
-      borderTop: '1px solid #eee'
-    }
+      fontSize: isMobile ? '0.8rem' : '0.85rem',
+      borderTop: '1px solid #eee',
+      backgroundColor: '#f9f9f9'
+    },
+    // ========== ESTILOS DO POPUP FIFO (AJUSTADOS PARA 1080x1080) ========== //
+    fifoPopupOverlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      zIndex: 2000,
+    },
+    fifoPopupContent: {
+      position: 'relative',
+      width: isMobile ? '90%' : 'auto', // Ajuste para desktop
+      maxWidth: '1080px', // Largura máxima igual à da imagem
+      maxHeight: isMobile ? '80vh' : '90vh',
+      borderRadius: '12px',
+      overflow: 'hidden',
+      boxShadow: '0 5px 25px rgba(0,0,0,0.5)',
+      backgroundColor: '#fff',
+    },
+    fifoPopupClose: {
+      position: 'absolute',
+      top: '10px',
+      right: '10px',
+      backgroundColor: '#ff0000',
+      color: 'white',
+      border: 'none',
+      borderRadius: '50%',
+      width: '30px',
+      height: '30px',
+      fontSize: '16px',
+      fontWeight: 'bold',
+      cursor: 'pointer',
+      zIndex: 10,
+    },
+    fifoPopupImageContainer: {
+      width: '100%',
+      height: 'auto',
+      display: 'flex',
+      justifyContent: 'center',
+      backgroundColor: '#fff', // Fundo branco para imagens transparentes
+    },
+    fifoPopupImage: {
+      width: '100%',
+      height: 'auto',
+      maxHeight: '70vh',
+      objectFit: 'contain', // Garante que a imagem não seja cortada
+    },
+    fifoPopupButton: {
+      display: 'block',
+      width: '100%',
+      padding: '15px',
+      backgroundColor: '#25D366',
+      color: 'white',
+      border: 'none',
+      fontSize: isMobile ? '16px' : '18px',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      cursor: 'pointer',
+      textDecoration: 'none',
+    },
   };
 
+  // ========== RENDERIZAÇÃO ========== //
   return (
     <div style={styles.container}>
       {/* Barra de boas-vindas */}
@@ -616,42 +701,37 @@ const OfertasPage = () => {
         </button>
       </div>
 
-      {/* Contador de resultados */}
-      <p style={styles.resultsInfo}>
-        Mostrando {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, featuredProducts.length)} de {featuredProducts.length} produtos
-      </p>
-
       {/* Carrinho */}
       <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} total={total} />
 
-                {/* CTA para página de produtos completa */}
-        <div style={{ 
-          textAlign: 'center', 
-          margin: '40px 0',
-          padding: '20px',
-          backgroundColor: '#fff',
-          borderRadius: '10px',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
-        }}>
-          <h2 style={{ color: '#095400', marginBottom: '15px' }}>Quer ver todos os nossos produtos?</h2>
-          <p style={{ marginBottom: '20px', color: '#666' }}>
-            Acesse nosso catálogo completo com centenas de itens para seu negócio.
-            Cadastro rápido e fácil!
-          </p>
-          <a 
-            href="/produtos" 
-            style={{
-              ...styles.addButton,
-              display: 'inline-block',
-              textDecoration: 'none',
-              padding: '12px 30px'
-            }}
-          >
-            Ver Catálogo Completo
-          </a>
-        </div>
+      {/* CTA para página de produtos completa */}
+      <div style={{ 
+        textAlign: 'center', 
+        margin: '40px 0',
+        padding: '20px',
+        backgroundColor: '#fff',
+        borderRadius: '10px',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+      }}>
+        <h2 style={{ color: '#095400', marginBottom: '15px' }}>Quer ver todos os nossos produtos?</h2>
+        <p style={{ marginBottom: '20px', color: '#666' }}>
+          Acesse nosso catálogo completo com centenas de itens para seu negócio.
+          Cadastro rápido e fácil!
+        </p>
+        <a 
+          href="/produtos" 
+          style={{
+            ...styles.addButton,
+            display: 'inline-block',
+            textDecoration: 'none',
+            padding: '12px 30px'
+          }}
+        >
+          Ver Catálogo Completo
+        </a>
+      </div>
 
-      {/* Carrossel de banners (NA PARTE INFERIOR COMO SOLICITADO) */}
+      {/* Carrossel de banners */}
       <div style={styles.bannerContainer}>
         <img
           src={isMobile ? banners[currentBannerIndex].mobile : banners[currentBannerIndex].desktop}
@@ -724,18 +804,157 @@ const OfertasPage = () => {
         )}
       </div>
 
-      {/* Rodapé */}
-      <footer style={styles.footer}>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '15px', flexWrap: 'wrap' }}>
-          <a href="#" style={{ color: '#095400', textDecoration: 'none' }}>Termos de Uso</a>
-          <a href="#" style={{ color: '#095400', textDecoration: 'none' }}>Política de Privacidade</a>
-          <a href="#" style={{ color: '#095400', textDecoration: 'none' }}>Contato</a>
+      {/* Popup FIFO */}
+      {showFifoPopup && (
+        <div style={styles.fifoPopupOverlay}>
+          <div style={styles.fifoPopupContent}>
+            <button 
+              style={styles.fifoPopupClose}
+              onClick={() => setShowFifoPopup(false)}
+            >
+              X
+            </button>
+            <div style={styles.fifoPopupImageContainer}>
+              <img 
+                src={selectedFifoImage} 
+                alt="Oferta FIFO" 
+                style={styles.fifoPopupImage}
+              />
+            </div>
+            <a
+              href="https://wa.me/5511913572902"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.fifoPopupButton}
+            >
+              ENTRE EM CONTATO
+            </a>
+          </div>
         </div>
-        <p>© {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.</p>
-        <p style={{ fontSize: isMobile ? '12px' : '14px', color: '#999', marginTop: '5px' }}>
-          Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
-        </p>
-      </footer>
+      )}
+
+        {/* Rodapé - Adaptado para mobile */}
+<footer style={{
+  marginTop: isMobile ? '30px' : '50px',
+  padding: isMobile ? '20px 15px' : '30px 20px',
+  textAlign: 'center',
+  color: '#666',
+  fontSize: isMobile ? '0.8rem' : '0.85rem',
+  borderTop: '1px solid #eee',
+  backgroundColor: '#f9f9f9' // Adicionado para melhor contraste
+}}>
+  {/* Container principal dos links legais */}
+  <div id="legal-links-container" style={{
+    display: 'flex',
+    justifyContent: 'center',
+    gap: isMobile ? '10px' : '20px',
+    marginBottom: '15px',
+    flexWrap: 'wrap',
+    alignItems: 'center'
+  }}>
+    {/* Link de Política de Privacidade (versão Google-friendly) */}
+    <a 
+      href="/politica-de-privacidade" 
+      style={{ 
+        color: '#095400', 
+        textDecoration: 'underline', // Sublinhado para melhor visibilidade
+        fontWeight: '600', // Negrito
+        fontSize: isMobile ? '0.85rem' : '0.9rem',
+        padding: '8px 12px',
+        borderRadius: '4px',
+        transition: 'all 0.3s ease',
+        ':hover': {
+          backgroundColor: '#f0f0f0'
+        }
+      }}
+      title="Política de Privacidade"
+      aria-label="Leia nossa Política de Privacidade Completa"
+    >
+      Política de Privacidade
+    </a>
+
+    <span style={{ color: '#095400' }}>|</span>
+
+    {/* Link para Termos */}
+    <Link href="/termos" passHref legacyBehavior>
+      <a style={{ 
+        color: '#095400', 
+        textDecoration: 'underline', // Sublinhado para melhor visibilidade
+        fontWeight: '600', // Negrito
+        fontSize: isMobile ? '0.85rem' : '0.9rem',
+        padding: '8px 12px',
+        borderRadius: '4px',
+        transition: 'all 0.3s ease',
+        ':hover': {
+          backgroundColor: '#f0f0f0'
+        }
+      }}
+      title="Termos de Uso"
+      aria-label="Leia nossos Termos de Uso Completo"
+    >
+      Termos de Uso
+    </a>
+    </Link>
+
+    <span style={{ color: '#095400' }}>|</span>
+
+{/* Link para Quem Somos - VERSÃO BLINDADA */}
+<div style={{
+  position: 'relative',
+  zIndex: 9999,
+  isolation: 'isolate'
+}}>
+  <Link href="/quem-somos" passHref legacyBehavior>
+    <a 
+      onClick={(e) => {
+        // Fallback para garantir funcionamento em mobile
+        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+          e.preventDefault();
+          window.location.href = '/quem-somos';
+        }
+      }}
+      style={{ 
+        color: '#095400', 
+        textDecoration: 'underline',
+        fontWeight: '600',
+        fontSize: isMobile ? '0.85rem' : '0.9rem',
+        padding: '8px 12px',
+        borderRadius: '4px',
+        transition: 'all 0.3s ease',
+        display: 'inline-block',
+        position: 'relative',
+        backgroundColor: 'transparent',
+        ':hover': {
+          backgroundColor: '#f0f0f0'
+        },
+        // Proteções extras para mobile
+        WebkitTapHighlightColor: 'transparent',
+        touchAction: 'manipulation'
+      }}
+      title="Quem Somos"
+      aria-label="Leia nossos Quem Somos Completo"
+    >
+      Quem Somos
+    </a>
+  </Link>
+  </div>
+  </div>
+
+  {/* Informações de copyright */}
+  <div style={{ marginTop: '10px' }}>
+    <p style={{ margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem' }}>
+      © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+    </p>
+    <p style={{ 
+      margin: '5px 0', 
+      fontSize: isMobile ? '0.7rem' : '0.8rem', 
+      color: '#999',
+      lineHeight: '1.4'
+    }}>
+      • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
+    </p>
+  </div>
+</footer>
     </div>
   );
 };
