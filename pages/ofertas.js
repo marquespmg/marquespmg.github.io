@@ -138,10 +138,10 @@ const banners = [
 
 // ========== IMAGENS FIFO (1080x1080) ========== //
 const fifoImages = [
-  'https://i.imgur.com/zp9OowW.jpeg',
-  'https://i.imgur.com/yEJcdbH.jpeg',
-  'https://i.imgur.com/BDBfk6g.jpeg',
-  'https://i.imgur.com/SdR1yoF.jpeg',
+  'https://i.imgur.com/ozz5eQh.mp4',
+  'https://i.imgur.com/aTKIsS6.mp4',
+  'https://i.imgur.com/bBvI9QU.mp4',
+  'https://i.imgur.com/UxdNQ6c.mp4',
 ];
 
 // ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
@@ -805,33 +805,39 @@ const OfertasPage = () => {
       </div>
 
       {/* Popup FIFO */}
-      {showFifoPopup && (
-        <div style={styles.fifoPopupOverlay}>
-          <div style={styles.fifoPopupContent}>
-            <button 
-              style={styles.fifoPopupClose}
-              onClick={() => setShowFifoPopup(false)}
-            >
-              X
-            </button>
-            <div style={styles.fifoPopupImageContainer}>
-              <img 
-                src={selectedFifoImage} 
-                alt="Oferta FIFO" 
-                style={styles.fifoPopupImage}
-              />
-            </div>
-            <a
-              href="https://wa.me/5511913572902"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.fifoPopupButton}
-            >
-              ENTRE EM CONTATO
-            </a>
-          </div>
-        </div>
-      )}
+{showFifoPopup && (
+  <div style={styles.fifoPopupOverlay}>
+    <div style={styles.fifoPopupContent}>
+      <button 
+        style={styles.fifoPopupClose}
+        onClick={() => setShowFifoPopup(false)}
+      >
+        X
+      </button>
+      <div style={styles.fifoPopupImageContainer}>
+        {/* Substitua esta parte ↓ */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={styles.fifoPopupImage} // Mantém os mesmos estilos
+        >
+          <source src={selectedFifoImage} type="video/mp4" />
+          Seu navegador não suporta vídeo HTML5
+        </video>
+      </div>
+      <a
+        href="https://wa.me/5511913572902"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={styles.fifoPopupButton}
+      >
+        ENTRE EM CONTATO
+      </a>
+    </div>
+  </div>
+)}
 
         {/* Rodapé - Adaptado para mobile */}
 <footer style={{
