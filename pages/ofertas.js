@@ -138,10 +138,10 @@ const banners = [
 
 // ========== IMAGENS FIFO (1080x1080) ========== //
 const fifoImages = [
-  'https://i.imgur.com/ozz5eQh.mp4',
-  'https://i.imgur.com/aTKIsS6.mp4',
-  'https://i.imgur.com/bBvI9QU.mp4',
-  'https://i.imgur.com/UxdNQ6c.mp4',
+  'https://i.imgur.com/gwe87B0.mp4',
+  'https://i.imgur.com/njmeXty.mp4',
+  'https://i.imgur.com/m3lHnbZ.mp4',
+  'https://i.imgur.com/1bn7EE8.mp4',
 ];
 
 // ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
