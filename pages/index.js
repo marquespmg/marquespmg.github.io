@@ -12,8 +12,8 @@ export default function Home() {
     },
     { 
       id: 2,
-      desktop: 'https://i.imgur.com/S9h63eW.jpeg',
-      mobile: 'https://i.imgur.com/iXQe3Up.jpeg'
+      desktop: 'https://i.imgur.com/wdRs950.jpeg',
+      mobile: 'https://i.imgur.com/Nj1WQxd.jpeg'
     },
     { 
       id: 3,
