@@ -67,7 +67,7 @@ const gerarEncarteVisual = async () => {
     // **DIMENSÕES DO LAYOUT**  
     const produtosPorLinha = 4;  
     const padding = 40;  
-    const borderWidth = 50;  // Borda verde ao redor  
+    const borderWidth = 40;  // Borda verde ao redor  
     const logoHeight = 100;  
     const margemTopo = logoHeight + 40;  
     const larguraProduto = 450;  
@@ -607,4 +607,5 @@ const styles = {
     cursor: 'pointer',
     fontSize: '16px'
   }
+
 };
