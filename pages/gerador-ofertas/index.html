@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from '/style.module.css';
+import styles from '../lib/supabaseClient';
 
 export default function GeradorOfertas() {
   const [acessoPermitido, setAcessoPermitido] = useState(false);
@@ -90,3 +90,4 @@ export default function GeradorOfertas() {
   );
 
 }
+
