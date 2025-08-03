@@ -1,0 +1,57 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.authBox {
+  text-align: center;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.authBox input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.authBox button {
+  background: #0070f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.controles {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.produtosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.produtoCard {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.produtoCard img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
