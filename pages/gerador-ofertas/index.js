@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
 
 export default function GeradorOfertas() {
@@ -9,8 +9,11 @@ export default function GeradorOfertas() {
   const [produtosSelecionados, setProdutosSelecionados] = useState([]);
   const [busca, setBusca] = useState('');
   const [modoSelecao, setModoSelecao] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(20);
+
   const verificarSenha = () => {
-    if (senha === "PMG@2024") { // Altere para sua senha
+    if (senha === "PMG@2024") {
       setAcessoPermitido(true);
       carregarProdutos();
     } else {
@@ -18,7 +21,14 @@ export default function GeradorOfertas() {
     }
   };
 
-  // Cores da PMG (ajuste conforme necessário)
+  const carregarProdutos = () => {
+    fetch('/produtos.json')
+      .then(res => res.json())
+      .then(data => setProdutos(data))
+      .catch(err => console.error('Erro ao carregar produtos:', err));
+  };
+
+  // Cores da PMG
   const coresPMG = {
     primaria: '#095400',
     secundaria: '#ff0000',
@@ -26,20 +36,39 @@ export default function GeradorOfertas() {
     texto: '#333333'
   };
 
-  // Carrega produtos
+  // Carrega produtos quando acesso é permitido
   useEffect(() => {
     if (acessoPermitido) {
-      fetch('/produtos.json')
-        .then(res => res.json())
-        .then(data => setProdutos(data))
-        .catch(err => console.error('Erro ao carregar produtos:', err));
+      carregarProdutos();
     }
   }, [acessoPermitido]);
 
-  // Filtra produtos pela busca
-  const produtosFiltrados = produtos.filter(produto =>
-    produto.name.toLowerCase().includes(busca.toLowerCase())
-  );
+  // Função de filtro
+  const produtosFiltrados = useMemo(() => {
+    if (!modoSelecao || !busca.trim()) return produtos;
+
+    const termo = busca.toLowerCase().trim();
+    return produtos.filter(produto => {
+      const nome = produto.name.toLowerCase();
+      const palavras = nome.split(/[\s\/\-.,;]+/);
+      return palavras.some(palavra => palavra === termo) || nome === termo;
+    });
+  }, [busca, produtos, modoSelecao]);
+
+  // Paginação
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = produtosFiltrados.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(produtosFiltrados.length / productsPerPage);
+
+  // Funções para seleção em massa
+  const selecionarTodos = () => {
+    setProdutosSelecionados(produtosFiltrados);
+  };
+
+  const desmarcarTodos = () => {
+    setProdutosSelecionados([]);
+  };
 
   // Alterna seleção de produto
   const toggleSelecionarProduto = (produto) => {
@@ -50,221 +79,220 @@ export default function GeradorOfertas() {
     );
   };
 
-const gerarEncarteVisual = async () => {
-  if (produtosSelecionados.length === 0) {
-    alert("Selecione pelo menos um produto!");
-    return;
+  const gerarEncarteVisual = async () => {
+    if (produtosSelecionados.length === 0) {
+      alert("Selecione pelo menos um produto!");
+      return;
+    }
+
+    try {
+      // Configurações principais
+      const coresPMG = {
+        verde: "#095400",
+        vermelho: "#ff0000",
+        branco: "#ffffff",
+      };
+
+      // Dimensões do layout
+      const produtosPorLinha = 4;
+      const padding = 40;
+      const borderWidth = 30;
+      const logoHeight = 100;
+      const margemTopo = logoHeight + 40;
+      const larguraProduto = 450;
+      const alturaProduto = 600;
+
+      // Posições fixas para texto
+      const POSICAO_PRECO = 0.82;
+      const POSICAO_UNIDADE = 0.87;
+      const ESPACAMENTO_MINIMO = 50;
+
+      // Calcula tamanho do canvas
+      const linhas = Math.ceil(produtosSelecionados.length / produtosPorLinha);
+      const canvasWidth = produtosPorLinha * larguraProduto + (produtosPorLinha + 1) * padding + borderWidth * 2;
+      const canvasHeight = margemTopo + linhas * alturaProduto + (linhas + 1) * padding + borderWidth * 2;
+
+      // Cria o canvas
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+
+      // Fundo e borda verde
+      ctx.fillStyle = coresPMG.verde;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = coresPMG.branco;
+      ctx.fillRect(borderWidth, borderWidth, canvas.width - borderWidth * 2, canvas.height - borderWidth * 2);
+
+      // Logo PMG no topo
+      const logo = new Image();
+      logo.src = "/logo-pmg.png";
+      await new Promise((resolve) => {
+        logo.onload = resolve;
+        logo.onerror = resolve;
+      });
+
+      if (logo.complete) {
+        const logoWidth = 200;
+        const logoDisplayHeight = 200;
+        ctx.drawImage(
+          logo,
+          canvas.width / 2 - logoWidth / 2,
+          borderWidth + 20,
+          logoWidth,
+          logoDisplayHeight
+        );
+      }
+
+      // Desenha os produtos
+      for (let i = 0; i < produtosSelecionados.length; i++) {
+        const produto = produtosSelecionados[i];
+        const linha = Math.floor(i / produtosPorLinha);
+        const coluna = i % produtosPorLinha;
+
+        // Posição do card
+        const x = borderWidth + padding + coluna * (larguraProduto + padding);
+        const y = borderWidth + margemTopo + linha * (alturaProduto + padding);
+
+        // Área da imagem
+        const imgArea = {
+          x: x + larguraProduto * 0.075,
+          y: y + 15,
+          width: larguraProduto * 0.85,
+          height: alturaProduto * 0.65,
+        };
+
+        // Carrega imagem do produto
+        const imgProduto = new Image();
+        imgProduto.crossOrigin = "anonymous";
+        imgProduto.src = produto.image;
+
+        try {
+          await new Promise((resolve, reject) => {
+            imgProduto.onload = resolve;
+            imgProduto.onerror = reject;
+          });
+
+          // Desenha imagem mantendo proporção
+          const aspect = imgProduto.width / imgProduto.height;
+          let drawWidth, drawHeight, drawX, drawY;
+
+          if (aspect > imgArea.width / imgArea.height) {
+            drawWidth = imgArea.width;
+            drawHeight = drawWidth / aspect;
+            drawX = imgArea.x;
+            drawY = imgArea.y + (imgArea.height - drawHeight) / 2;
+          } else {
+            drawHeight = imgArea.height;
+            drawWidth = drawHeight * aspect;
+            drawX = imgArea.x + (imgArea.width - drawWidth) / 2;
+            drawY = imgArea.y;
+          }
+
+          ctx.drawImage(imgProduto, drawX, drawY, drawWidth, drawHeight);
+        } catch {
+          // Placeholder se imagem não carregar
+          ctx.fillStyle = "#f5f5f5";
+          ctx.fillRect(imgArea.x, imgArea.y, imgArea.width, imgArea.height);
+          ctx.fillStyle = "#cccccc";
+          ctx.font = "30px Arial";
+          ctx.textAlign = "center";
+          ctx.fillText("Imagem indisponível", imgArea.x + imgArea.width / 2, imgArea.y + imgArea.height / 2);
+        }
+
+        // Nome do produto
+        ctx.fillStyle = "#333333";
+        ctx.font = "bold 24px Arial";
+        ctx.textAlign = "center";
+
+        const maxTextWidth = larguraProduto * 0.9;
+        const nomeLines = quebrarTexto(ctx, produto.name, maxTextWidth);
+
+        // Calcula posição do nome
+        const posicaoPrecoY = y + alturaProduto * POSICAO_PRECO;
+        const espacoNecessario = (nomeLines.length - 1) * 32;
+        const nomeBaseY = Math.min(
+          y + alturaProduto * 0.72,
+          posicaoPrecoY - ESPACAMENTO_MINIMO - espacoNecessario
+        );
+
+        // Desenha o nome (limitado a 2 linhas)
+        nomeLines.slice(0, 2).forEach((line, idx) => {
+          ctx.fillText(line, x + larguraProduto / 2, nomeBaseY + idx * 32);
+        });
+
+        // Preço
+        ctx.fillStyle = coresPMG.vermelho;
+        ctx.font = "bold 38px Arial";
+        ctx.fillText(
+          formatarPreco(produto.price),
+          x + larguraProduto / 2,
+          posicaoPrecoY
+        );
+
+        // Unidade (se existir)
+        if (produto.unit && produto.unit !== "undefined") {
+          ctx.fillStyle = "#666666";
+          ctx.font = "22px Arial";
+          ctx.fillText(
+            `(${produto.unit})`,
+            x + larguraProduto / 2,
+            y + alturaProduto * POSICAO_UNIDADE
+          );
+        }
+      }
+
+      // Copia para área de transferência
+      canvas.toBlob(async (blob) => {
+        try {
+          await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+          alert("✅ Encarte copiado! Cole no Canva (Ctrl+V)");
+        } catch (err) {
+          console.error("Erro ao copiar:", err);
+          const link = document.createElement("a");
+          link.download = `encarte-pmg-${new Date().toISOString().split("T")[0]}.png`;
+          link.href = URL.createObjectURL(blob);
+          link.click();
+        }
+      }, "image/png");
+    } catch (error) {
+      console.error("Erro ao gerar encarte:", error);
+      alert("❌ Erro ao gerar encarte. Verifique o console.");
+    }
+  };
+
+  // Funções auxiliares
+  function formatarPreco(preco) {
+    const numero = typeof preco === "string"
+      ? parseFloat(preco.replace(",", "."))
+      : preco;
+    return numero.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
   }
 
-  try {
-    // **CONFIGURAÇÕES PRINCIPAIS**  
-    const coresPMG = {
-      verde: "#095400",  // Verde PMG
-      vermelho: "#ff0000",  // Vermelho PMG
-      branco: "#ffffff",  // Fundo branco
-    };
+  function quebrarTexto(ctx, texto, maxWidth) {
+    const palavras = texto.split(" ");
+    const linhas = [];
+    let linhaAtual = palavras[0];
 
-    // **DIMENSÕES DO LAYOUT**  
-    const produtosPorLinha = 4;  
-    const padding = 40;  
-    const borderWidth = 30;  // Borda verde ao redor  
-    const logoHeight = 100;  
-    const margemTopo = logoHeight + 40;  
-    const larguraProduto = 450;  
-    const alturaProduto = 600;  
+    for (let i = 1; i < palavras.length; i++) {
+      const testeLinha = linhaAtual + " " + palavras[i];
+      const metrica = ctx.measureText(testeLinha);
+      if (metrica.width < maxWidth) {
+        linhaAtual = testeLinha;
+      } else {
+        linhas.push(linhaAtual);
+        linhaAtual = palavras[i];
+      }
+    }
+    linhas.push(linhaAtual);
+    return linhas;
+  }
 
-    // **POSIÇÕES FIXAS PARA TEXTO**  
-    const POSICAO_PRECO = 0.82;  // 82% da altura do card (FIXO)  
-    const POSICAO_UNIDADE = 0.87;  // 87% da altura do card (FIXO)  
-    const ESPACAMENTO_MINIMO = 50;  // Mínimo entre nome e preço  
-
-    // **CALCULA TAMANHO DO CANVAS**  
-    const linhas = Math.ceil(produtosSelecionados.length / produtosPorLinha);  
-    const canvasWidth = produtosPorLinha * larguraProduto + (produtosPorLinha + 1) * padding + borderWidth * 2;  
-    const canvasHeight = margemTopo + linhas * alturaProduto + (linhas + 1) * padding + borderWidth * 2;  
-
-    // **CRIA O CANVAS**  
-    const canvas = document.createElement("canvas");  
-    const ctx = canvas.getContext("2d");  
-    canvas.width = canvasWidth;  
-    canvas.height = canvasHeight;  
-
-    // **FUNDO E BORDA VERDE**  
-    ctx.fillStyle = coresPMG.verde;  
-    ctx.fillRect(0, 0, canvas.width, canvas.height);  
-    ctx.fillStyle = coresPMG.branco;  
-    ctx.fillRect(borderWidth, borderWidth, canvas.width - borderWidth * 2, canvas.height - borderWidth * 2);  
-
-    // **LOGO PMG (200x200) NO TOPO**  
-    const logo = new Image();  
-    logo.src = "/logo-pmg.png";  
-    await new Promise((resolve) => {  
-      logo.onload = resolve;  
-      logo.onerror = resolve;  
-    });  
-
-    if (logo.complete) {  
-      const logoWidth = 200;  
-      const logoDisplayHeight = 200;  
-      ctx.drawImage(  
-        logo,  
-        canvas.width / 2 - logoWidth / 2,  
-        borderWidth + 20,  
-        logoWidth,  
-        logoDisplayHeight  
-      );  
-    }  
-
-    // **DESENHA OS PRODUTOS**  
-    for (let i = 0; i < produtosSelecionados.length; i++) {  
-      const produto = produtosSelecionados[i];  
-      const linha = Math.floor(i / produtosPorLinha);  
-      const coluna = i % produtosPorLinha;  
-
-      // **POSIÇÃO DO CARD**  
-      const x = borderWidth + padding + coluna * (larguraProduto + padding);  
-      const y = borderWidth + margemTopo + linha * (alturaProduto + padding);  
-
-      // **ÁREA DA IMAGEM (85% da largura)**  
-      const imgArea = {  
-        x: x + larguraProduto * 0.075,  
-        y: y + 15,  
-        width: larguraProduto * 0.85,  
-        height: alturaProduto * 0.65,  
-      };  
-
-      // **CARREGA IMAGEM DO PRODUTO**  
-      const imgProduto = new Image();  
-      imgProduto.crossOrigin = "anonymous";  
-      imgProduto.src = produto.image;  
-
-      try {  
-        await new Promise((resolve, reject) => {  
-          imgProduto.onload = resolve;  
-          imgProduto.onerror = reject;  
-        });  
-
-        // **DESENHA IMAGEM (MANTÉM PROPORÇÃO)**  
-        const aspect = imgProduto.width / imgProduto.height;  
-        let drawWidth, drawHeight, drawX, drawY;  
-
-        if (aspect > imgArea.width / imgArea.height) {  
-          drawWidth = imgArea.width;  
-          drawHeight = drawWidth / aspect;  
-          drawX = imgArea.x;  
-          drawY = imgArea.y + (imgArea.height - drawHeight) / 2;  
-        } else {  
-          drawHeight = imgArea.height;  
-          drawWidth = drawHeight * aspect;  
-          drawX = imgArea.x + (imgArea.width - drawWidth) / 2;  
-          drawY = imgArea.y;  
-        }  
-
-        ctx.drawImage(imgProduto, drawX, drawY, drawWidth, drawHeight);  
-      } catch {  
-        // **PLACEHOLDER SE IMAGEM NÃO CARREGAR**  
-        ctx.fillStyle = "#f5f5f5";  
-        ctx.fillRect(imgArea.x, imgArea.y, imgArea.width, imgArea.height);  
-        ctx.fillStyle = "#cccccc";  
-        ctx.font = "30px Arial";  
-        ctx.textAlign = "center";  
-        ctx.fillText("Imagem indisponível", imgArea.x + imgArea.width / 2, imgArea.y + imgArea.height / 2);  
-      }  
-
-      // **NOME DO PRODUTO (AJUSTE AUTOMÁTICO DE POSIÇÃO)**  
-      ctx.fillStyle = "#333333";  
-      ctx.font = "bold 24px Arial";  
-      ctx.textAlign = "center";  
-
-      const maxTextWidth = larguraProduto * 0.9;  
-      const nomeLines = quebrarTexto(ctx, produto.name, maxTextWidth);  
-
-      // **CALCULA POSIÇÃO DO NOME (EVITA COLISÃO COM PREÇO)**  
-      const posicaoPrecoY = y + alturaProduto * POSICAO_PRECO;  
-      const espacoNecessario = (nomeLines.length - 1) * 32;  
-      const nomeBaseY = Math.min(  
-        y + alturaProduto * 0.72,  // Posição ideal  
-        posicaoPrecoY - ESPACAMENTO_MINIMO - espacoNecessario  // Garante espaço mínimo  
-      );  
-
-      // **DESENHA O NOME (LIMITADO A 2 LINHAS)**  
-      nomeLines.slice(0, 2).forEach((line, idx) => {  
-        ctx.fillText(line, x + larguraProduto / 2, nomeBaseY + idx * 32);  
-      });  
-
-      // **PREÇO (POSIÇÃO FIXA - SEMPRE VISÍVEL)**  
-      ctx.fillStyle = coresPMG.vermelho;  
-      ctx.font = "bold 38px Arial";  
-      ctx.fillText(  
-        formatarPreco(produto.price),  
-        x + larguraProduto / 2,  
-        posicaoPrecoY  // Fixo a 82% da altura  
-      );  
-
-      // **UNIDADE (SE EXISTIR)**  
-      if (produto.unit && produto.unit !== "undefined") {  
-        ctx.fillStyle = "#666666";  
-        ctx.font = "22px Arial";  
-        ctx.fillText(  
-          `(${produto.unit})`,  
-          x + larguraProduto / 2,  
-          y + alturaProduto * POSICAO_UNIDADE  // Fixo a 87%  
-        );  
-      }  
-    }  
-
-    // **COPIA PARA ÁREA DE TRANSFERÊNCIA**  
-    canvas.toBlob(async (blob) => {  
-      try {  
-        await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);  
-        alert("✅ Encarte copiado! Cole no Canva (Ctrl+V)");  
-      } catch (err) {  
-        console.error("Erro ao copiar:", err);  
-        const link = document.createElement("a");  
-        link.download = `encarte-pmg-${new Date().toISOString().split("T")[0]}.png`;  
-        link.href = URL.createObjectURL(blob);  
-        link.click();  
-      }  
-    }, "image/png");  
-  } catch (error) {  
-    console.error("Erro ao gerar encarte:", error);  
-    alert("❌ Erro ao gerar encarte. Verifique o console.");  
-  }  
-};  
-
-// **FUNÇÕES AUXILIARES**  
-function formatarPreco(preco) {  
-  const numero = typeof preco === "string"  
-    ? parseFloat(preco.replace(",", "."))  
-    : preco;  
-  return numero.toLocaleString("pt-BR", {  
-    style: "currency",  
-    currency: "BRL",  
-    minimumFractionDigits: 2,  
-    maximumFractionDigits: 2,  
-  });  
-}  
-
-function quebrarTexto(ctx, texto, maxWidth) {  
-  const palavras = texto.split(" ");  
-  const linhas = [];  
-  let linhaAtual = palavras[0];  
-
-  for (let i = 1; i < palavras.length; i++) {  
-    const testeLinha = linhaAtual + " " + palavras[i];  
-    const metrica = ctx.measureText(testeLinha);  
-    if (metrica.width < maxWidth) {  
-      linhaAtual = testeLinha;  
-    } else {  
-      linhas.push(linhaAtual);  
-      linhaAtual = palavras[i];  
-    }  
-  }  
-  linhas.push(linhaAtual);  
-  return linhas;  
-}  
-
-  // Gera texto para WhatsApp
   const copiarTextoOfertas = () => {
     if (produtosSelecionados.length === 0) {
       alert('Selecione pelo menos um produto!');
@@ -286,7 +314,6 @@ function quebrarTexto(ctx, texto, maxWidth) {
     navigator.clipboard.writeText(texto)
       .then(() => alert('Texto copiado para área de transferência!'))
       .catch(() => {
-        // Fallback para navegadores mais antigos
         const textarea = document.createElement('textarea');
         textarea.value = texto;
         document.body.appendChild(textarea);
@@ -337,7 +364,11 @@ function quebrarTexto(ctx, texto, maxWidth) {
         {/* Controles */}
         <div style={styles.controls}>
           <button
-            onClick={() => setModoSelecao(!modoSelecao)}
+            onClick={() => {
+              setModoSelecao(!modoSelecao);
+              setBusca(''); // Reseta a busca ao sair do modo seleção
+              setCurrentPage(1); // Volta para primeira página
+            }}
             style={{
               ...styles.button,
               backgroundColor: modoSelecao ? coresPMG.secundaria : coresPMG.primaria
@@ -352,9 +383,30 @@ function quebrarTexto(ctx, texto, maxWidth) {
                 type="text"
                 placeholder="Pesquisar produto..."
                 value={busca}
-                onChange={(e) => setBusca(e.target.value)}
+                onChange={(e) => {
+                  setBusca(e.target.value);
+                  setCurrentPage(1); // Reseta para primeira página ao buscar
+                }}
                 style={styles.searchInput}
               />
+              <button
+                onClick={selecionarTodos}
+                style={{
+                  ...styles.button,
+                  backgroundColor: coresPMG.primaria
+                }}
+              >
+                SELECIONAR TUDO
+              </button>
+              <button
+                onClick={desmarcarTodos}
+                style={{
+                  ...styles.button,
+                  backgroundColor: coresPMG.secundaria
+                }}
+              >
+                DESMARCAR TUDO
+              </button>
               <span style={styles.selectedCount}>
                 {produtosSelecionados.length} selecionados
               </span>
@@ -364,7 +416,7 @@ function quebrarTexto(ctx, texto, maxWidth) {
 
         {/* Lista de produtos */}
         <div style={styles.productsGrid}>
-          {produtosFiltrados.map(produto => (
+          {currentProducts.map(produto => (
             <div
               key={produto.id}
               style={{
@@ -406,6 +458,37 @@ function quebrarTexto(ctx, texto, maxWidth) {
           ))}
         </div>
 
+        {/* Paginação */}
+        {produtosFiltrados.length > productsPerPage && (
+          <div style={styles.pagination}>
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              style={{
+                ...styles.pageButton,
+                ...(currentPage === 1 && { cursor: 'not-allowed', opacity: 0.5 })
+              }}
+            >
+              Anterior
+            </button>
+            
+            <span style={styles.pageInfo}>
+              Página {currentPage} de {totalPages}
+            </span>
+            
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              style={{
+                ...styles.pageButton,
+                ...(currentPage === totalPages && { cursor: 'not-allowed', opacity: 0.5 })
+              }}
+            >
+              Próxima
+            </button>
+          </div>
+        )}
+
         {/* Rodapé com ações quando em modo de seleção */}
         {modoSelecao && produtosSelecionados.length > 0 && (
           <div style={styles.footerActions}>
@@ -434,7 +517,7 @@ function quebrarTexto(ctx, texto, maxWidth) {
   );
 }
 
-// Estilos (pode mover para um arquivo CSS separado depois)
+// Estilos
 const styles = {
   authContainer: {
     display: 'flex',
@@ -478,7 +561,8 @@ const styles = {
   },
   container: {
     minHeight: '100vh',
-    padding: '20px'
+    padding: '20px',
+    paddingBottom: '100px' // Espaço para os botões de ação
   },
   header: {
     display: 'flex',
@@ -606,7 +690,23 @@ const styles = {
     fontWeight: 'bold',
     cursor: 'pointer',
     fontSize: '16px'
+  },
+  pagination: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '20px',
+    gap: '10px'
+  },
+  pageButton: {
+    padding: '8px 16px',
+    border: '1px solid #095400',
+    backgroundColor: '#fff',
+    color: '#095400',
+    borderRadius: '4px',
+    cursor: 'pointer'
+  },
+  pageInfo: {
+    margin: '0 10px'
   }
-
 };
-
