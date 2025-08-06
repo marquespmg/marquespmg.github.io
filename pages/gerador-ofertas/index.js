@@ -79,33 +79,34 @@ export default function GeradorOfertas() {
     );
   };
 
-  const gerarEncarteVisual = async () => {
+const gerarEncarteVisual = async () => {
     if (produtosSelecionados.length === 0) {
       alert("Selecione pelo menos um produto!");
       return;
     }
 
     try {
-      // Configurações principais
+      // Configurações de design premium
       const coresPMG = {
         verde: "#095400",
-        vermelho: "#ff0000",
-        branco: "#ffffff",
+        vermelho: "#C62828",    // Vermelho para fundo de preço
+        amarelo: "#FFD600",    // Amarelo para texto do preço
+        branco: "#FFFFFF",
+        fundo: "#FAFAFA",
+        texto: "#212121",
+        textoClaro: "#757575",
+        borda: "#E0E0E0",
+        overlay: "rgba(0, 80, 10, 0.05)"
       };
 
-      // Dimensões do layout
+      // Layout premium
       const produtosPorLinha = 4;
-      const padding = 40;
-      const borderWidth = 30;
-      const logoHeight = 100;
-      const margemTopo = logoHeight + 40;
+      const padding = 50;
+      const borderWidth = 15;
+      const logoHeight = 120;
+      const margemTopo = logoHeight + 88;
       const larguraProduto = 450;
-      const alturaProduto = 600;
-
-      // Posições fixas para texto
-      const POSICAO_PRECO = 0.82;
-      const POSICAO_UNIDADE = 0.87;
-      const ESPACAMENTO_MINIMO = 50;
+      const alturaProduto = 620;
 
       // Calcula tamanho do canvas
       const linhas = Math.ceil(produtosSelecionados.length / produtosPorLinha);
@@ -118,33 +119,52 @@ export default function GeradorOfertas() {
       canvas.width = canvasWidth;
       canvas.height = canvasHeight;
 
-      // Fundo e borda verde
-      ctx.fillStyle = coresPMG.verde;
+      // Fundo com textura sutil
+      ctx.fillStyle = coresPMG.fundo;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = coresPMG.branco;
-      ctx.fillRect(borderWidth, borderWidth, canvas.width - borderWidth * 2, canvas.height - borderWidth * 2);
+      
+      // Padrão de textura sutil
+      ctx.fillStyle = coresPMG.overlay;
+      for (let i = 0; i < canvas.width; i += 50) {
+        for (let j = 0; j < canvas.height; j += 50) {
+          if ((i + j) % 100 === 0) {
+            ctx.fillRect(i, j, 1, 1);
+          }
+        }
+      }
 
-      // Logo PMG no topo
+      // Borda verde fina
+      ctx.fillStyle = coresPMG.verde;
+      ctx.fillRect(0, 0, canvas.width, borderWidth);
+      ctx.fillRect(0, 0, borderWidth, canvas.height);
+      ctx.fillRect(canvas.width - borderWidth, 0, borderWidth, canvas.height);
+      ctx.fillRect(0, canvas.height - borderWidth, canvas.width, borderWidth);
+
+      // Logo PMG centralizada mantendo proporção
       const logo = new Image();
       logo.src = "/logo-pmg.png";
       await new Promise((resolve) => {
-        logo.onload = resolve;
+        logo.onload = () => {
+          // Calcula dimensões proporcionais
+          const logoMaxWidth = 280;
+          const aspectRatio = logo.naturalWidth / logo.naturalHeight;
+          const logoWidth = Math.min(logoMaxWidth, logo.naturalWidth);
+          const logoHeight = logoWidth / aspectRatio;
+          
+          // Desenha o logo mantendo proporção original
+          ctx.drawImage(
+            logo,
+            canvas.width / 2 - logoWidth / 2,
+            borderWidth + 5,
+            logoWidth,
+            logoHeight
+          );
+          resolve();
+        };
         logo.onerror = resolve;
       });
 
-      if (logo.complete) {
-        const logoWidth = 200;
-        const logoDisplayHeight = 200;
-        ctx.drawImage(
-          logo,
-          canvas.width / 2 - logoWidth / 2,
-          borderWidth + 20,
-          logoWidth,
-          logoDisplayHeight
-        );
-      }
-
-      // Desenha os produtos
+      // Desenha os produtos com design premium
       for (let i = 0; i < produtosSelecionados.length; i++) {
         const produto = produtosSelecionados[i];
         const linha = Math.floor(i / produtosPorLinha);
@@ -154,12 +174,32 @@ export default function GeradorOfertas() {
         const x = borderWidth + padding + coluna * (larguraProduto + padding);
         const y = borderWidth + margemTopo + linha * (alturaProduto + padding);
 
+        // Card com sombra e borda arredondada
+        ctx.save();
+        ctx.shadowColor = "rgba(0, 0, 0, 0.08)";
+        ctx.shadowBlur = 12;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 4;
+        
+        ctx.fillStyle = coresPMG.branco;
+        ctx.beginPath();
+        ctx.roundRect(x, y, larguraProduto, alturaProduto, 12);
+        ctx.fill();
+        ctx.restore();
+
+        // Borda sutil
+        ctx.strokeStyle = coresPMG.borda;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.roundRect(x, y, larguraProduto, alturaProduto, 12);
+        ctx.stroke();
+
         // Área da imagem
         const imgArea = {
-          x: x + larguraProduto * 0.075,
+          x: x + 15,
           y: y + 15,
-          width: larguraProduto * 0.85,
-          height: alturaProduto * 0.65,
+          width: larguraProduto - 30,
+          height: alturaProduto * 0.62,
         };
 
         // Carrega imagem do produto
@@ -173,80 +213,161 @@ export default function GeradorOfertas() {
             imgProduto.onerror = reject;
           });
 
+          // Máscara arredondada para a imagem
+          ctx.save();
+          ctx.beginPath();
+          ctx.roundRect(
+            imgArea.x + 2, 
+            imgArea.y + 2, 
+            imgArea.width - 4, 
+            imgArea.height - 4, 
+            6
+          );
+          ctx.clip();
+
           // Desenha imagem mantendo proporção
           const aspect = imgProduto.width / imgProduto.height;
           let drawWidth, drawHeight, drawX, drawY;
 
           if (aspect > imgArea.width / imgArea.height) {
-            drawWidth = imgArea.width;
+            drawWidth = imgArea.width - 4;
             drawHeight = drawWidth / aspect;
-            drawX = imgArea.x;
-            drawY = imgArea.y + (imgArea.height - drawHeight) / 2;
+            drawX = imgArea.x + 2;
+            drawY = imgArea.y + 2 + (imgArea.height - 4 - drawHeight) / 2;
           } else {
-            drawHeight = imgArea.height;
+            drawHeight = imgArea.height - 4;
             drawWidth = drawHeight * aspect;
-            drawX = imgArea.x + (imgArea.width - drawWidth) / 2;
-            drawY = imgArea.y;
+            drawX = imgArea.x + 2 + (imgArea.width - 4 - drawWidth) / 2;
+            drawY = imgArea.y + 2;
           }
 
           ctx.drawImage(imgProduto, drawX, drawY, drawWidth, drawHeight);
+          ctx.restore();
+
+          // Overlay verde muito sutil
+          ctx.fillStyle = coresPMG.overlay;
+          ctx.fillRect(imgArea.x + 2, imgArea.y + 2, imgArea.width - 4, imgArea.height - 4);
+
         } catch {
-          // Placeholder se imagem não carregar
-          ctx.fillStyle = "#f5f5f5";
-          ctx.fillRect(imgArea.x, imgArea.y, imgArea.width, imgArea.height);
-          ctx.fillStyle = "#cccccc";
-          ctx.font = "30px Arial";
+          // Placeholder premium
+          ctx.fillStyle = "#FAFAFA";
+          ctx.beginPath();
+          ctx.roundRect(imgArea.x + 2, imgArea.y + 2, imgArea.width - 4, imgArea.height - 4, 6);
+          ctx.fill();
+          
+          ctx.fillStyle = coresPMG.textoClaro;
+          ctx.font = "italic 22px 'Open Sans', sans-serif";
           ctx.textAlign = "center";
-          ctx.fillText("Imagem indisponível", imgArea.x + imgArea.width / 2, imgArea.y + imgArea.height / 2);
+          ctx.fillText("Imagem não disponível", imgArea.x + imgArea.width / 2, imgArea.y + imgArea.height / 2);
         }
 
         // Nome do produto
-        ctx.fillStyle = "#333333";
-        ctx.font = "bold 24px Arial";
+        ctx.fillStyle = coresPMG.texto;
+        ctx.font = "500 24px 'Open Sans', sans-serif";
         ctx.textAlign = "center";
 
-        const maxTextWidth = larguraProduto * 0.9;
+        const maxTextWidth = larguraProduto * 0.85;
         const nomeLines = quebrarTexto(ctx, produto.name, maxTextWidth);
 
-        // Calcula posição do nome
-        const posicaoPrecoY = y + alturaProduto * POSICAO_PRECO;
-        const espacoNecessario = (nomeLines.length - 1) * 32;
-        const nomeBaseY = Math.min(
-          y + alturaProduto * 0.72,
-          posicaoPrecoY - ESPACAMENTO_MINIMO - espacoNecessario
-        );
-
         // Desenha o nome (limitado a 2 linhas)
+        const nomeBaseY = y + imgArea.height + 40;
         nomeLines.slice(0, 2).forEach((line, idx) => {
-          ctx.fillText(line, x + larguraProduto / 2, nomeBaseY + idx * 32);
+          ctx.fillText(line, x + larguraProduto / 2, nomeBaseY + idx * 30);
         });
 
-        // Preço
+        // Container do preço - fundo vermelho
+        const priceTagWidth = larguraProduto * 0.7; // Mais largo
+        const priceTagX = x + (larguraProduto - priceTagWidth) / 2; // Centralizado
+        
+        ctx.save();
+        ctx.shadowColor = "rgba(0, 0, 0, 0.1)";
+        ctx.shadowBlur = 6;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 3;
+        
         ctx.fillStyle = coresPMG.vermelho;
-        ctx.font = "bold 38px Arial";
-        ctx.fillText(
-          formatarPreco(produto.price),
-          x + larguraProduto / 2,
-          posicaoPrecoY
+        ctx.beginPath();
+        ctx.roundRect(
+          priceTagX,
+          y + alturaProduto * 0.78,
+          priceTagWidth,
+          50,
+          25
         );
+        ctx.fill();
+        ctx.restore();
 
-        // Unidade (se existir)
+        // Preço em amarelo centralizado
+        ctx.save();
+        ctx.shadowColor = "rgba(0, 0, 0, 0.2)";
+        ctx.shadowBlur = 2;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 1;
+        
+        ctx.fillStyle = coresPMG.amarelo;
+        ctx.font = "bold 38px 'Montserrat', sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(
+  formatarPreco(produto.price),
+  x + larguraProduto / 2,
+  y + alturaProduto * 0.78 + 33 // ou 32, 34… ajusta fino se quiser
+);
+        ctx.restore();
+
+        // Unidade
         if (produto.unit && produto.unit !== "undefined") {
-          ctx.fillStyle = "#666666";
-          ctx.font = "22px Arial";
+          ctx.fillStyle = coresPMG.textoClaro;
+          ctx.font = "18px 'Open Sans', sans-serif";
           ctx.fillText(
-            `(${produto.unit})`,
+            `por ${produto.unit.toLowerCase()}`,
             x + larguraProduto / 2,
-            y + alturaProduto * POSICAO_UNIDADE
+            y + alturaProduto * 0.88
           );
         }
+
+        // Selo de promoção
+        if (produto.promocao) {
+          ctx.save();
+          // Triângulo de fundo
+          ctx.fillStyle = coresPMG.vermelho;
+          ctx.beginPath();
+          ctx.moveTo(x + 15, y + 15);
+          ctx.lineTo(x + 85, y + 15);
+          ctx.lineTo(x + 15, y + 85);
+          ctx.closePath();
+          ctx.fill();
+          
+          // Texto do selo
+          ctx.fillStyle = coresPMG.amarelo;
+          ctx.font = "bold 16px 'Montserrat'";
+          ctx.save();
+          ctx.translate(x + 35, y + 45);
+          ctx.rotate(-Math.PI/4);
+          ctx.fillText("PROMOÇÃO", 0, 0);
+          ctx.restore();
+          ctx.restore();
+        }
       }
+
+      // Rodapé premium
+      ctx.fillStyle = coresPMG.verde;
+      ctx.fillRect(0, canvas.height - 70, canvas.width, 70);
+      
+      // Textos do rodapé
+      ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+      ctx.font = "600 18px 'Open Sans', sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("OFERTAS DO DIA PMG", canvas.width / 2, canvas.height - 40);
+      
+      ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+      ctx.font = "14px 'Open Sans', sans-serif";
+      ctx.fillText(`Validade: ${new Date().toLocaleDateString('pt-BR')} | pedido minimo $750`, canvas.width / 2, canvas.height - 15);
 
       // Copia para área de transferência
       canvas.toBlob(async (blob) => {
         try {
           await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
-          alert("✅ Encarte copiado! Cole no Canva (Ctrl+V)");
+          alert("✅ Encarte copiado com sucesso! Cole no Canva (Ctrl+V)");
         } catch (err) {
           console.error("Erro ao copiar:", err);
           const link = document.createElement("a");
@@ -254,7 +375,7 @@ export default function GeradorOfertas() {
           link.href = URL.createObjectURL(blob);
           link.click();
         }
-      }, "image/png");
+      }, "image/png", 1);
     } catch (error) {
       console.error("Erro ao gerar encarte:", error);
       alert("❌ Erro ao gerar encarte. Verifique o console.");
