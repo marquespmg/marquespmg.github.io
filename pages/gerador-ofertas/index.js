@@ -1,6 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
-import * as XLSX from 'xlsx';
+let XLSX;
+
+if (typeof window !== 'undefined') {
+  XLSX = require('xlsx');
+}
 
 export default function GeradorOfertas() {
   // Estados
@@ -1011,3 +1015,4 @@ const styles = {
     '100%': { transform: 'rotate(360deg)' }
   }
 };
+
