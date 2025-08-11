@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import Head from 'next/head';
+import * as XLSX from 'xlsx';
 
 export default function GeradorOfertas() {
   // Estados
@@ -11,22 +12,9 @@ export default function GeradorOfertas() {
   const [modoSelecao, setModoSelecao] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(20);
-
-  const verificarSenha = () => {
-    if (senha === "PMG@2024") {
-      setAcessoPermitido(true);
-      carregarProdutos();
-    } else {
-      alert("Senha incorreta!");
-    }
-  };
-
-  const carregarProdutos = () => {
-    fetch('/produtos.json')
-      .then(res => res.json())
-      .then(data => setProdutos(data))
-      .catch(err => console.error('Erro ao carregar produtos:', err));
-  };
+  const [priceBand, setPriceBand] = useState('retira'); // Valor inicial padrão
+  const [imagesMap, setImagesMap] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   // Cores da PMG
   const coresPMG = {
@@ -36,12 +24,132 @@ export default function GeradorOfertas() {
     texto: '#333333'
   };
 
-  // Carrega produtos quando acesso é permitido
-  useEffect(() => {
-    if (acessoPermitido) {
-      carregarProdutos();
+  const verificarSenha = () => {
+    if (senha === "PMG@2024") {
+      setAcessoPermitido(true);
+      carregarImagens();
+    } else {
+      alert("Senha incorreta!");
     }
-  }, [acessoPermitido]);
+  };
+
+  // Carrega o mapeamento de imagens
+  const carregarImagens = async () => {
+    try {
+      const response = await fetch('/imagens.json');
+      const data = await response.json();
+      setImagesMap(data);
+    } catch (error) {
+      console.error('Erro ao carregar imagens:', error);
+    }
+  };
+
+  // Função para carregar o catálogo do Excel
+  const carregarExcel = async (file) => {
+  try {
+    setIsLoading(true);
+    const arrayBuffer = await file.arrayBuffer();
+    const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+    const sheetName = workbook.SheetNames[0];
+    const sheet = workbook.Sheets[sheetName];
+    const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' });
+
+    const produtosFormatados = rows.map((row, index) => {
+      const code = String(row['Código'] || '').trim();
+      const name = String(row['Produto'] || '').trim();
+      const unit = String(row['Unidade'] || 'UN').trim().toUpperCase();
+
+      // Formata os preços
+      const formatPrice = (value) => {
+        if (typeof value === 'number') return value;
+        const num = parseFloat(String(value).replace('.', '').replace(',', '.'));
+        return isNaN(num) ? 0 : num;
+      };
+
+      // Todas as faixas de preço disponíveis
+      const prices = {
+        retira: formatPrice(row['Retira R$']),
+        entrega: formatPrice(row['Entrega R$']),
+        km100_199: formatPrice(row['100 a 199 km']),
+        km200_299: formatPrice(row['200 a 299 km']),
+        km300_399: formatPrice(row['300 a 399 km']),
+        km400_499: formatPrice(row['400 a 499 km']),
+        km500_599: formatPrice(row['500 a 599 km']),
+        km600_plus: formatPrice(row['Acima 600km'])
+      };
+
+      // Preço inicial conforme faixa selecionada
+      const currentPrice = prices[priceBand] || prices.retira;
+
+      return {
+        id: index + 1,
+        code,
+        name,
+        unit,
+        price: currentPrice,
+        formattedPrice: currentPrice.toLocaleString('pt-BR', { 
+          style: 'currency', 
+          currency: 'BRL' 
+        }),
+        prices, // Guarda todas as faixas de preço
+        image: imagesMap[code] || getPlaceholderImage(code),
+        category: categorizarProduto(name)
+      };
+    });
+
+    setProdutos(produtosFormatados);
+    setIsLoading(false);
+  } catch (error) {
+    console.error('Erro ao carregar Excel:', error);
+    alert('Erro ao processar arquivo Excel');
+    setIsLoading(false);
+  }
+};
+
+  // Função para gerar placeholder de imagem
+  const getPlaceholderImage = (code) => {
+    return `https://via.placeholder.com/150/095400/FFFFFF?text=${code}`;
+  };
+
+  // Função para categorizar produtos
+  const categorizarProduto = (nome) => {
+    const nomeLower = nome.toLowerCase();
+    if (nomeLower.includes('carne')) return 'Carnes';
+    if (nomeLower.includes('frango')) return 'Aves';
+    if (nomeLower.includes('bebida')) return 'Bebidas';
+    if (nomeLower.includes('limpeza')) return 'Limpeza';
+    if (nomeLower.includes('laticínio') || nomeLower.includes('queijo')) return 'Laticínios';
+    return 'Outros';
+  };
+
+  // Atualiza os preços quando a faixa é alterada
+  useEffect(() => {
+  if (produtos.length > 0) {
+    const produtosAtualizados = produtos.map(produto => {
+      // Pega o preço correto baseado na faixa selecionada
+      const novoPreco = produto.prices[priceBand] || produto.prices.retira;
+      
+      return {
+        ...produto,
+        price: novoPreco,
+        formattedPrice: novoPreco.toLocaleString('pt-BR', { 
+          style: 'currency', 
+          currency: 'BRL' 
+        })
+      };
+    });
+    
+    setProdutos(produtosAtualizados);
+  }
+}, [priceBand]); // Executa sempre que priceBand mudar
+
+  // Função para atualizar o priceBand
+  const updatePriceBand = (band) => {
+    setPriceBand(band);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('priceBand', band);
+    }
+  };
 
   // Função de filtro
   const produtosFiltrados = useMemo(() => {
@@ -79,7 +187,7 @@ export default function GeradorOfertas() {
     );
   };
 
-const gerarEncarteVisual = async () => {
+  const gerarEncarteVisual = async () => {
     if (produtosSelecionados.length === 0) {
       alert("Selecione pelo menos um produto!");
       return;
@@ -89,8 +197,8 @@ const gerarEncarteVisual = async () => {
       // Configurações de design premium
       const coresPMG = {
         verde: "#095400",
-        vermelho: "#C62828",    // Vermelho para fundo de preço
-        amarelo: "#FFD600",    // Amarelo para texto do preço
+        vermelho: "#C62828",
+        amarelo: "#FFD600",
         branco: "#FFFFFF",
         fundo: "#FAFAFA",
         texto: "#212121",
@@ -145,13 +253,11 @@ const gerarEncarteVisual = async () => {
       logo.src = "/logo-pmg.png";
       await new Promise((resolve) => {
         logo.onload = () => {
-          // Calcula dimensões proporcionais
           const logoMaxWidth = 280;
           const aspectRatio = logo.naturalWidth / logo.naturalHeight;
           const logoWidth = Math.min(logoMaxWidth, logo.naturalWidth);
           const logoHeight = logoWidth / aspectRatio;
           
-          // Desenha o logo mantendo proporção original
           ctx.drawImage(
             logo,
             canvas.width / 2 - logoWidth / 2,
@@ -276,8 +382,8 @@ const gerarEncarteVisual = async () => {
         });
 
         // Container do preço - fundo vermelho
-        const priceTagWidth = larguraProduto * 0.7; // Mais largo
-        const priceTagX = x + (larguraProduto - priceTagWidth) / 2; // Centralizado
+        const priceTagWidth = larguraProduto * 0.7;
+        const priceTagX = x + (larguraProduto - priceTagWidth) / 2;
         
         ctx.save();
         ctx.shadowColor = "rgba(0, 0, 0, 0.1)";
@@ -308,10 +414,10 @@ const gerarEncarteVisual = async () => {
         ctx.font = "bold 38px 'Montserrat', sans-serif";
         ctx.textAlign = "center";
         ctx.fillText(
-  formatarPreco(produto.price),
-  x + larguraProduto / 2,
-  y + alturaProduto * 0.78 + 33 // ou 32, 34… ajusta fino se quiser
-);
+          formatarPreco(produto.price),
+          x + larguraProduto / 2,
+          y + alturaProduto * 0.78 + 33
+        );
         ctx.restore();
 
         // Unidade
@@ -323,29 +429,6 @@ const gerarEncarteVisual = async () => {
             x + larguraProduto / 2,
             y + alturaProduto * 0.88
           );
-        }
-
-        // Selo de promoção
-        if (produto.promocao) {
-          ctx.save();
-          // Triângulo de fundo
-          ctx.fillStyle = coresPMG.vermelho;
-          ctx.beginPath();
-          ctx.moveTo(x + 15, y + 15);
-          ctx.lineTo(x + 85, y + 15);
-          ctx.lineTo(x + 15, y + 85);
-          ctx.closePath();
-          ctx.fill();
-          
-          // Texto do selo
-          ctx.fillStyle = coresPMG.amarelo;
-          ctx.font = "bold 16px 'Montserrat'";
-          ctx.save();
-          ctx.translate(x + 35, y + 45);
-          ctx.rotate(-Math.PI/4);
-          ctx.fillText("PROMOÇÃO", 0, 0);
-          ctx.restore();
-          ctx.restore();
         }
       }
 
@@ -445,6 +528,40 @@ const gerarEncarteVisual = async () => {
       });
   };
 
+  // Seletor de faixa de preço
+  const PriceBandSelector = () => (
+  <select 
+    value={priceBand}
+    onChange={(e) => {
+      const novaFaixa = e.target.value;
+      setPriceBand(novaFaixa);
+      
+      // Atualiza no localStorage (apenas no cliente)
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('priceBand', novaFaixa);
+      }
+    }}
+    style={{
+      padding: '8px',
+      borderRadius: '4px',
+      border: '1px solid #095400',
+      backgroundColor: 'white',
+      color: '#095400',
+      fontWeight: 'bold',
+      marginRight: '10px'
+    }}
+  >
+    <option value="retira">Retira</option>
+    <option value="entrega">Entrega</option>
+    <option value="km100_199">100-199 km</option>
+    <option value="km200_299">200-299 km</option>
+    <option value="km300_399">300-399 km</option>
+    <option value="km400_499">400-499 km</option>
+    <option value="km500_599">500-599 km</option>
+    <option value="km600_plus">Acima 600 km</option>
+  </select>
+);
+
   if (!acessoPermitido) {
     return (
       <div style={styles.authContainer}>
@@ -484,11 +601,13 @@ const gerarEncarteVisual = async () => {
 
         {/* Controles */}
         <div style={styles.controls}>
+          <PriceBandSelector />
+          
           <button
             onClick={() => {
               setModoSelecao(!modoSelecao);
-              setBusca(''); // Reseta a busca ao sair do modo seleção
-              setCurrentPage(1); // Volta para primeira página
+              setBusca('');
+              setCurrentPage(1);
             }}
             style={{
               ...styles.button,
@@ -498,6 +617,28 @@ const gerarEncarteVisual = async () => {
             {modoSelecao ? 'SAIR DA SELEÇÃO' : 'SELECIONAR MÚLTIPLOS'}
           </button>
 
+          {/* Input para carregar Excel */}
+          <input
+            type="file"
+            accept=".xlsx, .xls"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              if (file) carregarExcel(file);
+            }}
+            style={{ display: 'none' }}
+            id="excel-input"
+          />
+          <label
+            htmlFor="excel-input"
+            style={{
+              ...styles.button,
+              backgroundColor: coresPMG.primaria,
+              cursor: 'pointer'
+            }}
+          >
+            CARREGAR EXCEL
+          </label>
+
           {modoSelecao && (
             <>
               <input
@@ -506,7 +647,7 @@ const gerarEncarteVisual = async () => {
                 value={busca}
                 onChange={(e) => {
                   setBusca(e.target.value);
-                  setCurrentPage(1); // Reseta para primeira página ao buscar
+                  setCurrentPage(1);
                 }}
                 style={styles.searchInput}
               />
@@ -535,6 +676,14 @@ const gerarEncarteVisual = async () => {
           )}
         </div>
 
+        {/* Loading state */}
+        {isLoading && (
+          <div style={styles.loadingOverlay}>
+            <div style={styles.loadingSpinner}></div>
+            <p>Processando arquivo Excel...</p>
+          </div>
+        )}
+
         {/* Lista de produtos */}
         <div style={styles.productsGrid}>
           {currentProducts.map(produto => (
@@ -558,11 +707,9 @@ const gerarEncarteVisual = async () => {
               </div>
               <h3 style={styles.productName}>{produto.name}</h3>
               <p style={styles.productPrice}>
-                {produto.price.toLocaleString('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL'
-                })}
+                {produto.formattedPrice}
               </p>
+              <p style={styles.productUnit}>{produto.unit}</p>
               {!modoSelecao && (
                 <button
                   onClick={(e) => {
@@ -683,7 +830,8 @@ const styles = {
   container: {
     minHeight: '100vh',
     padding: '20px',
-    paddingBottom: '100px' // Espaço para os botões de ação
+    paddingBottom: '100px',
+    position: 'relative'
   },
   header: {
     display: 'flex',
@@ -748,6 +896,7 @@ const styles = {
     border: '2px solid #ddd',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
+    position: 'relative',
     ':hover': {
       boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
     }
@@ -780,6 +929,11 @@ const styles = {
     fontWeight: 'bold',
     color: '#ff0000',
     margin: '10px 0'
+  },
+  productUnit: {
+    fontSize: '14px',
+    color: '#666',
+    margin: '5px 0'
   },
   singleProductButton: {
     background: '#ff0000',
@@ -829,5 +983,31 @@ const styles = {
   },
   pageInfo: {
     margin: '0 10px'
+  },
+  loadingOverlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000
+  },
+  loadingSpinner: {
+    border: '5px solid #f3f3f3',
+    borderTop: '5px solid #095400',
+    borderRadius: '50%',
+    width: '50px',
+    height: '50px',
+    animation: 'spin 1s linear infinite',
+    marginBottom: '20px'
+  },
+  '@keyframes spin': {
+    '0%': { transform: 'rotate(0deg)' },
+    '100%': { transform: 'rotate(360deg)' }
   }
 };
