@@ -426,7 +426,7 @@ export default function GeradorOfertas() {
 
         // Unidade
         if (produto.unit && produto.unit !== "undefined") {
-          ctx.fillStyle = coresPMG.textoClaro;
+          ctx.fillStyle = coresPMG.vermelho;
           ctx.font = "18px 'Open Sans', sans-serif";
           ctx.fillText(
             `por ${produto.unit.toLowerCase()}`,
@@ -1015,4 +1015,5 @@ const styles = {
     '100%': { transform: 'rotate(360deg)' }
   }
 };
+
 
