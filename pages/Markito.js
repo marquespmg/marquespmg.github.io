@@ -16,7 +16,7 @@ const Markito = () => {
 
   const fetchProdutos = async () => {
     try {
-      const res = await fetch('/api/produtos'); // Chama a rota relativa {
+      const res = await fetch('/api/produtos'), // Chama a rota relativa {
         headers: {
           'Content-Type': 'application/json'
         }
