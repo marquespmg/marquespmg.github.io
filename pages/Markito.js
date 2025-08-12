@@ -10,13 +10,13 @@ const Markito = () => {
   const [isTyping, setIsTyping] = useState(false);
 
   // Configuração da API - substitua pela sua URL do Vercel
-  const API_BASE_URL = 'https://marques-chat-api.vercel.app/api';
+  const API_BASE_URL = ''; // Remove a URL base para rotas relativas
 
   const toggleChat = () => setIsOpen(!isOpen);
 
   const fetchProdutos = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/produtos`, {
+      const res = await fetch('/api/produtos'); // Chama a rota relativa {
         headers: {
           'Content-Type': 'application/json'
         }
