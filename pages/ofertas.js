@@ -20,18 +20,18 @@ const featuredProducts = [
   image: 'https://i.imgur.com/03RqYXv.png',
 },
 {
-  id: 1294,
-  name: 'MAIONESE HELLMANN´S 2,8 KILO',
+  id: 1106,
+  name: 'ARROZ BRANCO TIPO 1 NAMORADO 5 KILO (FDO 6 PCT)',
   category: 'Ofertas',
-  price: 40.09,
-  image: 'https://i.imgur.com/DQ19rl1.png',
+  price: 199.99,
+  image: 'https://i.imgur.com/tYTJUH8.png',
 },
 {
-  id: 1289,
-  name: 'MAIONESE GRANDE HELLMANN´S 3 KILO',
+  id: 1202,
+  name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL MAIS BATATA BEM BRASIL 2 KILO (CX 7 PCT)',
   category: 'Ofertas',
-  price: 43.99,
-  image: 'https://i.imgur.com/gg9TWSM.png',
+  price: 146.89,
+  image: 'https://i.imgur.com/H6CVzIj.png',
 },
 {
   id: 1248,
@@ -138,10 +138,10 @@ const banners = [
 
 // ========== IMAGENS FIFO (1080x1080) ========== //
 const fifoImages = [
-  'https://i.imgur.com/jJzLZSD.mp4',
-  'https://i.imgur.com/7av5VRf.mp4',
-  'https://i.imgur.com/Vi8VluQ.mp4',
-  'https://i.imgur.com/LlvEaED.mp4',
+  'https://i.imgur.com/68L5ZbR.mp4',
+  'https://i.imgur.com/T5FLuPz.mp4',
+  'https://i.imgur.com/ZzyWG0k.mp4',
+  'https://i.imgur.com/AiS9mxd.mp4',
 ];
 
 // ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
