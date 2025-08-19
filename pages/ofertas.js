@@ -23,7 +23,7 @@ const featuredProducts = [
   id: 1106,
   name: 'ARROZ BRANCO TIPO 1 NAMORADO 5 KILO (FDO 6 PCT)',
   category: 'Ofertas',
-  price: 199.99,
+  price: 119.99,
   image: 'https://i.imgur.com/tYTJUH8.png',
 },
 {
