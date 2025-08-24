@@ -6,11 +6,39 @@ import Link from 'next/link';
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
 {
-  id: 533,
-  name: 'CARNE SECA BOVINA CONGELADA DESFIADA ALFAMA 1 KG',
+  id: 1440,
+  name: 'ATUM PEDAÇOS EM ÓLEO POUCH GOMES DA COSTA 500 G',
   category: 'Ofertas',
-  price: 58.99,
-  image: 'https://i.imgur.com/5Immuu2.png',
+  price: 29.79,
+  image: 'https://i.imgur.com/QBjRtM2.png',
+},
+{
+  id: 659,
+  name: 'GORGONZOLA QUEIJO AZUL BURITIS 3 KG',
+  category: 'Ofertas',
+  price: 49.99,
+  image: 'https://i.imgur.com/F8fB80F.png',
+},
+{
+  id: 779,
+  name: 'PARMESÃO 6 MESES LA SERENISSIMA 8 KG',
+  category: 'Ofertas',
+  price: 69.89,
+  image: 'https://i.imgur.com/Z2XbUVH.png',
+},
+{
+  id: 1763,
+  name: 'FARINHA DE TRIGO TIPO 1 FARINA 5 KILO (FDO 25 KILO)',
+  category: 'Ofertas',
+  price: 76.79,
+  image: 'https://i.imgur.com/cp3JWHX.png',
+},
+{
+  id: 641,
+  name: 'CREME DE LEITE JUSSARA 200 G (CX 27 UN)',
+  category: 'Ofertas',
+  price: 77.49,
+  image: 'https://i.imgur.com/d0Fy77Q.png',
 },
 {
   id: 533,
@@ -23,7 +51,7 @@ const featuredProducts = [
   id: 1106,
   name: 'ARROZ BRANCO TIPO 1 NAMORADO 5 KILO (FDO 6 PCT)',
   category: 'Ofertas',
-  price: 119.99,
+  price: 199.99,
   image: 'https://i.imgur.com/tYTJUH8.png',
 },
 {
@@ -69,25 +97,11 @@ const featuredProducts = [
   image: 'https://i.imgur.com/viUDKZN.png',
 },
 {
-  id: 1414,
-  name: 'TOMATE SECO YGUARA 1,4 KILO',
-  category: 'Ofertas',
-  price: 25.59,
-  image: 'https://i.imgur.com/GsXtWhz.png',
-},
-{
   id: 1746,
   name: 'FARINHA DE TRIGO PIZZA ANACONDA 5 KILO (FDO 25 KILO)',
   category: 'Ofertas',
   price: 79.99,
   image: 'https://i.imgur.com/N4tixJQ.png',
-},
-{
-  id: 556,
-  name: 'CUPIM BOVINO CONGELADO DESFIADO ALFAMA 1 KG',
-  category: 'Ofertas',
-  price: 56.99,
-  image: 'https://i.imgur.com/emQYiG6.png',
 },
 {
   id: 1052,
@@ -102,13 +116,6 @@ const featuredProducts = [
   category: 'Ofertas',
   price: 35.39,
   image: 'https://i.imgur.com/YUhPcZ3.png',
-},
-{
-  id: 507,
-  name: 'PEITO DE FRANGO CONGELADO COZIDO DESFIADO ALFAMA 1 KILO (CX 6 PCT)',
-  category: 'Ofertas',
-  price: 206.99,
-  image: 'https://i.imgur.com/mASBprm.png',
 },
 ].filter(product => product.category === 'Ofertas');
 
@@ -138,10 +145,10 @@ const banners = [
 
 // ========== IMAGENS FIFO (1080x1080) ========== //
 const fifoImages = [
-  'https://i.imgur.com/68L5ZbR.mp4',
-  'https://i.imgur.com/T5FLuPz.mp4',
-  'https://i.imgur.com/ZzyWG0k.mp4',
-  'https://i.imgur.com/AiS9mxd.mp4',
+  'https://i.imgur.com/MyNsZUq.mp4',
+  'https://i.imgur.com/zMjIbHB.mp4',
+  'https://i.imgur.com/p7RyDV7.mp4',
+  'https://i.imgur.com/ykny8fc.mp4',
 ];
 
 // ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
