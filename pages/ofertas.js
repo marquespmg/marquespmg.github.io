@@ -34,25 +34,11 @@ const featuredProducts = [
   image: 'https://i.imgur.com/cp3JWHX.png',
 },
 {
-  id: 641,
-  name: 'CREME DE LEITE JUSSARA 200 G (CX 27 UN)',
-  category: 'Ofertas',
-  price: 77.49,
-  image: 'https://i.imgur.com/d0Fy77Q.png',
-},
-{
   id: 533,
   name: 'COSTELA BOVINA CONGELADA DESFIADA ALFAMA 1 KG',
   category: 'Ofertas',
   price: 58.99,
   image: 'https://i.imgur.com/03RqYXv.png',
-},
-{
-  id: 1106,
-  name: 'ARROZ BRANCO TIPO 1 NAMORADO 5 KILO (FDO 6 PCT)',
-  category: 'Ofertas',
-  price: 119.99,
-  image: 'https://i.imgur.com/tYTJUH8.png',
 },
 {
   id: 1202,
@@ -62,48 +48,6 @@ const featuredProducts = [
   image: 'https://i.imgur.com/H6CVzIj.png',
 },
 {
-  id: 1248,
-  name: 'CATCHUP SACHÊ HEMMER 7 G (CX 190 UN)',
-  category: 'Ofertas',
-  price: 19.09,
-  image: 'https://i.imgur.com/bQWJK1F.png',
-},
-{
-  id: 1353,
-  name: 'MOSTARDA SACHÊ HEMMER 7 G (CX 190 UN)',
-  category: 'Ofertas',
-  price: 19.09,
-  image: 'https://i.imgur.com/Rbe0STF.png',
-},
-{
-  id: 1246,
-  name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)',
-  category: 'Ofertas',
-  price: 19.99,
-  image: 'https://i.imgur.com/PLbwXtW.png',
-},
-{
-  id: 1302,
-  name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)',
-  category: 'Ofertas',
-  price: 19.99,
-  image: 'https://i.imgur.com/mVUItDC.png',
-},
-{
-  id: 1352,
-  name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)',
-  category: 'Ofertas',
-  price: 19.99,
-  image: 'https://i.imgur.com/viUDKZN.png',
-},
-{
-  id: 1746,
-  name: 'FARINHA DE TRIGO PIZZA ANACONDA 5 KILO (FDO 25 KILO)',
-  category: 'Ofertas',
-  price: 79.99,
-  image: 'https://i.imgur.com/N4tixJQ.png',
-},
-{
   id: 1052,
   name: 'PERNIL SUÍNO CONGELADO DESFIADO ALFAMA 1 KILO PCT',
   category: 'Ofertas',
@@ -111,11 +55,67 @@ const featuredProducts = [
   image: 'https://i.imgur.com/cFrpBzR.png',
 },
 {
-  id: 1385,
-  name: 'PALMITO PICADO PUPUNHA POTE D´ORO 1,8 KILO',
+  id: 1730,
+  name: 'FARINHA DE TRIGO PASTEL SUPREMA BUNGE 5 KILO (FDO 25 KILO)',
   category: 'Ofertas',
-  price: 35.39,
-  image: 'https://i.imgur.com/YUhPcZ3.png',
+  price: 103.99,
+  image: 'https://i.imgur.com/gXxWyjC.png',
+},
+{
+  id: 1191,
+  name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO FAST FOOD BEM BRASIL 2 KILO (CX 7 PCT)',
+  category: 'Ofertas',
+  price: 149.69,
+  image: 'https://i.imgur.com/72f4Qyr.png',
+},
+{
+  id: 1212,
+  name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 X 18 MM STEAKHOUSE SIMPLOT 2 KILO (CX 5 PCT)',
+  category: 'Ofertas',
+  price: 147.99,
+  image: 'https://i.imgur.com/yn2kGgU.png',
+},
+{
+  id: 909,
+  name: 'REQUEIJÃO SABOR CHEDDAR SCALA 1,5 KILO',
+  category: 'Ofertas',
+  price: 45.99,
+  image: 'https://i.imgur.com/22lCytC.png',
+},
+{
+  id: 921,
+  name: 'REQUEIJÃO TRADICIONAL DALLORA SEM AMIDO 1,5 KILO',
+  category: 'Ofertas',
+  price: 44.99,
+  image: 'https://i.imgur.com/Plvq7ds.png',
+},
+{
+  id: 1723,
+  name: 'FARINHA DE TRIGO PASTEL BUQUÊ 5 KILO (FDO 25 KILO)',
+  category: 'Ofertas',
+  price: 101.19,
+  image: 'https://i.imgur.com/UAKK7p8.png',
+},
+{
+  id: 914,
+  name: 'REQUEIJÃO SCALA SEM AMIDO 1,5 KILO',
+  category: 'Ofertas',
+  price: 44.50,
+  image: 'https://i.imgur.com/FwiSygp.png',
+},
+{
+  id: 918,
+  name: 'REQUEIJÃO TIROLEZ SEM AMIDO 3,6 KILO',
+  category: 'Ofertas',
+  price: 108.83,
+  image: 'https://i.imgur.com/YWEIJxJ.png',
+},
+{
+  id: 782,
+  name: 'PARMESÃO 6 MESES SCALA 6 KG',
+  category: 'Ofertas',
+  price: 78.99,
+  image: 'https://i.imgur.com/lVBLmGh.png',
 },
 ].filter(product => product.category === 'Ofertas');
 
@@ -145,10 +145,10 @@ const banners = [
 
 // ========== IMAGENS FIFO (1080x1080) ========== //
 const fifoImages = [
-  'https://i.imgur.com/MyNsZUq.mp4',
-  'https://i.imgur.com/zMjIbHB.mp4',
-  'https://i.imgur.com/p7RyDV7.mp4',
-  'https://i.imgur.com/ykny8fc.mp4',
+  'https://i.imgur.com/320654D.mp4',
+  'https://i.imgur.com/OyYSQUs.mp4',
+  'https://i.imgur.com/R63Gppf.mp4',
+  'https://i.imgur.com/Nfalhep.mp4',
 ];
 
 // ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
