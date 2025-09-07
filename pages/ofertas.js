@@ -6,18 +6,53 @@ import Link from 'next/link';
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
 {
+  id: 1790,
+  name: 'MACARRÃO ESPAGUETE Nº 8 COM OVOS DONA BENTA 500 G (FDO 24 PCT)',
+  category: 'Ofertas',
+  price: 75.99,
+  image: 'https://i.imgur.com/NslZsoB.png',
+},
+{
+  id: 1744,
+  name: 'FARINHA DE TRIGO PEQUENA TIPO 1 SOL 1 KILO (FDO 10 KILO)',
+  category: 'Ofertas',
+  price: 43.50,
+  image: 'https://i.imgur.com/VbqZDY7.png',
+},
+{
+  id: 1401,
+  name: 'PROTEÍNA TEXTURIZADA DE SOJA CLARA FRANGO CAMIL 400 G (FDO 20 PCT)',
+  category: 'Ofertas',
+  price: 5.45,
+  image: 'https://i.imgur.com/DnQ5tlw.png',
+},
+{
+  id: 1402,
+  name: 'PROTEÍNA TEXTURIZADA DE SOJA ESCURA CARNE CAMIL 400 G (FDO 20 PCT)',
+  category: 'Ofertas',
+  price: 5.45,
+  image: 'https://i.imgur.com/hOnaDLg.png',
+},
+{
+  id: 1392,
+  name: 'PEPINOS RODELAS AGRIDOCE HEMMER 440 G',
+  category: 'Ofertas',
+  price: 19.99,
+  image: 'https://i.imgur.com/5j4OWq7.png',
+},
+{
+  id: 1223,
+  name: 'CAFÉ EXTRA FORTE ALMOFADA SOLLUS 500 G (FDO 10 PCT)',
+  category: 'Ofertas',
+  price: 229.99,
+  image: 'https://i.imgur.com/TtlTuwJ.png',
+},
+{
   id: 1440,
   name: 'ATUM PEDAÇOS EM ÓLEO POUCH GOMES DA COSTA 500 G',
   category: 'Ofertas',
   price: 29.79,
   image: 'https://i.imgur.com/QBjRtM2.png',
-},
-{
-  id: 659,
-  name: 'GORGONZOLA QUEIJO AZUL BURITIS 3 KG',
-  category: 'Ofertas',
-  price: 49.99,
-  image: 'https://i.imgur.com/F8fB80F.png',
 },
 {
   id: 779,
@@ -34,25 +69,11 @@ const featuredProducts = [
   image: 'https://i.imgur.com/cp3JWHX.png',
 },
 {
-  id: 533,
-  name: 'COSTELA BOVINA CONGELADA DESFIADA ALFAMA 1 KG',
-  category: 'Ofertas',
-  price: 58.99,
-  image: 'https://i.imgur.com/03RqYXv.png',
-},
-{
   id: 1202,
   name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL MAIS BATATA BEM BRASIL 2 KILO (CX 7 PCT)',
   category: 'Ofertas',
   price: 146.89,
   image: 'https://i.imgur.com/H6CVzIj.png',
-},
-{
-  id: 1052,
-  name: 'PERNIL SUÍNO CONGELADO DESFIADO ALFAMA 1 KILO PCT',
-  category: 'Ofertas',
-  price: 37.50,
-  image: 'https://i.imgur.com/cFrpBzR.png',
 },
 {
   id: 1730,
@@ -62,32 +83,11 @@ const featuredProducts = [
   image: 'https://i.imgur.com/gXxWyjC.png',
 },
 {
-  id: 1191,
-  name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO FAST FOOD BEM BRASIL 2 KILO (CX 7 PCT)',
-  category: 'Ofertas',
-  price: 149.69,
-  image: 'https://i.imgur.com/72f4Qyr.png',
-},
-{
-  id: 1212,
-  name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 X 18 MM STEAKHOUSE SIMPLOT 2 KILO (CX 5 PCT)',
-  category: 'Ofertas',
-  price: 147.99,
-  image: 'https://i.imgur.com/yn2kGgU.png',
-},
-{
   id: 909,
   name: 'REQUEIJÃO SABOR CHEDDAR SCALA 1,5 KILO',
   category: 'Ofertas',
   price: 45.99,
   image: 'https://i.imgur.com/22lCytC.png',
-},
-{
-  id: 921,
-  name: 'REQUEIJÃO TRADICIONAL DALLORA SEM AMIDO 1,5 KILO',
-  category: 'Ofertas',
-  price: 44.99,
-  image: 'https://i.imgur.com/Plvq7ds.png',
 },
 {
   id: 1723,
@@ -145,10 +145,10 @@ const banners = [
 
 // ========== IMAGENS FIFO (1080x1080) ========== //
 const fifoImages = [
-  'https://i.imgur.com/320654D.mp4',
-  'https://i.imgur.com/OyYSQUs.mp4',
-  'https://i.imgur.com/R63Gppf.mp4',
-  'https://i.imgur.com/Nfalhep.mp4',
+  'https://i.imgur.com/zydAt5J.mp4',
+  'https://i.imgur.com/4A6KLIZ.mp4',
+  'https://i.imgur.com/TawK1gS.mp4',
+  'https://i.imgur.com/1VelDf8.mp4',
 ];
 
 // ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
