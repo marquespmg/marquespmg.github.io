@@ -574,15 +574,16 @@ export default function Indicacoes() {
     try {
       if (authMode === 'register') {
         const { data, error } = await supabase.auth.signUp({
-          email: authData.email,
-          password: authData.password,
-          options: {
-            data: {
-              name: authData.name
-            },
-            emailRedirectTo: 'https://www.marquesvendaspmg.shop/indicacoes'
-          }
-        });
+  email: authData.email,
+  password: authData.password,
+  options: {
+    data: {
+      name: authData.name
+    },
+    // TROQUE PARA ISSO:
+    emailRedirectTo: `${window.location.origin}`
+  }
+});
         
         if (error) throw error;
         
