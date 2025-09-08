@@ -150,8 +150,7 @@ const styles = {
     fontFamily: "'Inter', sans-serif",
     transition: 'all 0.3s ease',
     width: '100%',
-    marginBottom: '15px',
-    boxShadow: '0 4px 6px rgba(9,84,0,0.1)'
+    marginBottom: '15px'
   },
   progressContainer: {
     marginTop: '15px'
@@ -232,8 +231,7 @@ const styles = {
     fontSize: '16px',
     fontFamily: "'Inter', sans-serif",
     transition: 'all 0.3s ease',
-    width: '100%',
-    boxShadow: '0 4px 6px rgba(255,0,0,0.1)'
+    width: '100%'
   },
   historySection: {
     background: '#fff',
@@ -329,8 +327,7 @@ const styles = {
     fontWeight: '700',
     letterSpacing: '2px',
     color: 'white',
-    fontFamily: "'Poppins', sans-serif",
-    boxShadow: '0 6px 12px rgba(9,84,0,0.15)'
+    fontFamily: "'Poppins', sans-serif"
   },
   creditDisplay: {
     background: 'linear-gradient(135deg, #e8f5e9 0%, #d4edda 100%)',
@@ -408,14 +405,22 @@ const styles = {
   }
 };
 
-// Função para gerar código único
-const generateReferralCode = () => {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-  let result = '';
-  for (let i = 0; i < 8; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
+// Função para verificar confirmação de email
+const checkEmailConfirmation = async () => {
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (user && user.email_confirmed_at) {
+      // Email já confirmado, recarregar sessão
+      await supabase.auth.refreshSession();
+      return true;
+    }
+    
+    return false;
+  } catch (error) {
+    console.error('Erro ao verificar confirmação:', error);
+    return false;
   }
-  return result;
 };
 
 export default function Indicacoes() {
@@ -437,6 +442,22 @@ export default function Indicacoes() {
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState('');
   const router = useRouter();
+
+  // Função para reenviar email de confirmação
+  const handleResendConfirmation = async () => {
+    try {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: authData.email,
+      });
+      
+      if (error) throw error;
+      
+      alert('Email de confirmação reenviado! Verifique sua caixa de entrada.');
+    } catch (error) {
+      alert('Erro ao reenviar email: ' + error.message);
+    }
+  };
 
   // Carregar dados do usuário
   useEffect(() => {
@@ -460,11 +481,42 @@ export default function Indicacoes() {
     };
   }, []);
 
+  // Polling para verificar confirmação de email
+  useEffect(() => {
+    let intervalId;
+    
+    if (user && !user.email_confirmed_at) {
+      // Verificar a cada 5 segundos se o email foi confirmado
+      intervalId = setInterval(async () => {
+        const isConfirmed = await checkEmailConfirmation();
+        if (isConfirmed) {
+          clearInterval(intervalId);
+          window.location.reload();
+        }
+      }, 5000);
+    }
+    
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [user]);
+
   const checkAuth = async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
       setUser(user);
+      
       if (user) {
+        // Verificar se email está confirmado
+        if (!user.email_confirmed_at) {
+          const isConfirmed = await checkEmailConfirmation();
+          if (isConfirmed) {
+            // Recarregar página para atualizar estado
+            window.location.reload();
+            return;
+          }
+        }
+        
         await loadCustomerData(user.id);
       } else {
         setLoading(false);
@@ -475,90 +527,23 @@ export default function Indicacoes() {
     }
   };
 
-  const createCustomerForUser = async (userId) => {
+  const loadCustomerData = async (userId) => {
     try {
-      // Buscar informações do usuário para criar o cliente
-      const { data: { user: authUser } } = await supabase.auth.getUser();
-      
-      // Verificar se já existe um cliente para este usuário
-      const { data: existingCustomer } = await supabase
+      // Buscar dados do cliente
+      const { data: customerData, error: customerError } = await supabase
         .from('customers')
         .select('*')
         .eq('auth_id', userId)
-        .maybeSingle();
-      
-      if (existingCustomer) {
-        setCustomer(existingCustomer);
-        return existingCustomer;
-      }
-      
-      // Gerar código de referência único que não existe
-      let referralCode;
-      let codeExists = true;
-      let attempts = 0;
-      
-      // Tentar até encontrar um código único
-      while (codeExists && attempts < 10) {
-        referralCode = generateReferralCode();
-        
-        // Verificar se o código já existe
-        const { data: existingCode } = await supabase
-          .from('customers')
-          .select('id')
-          .eq('referral_code', referralCode)
-          .maybeSingle();
-          
-        codeExists = !!existingCode;
-        attempts++;
-      }
-      
-      // Se ainda existe após 10 tentativas, usar um código com timestamp
-      if (codeExists) {
-        referralCode = 'PMG' + Date.now().toString(36).toUpperCase().slice(-5);
-      }
-      
-      const { data: newCustomer, error } = await supabase
-        .from('customers')
-        .insert({
-          auth_id: userId,
-          name: authUser?.user_metadata?.name || authData.name || authUser?.email?.split('@')[0] || 'Cliente',
-          email: authUser?.email || authData.email,
-          referral_code: referralCode,
-          credit_balance: 0.00
-        })
-        .select()
         .single();
 
-      if (error) {
-        console.error('Erro ao criar cliente:', error);
-        throw error;
+      if (customerError) {
+        console.log('Cliente não encontrado ainda...', customerError);
+        // Não tenta criar automaticamente - espera o trigger
+        setCustomer(null);
+        return null;
       }
-      
-      setCustomer(newCustomer);
-      return newCustomer;
-    } catch (error) {
-      console.error('Erro ao criar cliente:', error);
-      throw error;
-    }
-  };
 
-const loadCustomerData = async (userId) => {
-  try {
-    // Buscar dados do cliente
-    const { data: customerData, error: customerError } = await supabase
-      .from('customers')
-      .select('*')
-      .eq('auth_id', userId)
-      .single();
-
-    if (customerError) {
-      console.log('Cliente não encontrado ainda...', customerError);
-      // Não tenta criar automaticamente - espera o trigger
-      setCustomer(null);
-      return null;
-    }
-
-    setCustomer(customerData);
+      setCustomer(customerData);
       
       // Buscar histórico de indicações usando o ID do customer
       const { data: historyData, error: historyError } = await supabase
@@ -581,44 +566,50 @@ const loadCustomerData = async (userId) => {
     }
   };
 
-const handleAuth = async (e) => {
-  e.preventDefault();
-  setAuthLoading(true);
-  setAuthError('');
-  
-  try {
-    if (authMode === 'register') {
-      const { data, error } = await supabase.auth.signUp({
-        email: authData.email,
-        password: authData.password,
-        options: {
-          data: {
-            name: authData.name
-          },
-          emailRedirectTo: 'https://www.marquesvendaspmg.shop/indicacoes'
-        }
-      });
-      
-      if (error) throw error;
-      
-      alert('Cadastro realizado com sucesso, verifique seu email( se nao achar olhe na caixa de spam)e confirme seu cadastro!');
-      setAuthMode('login');
-      
-    } else {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: authData.email,
-        password: authData.password
-      });
-      
-      if (error) throw error;
-    }
-  } catch (error) {
-    setAuthError(error.message);
-  } finally {
-    setAuthLoading(false);
-  }
-};
+  const handleAuth = async (e) => {
+    e.preventDefault();
+    setAuthLoading(true);
+    setAuthError('');
+    
+    try {
+      if (authMode === 'register') {
+        const { data, error } = await supabase.auth.signUp({
+          email: authData.email,
+          password: authData.password,
+          options: {
+            data: {
+              name: authData.name
+            },
+            emailRedirectTo: 'https://www.marquesvendaspmg.shop/indicacoes'
+          }
+        });
         
+        if (error) throw error;
+        
+        alert('Cadastro realizado com sucesso, verifique seu email( se nao achar olhe na caixa de spam)e confirme seu cadastro!');
+        setAuthMode('login');
+      } else {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: authData.email,
+          password: authData.password
+        });
+        
+        if (error) {
+          // Verificar se é erro de email não confirmado
+          if (error.message.includes('Email not confirmed')) {
+            setAuthError('Email não confirmado. Verifique sua caixa de entrada.');
+          } else {
+            throw error;
+          }
+        }
+      }
+    } catch (error) {
+      setAuthError(error.message);
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
   const handleSignOut = async () => {
     try {
       const { error } = await supabase.auth.signOut();
@@ -745,6 +736,59 @@ const handleAuth = async (e) => {
     );
   }
 
+  if (user && !customer) {
+    return (
+      <div style={styles.authContainer}>
+        <div style={styles.authBox}>
+          <h2 style={{ color: '#ff0000', marginBottom: '20px' }}>Confirmação Pendente</h2>
+          
+          {user.email_confirmed_at ? (
+            <>
+              <p style={styles.authText}>
+                ✅ Email confirmado com sucesso!
+              </p>
+              <p style={styles.authText}>
+                Preparando sua conta... Aguarde alguns instantes.
+              </p>
+              <div style={styles.loadingSpinner}></div>
+            </>
+          ) : (
+            <>
+              <p style={styles.authText}>
+                📧 Verifique seu email para confirmar o cadastro.
+              </p>
+              <p style={styles.authText}>
+                Se não encontrar o email, verifique a caixa de spam.
+              </p>
+              <button 
+                onClick={handleResendConfirmation}
+                style={{
+                  ...styles.authButton,
+                  backgroundColor: '#28a745',
+                  marginBottom: '10px'
+                }}
+              >
+                Reenviar Email de Confirmação
+              </button>
+              <button 
+                onClick={() => {
+                  supabase.auth.signOut();
+                  setAuthMode('login');
+                }}
+                style={{
+                  ...styles.authButton,
+                  backgroundColor: '#6c757d'
+                }}
+              >
+                Voltar ao Login
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   if (!user) {
     return (
       <div style={styles.authContainer}>
@@ -826,17 +870,6 @@ const handleAuth = async (e) => {
               {authMode === 'login' ? 'Cadastre-se' : 'Faça login'}
             </a>
           </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!customer) {
-    return (
-      <div style={styles.authContainer}>
-        <div style={styles.authBox}>
-          <div style={styles.loadingSpinner}></div>
-          <p style={styles.authText}>Preparando sua conta...</p>
         </div>
       </div>
     );
