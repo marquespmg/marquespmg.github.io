@@ -542,22 +542,23 @@ export default function Indicacoes() {
     }
   };
 
-  const loadCustomerData = async (userId) => {
-    try {
-      // Buscar dados do cliente
-      const { data: customerData, error: customerError } = await supabase
-        .from('customers')
-        .select('*')
-        .eq('auth_id', userId)
-        .single();
+const loadCustomerData = async (userId) => {
+  try {
+    // Buscar dados do cliente
+    const { data: customerData, error: customerError } = await supabase
+      .from('customers')
+      .select('*')
+      .eq('auth_id', userId)
+      .single();
 
-      if (customerError) {
-        console.log('Cliente não encontrado, criando novo...', customerError);
-        const newCustomer = await createCustomerForUser(userId);
-        return newCustomer;
-      }
+    if (customerError) {
+      console.log('Cliente não encontrado ainda...', customerError);
+      // Não tenta criar automaticamente - espera o trigger
+      setCustomer(null);
+      return null;
+    }
 
-      setCustomer(customerData);
+    setCustomer(customerData);
       
       // Buscar histórico de indicações usando o ID do customer
       const { data: historyData, error: historyError } = await supabase
@@ -580,47 +581,44 @@ export default function Indicacoes() {
     }
   };
 
-  const handleAuth = async (e) => {
-    e.preventDefault();
-    setAuthLoading(true);
-    setAuthError('');
-    
-    try {
-      if (authMode === 'register') {
-        const { data, error } = await supabase.auth.signUp({
-          email: authData.email,
-          password: authData.password,
-          options: {
-            data: {
-              name: authData.name
-            },
-            emailRedirectTo: 'https://www.marquesvendaspmg.shop/indicacoes'
-          }
-        });
-        
-        if (error) throw error;
-        
-        // Criar o cliente após o registro
-        if (data.user) {
-          await createCustomerForUser(data.user.id);
-          alert('Cadastro realizado com sucesso, verifique seu email( se nao achar olhe na caixa de spam)e confime seu cadastro!');
-          setAuthMode('login');
+const handleAuth = async (e) => {
+  e.preventDefault();
+  setAuthLoading(true);
+  setAuthError('');
+  
+  try {
+    if (authMode === 'register') {
+      const { data, error } = await supabase.auth.signUp({
+        email: authData.email,
+        password: authData.password,
+        options: {
+          data: {
+            name: authData.name
+          },
+          emailRedirectTo: 'https://www.marquesvendaspmg.shop/indicacoes'
         }
-      } else {
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email: authData.email,
-          password: authData.password
-        });
-        
-        if (error) throw error;
-      }
-    } catch (error) {
-      setAuthError(error.message);
-    } finally {
-      setAuthLoading(false);
+      });
+      
+      if (error) throw error;
+      
+      alert('Cadastro realizado com sucesso, verifique seu email( se nao achar olhe na caixa de spam)e confirme seu cadastro!');
+      setAuthMode('login');
+      
+    } else {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: authData.email,
+        password: authData.password
+      });
+      
+      if (error) throw error;
     }
-  };
-
+  } catch (error) {
+    setAuthError(error.message);
+  } finally {
+    setAuthLoading(false);
+  }
+};
+        
   const handleSignOut = async () => {
     try {
       const { error } = await supabase.auth.signOut();
