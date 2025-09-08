@@ -1044,7 +1044,7 @@ export default function Indicacoes() {
           <div>
             {referralHistory.map((item) => (
               <div key={item.id} style={styles.historyItem}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
                   <div>
                     <div style={styles.historyText}>
                       <strong>{item.referred_name}</strong>
@@ -1060,7 +1060,8 @@ export default function Indicacoes() {
                     color: item.status === 'validada' ? '#095400' : 
                            item.status === 'pendente' ? '#ff9800' : '#ff0000',
                     fontWeight: 'bold',
-                    fontSize: '14px'
+                    fontSize: '14px',
+                    marginTop: '10px'
                   }}>
                     {item.status === 'validada' && `R$ ${item.credit_amount?.toFixed(2) || '5.00'}`}
                   </div>
