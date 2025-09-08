@@ -983,11 +983,16 @@ export default function Indicacoes() {
           </div>
 
           <div style={styles.infoBox}>
-            <h4 style={{ margin: '0 0 10px 0', color: '#095400', fontFamily: "'Poppins', sans-serif" }}>Como funciona?</h4>
-            <p style={{ margin: '0', fontSize: '14px' }}>
-              Cada indicação validada (com pedido mínimo de 750.00) gera <strong>R$ 5,00</strong> de crédito para você.
-              O crédito pode ser resgatado a partir de <strong>R$ 50,00</strong> e é aplicado em seu próximo pedido.
-            </p>
+<h4 style={{ margin: '0 0 10px 0', color: '#095400', fontFamily: "'Poppins', sans-serif" }}>
+  Como funciona?
+</h4>
+<p style={{ margin: '0', fontSize: '14px' }}>
+  Ao indicar um novo cliente para a PMG, você ganha <strong>R$ 5,00</strong> de crédito por cada indicação que fizer um pedido na PMG. 
+  <br />
+  Os créditos ficam acumulados em sua conta e podem ser resgatados a partir de <strong>R$ 50,00</strong>, 
+  sendo descontados automaticamente do valor do seu próximo pedido.
+</p>
+
           </div>
         </div>
 
