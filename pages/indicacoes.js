@@ -3,57 +3,67 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { supabase } from '../lib/supabaseClient';
 
-// Estilos responsivos
+// Estilos responsivos melhorados
 const styles = {
   authContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    backgroundColor: '#f5f5f5',
-    padding: '20px'
+    backgroundColor: '#f8f9fa',
+    padding: '20px',
+    fontFamily: "'Inter', sans-serif"
   },
   authBox: {
     background: '#fff',
     padding: '30px',
-    borderRadius: '10px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+    borderRadius: '12px',
+    boxShadow: '0 10px 25px rgba(0,0,0,0.05)',
     textAlign: 'center',
-    maxWidth: '400px',
-    width: '100%'
+    maxWidth: '450px',
+    width: '100%',
+    transition: 'all 0.3s ease'
   },
   authText: {
     color: '#666',
     marginBottom: '20px',
-    fontSize: '14px'
+    fontSize: '15px',
+    lineHeight: '1.5'
   },
   authInput: {
     width: '100%',
-    padding: '12px',
+    padding: '14px 16px',
     margin: '10px 0',
-    border: '1px solid #ddd',
-    borderRadius: '5px',
+    border: '1px solid #e1e5e9',
+    borderRadius: '8px',
     fontSize: '16px',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    transition: 'border 0.3s ease',
+    fontFamily: "'Inter', sans-serif"
   },
   authButton: {
-    background: '#ff0000',
+    background: 'linear-gradient(135deg, #ff0000 0%, #cc0000 100%)',
     color: 'white',
     border: 'none',
-    padding: '12px 20px',
-    borderRadius: '5px',
+    padding: '14px 20px',
+    borderRadius: '8px',
     cursor: 'pointer',
     width: '100%',
     fontSize: '16px',
-    fontWeight: 'bold',
-    marginTop: '10px'
+    fontWeight: '600',
+    marginTop: '10px',
+    transition: 'all 0.3s ease',
+    fontFamily: "'Inter', sans-serif",
+    boxShadow: '0 4px 6px rgba(255,0,0,0.1)'
   },
   container: {
     minHeight: '100vh',
     padding: '20px',
-    paddingBottom: '100px',
+    paddingBottom: '40px',
     maxWidth: '1200px',
-    margin: '0 auto'
+    margin: '0 auto',
+    fontFamily: "'Inter', sans-serif",
+    backgroundColor: '#f8f9fa'
   },
   header: {
     display: 'flex',
@@ -61,78 +71,87 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: '30px',
-    paddingBottom: '15px',
-    borderBottom: '2px solid #ff0000',
+    padding: '20px',
+    paddingBottom: '20px',
+    borderRadius: '12px',
+    background: '#fff',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
     gap: '15px'
   },
   title: {
     color: '#ff0000',
-    fontSize: '24px',
+    fontSize: '28px',
     margin: 0,
-    fontFamily: "'Montserrat', sans-serif",
-    textAlign: 'center'
+    fontFamily: "'Poppins', sans-serif",
+    textAlign: 'center',
+    fontWeight: '700'
   },
   pmgLogo: {
-    background: '#095400',
+    background: 'linear-gradient(135deg, #095400 0%, #0a6300 100%)',
     color: 'white',
-    padding: '8px 15px',
-    borderRadius: '5px',
-    fontWeight: 'bold',
-    fontSize: '16px'
+    padding: '10px 18px',
+    borderRadius: '8px',
+    fontWeight: '700',
+    fontSize: '16px',
+    boxShadow: '0 4px 6px rgba(9,84,0,0.1)'
   },
   mainContent: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '30px',
+    gap: '25px',
     marginBottom: '40px'
   },
   inputPanel: {
     background: '#fff',
-    borderRadius: '10px',
-    padding: '20px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.05)',
+    borderRadius: '12px',
+    padding: '25px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
     width: '100%'
   },
   panelTitle: {
     color: '#095400',
     marginBottom: '20px',
-    fontFamily: "'Montserrat', sans-serif",
-    fontSize: '20px'
+    fontFamily: "'Poppins', sans-serif",
+    fontSize: '22px',
+    fontWeight: '600'
   },
   textInput: {
     width: '100%',
-    padding: '15px',
-    border: '1px solid #ddd',
-    borderRadius: '5px',
+    padding: '14px 16px',
+    border: '1px solid #e1e5e9',
+    borderRadius: '8px',
     fontSize: '16px',
     marginBottom: '20px',
     resize: 'vertical',
-    fontFamily: "'Open Sans', sans-serif",
-    boxSizing: 'border-box'
+    fontFamily: "'Inter', sans-serif",
+    boxSizing: 'border-box',
+    transition: 'border 0.3s ease'
   },
   controls: {
     marginBottom: '20px'
   },
   configInfo: {
-    padding: '10px',
-    backgroundColor: '#f0f0f0',
-    borderRadius: '5px',
+    padding: '15px',
+    backgroundColor: '#f8f9fa',
+    borderRadius: '8px',
     fontSize: '14px',
-    color: '#666'
+    color: '#495057',
+    lineHeight: '1.5'
   },
   generateButton: {
-    background: '#095400',
+    background: 'linear-gradient(135deg, #095400 0%, #0a6300 100%)',
     color: 'white',
     border: 'none',
-    padding: '12px 25px',
-    borderRadius: '5px',
+    padding: '14px 25px',
+    borderRadius: '8px',
     cursor: 'pointer',
-    fontWeight: 'bold',
+    fontWeight: '600',
     fontSize: '16px',
-    fontFamily: "'Montserrat', sans-serif",
-    transition: 'background 0.3s',
+    fontFamily: "'Inter', sans-serif",
+    transition: 'all 0.3s ease',
     width: '100%',
-    marginBottom: '15px'
+    marginBottom: '15px',
+    boxShadow: '0 4px 6px rgba(9,84,0,0.1)'
   },
   progressContainer: {
     marginTop: '15px'
@@ -140,26 +159,28 @@ const styles = {
   progressBar: {
     width: '100%',
     height: '10px',
-    backgroundColor: '#f0f0f0',
-    borderRadius: '5px',
+    backgroundColor: '#e9ecef',
+    borderRadius: '10px',
     overflow: 'hidden'
   },
   progressFill: {
     height: '100%',
-    backgroundColor: '#095400',
-    transition: 'width 0.3s ease'
+    background: 'linear-gradient(135deg, #095400 0%, #0a6300 100%)',
+    transition: 'width 0.5s ease',
+    borderRadius: '10px'
   },
   statusText: {
-    marginTop: '8px',
+    marginTop: '10px',
     fontSize: '14px',
-    color: '#666',
-    textAlign: 'center'
+    color: '#495057',
+    textAlign: 'center',
+    fontWeight: '500'
   },
   videoPreview: {
     background: '#fff',
-    borderRadius: '10px',
-    padding: '20px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.05)',
+    borderRadius: '12px',
+    padding: '25px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
     display: 'flex',
     flexDirection: 'column',
     width: '100%'
@@ -177,7 +198,7 @@ const styles = {
   placeholder: {
     width: '100%',
     height: '200px',
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#f8f9fa',
     borderRadius: '8px',
     display: 'flex',
     justifyContent: 'center',
@@ -186,7 +207,7 @@ const styles = {
     flexDirection: 'column'
   },
   placeholderText: {
-    color: '#666',
+    color: '#6c757d',
     fontStyle: 'italic',
     marginBottom: '15px',
     textAlign: 'center',
@@ -196,68 +217,75 @@ const styles = {
     border: '4px solid #f3f3f3',
     borderTop: '4px solid #095400',
     borderRadius: '50%',
-    width: '30px',
-    height: '30px',
+    width: '40px',
+    height: '40px',
     animation: 'spin 1s linear infinite'
   },
   downloadButton: {
-    background: '#ff0000',
+    background: 'linear-gradient(135deg, #ff0000 0%, #cc0000 100%)',
     color: 'white',
     border: 'none',
-    padding: '12px 25px',
-    borderRadius: '5px',
+    padding: '14px 25px',
+    borderRadius: '8px',
     cursor: 'pointer',
-    fontWeight: 'bold',
+    fontWeight: '600',
     fontSize: '16px',
-    fontFamily: "'Montserrat', sans-serif",
-    transition: 'background 0.3s',
-    width: '100%'
+    fontFamily: "'Inter', sans-serif",
+    transition: 'all 0.3s ease',
+    width: '100%',
+    boxShadow: '0 4px 6px rgba(255,0,0,0.1)'
   },
   historySection: {
     background: '#fff',
-    borderRadius: '10px',
-    padding: '20px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.05)',
-    marginBottom: '20px',
+    borderRadius: '12px',
+    padding: '25px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+    marginBottom: '25px',
     width: '100%'
   },
   historyItem: {
-    padding: '15px',
-    borderBottom: '1px solid #ddd'
+    padding: '18px',
+    borderBottom: '1px solid #e9ecef',
+    transition: 'background 0.2s ease'
   },
   historyText: {
-    fontSize: '14px',
-    marginBottom: '5px',
-    fontFamily: "'Open Sans', sans-serif"
+    fontSize: '15px',
+    marginBottom: '6px',
+    fontFamily: "'Inter', sans-serif",
+    color: '#212529'
   },
   historyDate: {
-    fontSize: '12px',
-    color: '#757575',
-    fontFamily: "'Open Sans', sans-serif"
+    fontSize: '13px',
+    color: '#6c757d',
+    fontFamily: "'Inter', sans-serif"
   },
   infoBox: {
-    background: '#e8f5e9',
-    border: '1px solid #c8e6c9',
-    borderRadius: '5px',
-    padding: '15px',
-    marginTop: '20px',
-    fontSize: '14px'
+    background: 'linear-gradient(135deg, #e8f5e9 0%, #d4edda 100%)',
+    border: '1px solid #c3e6cb',
+    borderRadius: '10px',
+    padding: '20px',
+    marginTop: '25px',
+    fontSize: '14px',
+    lineHeight: '1.6'
   },
   googleButton: {
     background: '#4285F4',
     color: 'white',
     border: 'none',
-    padding: '12px 20px',
-    borderRadius: '5px',
+    padding: '14px 20px',
+    borderRadius: '8px',
     cursor: 'pointer',
     width: '100%',
     fontSize: '16px',
-    fontWeight: 'bold',
+    fontWeight: '600',
     marginTop: '10px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '10px'
+    gap: '12px',
+    fontFamily: "'Inter', sans-serif",
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 6px rgba(66,133,244,0.1)'
   },
   statsGrid: {
     display: 'grid',
@@ -276,7 +304,60 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '10px'
+    gap: '12px'
+  },
+  statCard: {
+    background: '#fff',
+    padding: '20px',
+    borderRadius: '10px',
+    textAlign: 'center',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.05)',
+    border: '1px solid #e9ecef',
+    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+  },
+  shareButtons: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '10px',
+    marginBottom: '20px',
+    justifyContent: 'center'
+  },
+  shareButton: {
+    flex: '1 0 calc(50% - 10px)',
+    minWidth: '120px',
+    padding: '12px 15px',
+    borderRadius: '8px',
+    border: 'none',
+    cursor: 'pointer',
+    fontWeight: '600',
+    fontSize: '14px',
+    fontFamily: "'Inter', sans-serif",
+    transition: 'all 0.3s ease',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px'
+  },
+  referralCode: {
+    background: 'linear-gradient(135deg, #095400 0%, #0a6300 100%)',
+    padding: '20px',
+    borderRadius: '10px',
+    textAlign: 'center',
+    marginBottom: '25px',
+    fontSize: '28px',
+    fontWeight: '700',
+    letterSpacing: '2px',
+    color: 'white',
+    fontFamily: "'Poppins', sans-serif",
+    boxShadow: '0 6px 12px rgba(9,84,0,0.15)'
+  },
+  creditDisplay: {
+    background: 'linear-gradient(135deg, #e8f5e9 0%, #d4edda 100%)',
+    padding: '25px',
+    borderRadius: '10px',
+    textAlign: 'center',
+    marginBottom: '20px',
+    border: '1px solid #c3e6cb'
   },
   '@media (min-width: 768px)': {
     header: {
@@ -290,19 +371,58 @@ const styles = {
     },
     userInfo: {
       flexDirection: 'row',
-      alignItems: 'center'
+      alignItems: 'center',
+      gap: '15px'
     },
     mainContent: {
       flexDirection: 'row'
     },
     inputPanel: {
-      width: '50%'
+      width: '48%'
     },
     videoPreview: {
-      width: '50%'
+      width: '48%'
     },
     statsGrid: {
       gridTemplateColumns: 'repeat(4, 1fr)'
+    },
+    shareButtons: {
+      justifyContent: 'flex-start'
+    },
+    shareButton: {
+      flex: '1 0 auto',
+      minWidth: 'auto'
+    }
+  },
+  '@media (max-width: 480px)': {
+    authBox: {
+      padding: '20px'
+    },
+    container: {
+      padding: '15px',
+      paddingBottom: '30px'
+    },
+    header: {
+      padding: '15px'
+    },
+    inputPanel: {
+      padding: '20px'
+    },
+    videoPreview: {
+      padding: '20px'
+    },
+    historySection: {
+      padding: '20px'
+    },
+    referralCode: {
+      fontSize: '22px',
+      padding: '15px'
+    },
+    title: {
+      fontSize: '24px'
+    },
+    panelTitle: {
+      fontSize: '20px'
     }
   }
 };
@@ -637,7 +757,7 @@ export default function Indicacoes() {
   const handleShare = (platform) => {
     if (!customer) return;
     
-    const message = `Indique a Marques Vendas PMG e ganhe créditos! ✨ Use meu código: ${customer.referral_code} e ganhe R$ 5,00 de desconto na sua primeira compra. Site: https://www.marquesvendaspmg.shop/`;
+    const message = `Indique a Marques Vendas PMG e ganhe créditos! ✨ Use meu código: ${customer.referral_code} e ganhe descontos na sua primeira compra pelo WhatsApp (11)91357-2902 ou acesse o Site: https://www.marquesvendaspmg.shop/`;
     let url = '';
     
     switch(platform) {
@@ -673,18 +793,19 @@ export default function Indicacoes() {
     return (
       <div style={styles.authContainer}>
         <div style={styles.authBox}>
-          <h2 style={{ color: '#ff0000', marginBottom: '20px' }}>
+          <h2 style={{ color: '#ff0000', marginBottom: '20px', fontFamily: "'Poppins', sans-serif" }}>
             {authMode === 'login' ? 'Acessar Programa de Indicações' : 'Criar Conta'}
           </h2>
           
           {authError && (
             <div style={{ 
-              color: '#ff0000', 
-              backgroundColor: '#ffe6e6', 
-              padding: '10px', 
-              borderRadius: '5px',
+              color: '#721c24', 
+              backgroundColor: '#f8d7da', 
+              padding: '12px', 
+              borderRadius: '8px',
               marginBottom: '15px',
-              fontSize: '14px'
+              fontSize: '14px',
+              border: '1px solid #f5c6cb'
             }}>
               {authError}
             </div>
@@ -725,7 +846,11 @@ export default function Indicacoes() {
             
             <button 
               type="submit" 
-              style={styles.authButton}
+              style={{
+                ...styles.authButton,
+                opacity: authLoading ? 0.7 : 1,
+                cursor: authLoading ? 'not-allowed' : 'pointer'
+              }}
               disabled={authLoading}
             >
               {authLoading ? 'Processando...' : (authMode === 'login' ? 'Entrar' : 'Criar Conta')}
@@ -733,12 +858,16 @@ export default function Indicacoes() {
           </form>
 
           <div style={{ margin: '20px 0', textAlign: 'center' }}>
-            <div style={{ borderBottom: '1px solid #ddd', margin: '20px 0' }}></div>
-            <p style={{ margin: '0 0 15px 0', color: '#666' }}>Ou entre com</p>
+            <div style={{ borderBottom: '1px solid #e9ecef', margin: '20px 0' }}></div>
+            <p style={{ margin: '0 0 15px 0', color: '#6c757d' }}>Ou entre com</p>
             
             <button 
               onClick={handleGoogleLogin}
-              style={styles.googleButton}
+              style={{
+                ...styles.googleButton,
+                opacity: authLoading ? 0.7 : 1,
+                cursor: authLoading ? 'not-allowed' : 'pointer'
+              }}
               disabled={authLoading}
             >
               <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
@@ -752,7 +881,7 @@ export default function Indicacoes() {
             {authMode === 'login' ? 'Não tem conta? ' : 'Já tem conta? '}
             <a 
               href="#" 
-              style={{ color: '#ff0000' }}
+              style={{ color: '#ff0000', textDecoration: 'none', fontWeight: '600' }}
               onClick={(e) => {
                 e.preventDefault();
                 setAuthMode(authMode === 'login' ? 'register' : 'login');
@@ -786,7 +915,7 @@ export default function Indicacoes() {
     <div style={styles.container}>
       <Head>
         <title>Programa de Indicações - Marques Vendas PMG</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style>{`
           @keyframes spin {
@@ -794,21 +923,39 @@ export default function Indicacoes() {
             100% { transform: rotate(360deg); }
           }
           body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
+            color: #212529;
           }
           * {
             box-sizing: border-box;
+          }
+          input:focus, textarea:focus {
+            outline: none;
+            border-color: #095400 !important;
+            box-shadow: 0 0 0 3px rgba(9,84,0,0.1) !important;
+          }
+          button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
+          }
+          .history-item:hover {
+            background-color: #f8f9fa;
+          }
+          .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
           }
           @media (min-width: 768px) {
             .desktop-layout {
               display: flex;
               flex-direction: row;
+              justify-content: space-between;
             }
             .desktop-layout > div {
-              width: 50%;
+              width: 48%;
             }
             .desktop-header {
               flex-direction: row;
@@ -830,13 +977,13 @@ export default function Indicacoes() {
         <div style={styles.headerContent}>
           <h1 style={styles.title}>Programa de Indicações</h1>
           <div style={styles.userInfo}>
-            <span style={{ color: '#666' }}>Olá, {customer.name}</span>
+            <span style={{ color: '#495057', fontWeight: '500' }}>Olá, {customer.name}</span>
             <div style={styles.pmgLogo}>PMG</div>
             <button 
               onClick={handleSignOut}
               style={{ 
                 ...styles.authButton, 
-                padding: '8px 15px',
+                padding: '10px 15px',
                 fontSize: '14px',
                 width: 'auto'
               }}
@@ -850,59 +997,57 @@ export default function Indicacoes() {
       <main style={styles.mainContent} className="desktop-layout">
         <div style={styles.inputPanel}>
           <h2 style={styles.panelTitle}>Seu Código de Indicação</h2>
-          <div style={{ 
-            background: '#f0f0f0', 
-            padding: '20px', 
-            borderRadius: '8px', 
-            textAlign: 'center',
-            marginBottom: '20px',
-            fontSize: '24px',
-            fontWeight: 'bold',
-            letterSpacing: '2px',
-            color: '#095400',
-            fontFamily: "'Montserrat', sans-serif"
-          }}>
+          <div style={styles.referralCode}>
             {customer.referral_code}
           </div>
 
           <h3 style={styles.panelTitle}>Compartilhar</h3>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
+          <div style={styles.shareButtons}>
             <button 
               onClick={() => handleShare('whatsapp')}
               style={{ 
-                ...styles.generateButton, 
+                ...styles.shareButton, 
                 backgroundColor: '#25D366',
-                flex: '1 0 auto'
+                color: 'white'
               }}
             >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.84 3.488" fill="currentColor"/>
+              </svg>
               WhatsApp
             </button>
             <button 
               onClick={() => handleShare('facebook')}
               style={{ 
-                ...styles.generateButton, 
+                ...styles.shareButton, 
                 backgroundColor: '#3b5998',
-                flex: '1 0 auto'
+                color: 'white'
               }}
             >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/>
+              </svg>
               Facebook
             </button>
             <button 
               onClick={() => handleShare('instagram')}
               style={{ 
-                ...styles.generateButton, 
+                ...styles.shareButton, 
                 backgroundColor: '#E1306C',
-                flex: '1 0 auto'
+                color: 'white'
               }}
             >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
+              </svg>
               Instagram
             </button>
           </div>
 
           <div style={styles.infoBox}>
-            <h4 style={{ margin: '0 0 10px 0', color: '#095400' }}>Como funciona?</h4>
+            <h4 style={{ margin: '0 0 10px 0', color: '#095400', fontFamily: "'Poppins', sans-serif" }}>Como funciona?</h4>
             <p style={{ margin: '0', fontSize: '14px' }}>
-              Cada indicação validada (com pedido mínimo) gera <strong>R$ 5,00</strong> de crédito para você.
+              Cada indicação validada (com pedido mínimo de 750.00) gera <strong>R$ 5,00</strong> de crédito para você.
               O crédito pode ser resgatado a partir de <strong>R$ 50,00</strong> e é aplicado em seu próximo pedido.
             </p>
           </div>
@@ -913,57 +1058,43 @@ export default function Indicacoes() {
           
           <div style={styles.statsGrid} className="mobile-stats desktop-stats">
             <div style={{ 
-              background: '#f0f0f0', 
-              padding: '15px', 
-              borderRadius: '8px',
-              textAlign: 'center'
+              ...styles.statCard,
+              className: "stat-card"
             }}>
-              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Total</h3>
-              <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>{totalReferrals}</p>
+              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px', fontWeight: '600' }}>Total</h3>
+              <p style={{ margin: '8px 0 0 0', fontSize: '28px', fontWeight: '700', color: '#212529' }}>{totalReferrals}</p>
             </div>
             
             <div style={{ 
-              background: '#f0f0f0', 
-              padding: '15px', 
-              borderRadius: '8px',
-              textAlign: 'center'
+              ...styles.statCard,
+              className: "stat-card"
             }}>
-              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Validadas</h3>
-              <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>{validatedReferrals}</p>
+              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px', fontWeight: '600' }}>Validadas</h3>
+              <p style={{ margin: '8px 0 0 0', fontSize: '28px', fontWeight: '700', color: '#28a745' }}>{validatedReferrals}</p>
             </div>
             
             <div style={{ 
-              background: '#f0f0f0', 
-              padding: '15px', 
-              borderRadius: '8px',
-              textAlign: 'center'
+              ...styles.statCard,
+              className: "stat-card"
             }}>
-              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Pendentes</h3>
-              <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>{pendingReferrals}</p>
+              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px', fontWeight: '600' }}>Pendentes</h3>
+              <p style={{ margin: '8px 0 0 0', fontSize: '28px', fontWeight: '700', color: '#ffc107' }}>{pendingReferrals}</p>
             </div>
             
             <div style={{ 
-              background: '#f0f0f0', 
-              padding: '15px', 
-              borderRadius: '8px',
-              textAlign: 'center'
+              ...styles.statCard,
+              className: "stat-card"
             }}>
-              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Rejeitadas</h3>
-              <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>
+              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px', fontWeight: '600' }}>Rejeitadas</h3>
+              <p style={{ margin: '8px 0 0 0', fontSize: '28px', fontWeight: '700', color: '#dc3545' }}>
                 {referralHistory.filter(ref => ref.status === 'rejeitada').length}
               </p>
             </div>
           </div>
           
-          <div style={{ 
-            background: '#e8f5e9', 
-            padding: '20px', 
-            borderRadius: '8px',
-            textAlign: 'center',
-            marginBottom: '20px'
-          }}>
-            <h3 style={{ margin: '0 0 10px 0', color: '#095400' }}>Crédito Acumulado</h3>
-            <p style={{ margin: '0', fontSize: '32px', fontWeight: 'bold', color: '#095400' }}>
+          <div style={styles.creditDisplay}>
+            <h3 style={{ margin: '0 0 12px 0', color: '#095400', fontSize: '18px', fontWeight: '600' }}>Crédito Acumulado</h3>
+            <p style={{ margin: '0', fontSize: '36px', fontWeight: '700', color: '#095400' }}>
               R$ {customer.credit_balance?.toFixed(2) || '0.00'}
             </p>
             
@@ -976,7 +1107,7 @@ export default function Indicacoes() {
               </div>
               <div style={styles.statusText}>
                 {(customer.credit_balance || 0) >= 50 ? 
-                  'Pronto para resgatar!' : 
+                  '🎉 Pronto para resgatar!' : 
                   `Faltam R$ ${(50 - (customer.credit_balance || 0)).toFixed(2)} para resgatar`}
               </div>
             </div>
@@ -998,37 +1129,38 @@ export default function Indicacoes() {
 
       <section style={styles.inputPanel}>
         <h2 style={styles.panelTitle}>Registrar Nova Indicação</h2>
-        <p style={{ color: '#666', marginBottom: '20px' }}>
+        <p style={{ color: '#6c757d', marginBottom: '20px', lineHeight: '1.5' }}>
           Indique alguém que possa se interessar pelos nossos produtos. Nossa equipe entrará em contato com a pessoa indicada.
         </p>
         <form onSubmit={handleAddReferral}>
           <input
             type="text"
             placeholder="Nome completo da pessoa indicada *"
-            style={styles.authInput}
+            style={styles.textInput}
             value={newReferral.name}
             onChange={(e) => setNewReferral({...newReferral, name: e.target.value})}
             required
           />
           <input
             type="email"
-            placeholder="E-mail (opcional)"
-            style={styles.authInput}
+            placeholder="E-mail *"
+            style={styles.textInput}
             value={newReferral.email}
             onChange={(e) => setNewReferral({...newReferral, email: e.target.value})}
           />
           <input
             type="tel"
-            placeholder="Telefone (opcional)"
-            style={styles.authInput}
+            placeholder="Telefone *"
+            style={styles.textInput}
             value={newReferral.phone}
             onChange={(e) => setNewReferral({...newReferral, phone: e.target.value})}
+            required
           />
           <button type="submit" style={styles.generateButton}>
             Registrar Indicação
           </button>
         </form>
-        <p style={{ fontSize: '14px', color: '#666', marginTop: '10px' }}>
+        <p style={{ fontSize: '14px', color: '#6c757d', marginTop: '10px', lineHeight: '1.5' }}>
           * Campos obrigatórios. A indicação será marcada como "pendente" até a validação do pedido.
         </p>
       </section>
@@ -1037,15 +1169,15 @@ export default function Indicacoes() {
         <h2 style={styles.panelTitle}>Histórico de Indicações</h2>
         
         {referralHistory.length === 0 ? (
-          <p style={{ textAlign: 'center', color: '#666', padding: '20px' }}>
+          <p style={{ textAlign: 'center', color: '#6c757d', padding: '20px', fontStyle: 'italic' }}>
             Nenhuma indicação registrada ainda. Compartilhe seu código para começar!
           </p>
         ) : (
           <div>
             {referralHistory.map((item) => (
-              <div key={item.id} style={styles.historyItem}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
-                  <div>
+              <div key={item.id} style={{...styles.historyItem, className: "history-item"}}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ flex: 1 }}>
                     <div style={styles.historyText}>
                       <strong>{item.referred_name}</strong>
                       {item.referred_email && ` • ${item.referred_email}`}
@@ -1053,15 +1185,20 @@ export default function Indicacoes() {
                     </div>
                     <div style={styles.historyDate}>
                       {new Date(item.created_at).toLocaleDateString('pt-BR')} • 
-                      Status: {item.status}
+                      Status: <span style={{
+                        color: item.status === 'validada' ? '#28a745' : 
+                               item.status === 'pendente' ? '#ffc107' : '#dc3545',
+                        fontWeight: '500'
+                      }}>{item.status}</span>
                     </div>
                   </div>
                   <div style={{ 
-                    color: item.status === 'validada' ? '#095400' : 
-                           item.status === 'pendente' ? '#ff9800' : '#ff0000',
-                    fontWeight: 'bold',
-                    fontSize: '14px',
-                    marginTop: '10px'
+                    color: item.status === 'validada' ? '#28a745' : 
+                           item.status === 'pendente' ? '#6c757d' : '#6c757d',
+                    fontWeight: '700',
+                    fontSize: '16px',
+                    minWidth: '80px',
+                    textAlign: 'right'
                   }}>
                     {item.status === 'validada' && `R$ ${item.credit_amount?.toFixed(2) || '5.00'}`}
                   </div>
@@ -1073,7 +1210,7 @@ export default function Indicacoes() {
       </section>
 
       <div style={styles.infoBox}>
-        <h4 style={{ margin: '0 0 10px 0', color: '#095400' }}>Informações importantes</h4>
+        <h4 style={{ margin: '0 0 12px 0', color: '#095400', fontFamily: "'Poppins', sans-serif" }}>Informações importantes</h4>
         <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px' }}>
           <li>O crédito leva até 2 dias úteis para ser processado após a validação</li>
           <li>O pedido do indicado deve atingir o valor mínimo para ser considerado válido</li>
