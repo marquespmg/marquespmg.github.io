@@ -1,19 +1,21 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { supabase } from '../lib/supabaseClient';
 
-// Estilos (mantidos iguais)
+// Estilos responsivos
 const styles = {
   authContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh',
-    backgroundColor: '#f5f5f5'
+    minHeight: '100vh',
+    backgroundColor: '#f5f5f5',
+    padding: '20px'
   },
   authBox: {
     background: '#fff',
-    padding: '40px',
+    padding: '30px',
     borderRadius: '10px',
     boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
     textAlign: 'center',
@@ -22,7 +24,8 @@ const styles = {
   },
   authText: {
     color: '#666',
-    marginBottom: '20px'
+    marginBottom: '20px',
+    fontSize: '14px'
   },
   authInput: {
     width: '100%',
@@ -30,7 +33,8 @@ const styles = {
     margin: '10px 0',
     border: '1px solid #ddd',
     borderRadius: '5px',
-    fontSize: '16px'
+    fontSize: '16px',
+    boxSizing: 'border-box'
   },
   authButton: {
     background: '#ff0000',
@@ -48,20 +52,25 @@ const styles = {
     minHeight: '100vh',
     padding: '20px',
     paddingBottom: '100px',
+    maxWidth: '1200px',
+    margin: '0 auto'
   },
   header: {
     display: 'flex',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: '30px',
     paddingBottom: '15px',
-    borderBottom: '2px solid #ff0000'
+    borderBottom: '2px solid #ff0000',
+    gap: '15px'
   },
   title: {
     color: '#ff0000',
-    fontSize: '28px',
+    fontSize: '24px',
     margin: 0,
-    fontFamily: "'Montserrat', sans-serif"
+    fontFamily: "'Montserrat', sans-serif",
+    textAlign: 'center'
   },
   pmgLogo: {
     background: '#095400',
@@ -69,24 +78,26 @@ const styles = {
     padding: '8px 15px',
     borderRadius: '5px',
     fontWeight: 'bold',
-    fontSize: '18px'
+    fontSize: '16px'
   },
   mainContent: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    display: 'flex',
+    flexDirection: 'column',
     gap: '30px',
     marginBottom: '40px'
   },
   inputPanel: {
     background: '#fff',
     borderRadius: '10px',
-    padding: '25px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.05)'
+    padding: '20px',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.05)',
+    width: '100%'
   },
   panelTitle: {
     color: '#095400',
     marginBottom: '20px',
-    fontFamily: "'Montserrat', sans-serif"
+    fontFamily: "'Montserrat', sans-serif",
+    fontSize: '20px'
   },
   textInput: {
     width: '100%',
@@ -96,7 +107,8 @@ const styles = {
     fontSize: '16px',
     marginBottom: '20px',
     resize: 'vertical',
-    fontFamily: "'Open Sans', sans-serif"
+    fontFamily: "'Open Sans', sans-serif",
+    boxSizing: 'border-box'
   },
   controls: {
     marginBottom: '20px'
@@ -146,10 +158,11 @@ const styles = {
   videoPreview: {
     background: '#fff',
     borderRadius: '10px',
-    padding: '25px',
+    padding: '20px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.05)',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    width: '100%'
   },
   videoContainer: {
     width: '100%',
@@ -159,11 +172,11 @@ const styles = {
     width: '100%',
     borderRadius: '8px',
     backgroundColor: '#000',
-    minHeight: '270px'
+    minHeight: '200px'
   },
   placeholder: {
     width: '100%',
-    height: '270px',
+    height: '200px',
     backgroundColor: '#f0f0f0',
     borderRadius: '8px',
     display: 'flex',
@@ -176,10 +189,11 @@ const styles = {
     color: '#666',
     fontStyle: 'italic',
     marginBottom: '15px',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: '14px'
   },
   loadingSpinner: {
-    border: '4px solid ',
+    border: '4px solid #f3f3f3',
     borderTop: '4px solid #095400',
     borderRadius: '50%',
     width: '30px',
@@ -202,14 +216,14 @@ const styles = {
   historySection: {
     background: '#fff',
     borderRadius: '10px',
-    padding: '25px',
+    padding: '20px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.05)',
-    marginBottom: '20px'
+    marginBottom: '20px',
+    width: '100%'
   },
   historyItem: {
     padding: '15px',
-    borderBottom: '1px solid #ddd',
-    cursor: 'pointer'
+    borderBottom: '1px solid #ddd'
   },
   historyText: {
     fontSize: '14px',
@@ -226,10 +240,11 @@ const styles = {
     border: '1px solid #c8e6c9',
     borderRadius: '5px',
     padding: '15px',
-    marginTop: '20px'
+    marginTop: '20px',
+    fontSize: '14px'
   },
   googleButton: {
-    background: '#095400',
+    background: '#4285F4',
     color: 'white',
     border: 'none',
     padding: '12px 20px',
@@ -243,6 +258,52 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     gap: '10px'
+  },
+  statsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '15px',
+    marginBottom: '20px'
+  },
+  headerContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '15px',
+    width: '100%'
+  },
+  userInfo: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '10px'
+  },
+  '@media (min-width: 768px)': {
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center'
+    },
+    headerContent: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '100%'
+    },
+    userInfo: {
+      flexDirection: 'row',
+      alignItems: 'center'
+    },
+    mainContent: {
+      flexDirection: 'row'
+    },
+    inputPanel: {
+      width: '50%'
+    },
+    videoPreview: {
+      width: '50%'
+    },
+    statsGrid: {
+      gridTemplateColumns: 'repeat(4, 1fr)'
+    }
   }
 };
 
@@ -274,6 +335,7 @@ export default function Indicacoes() {
   });
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState('');
+  const router = useRouter();
 
   // Carregar dados do usuário
   useEffect(() => {
@@ -317,6 +379,18 @@ export default function Indicacoes() {
       // Buscar informações do usuário para criar o cliente
       const { data: { user: authUser } } = await supabase.auth.getUser();
       
+      // Verificar se já existe um cliente para este usuário
+      const { data: existingCustomer } = await supabase
+        .from('customers')
+        .select('*')
+        .eq('auth_id', userId)
+        .maybeSingle();
+      
+      if (existingCustomer) {
+        setCustomer(existingCustomer);
+        return existingCustomer;
+      }
+      
       // Gerar código de referência único que não existe
       let referralCode;
       let codeExists = true;
@@ -354,7 +428,10 @@ export default function Indicacoes() {
         .select()
         .single();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Erro ao criar cliente:', error);
+        throw error;
+      }
       
       setCustomer(newCustomer);
       return newCustomer;
@@ -409,7 +486,7 @@ export default function Indicacoes() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/indicacoes`,
+          redirectTo: 'https://www.marquesvendaspmg.shop/indicacoes',
           queryParams: {
             access_type: 'offline',
             prompt: 'consent',
@@ -438,7 +515,8 @@ export default function Indicacoes() {
           options: {
             data: {
               name: authData.name
-            }
+            },
+            emailRedirectTo: 'https://www.marquesvendaspmg.shop/indicacoes'
           }
         });
         
@@ -447,9 +525,9 @@ export default function Indicacoes() {
         // Criar o cliente após o registro
         if (data.user) {
           await createCustomerForUser(data.user.id);
+          alert('Cadastro realizado com sucesso! Você já pode fazer login.');
+          setAuthMode('login');
         }
-        
-        alert('Cadastro realizado! Verifique seu email para confirmar.');
       } else {
         const { data, error } = await supabase.auth.signInWithPassword({
           email: authData.email,
@@ -708,27 +786,50 @@ export default function Indicacoes() {
     <div style={styles.container}>
       <Head>
         <title>Programa de Indicações - Marques Vendas PMG</title>
-          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
-          <style>{`
-            @keyframes spin {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>{`
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+          body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+          }
+          * {
+            box-sizing: border-box;
+          }
+          @media (min-width: 768px) {
+            .desktop-layout {
+              display: flex;
+              flex-direction: row;
             }
-            body {
-              font-family: 'Open Sans', sans-serif;
-              background-color: #f5f5f5;
-              margin: 0;
-              padding: 0;
+            .desktop-layout > div {
+              width: 50%;
             }
-            * {
-              box-sizing: border-box;
+            .desktop-header {
+              flex-direction: row;
+              align-items: center;
             }
-          `}</style>
-        </Head>
+            .desktop-stats {
+              grid-template-columns: repeat(4, 1fr);
+            }
+          }
+          @media (max-width: 767px) {
+            .mobile-stats {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
+        `}</style>
+      </Head>
 
-        <header style={styles.header}>
+      <header style={styles.header}>
+        <div style={styles.headerContent}>
           <h1 style={styles.title}>Programa de Indicações</h1>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <div style={styles.userInfo}>
             <span style={{ color: '#666' }}>Olá, {customer.name}</span>
             <div style={styles.pmgLogo}>PMG</div>
             <button 
@@ -743,164 +844,160 @@ export default function Indicacoes() {
               Sair
             </button>
           </div>
-        </header>
+        </div>
+      </header>
 
-        <main style={styles.mainContent}>
-          <div style={styles.inputPanel}>
-            <h2 style={styles.panelTitle}>Seu Código de Indicação</h2>
-            <div style={{ 
-              background: '#f0f0f0', 
-              padding: '20px', 
-              borderRadius: '8px', 
-              textAlign: 'center',
-              marginBottom: '20px',
-              fontSize: '24px',
-              fontWeight: 'bold',
-              letterSpacing: '2px',
-              color: '#095400',
-              fontFamily: "'Montserrat', sans-serif"
-            }}>
-              {customer.referral_code}
-            </div>
-
-            <h3 style={styles.panelTitle}>Compartilhar</h3>
-            <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px', marginBottom: '20px' }}>
-              <button 
-                onClick={() => handleShare('whatsapp')}
-                style={{ 
-                  ...styles.generateButton, 
-                  backgroundColor: '#25D366',
-                  flex: 1
-                }}
-              >
-                WhatsApp
-              </button>
-              <button 
-                onClick={() => handleShare('facebook')}
-                style={{ 
-                  ...styles.generateButton, 
-                  backgroundColor: '#3b5998',
-                  flex: 1
-                }}
-              >
-                Facebook
-              </button>
-              <button 
-                onClick={() => handleShare('instagram')}
-                style={{ 
-                  ...styles.generateButton, 
-                  backgroundColor: '#E1306C',
-                  flex: 1
-                }}
-              >
-                Instagram
-              </button>
-            </div>
-
-            <div style={styles.infoBox}>
-              <h4 style={{ margin: '0 0 10px 0', color: '#095400' }}>Como funciona?</h4>
-              <p style={{ margin: '0', fontSize: '14px' }}>
-                Cada indicação validada (com pedido mínimo) gera <strong>R$ 5,00</strong> de crédito para você.
-                O crédito pode ser resgatado a partir de <strong>R$ 50,00</strong> e é aplicado em seu próximo pedido.
-              </p>
-            </div>
+      <main style={styles.mainContent} className="desktop-layout">
+        <div style={styles.inputPanel}>
+          <h2 style={styles.panelTitle}>Seu Código de Indicação</h2>
+          <div style={{ 
+            background: '#f0f0f0', 
+            padding: '20px', 
+            borderRadius: '8px', 
+            textAlign: 'center',
+            marginBottom: '20px',
+            fontSize: '24px',
+            fontWeight: 'bold',
+            letterSpacing: '2px',
+            color: '#095400',
+            fontFamily: "'Montserrat', sans-serif"
+          }}>
+            {customer.referral_code}
           </div>
 
-          <div style={styles.videoPreview}>
-            <h2 style={styles.panelTitle}>Seus Resultados</h2>
-            
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: '1fr 1fr', 
-              gap: '15px',
-              marginBottom: '20px'
-            }}>
-              <div style={{ 
-                background: '#f0f0f0', 
-                padding: '15px', 
-                borderRadius: '8px',
-                textAlign: 'center'
-              }}>
-                <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Total</h3>
-                <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>{totalReferrals}</p>
-              </div>
-              
-              <div style={{ 
-                background: '#f0f0f0', 
-                padding: '15px', 
-                borderRadius: '8px',
-                textAlign: 'center'
-              }}>
-                <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Validadas</h3>
-                <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>{validatedReferrals}</p>
-              </div>
-              
-              <div style={{ 
-                background: '#f0f0f0', 
-                padding: '15px', 
-                borderRadius: '8px',
-                textAlign: 'center'
-              }}>
-                <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Pendentes</h3>
-                <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>{pendingReferrals}</p>
-              </div>
-              
-              <div style={{ 
-                background: '#f0f0f0', 
-                padding: '15px', 
-                borderRadius: '8px',
-                textAlign: 'center'
-              }}>
-                <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Rejeitadas</h3>
-                <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>
-                  {referralHistory.filter(ref => ref.status === 'rejeitada').length}
-                </p>
-              </div>
-            </div>
-            
-            <div style={{ 
-              background: '#e8f5e9', 
-              padding: '20px', 
-              borderRadius: '8px',
-              textAlign: 'center',
-              marginBottom: '20px'
-            }}>
-              <h3 style={{ margin: '0 0 10px 0', color: '#095400' }}>Crédito Acumulado</h3>
-              <p style={{ margin: '0', fontSize: '32px', fontWeight: 'bold', color: '#095400' }}>
-                R$ {customer.credit_balance?.toFixed(2) || '0.00'}
-              </p>
-              
-              <div style={styles.progressContainer}>
-                <div style={styles.progressBar}>
-                  <div style={{
-                    ...styles.progressFill,
-                    width: `${Math.min(100, ((customer.credit_balance || 0) / 50) * 100)}%`
-                  }}></div>
-                </div>
-                <div style={styles.statusText}>
-                  {(customer.credit_balance || 0) >= 50 ? 
-                    'Pronto para resgatar!' : 
-                    `Faltam R$ ${(50 - (customer.credit_balance || 0)).toFixed(2)} para resgatar`}
-                </div>
-              </div>
-            </div>
-            
+          <h3 style={styles.panelTitle}>Compartilhar</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
             <button 
-              onClick={handleRedeem}
-              style={{
-                ...styles.downloadButton,
-                opacity: (customer.credit_balance || 0) >= 50 ? 1 : 0.6,
-                cursor: (customer.credit_balance || 0) >= 50 ? 'pointer' : 'not-allowed'
+              onClick={() => handleShare('whatsapp')}
+              style={{ 
+                ...styles.generateButton, 
+                backgroundColor: '#25D366',
+                flex: '1 0 auto'
               }}
-              disabled={(customer.credit_balance || 0) < 50}
             >
-              Resgatar Crédito
+              WhatsApp
+            </button>
+            <button 
+              onClick={() => handleShare('facebook')}
+              style={{ 
+                ...styles.generateButton, 
+                backgroundColor: '#3b5998',
+                flex: '1 0 auto'
+              }}
+            >
+              Facebook
+            </button>
+            <button 
+              onClick={() => handleShare('instagram')}
+              style={{ 
+                ...styles.generateButton, 
+                backgroundColor: '#E1306C',
+                flex: '1 0 auto'
+              }}
+            >
+              Instagram
             </button>
           </div>
-        </main>
 
-        <section style={styles.inputPanel}>
-          <h2 style={styles.panelTitle}>Registrar Nova Indicação</h2>
+          <div style={styles.infoBox}>
+            <h4 style={{ margin: '0 0 10px 0', color: '#095400' }}>Como funciona?</h4>
+            <p style={{ margin: '0', fontSize: '14px' }}>
+              Cada indicação validada (com pedido mínimo) gera <strong>R$ 5,00</strong> de crédito para você.
+              O crédito pode ser resgatado a partir de <strong>R$ 50,00</strong> e é aplicado em seu próximo pedido.
+            </p>
+          </div>
+        </div>
+
+        <div style={styles.videoPreview}>
+          <h2 style={styles.panelTitle}>Seus Resultados</h2>
+          
+          <div style={styles.statsGrid} className="mobile-stats desktop-stats">
+            <div style={{ 
+              background: '#f0f0f0', 
+              padding: '15px', 
+              borderRadius: '8px',
+              textAlign: 'center'
+            }}>
+              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Total</h3>
+              <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>{totalReferrals}</p>
+            </div>
+            
+            <div style={{ 
+              background: '#f0f0f0', 
+              padding: '15px', 
+              borderRadius: '8px',
+              textAlign: 'center'
+            }}>
+              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Validadas</h3>
+              <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>{validatedReferrals}</p>
+            </div>
+            
+            <div style={{ 
+              background: '#f0f0f0', 
+              padding: '15px', 
+              borderRadius: '8px',
+              textAlign: 'center'
+            }}>
+              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Pendentes</h3>
+              <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>{pendingReferrals}</p>
+            </div>
+            
+            <div style={{ 
+              background: '#f0f0f0', 
+              padding: '15px', 
+              borderRadius: '8px',
+              textAlign: 'center'
+            }}>
+              <h3 style={{ margin: '0', color: '#095400', fontSize: '16px' }}>Rejeitadas</h3>
+              <p style={{ margin: '5px 0 0 0', fontSize: '24px', fontWeight: 'bold' }}>
+                {referralHistory.filter(ref => ref.status === 'rejeitada').length}
+              </p>
+            </div>
+          </div>
+          
+          <div style={{ 
+            background: '#e8f5e9', 
+            padding: '20px', 
+            borderRadius: '8px',
+            textAlign: 'center',
+            marginBottom: '20px'
+          }}>
+            <h3 style={{ margin: '0 0 10px 0', color: '#095400' }}>Crédito Acumulado</h3>
+            <p style={{ margin: '0', fontSize: '32px', fontWeight: 'bold', color: '#095400' }}>
+              R$ {customer.credit_balance?.toFixed(2) || '0.00'}
+            </p>
+            
+            <div style={styles.progressContainer}>
+              <div style={styles.progressBar}>
+                <div style={{
+                  ...styles.progressFill,
+                  width: `${Math.min(100, ((customer.credit_balance || 0) / 50) * 100)}%`
+                }}></div>
+              </div>
+              <div style={styles.statusText}>
+                {(customer.credit_balance || 0) >= 50 ? 
+                  'Pronto para resgatar!' : 
+                  `Faltam R$ ${(50 - (customer.credit_balance || 0)).toFixed(2)} para resgatar`}
+              </div>
+            </div>
+          </div>
+          
+          <button 
+            onClick={handleRedeem}
+            style={{
+              ...styles.downloadButton,
+              opacity: (customer.credit_balance || 0) >= 50 ? 1 : 0.6,
+              cursor: (customer.credit_balance || 0) >= 50 ? 'pointer' : 'not-allowed'
+            }}
+            disabled={(customer.credit_balance || 0) < 50}
+          >
+            Resgatar Crédito
+          </button>
+        </div>
+      </main>
+
+      <section style={styles.inputPanel}>
+        <h2 style={styles.panelTitle}>Registrar Nova Indicação</h2>
         <p style={{ color: '#666', marginBottom: '20px' }}>
           Indique alguém que possa se interessar pelos nossos produtos. Nossa equipe entrará em contato com a pessoa indicada.
         </p>
