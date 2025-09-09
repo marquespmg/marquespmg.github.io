@@ -918,41 +918,33 @@ if (loading) {
         </p>
         
         <button 
-          onClick={() => window.location.reload()}
+          onClick={() => {
+            // window.open quase sempre funciona
+            window.open('https://www.marquesvendaspmg.shop/indicacoes', '_self');
+          }}
+          style={{
+            ...styles.authButton,
+            backgroundColor: '#dc3545',
+            marginTop: '20px',
+            cursor: 'pointer'
+          }}
+        >
+          ⎋ Sair e Fazer Login Novamente
+        </button>
+
+        <button 
+          onClick={() => {
+            window.open(window.location.href, '_self');
+          }}
           style={{
             ...styles.authButton,
             backgroundColor: '#6c757d',
-            marginTop: '20px',
+            marginTop: '10px',
             cursor: 'pointer'
           }}
         >
           🔄 Recarregar Página
         </button>
-        
-        <button 
-          onClick={async () => {
-            // Fazer logout e redirecionar para a página de indicações (login)
-            await supabase.auth.signOut();
-            window.location.href = 'https://www.marquesvendaspmg.shop/indicacoes';
-          }}
-          style={{
-            ...styles.authButton,
-            backgroundColor: '#dc3545',
-            marginTop: '10px',
-            cursor: 'pointer'
-          }}
-        >
-          🔓 Sair e Fazer Login Novamente
-        </button>
-
-        <p style={{ 
-          fontSize: '14px', 
-          color: '#6c757d', 
-          marginTop: '15px',
-          textAlign: 'center' 
-        }}>
-          Se estiver demorando muito, clique em "Sair" e faça login novamente.
-        </p>
       </div>
     </div>
   );
