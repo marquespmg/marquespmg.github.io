@@ -477,25 +477,6 @@ export default function Indicacoes() {
     };
   }, []);
 
-// Timeout para loading
-useEffect(() => {
-  let loadingTimer;
-  
-  if (loading) {
-    loadingTimer = setTimeout(() => {
-      setReloadCount(prev => prev + 1);
-      if (reloadCount >= 2) {
-        console.log('Loading muito longo, tentando recarregar...');
-        window.location.reload();
-      }
-    }, 10000); // 10 segundos
-  }
-
-  return () => {
-    if (loadingTimer) clearTimeout(loadingTimer);
-  };
-}, [loading, reloadCount]);
-
   // Carregar dados do usuário
   useEffect(() => {
     checkAuth();
@@ -590,73 +571,64 @@ useEffect(() => {
   };
 
 const loadCustomerData = async (userId) => {
-  let timeoutId; // Variável para armazenar o ID do timeout
-  
   try {
-    // Buscar dados do cliente com timeout
-    const timeoutPromise = new Promise((_, reject) => {
-      timeoutId = setTimeout(() => reject(new Error('Timeout ao carregar dados')), 10000);
-    });
-
-    const customerPromise = supabase
+    console.log('Carregando dados do cliente para userId:', userId);
+    
+    // REMOVER COMPLETAMENTE o timeout da Promise.race
+    // Apenas fazer a requisição normal
+    const { data: customerData, error: customerError } = await supabase
       .from('customers')
       .select('*')
       .eq('auth_id', userId)
       .single();
 
-    const result = await Promise.race([customerPromise, timeoutPromise]);
-    
-    // CANCELAR o timeout já que temos uma resposta
-    clearTimeout(timeoutId);
-    
-    // Verificar se o resultado é do timeout ou do Supabase
-    if (result instanceof Error) {
-      throw result; // É o erro de timeout
-    }
-    
-    // É a resposta do Supabase
-    const { data: customerData, error: customerError } = result;
-
     if (customerError) {
-      console.log('Cliente não encontrado:', customerError);
+      console.log('Erro ao buscar cliente:', customerError);
       
       if (customerError.code === 'PGRST116') {
-        console.log('Aguardando criação do cliente...');
-        
-        // Tentar novamente após delay - SEM timeout desta vez
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        const retryResponse = await supabase
-          .from('customers')
-          .select('*')
-          .eq('auth_id', userId)
-          .single();
-          
-        if (retryResponse.error) {
-          setCustomer(null);
-          setReferralHistory([]);
-          return null;
-        }
-        
-        setCustomer(retryResponse.data);
-        
-        // Buscar histórico
-        const { data: historyData } = await supabase
-          .from('referrals')
-          .select('*')
-          .eq('referrer_id', retryResponse.data.id)
-          .order('created_at', { ascending: false });
-        
-        setReferralHistory(historyData || []);
-        return retryResponse.data;
+        console.log('Cliente não existe na tabela ainda (normal após cadastro)');
+        setCustomer(null);
+        return null;
       }
       
-      throw customerError;
+      // Para outros erros, tentar uma segunda vez
+      console.log('Tentando segunda vez...');
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      const retryResponse = await supabase
+        .from('customers')
+        .select('*')
+        .eq('auth_id', userId)
+        .single();
+        
+      if (retryResponse.error) {
+        if (retryResponse.error.code === 'PGRST116') {
+          setCustomer(null);
+          return null;
+        }
+        console.error('Erro na segunda tentativa:', retryResponse.error);
+        setCustomer(null);
+        return null;
+      }
+      
+      setCustomer(retryResponse.data);
+      
+      // Carregar histórico
+      const { data: historyData } = await supabase
+        .from('referrals')
+        .select('*')
+        .eq('referrer_id', retryResponse.data.id)
+        .order('created_at', { ascending: false });
+      
+      setReferralHistory(historyData || []);
+      return retryResponse.data;
     }
 
+    // Sucesso na primeira tentativa
+    console.log('Dados do cliente carregados com sucesso');
     setCustomer(customerData);
     
-    // Buscar histórico de indicações
+    // Carregar histórico
     const { data: historyData, error: historyError } = await supabase
       .from('referrals')
       .select('*')
@@ -669,54 +641,11 @@ const loadCustomerData = async (userId) => {
 
     return customerData;
   } catch (error) {
-    // SEMPRE cancelar o timeout no catch
-    if (timeoutId) clearTimeout(timeoutId);
-    
-    console.error('Erro ao carregar dados do cliente:', error);
-    
-    if (error.message.includes('Timeout')) {
-      // Timeout aconteceu, tentar uma vez sem timeout
-      try {
-        console.log('Tentando carregar dados novamente sem timeout...');
-        
-        const retryResponse = await supabase
-          .from('customers')
-          .select('*')
-          .eq('auth_id', userId)
-          .single();
-          
-        if (retryResponse.error) {
-          if (retryResponse.error.code === 'PGRST116') {
-            setCustomer(null);
-            return null;
-          }
-          throw retryResponse.error;
-        }
-        
-        setCustomer(retryResponse.data);
-        
-        const { data: historyData } = await supabase
-          .from('referrals')
-          .select('*')
-          .eq('referrer_id', retryResponse.data.id)
-          .order('created_at', { ascending: false });
-        
-        setReferralHistory(historyData || []);
-        return retryResponse.data;
-      } catch (retryError) {
-        console.error('Erro no retry após timeout:', retryError);
-        setCustomer(null);
-        return null;
-      }
-    }
-    
-    // Para outros erros, não deslogar automaticamente
+    console.error('Erro inesperado ao carregar dados:', error);
     setCustomer(null);
     return null;
   } finally {
     setLoading(false);
-    // Garantir que o timeout seja cancelado
-    if (timeoutId) clearTimeout(timeoutId);
   }
 };
   const handleAuth = async (e) => {
