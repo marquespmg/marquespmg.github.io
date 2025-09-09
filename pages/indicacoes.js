@@ -405,13 +405,76 @@ const styles = {
   }
 };
 
+// Hook personalizado para autenticação persistente
+const usePersistentAuth = () => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const initializeAuth = async () => {
+      try {
+        // Primeiro, verificar se há dados no localStorage
+        const storedUser = localStorage.getItem('supabase_user');
+        const storedSession = localStorage.getItem('supabase_session');
+
+        if (storedUser && storedSession) {
+          setUser(JSON.parse(storedUser));
+          setLoading(false);
+          return;
+        }
+
+        // Se não há dados no localStorage, verificar com Supabase
+        const { data: { session }, error } = await supabase.auth.getSession();
+        
+        if (error) {
+          console.error('Erro ao obter sessão:', error);
+          localStorage.removeItem('supabase_user');
+          localStorage.removeItem('supabase_session');
+        }
+
+        if (session?.user) {
+          setUser(session.user);
+          localStorage.setItem('supabase_user', JSON.stringify(session.user));
+          localStorage.setItem('supabase_session', JSON.stringify(session));
+        }
+      } catch (error) {
+        console.error('Erro na inicialização da autenticação:', error);
+        localStorage.removeItem('supabase_user');
+        localStorage.removeItem('supabase_session');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    initializeAuth();
+
+    // Listener para mudanças de autenticação
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (event === 'SIGNED_IN' && session) {
+          setUser(session.user);
+          localStorage.setItem('supabase_user', JSON.stringify(session.user));
+          localStorage.setItem('supabase_session', JSON.stringify(session));
+        } else if (event === 'SIGNED_OUT') {
+          setUser(null);
+          localStorage.removeItem('supabase_user');
+          localStorage.removeItem('supabase_session');
+        }
+      }
+    );
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  return { user, loading };
+};
+
 // Função para verificar confirmação de email
 const checkEmailConfirmation = async () => {
   try {
     const { data: { user } } = await supabase.auth.getUser();
     
     if (user && user.email_confirmed_at) {
-      // Email já confirmado, recarregar sessão
       await supabase.auth.refreshSession();
       return true;
     }
@@ -424,7 +487,7 @@ const checkEmailConfirmation = async () => {
 };
 
 export default function Indicacoes() {
-  const [user, setUser] = useState(null);
+  const { user, loading: authLoading } = usePersistentAuth();
   const [customer, setCustomer] = useState(null);
   const [loading, setLoading] = useState(true);
   const [referralHistory, setReferralHistory] = useState([]);
@@ -439,7 +502,7 @@ export default function Indicacoes() {
     email: '', 
     phone: '' 
   });
-  const [authLoading, setAuthLoading] = useState(false);
+  const [authProcessing, setAuthProcessing] = useState(false);
   const [authError, setAuthError] = useState('');
   const router = useRouter();
 
@@ -459,34 +522,20 @@ export default function Indicacoes() {
     }
   };
 
-  // Carregar dados do usuário
+  // Carregar dados do cliente
   useEffect(() => {
-    checkAuth();
-    
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        setUser(session?.user || null);
-        if (session?.user) {
-          await loadCustomerData(session.user.id);
-        } else {
-          setCustomer(null);
-          setReferralHistory([]);
-          setLoading(false);
-        }
-      }
-    );
-
-    return () => {
-      authListener?.subscription.unsubscribe();
-    };
-  }, []);
+    if (user) {
+      loadCustomerData(user.id);
+    } else {
+      setLoading(false);
+    }
+  }, [user]);
 
   // Polling para verificar confirmação de email
   useEffect(() => {
     let intervalId;
     
     if (user && !user.email_confirmed_at) {
-      // Verificar a cada 5 segundos se o email foi confirmado
       intervalId = setInterval(async () => {
         const isConfirmed = await checkEmailConfirmation();
         if (isConfirmed) {
@@ -501,32 +550,6 @@ export default function Indicacoes() {
     };
   }, [user]);
 
-  const checkAuth = async () => {
-    try {
-      const { data: { user } } = await supabase.auth.getUser();
-      setUser(user);
-      
-      if (user) {
-        // Verificar se email está confirmado
-        if (!user.email_confirmed_at) {
-          const isConfirmed = await checkEmailConfirmation();
-          if (isConfirmed) {
-            // Recarregar página para atualizar estado
-            window.location.reload();
-            return;
-          }
-        }
-        
-        await loadCustomerData(user.id);
-      } else {
-        setLoading(false);
-      }
-    } catch (error) {
-      console.error('Erro ao verificar autenticação:', error);
-      setLoading(false);
-    }
-  };
-
   const loadCustomerData = async (userId) => {
     try {
       // Buscar dados do cliente
@@ -538,14 +561,13 @@ export default function Indicacoes() {
 
       if (customerError) {
         console.log('Cliente não encontrado ainda...', customerError);
-        // Não tenta criar automaticamente - espera o trigger
         setCustomer(null);
         return null;
       }
 
       setCustomer(customerData);
       
-      // Buscar histórico de indicações usando o ID do customer
+      // Buscar histórico de indicações
       const { data: historyData, error: historyError } = await supabase
         .from('referrals')
         .select('*')
@@ -568,26 +590,25 @@ export default function Indicacoes() {
 
   const handleAuth = async (e) => {
     e.preventDefault();
-    setAuthLoading(true);
+    setAuthProcessing(true);
     setAuthError('');
     
     try {
       if (authMode === 'register') {
         const { data, error } = await supabase.auth.signUp({
-  email: authData.email,
-  password: authData.password,
-  options: {
-    data: {
-      name: authData.name
-    },
-    // TROQUE PARA ISSO:
-    emailRedirectTo: `${window.location.origin}`
-  }
-});
+          email: authData.email,
+          password: authData.password,
+          options: {
+            data: {
+              name: authData.name
+            },
+            emailRedirectTo: `${window.location.origin}`
+          }
+        });
         
         if (error) throw error;
         
-        alert('Cadastro realizado com sucesso, verifique seu email( se nao achar olhe na caixa de spam)e confirme seu cadastro!');
+        alert('Cadastro realizado com sucesso, verifique seu email e confirme seu cadastro!');
         setAuthMode('login');
       } else {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -596,7 +617,6 @@ export default function Indicacoes() {
         });
         
         if (error) {
-          // Verificar se é erro de email não confirmado
           if (error.message.includes('Email not confirmed')) {
             setAuthError('Email não confirmado. Verifique sua caixa de entrada.');
           } else {
@@ -607,7 +627,7 @@ export default function Indicacoes() {
     } catch (error) {
       setAuthError(error.message);
     } finally {
-      setAuthLoading(false);
+      setAuthProcessing(false);
     }
   };
 
@@ -615,6 +635,10 @@ export default function Indicacoes() {
     try {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
+      
+      // Limpar localStorage
+      localStorage.removeItem('supabase_user');
+      localStorage.removeItem('supabase_session');
     } catch (error) {
       alert('Erro ao sair: ' + error.message);
     }
@@ -726,7 +750,7 @@ let url = '';
     window.open(url, '_blank');
   };
 
-  if (loading) {
+  if (authLoading) {
     return (
       <div style={styles.authContainer}>
         <div style={styles.authBox}>
@@ -772,10 +796,7 @@ let url = '';
                 Reenviar Email de Confirmação
               </button>
               <button 
-                onClick={() => {
-                  supabase.auth.signOut();
-                  setAuthMode('login');
-                }}
+                onClick={handleSignOut}
                 style={{
                   ...styles.authButton,
                   backgroundColor: '#6c757d'
@@ -821,7 +842,7 @@ let url = '';
                 value={authData.name}
                 onChange={(e) => setAuthData({...authData, name: e.target.value})}
                 required
-                disabled={authLoading}
+                disabled={authProcessing}
               />
             )}
             
@@ -832,7 +853,7 @@ let url = '';
               value={authData.email}
               onChange={(e) => setAuthData({...authData, email: e.target.value})}
               required
-              disabled={authLoading}
+              disabled={authProcessing}
             />
             
             <input 
@@ -842,19 +863,19 @@ let url = '';
               value={authData.password}
               onChange={(e) => setAuthData({...authData, password: e.target.value})}
               required
-              disabled={authLoading}
+              disabled={authProcessing}
             />
             
             <button 
               type="submit" 
               style={{
                 ...styles.authButton,
-                opacity: authLoading ? 0.7 : 1,
-                cursor: authLoading ? 'not-allowed' : 'pointer'
+                opacity: authProcessing ? 0.7 : 1,
+                cursor: authProcessing ? 'not-allowed' : 'pointer'
               }}
-              disabled={authLoading}
+              disabled={authProcessing}
             >
-              {authLoading ? 'Processando...' : (authMode === 'login' ? 'Entrar' : 'Criar Conta')}
+              {authProcessing ? 'Processando...' : (authMode === 'login' ? 'Entrar' : 'Criar Conta')}
             </button>
           </form>
           
