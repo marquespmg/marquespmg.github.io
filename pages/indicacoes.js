@@ -441,6 +441,7 @@ export default function Indicacoes() {
   });
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState('');
+  const [reloadCount, setReloadCount] = useState(0);
   const router = useRouter();
 
   // Função para reenviar email de confirmação
@@ -458,6 +459,40 @@ export default function Indicacoes() {
       alert('Erro ao reenviar email: ' + error.message);
     }
   };
+
+  // Tratamento de erros globais
+  useEffect(() => {
+    const handleUnhandledError = (error) => {
+      console.error('Erro não tratado:', error);
+      // Recarregar a página em caso de erro crítico
+      window.location.reload();
+    };
+
+    window.addEventListener('error', handleUnhandledError);
+    window.addEventListener('unhandledrejection', handleUnhandledError);
+
+    return () => {
+      window.removeEventListener('error', handleUnhandledError);
+      window.removeEventListener('unhandledrejection', handleUnhandledError);
+    };
+  }, []);
+
+  // Timeout para loading
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => {
+      if (loading) {
+        setReloadCount(prev => prev + 1);
+        if (reloadCount >= 2) {
+          // Se já tentou recarregar várias vezes, tentar fazer logout
+          supabase.auth.signOut().finally(() => {
+            window.location.reload();
+          });
+        }
+      }
+    }, 20000); // 20 segundos
+
+    return () => clearTimeout(loadingTimer);
+  }, [loading, reloadCount]);
 
   // Carregar dados do usuário
   useEffect(() => {
@@ -485,15 +520,27 @@ export default function Indicacoes() {
   useEffect(() => {
     let intervalId;
     
-    if (user && !user.email_confirmed_at) {
-      // Verificar a cada 5 segundos se o email foi confirmado
-      intervalId = setInterval(async () => {
-        const isConfirmed = await checkEmailConfirmation();
-        if (isConfirmed) {
-          clearInterval(intervalId);
-          window.location.reload();
+    const checkConfirmation = async () => {
+      try {
+        const { data: { user: currentUser }, error } = await supabase.auth.getUser();
+        
+        if (error) {
+          console.error('Erro ao verificar usuário no polling:', error);
+          return;
         }
-      }, 5000);
+        
+        if (currentUser && currentUser.email_confirmed_at) {
+          clearInterval(intervalId);
+          // Recarregar dados em vez de recarregar a página inteira
+          await loadCustomerData(currentUser.id);
+        }
+      } catch (error) {
+        console.error('Erro no polling de confirmação:', error);
+      }
+    };
+    
+    if (user && !user.email_confirmed_at) {
+      intervalId = setInterval(checkConfirmation, 5000);
     }
     
     return () => {
@@ -503,21 +550,34 @@ export default function Indicacoes() {
 
   const checkAuth = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      setLoading(true);
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      
+      if (userError) {
+        console.error('Erro ao buscar usuário:', userError);
+        setLoading(false);
+        return;
+      }
+      
       setUser(user);
       
       if (user) {
         // Verificar se email está confirmado
-        if (!user.email_confirmed_at) {
-          const isConfirmed = await checkEmailConfirmation();
-          if (isConfirmed) {
-            // Recarregar página para atualizar estado
-            window.location.reload();
-            return;
-          }
+        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+        
+        if (sessionError) {
+          console.error('Erro ao verificar sessão:', sessionError);
+          setLoading(false);
+          return;
         }
         
-        await loadCustomerData(user.id);
+        if (session) {
+          await loadCustomerData(user.id);
+        } else {
+          // Sessão inválida, fazer logout
+          await supabase.auth.signOut();
+          setLoading(false);
+        }
       } else {
         setLoading(false);
       }
@@ -527,44 +587,137 @@ export default function Indicacoes() {
     }
   };
 
-  const loadCustomerData = async (userId) => {
-    try {
-      // Buscar dados do cliente
-      const { data: customerData, error: customerError } = await supabase
-        .from('customers')
-        .select('*')
-        .eq('auth_id', userId)
-        .single();
+const loadCustomerData = async (userId) => {
+  // Criar um AbortController para poder cancelar o timeout
+  const controller = new AbortController();
+  const signal = controller.signal;
+  
+  let timeoutId;
+  
+  try {
+    console.log('Iniciando carregamento de dados para usuário:', userId);
+    
+    // Timeout que pode ser cancelado
+    const timeoutPromise = new Promise((_, reject) => {
+      timeoutId = setTimeout(() => {
+        if (!signal.aborted) {
+          reject(new Error('Timeout ao carregar dados. Verifique sua conexão.'));
+        }
+      }, 15000); // 15 segundos
+    });
 
-      if (customerError) {
-        console.log('Cliente não encontrado ainda...', customerError);
-        // Não tenta criar automaticamente - espera o trigger
-        setCustomer(null);
-        return null;
-      }
+    const customerPromise = supabase
+      .from('customers')
+      .select('*')
+      .eq('auth_id', userId)
+      .single();
 
-      setCustomer(customerData);
+    // Race entre a promise dos dados e o timeout
+    const { data: customerData, error: customerError } = await Promise.race([
+      customerPromise,
+      timeoutPromise
+    ]);
+
+    // Cancelar o timeout já que recebemos os dados
+    clearTimeout(timeoutId);
+    
+    if (customerError) {
+      console.log('Erro ao buscar cliente:', customerError);
       
-      // Buscar histórico de indicações usando o ID do customer
-      const { data: historyData, error: historyError } = await supabase
-        .from('referrals')
-        .select('*')
-        .eq('referrer_id', customerData.id)
-        .order('created_at', { ascending: false });
+      // Verificar se é um erro de "nenhuma linha retornada" (cliente não existe)
+      if (customerError.code === 'PGRST116') {
+        console.log('Cliente não encontrado na tabela, aguardando criação...');
+        
+        // Tentar novamente após delay
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        const retryData = await supabase
+          .from('customers')
+          .select('*')
+          .eq('auth_id', userId)
+          .single();
+          
+        if (retryData.error) {
+          console.log('Cliente ainda não criado após retry');
+          setCustomer(null);
+          return null;
+        }
+        
+        setCustomer(retryData.data);
+        
+        // Buscar histórico de indicações
+        const { data: historyData, error: historyError } = await supabase
+          .from('referrals')
+          .select('*')
+          .eq('referrer_id', retryData.data.id)
+          .order('created_at', { ascending: false });
 
-      if (historyError) {
-        console.error('Erro ao buscar histórico:', historyError);
-      } else {
-        setReferralHistory(historyData || []);
+        if (!historyError) {
+          setReferralHistory(historyData || []);
+        }
+        
+        return retryData.data;
       }
-
-      return customerData;
-    } catch (error) {
-      console.error('Erro crítico ao carregar dados:', error);
-    } finally {
-      setLoading(false);
+      
+      throw customerError;
     }
-  };
+
+    console.log('Cliente encontrado:', customerData);
+    setCustomer(customerData);
+    
+    // Buscar histórico de indicações
+    const { data: historyData, error: historyError } = await supabase
+      .from('referrals')
+      .select('*')
+      .eq('referrer_id', customerData.id)
+      .order('created_at', { ascending: false });
+
+    if (!historyError) {
+      setReferralHistory(historyData || []);
+    }
+
+    return customerData;
+  } catch (error) {
+    // Certificar-se de cancelar o timeout em caso de erro também
+    if (timeoutId) clearTimeout(timeoutId);
+    
+    console.error('Erro ao carregar dados do cliente:', error);
+    
+    // Verificar se é um erro de timeout
+    if (error.message.includes('Timeout')) {
+      // Tentar novamente uma vez
+      try {
+        console.log('Tentando recarregar dados após timeout...');
+        const retryData = await supabase
+          .from('customers')
+          .select('*')
+          .eq('auth_id', userId)
+          .single();
+          
+        if (!retryData.error) {
+          setCustomer(retryData.data);
+          
+          const { data: historyData } = await supabase
+            .from('referrals')
+            .select('*')
+            .eq('referrer_id', retryData.data.id)
+            .order('created_at', { ascending: false });
+          
+          setReferralHistory(historyData || []);
+          return retryData.data;
+        }
+      } catch (retryError) {
+        console.error('Erro no retry após timeout:', retryError);
+      }
+    }
+    
+    return null;
+  } finally {
+    setLoading(false);
+    // Garantir que o timeout seja limpo
+    if (timeoutId) clearTimeout(timeoutId);
+  }
+};
 
   const handleAuth = async (e) => {
     e.preventDefault();
@@ -574,16 +727,15 @@ export default function Indicacoes() {
     try {
       if (authMode === 'register') {
         const { data, error } = await supabase.auth.signUp({
-  email: authData.email,
-  password: authData.password,
-  options: {
-    data: {
-      name: authData.name
-    },
-    // TROQUE PARA ISSO:
-    emailRedirectTo: `${window.location.origin}`
-  }
-});
+          email: authData.email,
+          password: authData.password,
+          options: {
+            data: {
+              name: authData.name
+            },
+            emailRedirectTo: `${window.location.origin}`
+          }
+        });
         
         if (error) throw error;
         
@@ -705,8 +857,8 @@ export default function Indicacoes() {
   const handleShare = (platform) => {
     if (!customer) return;
     
-const message = `Olá! Te indico a PMG ATACADISTA para comprar produtos de qualidade com ótimos preços! Fala com o Marques pelo WhatsApp (11)91357-2902 e diz que foi indicação minha e informe o codigo e ganhe descontos no seus pedidos.`;
-let url = '';
+    const message = `Olá! Te indico a PMG ATACADISTA para comprar produtos de qualidade com ótimos preços! Fala com o Marques pelo WhatsApp (11)91357-2902 e diz que foi indicação minha e informe o codigo e ganhe descontos no seus pedidos.`;
+    let url = '';
     
     switch(platform) {
       case 'whatsapp':
@@ -732,6 +884,21 @@ let url = '';
         <div style={styles.authBox}>
           <div style={styles.loadingSpinner}></div>
           <p style={styles.authText}>Carregando...</p>
+          {reloadCount > 1 && (
+            <button 
+              onClick={() => {
+                setReloadCount(0);
+                window.location.reload();
+              }}
+              style={{
+                ...styles.authButton,
+                backgroundColor: '#6c757d',
+                marginTop: '20px'
+              }}
+            >
+              Recarregar Página
+            </button>
+          )}
         </div>
       </div>
     );
@@ -982,7 +1149,7 @@ let url = '';
               }}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.520.074-.792.372-.272.297-1.040 1.016-1.040 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.200 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.360.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.84 3.488" fill="currentColor"/>
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.150-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.480-1.761-1.653-2.059-.173-.297-.018-.458.130-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.570-.01-.198 0-.520.074-.792.372-.272.297-1.040 1.016-1.040 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.200 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.360.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.570-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.84 3.488" fill="currentColor"/>
               </svg>
               WhatsApp
             </button>
@@ -1016,14 +1183,14 @@ let url = '';
 
           <div style={styles.infoBox}>
             <h4 style={{ margin: '0 0 10px 0', color: '#095400', fontFamily: "'Poppins', sans-serif" }}>
-          Como funciona?
-  </h4>
-  <p style={{ margin: '0', fontSize: '14px' }}>
-    Indique clientes para a PMG ATACADISTA e ganhe <strong>R$ 5,00</strong> em créditos por cada indicação que fizer um pedido. Os créditos são acumulativos e você pode resgatar a partir de <strong>R$ 50,00</strong>.
-    <br /><br />
-    <strong>Importante:</strong> Seu código de indicação é apenas para meu controle interno. A pessoa indicada basta me informar o CODIGO que ela recebeu e que foi indicada por você quando fizer o pedido.
-  </p>
-</div>
+              Como funciona?
+            </h4>
+            <p style={{ margin: '0', fontSize: '14px' }}>
+              Indique clientes para a PMG ATACADISTA e ganhe <strong>R$ 5,00</strong> em créditos por cada indicação que fizer um pedido. Os créditos são acumulativos e você pode resgatar a partir de <strong>R$ 50,00</strong>.
+              <br /><br />
+              <strong>Importante:</strong> Seu código de indicação é apenas para meu controle interno. A pessoa indicada basta me informar o CODIGO que ela recebeu e que foi indicada por você quando fizer o pedido.
+            </p>
+          </div>
         </div>
 
         <div style={styles.videoPreview}>
