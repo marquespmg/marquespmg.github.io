@@ -572,67 +572,73 @@ export default function Indicacoes() {
 
 const loadCustomerData = async (userId) => {
   try {
-    console.log('Carregando dados do cliente para userId:', userId);
+    console.log('Buscando cliente com auth_id:', userId);
     
-    // REMOVER COMPLETAMENTE o timeout da Promise.race
-    // Apenas fazer a requisição normal
+    // 1. BUSCAR O CLIENTE NA TABELA CUSTOMERS usando auth_id
     const { data: customerData, error: customerError } = await supabase
       .from('customers')
       .select('*')
-      .eq('auth_id', userId)
+      .eq('auth_id', userId) // Buscar pelo auth_id (não pelo id da tabela)
       .single();
 
-    if (customerError) {
-      console.log('Erro ao buscar cliente:', customerError);
+    // 2. Se não encontrou, criar o cliente automaticamente
+    if (customerError && customerError.code === 'PGRST116') {
+      console.log('Cliente não existe na tabela customers, criando...');
       
-      if (customerError.code === 'PGRST116') {
-        console.log('Cliente não existe na tabela ainda (normal após cadastro)');
+      // Buscar dados do usuário autenticado
+      const { data: { user } } = await supabase.auth.getUser();
+      
+      if (!user) {
+        console.error('Usuário não encontrado no auth');
         setCustomer(null);
         return null;
       }
-      
-      // Para outros erros, tentar uma segunda vez
-      console.log('Tentando segunda vez...');
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      const retryResponse = await supabase
+
+      // Gerar código de referência único
+      const generateReferralCode = () => {
+        return 'PMG' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      };
+
+      // Criar o novo cliente na tabela customers
+      const { data: newCustomer, error: createError } = await supabase
         .from('customers')
-        .select('*')
-        .eq('auth_id', userId)
+        .insert({
+          auth_id: userId, // Este é o ID da autenticação
+          name: user.user_metadata?.name || user.email?.split('@')[0] || 'Cliente',
+          email: user.email,
+          referral_code: generateReferralCode(),
+          credit_balance: 0.00
+        })
+        .select()
         .single();
-        
-      if (retryResponse.error) {
-        if (retryResponse.error.code === 'PGRST116') {
-          setCustomer(null);
-          return null;
-        }
-        console.error('Erro na segunda tentativa:', retryResponse.error);
+
+      if (createError) {
+        console.error('Erro ao criar cliente:', createError);
         setCustomer(null);
         return null;
       }
-      
-      setCustomer(retryResponse.data);
-      
-      // Carregar histórico
-      const { data: historyData } = await supabase
-        .from('referrals')
-        .select('*')
-        .eq('referrer_id', retryResponse.data.id)
-        .order('created_at', { ascending: false });
-      
-      setReferralHistory(historyData || []);
-      return retryResponse.data;
+
+      console.log('Novo cliente criado na tabela customers:', newCustomer);
+      setCustomer(newCustomer);
+      setReferralHistory([]);
+      return newCustomer;
     }
 
-    // Sucesso na primeira tentativa
-    console.log('Dados do cliente carregados com sucesso');
+    if (customerError) {
+      console.error('Erro ao buscar cliente:', customerError);
+      setCustomer(null);
+      return null;
+    }
+
+    // 3. Cliente encontrado na tabela customers - usar o ID DA TABELA CUSTOMERS
+    console.log('Cliente encontrado na tabela customers:', customerData);
     setCustomer(customerData);
     
-    // Carregar histórico
+    // AGORA buscar o histórico usando o ID da tabela customers (não o auth_id)
     const { data: historyData, error: historyError } = await supabase
       .from('referrals')
       .select('*')
-      .eq('referrer_id', customerData.id)
+      .eq('referrer_id', customerData.id) // Usar customerData.id (ID da tabela customers)
       .order('created_at', { ascending: false });
 
     if (!historyError) {
@@ -641,7 +647,7 @@ const loadCustomerData = async (userId) => {
 
     return customerData;
   } catch (error) {
-    console.error('Erro inesperado ao carregar dados:', error);
+    console.error('Erro ao carregar dados do cliente:', error);
     setCustomer(null);
     return null;
   } finally {
