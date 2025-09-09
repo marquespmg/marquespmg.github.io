@@ -424,6 +424,7 @@ const checkEmailConfirmation = async () => {
 };
 
 export default function Indicacoes() {
+  const [authChecked, setAuthChecked] = useState(false);
   const [user, setUser] = useState(null);
   const [customer, setCustomer] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -498,6 +499,44 @@ export default function Indicacoes() {
       authListener?.subscription.unsubscribe();
     };
   }, []);
+  
+  useEffect(() => {
+  let isMounted = true;
+  
+  const initializeAuth = async () => {
+    // Esperar um pouco para o Supabase restaurar a sessão
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    if (!isMounted) return;
+    
+    await checkAuth();
+  };
+  
+  initializeAuth();
+  
+  const { data: authListener } = supabase.auth.onAuthStateChange(
+    async (event, session) => {
+      if (!isMounted) return;
+      
+      console.log('Auth state changed:', event);
+      
+      if (event === 'SIGNED_IN' && session) {
+        setUser(session.user);
+        await loadCustomerData(session.user.id);
+      } else if (event === 'SIGNED_OUT') {
+        setUser(null);
+        setCustomer(null);
+        setReferralHistory([]);
+        setLoading(false);
+      }
+    }
+  );
+  
+  return () => {
+    isMounted = false;
+    authListener?.subscription.unsubscribe();
+  };
+}, []);
 
   // Polling para verificar confirmação de email
   useEffect(() => {
@@ -531,44 +570,62 @@ export default function Indicacoes() {
     };
   }, [user]);
 
-  const checkAuth = async () => {
-    try {
-      setLoading(true);
-      const { data: { user }, error: userError } = await supabase.auth.getUser();
-      
-      if (userError) {
-        console.error('Erro ao buscar usuário:', userError);
-        setLoading(false);
-        return;
-      }
-      
-      setUser(user);
-      
-      if (user) {
-        // Verificar se email está confirmado
-        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-        
-        if (sessionError) {
-          console.error('Erro ao verificar sessão:', sessionError);
-          setLoading(false);
-          return;
-        }
-        
-        if (session) {
-          await loadCustomerData(user.id);
-        } else {
-          // Sessão inválida, fazer logout
-          await supabase.auth.signOut();
-          setLoading(false);
-        }
-      } else {
-        setLoading(false);
-      }
-    } catch (error) {
-      console.error('Erro ao verificar autenticação:', error);
+const checkAuth = async () => {
+  try {
+    setLoading(true);
+    
+    // Primeiro, esperar a sessão ser restaurada
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+    
+    if (sessionError) {
+      console.error('Erro ao buscar sessão:', sessionError);
+      setLoading(false);
+      return;
+    }
+    
+    if (!session) {
+      console.log('Nenhuma sessão encontrada, usuário não está logado');
+      setUser(null);
+      setCustomer(null);
+      setLoading(false);
+      return;
+    }
+    
+    // Agora buscar o usuário
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
+    
+    if (userError) {
+      console.error('Erro ao buscar usuário:', userError);
+      setLoading(false);
+      return;
+    }
+    
+    setUser(user);
+    
+    if (user) {
+      await loadCustomerData(user.id);
+    } else {
       setLoading(false);
     }
-  };
+  } catch (error) {
+    console.error('Erro ao verificar autenticação:', error);
+    setLoading(false);
+  }
+};
+
+// E adicione este useEffect para timeout geral:
+useEffect(() => {
+  const timer = setTimeout(() => {
+    if (loading && authChecked) {
+      console.log('Auth check está demorando muito, recarregando...');
+      window.location.reload();
+    }
+  }, 8000); // 8 segundos
+
+  return () => clearTimeout(timer);
+}, [loading, authChecked]);
 
 const loadCustomerData = async (userId) => {
   try {
@@ -851,31 +908,40 @@ const loadReferralHistory = async (customerId) => {
     window.open(url, '_blank');
   };
 
-  if (loading) {
-    return (
-      <div style={styles.authContainer}>
-        <div style={styles.authBox}>
-          <div style={styles.loadingSpinner}></div>
-          <p style={styles.authText}>Carregando...</p>
-          {reloadCount > 1 && (
-            <button 
-              onClick={() => {
-                setReloadCount(0);
-                window.location.reload();
-              }}
-              style={{
-                ...styles.authButton,
-                backgroundColor: '#6c757d',
-                marginTop: '20px'
-              }}
-            >
-              Recarregar Página
-            </button>
-          )}
-        </div>
+if (loading) {
+  return (
+    <div style={styles.authContainer}>
+      <div style={styles.authBox}>
+        <div style={styles.loadingSpinner}></div>
+        <p style={styles.authText}>
+          {authChecked ? 'Carregando dados...' : 'Restaurando sessão...'}
+        </p>
+        
+        <button 
+          onClick={() => window.location.reload()}
+          style={{
+            ...styles.authButton,
+            backgroundColor: '#6c757d',
+            marginTop: '20px'
+          }}
+        >
+          Recarregar Página
+        </button>
+        
+        <button 
+          onClick={() => supabase.auth.signOut()}
+          style={{
+            ...styles.authButton,
+            backgroundColor: '#dc3545',
+            marginTop: '10px'
+          }}
+        >
+          Sair e Fazer Login Novamente
+        </button>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   if (user && !customer) {
     return (
