@@ -534,96 +534,154 @@ export default function Indicacoes() {
   };
 
   // Verificar autenticação
-  const checkAuth = async () => {
+const checkAuth = async () => {
+  try {
+    setLoading(true);
+    
+    const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+    
+    if (sessionError) {
+      console.error('Erro ao buscar sessão:', sessionError);
+      setLoading(false);
+      setAuthChecked(true);
+      return;
+    }
+    
+    if (!session) {
+      console.log('Nenhuma sessão ativa - usuário não logado');
+      setUser(null);
+      setCustomer(null);
+      setLoading(false);
+      setAuthChecked(true);
+      return;
+    }
+    
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
+    
+    if (userError) {
+      console.error('Erro ao buscar usuário:', userError);
+      setLoading(false);
+      setAuthChecked(true);
+      return;
+    }
+    
+    if (user) {
+      setUser(user);
+      await loadCustomerData(user.id);
+    } else {
+      setLoading(false);
+      setAuthChecked(true);
+    }
+  } catch (error) {
+    console.error('Erro ao verificar autenticação:', error);
+    setLoading(false);
+    setAuthChecked(true);
+  }
+};
+
+// Efeito para inicialização
+useEffect(() => {
+  let isMounted = true;
+  let authCheckTimeout;
+
+  const initializeApp = async () => {
     try {
-      setLoading(true);
+      console.log('Iniciando verificação de autenticação...');
       
+      // Delay para garantir que o Supabase tenha tempo de restaurar a sessão
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      if (!isMounted) return;
+
       const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      
+      if (!isMounted) return;
       
       if (sessionError) {
         console.error('Erro ao buscar sessão:', sessionError);
-        setLoading(false);
         setAuthChecked(true);
+        setLoading(false);
         return;
       }
       
       if (!session) {
+        console.log('Nenhuma sessão encontrada - usuário não logado');
         setUser(null);
         setCustomer(null);
-        setLoading(false);
         setAuthChecked(true);
+        setLoading(false);
         return;
       }
       
+      console.log('Sessão encontrada, buscando usuário...');
       const { data: { user }, error: userError } = await supabase.auth.getUser();
+      
+      if (!isMounted) return;
       
       if (userError) {
         console.error('Erro ao buscar usuário:', userError);
-        setLoading(false);
         setAuthChecked(true);
+        setLoading(false);
         return;
       }
       
-      setUser(user);
-      
       if (user) {
+        console.log('Usuário autenticado:', user.email);
+        setUser(user);
         await loadCustomerData(user.id);
       } else {
-        setLoading(false);
         setAuthChecked(true);
+        setLoading(false);
       }
+      
     } catch (error) {
-      console.error('Erro ao verificar autenticação:', error);
-      setLoading(false);
-      setAuthChecked(true);
+      console.error('Erro na inicialização:', error);
+      if (isMounted) {
+        setAuthChecked(true);
+        setLoading(false);
+      }
     }
   };
 
-  // Efeito para inicialização
-  useEffect(() => {
-    let isMounted = true;
+  initializeApp();
 
-    const initializeApp = async () => {
-      await new Promise(resolve => setTimeout(resolve, 500));
+  // Timeout de segurança - se demorar mais de 8 segundos, considera como não autenticado
+  authCheckTimeout = setTimeout(() => {
+    if (isMounted && !authChecked) {
+      console.log('Timeout na verificação de autenticação - considerando como não logado');
+      setAuthChecked(true);
+      setLoading(false);
+      setUser(null);
+      setCustomer(null);
+    }
+  }, 8000);
+
+  // Listener para mudanças de autenticação
+  const { data: { subscription } } = supabase.auth.onAuthStateChange(
+    async (event, session) => {
+      if (!isMounted) return;
+
+      console.log('Evento de auth:', event);
       
-      if (isMounted) {
-        await checkAuth();
+      if (event === 'SIGNED_IN' && session) {
+        setUser(session.user);
+        await loadCustomerData(session.user.id);
+      } else if (event === 'SIGNED_OUT') {
+        setUser(null);
+        setCustomer(null);
+        setReferralHistory([]);
+        setAuthChecked(true);
+        setLoading(false);
       }
-    };
+    }
+  );
 
-    initializeApp();
-
-    // Listener para mudanças de autenticação
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        if (!isMounted) return;
-
-        if (event === 'SIGNED_IN' && session) {
-          setUser(session.user);
-          await loadCustomerData(session.user.id);
-        } else if (event === 'SIGNED_OUT') {
-          setUser(null);
-          setCustomer(null);
-          setReferralHistory([]);
-          setLoading(false);
-          setAuthChecked(true);
-        } else if (event === 'INITIAL_SESSION') {
-          if (session) {
-            setUser(session.user);
-            await loadCustomerData(session.user.id);
-          } else {
-            setLoading(false);
-            setAuthChecked(true);
-          }
-        }
-      }
-    );
-
-    return () => {
-      isMounted = false;
-      subscription.unsubscribe();
-    };
-  }, []);
+  return () => {
+    isMounted = false;
+    clearTimeout(authCheckTimeout);
+    subscription.unsubscribe();
+  };
+}, []);
 
   // Timeout para evitar loop infinito
   useEffect(() => {
@@ -665,16 +723,50 @@ export default function Indicacoes() {
   }, [user]);
 
   // Função de logout
-  const handleSignOut = async () => {
-    try {
-      setLoading(true);
-      await clearAuthSession();
-      window.location.href = '/';
-    } catch (error) {
-      console.error('Erro no logout:', error);
-      window.location.href = '/';
+const handleSignOut = async () => {
+  try {
+    console.log('Iniciando logout completo...');
+    
+    // 1. Fazer logout no Supabase
+    const { error: signOutError } = await supabase.auth.signOut();
+    if (signOutError) {
+      console.error('Erro no logout do Supabase:', signOutError);
     }
-  };
+    
+    // 2. Limpar TODOS os dados de armazenamento local
+    localStorage.clear();
+    sessionStorage.clear();
+    
+    // 3. Limpar cookies específicos do Supabase
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i];
+      const eqPos = cookie.indexOf('=');
+      const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie;
+      
+      // Limpar cookies relacionados à autenticação
+      if (name.includes('supabase') || name.includes('auth') || name.includes('session')) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${window.location.hostname}`;
+      }
+    }
+    
+    // 4. Forçar recarregamento completo da página
+    console.log('Logout completo realizado. Redirecionando...');
+    
+    // Usar replace para evitar que o usuário volte para a página anterior
+    window.location.replace('/');
+    
+    // Forçar recarregamento se o replace não funcionar
+    setTimeout(() => {
+      window.location.href = '/';
+    }, 1000);
+    
+  } catch (error) {
+    console.error('Erro crítico no logout:', error);
+    // Forçar recarregamento mesmo com erro
+    window.location.href = '/';
+  }
+};
 
   // Função para reenviar email de confirmação
   const handleResendConfirmation = async () => {
@@ -837,42 +929,51 @@ export default function Indicacoes() {
     window.open(url, '_blank');
   };
 
-  if (loading) {
-    return (
-      <div style={styles.authContainer}>
-        <div style={styles.authBox}>
-          <div style={styles.loadingSpinner}></div>
-          <p style={styles.authText}>
-            {authChecked ? 'Carregando dados...' : 'Restaurando sessão...'}
-          </p>
-          
-          <button 
-            onClick={handleSignOut}
-            style={{
-              ...styles.authButton,
-              backgroundColor: '#dc3545',
-              marginTop: '20px',
-              cursor: 'pointer'
-            }}
-          >
-            ⎋ Sair Realmente e Fazer Login Novamente
-          </button>
+if (loading && !authChecked) {
+  return (
+    <div style={styles.authContainer}>
+      <div style={styles.authBox}>
+        <div style={styles.loadingSpinner}></div>
+        <p style={styles.authText}>
+          {authChecked ? 'Carregando dados...' : 'Verificando autenticação...'}
+        </p>
+        
+        <button 
+          onClick={handleSignOut}
+          style={{
+            ...styles.authButton,
+            backgroundColor: '#dc3545',
+            marginTop: '20px',
+            cursor: 'pointer'
+          }}
+        >
+          ⎋ Sair e Fazer Login Novamente
+        </button>
 
-          <button 
-            onClick={() => window.location.reload()}
-            style={{
-              ...styles.authButton,
-              backgroundColor: '#6c757d',
-              marginTop: '10px',
-              cursor: 'pointer'
-            }}
-          >
-            🔄 Apenas Recarregar Página
-          </button>
-        </div>
+        <button 
+          onClick={() => window.location.reload()}
+          style={{
+            ...styles.authButton,
+            backgroundColor: '#6c757d',
+            marginTop: '10px',
+            cursor: 'pointer'
+          }}
+        >
+          🔄 Recarregar Página
+        </button>
+        
+        <p style={{ 
+          fontSize: '12px', 
+          color: '#6c757d', 
+          marginTop: '15px',
+          textAlign: 'center' 
+        }}>
+          Se estiver travado há mais de 10 segundos, clique em "Sair"
+        </p>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   if (user && !customer) {
     return (
