@@ -922,7 +922,8 @@ if (loading) {
           style={{
             ...styles.authButton,
             backgroundColor: '#6c757d',
-            marginTop: '20px'
+            marginTop: '20px',
+            cursor: 'pointer'
           }}
         >
           🔄 Recarregar Página
@@ -930,17 +931,18 @@ if (loading) {
         
         <button 
           onClick={async () => {
-            // Fazer logout e redirecionar para a página de produtos
+            // Fazer logout e redirecionar para a página de indicações (login)
             await supabase.auth.signOut();
-            window.location.href = 'https://www.marquesvendaspmg.shop/produtos';
+            window.location.href = 'https://www.marquesvendaspmg.shop/indicacoes';
           }}
           style={{
             ...styles.authButton,
             backgroundColor: '#dc3545',
-            marginTop: '10px'
+            marginTop: '10px',
+            cursor: 'pointer'
           }}
         >
-          ⎋ Sair e Fazer Login Novamente
+          🔓 Sair e Fazer Login Novamente
         </button>
 
         <p style={{ 
