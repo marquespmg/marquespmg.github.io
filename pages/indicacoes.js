@@ -405,24 +405,6 @@ const styles = {
   }
 };
 
-// Função para verificar confirmação de email
-const checkEmailConfirmation = async () => {
-  try {
-    const { data: { user } } = await supabase.auth.getUser();
-    
-    if (user && user.email_confirmed_at) {
-      // Email já confirmado, recarregar sessão
-      await supabase.auth.refreshSession();
-      return true;
-    }
-    
-    return false;
-  } catch (error) {
-    console.error('Erro ao verificar confirmação:', error);
-    return false;
-  }
-};
-
 export default function Indicacoes() {
   const [authChecked, setAuthChecked] = useState(false);
   const [user, setUser] = useState(null);
@@ -447,20 +429,16 @@ export default function Indicacoes() {
   // Função para limpar completamente a sessão
   const clearAuthSession = async () => {
     try {
-      // 1. Fazer logout no Supabase
       await supabase.auth.signOut();
-      
-      // 2. Limpar todos os dados de autenticação
       localStorage.removeItem('supabase.auth.token');
       sessionStorage.clear();
       
-      // 3. Limpar cookies relacionados (se houver)
+      // Limpar cookies
       document.cookie.split(';').forEach(cookie => {
         const [name] = cookie.split('=');
         document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
       });
       
-      // 4. Resetar estados locais
       setUser(null);
       setCustomer(null);
       setReferralHistory([]);
@@ -472,52 +450,20 @@ export default function Indicacoes() {
     }
   };
 
-  // Verificar autenticação
-  const checkAuth = async () => {
+  // Função para verificar confirmação de email
+  const checkEmailConfirmation = async () => {
     try {
-      setLoading(true);
+      const { data: { user } } = await supabase.auth.getUser();
       
-      // Verificar se já temos uma sessão válida
-      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-      
-      if (sessionError) {
-        console.error('Erro ao buscar sessão:', sessionError);
-        setLoading(false);
-        setAuthChecked(true);
-        return;
+      if (user && user.email_confirmed_at) {
+        await supabase.auth.refreshSession();
+        return true;
       }
       
-      if (!session) {
-        console.log('Nenhuma sessão ativa');
-        setUser(null);
-        setCustomer(null);
-        setLoading(false);
-        setAuthChecked(true);
-        return;
-      }
-      
-      // Buscar dados do usuário
-      const { data: { user }, error: userError } = await supabase.auth.getUser();
-      
-      if (userError) {
-        console.error('Erro ao buscar usuário:', userError);
-        setLoading(false);
-        setAuthChecked(true);
-        return;
-      }
-      
-      setUser(user);
-      
-      if (user) {
-        await loadCustomerData(user.id);
-      } else {
-        setLoading(false);
-        setAuthChecked(true);
-      }
+      return false;
     } catch (error) {
-      console.error('Erro ao verificar autenticação:', error);
-      setLoading(false);
-      setAuthChecked(true);
+      console.error('Erro ao verificar confirmação:', error);
+      return false;
     }
   };
 
@@ -530,35 +476,33 @@ export default function Indicacoes() {
         .eq('auth_id', userId)
         .single();
 
-      if (customerError) {
-        if (customerError.code === 'PGRST116') {
-          // Cliente não existe, criar automaticamente
-          const { data: { user } } = await supabase.auth.getUser();
-          
-          const referralCode = 'PMG' + Math.random().toString(36).substring(2, 8).toUpperCase();
-          
-          const { data: newCustomer, error: createError } = await supabase
-            .from('customers')
-            .insert({
-              auth_id: userId,
-              name: user.user_metadata?.name || user.email?.split('@')[0] || 'Cliente',
-              email: user.email,
-              referral_code: referralCode,
-              credit_balance: 0.00
-            })
-            .select()
-            .single();
+      if (customerError && customerError.code === 'PGRST116') {
+        // Cliente não existe, criar automaticamente
+        const { data: { user } } = await supabase.auth.getUser();
+        
+        const referralCode = 'PMG' + Math.random().toString(36).substring(2, 8).toUpperCase();
+        
+        const { data: newCustomer, error: createError } = await supabase
+          .from('customers')
+          .insert({
+            auth_id: userId,
+            name: user.user_metadata?.name || user.email?.split('@')[0] || 'Cliente',
+            email: user.email,
+            referral_code: referralCode,
+            credit_balance: 0.00
+          })
+          .select()
+          .single();
 
-          if (createError) {
-            console.error('Erro ao criar cliente:', createError);
-            setCustomer(null);
-          } else {
-            setCustomer(newCustomer);
-          }
-        } else {
-          console.error('Erro ao buscar cliente:', customerError);
+        if (createError) {
+          console.error('Erro ao criar cliente:', createError);
           setCustomer(null);
+        } else {
+          setCustomer(newCustomer);
         }
+      } else if (customerError) {
+        console.error('Erro ao buscar cliente:', customerError);
+        setCustomer(null);
       } else {
         setCustomer(customerData);
         await loadReferralHistory(customerData.id);
@@ -589,12 +533,57 @@ export default function Indicacoes() {
     }
   };
 
+  // Verificar autenticação
+  const checkAuth = async () => {
+    try {
+      setLoading(true);
+      
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      
+      if (sessionError) {
+        console.error('Erro ao buscar sessão:', sessionError);
+        setLoading(false);
+        setAuthChecked(true);
+        return;
+      }
+      
+      if (!session) {
+        setUser(null);
+        setCustomer(null);
+        setLoading(false);
+        setAuthChecked(true);
+        return;
+      }
+      
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      
+      if (userError) {
+        console.error('Erro ao buscar usuário:', userError);
+        setLoading(false);
+        setAuthChecked(true);
+        return;
+      }
+      
+      setUser(user);
+      
+      if (user) {
+        await loadCustomerData(user.id);
+      } else {
+        setLoading(false);
+        setAuthChecked(true);
+      }
+    } catch (error) {
+      console.error('Erro ao verificar autenticação:', error);
+      setLoading(false);
+      setAuthChecked(true);
+    }
+  };
+
   // Efeito para inicialização
   useEffect(() => {
     let isMounted = true;
 
     const initializeApp = async () => {
-      // Verificar autenticação após um pequeno delay
       await new Promise(resolve => setTimeout(resolve, 500));
       
       if (isMounted) {
@@ -604,25 +593,21 @@ export default function Indicacoes() {
 
     initializeApp();
 
-    // Listener para mudanças de estado de autenticação
+    // Listener para mudanças de autenticação
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         if (!isMounted) return;
 
-        console.log('Evento de autenticação:', event);
-        
         if (event === 'SIGNED_IN' && session) {
           setUser(session.user);
           await loadCustomerData(session.user.id);
         } else if (event === 'SIGNED_OUT') {
-          // Limpar completamente ao sair
           setUser(null);
           setCustomer(null);
           setReferralHistory([]);
           setLoading(false);
           setAuthChecked(true);
         } else if (event === 'INITIAL_SESSION') {
-          // Sessão inicial restaurada
           if (session) {
             setUser(session.user);
             await loadCustomerData(session.user.id);
@@ -644,7 +629,6 @@ export default function Indicacoes() {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (loading && !authChecked) {
-        console.log('Timeout de carregamento - recarregando página');
         window.location.reload();
       }
     }, 10000);
@@ -652,20 +636,62 @@ export default function Indicacoes() {
     return () => clearTimeout(timer);
   }, [loading, authChecked]);
 
-  // Função de logout melhorada
+  // Polling para verificar confirmação de email
+  useEffect(() => {
+    let intervalId;
+    
+    const checkConfirmation = async () => {
+      try {
+        const { data: { user: currentUser }, error } = await supabase.auth.getUser();
+        
+        if (error) return;
+        
+        if (currentUser && currentUser.email_confirmed_at) {
+          clearInterval(intervalId);
+          await loadCustomerData(currentUser.id);
+        }
+      } catch (error) {
+        console.error('Erro no polling de confirmação:', error);
+      }
+    };
+    
+    if (user && !user.email_confirmed_at) {
+      intervalId = setInterval(checkConfirmation, 5000);
+    }
+    
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [user]);
+
+  // Função de logout
   const handleSignOut = async () => {
     try {
       setLoading(true);
       await clearAuthSession();
-      
-      // Redirecionar para a página inicial para garantir limpeza completa
       window.location.href = '/';
     } catch (error) {
       console.error('Erro no logout:', error);
-      // Forçar recarregamento mesmo com erro
       window.location.href = '/';
     }
   };
+
+  // Função para reenviar email de confirmação
+  const handleResendConfirmation = async () => {
+    try {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: authData.email,
+      });
+      
+      if (error) throw error;
+      
+      alert('Email de confirmação reenviado! Verifique sua caixa de entrada.');
+    } catch (error) {
+      alert('Erro ao reenviar email: ' + error.message);
+    }
+  };
+
   const handleAuth = async (e) => {
     e.preventDefault();
     setAuthLoading(true);
@@ -695,7 +721,6 @@ export default function Indicacoes() {
         });
         
         if (error) {
-          // Verificar se é erro de email não confirmado
           if (error.message.includes('Email not confirmed')) {
             setAuthError('Email não confirmado. Verifique sua caixa de entrada.');
           } else {
@@ -737,7 +762,6 @@ export default function Indicacoes() {
       alert('Indicação registrada com sucesso! Esta pessoa será contatada pela nossa equipe.');
       setNewReferral({ name: '', email: '', phone: '' });
       
-      // Recarregar histórico
       const { data: historyData } = await supabase
         .from('referrals')
         .select('*')
@@ -757,7 +781,6 @@ export default function Indicacoes() {
       return;
     }
 
-    // Abre WhatsApp com mensagem pré-pronta
     const whatsappMessage = `Olá! Eu já atingi os R$ ${customer.credit_balance.toFixed(2)} para resgate das indicações. Pode providenciar por favor?`;
     const whatsappUrl = `https://wa.me/5511913572902?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
@@ -777,7 +800,6 @@ export default function Indicacoes() {
       
       alert(`Solicitação de resgate enviada! Entraremos em contato pelo WhatsApp em breve.`);
       
-      // Atualizar saldo do cliente
       const { error: updateError } = await supabase
         .from('customers')
         .update({ credit_balance: 0 })
@@ -788,7 +810,6 @@ export default function Indicacoes() {
       setCustomer({ ...customer, credit_balance: 0 });
     } catch (error) {
       console.error('Erro ao registrar resgate:', error);
-      // Mesmo se der erro no banco, ainda abre o WhatsApp
     }
   };
 
@@ -822,7 +843,7 @@ export default function Indicacoes() {
         <div style={styles.authBox}>
           <div style={styles.loadingSpinner}></div>
           <p style={styles.authText}>
-            {authChecked ? 'Carregando dados...' : 'Verificando autenticação...'}
+            {authChecked ? 'Carregando dados...' : 'Restaurando sessão...'}
           </p>
           
           <button 
@@ -834,7 +855,7 @@ export default function Indicacoes() {
               cursor: 'pointer'
             }}
           >
-            ⎋ Sair e Fazer Login Novamente
+            ⎋ Sair Realmente e Fazer Login Novamente
           </button>
 
           <button 
@@ -846,7 +867,7 @@ export default function Indicacoes() {
               cursor: 'pointer'
             }}
           >
-            🔄 Recarregar Página
+            🔄 Apenas Recarregar Página
           </button>
         </div>
       </div>
@@ -861,29 +882,17 @@ export default function Indicacoes() {
           
           {user.email_confirmed_at ? (
             <>
-              <p style={styles.authText}>
-                ✅ Email confirmado com sucesso!
-              </p>
-              <p style={styles.authText}>
-                Preparando sua conta... Aguarde alguns instantes.
-              </p>
+              <p style={styles.authText}>✅ Email confirmado com sucesso!</p>
+              <p style={styles.authText}>Preparando sua conta... Aguarde alguns instantes.</p>
               <div style={styles.loadingSpinner}></div>
             </>
           ) : (
             <>
-              <p style={styles.authText}>
-                📧 Verifique seu email para confirmar o cadastro.
-              </p>
-              <p style={styles.authText}>
-                Se não encontrar o email, verifique a caixa de spam.
-              </p>
+              <p style={styles.authText}>📧 Verifique seu email para confirmar o cadastro.</p>
+              <p style={styles.authText}>Se não encontrar o email, verifique a caixa de spam.</p>
               <button 
                 onClick={handleResendConfirmation}
-                style={{
-                  ...styles.authButton,
-                  backgroundColor: '#28a745',
-                  marginBottom: '10px'
-                }}
+                style={{ ...styles.authButton, backgroundColor: '#28a745', marginBottom: '10px' }}
               >
                 Reenviar Email de Confirmação
               </button>
@@ -892,10 +901,7 @@ export default function Indicacoes() {
                   supabase.auth.signOut();
                   setAuthMode('login');
                 }}
-                style={{
-                  ...styles.authButton,
-                  backgroundColor: '#6c757d'
-                }}
+                style={{ ...styles.authButton, backgroundColor: '#6c757d' }}
               >
                 Voltar ao Login
               </button>
@@ -963,11 +969,7 @@ export default function Indicacoes() {
             
             <button 
               type="submit" 
-              style={{
-                ...styles.authButton,
-                opacity: authLoading ? 0.7 : 1,
-                cursor: authLoading ? 'not-allowed' : 'pointer'
-              }}
+              style={{ ...styles.authButton, opacity: authLoading ? 0.7 : 1, cursor: authLoading ? 'not-allowed' : 'pointer' }}
               disabled={authLoading}
             >
               {authLoading ? 'Processando...' : (authMode === 'login' ? 'Entrar' : 'Criar Conta')}
