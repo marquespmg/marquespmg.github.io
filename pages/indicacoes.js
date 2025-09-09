@@ -925,19 +925,32 @@ if (loading) {
             marginTop: '20px'
           }}
         >
-          Recarregar Página
+          🔄 Recarregar Página
         </button>
         
         <button 
-          onClick={() => supabase.auth.signOut()}
+          onClick={async () => {
+            // Fazer logout e redirecionar para a página de produtos
+            await supabase.auth.signOut();
+            window.location.href = 'https://www.marquesvendaspmg.shop/produtos';
+          }}
           style={{
             ...styles.authButton,
             backgroundColor: '#dc3545',
             marginTop: '10px'
           }}
         >
-          Sair e Fazer Login Novamente
+          ⎋ Sair e Fazer Login Novamente
         </button>
+
+        <p style={{ 
+          fontSize: '14px', 
+          color: '#6c757d', 
+          marginTop: '15px',
+          textAlign: 'center' 
+        }}>
+          Se estiver demorando muito, clique em "Sair" e faça login novamente.
+        </p>
       </div>
     </div>
   );
