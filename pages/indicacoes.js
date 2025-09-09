@@ -705,8 +705,8 @@ export default function Indicacoes() {
   const handleShare = (platform) => {
     if (!customer) return;
     
-    const message = `Indique a Marques Vendas PMG e ganhe créditos! ✨ Use meu código: ${customer.referral_code} e ganhe descontos na sua primeira compra pelo WhatsApp (11)91357-2902 ou acesse o Site: https://www.marquesvendaspmg.shop/`;
-    let url = '';
+const message = `Olá! Te indico a PMG ATACADISTA para comprar produtos de qualidade com ótimos preços! Fala com o Marques pelo WhatsApp (11)91357-2902 e diz que foi indicação minha e informe o codigo e ganhe descontos no seus pedidos.`;
+let url = '';
     
     switch(platform) {
       case 'whatsapp':
@@ -1019,7 +1019,7 @@ export default function Indicacoes() {
           Como funciona?
   </h4>
   <p style={{ margin: '0', fontSize: '14px' }}>
-    Indique clientes para a Marques Vendas PMG e ganhe <strong>R$ 5,00</strong> em créditos por cada indicação que fizer um pedido. Os créditos são acumulativos e você pode resgatar a partir de <strong>R$ 50,00</strong>.
+    Indique clientes para a PMG ATACADISTA e ganhe <strong>R$ 5,00</strong> em créditos por cada indicação que fizer um pedido. Os créditos são acumulativos e você pode resgatar a partir de <strong>R$ 50,00</strong>.
     <br /><br />
     <strong>Importante:</strong> Seu código de indicação é apenas para meu controle interno. A pessoa indicada basta me informar o CODIGO que ela recebeu e que foi indicada por você quando fizer o pedido.
   </p>
