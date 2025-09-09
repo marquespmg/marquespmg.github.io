@@ -489,7 +489,7 @@ export default function Indicacoes() {
           });
         }
       }
-    }, 20000); // 20 segundos
+    }, 10000); // 10 segundos
 
     return () => clearTimeout(loadingTimer);
   }, [loading, reloadCount]);
@@ -587,137 +587,77 @@ export default function Indicacoes() {
     }
   };
 
-const loadCustomerData = async (userId) => {
-  // Criar um AbortController para poder cancelar o timeout
-  const controller = new AbortController();
-  const signal = controller.signal;
-  
-  let timeoutId;
-  
-  try {
-    console.log('Iniciando carregamento de dados para usuário:', userId);
-    
-    // Timeout que pode ser cancelado
-    const timeoutPromise = new Promise((_, reject) => {
-      timeoutId = setTimeout(() => {
-        if (!signal.aborted) {
-          reject(new Error('Timeout ao carregar dados. Verifique sua conexão.'));
-        }
-      }, 15000); // 15 segundos
-    });
+  const loadCustomerData = async (userId) => {
+    try {
+      // Buscar dados do cliente com timeout
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Timeout ao carregar dados')), 10000)
+      );
 
-    const customerPromise = supabase
-      .from('customers')
-      .select('*')
-      .eq('auth_id', userId)
-      .single();
+      const customerPromise = supabase
+        .from('customers')
+        .select('*')
+        .eq('auth_id', userId)
+        .single();
 
-    // Race entre a promise dos dados e o timeout
-    const { data: customerData, error: customerError } = await Promise.race([
-      customerPromise,
-      timeoutPromise
-    ]);
+      const { data: customerData, error: customerError } = await Promise.race([
+        customerPromise,
+        timeoutPromise
+      ]);
 
-    // Cancelar o timeout já que recebemos os dados
-    clearTimeout(timeoutId);
-    
-    if (customerError) {
-      console.log('Erro ao buscar cliente:', customerError);
-      
-      // Verificar se é um erro de "nenhuma linha retornada" (cliente não existe)
-      if (customerError.code === 'PGRST116') {
-        console.log('Cliente não encontrado na tabela, aguardando criação...');
+      if (customerError) {
+        console.log('Cliente não encontrado:', customerError);
         
-        // Tentar novamente após delay
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        const retryData = await supabase
-          .from('customers')
-          .select('*')
-          .eq('auth_id', userId)
-          .single();
+        // Verificar se é um erro de "nenhuma linha retornada" (cliente não existe)
+        if (customerError.code === 'PGRST116') {
+          // Cliente não existe na tabela ainda - criar ou aguardar
+          console.log('Aguardando criação do cliente...');
           
-        if (retryData.error) {
-          console.log('Cliente ainda não criado após retry');
-          setCustomer(null);
+          // Tentar novamente após delay
+          setTimeout(async () => {
+            const retryData = await loadCustomerData(userId);
+            if (!retryData) {
+              // Se ainda não existir após retry, mostrar mensagem
+              setCustomer(null);
+              setReferralHistory([]);
+              setLoading(false);
+            }
+          }, 2000);
+          
           return null;
         }
         
-        setCustomer(retryData.data);
-        
-        // Buscar histórico de indicações
-        const { data: historyData, error: historyError } = await supabase
-          .from('referrals')
-          .select('*')
-          .eq('referrer_id', retryData.data.id)
-          .order('created_at', { ascending: false });
+        throw customerError;
+      }
 
-        if (!historyError) {
-          setReferralHistory(historyData || []);
-        }
-        
-        return retryData.data;
+      setCustomer(customerData);
+      
+      // Buscar histórico de indicações
+      const { data: historyData, error: historyError } = await supabase
+        .from('referrals')
+        .select('*')
+        .eq('referrer_id', customerData.id)
+        .order('created_at', { ascending: false });
+
+      if (!historyError) {
+        setReferralHistory(historyData || []);
+      }
+
+      return customerData;
+    } catch (error) {
+      console.error('Erro ao carregar dados do cliente:', error);
+      
+      // Em caso de erro crítico, fazer logout para limpar estado inconsistente
+      if (error.message.includes('Timeout') || error.message.includes('network')) {
+        await supabase.auth.signOut();
+        window.location.reload();
       }
       
-      throw customerError;
+      return null;
+    } finally {
+      setLoading(false);
     }
-
-    console.log('Cliente encontrado:', customerData);
-    setCustomer(customerData);
-    
-    // Buscar histórico de indicações
-    const { data: historyData, error: historyError } = await supabase
-      .from('referrals')
-      .select('*')
-      .eq('referrer_id', customerData.id)
-      .order('created_at', { ascending: false });
-
-    if (!historyError) {
-      setReferralHistory(historyData || []);
-    }
-
-    return customerData;
-  } catch (error) {
-    // Certificar-se de cancelar o timeout em caso de erro também
-    if (timeoutId) clearTimeout(timeoutId);
-    
-    console.error('Erro ao carregar dados do cliente:', error);
-    
-    // Verificar se é um erro de timeout
-    if (error.message.includes('Timeout')) {
-      // Tentar novamente uma vez
-      try {
-        console.log('Tentando recarregar dados após timeout...');
-        const retryData = await supabase
-          .from('customers')
-          .select('*')
-          .eq('auth_id', userId)
-          .single();
-          
-        if (!retryData.error) {
-          setCustomer(retryData.data);
-          
-          const { data: historyData } = await supabase
-            .from('referrals')
-            .select('*')
-            .eq('referrer_id', retryData.data.id)
-            .order('created_at', { ascending: false });
-          
-          setReferralHistory(historyData || []);
-          return retryData.data;
-        }
-      } catch (retryError) {
-        console.error('Erro no retry após timeout:', retryError);
-      }
-    }
-    
-    return null;
-  } finally {
-    setLoading(false);
-    // Garantir que o timeout seja limpo
-    if (timeoutId) clearTimeout(timeoutId);
-  }
-};
+  };
 
   const handleAuth = async (e) => {
     e.preventDefault();
