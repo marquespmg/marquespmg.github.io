@@ -918,9 +918,17 @@ if (loading) {
         </p>
         
         <button 
-          onClick={() => {
-            // window.open quase sempre funciona
-            window.open('https://www.marquesvendaspmg.shop/indicacoes', '_self');
+          onClick={async () => {
+            // 1. Fazer logout REAL no Supabase
+            await supabase.auth.signOut();
+            
+            // 2. Limpar qualquer resquício de autenticação
+            localStorage.removeItem('supabase.auth.token');
+            sessionStorage.clear();
+            
+            // 3. Redirecionar para a página de indicações (onde está o login)
+            // Isso vai forçar o usuário a fazer login manualmente
+            window.location.href = 'https://www.marquesvendaspmg.shop/indicacoes';
           }}
           style={{
             ...styles.authButton,
@@ -929,12 +937,12 @@ if (loading) {
             cursor: 'pointer'
           }}
         >
-          ⎋ Sair e Fazer Login Novamente
+          ⎋ Sair Realmente e Fazer Login Novamente
         </button>
 
         <button 
           onClick={() => {
-            window.open(window.location.href, '_self');
+            window.location.reload();
           }}
           style={{
             ...styles.authButton,
@@ -943,8 +951,17 @@ if (loading) {
             cursor: 'pointer'
           }}
         >
-          🔄 Recarregar Página
+          🔄 Apenas Recarregar Página
         </button>
+
+        <p style={{ 
+          fontSize: '14px', 
+          color: '#6c757d', 
+          marginTop: '15px',
+          textAlign: 'center' 
+        }}>
+          💡 <strong>Sair Realmente</strong> vai limpar sua sessão e você precisará fazer login manualmente novamente.
+        </p>
       </div>
     </div>
   );
