@@ -572,21 +572,32 @@ export default function Indicacoes() {
 
 const loadCustomerData = async (userId) => {
   try {
+    console.log('=== DEBUG INICIADO ===');
     console.log('Buscando cliente com auth_id:', userId);
     
-    // 1. BUSCAR O CLIENTE NA TABELA CUSTOMERS usando auth_id
+    // 1. Primeiro, listar TODOS os clientes para ver o que tem na tabela
+    const { data: allCustomers, error: allError } = await supabase
+      .from('customers')
+      .select('id, auth_id, name, email, referral_code');
+    
+    console.log('Todos os clientes na tabela:', allCustomers);
+    
+    // 2. Buscar o cliente específico
     const { data: customerData, error: customerError } = await supabase
       .from('customers')
       .select('*')
-      .eq('auth_id', userId) // Buscar pelo auth_id (não pelo id da tabela)
+      .eq('auth_id', userId)
       .single();
 
-    // 2. Se não encontrou, criar o cliente automaticamente
+    console.log('Resultado da busca:', { customerData, customerError });
+
+    // 3. Se não encontrou, criar o cliente automaticamente
     if (customerError && customerError.code === 'PGRST116') {
       console.log('Cliente não existe na tabela customers, criando...');
       
       // Buscar dados do usuário autenticado
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      console.log('Dados do usuário auth:', { user, userError });
       
       if (!user) {
         console.error('Usuário não encontrado no auth');
@@ -594,31 +605,50 @@ const loadCustomerData = async (userId) => {
         return null;
       }
 
-      // Gerar código de referência único
-      const generateReferralCode = () => {
-        return 'PMG' + Math.random().toString(36).substring(2, 8).toUpperCase();
-      };
+      // Gerar código de referência
+      const referralCode = 'PMG' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      console.log('Novo referral_code gerado:', referralCode);
 
-      // Criar o novo cliente na tabela customers
+      // Criar o novo cliente
       const { data: newCustomer, error: createError } = await supabase
         .from('customers')
         .insert({
-          auth_id: userId, // Este é o ID da autenticação
+          auth_id: userId,
           name: user.user_metadata?.name || user.email?.split('@')[0] || 'Cliente',
           email: user.email,
-          referral_code: generateReferralCode(),
+          referral_code: referralCode,
           credit_balance: 0.00
         })
         .select()
         .single();
 
+      console.log('Resultado da criação:', { newCustomer, createError });
+
       if (createError) {
         console.error('Erro ao criar cliente:', createError);
+        
+        // Se for erro de duplicidade, buscar o existente
+        if (createError.code === '23505') {
+          console.log('Tentando buscar cliente por email devido a duplicidade...');
+          const { data: existingCustomer } = await supabase
+            .from('customers')
+            .select('*')
+            .eq('email', user.email)
+            .single();
+          
+          if (existingCustomer) {
+            console.log('Cliente encontrado por email:', existingCustomer);
+            setCustomer(existingCustomer);
+            await loadReferralHistory(existingCustomer.id);
+            return existingCustomer;
+          }
+        }
+        
         setCustomer(null);
         return null;
       }
 
-      console.log('Novo cliente criado na tabela customers:', newCustomer);
+      console.log('Novo cliente criado com sucesso:', newCustomer);
       setCustomer(newCustomer);
       setReferralHistory([]);
       return newCustomer;
@@ -630,28 +660,36 @@ const loadCustomerData = async (userId) => {
       return null;
     }
 
-    // 3. Cliente encontrado na tabela customers - usar o ID DA TABELA CUSTOMERS
-    console.log('Cliente encontrado na tabela customers:', customerData);
+    // 4. Cliente encontrado
+    console.log('Cliente encontrado com sucesso:', customerData);
     setCustomer(customerData);
-    
-    // AGORA buscar o histórico usando o ID da tabela customers (não o auth_id)
+    await loadReferralHistory(customerData.id);
+    return customerData;
+
+  } catch (error) {
+    console.error('Erro geral ao carregar dados:', error);
+    setCustomer(null);
+    return null;
+  } finally {
+    console.log('=== DEBUG FINALIZADO ===');
+    setLoading(false);
+  }
+};
+
+// Função separada para carregar histórico
+const loadReferralHistory = async (customerId) => {
+  try {
     const { data: historyData, error: historyError } = await supabase
       .from('referrals')
       .select('*')
-      .eq('referrer_id', customerData.id) // Usar customerData.id (ID da tabela customers)
+      .eq('referrer_id', customerId)
       .order('created_at', { ascending: false });
 
     if (!historyError) {
       setReferralHistory(historyData || []);
     }
-
-    return customerData;
   } catch (error) {
-    console.error('Erro ao carregar dados do cliente:', error);
-    setCustomer(null);
-    return null;
-  } finally {
-    setLoading(false);
+    console.error('Erro ao carregar histórico:', error);
   }
 };
   const handleAuth = async (e) => {
