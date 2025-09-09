@@ -442,313 +442,230 @@ export default function Indicacoes() {
   });
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState('');
-  const [reloadCount, setReloadCount] = useState(0);
   const router = useRouter();
 
-  // Função para reenviar email de confirmação
-  const handleResendConfirmation = async () => {
+  // Função para limpar completamente a sessão
+  const clearAuthSession = async () => {
     try {
-      const { error } = await supabase.auth.resend({
-        type: 'signup',
-        email: authData.email,
+      // 1. Fazer logout no Supabase
+      await supabase.auth.signOut();
+      
+      // 2. Limpar todos os dados de autenticação
+      localStorage.removeItem('supabase.auth.token');
+      sessionStorage.clear();
+      
+      // 3. Limpar cookies relacionados (se houver)
+      document.cookie.split(';').forEach(cookie => {
+        const [name] = cookie.split('=');
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
       });
       
-      if (error) throw error;
+      // 4. Resetar estados locais
+      setUser(null);
+      setCustomer(null);
+      setReferralHistory([]);
+      setAuthChecked(true);
+      setLoading(false);
       
-      alert('Email de confirmação reenviado! Verifique sua caixa de entrada.');
     } catch (error) {
-      alert('Erro ao reenviar email: ' + error.message);
+      console.error('Erro ao limpar sessão:', error);
     }
   };
 
-  // Tratamento de erros globais
-  useEffect(() => {
-    const handleUnhandledError = (error) => {
-      console.error('Erro não tratado:', error);
-      // Recarregar a página em caso de erro crítico
-      window.location.reload();
-    };
+  // Verificar autenticação
+  const checkAuth = async () => {
+    try {
+      setLoading(true);
+      
+      // Verificar se já temos uma sessão válida
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      
+      if (sessionError) {
+        console.error('Erro ao buscar sessão:', sessionError);
+        setLoading(false);
+        setAuthChecked(true);
+        return;
+      }
+      
+      if (!session) {
+        console.log('Nenhuma sessão ativa');
+        setUser(null);
+        setCustomer(null);
+        setLoading(false);
+        setAuthChecked(true);
+        return;
+      }
+      
+      // Buscar dados do usuário
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      
+      if (userError) {
+        console.error('Erro ao buscar usuário:', userError);
+        setLoading(false);
+        setAuthChecked(true);
+        return;
+      }
+      
+      setUser(user);
+      
+      if (user) {
+        await loadCustomerData(user.id);
+      } else {
+        setLoading(false);
+        setAuthChecked(true);
+      }
+    } catch (error) {
+      console.error('Erro ao verificar autenticação:', error);
+      setLoading(false);
+      setAuthChecked(true);
+    }
+  };
 
-    window.addEventListener('error', handleUnhandledError);
-    window.addEventListener('unhandledrejection', handleUnhandledError);
+  // Carregar dados do cliente
+  const loadCustomerData = async (userId) => {
+    try {
+      const { data: customerData, error: customerError } = await supabase
+        .from('customers')
+        .select('*')
+        .eq('auth_id', userId)
+        .single();
 
-    return () => {
-      window.removeEventListener('error', handleUnhandledError);
-      window.removeEventListener('unhandledrejection', handleUnhandledError);
-    };
-  }, []);
+      if (customerError) {
+        if (customerError.code === 'PGRST116') {
+          // Cliente não existe, criar automaticamente
+          const { data: { user } } = await supabase.auth.getUser();
+          
+          const referralCode = 'PMG' + Math.random().toString(36).substring(2, 8).toUpperCase();
+          
+          const { data: newCustomer, error: createError } = await supabase
+            .from('customers')
+            .insert({
+              auth_id: userId,
+              name: user.user_metadata?.name || user.email?.split('@')[0] || 'Cliente',
+              email: user.email,
+              referral_code: referralCode,
+              credit_balance: 0.00
+            })
+            .select()
+            .single();
 
-  // Carregar dados do usuário
-  useEffect(() => {
-    checkAuth();
-    
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        setUser(session?.user || null);
-        if (session?.user) {
-          await loadCustomerData(session.user.id);
+          if (createError) {
+            console.error('Erro ao criar cliente:', createError);
+            setCustomer(null);
+          } else {
+            setCustomer(newCustomer);
+          }
         } else {
+          console.error('Erro ao buscar cliente:', customerError);
+          setCustomer(null);
+        }
+      } else {
+        setCustomer(customerData);
+        await loadReferralHistory(customerData.id);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar dados do cliente:', error);
+      setCustomer(null);
+    } finally {
+      setLoading(false);
+      setAuthChecked(true);
+    }
+  };
+
+  // Carregar histórico de indicações
+  const loadReferralHistory = async (customerId) => {
+    try {
+      const { data: historyData, error: historyError } = await supabase
+        .from('referrals')
+        .select('*')
+        .eq('referrer_id', customerId)
+        .order('created_at', { ascending: false });
+
+      if (!historyError) {
+        setReferralHistory(historyData || []);
+      }
+    } catch (error) {
+      console.error('Erro ao carregar histórico:', error);
+    }
+  };
+
+  // Efeito para inicialização
+  useEffect(() => {
+    let isMounted = true;
+
+    const initializeApp = async () => {
+      // Verificar autenticação após um pequeno delay
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      if (isMounted) {
+        await checkAuth();
+      }
+    };
+
+    initializeApp();
+
+    // Listener para mudanças de estado de autenticação
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (!isMounted) return;
+
+        console.log('Evento de autenticação:', event);
+        
+        if (event === 'SIGNED_IN' && session) {
+          setUser(session.user);
+          await loadCustomerData(session.user.id);
+        } else if (event === 'SIGNED_OUT') {
+          // Limpar completamente ao sair
+          setUser(null);
           setCustomer(null);
           setReferralHistory([]);
           setLoading(false);
+          setAuthChecked(true);
+        } else if (event === 'INITIAL_SESSION') {
+          // Sessão inicial restaurada
+          if (session) {
+            setUser(session.user);
+            await loadCustomerData(session.user.id);
+          } else {
+            setLoading(false);
+            setAuthChecked(true);
+          }
         }
       }
     );
 
     return () => {
-      authListener?.subscription.unsubscribe();
+      isMounted = false;
+      subscription.unsubscribe();
     };
   }, []);
-  
+
+  // Timeout para evitar loop infinito
   useEffect(() => {
-  let isMounted = true;
-  
-  const initializeAuth = async () => {
-    // Esperar um pouco para o Supabase restaurar a sessão
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    if (!isMounted) return;
-    
-    await checkAuth();
+    const timer = setTimeout(() => {
+      if (loading && !authChecked) {
+        console.log('Timeout de carregamento - recarregando página');
+        window.location.reload();
+      }
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, [loading, authChecked]);
+
+  // Função de logout melhorada
+  const handleSignOut = async () => {
+    try {
+      setLoading(true);
+      await clearAuthSession();
+      
+      // Redirecionar para a página inicial para garantir limpeza completa
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Erro no logout:', error);
+      // Forçar recarregamento mesmo com erro
+      window.location.href = '/';
+    }
   };
-  
-  initializeAuth();
-  
-  const { data: authListener } = supabase.auth.onAuthStateChange(
-    async (event, session) => {
-      if (!isMounted) return;
-      
-      console.log('Auth state changed:', event);
-      
-      if (event === 'SIGNED_IN' && session) {
-        setUser(session.user);
-        await loadCustomerData(session.user.id);
-      } else if (event === 'SIGNED_OUT') {
-        setUser(null);
-        setCustomer(null);
-        setReferralHistory([]);
-        setLoading(false);
-      }
-    }
-  );
-  
-  return () => {
-    isMounted = false;
-    authListener?.subscription.unsubscribe();
-  };
-}, []);
-
-  // Polling para verificar confirmação de email
-  useEffect(() => {
-    let intervalId;
-    
-    const checkConfirmation = async () => {
-      try {
-        const { data: { user: currentUser }, error } = await supabase.auth.getUser();
-        
-        if (error) {
-          console.error('Erro ao verificar usuário no polling:', error);
-          return;
-        }
-        
-        if (currentUser && currentUser.email_confirmed_at) {
-          clearInterval(intervalId);
-          // Recarregar dados em vez de recarregar a página inteira
-          await loadCustomerData(currentUser.id);
-        }
-      } catch (error) {
-        console.error('Erro no polling de confirmação:', error);
-      }
-    };
-    
-    if (user && !user.email_confirmed_at) {
-      intervalId = setInterval(checkConfirmation, 5000);
-    }
-    
-    return () => {
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, [user]);
-
-const checkAuth = async () => {
-  try {
-    setLoading(true);
-    
-    // Primeiro, esperar a sessão ser restaurada
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    const { data: { session }, error: sessionError } = await supabase.auth.getSession();
-    
-    if (sessionError) {
-      console.error('Erro ao buscar sessão:', sessionError);
-      setLoading(false);
-      return;
-    }
-    
-    if (!session) {
-      console.log('Nenhuma sessão encontrada, usuário não está logado');
-      setUser(null);
-      setCustomer(null);
-      setLoading(false);
-      return;
-    }
-    
-    // Agora buscar o usuário
-    const { data: { user }, error: userError } = await supabase.auth.getUser();
-    
-    if (userError) {
-      console.error('Erro ao buscar usuário:', userError);
-      setLoading(false);
-      return;
-    }
-    
-    setUser(user);
-    
-    if (user) {
-      await loadCustomerData(user.id);
-    } else {
-      setLoading(false);
-    }
-  } catch (error) {
-    console.error('Erro ao verificar autenticação:', error);
-    setLoading(false);
-  }
-};
-
-// E adicione este useEffect para timeout geral:
-useEffect(() => {
-  const timer = setTimeout(() => {
-    if (loading && authChecked) {
-      console.log('Auth check está demorando muito, recarregando...');
-      window.location.reload();
-    }
-  }, 8000); // 8 segundos
-
-  return () => clearTimeout(timer);
-}, [loading, authChecked]);
-
-const loadCustomerData = async (userId) => {
-  try {
-    console.log('=== DEBUG INICIADO ===');
-    console.log('Buscando cliente com auth_id:', userId);
-    
-    // 1. Primeiro, listar TODOS os clientes para ver o que tem na tabela
-    const { data: allCustomers, error: allError } = await supabase
-      .from('customers')
-      .select('id, auth_id, name, email, referral_code');
-    
-    console.log('Todos os clientes na tabela:', allCustomers);
-    
-    // 2. Buscar o cliente específico
-    const { data: customerData, error: customerError } = await supabase
-      .from('customers')
-      .select('*')
-      .eq('auth_id', userId)
-      .single();
-
-    console.log('Resultado da busca:', { customerData, customerError });
-
-    // 3. Se não encontrou, criar o cliente automaticamente
-    if (customerError && customerError.code === 'PGRST116') {
-      console.log('Cliente não existe na tabela customers, criando...');
-      
-      // Buscar dados do usuário autenticado
-      const { data: { user }, error: userError } = await supabase.auth.getUser();
-      console.log('Dados do usuário auth:', { user, userError });
-      
-      if (!user) {
-        console.error('Usuário não encontrado no auth');
-        setCustomer(null);
-        return null;
-      }
-
-      // Gerar código de referência
-      const referralCode = 'PMG' + Math.random().toString(36).substring(2, 8).toUpperCase();
-      console.log('Novo referral_code gerado:', referralCode);
-
-      // Criar o novo cliente
-      const { data: newCustomer, error: createError } = await supabase
-        .from('customers')
-        .insert({
-          auth_id: userId,
-          name: user.user_metadata?.name || user.email?.split('@')[0] || 'Cliente',
-          email: user.email,
-          referral_code: referralCode,
-          credit_balance: 0.00
-        })
-        .select()
-        .single();
-
-      console.log('Resultado da criação:', { newCustomer, createError });
-
-      if (createError) {
-        console.error('Erro ao criar cliente:', createError);
-        
-        // Se for erro de duplicidade, buscar o existente
-        if (createError.code === '23505') {
-          console.log('Tentando buscar cliente por email devido a duplicidade...');
-          const { data: existingCustomer } = await supabase
-            .from('customers')
-            .select('*')
-            .eq('email', user.email)
-            .single();
-          
-          if (existingCustomer) {
-            console.log('Cliente encontrado por email:', existingCustomer);
-            setCustomer(existingCustomer);
-            await loadReferralHistory(existingCustomer.id);
-            return existingCustomer;
-          }
-        }
-        
-        setCustomer(null);
-        return null;
-      }
-
-      console.log('Novo cliente criado com sucesso:', newCustomer);
-      setCustomer(newCustomer);
-      setReferralHistory([]);
-      return newCustomer;
-    }
-
-    if (customerError) {
-      console.error('Erro ao buscar cliente:', customerError);
-      setCustomer(null);
-      return null;
-    }
-
-    // 4. Cliente encontrado
-    console.log('Cliente encontrado com sucesso:', customerData);
-    setCustomer(customerData);
-    await loadReferralHistory(customerData.id);
-    return customerData;
-
-  } catch (error) {
-    console.error('Erro geral ao carregar dados:', error);
-    setCustomer(null);
-    return null;
-  } finally {
-    console.log('=== DEBUG FINALIZADO ===');
-    setLoading(false);
-  }
-};
-
-// Função separada para carregar histórico
-const loadReferralHistory = async (customerId) => {
-  try {
-    const { data: historyData, error: historyError } = await supabase
-      .from('referrals')
-      .select('*')
-      .eq('referrer_id', customerId)
-      .order('created_at', { ascending: false });
-
-    if (!historyError) {
-      setReferralHistory(historyData || []);
-    }
-  } catch (error) {
-    console.error('Erro ao carregar histórico:', error);
-  }
-};
   const handleAuth = async (e) => {
     e.preventDefault();
     setAuthLoading(true);
@@ -790,15 +707,6 @@ const loadReferralHistory = async (customerId) => {
       setAuthError(error.message);
     } finally {
       setAuthLoading(false);
-    }
-  };
-
-  const handleSignOut = async () => {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
-    } catch (error) {
-      alert('Erro ao sair: ' + error.message);
     }
   };
 
@@ -908,64 +816,42 @@ const loadReferralHistory = async (customerId) => {
     window.open(url, '_blank');
   };
 
-if (loading) {
-  return (
-    <div style={styles.authContainer}>
-      <div style={styles.authBox}>
-        <div style={styles.loadingSpinner}></div>
-        <p style={styles.authText}>
-          {authChecked ? 'Carregando dados...' : 'Restaurando sessão...'}
-        </p>
-        
-        <button 
-          onClick={async () => {
-            // 1. Fazer logout REAL no Supabase
-            await supabase.auth.signOut();
-            
-            // 2. Limpar qualquer resquício de autenticação
-            localStorage.removeItem('supabase.auth.token');
-            sessionStorage.clear();
-            
-            // 3. Redirecionar para a página de indicações (onde está o login)
-            // Isso vai forçar o usuário a fazer login manualmente
-            window.location.href = 'https://www.marquesvendaspmg.shop/indicacoes';
-          }}
-          style={{
-            ...styles.authButton,
-            backgroundColor: '#dc3545',
-            marginTop: '20px',
-            cursor: 'pointer'
-          }}
-        >
-          ⎋ Sair Realmente e Fazer Login Novamente
-        </button>
+  if (loading) {
+    return (
+      <div style={styles.authContainer}>
+        <div style={styles.authBox}>
+          <div style={styles.loadingSpinner}></div>
+          <p style={styles.authText}>
+            {authChecked ? 'Carregando dados...' : 'Verificando autenticação...'}
+          </p>
+          
+          <button 
+            onClick={handleSignOut}
+            style={{
+              ...styles.authButton,
+              backgroundColor: '#dc3545',
+              marginTop: '20px',
+              cursor: 'pointer'
+            }}
+          >
+            ⎋ Sair e Fazer Login Novamente
+          </button>
 
-        <button 
-          onClick={() => {
-            window.location.reload();
-          }}
-          style={{
-            ...styles.authButton,
-            backgroundColor: '#6c757d',
-            marginTop: '10px',
-            cursor: 'pointer'
-          }}
-        >
-          🔄 Apenas Recarregar Página
-        </button>
-
-        <p style={{ 
-          fontSize: '14px', 
-          color: '#6c757d', 
-          marginTop: '15px',
-          textAlign: 'center' 
-        }}>
-          💡 <strong>Sair Realmente</strong> vai limpar sua sessão e você precisará fazer login manualmente novamente.
-        </p>
+          <button 
+            onClick={() => window.location.reload()}
+            style={{
+              ...styles.authButton,
+              backgroundColor: '#6c757d',
+              marginTop: '10px',
+              cursor: 'pointer'
+            }}
+          >
+            🔄 Recarregar Página
+          </button>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
   if (user && !customer) {
     return (
