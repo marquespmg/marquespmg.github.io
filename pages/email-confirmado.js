@@ -46,6 +46,14 @@ const EmailConfirmado = () => {
           © 2025 Marques Vendas PMG - Todos os direitos reservados.
         </p>
       </div>
+      
+      <style jsx>{`
+        @keyframes scaleIn {
+          0% { transform: scale(0); opacity: 0; }
+          70% { transform: scale(1.1); }
+          100% { transform: scale(1); opacity: 1; }
+        }
+      `}</style>
     </div>
   );
 };
@@ -135,19 +143,5 @@ const styles = {
     fontWeight: '600'
   }
 };
-
-// Adicionando keyframes para a animação
-const styleSheet = document.styleSheet;
-const css = `
-  @keyframes scaleIn {
-    0% { transform: scale(0); opacity: 0; }
-    70% { transform: scale(1.1); }
-    100% { transform: scale(1); opacity: 1; }
-  }
-`;
-
-const style = document.createElement('style');
-style.innerHTML = css;
-document.head.appendChild(style);
 
 export default EmailConfirmado;
