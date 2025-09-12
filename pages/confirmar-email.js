@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { supabase } from './supabaseClient';
+import { supabase } from '../lib/supabaseClient';
 
 const ConfirmarEmail = () => {
   const router = useRouter();
@@ -50,5 +50,6 @@ const ConfirmarEmail = () => {
     </div>
   );
 };
+
 
 export default ConfirmarEmail;
