@@ -602,7 +602,7 @@ export default function Indicacoes() {
             data: {
               name: authData.name
             },
-            emailRedirectTo: `${window.location.origin}`
+            emailRedirectTo: `${window.location.origin}/email-confirmado`
           }
         });
         
