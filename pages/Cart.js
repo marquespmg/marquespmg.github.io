@@ -7,14 +7,22 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showAddedFeedback, setShowAddedFeedback] = useState(false);
+  const [user, setUser] = useState(null);
 
   // Função para carregar o carrinho do Supabase
   const loadCartFromSupabase = async () => {
     setIsLoading(true);
     try {
       const { data: userData, error: userError } = await supabase.auth.getUser();
+      
       if (userError || !userData?.user) {
-        console.error('Erro ao pegar usuário ou usuário não logado:', userError);
+        console.log('Usuário não logado - carregando carrinho local');
+        // Carrega carrinho do localStorage se não estiver logado
+        const savedCart = localStorage.getItem('guest_cart');
+        if (savedCart) {
+          const parsedCart = JSON.parse(savedCart);
+          setCart(parsedCart);
+        }
         setIsLoading(false);
         return;
       }
@@ -35,14 +43,18 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
           
           if (insertError) {
             console.error('Erro ao criar carrinho:', insertError);
-          } else {
-            setCart([]);
           }
+          setCart([]);
         } else {
           console.error('Erro ao carregar carrinho:', error);
         }
       } else {
-        setCart(data.cart_items || []);
+        // Garante que cada item tenha quantity
+        const cartWithQuantity = (data.cart_items || []).map(item => ({
+          ...item,
+          quantity: item.quantity || 1
+        }));
+        setCart(cartWithQuantity);
       }
     } catch (error) {
       console.error('Erro inesperado:', error);
@@ -55,8 +67,16 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   const updateCartInSupabase = async (updatedCart) => {
     try {
       const { data: userData, error: userError } = await supabase.auth.getUser();
+      
+      // Garante que todos os itens tenham quantity
+      const cartToSave = updatedCart.map(item => ({
+        ...item,
+        quantity: item.quantity || 1
+      }));
+
       if (userError || !userData?.user) {
-        console.error('Erro ao pegar usuário:', userError);
+        // Usuário não logado - salva apenas no localStorage
+        localStorage.setItem('guest_cart', JSON.stringify(cartToSave));
         return;
       }
 
@@ -65,7 +85,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         .from('user_carts')
         .upsert({ 
           user_id: userId, 
-          cart_items: updatedCart, 
+          cart_items: cartToSave, 
           updated_at: new Date().toISOString() 
         });
 
@@ -77,16 +97,43 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     }
   };
 
-  // Carrega o carrinho ao montar o componente
+  // Observa mudanças de autenticação
   useEffect(() => {
-    loadCartFromSupabase();
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (session?.user) {
+          setUser(session.user);
+          await loadCartFromSupabase(); // Recarrega carrinho quando usuário faz login
+        } else {
+          setUser(null);
+          // Mantém o carrinho local mesmo ao deslogar
+        }
+      }
+    );
+
+    return () => subscription.unsubscribe();
   }, []);
 
-  // Sincroniza o carrinho no Supabase sempre que mudar
+  // Carrega o carrinho ao montar o componente
   useEffect(() => {
-    if (cart.length > 0 || cart.length === 0) {
+    const loadInitialData = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setUser(user);
+      }
+      await loadCartFromSupabase();
+    };
+    
+    loadInitialData();
+  }, []);
+
+  // Sincroniza o carrinho no Supabase sempre que mudar (com debounce)
+  useEffect(() => {
+    const timer = setTimeout(() => {
       updateCartInSupabase(cart);
-    }
+    }, 500); // Delay de 500ms para evitar muitas chamadas
+
+    return () => clearTimeout(timer);
   }, [cart]);
 
   // Feedback visual quando um item é adicionado
@@ -145,42 +192,38 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
       setIsMobile(window.innerWidth <= 768);
     };
     
-    // Verificação inicial
     handleResize();
-    
-    // Adiciona listener para redimensionamento
     window.addEventListener('resize', handleResize);
     
-    // Limpeza do listener
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-// Agrupa itens do carrinho e calcula totais
-const groupedCart = cart.reduce((acc, product) => {
-  const existing = acc.find(p => p.id === product.id);
-  const calculated = calculateProductPrice(product);
-  const quantity = product.quantity || 1;
-  
-  if (existing) {
-    existing.quantity += quantity;
-    existing.totalPrice += calculated.totalPrice * quantity;
-  } else {
-    acc.push({
-      ...product,
-      quantity: quantity,
-      unitPrice: calculated.unitPrice,
-      totalPrice: calculated.totalPrice * quantity,
-      weight: calculated.weight,
-      isBox: calculated.isBox,
-      boxWeight: calculated.isBox ? extractBoxWeight(product.name) : null
-    });
-  }
-  return acc;
-}, []);
+  // Agrupa itens do carrinho e calcula totais
+  const groupedCart = cart.reduce((acc, product) => {
+    const existing = acc.find(p => p.id === product.id);
+    const calculated = calculateProductPrice(product);
+    const quantity = product.quantity || 1;
+    
+    if (existing) {
+      existing.quantity += quantity;
+      existing.totalPrice += calculated.totalPrice * quantity;
+    } else {
+      acc.push({
+        ...product,
+        quantity: quantity,
+        unitPrice: calculated.unitPrice,
+        totalPrice: calculated.totalPrice * quantity,
+        weight: calculated.weight,
+        isBox: calculated.isBox,
+        boxWeight: calculated.isBox ? extractBoxWeight(product.name) : null
+      });
+    }
+    return acc;
+  }, []);
 
   const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 750;
-  
+
   const generateWhatsAppMessage = () => {
     const itemsText = groupedCart.map(product => {
       const baseText = `▪ ${product.name}`;
@@ -201,45 +244,44 @@ const groupedCart = cart.reduce((acc, product) => {
     )}`;
   };
 
-// Função para ajustar quantidade
-const adjustQuantity = (productId, adjustment) => {
-  const newCart = [...cart];
-  let productFound = false;
-
-  // Primeiro, tenta encontrar o produto existente
-  for (let i = 0; i < newCart.length; i++) {
-    if (newCart[i].id === productId) {
-      const newQuantity = (newCart[i].quantity || 1) + adjustment;
+  // Função para ajustar quantidade
+  const adjustQuantity = (productId, adjustment) => {
+    const newCart = [...cart];
+    let productIndex = -1;
+    
+    for (let i = 0; i < newCart.length; i++) {
+      if (newCart[i].id === productId) {
+        productIndex = i;
+        break;
+      }
+    }
+    
+    if (productIndex !== -1) {
+      const currentQuantity = newCart[productIndex].quantity || 1;
+      const newQuantity = currentQuantity + adjustment;
       
       if (newQuantity <= 0) {
-        // Remove o produto se a quantidade for 0 ou negativa
-        newCart.splice(i, 1);
+        newCart.splice(productIndex, 1);
       } else {
-        // Atualiza a quantidade do produto
-        newCart[i] = {
-          ...newCart[i],
+        newCart[productIndex] = {
+          ...newCart[productIndex],
           quantity: newQuantity
         };
       }
-      productFound = true;
-      break;
+    } else if (adjustment > 0) {
+      const productToAdd = groupedCart.find(p => p.id === productId);
+      if (productToAdd) {
+        newCart.push({
+          ...productToAdd,
+          quantity: 1
+        });
+      }
     }
-  }
+    
+    setCart(newCart);
+  };
 
-  // Se não encontrou o produto e o ajuste é positivo, adiciona novo item
-  if (!productFound && adjustment > 0) {
-    const productToAdd = groupedCart.find(p => p.id === productId);
-    if (productToAdd) {
-      newCart.push({
-        ...productToAdd,
-        quantity: 1
-      });
-    }
-  }
-
-  setCart(newCart);
-};
-
+  // Resto do componente permanece EXATAMENTE IGUAL
   return (
     <>
       {/* Botão flutuante do carrinho */}
@@ -770,5 +812,6 @@ const adjustQuantity = (productId, adjustment) => {
 };
 
 export default Cart;
+
 
 
