@@ -178,9 +178,9 @@ const groupedCart = cart.reduce((acc, product) => {
   return acc;
 }, []);
 
-const total = groupedCart.reduce((sum, product) => sum + (product.totalPrice * (product.quantity || 1)), 0);
+  const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 750;
-
+  
   const generateWhatsAppMessage = () => {
     const itemsText = groupedCart.map(product => {
       const baseText = `▪ ${product.name}`;
@@ -770,4 +770,5 @@ const adjustQuantity = (productId, adjustment) => {
 };
 
 export default Cart;
+
 
