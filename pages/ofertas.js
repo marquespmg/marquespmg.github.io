@@ -6,6 +6,76 @@ import Link from 'next/link';
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
 {
+id: 428,
+name: 'MOLHO PARA PIZZA EKMA 1,7 KILO (CX 6 BAG)',
+category: 'Ofertas',
+price: 54.29,
+image: 'https://i.imgur.com/S6pbDfO.png',
+},
+{
+id: 383,
+name: 'EXTRATO DE TOMATE ELEFANTE 1,7 KILO',
+category: 'Ofertas',
+price: 26.59,
+image: 'https://i.imgur.com/Ne5Mb0J.png',
+},
+{
+id: 632,
+name: 'CREAM CHEESE SCALA 1,2 KILO',
+category: 'Ofertas',
+price: 35.19,
+image: 'https://i.imgur.com/1zmzpu6.png',
+},
+{
+id: 774,
+name: 'MUÇARELA ZERO LACTOSE TRÊS MARIAS 4 KG',
+category: 'Ofertas',
+price: 37.99,
+image: 'https://i.imgur.com/4XGmPqP.png',
+},
+{
+id: 902,
+name: 'REQUEIJÃO QUATÁ SEM AMIDO 1,5 KILO',
+category: 'Ofertas',
+price: 40.79,
+image: 'https://i.imgur.com/m60k9Vd.png',
+},
+{
+id: 615,
+name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS VIGOR 2,24 KILO',
+category: 'Ofertas',
+price: 84.19,
+image: 'https://i.imgur.com/ecEaHyX.png',
+},
+{
+id: 692,
+name: 'MANTEIGA PEQUENA COM SAL CRIOULO 200 G (CX 20 UN)',
+category: 'Ofertas',
+price: 93.59,
+image: 'https://i.imgur.com/vDL10ZL.png',
+},
+{
+id: 1209,
+name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL UAI BEM BRASIL 2 KILO (CX 7 PCT)',
+category: 'Ofertas',
+price: 138.49,
+image: 'https://i.imgur.com/TddVhrS.png',
+},
+{
+id: 1186,
+name: 'BATATA PALITO CONGELADA PRÉ FRITA 10 MM CORTE TRADICIONAL RAPIPAP 2,5 KILO (CX 6 PCT)',
+category: 'Ofertas',
+price: 140.79,
+image: 'https://i.imgur.com/NjniGM9.png',
+},
+{
+id: 1895,
+name: 'CHEESE PILLOWS CONGELADO EMPANADO MCCAIN 1 KILO (CX 6 PCT)',
+category: 'Ofertas',
+price: 388.89,
+image: 'https://i.imgur.com/pTKbV5x.png',
+},
+{
   id: 1790,
   name: 'MACARRÃO ESPAGUETE Nº 8 COM OVOS DONA BENTA 500 G (FDO 24 PCT)',
   category: 'Ofertas',
@@ -83,39 +153,11 @@ const featuredProducts = [
   image: 'https://i.imgur.com/gXxWyjC.png',
 },
 {
-  id: 909,
-  name: 'REQUEIJÃO SABOR CHEDDAR SCALA 1,5 KILO',
-  category: 'Ofertas',
-  price: 45.99,
-  image: 'https://i.imgur.com/22lCytC.png',
-},
-{
   id: 1723,
   name: 'FARINHA DE TRIGO PASTEL BUQUÊ 5 KILO (FDO 25 KILO)',
   category: 'Ofertas',
   price: 101.19,
   image: 'https://i.imgur.com/UAKK7p8.png',
-},
-{
-  id: 914,
-  name: 'REQUEIJÃO SCALA SEM AMIDO 1,5 KILO',
-  category: 'Ofertas',
-  price: 44.50,
-  image: 'https://i.imgur.com/FwiSygp.png',
-},
-{
-  id: 918,
-  name: 'REQUEIJÃO TIROLEZ SEM AMIDO 3,6 KILO',
-  category: 'Ofertas',
-  price: 108.83,
-  image: 'https://i.imgur.com/YWEIJxJ.png',
-},
-{
-  id: 782,
-  name: 'PARMESÃO 6 MESES SCALA 6 KG',
-  category: 'Ofertas',
-  price: 78.99,
-  image: 'https://i.imgur.com/lVBLmGh.png',
 },
 ].filter(product => product.category === 'Ofertas');
 
@@ -145,10 +187,10 @@ const banners = [
 
 // ========== IMAGENS FIFO (1080x1080) ========== //
 const fifoImages = [
-  'https://i.imgur.com/zydAt5J.mp4',
-  'https://i.imgur.com/4A6KLIZ.mp4',
-  'https://i.imgur.com/TawK1gS.mp4',
-  'https://i.imgur.com/1VelDf8.mp4',
+  'https://i.imgur.com/CGzJp6I.mp4',
+  'https://i.imgur.com/2IforDT.mp4',
+  'https://i.imgur.com/t9P4mJE.mp4',
+  'https://i.imgur.com/LUMAOr7.mp4',
 ];
 
 // ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
