@@ -2417,24 +2417,32 @@ const handleGoogleLogin = async () => {
     setTotal(0);
   };
 
-  const addToCart = (product) => {
-    if (!user) {
-      setShowAuthModal(true);
-      return;
+// Na função que adiciona produtos (provavelmente em outro componente)
+const addToCart = (product) => {
+  setCart(prevCart => {
+    // Verifica se o produto já está no carrinho
+    const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
+    
+    if (existingProductIndex !== -1) {
+      // Incrementa a quantidade se já existir
+      const updatedCart = [...prevCart];
+      updatedCart[existingProductIndex] = {
+        ...updatedCart[existingProductIndex],
+        quantity: (updatedCart[existingProductIndex].quantity || 1) + 1
+      };
+      return updatedCart;
+    } else {
+      // Adiciona novo produto com quantidade 1
+      return [...prevCart, { ...product, quantity: 1 }];
     }
-    if (product.price > 0) {
-      const updatedCart = [...cart, product];
-      setCart(updatedCart);
-      setTotal(total + product.price);
-    }
-  };
+  });
+};
 
-  const removeFromCart = (productId) => {
-    const updatedCart = cart.filter(item => item.id !== productId);
-    const removedItem = cart.find(item => item.id === productId);
-    setCart(updatedCart);
-    setTotal(total - (removedItem ? removedItem.price : 0));
-  };
+// Função para remover produto completamente
+const removeFromCart = (productId) => {
+  const newCart = cart.filter(item => item.id !== productId);
+  setCart(newCart);
+};
 
   const toggleDescription = (productId) => {
     setExpandedDescriptions(prev => ({
@@ -3343,6 +3351,7 @@ e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível
   };
 
   export default ProductsPage;
+
 
 
 
