@@ -187,10 +187,10 @@ const banners = [
 
 // ========== IMAGENS FIFO (1080x1080) ========== //
 const fifoImages = [
-  'https://i.imgur.com/CGzJp6I.mp4',
-  'https://i.imgur.com/2IforDT.mp4',
-  'https://i.imgur.com/t9P4mJE.mp4',
-  'https://i.imgur.com/LUMAOr7.mp4',
+  'https://i.imgur.com/brRMBWP.mp4',
+  'https://i.imgur.com/8mbLAdB.mp4',
+  'https://i.imgur.com/C2Ltbdt.mp4',
+  'https://i.imgur.com/OTzM2vT.mp4',
 ];
 
 // ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
@@ -877,12 +877,12 @@ const OfertasPage = () => {
         </video>
       </div>
       <a
-        href="https://wa.me/5511913572902"
+        href="https://www.marquesvendaspmg.shop/indicacoes"
         target="_blank"
         rel="noopener noreferrer"
         style={styles.fifoPopupButton}
       >
-        ENTRE EM CONTATO
+        PARTICIPE
       </a>
     </div>
   </div>
