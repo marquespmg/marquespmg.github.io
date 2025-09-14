@@ -155,29 +155,30 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Agrupa itens do carrinho e calcula totais
-  const groupedCart = cart.reduce((acc, product) => {
-    const existing = acc.find(p => p.id === product.id);
-    const calculated = calculateProductPrice(product);
-    
-    if (existing) {
-      existing.quantity++;
-      existing.totalPrice += calculated.totalPrice;
-    } else {
-      acc.push({
-        ...product,
-        quantity: 1,
-        unitPrice: calculated.unitPrice,
-        totalPrice: calculated.totalPrice,
-        weight: calculated.weight,
-        isBox: calculated.isBox,
-        boxWeight: calculated.isBox ? extractBoxWeight(product.name) : null
-      });
-    }
-    return acc;
-  }, []);
+// Agrupa itens do carrinho e calcula totais
+const groupedCart = cart.reduce((acc, product) => {
+  const existing = acc.find(p => p.id === product.id);
+  const calculated = calculateProductPrice(product);
+  const quantity = product.quantity || 1;
+  
+  if (existing) {
+    existing.quantity += quantity;
+    existing.totalPrice += calculated.totalPrice * quantity;
+  } else {
+    acc.push({
+      ...product,
+      quantity: quantity,
+      unitPrice: calculated.unitPrice,
+      totalPrice: calculated.totalPrice * quantity,
+      weight: calculated.weight,
+      isBox: calculated.isBox,
+      boxWeight: calculated.isBox ? extractBoxWeight(product.name) : null
+    });
+  }
+  return acc;
+}, []);
 
-  const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
+const total = groupedCart.reduce((sum, product) => sum + (product.totalPrice * (product.quantity || 1)), 0);
   const isTotalValid = total >= 750;
 
   const generateWhatsAppMessage = () => {
@@ -200,24 +201,44 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     )}`;
   };
 
-  // Função para ajustar quantidade
-  const adjustQuantity = (productId, adjustment) => {
-    const productIndex = cart.findIndex(item => item.id === productId);
-    if (productIndex === -1) return;
+// Função para ajustar quantidade
+const adjustQuantity = (productId, adjustment) => {
+  const newCart = [...cart];
+  let productFound = false;
 
-    const newCart = [...cart];
-    if (adjustment === -1 && newCart[productIndex].quantity <= 1) {
-      // Remove o produto se a quantidade for 1 e o ajuste for -1
-      removeFromCart(productId);
-    } else {
-      // Ajusta a quantidade
-      newCart[productIndex] = {
-        ...newCart[productIndex],
-        quantity: newCart[productIndex].quantity + adjustment
-      };
-      setCart(newCart);
+  // Primeiro, tenta encontrar o produto existente
+  for (let i = 0; i < newCart.length; i++) {
+    if (newCart[i].id === productId) {
+      const newQuantity = (newCart[i].quantity || 1) + adjustment;
+      
+      if (newQuantity <= 0) {
+        // Remove o produto se a quantidade for 0 ou negativa
+        newCart.splice(i, 1);
+      } else {
+        // Atualiza a quantidade do produto
+        newCart[i] = {
+          ...newCart[i],
+          quantity: newQuantity
+        };
+      }
+      productFound = true;
+      break;
     }
-  };
+  }
+
+  // Se não encontrou o produto e o ajuste é positivo, adiciona novo item
+  if (!productFound && adjustment > 0) {
+    const productToAdd = groupedCart.find(p => p.id === productId);
+    if (productToAdd) {
+      newCart.push({
+        ...productToAdd,
+        quantity: 1
+      });
+    }
+  }
+
+  setCart(newCart);
+};
 
   return (
     <>
@@ -749,3 +770,4 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 };
 
 export default Cart;
+
