@@ -2417,18 +2417,14 @@ const handleGoogleLogin = async () => {
     setTotal(0);
   };
 
-const addToCart = async (product) => {
-  const { data: { user } } = await supabase.auth.getUser();
-  
-  if (!user) {
-    window.location.href = '/login';
-    return;
-  }
-
+// Na função que adiciona produtos (provavelmente em outro componente)
+const addToCart = (product) => {
   setCart(prevCart => {
+    // Verifica se o produto já está no carrinho
     const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
-
+    
     if (existingProductIndex !== -1) {
+      // Incrementa a quantidade se já existir
       const updatedCart = [...prevCart];
       updatedCart[existingProductIndex] = {
         ...updatedCart[existingProductIndex],
@@ -2436,6 +2432,7 @@ const addToCart = async (product) => {
       };
       return updatedCart;
     } else {
+      // Adiciona novo produto com quantidade 1
       return [...prevCart, { ...product, quantity: 1 }];
     }
   });
@@ -3354,6 +3351,7 @@ e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível
   };
 
   export default ProductsPage;
+
 
 
 
