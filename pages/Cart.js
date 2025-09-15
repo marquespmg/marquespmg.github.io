@@ -94,11 +94,6 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     }
   }, [cart.length]);
 
-  // ✅ 6. NÃO MOSTRA NADA se não estiver logado
-  if (!user) {
-    return null;
-  }
-
   // ... (RESTANTE DO CÓDIGO PERMANECE EXATAMENTE IGUAL) ...
   // [Mantém todas as funções de cálculo, groupedCart, adjustQuantity, etc]
 
@@ -497,3 +492,4 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 };
 
 export default Cart;
+
