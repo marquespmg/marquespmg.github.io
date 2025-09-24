@@ -9,8 +9,8 @@ const Markito = () => {
   const [queue, setQueue] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
-  // Configuração da API - substitua pela sua URL do Vercel
-  const API_BASE_URL = 'https://marques-chat-api.vercel.app/api';
+   // Configuração da API - substitua pela sua URL do Vercel
+  const API_BASE_URL = '/api'; // Usará o mesmo domínio do site
 
   const toggleChat = () => setIsOpen(!isOpen);
 
