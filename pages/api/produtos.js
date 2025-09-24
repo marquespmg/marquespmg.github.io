@@ -1,11 +1,15 @@
-import fs from 'fs';
-import path from 'path';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export default async function handler(req, res) {
   try {
-    // Caminho para o arquivo produtos.json na pasta public
-    const filePath = path.join(process.cwd(), 'public', 'produtos.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const filePath = join(__dirname, '../../public/produtos.json');
+    const fileContents = readFileSync(filePath, 'utf8');
     const produtosData = JSON.parse(fileContents);
     
     return res.status(200).json(produtosData);
