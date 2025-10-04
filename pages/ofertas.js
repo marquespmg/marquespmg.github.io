@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
-import { supabase } from '../lib/supabaseClient';
+import { supabase } from './supabaseClient';
 import Link from 'next/link';
 
 // ========== PRODUTOS EM OFERTA ========== //
@@ -222,14 +222,12 @@ const OfertasPage = () => {
   const { width: windowWidth } = useWindowSize();
   const isMobile = windowWidth <= 768;
   
-  // Estados
+  // Estados (removidos os de notificação)
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
-  const [showFreteToast, setShowFreteToast] = useState(false);
-  const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const [showFifoPopup, setShowFifoPopup] = useState(false);
   const [selectedFifoImage, setSelectedFifoImage] = useState('');
 
@@ -242,7 +240,6 @@ const OfertasPage = () => {
 
   // Refs para intervalos
   const bannerIntervalRef = useRef(null);
-  const toastTimeoutRef = useRef(null);
 
   // Funções de paginação
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -257,23 +254,12 @@ const OfertasPage = () => {
     }));
   };
 
-  // Efeitos
+  // Efeitos (removidos os de notificação)
   useEffect(() => {
     // Carrossel automático
     bannerIntervalRef.current = setInterval(() => {
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
     }, 10000);
-
-    // Notificações
-    toastTimeoutRef.current = setTimeout(() => {
-      setShowFreteToast(true);
-      setTimeout(() => setShowFreteToast(false), 10000);
-      
-      setTimeout(() => {
-        setShowWhatsappToast(true);
-        setTimeout(() => setShowWhatsappToast(false), 10000);
-      }, 5000);
-    }, 15000);
 
     // Popup FIFO após 1 minuto
     const fifoTimer = setTimeout(() => {
@@ -322,26 +308,27 @@ const OfertasPage = () => {
     }, 10000);
   };
 
-  // ========== ESTILOS ========== //
+  // ========== ESTILOS ATUALIZADOS ========== //
   const styles = {
     container: {
       maxWidth: '1200px',
       margin: '0 auto',
       padding: isMobile ? '10px' : '20px',
-      backgroundColor: '#f9f9f9',
+      backgroundColor: '#ffffff',
       minHeight: '100vh',
-      position: 'relative'
+      position: 'relative',
+      fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
     },
     userWelcomeBar: {
       backgroundColor: '#095400',
       color: 'white',
-      padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
-      borderRadius: '8px',
-      flex: 1,
+      padding: isMobile ? '12px 15px' : '15px 20px',
+      borderRadius: '10px',
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      gap: '6px'
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: '20px',
+      boxShadow: '0 2px 10px rgba(9, 84, 0, 0.2)'
     },
     welcomeMessage: {
       fontSize: isMobile ? '14px' : '16px',
@@ -351,64 +338,75 @@ const OfertasPage = () => {
     homeButton: {
       backgroundColor: 'white',
       color: '#095400',
-      border: '1px solid #095400',
-      padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-      borderRadius: '20px',
-      fontSize: windowWidth > 768 ? '14px' : '12px',
+      border: 'none',
+      padding: isMobile ? '8px 16px' : '10px 20px',
+      borderRadius: '25px',
+      fontSize: isMobile ? '13px' : '14px',
       fontWeight: '600',
       cursor: 'pointer',
       textDecoration: 'none',
-      whiteSpace: 'nowrap'
+      whiteSpace: 'nowrap',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
     },
     header: {
       textAlign: 'center',
-      marginBottom: isMobile ? '15px' : '20px',
-      padding: isMobile ? '15px' : '20px',
+      marginBottom: isMobile ? '20px' : '30px',
+      padding: isMobile ? '20px 15px' : '30px 20px',
       backgroundColor: '#fff',
-      borderRadius: '10px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
+      borderRadius: '12px',
+      boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+      border: '1px solid #f0f0f0'
     },
     title: {
       color: '#095400',
-      fontSize: isMobile ? '22px' : '28px',
+      fontSize: isMobile ? '24px' : '32px',
       fontWeight: '700',
-      marginBottom: '10px'
+      marginBottom: '10px',
+      textShadow: '0 2px 4px rgba(0,0,0,0.1)'
     },
     subtitle: {
       color: '#666',
-      fontSize: isMobile ? '14px' : '16px'
+      fontSize: isMobile ? '14px' : '16px',
+      marginBottom: '15px'
     },
     productsGrid: {
       display: 'grid',
-      gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(250px, 1fr))',
-      gap: isMobile ? '10px' : '20px',
-      margin: '20px 0'
+      gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(280px, 1fr))',
+      gap: isMobile ? '15px' : '25px',
+      margin: '30px 0'
     },
     productCard: {
       backgroundColor: '#fff',
       borderRadius: '12px',
-      boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
+      boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
       overflow: 'hidden',
-      transition: 'transform 0.3s'
+      transition: 'all 0.3s ease',
+      border: '1px solid #f0f0f0',
+      ':hover': {
+        transform: 'translateY(-5px)',
+        boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+      }
     },
     productImage: {
       width: '100%',
-      height: isMobile ? '120px' : '180px',
+      height: isMobile ? '140px' : '200px',
       objectFit: 'cover',
-      borderBottom: '1px solid #eee'
+      borderBottom: '2px solid #f8f8f8'
     },
     productInfo: {
-      padding: isMobile ? '10px' : '15px'
+      padding: isMobile ? '15px' : '20px'
     },
     productNameContainer: {
-      minHeight: isMobile ? '60px' : 'auto',
-      marginBottom: '10px'
+      minHeight: isMobile ? '70px' : 'auto',
+      marginBottom: '12px'
     },
     productName: {
-      fontSize: isMobile ? '14px' : '16px',
+      fontSize: isMobile ? '14px' : '15px',
       fontWeight: '600',
       color: '#333',
-      marginBottom: '5px',
+      marginBottom: '8px',
+      lineHeight: '1.4',
       display: '-webkit-box',
       WebkitLineClamp: 3,
       WebkitBoxOrient: 'vertical',
@@ -423,44 +421,63 @@ const OfertasPage = () => {
       cursor: 'pointer',
       padding: '0',
       marginTop: '5px',
-      fontWeight: '600'
+      fontWeight: '600',
+      textDecoration: 'underline'
     },
     productPrice: {
-      fontSize: isMobile ? '16px' : '18px',
+      fontSize: isMobile ? '18px' : '20px',
       fontWeight: '700',
       color: '#e53935',
-      margin: '10px 0'
+      margin: '15px 0',
+      textShadow: '0 1px 2px rgba(0,0,0,0.1)'
     },
     addButton: {
       width: '100%',
-      padding: isMobile ? '8px' : '10px',
+      padding: isMobile ? '12px' : '14px',
       backgroundColor: '#095400',
       color: '#fff',
       border: 'none',
-      borderRadius: '6px',
-      fontSize: isMobile ? '13px' : '15px',
+      borderRadius: '8px',
+      fontSize: isMobile ? '14px' : '16px',
       fontWeight: '600',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 2px 8px rgba(9, 84, 0, 0.3)',
+      ':hover': {
+        backgroundColor: '#0a6b00',
+        transform: 'translateY(-2px)'
+      }
     },
     disabledButton: {
       backgroundColor: '#ccc',
-      cursor: 'not-allowed'
+      cursor: 'not-allowed',
+      ':hover': {
+        backgroundColor: '#ccc',
+        transform: 'none'
+      }
     },
     pagination: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      margin: '20px 0',
-      gap: '10px',
+      margin: '30px 0',
+      gap: '8px',
       flexWrap: 'wrap'
     },
     pageButton: {
-      padding: isMobile ? '6px 12px' : '8px 16px',
+      padding: isMobile ? '10px 15px' : '12px 18px',
       backgroundColor: '#fff',
-      border: '1px solid #ddd',
-      borderRadius: '6px',
+      border: '2px solid #095400',
+      borderRadius: '8px',
       cursor: 'pointer',
-      fontSize: isMobile ? '14px' : '16px'
+      fontSize: isMobile ? '14px' : '16px',
+      fontWeight: '600',
+      color: '#095400',
+      transition: 'all 0.3s ease',
+      ':hover': {
+        backgroundColor: '#095400',
+        color: '#fff'
+      }
     },
     activePage: {
       backgroundColor: '#095400',
@@ -470,15 +487,16 @@ const OfertasPage = () => {
     resultsInfo: {
       textAlign: 'center',
       color: '#666',
-      margin: '10px 0',
-      fontSize: isMobile ? '14px' : '16px'
+      margin: '15px 0',
+      fontSize: isMobile ? '14px' : '16px',
+      fontWeight: '500'
     },
     bannerContainer: {
-      margin: '40px 0 20px',
+      margin: '40px 0 30px',
       position: 'relative',
-      borderRadius: '10px',
+      borderRadius: '12px',
       overflow: 'hidden',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+      boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
     },
     bannerImage: {
       width: '100%',
@@ -488,93 +506,65 @@ const OfertasPage = () => {
       position: 'absolute',
       top: '50%',
       transform: 'translateY(-50%)',
-      backgroundColor: 'rgba(0,0,0,0.5)',
-      color: 'white',
+      backgroundColor: 'rgba(255,255,255,0.9)',
+      color: '#095400',
       border: 'none',
       borderRadius: '50%',
-      width: isMobile ? '30px' : '40px',
-      height: isMobile ? '30px' : '40px',
-      fontSize: isMobile ? '16px' : '20px',
+      width: isMobile ? '40px' : '50px',
+      height: isMobile ? '40px' : '50px',
+      fontSize: isMobile ? '18px' : '22px',
       cursor: 'pointer',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+      transition: 'all 0.3s ease',
+      fontWeight: 'bold',
+      ':hover': {
+        backgroundColor: '#095400',
+        color: 'white'
+      }
     },
     prevButton: {
-      left: '10px'
+      left: '15px'
     },
     nextButton: {
-      right: '10px'
+      right: '15px'
     },
     bannerDots: {
       display: 'flex',
       justifyContent: 'center',
-      marginTop: '10px'
+      marginTop: '15px',
+      gap: '8px'
     },
     dot: {
-      width: isMobile ? '8px' : '12px',
-      height: isMobile ? '8px' : '12px',
+      width: isMobile ? '10px' : '12px',
+      height: isMobile ? '10px' : '12px',
       borderRadius: '50%',
-      backgroundColor: '#ccc',
-      margin: '0 5px',
-      cursor: 'pointer'
+      backgroundColor: '#ddd',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease'
     },
     activeDot: {
-      backgroundColor: '#095400'
+      backgroundColor: '#095400',
+      transform: 'scale(1.2)'
     },
-    toastContainer: {
-      position: 'fixed',
-      bottom: '20px',
-      right: '20px',
-      zIndex: 1000
-    },
-    toast: {
-      backgroundColor: '#fff',
-      borderLeft: '4px solid #2ecc71',
-      borderRadius: '8px',
-      boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-      padding: '16px',
-      maxWidth: '320px',
-      marginBottom: '10px',
-      display: 'flex',
-      gap: '12px'
-    },
-    toastContent: {
-      flex: 1
-    },
-    toastTitle: {
-      margin: '0 0 8px 0',
-      color: '#2c3e50',
-      fontSize: '16px',
-      fontWeight: '700'
-    },
-    toastMessage: {
-      margin: 0,
-      color: '#7f8c8d',
-      fontSize: '14px'
-    },
-    toastHighlight: {
-      color: '#e74c3c',
-      fontWeight: 'bold'
-    },
-    toastWhatsappBtn: {
-      display: 'inline-block',
-      marginTop: '12px',
-      background: '#25D366',
-      color: 'white',
-      padding: '8px 12px',
-      borderRadius: '6px',
-      textDecoration: 'none',
-      fontWeight: 'bold',
-      fontSize: '13px'
+    ctaSection: {
+      textAlign: 'center', 
+      margin: '50px 0',
+      padding: isMobile ? '25px 15px' : '40px 20px',
+      backgroundColor: '#f0f8f0',
+      borderRadius: '15px',
+      boxShadow: '0 5px 20px rgba(0,0,0,0.08)',
+      border: '1px solid #e0f0e0'
     },
     footer: {
-      marginTop: isMobile ? '30px' : '50px',
-      padding: isMobile ? '20px 15px' : '30px 20px',
+      marginTop: isMobile ? '40px' : '60px',
+      padding: isMobile ? '25px 15px' : '40px 20px',
       textAlign: 'center',
       color: '#666',
       fontSize: isMobile ? '0.8rem' : '0.85rem',
-      borderTop: '1px solid #eee',
+      borderTop: '2px solid #f0f0f0',
       backgroundColor: '#f9f9f9'
     },
     // ========== ESTILOS DO POPUP FIFO (AJUSTADOS PARA 1080x1080) ========== //
@@ -643,27 +633,67 @@ const OfertasPage = () => {
     },
   };
 
-  // ========== RENDERIZAÇÃO ========== //
+  // ========== RENDERIZAÇÃO ATUALIZADA ========== //
   return (
     <div style={styles.container}>
-      {/* Barra de boas-vindas */}
+      {/* Barra de boas-vindas melhorada */}
       <div style={styles.userWelcomeBar}>
-        <p style={styles.welcomeMessage}>Ofertas Especiais | Marques Vendas PMG</p>
-        <a href="/" style={styles.homeButton}>Página Inicial</a>
+        <p style={styles.welcomeMessage}>🎯 OFERTAS ESPECIAIS - Marques Vendas PMG</p>
+        <a href="/" style={styles.homeButton}>🏠 Página Inicial</a>
       </div>
 
-      {/* Cabeçalho */}
+      {/* Cabeçalho premium */}
       <div style={styles.header}>
         <img 
           src="https://i.imgur.com/pBH5WpZ.png" 
-          alt="Logo" 
-          style={{ height: isMobile ? '50px' : '60px', marginBottom: '15px' }} 
+          alt="Marques Vendas PMG" 
+          style={{ 
+            height: isMobile ? '60px' : '80px', 
+            marginBottom: '20px',
+            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+          }} 
         />
-        <h1 style={styles.title}>OFERTAS ESPECIAIS</h1>
-        <p style={styles.subtitle}>Compre em 1 clique e receba em até 48h! ⚡</p>
+        <h1 style={styles.title}>🔥 OFERTAS ESPECIAIS</h1>
+        <p style={styles.subtitle}>Produtos selecionados com condições exclusivas! ⚡ Entrega rápida</p>
+        
+        {/* Destaques de credibilidade */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          gap: isMobile ? '10px' : '15px',
+          marginTop: '20px'
+        }}>
+          {[
+            { icon: '🚚', title: 'Entrega Rápida', desc: 'Para toda região' },
+            { icon: '🏷️', title: 'Preço Competitivo', desc: 'Melhores condições' },
+            { icon: '🛡️', title: 'Garantia', desc: 'Produtos certificados' },
+            { icon: '👨‍💼', title: 'Atendimento', desc: 'Especializado' }
+          ].map((item, index) => (
+            <div key={index} style={{
+              backgroundColor: '#f8f8f8',
+              padding: isMobile ? '8px 12px' : '10px 15px',
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}>
+              <span style={{fontSize: isMobile ? '1rem' : '1.2rem'}}>{item.icon}</span>
+              <div>
+                <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.8rem'}}>{item.title}</div>
+                <div style={{fontSize: isMobile ? '0.6rem' : '0.7rem', color: '#666'}}>{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Grade de produtos */}
+      {/* Informação de resultados */}
+      <div style={styles.resultsInfo}>
+        Mostrando {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, featuredProducts.length)} de {featuredProducts.length} produtos em oferta
+      </div>
+
+      {/* Grade de produtos premium */}
       <div style={styles.productsGrid}>
         {currentProducts.map(product => (
           <div key={product.id} style={styles.productCard}>
@@ -672,23 +702,23 @@ const OfertasPage = () => {
               alt={product.name} 
               style={styles.productImage}
               onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/250x180?text=Produto+Sem+Imagem';
+                e.target.src = 'https://via.placeholder.com/300x200/f8f8f8/666?text=Produto+Sem+Imagem';
               }}
             />
             <div style={styles.productInfo}>
               <div style={styles.productNameContainer}>
                 <h3 style={{
                   ...styles.productName,
-                  WebkitLineClamp: expandedDescriptions[product.id] ? 'unset' : (isMobile ? 2 : 3)
+                  WebkitLineClamp: expandedDescriptions[product.id] ? 'unset' : (isMobile ? 3 : 3)
                 }}>
                   {product.name}
                 </h3>
-                {product.name.length > (isMobile ? 30 : 50) && (
+                {product.name.length > (isMobile ? 40 : 60) && (
                   <button 
                     onClick={() => toggleDescription(product.id)}
                     style={styles.showMoreButton}
                   >
-                    {expandedDescriptions[product.id] ? 'Mostrar menos' : 'Mostrar mais'}
+                    {expandedDescriptions[product.id] ? '[Mostrar menos]' : '[Mostrar mais]'}
                   </button>
                 )}
               </div>
@@ -705,14 +735,14 @@ const OfertasPage = () => {
                   ...(product.price === 0 && styles.disabledButton)
                 }}
               >
-                {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
+                {product.price > 0 ? '🛒 Adicionar ao Carrinho' : '❌ Indisponível'}
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Paginação */}
+      {/* Paginação melhorada */}
       <div style={styles.pagination}>
         <button 
           onClick={prevPage} 
@@ -722,7 +752,7 @@ const OfertasPage = () => {
             ...(currentPage === 1 && styles.disabledButton) 
           }}
         >
-          Anterior
+          ⬅️ Anterior
         </button>
         
         {Array.from({ length: totalPages }, (_, i) => i + 1).map(number => (
@@ -746,26 +776,21 @@ const OfertasPage = () => {
             ...(currentPage === totalPages && styles.disabledButton) 
           }}
         >
-          Próxima
+          Próxima ➡️
         </button>
       </div>
 
       {/* Carrinho */}
       <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} total={total} />
 
-      {/* CTA para página de produtos completa */}
-      <div style={{ 
-        textAlign: 'center', 
-        margin: '40px 0',
-        padding: '20px',
-        backgroundColor: '#fff',
-        borderRadius: '10px',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
-      }}>
-        <h2 style={{ color: '#095400', marginBottom: '15px' }}>Quer ver todos os nossos produtos?</h2>
-        <p style={{ marginBottom: '20px', color: '#666' }}>
-          Acesse nosso catálogo completo com centenas de itens para seu negócio.
-          Cadastro rápido e fácil!
+      {/* CTA premium para produtos completos */}
+      <div style={styles.ctaSection}>
+        <h2 style={{ color: '#095400', marginBottom: '15px', fontSize: isMobile ? '20px' : '24px' }}>
+          📦 Catálogo Completo Disponível!
+        </h2>
+        <p style={{ marginBottom: '25px', color: '#666', fontSize: isMobile ? '14px' : '16px' }}>
+          Acesse nosso catálogo completo com centenas de produtos para seu negócio.<br />
+          Cadastro rápido, condições especiais e atendimento personalizado.
         </p>
         <a 
           href="/produtos" 
@@ -773,10 +798,11 @@ const OfertasPage = () => {
             ...styles.addButton,
             display: 'inline-block',
             textDecoration: 'none',
-            padding: '12px 30px'
+            padding: '15px 35px',
+            fontSize: isMobile ? '15px' : '17px'
           }}
         >
-          Ver Catálogo Completo
+          📋 Ver Catálogo Completo
         </a>
       </div>
 
@@ -792,14 +818,14 @@ const OfertasPage = () => {
           style={{ ...styles.bannerNavButton, ...styles.prevButton }}
           aria-label="Banner anterior"
         >
-          &lt;
+          ‹
         </button>
         <button
           onClick={goToNextBanner}
           style={{ ...styles.bannerNavButton, ...styles.nextButton }}
           aria-label="Próximo banner"
         >
-          &gt;
+          ›
         </button>
         <div style={styles.bannerDots}>
           {banners.map((_, index) => (
@@ -817,43 +843,8 @@ const OfertasPage = () => {
           ))}
         </div>
       </div>
-
-      {/* Notificações Toast */}
-      <div style={styles.toastContainer}>
-        {showFreteToast && (
-          <div style={styles.toast}>
-            <div style={{ fontSize: '24px' }}>🔔</div>
-            <div style={styles.toastContent}>
-              <h4 style={styles.toastTitle}>Frete GRÁTIS + Pague só na entrega!</h4>
-              <p style={styles.toastMessage}>
-                Sem risco, sem enrolação. Receba seus produtos e <span style={styles.toastHighlight}>pague só quando chegar</span>. Aproveite agora!
-              </p>
-            </div>
-          </div>
-        )}
-
-        {showWhatsappToast && (
-          <div style={styles.toast}>
-            <div style={{ fontSize: '24px' }}>📦</div>
-            <div style={styles.toastContent}>
-              <h4 style={styles.toastTitle}>Entregamos em até 48h!</h4>
-              <p style={styles.toastMessage}>
-                Tá com dúvida? Fala direto com a gente no WhatsApp 👉 <span style={styles.toastHighlight}>(11) 91357-2902</span>
-              </p>
-              <a 
-                href="https://wa.me/5511913572902" 
-                style={styles.toastWhatsappBtn} 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                CHAMAR NO WHATSAPP
-              </a>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Popup FIFO */}
+	  
+	        {/* Popup FIFO */}
 {showFifoPopup && (
   <div style={styles.fifoPopupOverlay}>
     <div style={styles.fifoPopupContent}>
@@ -877,7 +868,7 @@ const OfertasPage = () => {
         </video>
       </div>
       <a
-        href="https://www.marquesvendaspmg.shop/indicacoes"
+        href="http://localhost:3000/indicacoes"
         target="_blank"
         rel="noopener noreferrer"
         style={styles.fifoPopupButton}
@@ -888,128 +879,216 @@ const OfertasPage = () => {
   </div>
 )}
 
-        {/* Rodapé - Adaptado para mobile */}
-<footer style={{
-  marginTop: isMobile ? '30px' : '50px',
-  padding: isMobile ? '20px 15px' : '30px 20px',
-  textAlign: 'center',
-  color: '#666',
-  fontSize: isMobile ? '0.8rem' : '0.85rem',
-  borderTop: '1px solid #eee',
-  backgroundColor: '#f9f9f9' // Adicionado para melhor contraste
-}}>
-  {/* Container principal dos links legais */}
-  <div id="legal-links-container" style={{
-    display: 'flex',
-    justifyContent: 'center',
-    gap: isMobile ? '10px' : '20px',
-    marginBottom: '15px',
-    flexWrap: 'wrap',
-    alignItems: 'center'
-  }}>
-    {/* Link de Política de Privacidade (versão Google-friendly) */}
-    <a 
-      href="/politica-de-privacidade" 
-      style={{ 
-        color: '#095400', 
-        textDecoration: 'underline', // Sublinhado para melhor visibilidade
-        fontWeight: '600', // Negrito
-        fontSize: isMobile ? '0.85rem' : '0.9rem',
-        padding: '8px 12px',
-        borderRadius: '4px',
-        transition: 'all 0.3s ease',
-        ':hover': {
-          backgroundColor: '#f0f0f0'
-        }
-      }}
-      title="Política de Privacidade"
-      aria-label="Leia nossa Política de Privacidade Completa"
-    >
-      Política de Privacidade
-    </a>
+      {/* Rodapé Premium com Redes Sociais */}
+      <footer style={styles.footer}>
+        {/* Redes Sociais */}
+        <div style={{ 
+          marginBottom: '20px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '15px'
+        }}>
+          <h3 style={{ 
+            color: '#095400', 
+            fontSize: isMobile ? '1rem' : '1.1rem',
+            marginBottom: '10px'
+          }}>
+            Siga-nos nas Redes Sociais
+          </h3>
+          
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: isMobile ? '20px' : '25px',
+            alignItems: 'center'
+          }}>
+            {/* Facebook */}
+            <a 
+              href="https://www.facebook.com/MarquesVendaspmg" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '40px',
+                height: '40px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.transform = 'scale(1.1)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = 'scale(1)';
+              }}
+            >
+              <img 
+                src="https://i.imgur.com/prULUUA.png" 
+                alt="Facebook" 
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+            </a>
 
-    <span style={{ color: '#095400' }}>|</span>
+            {/* Instagram */}
+            <a 
+              href="https://www.instagram.com/marquesvendaspmg" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '40px',
+                height: '40px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.transform = 'scale(1.1)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = 'scale(1)';
+              }}
+            >
+              <img 
+                src="https://i.imgur.com/I0ZZLjG.png" 
+                alt="Instagram" 
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+            </a>
 
-    {/* Link para Termos */}
-    <Link href="/termos" passHref legacyBehavior>
-      <a style={{ 
-        color: '#095400', 
-        textDecoration: 'underline', // Sublinhado para melhor visibilidade
-        fontWeight: '600', // Negrito
-        fontSize: isMobile ? '0.85rem' : '0.9rem',
-        padding: '8px 12px',
-        borderRadius: '4px',
-        transition: 'all 0.3s ease',
-        ':hover': {
-          backgroundColor: '#f0f0f0'
-        }
-      }}
-      title="Termos de Uso"
-      aria-label="Leia nossos Termos de Uso Completo"
-    >
-      Termos de Uso
-    </a>
-    </Link>
+            {/* YouTube */}
+            <a 
+              href="https://www.youtube.com/@MarquesVendasPMG" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '40px',
+                height: '40px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.transform = 'scale(1.1)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = 'scale(1)';
+              }}
+            >
+              <img 
+                src="https://i.imgur.com/WfpZ8Gg.png" 
+                alt="YouTube" 
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+            </a>
+          </div>
+        </div>
 
-    <span style={{ color: '#095400' }}>|</span>
+        {/* Links Legais */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: isMobile ? '15px' : '20px',
+          marginBottom: '20px',
+          flexWrap: 'wrap',
+          alignItems: 'center'
+        }}>
+          <a 
+            href="/politica-de-privacidade" 
+            style={{ 
+              color: '#095400', 
+              textDecoration: 'none',
+              fontWeight: '600',
+              fontSize: isMobile ? '0.8rem' : '0.85rem',
+              padding: '8px 12px',
+              borderRadius: '4px',
+              transition: 'all 0.3s ease',
+              ':hover': {
+                backgroundColor: '#f0f0f0'
+              }
+            }}
+          >
+            Política de Privacidade
+          </a>
 
-{/* Link para Quem Somos - VERSÃO BLINDADA */}
-<div style={{
-  position: 'relative',
-  zIndex: 9999,
-  isolation: 'isolate'
-}}>
-  <Link href="/quem-somos" passHref legacyBehavior>
-    <a 
-      onClick={(e) => {
-        // Fallback para garantir funcionamento em mobile
-        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
-          e.preventDefault();
-          window.location.href = '/quem-somos';
-        }
-      }}
-      style={{ 
-        color: '#095400', 
-        textDecoration: 'underline',
-        fontWeight: '600',
-        fontSize: isMobile ? '0.85rem' : '0.9rem',
-        padding: '8px 12px',
-        borderRadius: '4px',
-        transition: 'all 0.3s ease',
-        display: 'inline-block',
-        position: 'relative',
-        backgroundColor: 'transparent',
-        ':hover': {
-          backgroundColor: '#f0f0f0'
-        },
-        // Proteções extras para mobile
-        WebkitTapHighlightColor: 'transparent',
-        touchAction: 'manipulation'
-      }}
-      title="Quem Somos"
-      aria-label="Leia nossos Quem Somos Completo"
-    >
-      Quem Somos
-    </a>
-  </Link>
-  </div>
-  </div>
+          <span style={{ color: '#095400' }}>•</span>
 
-  {/* Informações de copyright */}
-  <div style={{ marginTop: '10px' }}>
-    <p style={{ margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem' }}>
-      © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-    </p>
-    <p style={{ 
-      margin: '5px 0', 
-      fontSize: isMobile ? '0.7rem' : '0.8rem', 
-      color: '#999',
-      lineHeight: '1.4'
-    }}>
-      • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
-    </p>
-  </div>
-</footer>
+          <Link href="/termos" passHref legacyBehavior>
+            <a style={{ 
+              color: '#095400', 
+              textDecoration: 'none',
+              fontWeight: '600',
+              fontSize: isMobile ? '0.8rem' : '0.85rem',
+              padding: '8px 12px',
+              borderRadius: '4px',
+              transition: 'all 0.3s ease',
+              ':hover': {
+                backgroundColor: '#f0f0f0'
+              }
+            }}>
+              Termos de Uso
+            </a>
+          </Link>
+
+          <span style={{ color: '#095400' }}>•</span>
+
+          <Link href="/quem-somos" passHref legacyBehavior>
+            <a style={{ 
+              color: '#095400', 
+              textDecoration: 'none',
+              fontWeight: '600',
+              fontSize: isMobile ? '0.8rem' : '0.85rem',
+              padding: '8px 12px',
+              borderRadius: '4px',
+              transition: 'all 0.3s ease',
+              ':hover': {
+                backgroundColor: '#f0f0f0'
+              }
+            }}>
+              Quem Somos
+            </a>
+          </Link>
+        </div>
+
+        {/* Copyright */}
+        <div style={{ textAlign: 'center' }}>
+          <p style={{ 
+            margin: '5px 0', 
+            fontSize: isMobile ? '0.8rem' : '0.85rem',
+            color: '#666'
+          }}>
+            © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+          </p>
+          <p style={{ 
+            margin: '5px 0', 
+            fontSize: isMobile ? '0.7rem' : '0.75rem', 
+            color: '#999',
+            lineHeight: '1.4'
+          }}>
+            Estrada Ferreira Guedes, 784 - Potuverá - CEP: 06885-150 - Itapecerica da Serra - SP
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
