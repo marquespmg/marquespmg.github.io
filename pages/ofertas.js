@@ -844,7 +844,7 @@ const OfertasPage = () => {
         </div>
       </div>
 	  
-	        {/* Popup FIFO */}
+      {/* Popup FIFO */}
 {showFifoPopup && (
   <div style={styles.fifoPopupOverlay}>
     <div style={styles.fifoPopupContent}>
@@ -868,7 +868,7 @@ const OfertasPage = () => {
         </video>
       </div>
       <a
-        href="marquesvendaspmg.shop/indicacoes"
+        href="https://www.marquesvendaspmg.shop/indicacoes"
         target="_blank"
         rel="noopener noreferrer"
         style={styles.fifoPopupButton}
