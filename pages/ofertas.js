@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
-import { supabase } from './supabaseClient';
+import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 
 // ========== PRODUTOS EM OFERTA ========== //
