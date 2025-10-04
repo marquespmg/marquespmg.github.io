@@ -406,6 +406,24 @@ const avaliacoes = [
               <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Produtos certificados</div>
             </div>
           </div>
+
+          {/* NOVO DESTAQUE - Atendimento Personalizado */}
+          <div style={{
+            backgroundColor: '#f8f8f8',
+            padding: isMobile ? '10px 15px' : '15px 20px',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+          }}>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>👨‍💼</span>
+            <div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Atendimento Personalizado</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Especializado no seu negócio</div>
+            </div>
+          </div>
         </div>
 
         {/* Carrossel Otimizado - Melhorias para mobile */}
@@ -941,124 +959,150 @@ const avaliacoes = [
   </div>
   </div>
 
-  {/* Informações de copyright */}
-  <div style={{ marginTop: '10px' }}>
-    <p style={{ margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem' }}>
-      © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-    </p>
-    <p style={{ 
-      margin: '5px 0', 
-      fontSize: isMobile ? '0.7rem' : '0.8rem', 
-      color: '#999',
-      lineHeight: '1.4'
+  {/* Informações de copyright e redes sociais */}
+  <div style={{ 
+    marginTop: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '15px'
+  }}>
+    {/* Redes Sociais - Versão Clean com Logos Visíveis */}
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      gap: isMobile ? '20px' : '25px',
+      alignItems: 'center'
     }}>
-      • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
-    </p>
+      {/* Facebook */}
+      <a 
+        href="https://www.facebook.com/MarquesVendaspmg" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '32px',
+          height: '32px',
+          borderRadius: '4px',
+          transition: 'all 0.3s ease',
+          textDecoration: 'none',
+          padding: '6px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.transform = 'scale(1.1)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.transform = 'scale(1)';
+        }}
+      >
+        <img 
+          src="https://i.imgur.com/prULUUA.png" 
+          alt="Facebook" 
+          style={{
+            width: '20px',
+            height: '20px',
+            transition: 'all 0.3s ease'
+          }}
+        />
+      </a>
+
+      {/* Instagram */}
+      <a 
+        href="https://www.instagram.com/marquesvendaspmg" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '32px',
+          height: '32px',
+          borderRadius: '4px',
+          transition: 'all 0.3s ease',
+          textDecoration: 'none',
+          padding: '6px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.transform = 'scale(1.1)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.transform = 'scale(1)';
+        }}
+      >
+        <img 
+          src="https://i.imgur.com/I0ZZLjG.png" 
+          alt="Instagram" 
+          style={{
+            width: '20px',
+            height: '20px',
+            transition: 'all 0.3s ease'
+          }}
+        />
+      </a>
+
+      {/* YouTube */}
+      <a 
+        href="https://www.youtube.com/@MarquesVendasPMG" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '32px',
+          height: '32px',
+          borderRadius: '4px',
+          transition: 'all 0.3s ease',
+          textDecoration: 'none',
+          padding: '6px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.transform = 'scale(1.1)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.transform = 'scale(1)';
+        }}
+      >
+        <img 
+          src="https://i.imgur.com/WfpZ8Gg.png" 
+          alt="YouTube" 
+          style={{
+            width: '20px',
+            height: '20px',
+            transition: 'all 0.3s ease'
+          }}
+        />
+      </a>
+    </div>
+
+    {/* Copyright e Endereço */}
+    <div style={{ textAlign: 'center' }}>
+      <p style={{ 
+        margin: '5px 0', 
+        fontSize: isMobile ? '0.8rem' : '0.85rem',
+        color: '#666'
+      }}>
+        © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+      </p>
+      <p style={{ 
+        margin: '5px 0', 
+        fontSize: isMobile ? '0.7rem' : '0.8rem', 
+        color: '#999',
+        lineHeight: '1.4'
+      }}>
+        • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
+      </p>
+    </div>
   </div>
 </footer>
-		
-        {/* Notificações - Estilo e Componentes */}
-        <style jsx>{`
-          /* Estilo das Notificações */
-          .promo-toast {
-            position: fixed;
-            bottom: ${isMobile ? '10px' : '20px'};
-            right: ${isMobile ? '10px' : '20px'};
-            background: #fff;
-            border-left: 4px solid #2ecc71;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            padding: ${isMobile ? '12px' : '16px'};
-            max-width: ${isMobile ? '280px' : '320px'};
-            opacity: 0;
-            transform: translateX(20px);
-            transition: opacity 0.4s, transform 0.4s;
-            z-index: 1000;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            gap: ${isMobile ? '8px' : '12px'};
-          }
-          .promo-toast.show {
-            opacity: 1;
-            transform: translateX(0);
-          }
-          .promo-toast .icon {
-            font-size: ${isMobile ? '20px' : '24px'};
-            margin-top: 2px;
-          }
-          .promo-toast .content {
-            flex: 1;
-          }
-          .promo-toast .close-btn {
-            background: none;
-            border: none;
-            font-size: ${isMobile ? '16px' : '18px'};
-            cursor: pointer;
-            color: #95a5a6;
-            align-self: flex-start;
-          }
-          .promo-toast h4 {
-            margin: 0 0 ${isMobile ? '6px' : '8px'} 0;
-            color: #2c3e50;
-            fontSize: ${isMobile ? '14px' : '16px'};
-            font-weight: 700;
-          }
-          .promo-toast p {
-            margin: 0;
-            color: #7f8c8d;
-            fontSize: ${isMobile ? '12px' : '14px'};
-            line-height: 1.4;
-          }
-          .promo-toast .highlight {
-            color: #e74c3c;
-            font-weight: bold;
-          }
-          .promo-toast .whatsapp-btn {
-            display: inline-block;
-            margin-top: ${isMobile ? '8px' : '12px'};
-            background: #25D366;
-            color: white;
-            padding: ${isMobile ? '6px 10px' : '8px 12px'};
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            fontSize: ${isMobile ? '12px' : '13px'};
-          }
-          .promo-toast .whatsapp-btn:hover {
-            background: #128C7E;
-          }
-        `}</style>
 
-        {/* Notificação 1: Frete Grátis */}
-        <div className={`promo-toast ${showFreteToast ? 'show' : ''}`}>
-          <div className="icon">🔔</div>
-          <div className="content">
-            <button className="close-btn" onClick={() => hideToast('frete')}>×</button>
-            <h4>Frete GRÁTIS e Pague só na entrega!</h4>
-            <p>Sem risco, sem enrolação. Receba seus produtos e <span className="highlight">pague só quando chegar</span>. Aproveite agora!</p>
-          </div>
-        </div>
-
-        {/* Notificação 2: WhatsApp */}
-        <div className={`promo-toast ${showWhatsappToast ? 'show' : ''}`}>
-          <div className="icon">📦</div>
-          <div className="content">
-            <button className="close-btn" onClick={() => hideToast('whatsapp')}>×</button>
-            <h4>Entregamos em até 48h!</h4>
-            <p>Tá com dúvida? Fala direto com a gente no WhatsApp 👉 <span className="highlight">(11) 91357-2902</span></p>
-            <a href="https://wa.me/5511913572902" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">CHAMAR NO WHATSAPP</a>
-          </div>
-        </div>
-		<style jsx global>{`
+<style jsx global>{`
   /* Garante que o link fique acima das notificações */
   #legal-links-container {
     position: relative;
     z-index: 100;
-  }
-  
-  /* Remove interferência de outros elementos */
-  .promo-toast {
-    z-index: 99 !important;
   }
 `}</style>
       </div>
