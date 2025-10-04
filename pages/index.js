@@ -537,7 +537,7 @@ const avaliacoes = [
           </div>
         </div>
 
-{/* Seção "Conheça Nossa Operação" - Adaptada para mobile e desktop */}
+{/* Seção "Conheça Nossa Operação" - COM CONTROLES COMPLETOS DO YOUTUBE */}
 <section style={{
   display: 'flex',
   flexDirection: 'column',
@@ -558,28 +558,26 @@ const avaliacoes = [
   
   <div style={{
     width: '100%',
-    maxWidth: isMobile ? '100%' : '900px', // Aumentei o maxWidth para desktop
+    maxWidth: isMobile ? '100%' : '900px',
     borderRadius: '10px',
     overflow: 'hidden',
     boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
     marginBottom: isMobile ? '15px' : '30px',
-    aspectRatio: '16/9' // Forçando a proporção 16:9
+    aspectRatio: '16/9'
   }}>
-    <video 
-      width="100%" 
+    <iframe
+      width="100%"
       height="100%"
-      controls 
-      autoPlay 
-      muted 
-      loop
+      src="https://www.youtube.com/embed/zJ4oHFNuFKw?autoplay=1&mute=0&loop=1&playlist=zJ4oHFNuFKw&controls=1&modestbranding=1&rel=0"
+      title="Conheça Nossa Operação - Marques Vendas PMG"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
       style={{
         display: 'block',
-        objectFit: 'cover' // Garante que o vídeo preencha o contêiner mantendo a proporção
+        border: 'none'
       }}
-    >
-      <source src="https://i.imgur.com/7Xk0OYG.mp4" type="video/mp4" />
-      Seu navegador não suporta a tag de vídeo.
-    </video>
+    />
   </div>
   
   <p style={{
@@ -958,7 +956,7 @@ const avaliacoes = [
     </p>
   </div>
 </footer>
-
+		
         {/* Notificações - Estilo e Componentes */}
         <style jsx>{`
           /* Estilo das Notificações */
@@ -1002,13 +1000,13 @@ const avaliacoes = [
           .promo-toast h4 {
             margin: 0 0 ${isMobile ? '6px' : '8px'} 0;
             color: #2c3e50;
-            font-size: ${isMobile ? '14px' : '16px'};
+            fontSize: ${isMobile ? '14px' : '16px'};
             font-weight: 700;
           }
           .promo-toast p {
             margin: 0;
             color: #7f8c8d;
-            font-size: ${isMobile ? '12px' : '14px'};
+            fontSize: ${isMobile ? '12px' : '14px'};
             line-height: 1.4;
           }
           .promo-toast .highlight {
@@ -1024,7 +1022,7 @@ const avaliacoes = [
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            font-size: ${isMobile ? '12px' : '13px'};
+            fontSize: ${isMobile ? '12px' : '13px'};
           }
           .promo-toast .whatsapp-btn:hover {
             background: #128C7E;
@@ -1051,6 +1049,18 @@ const avaliacoes = [
             <a href="https://wa.me/5511913572902" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">CHAMAR NO WHATSAPP</a>
           </div>
         </div>
+		<style jsx global>{`
+  /* Garante que o link fique acima das notificações */
+  #legal-links-container {
+    position: relative;
+    z-index: 100;
+  }
+  
+  /* Remove interferência de outros elementos */
+  .promo-toast {
+    z-index: 99 !important;
+  }
+`}</style>
       </div>
     </>
   );
