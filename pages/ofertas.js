@@ -5,161 +5,77 @@ import Link from 'next/link';
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-{
-id: 428,
-name: 'MOLHO PARA PIZZA EKMA 1,7 KILO (CX 6 BAG)',
-category: 'Ofertas',
-price: 54.29,
-image: 'https://i.imgur.com/S6pbDfO.png',
-},
-{
-id: 383,
-name: 'EXTRATO DE TOMATE ELEFANTE 1,7 KILO',
-category: 'Ofertas',
-price: 26.59,
-image: 'https://i.imgur.com/Ne5Mb0J.png',
-},
-{
-id: 632,
-name: 'CREAM CHEESE SCALA 1,2 KILO',
-category: 'Ofertas',
-price: 35.19,
-image: 'https://i.imgur.com/1zmzpu6.png',
-},
-{
-id: 774,
-name: 'MUÇARELA ZERO LACTOSE TRÊS MARIAS 4 KG',
-category: 'Ofertas',
-price: 37.99,
-image: 'https://i.imgur.com/4XGmPqP.png',
-},
-{
-id: 902,
-name: 'REQUEIJÃO QUATÁ SEM AMIDO 1,5 KILO',
-category: 'Ofertas',
-price: 40.79,
-image: 'https://i.imgur.com/m60k9Vd.png',
-},
-{
-id: 615,
-name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS VIGOR 2,24 KILO',
-category: 'Ofertas',
-price: 84.19,
-image: 'https://i.imgur.com/ecEaHyX.png',
-},
-{
-id: 1209,
-name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL UAI BEM BRASIL 2 KILO (CX 7 PCT)',
-category: 'Ofertas',
-price: 138.49,
-image: 'https://i.imgur.com/TddVhrS.png',
-},
-{
-id: 1186,
-name: 'BATATA PALITO CONGELADA PRÉ FRITA 10 MM CORTE TRADICIONAL RAPIPAP 2,5 KILO (CX 6 PCT)',
-category: 'Ofertas',
-price: 140.79,
-image: 'https://i.imgur.com/NjniGM9.png',
-},
-{
-id: 1895,
-name: 'CHEESE PILLOWS CONGELADO EMPANADO MCCAIN 1 KILO (CX 6 PCT)',
-category: 'Ofertas',
-price: 388.89,
-image: 'https://i.imgur.com/pTKbV5x.png',
-},
-{
-  id: 1790,
-  name: 'MACARRÃO ESPAGUETE Nº 8 COM OVOS DONA BENTA 500 G (FDO 24 PCT)',
-  category: 'Ofertas',
-  price: 75.99,
-  image: 'https://i.imgur.com/NslZsoB.png',
-},
-{
-  id: 1401,
-  name: 'PROTEÍNA TEXTURIZADA DE SOJA CLARA FRANGO CAMIL 400 G (FDO 20 PCT)',
-  category: 'Ofertas',
-  price: 5.45,
-  image: 'https://i.imgur.com/DnQ5tlw.png',
-},
-{
-  id: 1402,
-  name: 'PROTEÍNA TEXTURIZADA DE SOJA ESCURA CARNE CAMIL 400 G (FDO 20 PCT)',
-  category: 'Ofertas',
-  price: 5.45,
-  image: 'https://i.imgur.com/hOnaDLg.png',
-},
-{
-  id: 1392,
-  name: 'PEPINOS RODELAS AGRIDOCE HEMMER 440 G',
-  category: 'Ofertas',
-  price: 19.99,
-  image: 'https://i.imgur.com/5j4OWq7.png',
-},
-{
-  id: 1223,
-  name: 'CAFÉ EXTRA FORTE ALMOFADA SOLLUS 500 G (FDO 10 PCT)',
-  category: 'Ofertas',
-  price: 229.99,
-  image: 'https://i.imgur.com/TtlTuwJ.png',
-},
-{
-  id: 1440,
-  name: 'ATUM PEDAÇOS EM ÓLEO POUCH GOMES DA COSTA 500 G',
-  category: 'Ofertas',
-  price: 29.79,
-  image: 'https://i.imgur.com/QBjRtM2.png',
-},
-{
-  id: 779,
-  name: 'PARMESÃO 6 MESES LA SERENISSIMA 8 KG',
-  category: 'Ofertas',
-  price: 69.89,
-  image: 'https://i.imgur.com/Z2XbUVH.png',
-},
-{
-  id: 1763,
-  name: 'FARINHA DE TRIGO TIPO 1 FARINA 5 KILO (FDO 25 KILO)',
-  category: 'Ofertas',
-  price: 76.79,
-  image: 'https://i.imgur.com/cp3JWHX.png',
-},
-{
-  id: 1202,
-  name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL MAIS BATATA BEM BRASIL 2 KILO (CX 7 PCT)',
-  category: 'Ofertas',
-  price: 146.89,
-  image: 'https://i.imgur.com/H6CVzIj.png',
-},
-{
-  id: 1105,
-  name: 'ARROZ BRANCO TIPO 1 FOOD SERVICE CAMIL 5 KILO (FDO 6 PCT)',
-  category: 'Ofertas',
-  price: 133.99,
-  image: 'https://i.imgur.com/4Mg7giP.png',
-},
-{
-  id: 1107,
-  name: 'ARROZ BRANCO TIPO 1 SOLITO 5 KILO (FDO 6 PCT)',
-  category: 'Ofertas',
-  price: 124.39,
-  image: 'https://i.imgur.com/ZxyHXzW.png',
-},
-{
-  id: 1268,
-  name: 'FEIJÃO CARIOCA TIPO 1 SOLITO 1 KILO (FDO 10 PCT)',
-  category: 'Ofertas',
-  price: 70.55,
-  image: 'https://i.imgur.com/zAH59YU.png',
-},
-{
-  id: 1484,
-  name: 'AÇÚCAR REFINADO ALTO ALEGRE 1 KILO (FDO 10 PCT)',
-  category: 'Ofertas',
-  price: 45.00,
-  image: 'https://i.imgur.com/OAA8hCL.png',
-},
-].filter(product => product.category === 'Ofertas');
+  { 
+    id: 1063, 
+    name: 'PRESUNTO REZENDE 3.4 KILO PÇ', 
+    category: 'Ofertas', 
+    price: 73.99, 
+    image: 'https://i.imgur.com/xwIv7bR.png' 
+  },
+  { 
+    id: 938, 
+    name: 'APRESUNTADO REZENDE 3,4 KILO PÇ', 
+    category: 'Ofertas', 
+    price: 62.00, 
+    image: 'https://i.imgur.com/CddqyjS.png' 
+  },
+  { 
+    id: 719, 
+    name: 'MUÇARELA BARI 4 KG', 
+    category: 'Ofertas', 
+    price: 27.55, 
+    image: 'https://i.imgur.com/J3OqbkZ.png' 
+  },
+  { 
+    id: 1282, 
+    name: 'GORDURA VEGETAL FRY 400 COAMO (BD 14,5 KILO)', 
+    category: 'Ofertas', 
+    price: 163.00, 
+    image: 'https://i.imgur.com/BSu4hgF.png' 
+  },
+  { 
+    id: 1355, 
+    name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', 
+    category: 'Ofertas', 
+    price: 177.00, 
+    image: 'https://i.imgur.com/7n8ckfX.png' 
+  },
+  { 
+    id: 1107, 
+    name: 'ARROZ BRANCO TIPO 1 SOLITO 5 KILO (FDO 6 PCT)', 
+    category: 'Ofertas', 
+    price: 124.39, 
+    image: 'https://i.imgur.com/ZxyHXzW.png' 
+  },
+  { 
+    id: 1268, 
+    name: 'FEIJÃO CARIOCA TIPO 1 SOLITO 1 KILO (FDO 10 PCT)', 
+    category: 'Ofertas', 
+    price: 70.55, 
+    image: 'https://i.imgur.com/zAH59YU.png' 
+  },
+  { 
+    id: 1484, 
+    name: 'AÇÚCAR REFINADO ALTO ALEGRE 1 KILO (FDO 10 PCT)', 
+    category: 'Ofertas', 
+    price: 45.00, 
+    image: 'https://i.imgur.com/OAA8hCL.png' 
+  },
+  { 
+    id: 1273, 
+    name: 'FEIJÃO PRETO TIPO 1 SOLITO 1 KILO (FDO 10 PCT)', 
+    category: 'Ofertas', 
+    price: 53.00, 
+    image: 'https://i.imgur.com/aHQwbQy.png' 
+  },
+  { 
+    id: 746, 
+    name: 'MUÇARELA FRIZZO 4 KG', 
+    category: 'Ofertas', 
+    price: 27.98, 
+    image: 'https://i.imgur.com/q9a5I8n.png' 
+  }
+];
 
 // ========== BANNERS ========== //
 const banners = [
