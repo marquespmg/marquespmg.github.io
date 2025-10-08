@@ -551,24 +551,38 @@ const OfertasPage = () => {
 
   // ========== RENDERIZAÇÃO ATUALIZADA ========== //
   return (
-    <div style={styles.container}>
-      {/* Barra de boas-vindas melhorada */}
-      <div style={styles.userWelcomeBar}>
-        <p style={styles.welcomeMessage}>🎯 OFERTAS ESPECIAIS - Marques Vendas PMG</p>
-        <a href="/" style={styles.homeButton}>🏠 Página Inicial</a>
-      </div>
+<div style={styles.container}>
+  {/* Barra de boas-vindas melhorada */}
+  <div
+    style={{
+      ...styles.userWelcomeBar,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center'
+    }}
+  >
+    <p style={styles.welcomeMessage}>
+      🎯 OFERTAS ESPECIAIS - Marques Vendas PMG
+    </p>
+    <a
+      href="/"
+      style={{ ...styles.homeButton, marginTop: '8px' }}
+    >
+      🏠 Página Inicial
+    </a>
+  </div>
 
-      {/* Cabeçalho premium */}
-      <div style={styles.header}>
-        <img 
-          src="https://i.imgur.com/pBH5WpZ.png" 
-          alt="Marques Vendas PMG" 
-          style={{ 
-            height: isMobile ? '60px' : '80px', 
-            marginBottom: '20px',
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-          }} 
-        />
+  {/* Cabeçalho premium */}
+  <div style={styles.header}>
+    <img 
+      src="https://i.imgur.com/pBH5WpZ.png" 
+      alt="Marques Vendas PMG"
+      style={{ 
+        height: isMobile ? '60px' : '80px',
+        marginBottom: '20px',
+        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+      }}
+    />
         <h1 style={styles.title}>🔥 OFERTAS ESPECIAIS</h1>
         <p style={styles.subtitle}>Produtos selecionados com condições exclusivas! ⚡ Entrega rápida</p>
         
