@@ -156,6 +156,7 @@ const OfertasPage = () => {
 
   // Refs para intervalos
   const bannerIntervalRef = useRef(null);
+  const toastTimeoutRef = useRef(null);
 
   // Funções de paginação
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
