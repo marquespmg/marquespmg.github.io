@@ -241,13 +241,118 @@ const avaliacoes = [
 
   return (
     <>
-      <Head>
-  <title>Marques Vendas PMG - Distribuidora de Produtos de Qualidade</title>
-  <meta name="description" content="Distribuidora autorizada com os melhores produtos para seu negócio. Qualidade garantida e atendimento especializado." />
+<Head>
+  {/* Título Otimizado */}
+  <title>Marques Vendas PMG - Distribuidora Food Service | Atacadista em Itapecerica da Serra</title>
+  
+  {/* Meta Description Otimizada */}
+  <meta name="description" content="Distribuidora autorizada Marques Vendas PMG - Atacadista food service com produtos de qualidade para restaurantes, bares e mercados. Entrega rápida na região. Atendimento especializado." />
+  
+  {/* Viewport */}
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   
-  {/* Adicione esta linha */}
+  {/* Charset */}
+  <meta charSet="utf-8" />
+  
+  {/* Google Verification */}
   <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
+  
+  {/* ========== OPEN GRAPH (Facebook/WhatsApp) ========== */}
+  <meta property="og:title" content="Marques Vendas PMG - Distribuidora Food Service | Atacadista Autorizado" />
+  <meta property="og:description" content="Distribuidora autorizada com produtos de qualidade para seu negócio. Entrega rápida e atendimento especializado." />
+  <meta property="og:image" content="https://i.imgur.com/pBH5WpZ.png" />
+  <meta property="og:url" content="https://marquesvendaspmg.com.br" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Marques Vendas PMG" />
+  <meta property="og:locale" content="pt_BR" />
+  
+  {/* Open Graph para o Vídeo */}
+  <meta property="og:video" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
+  <meta property="og:video:type" content="text/html" />
+  <meta property="og:video:width" content="1280" />
+  <meta property="og:video:height" content="720" />
+  <meta property="og:video:secure_url" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
+  
+  {/* ========== TWITTER CARD ========== */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Marques Vendas PMG - Distribuidora Food Service" />
+  <meta name="twitter:description" content="Distribuidora autorizada com produtos de qualidade para restaurantes, bares e mercados." />
+  <meta name="twitter:image" content="https://i.imgur.com/pBH5WpZ.png" />
+  <meta name="twitter:site" content="@marquesvendaspmg" />
+  
+  {/* ========== SCHEMA.ORG (Google Rich Results) ========== */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Marques Vendas PMG",
+      "description": "Distribuidora autorizada food service com produtos de qualidade para restaurantes, bares e mercados",
+      "url": "https://marquesvendaspmg.com.br",
+      "telephone": "+55-11-91357-2902",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+        "addressLocality": "Itapecerica da Serra",
+        "addressRegion": "SP",
+        "postalCode": "06885-150",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-23.7167",
+        "longitude": "-46.8492"
+      },
+      "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00",
+      "priceRange": "$$",
+      "areaServed": "Grande São Paulo",
+      "sameAs": [
+        "https://www.facebook.com/MarquesVendaspmg",
+        "https://www.instagram.com/marquesvendaspmg",
+        "https://www.youtube.com/@MarquesVendasPMG"
+      ]
+    })}
+  </script>
+  
+  {/* Schema para Vídeo */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Conheça Nossa Operação - Marques Vendas PMG",
+      "description": "Conheça a estrutura e operação da Marques Vendas PMG, distribuidora food service em Itapecerica da Serra",
+      "thumbnailUrl": "https://img.youtube.com/vi/xOPT4YXLV2E/maxresdefault.jpg",
+      "uploadDate": "2024-08-08T08:00:00+08:00",
+      "duration": "PT1M", // Ajuste conforme a duração real do vídeo
+      "contentUrl": "https://www.youtube.com/embed/xOPT4YXLV2E",
+      "embedUrl": "https://www.youtube.com/embed/xOPT4YXLV2E",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Marques Vendas PMG",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://i.imgur.com/pBH5WpZ.png"
+        }
+      }
+    })}
+  </script>
+  
+  {/* ========== KEYWORDS E OTIMIZAÇÕES EXTRAS ========== */}
+  <meta name="keywords" content="distribuidora food service, atacadista itapecerica, produtos para restaurante, atacado bebidas, alimentos atacado, marques vendas pmg, distribuidora autorizada" />
+  <meta name="author" content="Marques Vendas PMG" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://marquesvendaspmg.com.br" />
+  
+  {/* Favicon */}
+  <link rel="icon" href="https://i.imgur.com/pBH5WpZ.png" />
+  
+  {/* Theme Color para Mobile */}
+  <meta name="theme-color" content="#095400" />
+  <meta name="msapplication-TileColor" content="#095400" />
+  
+  {/* Apple Touch Icon */}
+  <link rel="apple-touch-icon" href="https://i.imgur.com/pBH5WpZ.png" />
 </Head>
 
       <div style={{
@@ -586,7 +691,7 @@ const avaliacoes = [
     <iframe
       width="100%"
       height="100%"
-      src="https://www.youtube.com/embed/xOPT4YXLV2E"
+      src="https://www.youtube.com/embed/xOPT4YXLV2E?autoplay=0&mute=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3"      title="Conheça Nossa Operação - Marques Vendas PMG"
       title="Conheça Nossa Operação - Marques Vendas PMG"
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
