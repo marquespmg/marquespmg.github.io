@@ -555,7 +555,7 @@ const avaliacoes = [
           </div>
         </div>
 
-{/* Seção "Conheça Nossa Operação" - COM PLAYER QUE FUNCIONA NO MOBILE */}
+{/* Seção "Conheça Nossa Operação" - COM CONTROLES COMPLETOS DO YOUTUBE */}
 <section style={{
   display: 'flex',
   flexDirection: 'column',
@@ -586,10 +586,10 @@ const avaliacoes = [
     <iframe
       width="100%"
       height="100%"
-      src={`https://www.youtube.com/embed/xOPT4YXLV2E?playsinline=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`}
+      src="https://www.youtube.com/embed/xOPT4YXLV2E"
       title="Conheça Nossa Operação - Marques Vendas PMG"
       frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
       style={{
         display: 'block',
