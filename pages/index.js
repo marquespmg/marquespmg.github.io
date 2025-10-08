@@ -261,7 +261,7 @@ const avaliacoes = [
   <meta property="og:title" content="Marques Vendas PMG - Distribuidora Food Service | Atacadista Autorizado" />
   <meta property="og:description" content="Distribuidora autorizada com produtos de qualidade para seu negócio. Entrega rápida e atendimento especializado." />
   <meta property="og:image" content="https://i.imgur.com/pBH5WpZ.png" />
-  <meta property="og:url" content="https://marquesvendaspmg.com.br" />
+  <meta property="og:url" content="https://www.marquesvendaspmg.shop" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Marques Vendas PMG" />
   <meta property="og:locale" content="pt_BR" />
@@ -287,7 +287,7 @@ const avaliacoes = [
       "@type": "LocalBusiness",
       "name": "Marques Vendas PMG",
       "description": "Distribuidora autorizada food service com produtos de qualidade para restaurantes, bares e mercados",
-      "url": "https://marquesvendaspmg.com.br",
+      "url": "https://www.marquesvendaspmg.shop",
       "telephone": "+55-11-91357-2902",
       "address": {
         "@type": "PostalAddress",
@@ -321,8 +321,8 @@ const avaliacoes = [
       "name": "Conheça Nossa Operação - Marques Vendas PMG",
       "description": "Conheça a estrutura e operação da Marques Vendas PMG, distribuidora food service em Itapecerica da Serra",
       "thumbnailUrl": "https://img.youtube.com/vi/xOPT4YXLV2E/maxresdefault.jpg",
-      "uploadDate": "2024-08-08T08:00:00+08:00",
-      "duration": "PT1M", // Ajuste conforme a duração real do vídeo
+      "uploadDate": "2024-12-19",
+      "duration": "PT1M",
       "contentUrl": "https://www.youtube.com/embed/xOPT4YXLV2E",
       "embedUrl": "https://www.youtube.com/embed/xOPT4YXLV2E",
       "publisher": {
@@ -337,12 +337,15 @@ const avaliacoes = [
   </script>
   
   {/* ========== KEYWORDS E OTIMIZAÇÕES EXTRAS ========== */}
-  <meta name="keywords" content="distribuidora food service, atacadista itapecerica, produtos para restaurante, atacado bebidas, alimentos atacado, marques vendas pmg, distribuidora autorizada" />
+  <meta name="keywords" content="distribuidora food service, atacadista itapecerica, produtos para restaurante, atacado bebidas, alimentos atacado, marques vendas pmg, distribuidora autorizada, atacadista grande sp" />
   <meta name="author" content="Marques Vendas PMG" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   
   {/* Canonical URL */}
-  <link rel="canonical" href="https://marquesvendaspmg.com.br" />
+  <link rel="canonical" href="https://www.marquesvendaspmg.shop" />
+  
+  {/* Sitemap */}
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   
   {/* Favicon */}
   <link rel="icon" href="https://i.imgur.com/pBH5WpZ.png" />
