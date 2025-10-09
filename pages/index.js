@@ -318,8 +318,8 @@ const avaliacoes = [
     {JSON.stringify({
       "@context": "https://schema.org",
       "@type": "VideoObject",
-      "name": "Conheça Nossa Operação - Marques Vendas PMG",
-      "description": "Conheça a estrutura e operação da Marques Vendas PMG, distribuidora food service em Itapecerica da Serra",
+      "name": "PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados",
+      "description": "Há 30 anos a PMG Atacadista conecta negócios com confiança e resultados sólidos. Distribuidora food service em Itapecerica da Serra.",
       "thumbnailUrl": "https://img.youtube.com/vi/xOPT4YXLV2E/maxresdefault.jpg",
       "uploadDate": "2024-12-19",
       "duration": "PT1M",
@@ -663,7 +663,7 @@ const avaliacoes = [
           </div>
         </div>
 
-{/* Seção "Conheça Nossa Operação" - COM CONTROLES COMPLETOS DO YOUTUBE */}
+{/* Seção "Conheça Nossa Operação" */}
 <section style={{
   display: 'flex',
   flexDirection: 'column',
@@ -682,6 +682,7 @@ const avaliacoes = [
     Conheça Nossa Operação
   </h2>
   
+  {/* Vídeo do YouTube */}
   <div style={{
     width: '100%',
     maxWidth: isMobile ? '100%' : '900px',
@@ -694,10 +695,10 @@ const avaliacoes = [
     <iframe
       width="100%"
       height="100%"
-      src="https://www.youtube.com/embed/xOPT4YXLV2E?autoplay=0&mute=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&iv_load_policy=3"      title="Conheça Nossa Operação - Marques Vendas PMG"
-      title="Conheça Nossa Operação - Marques Vendas PMG"
+      src="https://www.youtube.com/embed/xOPT4YXLV2E?autoplay=0&mute=0&rel=0&modestbranding=1&playsinline=1"
+      title="PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados"
       frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen
       style={{
         display: 'block',
@@ -705,6 +706,21 @@ const avaliacoes = [
       }}
     />
   </div>
+
+{/* Texto descritivo para SEO - ESCONDIDO visualmente mas o Google lê */}
+<div style={{ 
+  maxWidth: '800px',
+  marginTop: '20px',
+  opacity: '0',
+  height: '0',
+  overflow: 'hidden',
+  position: 'absolute'
+}}>
+  <h3>PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados</h3>
+  <p>Há 30 anos a PMG Atacadista conecta negócios com confiança e resultados sólidos. Distribuidora food service especializada em atacado para restaurantes, bares, mercados e estabelecimentos comerciais. Localizada em Itapecerica da Serra, atendemos toda a Grande São Paulo com entrega rápida e condições especiais para compras em atacado.</p>
+  <p>Trabalhamos com laticínios, queijos, embutidos, massas, bebidas, congelados e produtos alimentícios em geral. Estrutura moderna com controle de qualidade e temperatura para garantir a procedência e frescor dos produtos. Atendimento personalizado para revendedores e comerciantes com mais de 30 anos de experiência no mercado.</p>
+  <p>Produtos das melhores marcas do mercado com garantia de qualidade e procedência. Conheça nossa operação completa através do vídeo e veja porque somos referência em distribuição food service na região.</p>
+</div>
   
   <p style={{
     color: '#666',
