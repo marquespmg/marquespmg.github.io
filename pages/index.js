@@ -718,7 +718,7 @@ const avaliacoes = [
   </p>
 </section>
 
-{/* Seção CTA Simplificada com suas Frases */}
+{/* Seção CTA Simplificada com suas Frases - CORRIGIDA */}
 <section style={{
   textAlign: 'center',
   margin: isMobile ? '30px 0' : '50px 0',
@@ -726,11 +726,12 @@ const avaliacoes = [
   backgroundColor: '#f0f8f0',
   borderRadius: '12px',
   boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
-  width: isMobile ? 'calc(100% - 30px)' : '90%',
+  width: '100%',
   maxWidth: '800px',
   marginLeft: 'auto',
   marginRight: 'auto',
-  border: '1px solid #e0f0e0'
+  border: '1px solid #e0f0e0',
+  boxSizing: 'border-box' // ← ADICIONE ISSO
 }}>
   <div style={{
     maxWidth: '600px',
@@ -750,30 +751,29 @@ const avaliacoes = [
       color: '#444',
       fontSize: isMobile ? '1rem' : '1.1rem',
       margin: isMobile ? '0 auto 20px' : '0 auto 30px',
-      lineHeight: '1.6'
+      lineHeight: '1.6',
+      maxWidth: '95%' // ← EVITA TEXTO MUITO LONGO
     }}>
       Ganhe acesso completo ao nosso catálogo com condições especiais para seu negócio!
     </p>
     
     <Link href="/produtos" passHref legacyBehavior>
-      <a style={{
-        display: 'inline-block',
-        padding: isMobile ? '14px 30px' : '16px 40px',
-        backgroundColor: '#095400',
-        color: '#fff',
-        textDecoration: 'none',
-        borderRadius: '8px',
-        fontSize: isMobile ? '1.1rem' : '1.2rem',
-        fontWeight: '700',
-        transition: 'all 0.3s ease',
-        boxShadow: '0 4px 12px rgba(9, 84, 0, 0.3)',
-        ':hover': {
-          backgroundColor: '#0a6b00',
-          transform: 'translateY(-2px)',
-          boxShadow: '0 6px 16px rgba(9, 84, 0, 0.4)'
-        },
-        marginBottom: '15px'
-      }}>
+      <a 
+        className="cta-button" // ← MUDEI PARA CLASSNAME
+        style={{
+          display: 'inline-block',
+          padding: isMobile ? '14px 30px' : '16px 40px',
+          backgroundColor: '#095400',
+          color: '#fff',
+          textDecoration: 'none',
+          borderRadius: '8px',
+          fontSize: isMobile ? '1.1rem' : '1.2rem',
+          fontWeight: '700',
+          transition: 'all 0.3s ease',
+          boxShadow: '0 4px 12px rgba(9, 84, 0, 0.3)',
+          marginBottom: '15px'
+        }}
+      >
         COMPRE AGORA →
       </a>
     </Link>
