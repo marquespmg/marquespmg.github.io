@@ -734,6 +734,44 @@ const avaliacoes = [
   </p>
 </section>
 
+{/* Conteúdo SEO PMG Atacadista - VISÍVEL APENAS PARA O GOOGLE */}
+<div style={{
+  opacity: '0',
+  height: '0',
+  overflow: 'hidden',
+  position: 'absolute',
+  pointerEvents: 'none'
+}}>
+  <h1>PMG Atacadista - Distribuidora e Atacadista em Itapecerica da Serra</h1>
+  
+  <h2>PMG Atacadista - 30 Anos no Mercado</h2>
+  <p>A PMG Atacadista é uma distribuidora e atacadista localizada em Itapecerica da Serra, atendendo toda a Grande São Paulo. Com mais de 30 anos de experiência, a PMG Atacadista oferece produtos de qualidade para restaurantes, bares, mercados e estabelecimentos comerciais.</p>
+  
+  <h3>PMG Atacadista Telefone e Contato</h3>
+  <p>Telefone da PMG Atacadista: (11) 91357-2902. Endereço da PMG Atacadista: Estrada Ferreira Guedes, 784 - Potuverá, Itapecerica da Serra - SP, CEP 06885-150.</p>
+  
+  <h3>PMG Atacadista Produtos e Serviços</h3>
+  <p>PMG Atacadista trabalha com laticínios, queijos, embutidos, massas, bebidas, congelados e diversos produtos alimentícios. PMG Atacadista app para facilitar pedidos. PMG Atacadista entrega rápida.</p>
+  
+  <h3>PMG Atacadista Redes Sociais</h3>
+  <p>PMG Atacadista Facebook: facebook.com/MarquesVendaspmg. PMG Atacadista Instagram: instagram.com/marquesvendaspmg. PMG Atacadista YouTube: youtube.com/@MarquesVendasPMG.</p>
+  
+  <h3>PMG Atacadista Santo Amaro e Região</h3>
+  <p>PMG Atacadista atende Santo Amaro e toda região da Grande São Paulo. PMG Atacadista distribuidora autorizada. PMG Atacadista preços competitivos.</p>
+  
+  <h3>PNG Atacadista</h3>
+  <p>Também conhecida como PNG Atacadista, a PMG Atacadista é referência em distribuição food service. PMG Atacadista confiança e resultados.</p>
+  
+  <h3>PMG Atacadista Itapecerica da Serra</h3>
+  <p>PMG Atacadista Itapecerica da Serra - distribuidora local com entrega para toda região. PMG Atacadista estoque amplo e variedade de produtos.</p>
+  
+  <h3>PMG Atacado</h3>
+  <p>PMG Atacado - condições especiais para compras em grande quantidade. PMG Atacadista melhores preços de atacado.</p>
+  
+  <h3>PMG</h3>
+  <p>PMG - Empresa sólida no mercado de distribuição. PMG tradição e qualidade. PMG atendimento personalizado.</p>
+</div>
+
 {/* Seção CTA Simplificada com suas Frases - CORRIGIDA */}
 <section style={{
   textAlign: 'center',
