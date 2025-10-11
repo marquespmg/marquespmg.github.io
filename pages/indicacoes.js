@@ -897,6 +897,20 @@ let url = '';
     );
   }
 
+  {/* Conteúdo SEO PMG Atacadista Indicações - VISÍVEL APENAS PARA O GOOGLE */}
+<div style={{
+  opacity: '0', height: '0', overflow: 'hidden', position: 'absolute', pointerEvents: 'none'
+}}>
+  <h1>PMG Atacadista - Programa de Indicações e Parcerias</h1>
+  <p>PMG Atacadista programa de indicações - indique clientes e ganhe benefícios. PMG Atacadista parcerias comerciais para revendedores e distribuidores.</p>
+  
+  <h2>PMG Atacadista Seja um Parceiro</h2>
+  <p>PMG Atacadista oportunidades de negócio. PMG Atacadista revenda autorizada. PMG Atacadista condições especiais para parceiros.</p>
+  
+  <h3>PMG Atacadista Trabalhe Conosco</h3>
+  <p>PMG Atacadista vagas para representantes comerciais. PMG Atacadista oportunidades na área de vendas. PMG Atacadista crescimento profissional.</p>
+</div>
+
   // Calcular estatísticas
   const totalReferrals = referralHistory.length;
   const validatedReferrals = referralHistory.filter(ref => ref.status === 'validada').length;
