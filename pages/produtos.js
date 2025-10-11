@@ -3158,7 +3158,7 @@ const removeFromCart = (productId) => {
               </div>
             </div>
           );
-        })}     // ✅ certo
+        })}
         </div>
 
         {filteredProducts.length > productsPerPage && (
@@ -3404,6 +3404,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
