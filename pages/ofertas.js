@@ -810,6 +810,20 @@ const OfertasPage = () => {
   </div>
 )}
 
+{/* Conteúdo SEO PMG Atacadista Ofertas - VISÍVEL APENAS PARA O GOOGLE */}
+<div style={{
+  opacity: '0', height: '0', overflow: 'hidden', position: 'absolute', pointerEvents: 'none'
+}}>
+  <h1>PMG Atacadista - Ofertas Especiais e Promoções em Atacado</h1>
+  <p>PMG Atacadista ofertas especiais para atacado. Confira as promoções da PMG Atacadista em laticínios, queijos, embutidos, bebidas, congelados e produtos alimentícios. PMG Atacadista preços competitivos com condições especiais para restaurantes, bares e mercados.</p>
+  
+  <h2>PMG Atacadista Ofertas da Semana</h2>
+  <p>PMG Atacadista ofertas com preços imbatíveis. PMG Atacadista promoções em produtos food service. PMG Atacadista descontos especiais para compras em grande quantidade.</p>
+  
+  <h3>PMG Atacadista App Ofertas</h3>
+  <p>PMG Atacadista app para acompanhar ofertas exclusivas. PMG Atacadista telefone para pedidos: (11) 91357-2902. PMG Atacadista entrega rápida na Grande São Paulo.</p>
+</div>
+
       {/* Rodapé Premium com Redes Sociais */}
       <footer style={styles.footer}>
         {/* Redes Sociais */}
