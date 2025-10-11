@@ -2,6 +2,58 @@ import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
 
+// CONFIGURAÇÃO DAS PALAVRAS-CHAVE POR CATEGORIA
+const categoryKeywords = {
+  // BEBIDAS
+  'ÁGUA MINERAL': 'água mineral, água sem gás, água com gás, água potável, bebida hidratação',
+  'REFRIGERANTE': 'refrigerante, coca cola, pepsi, guaraná, fanta, sprite, bebida gaseificada',
+  'CERVEJA': 'cerveja, skol, brahma, antarctica, heineken, bebida alcoólica, lata cerveja',
+  'SUCO': 'suco, suco natural, suco integral, suco concentrado, bebida fruta, néctar',
+  'ENERGÉTICO': 'energético, red bull, monster, burn, tnt, bebida energia',
+  'VINHO NACIONAL': 'vinho, vinho tinto, vinho branco, vinho seco, vinho suave, bebida uva',
+  'WHISKY': 'whisky, johnnie walker, jack daniels, ballantines, bebida destilada',
+  
+  // CARNES
+  'CARNE BOVINA': 'carne bovina, picanha, alcatra, contrafilé, maminha, carne churrasco',
+  'FRANGO': 'frango, frango inteiro, frango cortado, frango congelado, carne ave',
+  'LINGUIÇA': 'linguiça, linguiça toscana, linguiça calabresa, linguiça frango, embutido',
+  'PRESUNTO': 'presunto, presunto cozido, presunto defumado, fiambre, frios',
+  'QUEIJO': 'queijo, mussarela, prato, minas, parmesão, queijo derretido, laticínio',
+  
+  // MERCEARIA
+  'ARROZ': 'arroz, arroz branco, arroz integral, arroz parboilizado, arroz tipo 1',
+  'FEIJÃO': 'feijão, feijão carioca, feijão preto, feijão branco, leguminosa',
+  'ÓLEO': 'óleo, óleo soja, óleo girassol, óleo milho, azeite, gordura vegetal',
+  'AÇÚCAR': 'açúcar, açúcar refinado, açúcar cristal, açúcar mascavo, adoçante',
+  'FARINHA DE TRIGO': 'farinha, farinha trigo, farinha rosca, amido, fermento',
+  'MACARRÃO': 'macarrão, espaguete, parafuso, penne, lasanha, massa italiana',
+  
+  // LIMPEZA
+  'PRODUTO DE LIMPEZA': 'detergente, sabão, álcool, desinfetante, limpeza, higiene',
+  
+  // DESCARTÁVEIS
+  'DESCARTÁVEL': 'prato descartável, copo descartável, talher descartável, papel filme',
+  
+  // E MUITAS OUTRAS...
+  'BATATA CONGELADA': 'batata, batata frita, batata palha, batata palito, congelado',
+  'CAFÉ': 'café, café torrado, café moído, café solúvel, bebida café'
+};
+
+// FUNÇÃO AUTOMÁTICA - VOCÊ NÃO PRECISA MEXER EM NADA!
+const generateImageSEO = (product) => {
+  const productName = product.name.toLowerCase();
+  const categoryKey = Object.keys(categoryKeywords).find(key => 
+    product.category.includes(key)
+  );
+  
+  const keywords = categoryKey ? categoryKeywords[categoryKey] : 'produto atacado, food service';
+  
+  return {
+    alt: `${product.name} - ${keywords} - PMG Atacadista - Atacado Food Service Itapecerica`,
+    title: `${product.name} - PMG Atacadista - Melhor Preço em Atacado`,
+  };
+};
+
 const categories = [
   'Acessórios', 'Bebidas', 'Conservas/Enlatados', 'Derivados de Ave', 
   'Derivados de Bovino', 'Derivados de Leite', 'Derivados de Suíno', 
@@ -3045,23 +3097,27 @@ const removeFromCart = (productId) => {
           ))}
         </div>
 
-        <div style={styles.productsGrid}>
-          {currentProducts.map(product => (
-            <div 
-              key={product.id} 
-              style={{
-                ...styles.productCard,
-                ...(product.price === 0 && { opacity: 0.7 })
-              }}
-            >
-              <img 
-                src={product.image} 
-                alt={product.name} 
-                style={styles.productImage}
-                onError={(e) => {
-e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
-                }}
-              />
+<div style={styles.productsGrid}>
+  {currentProducts.map(product => {
+    const seo = generateImageSEO(product); // ← LINHA ADICIONADA
+    
+    return (
+      <div 
+        key={product.id} 
+        style={{
+          ...styles.productCard,
+          ...(product.price === 0 && { opacity: 0.7 })
+        }}
+      >
+        <img 
+          src={product.image} 
+          alt={seo.alt}                    // ← MODIFICADO
+          title={seo.title}                // ← ADICIONADO
+          style={styles.productImage}
+          onError={(e) => {
+            e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
+          }}
+        />
               <div style={styles.productInfo}>
                 <div style={styles.productNameContainer}>
                   <h3 style={styles.productName}>
@@ -3101,7 +3157,8 @@ e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível
                 )}
               </div>
             </div>
-          ))}
+          );
+        })}     // ✅ certo
         </div>
 
         {filteredProducts.length > productsPerPage && (
@@ -3347,6 +3404,7 @@ e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível
   };
 
   export default ProductsPage;
+
 
 
 
