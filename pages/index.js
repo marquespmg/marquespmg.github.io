@@ -313,28 +313,28 @@ const avaliacoes = [
     })}
   </script>
   
-  {/* Schema para Vídeo */}
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "VideoObject",
-      "name": "PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados",
-      "description": "Há 30 anos a PMG Atacadista conecta negócios com confiança e resultados sólidos. Distribuidora food service em Itapecerica da Serra.",
-      "thumbnailUrl": "https://img.youtube.com/vi/xOPT4YXLV2E/maxresdefault.jpg",
-      "uploadDate": "2024-12-19",
-      "duration": "PT1M",
-      "contentUrl": "https://www.youtube.com/embed/xOPT4YXLV2E",
-      "embedUrl": "https://www.youtube.com/embed/xOPT4YXLV2E",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Marques Vendas PMG",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://i.imgur.com/pBH5WpZ.png"
-        }
+{/* Schema para Vídeo - VERSÃO CORRIGIDA COM DADOS REAIS */}
+<script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados",
+    "description": "Há 30 anos a PMG Atacadista conecta negócios com confiança e resultados sólidos. Distribuidora food service em Itapecerica da Serra.",
+    "thumbnailUrl": "https://img.youtube.com/vi/xOPT4YXLV2E/maxresdefault.jpg",
+    "uploadDate": "2025-10-08T19:10:00-03:00", // 8 de outubro de 2025, 19:10 PM
+    "duration": "PT3M20S", // 3 minutos e 20 segundos EXATOS
+    "contentUrl": "https://www.youtube.com/watch?v=xOPT4YXLV2E",
+    "embedUrl": "https://www.youtube.com/embed/xOPT4YXLV2E",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Marques Vendas PMG",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://i.imgur.com/pBH5WpZ.png"
       }
-    })}
-  </script>
+    }
+  })}
+</script>
   
   {/* ========== KEYWORDS E OTIMIZAÇÕES EXTRAS ========== */}
   <meta name="keywords" content="distribuidora food service, atacadista itapecerica, produtos para restaurante, atacado bebidas, alimentos atacado, marques vendas pmg, distribuidora autorizada, atacadista grande sp" />
