@@ -5,76 +5,76 @@ import Link from 'next/link';
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { 
-    id: 1063, 
-    name: 'PRESUNTO REZENDE 3.4 KILO PÇ', 
-    category: 'Ofertas', 
-    price: 73.99, 
-    image: 'https://i.imgur.com/xwIv7bR.png' 
-  },
-  { 
-    id: 938, 
-    name: 'APRESUNTADO REZENDE 3,4 KILO PÇ', 
-    category: 'Ofertas', 
-    price: 62.00, 
-    image: 'https://i.imgur.com/CddqyjS.png' 
-  },
-  { 
-    id: 719, 
-    name: 'MUÇARELA BARI 4 KG', 
-    category: 'Ofertas', 
-    price: 27.55, 
-    image: 'https://i.imgur.com/J3OqbkZ.png' 
-  },
-  { 
-    id: 1282, 
-    name: 'GORDURA VEGETAL FRY 400 COAMO (BD 14,5 KILO)', 
-    category: 'Ofertas', 
-    price: 163.00, 
-    image: 'https://i.imgur.com/BSu4hgF.png' 
-  },
-  { 
-    id: 1355, 
-    name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', 
-    category: 'Ofertas', 
-    price: 177.00, 
-    image: 'https://i.imgur.com/7n8ckfX.png' 
-  },
-  { 
-    id: 1107, 
-    name: 'ARROZ BRANCO TIPO 1 SOLITO 5 KILO (FDO 6 PCT)', 
-    category: 'Ofertas', 
-    price: 124.39, 
-    image: 'https://i.imgur.com/ZxyHXzW.png' 
-  },
-  { 
-    id: 1268, 
-    name: 'FEIJÃO CARIOCA TIPO 1 SOLITO 1 KILO (FDO 10 PCT)', 
-    category: 'Ofertas', 
-    price: 70.55, 
-    image: 'https://i.imgur.com/zAH59YU.png' 
-  },
-  { 
-    id: 1484, 
-    name: 'AÇÚCAR REFINADO ALTO ALEGRE 1 KILO (FDO 10 PCT)', 
-    category: 'Ofertas', 
-    price: 45.00, 
-    image: 'https://i.imgur.com/OAA8hCL.png' 
-  },
-  { 
-    id: 1273, 
-    name: 'FEIJÃO PRETO TIPO 1 SOLITO 1 KILO (FDO 10 PCT)', 
-    category: 'Ofertas', 
-    price: 53.00, 
-    image: 'https://i.imgur.com/aHQwbQy.png' 
-  },
-  { 
-    id: 746, 
-    name: 'MUÇARELA FRIZZO 4 KG', 
-    category: 'Ofertas', 
-    price: 27.98, 
-    image: 'https://i.imgur.com/q9a5I8n.png' 
-  }
+{
+  id: 1756,
+  name: 'FARINHA DE TRIGO PREMIUM ANACONDA 5 KILO (FDO 25 KILO)',
+  category: 'Ofertas',
+  price: 124.22,
+  image: 'https://i.imgur.com/fe6V8D2.png',
+},
+{
+  id: 1735,
+  name: 'FARINHA DE TRIGO PEQUENA PREMIUM ANACONDA 1 KILO (FDO 10 KILO)',
+  category: 'Ofertas',
+  price: 45.33,
+  image: 'https://i.imgur.com/ywH3bp4.png',
+},
+{
+  id: 1767,
+  name: 'FARINHA DE TRIGO TIPO 1 SOL 5 KILO (FDO 25 KILO)',
+  category: 'Ofertas',
+  price: 100.00,
+  image: 'https://i.imgur.com/CW0JPEA.png',
+},
+{
+  id: 1320,
+  name: 'MARGARINA FOLHADOS & CROISSANTS 80 % AMÉLIA 2 KILO (CX 6 UN)',
+  category: 'Ofertas',
+  price: 215.00,
+  image: 'https://i.imgur.com/2pvaNlo.png',
+},
+{
+  id: 1318,
+  name: 'MARGARINA COM SAL 80 % AMÉLIA (BD 14 KILO)',
+  category: 'Ofertas',
+  price: 189.99,
+  image: 'https://i.imgur.com/42NyvIv.png',
+},
+{
+  id: 1774,
+  name: 'FERMENTO EM PÓ QUÍMICO TRADICIONAL DONA BENTA 100 G',
+  category: 'Ofertas',
+  price: 3.09,
+  image: 'https://i.imgur.com/QQnUci6.png',
+},
+{
+  id: 1743,
+  name: 'FARINHA DE TRIGO PEQUENA TIPO 1 ROSA BRANCA 1 KILO (FDO 10 KILO)',
+  category: 'Ofertas',
+  price: 55.77,
+  image: 'https://i.imgur.com/PmbsA58.png',
+},
+{
+  id: 1034,
+  name: 'MORTADELA TRADICIONAL MARBA 5 KG',
+  category: 'Ofertas',
+  price: 11.99,
+  image: 'https://i.imgur.com/MArz8B2.png',
+},
+{
+  id: 1059,
+  name: 'PRESUNTO DÁLIA 3.3 KILO PÇ',
+  category: 'Ofertas',
+  price: 72.44,
+  image: 'https://i.imgur.com/XOYlXlu.png',
+},
+{
+  id: 502,
+  name: 'OVOS BRANCOS TIPO GRANDE MODELO 60 UN (CX 2 BDJ)',
+  category: 'Ofertas',
+  price: 49.99,
+  image: 'https://i.imgur.com/y2Hue0m.png',
+}
 ];
 
 // ========== BANNERS ========== //
