@@ -8,7 +8,7 @@ export default function Home() {
     { 
       id: 1,
       desktop: 'https://i.imgur.com/MiXi0pu.png',
-      mobile: 'https://i.imgur.com/E4Lsuky.png'
+      mobile: 'https://i.imgur.com/MiXi0pu.png'
     },
     { 
       id: 2,
