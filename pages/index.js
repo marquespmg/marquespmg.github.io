@@ -336,67 +336,89 @@ const avaliacoes = [
   })}
 </script>
 
-{/* NOVO: Schema Products */}
+{/* NOVO: Schema Products - VERSÃO CORRIGIDA */}
 <script type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org/",
-    "@graph": [
-      { // ← FALTAVA ESTA CHAVE AQUI!
-        "@type": "Product",
-        "name": "MUÇARELA BARI 4 KG",
-        "description": "Queijo Muçarela Bari 4kg - Produto de alta qualidade para seu estabelecimento",
-        "category": "Derivados de Leite",
-        "image": "https://i.imgur.com/J3OqbkZ.png",
-        "offers": {
-          "@type": "Offer",
+{JSON.stringify({
+  "@context": "https://schema.org/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "MUÇARELA BARI 4 KG",
+      "description": "Queijo Muçarela Bari 4kg - Produto de alta qualidade para restaurantes, bares e mercados",
+      "category": "Derivados de Leite",
+      "image": "https://i.imgur.com/J3OqbkZ.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Bari"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "27.63",
+        "priceCurrency": "BRL",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
           "price": "27.63",
           "priceCurrency": "BRL",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "27.63",
-            "priceCurrency": "BRL",
-            "referenceQuantity": {
-              "@type": "QuantitativeValue",
-              "value": "1",
-              "unitCode": "KGM"
-            }
-          },
-          "availability": "https://schema.org/InStock",
-          "seller": {
-            "@type": "LocalBusiness",
-            "name": "Marques Vendas PMG"
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": "1",
+            "unitCode": "KGM"
           }
-        }
-      },
-      { // ← E ESTA TAMBÉM!
-        "@type": "Product",
-        "name": "MUÇARELA TRÊS MARIAS RONDÔNIA OURO PRETO 4 KG",
-        "description": "Queijo Muçarela Três Marias Rondônia Ouro Preto 4kg - Qualidade premium",
-        "category": "Derivados de Leite", 
-        "image": "https://i.imgur.com/6I3X8vV.png",
-        "offers": {
-          "@type": "Offer",
-          "price": "35.28",
-          "priceCurrency": "BRL",
-          "priceSpecification": {
-            "@type": "UnitPriceSpecification",
-            "price": "35.28", 
-            "priceCurrency": "BRL",
-            "referenceQuantity": {
-              "@type": "QuantitativeValue",
-              "value": "1",
-              "unitCode": "KGM"
-            }
-          },
-          "availability": "https://schema.org/InStock",
-          "seller": {
-            "@type": "LocalBusiness", 
-            "name": "Marques Vendas PMG"
+        },
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "LocalBusiness",
+          "name": "Marques Vendas PMG",
+          "telephone": "+55-11-91357-2902",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Itapecerica da Serra",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
           }
         }
       }
-    ]
-  })}
+    },
+    {
+      "@type": "Product",
+      "name": "MUÇARELA TRÊS MARIAS RONDÔNIA OURO PRETO 4 KG",
+      "description": "Queijo Muçarela Três Marias Rondônia Ouro Preto 4kg - Qualidade premium para food service",
+      "category": "Derivados de Leite",
+      "image": "https://i.imgur.com/6I3X8vV.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Três Marias"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "35.28",
+        "priceCurrency": "BRL",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "35.28",
+          "priceCurrency": "BRL",
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": "1",
+            "unitCode": "KGM"
+          }
+        },
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "LocalBusiness",
+          "name": "Marques Vendas PMG",
+          "telephone": "+55-11-91357-2902",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Itapecerica da Serra",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+          }
+        }
+      }
+    }
+  ]
+})}
 </script>
 
   {/* ========== KEYWORDS E OTIMIZAÇÕES EXTRAS ========== */}
