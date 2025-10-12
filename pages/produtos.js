@@ -2083,22 +2083,22 @@ const banners = [
   { 
     id: 1,
     desktop: 'https://i.imgur.com/lzxANGT.gif',
-    mobile: 'https://i.imgur.com/sS31EnX.gif'
+    mobile: 'https://i.imgur.com/lzxANGT.gif'
   },
   { 
     id: 2,
     desktop: 'https://i.imgur.com/Yy7RIna.png',
-    mobile: 'https://i.imgur.com/WiB6fYX.png'
+    mobile: 'https://i.imgur.com/Yy7RIna.png'
   },
   { 
     id: 3,
     desktop: 'https://i.imgur.com/vVskyqX.png',
-    mobile: 'https://i.imgur.com/kLDkiAy.png'
+    mobile: 'https://i.imgur.com/vVskyqX.png'
   },
   { 
     id: 4,
     desktop: 'https://i.imgur.com/LmzBiOq.png',
-    mobile: 'https://i.imgur.com/vYBBAd6.png'
+    mobile: 'https://i.imgur.com/LmzBiOq.png'
   }
 ];
 
@@ -3404,6 +3404,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
