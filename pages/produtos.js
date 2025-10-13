@@ -2079,26 +2079,27 @@ const products = [
   // Continue a adicionar seus produtos
 ];
 
+// ========== BANNERS ========== //
 const banners = [
   { 
     id: 1,
-    desktop: 'https://i.imgur.com/lzxANGT.gif',
-    mobile: 'https://i.imgur.com/lzxANGT.gif'
+    desktop: 'https://i.imgur.com/m9DxquV.png',
+    mobile: 'https://i.imgur.com/m9DxquV.png'
   },
   { 
     id: 2,
-    desktop: 'https://i.imgur.com/Yy7RIna.png',
-    mobile: 'https://i.imgur.com/Yy7RIna.png'
+    desktop: 'https://i.imgur.com/g6h6z2i.png',
+    mobile: 'https://i.imgur.com/g6h6z2i.png'
   },
   { 
     id: 3,
-    desktop: 'https://i.imgur.com/vVskyqX.png',
-    mobile: 'https://i.imgur.com/vVskyqX.png'
+    desktop: 'https://i.imgur.com/w9JCpKX.png',
+    mobile: 'https://i.imgur.com/w9JCpKX.png'
   },
   { 
     id: 4,
-    desktop: 'https://i.imgur.com/LmzBiOq.png',
-    mobile: 'https://i.imgur.com/LmzBiOq.png'
+    desktop: 'https://i.imgur.com/gX6M2lu.png',
+    mobile: 'https://i.imgur.com/gX6M2lu.png'
   }
 ];
 
@@ -3404,6 +3405,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
