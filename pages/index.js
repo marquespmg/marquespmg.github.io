@@ -337,15 +337,41 @@ const avaliacoes = [
   })}
 </script>
 
-{/* NOVO: Schema Products - VERSÃO CORRIGIDA */}
+{/* SCHEMA - LocalBusiness + Products */}
 <script type="application/ld+json">
 {JSON.stringify({
-  "@context": "https://schema.org/",
+  "@context": "https://schema.org",
   "@graph": [
+    // BLOCO PRINCIPAL DA EMPRESA
+    {
+      "@type": "LocalBusiness",
+      "name": "Marques Vendas PMG",
+      "image": "https://i.imgur.com/jrERRsC.png",
+      "description": "Distribuidora autorizada food service com produtos de qualidade para restaurantes, bares e mercados.",
+      "url": "https://www.marquesvendaspmg.shop/",
+      "telephone": "+55-11-91357-2902",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+        "addressLocality": "Itapecerica da Serra",
+        "addressRegion": "SP",
+        "postalCode": "06885-150",
+        "addressCountry": "BR"
+      },
+      "areaServed": "Grande São Paulo",
+      "sameAs": [
+        "https://www.facebook.com/MarquesVendaspmg",
+        "https://www.instagram.com/marquesvendaspmg",
+        "https://www.youtube.com/@MarquesVendasPMG"
+      ]
+    },
+
+    // PRODUTO 1
     {
       "@type": "Product",
       "name": "MUÇARELA BARI 4 KG",
-      "description": "Queijo Muçarela Bari 4kg - Produto de alta qualidade para restaurantes, bares e mercados",
+      "description": "Queijo Muçarela Bari 4kg - Produto de alta qualidade para restaurantes, bares e mercados.",
       "category": "Derivados de Leite",
       "image": "https://i.imgur.com/J3OqbkZ.png",
       "brand": {
@@ -356,6 +382,7 @@ const avaliacoes = [
         "@type": "Offer",
         "price": "27.63",
         "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock",
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
           "price": "27.63",
@@ -366,7 +393,6 @@ const avaliacoes = [
             "unitCode": "KGM"
           }
         },
-        "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "LocalBusiness",
           "name": "Marques Vendas PMG",
@@ -376,16 +402,17 @@ const avaliacoes = [
             "@type": "PostalAddress",
             "addressLocality": "Itapecerica da Serra",
             "addressRegion": "SP",
-            "priceRange": "$$",
             "addressCountry": "BR"
           }
         }
       }
     },
+
+    // PRODUTO 2
     {
       "@type": "Product",
       "name": "MUÇARELA TRÊS MARIAS RONDÔNIA OURO PRETO 4 KG",
-      "description": "Queijo Muçarela Três Marias Rondônia Ouro Preto 4kg - Qualidade premium para food service",
+      "description": "Queijo Muçarela Três Marias Rondônia Ouro Preto 4kg - Qualidade premium para food service.",
       "category": "Derivados de Leite",
       "image": "https://i.imgur.com/6I3X8vV.png",
       "brand": {
@@ -396,6 +423,7 @@ const avaliacoes = [
         "@type": "Offer",
         "price": "35.28",
         "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock",
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
           "price": "35.28",
@@ -406,7 +434,6 @@ const avaliacoes = [
             "unitCode": "KGM"
           }
         },
-        "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "LocalBusiness",
           "name": "Marques Vendas PMG",
@@ -416,7 +443,6 @@ const avaliacoes = [
             "@type": "PostalAddress",
             "addressLocality": "Itapecerica da Serra",
             "addressRegion": "SP",
-            "priceRange": "$$",
             "addressCountry": "BR"
           }
         }
