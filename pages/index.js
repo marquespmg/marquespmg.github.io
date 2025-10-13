@@ -286,6 +286,7 @@ const avaliacoes = [
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Marques Vendas PMG",
+      "image": "https://i.imgur.com/jrERRsC.png",
       "description": "Distribuidora autorizada food service com produtos de qualidade para restaurantes, bares e mercados",
       "url": "https://www.marquesvendaspmg.shop",
       "telephone": "+55-11-91357-2902",
@@ -369,11 +370,13 @@ const avaliacoes = [
         "seller": {
           "@type": "LocalBusiness",
           "name": "Marques Vendas PMG",
+          "image": "https://i.imgur.com/jrERRsC.png",
           "telephone": "+55-11-91357-2902",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Itapecerica da Serra",
             "addressRegion": "SP",
+            "priceRange": "$$",
             "addressCountry": "BR"
           }
         }
@@ -407,11 +410,13 @@ const avaliacoes = [
         "seller": {
           "@type": "LocalBusiness",
           "name": "Marques Vendas PMG",
+          "image": "https://i.imgur.com/jrERRsC.png",
           "telephone": "+55-11-91357-2902",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Itapecerica da Serra",
             "addressRegion": "SP",
+            "priceRange": "$$",
             "addressCountry": "BR"
           }
         }
