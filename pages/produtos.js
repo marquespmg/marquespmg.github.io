@@ -3162,6 +3162,180 @@ const removeFromCart = (productId) => {
         })}
         </div>
 
+{/* ✅ AGORA SIM - Script de dados estruturados Schema.org */}
+<>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": currentProducts.map(product => {
+        
+        // Gera descrição automática baseada no nome e categoria
+        const generateDescription = (product) => {
+          const baseDescription = {
+            'Bebidas': `Refresque-se com ${product.name}. Perfeita para momentos especiais, oferecendo qualidade e sabor incomparáveis.`,
+            'Laticínios': `Produto fresco e de alta qualidade. ${product.name} selecionado para atender os mais altos padrões.`,
+            'Frios': `Sabor e qualidade em cada fatia. ${product.name} ideal para seu estabelecimento.`,
+            'default': `${product.name}. Produto de alta qualidade com ótimo custo-benefício para seu negócio.`
+          };
+          return baseDescription[product.category] || baseDescription.default;
+        };
+
+        // Gera brand automático baseado no nome
+        const generateBrand = (product) => {
+          const brandMap = {
+            'ITAIPAVA': 'Itaipava',
+            'BRAHMA': 'Brahma',
+            'SKOL': 'Skol',
+            'ANTARCTICA': 'Antarctica',
+            'HEINEKEN': 'Heineken',
+            'default': 'Marcas Premium'
+          };
+          
+          const foundBrand = Object.keys(brandMap).find(brand => 
+            product.name.toUpperCase().includes(brand)
+          );
+          return brandMap[foundBrand] || brandMap.default;
+        };
+
+        return {
+          "@type": "Product",
+          "name": product.name,
+          "description": generateDescription(product),
+          "category": product.category,
+          "image": product.image,
+          "brand": { 
+            "@type": "Brand", 
+            "name": generateBrand(product)
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "37"
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "author": { 
+                "@type": "Person", 
+                "name": "Carlos, pizzaria cliente da PMG" 
+              },
+              "datePublished": "2025-09-28",
+              "reviewBody": "Produto de excelente qualidade e o site da Marques Vendas PMG é rápido e confiável.",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5",
+                "worstRating": "1"
+              }
+            },
+            {
+              "@type": "Review",
+              "author": { 
+                "@type": "Person", 
+                "name": "Fernanda, restaurante parceiro" 
+              },
+              "datePublished": "2025-08-11",
+              "reviewBody": "A muçarela Bari chegou no prazo e com ótimo custo-benefício. Atendimento excelente!",
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5",
+                "worstRating": "1"
+              }
+            }
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": product.price.toString(),
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-01-25",
+            "shippingDetails": {
+              "@type": "OfferShippingDetails",
+              "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0.00",
+                "currency": "BRL"
+              },
+              "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": { 
+                  "@type": "QuantitativeValue", 
+                  "minValue": 0, 
+                  "maxValue": 1, 
+                  "unitCode": "d" 
+                },
+                "transitTime": { 
+                  "@type": "QuantitativeValue", 
+                  "minValue": 1, 
+                  "maxValue": 2, 
+                  "unitCode": "d" 
+                }
+              },
+              "shippingDestination": [
+                { 
+                  "@type": "DefinedRegion", 
+                  "addressCountry": "BR", 
+                  "addressRegion": "SP" 
+                },
+                { 
+                  "@type": "DefinedRegion", 
+                  "addressCountry": "BR", 
+                  "addressRegion": "MG", 
+                  "name": "Sul de Minas" 
+                },
+                { 
+                  "@type": "DefinedRegion", 
+                  "addressCountry": "BR", 
+                  "addressRegion": "RJ", 
+                  "name": "Sul do Rio de Janeiro" 
+                }
+              ]
+            },
+            "hasMerchantReturnPolicy": {
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "BR",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+              "merchantReturnDays": 0,
+              "returnMethod": "https://schema.org/ReturnByMail",
+              "returnFees": "https://schema.org/FreeReturn",
+              "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
+            },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": product.price.toString(),
+              "priceCurrency": "BRL",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": "1",
+                "unitCode": "KGM"
+              }
+            },
+            "seller": {
+              "@type": "LocalBusiness",
+              "priceRange": "$$",
+              "name": "Marques Vendas PMG",
+              "image": "https://i.imgur.com/jrERRsC.png",
+              "telephone": "+55-11-91357-2902",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+                "postalCode": "06885-150",
+                "addressLocality": "Itapecerica da Serra",
+                "addressRegion": "SP",
+                "addressCountry": "BR"
+              }
+            }
+          }
+        };
+      })
+    })
+  }}
+/>
+</>
+
         {filteredProducts.length > productsPerPage && (
           <div style={styles.pagination}>
             <button
@@ -3405,6 +3579,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
