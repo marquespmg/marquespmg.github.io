@@ -414,6 +414,7 @@ const avaliacoes = [
         },
         "seller": {
           "@type": "LocalBusiness",
+          "priceRange": "$$",
           "name": "Marques Vendas PMG",
           "image": "https://i.imgur.com/jrERRsC.png",
           "telephone": "+55-11-91357-2902",
