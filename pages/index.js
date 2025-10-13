@@ -413,7 +413,7 @@ const avaliacoes = [
           "applicableCountry": "BR",
           "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
           "merchantReturnDays": 0,
-          "returnMethod": "https://schema.org/InStoreReturn",
+          "returnMethod": "https://schema.org/ReturnAtDelivery",
           "returnFees": "https://schema.org/FreeReturn",
           "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
         },
@@ -516,7 +516,7 @@ const avaliacoes = [
           "applicableCountry": "BR",
           "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
           "merchantReturnDays": 0,
-          "returnMethod": "https://schema.org/InStoreReturn",
+          "returnMethod": "https://schema.org/ReturnAtDelivery",
           "returnFees": "https://schema.org/FreeReturn",
           "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
         },
