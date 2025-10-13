@@ -337,7 +337,7 @@ const avaliacoes = [
   })}
 </script>
 
-{/* SCHEMA - Products (sem repetir LocalBusiness) */}
+{/* SCHEMA - Products (completo e otimizado para SEO) */}
 <script type="application/ld+json">
 {JSON.stringify({
   "@context": "https://schema.org",
@@ -353,11 +353,70 @@ const avaliacoes = [
         "@type": "Brand",
         "name": "Bari"
       },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "37"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Carlos, pizzaria cliente da PMG" },
+          "datePublished": "2025-09-28",
+          "reviewBody": "Produto de excelente qualidade e o site da Marques Vendas PMG é rápido e confiável.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Fernanda, restaurante parceiro" },
+          "datePublished": "2025-08-11",
+          "reviewBody": "A muçarela Bari chegou no prazo e com ótimo custo-benefício. Atendimento excelente!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        }
+      ],
       "offers": {
         "@type": "Offer",
         "price": "27.63",
         "priceCurrency": "BRL",
         "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2026-01-25",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0.00",
+            "currency": "BRL"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "d" },
+            "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" }
+          },
+          "shippingDestination": [
+            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "SP" },
+            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "MG", "name": "Sul de Minas" },
+            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "RJ", "name": "Sul do Rio de Janeiro" }
+          ]
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "BR",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 0,
+          "returnMethod": "https://schema.org/InStoreReturn",
+          "returnFees": "https://schema.org/FreeReturn",
+          "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
+        },
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
           "price": "27.63",
@@ -397,11 +456,70 @@ const avaliacoes = [
         "@type": "Brand",
         "name": "Três Marias"
       },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "25"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Luciana, confeitaria parceira" },
+          "datePublished": "2025-09-05",
+          "reviewBody": "A muçarela Três Marias tem sabor incrível e chegou em perfeito estado. Recomendo o site da Marques Vendas PMG!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Rogério, pizzaiolo de São Paulo" },
+          "datePublished": "2025-08-17",
+          "reviewBody": "Entrega rápida e qualidade impecável. A PMG sempre cumpre o prazo!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        }
+      ],
       "offers": {
         "@type": "Offer",
         "price": "35.28",
         "priceCurrency": "BRL",
         "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2026-01-25",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0.00",
+            "currency": "BRL"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "d" },
+            "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" }
+          },
+          "shippingDestination": [
+            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "SP" },
+            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "MG", "name": "Sul de Minas" },
+            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "RJ", "name": "Sul do Rio de Janeiro" }
+          ]
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "BR",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 0,
+          "returnMethod": "https://schema.org/InStoreReturn",
+          "returnFees": "https://schema.org/FreeReturn",
+          "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
+        },
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
           "price": "35.28",
