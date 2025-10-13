@@ -337,36 +337,11 @@ const avaliacoes = [
   })}
 </script>
 
-{/* SCHEMA - LocalBusiness + Products */}
+{/* SCHEMA - Products (sem repetir LocalBusiness) */}
 <script type="application/ld+json">
 {JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
-    // BLOCO PRINCIPAL DA EMPRESA
-    {
-      "@type": "LocalBusiness",
-      "name": "Marques Vendas PMG",
-      "image": "https://i.imgur.com/jrERRsC.png",
-      "description": "Distribuidora autorizada food service com produtos de qualidade para restaurantes, bares e mercados.",
-      "url": "https://www.marquesvendaspmg.shop/",
-      "telephone": "+55-11-91357-2902",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-        "addressLocality": "Itapecerica da Serra",
-        "addressRegion": "SP",
-        "postalCode": "06885-150",
-        "addressCountry": "BR"
-      },
-      "areaServed": "Grande São Paulo",
-      "sameAs": [
-        "https://www.facebook.com/MarquesVendaspmg",
-        "https://www.instagram.com/marquesvendaspmg",
-        "https://www.youtube.com/@MarquesVendasPMG"
-      ]
-    },
-
     // PRODUTO 1
     {
       "@type": "Product",
@@ -400,6 +375,8 @@ const avaliacoes = [
           "telephone": "+55-11-91357-2902",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+            "postalCode": "06885-150",
             "addressLocality": "Itapecerica da Serra",
             "addressRegion": "SP",
             "addressCountry": "BR"
@@ -441,6 +418,8 @@ const avaliacoes = [
           "telephone": "+55-11-91357-2902",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+            "postalCode": "06885-150",
             "addressLocality": "Itapecerica da Serra",
             "addressRegion": "SP",
             "addressCountry": "BR"
