@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { supabase } from '../supabaseClient';
-import Cart from '../cart';
+import { supabase } from '../lib/supabaseClient';
+import Cart from './pages/cart';
 
 
 // Array de produtos (substitua pelos seus dados reais)
@@ -2522,3 +2522,4 @@ export async function getStaticPaths() {
     fallback: 'blocking' // Gera páginas não pré-renderidas sob demanda
   };
 }
+
