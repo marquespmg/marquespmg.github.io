@@ -2513,7 +2513,7 @@ export default function ProductPage({ product: initialProduct }) {
 // Geração de paths estáticos para melhor SEO
 export async function getStaticPaths() {
   // Gera paths para produtos de ID 1 até 2004
-  const paths = Array.from({ length: 2004 }, (_, i) => i + 1).map(id => ({
+  const paths = Array.from({ length: 2005 }, (_, i) => i + 1).map(id => ({
     params: { id: id.toString() }
   }));
 
@@ -2522,6 +2522,7 @@ export async function getStaticPaths() {
     fallback: 'blocking' // Gera páginas não pré-renderidas sob demanda
   };
 }
+
 
 
 
