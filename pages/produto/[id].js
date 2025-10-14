@@ -4,7 +4,6 @@ import Head from 'next/head';
 import { supabase } from '../../lib/supabaseClient';
 import Cart from '../Cart';
 
-
 // Array de produtos (substitua pelos seus dados reais)
 const products = [
   { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://i.imgur.com/Ztx9nv9.png' },
@@ -2024,7 +2023,6 @@ const generateSlug = (name) => {
     .substring(0, 60); // Limita o tamanho para SEO
 };
 
-
 export async function getStaticProps({ params }) {
   // Extrai o ID da URL (pega apenas os números antes do primeiro hífen)
   const id = parseInt(params.id.split('-')[0]);
@@ -2039,122 +2037,6 @@ export async function getStaticProps({ params }) {
     revalidate: 3600
   };
 }
-
-// Estilos idênticos ao produtos.js
-const styles = {
-  container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '20px',
-    fontFamily: 'Arial, sans-serif'
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '30px',
-    paddingBottom: '15px',
-    borderBottom: '2px solid #095400'
-  },
-  backButton: {
-    backgroundColor: '#095400',
-    color: 'white',
-    border: 'none',
-    padding: '10px 20px',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px'
-  },
-  title: {
-    color: '#095400',
-    fontSize: '24px',
-    fontWeight: 'bold'
-  },
-  productContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: '40px',
-    alignItems: 'flex-start'
-  },
-  productImage: {
-    width: '400px',
-    height: '300px',
-    objectFit: 'cover',
-    borderRadius: '10px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
-  },
-  productInfo: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px'
-  },
-  productName: {
-    fontSize: '28px',
-    color: '#333',
-    fontWeight: 'bold',
-    margin: 0
-  },
-  productCategory: {
-    fontSize: '18px',
-    color: '#666',
-    backgroundColor: '#f0f0f0',
-    padding: '8px 15px',
-    borderRadius: '20px',
-    display: 'inline-block'
-  },
-  productPrice: {
-    fontSize: '32px',
-    color: '#095400',
-    fontWeight: 'bold',
-    margin: '10px 0'
-  },
-  addButton: {
-    backgroundColor: '#095400',
-    color: 'white',
-    border: 'none',
-    padding: '15px 30px',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    fontSize: '18px',
-    fontWeight: 'bold',
-    transition: 'background-color 0.3s',
-    width: '200px'
-  },
-  disabledButton: {
-    backgroundColor: '#ccc',
-    cursor: 'not-allowed'
-  },
-  loginWarning: {
-    backgroundColor: '#fff3cd',
-    border: '1px solid #ffeaa7',
-    color: '#856404',
-    padding: '12px',
-    borderRadius: '5px',
-    marginTop: '10px',
-    fontSize: '14px'
-  },
-  // Estilos responsivos
-  '@media (max-width: 768px)': {
-    productContainer: {
-      flexDirection: 'column',
-      gap: '20px'
-    },
-    productImage: {
-      width: '100%',
-      height: '250px'
-    },
-    productName: {
-      fontSize: '24px'
-    },
-    productPrice: {
-      fontSize: '28px'
-    }
-  }
-};
 
 export default function ProductPage({ product: initialProduct }) {
   const router = useRouter();
@@ -2184,29 +2066,79 @@ export default function ProductPage({ product: initialProduct }) {
     setUser(user);
   };
 
+  // Função para adicionar ao carrinho (igual à sua)
+  const addToCart = (product) => {
+    setCart(prevCart => {
+      // Verifica se o produto já está no carrinho
+      const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
+      
+      if (existingProductIndex !== -1) {
+        // Incrementa a quantidade se já existir
+        const updatedCart = [...prevCart];
+        updatedCart[existingProductIndex] = {
+          ...updatedCart[existingProductIndex],
+          quantity: (updatedCart[existingProductIndex].quantity || 1) + 1
+        };
+        return updatedCart;
+      } else {
+        // Adiciona novo produto com quantidade 1
+        return [...prevCart, { ...product, quantity: 1 }];
+      }
+    });
+  };
+
+  // Função para remover produto completamente
+  const removeFromCart = (productId) => {
+    const newCart = cart.filter(item => item.id !== productId);
+    setCart(newCart);
+  };
+
   const handleBuyNow = () => {
     if (!user) {
       alert('⚠️ Faça login para continuar a compra');
       return;
     }
-    router.push('/produtos');
-  };
-
-  const removeFromCart = (productId) => {
-    setCart(cart.filter(item => item.id !== productId));
+    addToCart(product);
   };
 
   if (loading) {
-    return <div style={{ padding: '50px', textAlign: 'center' }}>Carregando...</div>;
+    return (
+      <div style={{ 
+        padding: '50px', 
+        textAlign: 'center',
+        minHeight: '50vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <div>Carregando...</div>
+      </div>
+    );
   }
 
   if (!product) {
     return (
-      <div style={{ padding: '50px', textAlign: 'center' }}>
-        <h1>Produto não encontrado</h1>
+      <div style={{ 
+        padding: '50px', 
+        textAlign: 'center',
+        minHeight: '50vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <h1 style={{ marginBottom: '20px', color: '#333' }}>Produto não encontrado</h1>
         <button 
-          style={styles.backButton}
-          onClick={() => router.push('/produtos')}
+          style={{
+            backgroundColor: '#095400',
+            color: 'white',
+            border: 'none',
+            padding: '12px 24px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '16px'
+          }}
+          onClick={() => router.push('/')}
         >
           Voltar para Produtos
         </button>
@@ -2220,25 +2152,39 @@ export default function ProductPage({ product: initialProduct }) {
   return (
     <>
       <Head>
-        <title>{product.name} | Comprar {product.category} | Marques Vendas PMG</title>
-        <meta name="description" content={`Compre ${product.name} por R$ ${product.price.toFixed(2)}. ${product.category} de alta qualidade. Entrega rápida SP, MG, RJ. Frete grátis.`} />
-        <meta name="keywords" content={`${product.name}, ${product.category}, comprar ${product.category.toLowerCase()}, preço ${product.name.toLowerCase()}, marques vendas pmg`} />
+        {/* Título otimizado para PMG ATACADISTA */}
+        <title>{product.name} PMG ATACADISTA | {product.category} | Marques Vendas PMG</title>
+        
+        {/* Meta Description otimizada para conversão */}
+        <meta 
+          name="description" 
+          content={`${product.name} PMG ATACADISTA - Compre no atacado por R$ ${product.price.toFixed(2)}. Melhores preços em ${product.category} para food service. Entrega rápida SP, MG, RJ.`} 
+        />
+        
+        {/* Keywords otimizadas para PMG */}
+        <meta 
+          name="keywords" 
+          content={`pmg atacadista, pmg atacado, ${product.name} pmg, ${product.category}, atacado food service, marques vendas pmg, comprar ${product.category.toLowerCase()} atacado, preço ${product.name.toLowerCase()}, distribuidora atacadista sp`} 
+        />
+        
+        {/* Canonical URL */}
         <link rel="canonical" href={canonicalUrl} />
         
         {/* Open Graph Tags para redes sociais */}
-        <meta property="og:title" content={product.name} />
-        <meta property="og:description" content={`Compre ${product.name} por R$ ${product.price.toFixed(2)}. Entrega rápida.`} />
+        <meta property="og:title" content={`${product.name} PMG ATACADISTA`} />
+        <meta property="og:description" content={`Compre ${product.name} no atacado por R$ ${product.price.toFixed(2)}. PMG Atacadista - Melhores preços para food service.`} />
         <meta property="og:image" content={product.image} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="product" />
+        <meta property="og:site_name" content="Marques Vendas PMG Atacadista" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={product.name} />
-        <meta name="twitter:description" content={`Compre ${product.name} por R$ ${product.price.toFixed(2)}`} />
+        <meta name="twitter:title" content={`${product.name} PMG ATACADISTA`} />
+        <meta name="twitter:description" content={`Compre ${product.name} no atacado por R$ ${product.price.toFixed(2)}. PMG - Atacado para food service.`} />
         <meta name="twitter:image" content={product.image} />
 
-        {/* Schema.org Structured Data - SUPER OTIMIZADO */}
+        {/* Schema.org Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -2246,57 +2192,16 @@ export default function ProductPage({ product: initialProduct }) {
               "@context": "https://schema.org",
               "@type": "Product",
               "productID": `pmg-${product.id}`,
-              "name": product.name,
-              "description": `${product.name} - Produto de alta qualidade para food service. Entrega rápida para São Paulo, Minas Gerais e Rio de Janeiro.`,
+              "name": `${product.name} PMG ATACADISTA`,
+              "description": `${product.name} PMG ATACADISTA - Produto de alta qualidade para food service no atacado. Entrega rápida para São Paulo, Minas Gerais e Rio de Janeiro.`,
               "category": product.category,
               "image": product.image,
               "brand": {
                 "@type": "Brand",
-                "name": product.name.includes('ITAIPAVA') ? 'Itaipava' : 
-                        product.name.includes('BRAHMA') ? 'Brahma' :
-                        product.name.includes('SKOL') ? 'Skol' : 'Marcas Premium'
+                "name": "PMG ATACADISTA"
               },
               "sku": `PMG-${product.id}`,
               "mpn": `PMG-${product.id}`,
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "37",
-                "bestRating": "5",
-                "worstRating": "1"
-              },
-              "review": [
-                {
-                  "@type": "Review",
-                  "author": { 
-                    "@type": "Person", 
-                    "name": "Carlos Silva, pizzaria cliente" 
-                  },
-                  "datePublished": "2025-09-28",
-                  "reviewBody": "Produto de excelente qualidade e o site da Marques Vendas PMG é rápido e confiável. Entrega sempre no prazo.",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  }
-                },
-                {
-                  "@type": "Review",
-                  "author": { 
-                    "@type": "Person", 
-                    "name": "Fernanda Oliveira, restaurante" 
-                  },
-                  "datePublished": "2025-08-11",
-                  "reviewBody": "Produto chegou no prazo e com ótimo custo-benefício. Atendimento excelente da equipe PMG!",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  }
-                }
-              ],
               "offers": {
                 "@type": "Offer",
                 "url": canonicalUrl,
@@ -2305,130 +2210,56 @@ export default function ProductPage({ product: initialProduct }) {
                 "availability": "https://schema.org/InStock",
                 "priceValidUntil": "2026-12-31",
                 "itemCondition": "https://schema.org/NewCondition",
-                "shippingDetails": {
-                  "@type": "OfferShippingDetails",
-                  "shippingRate": {
-                    "@type": "MonetaryAmount",
-                    "value": "0.00",
-                    "currency": "BRL"
-                  },
-                  "deliveryTime": {
-                    "@type": "ShippingDeliveryTime",
-                    "handlingTime": { 
-                      "@type": "QuantitativeValue", 
-                      "minValue": 0, 
-                      "maxValue": 1, 
-                      "unitCode": "d" 
-                    },
-                    "transitTime": { 
-                      "@type": "QuantitativeValue", 
-                      "minValue": 1, 
-                      "maxValue": 2, 
-                      "unitCode": "d" 
-                    }
-                  },
-                  "shippingDestination": {
-                    "@type": "DefinedRegion",
-                    "addressCountry": "BR"
-                  }
-                },
-                "hasMerchantReturnPolicy": {
-                  "@type": "MerchantReturnPolicy",
-                  "applicableCountry": "BR",
-                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                  "merchantReturnDays": 0,
-                  "returnMethod": "https://schema.org/ReturnByMail"
-                },
                 "seller": {
                   "@type": "LocalBusiness",
-                  "@id": "https://www.marquesvendaspmg.shop/#organization",
-                  "name": "Marques Vendas PMG",
-                  "description": "Atacadista de produtos para food service e estabelecimentos comerciais",
-                  "url": "https://www.marquesvendaspmg.shop",
-                  "telephone": "+55-11-91357-2902",
-                  "email": "contato@marquesvendaspmg.shop",
-                  "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-                    "addressLocality": "Itapecerica da Serra",
-                    "addressRegion": "SP",
-                    "postalCode": "06885-150",
-                    "addressCountry": "BR"
-                  },
-                  "geo": {
-                    "@type": "GeoCoordinates",
-                    "latitude": "-23.7166",
-                    "longitude": "-46.8494"
-                  },
-                  "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00",
-                  "priceRange": "$$",
-                  "image": "https://i.imgur.com/jrERRsC.png"
+                  "name": "Marques Vendas PMG ATACADISTA",
+                  "url": "https://www.marquesvendaspmg.shop"
                 }
               }
             })
           }}
         />
 
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Início",
-                  "item": "https://www.marquesvendaspmg.shop"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Produtos",
-                  "item": "https://www.marquesvendaspmg.shop/produtos"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": product.name,
-                  "item": canonicalUrl
-                }
-              ]
-            })
-          }}
-        />
+        {/* Viewport para mobile */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
+      {/* Container Principal */}
       <div style={styles.container}>
+        
         {/* Header */}
         <div style={styles.header}>
           <button 
             style={styles.backButton}
-            onClick={() => router.push('/produtos')}
+            onClick={() => router.push('/')}
           >
-            🏠 Voltar para Produtos
+            <span style={styles.backButtonIcon}>←</span>
+            <span style={styles.backButtonText}>Início</span>
           </button>
-          <h1 style={styles.title}>Detalhes do Produto</h1>
-          <div style={{ width: '100px' }}></div> {/* Espaçador */}
+          
+          <h1 style={styles.title}>PMG ATACADISTA</h1>
+          
+          <div style={{ width: '80px' }}></div> {/* Espaçador para alinhamento */}
         </div>
 
         {/* Produto */}
         <div style={styles.productContainer}>
+          
           {/* Imagem do Produto */}
-          <img 
-            src={product.image} 
-            alt={product.name}
-            style={styles.productImage}
-            onError={(e) => {
-              e.target.src = 'https://via.placeholder.com/400x300?text=Imagem+Não+Disponível';
-            }}
-          />
+          <div style={styles.imageContainer}>
+            <img 
+              src={product.image} 
+              alt={`${product.name} PMG ATACADISTA`}
+              style={styles.productImage}
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/400x300/095400/ffffff?text=PMG+ATACADISTA';
+              }}
+            />
+          </div>
 
           {/* Informações do Produto */}
           <div style={styles.productInfo}>
-            <h1 style={styles.productName}>{product.name}</h1>
+            <h1 style={styles.productName}>{product.name} <span style={styles.pmgBadge}>PMG ATACADISTA</span></h1>
             
             <div style={styles.productCategory}>
               {product.category}
@@ -2438,77 +2269,526 @@ export default function ProductPage({ product: initialProduct }) {
               R$ {product.price.toFixed(2)}
             </div>
 
-            <button
-              onClick={handleBuyNow}
-              style={{
-                ...styles.addButton,
-                ...(!user && { backgroundColor: '#ffc107', color: '#000' })
-              }}
-            >
-              {user ? 'Comprar agora' : '⚠️ Fazer login para comprar'}
-            </button>
+            {/* Botões de Ação */}
+            <div style={styles.actionButtons}>
+              <button
+                onClick={() => addToCart(product)}
+                style={styles.addToCartButton}
+              >
+                <span style={styles.buttonIcon}>🛒</span>
+                Adicionar ao Carrinho
+              </button>
+              
+              <button
+                onClick={handleBuyNow}
+                style={{
+                  ...styles.buyNowButton,
+                  ...(!user && styles.disabledButton)
+                }}
+              >
+                {user ? 'Comprar Agora' : 'Fazer Login'}
+              </button>
+            </div>
 
             {!user && (
               <div style={styles.loginWarning}>
-                ⚠️ Faça login para continuar a compra
+                ⚠️ Faça login para finalizar a compra
               </div>
             )}
 
-            {/* Descrição adicional do produto */}
-            <div style={{ marginTop: '20px' }}>
-              <h3 style={{ color: '#095400', marginBottom: '10px' }}>Descrição</h3>
-              <p style={{ color: '#666', lineHeight: '1.6' }}>
-                {product.name} - Produto de alta qualidade com garantia de procedência. 
-                Entrega rápida para toda a região com as melhores condições de pagamento.
+            {/* Descrição do produto */}
+            <div style={styles.descriptionSection}>
+              <h2 style={styles.sectionTitle}>Descrição do Produto</h2>
+              <p style={styles.descriptionText}>
+                {product.name} - Produto de alta qualidade para food service, bares e restaurantes. 
+                PMG ATACADISTA oferece os melhores preços em {product.category.toLowerCase()} com 
+                garantia de procedência e qualidade.
               </p>
             </div>
 
             {/* Informações de entrega */}
-            <div style={{ 
-              backgroundColor: '#f8f9fa', 
-              padding: '15px', 
-              borderRadius: '8px',
-              marginTop: '15px'
-            }}>
-              <h4 style={{ color: '#095400', marginBottom: '10px' }}>🚚 Entrega Rápida</h4>
-              <p style={{ margin: '5px 0', fontSize: '14px' }}>• Frete grátis para região</p>
-              <p style={{ margin: '5px 0', fontSize: '14px' }}>• Entrega em 1-2 dias úteis</p>
-              <p style={{ margin: '5px 0', fontSize: '14px' }}>• Devolução garantida</p>
+            <div style={styles.deliveryInfo}>
+              <h3 style={styles.sectionTitle}>🚚 Entrega Rápida</h3>
+              <div style={styles.deliveryList}>
+                <div style={styles.deliveryItem}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Frete grátis para região (SP, MG, RJ)
+                </div>
+                <div style={styles.deliveryItem}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Entrega em 1-2 dias úteis
+                </div>
+                <div style={styles.deliveryItem}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Atendimento para food service
+                </div>
+              </div>
+            </div>
+
+            {/* Vantagens PMG */}
+            <div style={styles.advantagesSection}>
+              <h3 style={styles.sectionTitle}>🌟 Por que comprar na PMG ATACADISTA?</h3>
+              <div style={styles.advantagesList}>
+                <div style={styles.advantageItem}>
+                  <span style={styles.advantageIcon}>💰</span>
+                  Melhores preços de atacado
+                </div>
+                <div style={styles.advantageItem}>
+                  <span style={styles.advantageIcon}>⚡</span>
+                  Entrega rápida e confiável
+                </div>
+                <div style={styles.advantageItem}>
+                  <span style={styles.advantageIcon}>🎯</span>
+                  Atendimento especializado
+                </div>
+                <div style={styles.advantageItem}>
+                  <span style={styles.advantageIcon}>⭐</span>
+                  Produtos de qualidade
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Componente do Carrinho */}
+      {/* Componente Cart Original - Como estava */}
       <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
 
+      {/* Rodapé com Redes Sociais */}
+      <footer style={styles.footer}>
+        <div style={styles.footerContent}>
+          <div style={styles.footerBrand}>
+            <h2 style={styles.footerTitle}>Marques Vendas PMG ATACADISTA</h2>
+            <p style={styles.footerSubtitle}>
+              Seu distribuidor atacadista de confiança para food service
+            </p>
+          </div>
+          
+          {/* Redes Sociais - Versão Clean com Logos Visíveis */}
+          <div style={styles.socialLinks}>
+            {/* Facebook */}
+            <a 
+              href="https://www.facebook.com/MarquesVendaspmg" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={styles.socialLink}
+            >
+              <img 
+                src="https://i.imgur.com/prULUUA.png" 
+                alt="Facebook" 
+                style={styles.socialIcon}
+              />
+            </a>
+
+            {/* Instagram */}
+            <a 
+              href="https://www.instagram.com/marquesvendaspmg" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={styles.socialLink}
+            >
+              <img 
+                src="https://i.imgur.com/I0ZZLjG.png" 
+                alt="Instagram" 
+                style={styles.socialIcon}
+              />
+            </a>
+
+            {/* YouTube */}
+            <a 
+              href="https://www.youtube.com/@MarquesVendasPMG" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={styles.socialLink}
+            >
+              <img 
+                src="https://i.imgur.com/WfpZ8Gg.png" 
+                alt="YouTube" 
+                style={styles.socialIcon}
+              />
+            </a>
+          </div>
+          
+          <div style={styles.copyright}>
+            <p>&copy; 2024 Marques Vendas PMG ATACADISTA. Todos os direitos reservados.</p>
+            <p>Itapecerica da Serra - SP</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* CSS Styles */}
       <style jsx>{`
+        /* Estilos responsivos */
         @media (max-width: 768px) {
           .container {
-            padding: 15px;
+            padding: 10px;
           }
+          
+          .header {
+            padding: 15px 10px;
+          }
+          
+          .backButtonText {
+            display: none;
+          }
+          
+          .title {
+            font-size: 18px;
+          }
+          
           .productContainer {
             flex-direction: column;
             gap: 20px;
           }
+          
           .productImage {
             width: 100%;
             height: 250px;
           }
+          
           .productName {
+            font-size: 22px;
+          }
+          
+          .actionButtons {
+            flex-direction: column;
+          }
+          
+          .addToCartButton,
+          .buyNowButton {
+            width: 100%;
+          }
+          
+          .socialLinks {
+            gap: 20px;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .productName {
+            font-size: 20px;
+          }
+          
+          .productPrice {
             font-size: 24px;
           }
-          .productPrice {
-            font-size: 28px;
-          }
-          .addButton {
-            width: 100%;
+          
+          .sectionTitle {
+            font-size: 18px;
           }
         }
       `}</style>
     </>
   );
 }
+
+// Estilos otimizados para mobile-first
+const styles = {
+  container: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    padding: '15px',
+    fontFamily: 'Arial, sans-serif',
+    minHeight: '100vh'
+  },
+  
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '20px',
+    padding: '15px',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+    position: 'sticky',
+    top: '0',
+    zIndex: '100'
+  },
+  
+  backButton: {
+    backgroundColor: '#095400',
+    color: 'white',
+    border: 'none',
+    padding: '10px 15px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    minWidth: 'auto'
+  },
+  
+  backButtonIcon: {
+    fontSize: '18px'
+  },
+  
+  backButtonText: {
+    fontSize: '14px'
+  },
+  
+  title: {
+    color: '#095400',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    margin: '0',
+    textAlign: 'center'
+  },
+  
+  productContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '25px',
+    marginBottom: '40px'
+  },
+  
+  imageContainer: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  
+  productImage: {
+    width: '100%',
+    maxWidth: '500px',
+    height: '300px',
+    objectFit: 'cover',
+    borderRadius: '15px',
+    boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
+  },
+  
+  productInfo: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '20px'
+  },
+  
+  productName: {
+    fontSize: '24px',
+    color: '#333',
+    fontWeight: 'bold',
+    margin: '0',
+    lineHeight: '1.3'
+  },
+  
+  pmgBadge: {
+    backgroundColor: '#095400',
+    color: 'white',
+    padding: '4px 8px',
+    borderRadius: '6px',
+    fontSize: '14px',
+    marginLeft: '8px'
+  },
+  
+  productCategory: {
+    fontSize: '16px',
+    color: '#666',
+    backgroundColor: '#f0f0f0',
+    padding: '8px 15px',
+    borderRadius: '20px',
+    display: 'inline-block',
+    alignSelf: 'flex-start'
+  },
+  
+  productPrice: {
+    fontSize: '28px',
+    color: '#095400',
+    fontWeight: 'bold',
+    margin: '0'
+  },
+  
+  actionButtons: {
+    display: 'flex',
+    gap: '15px',
+    flexWrap: 'wrap'
+  },
+  
+  addToCartButton: {
+    backgroundColor: '#ff0000',
+    color: 'white',
+    border: 'none',
+    padding: '15px 20px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    flex: '1',
+    minWidth: '200px',
+    justifyContent: 'center'
+  },
+  
+  buyNowButton: {
+    backgroundColor: '#095400',
+    color: 'white',
+    border: 'none',
+    padding: '15px 20px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    flex: '1',
+    minWidth: '200px'
+  },
+  
+  disabledButton: {
+    backgroundColor: '#ccc',
+    cursor: 'not-allowed'
+  },
+  
+  buttonIcon: {
+    fontSize: '18px'
+  },
+  
+  loginWarning: {
+    backgroundColor: '#fff3cd',
+    border: '1px solid #ffeaa7',
+    color: '#856404',
+    padding: '12px',
+    borderRadius: '8px',
+    fontSize: '14px',
+    textAlign: 'center'
+  },
+  
+  descriptionSection: {
+    marginTop: '10px'
+  },
+  
+  sectionTitle: {
+    color: '#095400',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    marginBottom: '15px'
+  },
+  
+  descriptionText: {
+    color: '#666',
+    lineHeight: '1.6',
+    fontSize: '15px',
+    margin: '0'
+  },
+  
+  deliveryInfo: {
+    backgroundColor: '#f8f9fa',
+    padding: '20px',
+    borderRadius: '10px',
+    border: '1px solid #e9ecef'
+  },
+  
+  deliveryList: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px'
+  },
+  
+  deliveryItem: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+    fontSize: '14px',
+    color: '#555'
+  },
+  
+  checkIcon: {
+    color: '#28a745',
+    fontWeight: 'bold'
+  },
+  
+  advantagesSection: {
+    backgroundColor: '#e8f5e8',
+    padding: '20px',
+    borderRadius: '10px',
+    border: '1px solid #095400'
+  },
+  
+  advantagesList: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gap: '15px'
+  },
+  
+  advantageItem: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+    fontSize: '14px',
+    color: '#333'
+  },
+  
+  advantageIcon: {
+    fontSize: '18px'
+  },
+  
+  // Estilos do Rodapé
+  footer: {
+    backgroundColor: '#095400',
+    color: 'white',
+    padding: '30px 20px',
+    marginTop: '50px'
+  },
+  
+  footerContent: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '25px'
+  },
+  
+  footerBrand: {
+    textAlign: 'center'
+  },
+  
+  footerTitle: {
+    fontSize: '22px',
+    fontWeight: 'bold',
+    marginBottom: '8px'
+  },
+  
+  footerSubtitle: {
+    fontSize: '14px',
+    opacity: '0.9'
+  },
+  
+  socialLinks: {
+    display: 'flex',
+    gap: '25px',
+    justifyContent: 'center',
+    flexWrap: 'wrap'
+  },
+  
+  socialLink: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '32px',
+    height: '32px',
+    borderRadius: '4px',
+    transition: 'all 0.3s ease',
+    textDecoration: 'none',
+    padding: '6px'
+  },
+  
+  socialIcon: {
+    width: '20px',
+    height: '20px',
+    transition: 'all 0.3s ease'
+  },
+  
+  copyright: {
+    marginTop: '20px',
+    textAlign: 'center',
+    fontSize: '12px',
+    opacity: '0.8',
+    borderTop: '1px solid rgba(255,255,255,0.2)',
+    paddingTop: '20px',
+    width: '100%'
+  }
+};
 
 // Geração de paths estáticos para melhor SEO
 export async function getStaticPaths() {
@@ -2517,10 +2797,3 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
-
-
-
-
-
-
-
