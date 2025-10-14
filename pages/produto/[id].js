@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { supabase } from '.../lib/supabaseClient';
+import { supabase } from '../../lib/supabaseClient';
 import Cart from '../Cart';
 
 
@@ -2522,6 +2522,7 @@ export async function getStaticPaths() {
     fallback: 'blocking' // Gera páginas não pré-renderidas sob demanda
   };
 }
+
 
 
 
