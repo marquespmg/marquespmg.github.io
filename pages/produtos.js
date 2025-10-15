@@ -2486,6 +2486,11 @@ const removeFromCart = (productId) => {
     }));
   };
 
+  // Função para redirecionar para a página de detalhes do produto
+  const redirectToProductDetails = (productId) => {
+    window.location.href = `/produto/${productId}`;
+  };
+
   const filteredProducts = products
     .filter(product => product.category === selectedCategory)
     .filter(product => 
@@ -2625,7 +2630,8 @@ const removeFromCart = (productId) => {
       borderRadius: '12px',
       boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
       overflow: 'hidden',
-      transition: 'transform 0.3s, box-shadow 0.3s'
+      transition: 'transform 0.3s, box-shadow 0.3s',
+      position: 'relative'
     },
     productImage: {
       width: '100%',
@@ -2927,6 +2933,27 @@ const removeFromCart = (productId) => {
       display: 'flex',
       alignItems: 'center',
       gap: '10px'
+    },
+    // NOVO ESTILO: Lupa de detalhes do produto
+    productDetailsButton: {
+      position: 'absolute',
+      top: '8px',
+      right: '8px',
+      width: windowWidth > 768 ? '32px' : '28px',
+      height: windowWidth > 768 ? '32px' : '28px',
+      backgroundColor: '#e53935',
+      color: 'white',
+      border: 'none',
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer',
+      fontSize: windowWidth > 768 ? '16px' : '14px',
+      fontWeight: 'bold',
+      transition: 'all 0.3s ease',
+      zIndex: 5,
+      boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
     }
   };
 
@@ -3110,6 +3137,23 @@ const removeFromCart = (productId) => {
           ...(product.price === 0 && { opacity: 0.7 })
         }}
       >
+        {/* BOTÃO LUPA - NOVO ELEMENTO ADICIONADO */}
+        <button
+          onClick={() => redirectToProductDetails(product.id)}
+          style={styles.productDetailsButton}
+          onMouseOver={(e) => {
+            e.target.style.backgroundColor = '#b92c2b';
+            e.target.style.transform = 'scale(1.1)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.backgroundColor = '#e03f3e';
+            e.target.style.transform = 'scale(1)';
+          }}
+          title="Ver detalhes do produto"
+        >
+          🔍
+        </button>
+        
         <img 
           src={product.image} 
           alt={seo.alt}                    // ← MODIFICADO
@@ -3161,7 +3205,7 @@ const removeFromCart = (productId) => {
           );
         })}
         </div>
-
+		
 {/* ✅ AGORA SIM - Script de dados estruturados Schema.org */}
 <>
 <script
@@ -3579,24 +3623,3 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
