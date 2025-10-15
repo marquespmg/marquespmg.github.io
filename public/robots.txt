@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.marquesvendaspmg.shop/sitemap.xml
+Sitemap: https://www.marquesvendaspmg.shop/sitemap-produtos.xml
+Sitemap: https://www.marquesvendaspmg.shop/sitemap-imagens.xml
