@@ -2075,7 +2075,7 @@ const products = [
   { id: 1743, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 ROSA BRANCA 1 KILO (FDO 10 KILO)', category: '⏳ Ofertas da Semana 🚨', price: 55.77, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-rosa-branca-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
   { id: 1034, name: 'MORTADELA TRADICIONAL MARBA 5 KG', category: '⏳ Ofertas da Semana 🚨', price: 11.99, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-marba-5-kg-pmg-atacadista.jpg' },
   { id: 1059, name: 'PRESUNTO DÁLIA 3.3 KILO PÇ', category: '⏳ Ofertas da Semana 🚨', price: 72.44, image: 'https://www.marquesvendaspmg.shop/images/presunto-dalia-33-kilo-pc-pmg-atacadista.jpg' },
-  { id: 502, name: 'OVOS BRANCOS TIPO GRANDE MODELO 60 UN (CX 2 BDJ)', category: '⏳ Ofertas da Semana 🚨', price: 49.99, image: 'https://www.marquesvendaspmg.shop/images/ovos-brancos-tipo-grande-modelo-60-un-cx-2-bdj-pmg-atacadista.jpg' }
+  { id: 502, name: 'OVOS BRANCOS TIPO GRANDE MODELO 60 UN (CX 2 BDJ)', category: '⏳ Ofertas da Semana 🚨', price: 49.99, image: 'https://www.marquesvendaspmg.shop/images/ovos-brancos-tipo-grande-modelo-60-un-cx-2-bdj-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
@@ -3622,4 +3622,5 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
