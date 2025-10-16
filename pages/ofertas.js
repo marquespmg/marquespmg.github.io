@@ -5,76 +5,16 @@ import Link from 'next/link';
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-{
-  id: 1756,
-  name: 'FARINHA DE TRIGO PREMIUM ANACONDA 5 KILO (FDO 25 KILO)',
-  category: 'Ofertas',
-  price: 124.22,
-  image: 'https://i.imgur.com/fe6V8D2.png',
-},
-{
-  id: 1735,
-  name: 'FARINHA DE TRIGO PEQUENA PREMIUM ANACONDA 1 KILO (FDO 10 KILO)',
-  category: 'Ofertas',
-  price: 45.33,
-  image: 'https://i.imgur.com/ywH3bp4.png',
-},
-{
-  id: 1767,
-  name: 'FARINHA DE TRIGO TIPO 1 SOL 5 KILO (FDO 25 KILO)',
-  category: 'Ofertas',
-  price: 100.00,
-  image: 'https://i.imgur.com/CW0JPEA.png',
-},
-{
-  id: 1320,
-  name: 'MARGARINA FOLHADOS & CROISSANTS 80 % AMÉLIA 2 KILO (CX 6 UN)',
-  category: 'Ofertas',
-  price: 215.00,
-  image: 'https://i.imgur.com/2pvaNlo.png',
-},
-{
-  id: 1318,
-  name: 'MARGARINA COM SAL 80 % AMÉLIA (BD 14 KILO)',
-  category: 'Ofertas',
-  price: 189.99,
-  image: 'https://i.imgur.com/42NyvIv.png',
-},
-{
-  id: 1774,
-  name: 'FERMENTO EM PÓ QUÍMICO TRADICIONAL DONA BENTA 100 G',
-  category: 'Ofertas',
-  price: 3.09,
-  image: 'https://i.imgur.com/QQnUci6.png',
-},
-{
-  id: 1743,
-  name: 'FARINHA DE TRIGO PEQUENA TIPO 1 ROSA BRANCA 1 KILO (FDO 10 KILO)',
-  category: 'Ofertas',
-  price: 55.77,
-  image: 'https://i.imgur.com/PmbsA58.png',
-},
-{
-  id: 1034,
-  name: 'MORTADELA TRADICIONAL MARBA 5 KG',
-  category: 'Ofertas',
-  price: 11.99,
-  image: 'https://i.imgur.com/MArz8B2.png',
-},
-{
-  id: 1059,
-  name: 'PRESUNTO DÁLIA 3.3 KILO PÇ',
-  category: 'Ofertas',
-  price: 72.44,
-  image: 'https://i.imgur.com/XOYlXlu.png',
-},
-{
-  id: 502,
-  name: 'OVOS BRANCOS TIPO GRANDE MODELO 60 UN (CX 2 BDJ)',
-  category: 'Ofertas',
-  price: 49.99,
-  image: 'https://i.imgur.com/y2Hue0m.png',
-}
+  { id: 1756, name: 'FARINHA DE TRIGO PREMIUM ANACONDA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 124.22, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-premium-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1735, name: 'FARINHA DE TRIGO PEQUENA PREMIUM ANACONDA 1 KILO (FDO 10 KILO)', category: 'Ofertas', price: 45.33, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-premium-anaconda-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
+  { id: 1767, name: 'FARINHA DE TRIGO TIPO 1 SOL 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 100, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-sol-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1320, name: 'MARGARINA FOLHADOS & CROISSANTS 80 % AMÉLIA 2 KILO (CX 6 UN)', category: 'Ofertas', price: 215, image: 'https://www.marquesvendaspmg.shop/images/margarina-folhados-croissants-80-amelia-2-kilo-cx-6-un-pmg-atacadista.jpg' },
+  { id: 1318, name: 'MARGARINA COM SAL 80 % AMÉLIA (BD 14 KILO)', category: 'Ofertas', price: 189.99, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-80-amelia-bd-14-kilo-pmg-atacadista.jpg' },
+  { id: 1774, name: 'FERMENTO EM PÓ QUÍMICO TRADICIONAL DONA BENTA 100 G', category: 'Ofertas', price: 3.09, image: 'https://www.marquesvendaspmg.shop/images/fermento-em-po-quimico-tradicional-dona-benta-100-g-pmg-atacadista.jpg' },
+  { id: 1743, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 ROSA BRANCA 1 KILO (FDO 10 KILO)', category: 'Ofertas', price: 55.77, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-rosa-branca-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
+  { id: 1034, name: 'MORTADELA TRADICIONAL MARBA 5 KG', category: 'Ofertas', price: 11.99, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-marba-5-kg-pmg-atacadista.jpg' },
+  { id: 1059, name: 'PRESUNTO DÁLIA 3.3 KILO PÇ', category: 'Ofertas', price: 72.44, image: 'https://www.marquesvendaspmg.shop/images/presunto-dalia-33-kilo-pc-pmg-atacadista.jpg' },
+  { id: 502, name: 'OVOS BRANCOS TIPO GRANDE MODELO 60 UN (CX 2 BDJ)', category: 'Ofertas', price: 49.99, image: 'https://www.marquesvendaspmg.shop/images/ovos-brancos-tipo-grande-modelo-60-un-cx-2-bdj-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
@@ -157,6 +97,11 @@ const OfertasPage = () => {
   // Refs para intervalos
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
+
+  // Função para redirecionar para detalhes do produto
+  const redirectToProductDetails = (productId) => {
+    window.location.href = `/produto/${productId}`;
+  };
 
   // Funções de paginação
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -300,6 +245,7 @@ const OfertasPage = () => {
       overflow: 'hidden',
       transition: 'all 0.3s ease',
       border: '1px solid #f0f0f0',
+      position: 'relative', // ← ADICIONADO para a lupa
       ':hover': {
         transform: 'translateY(-5px)',
         boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
@@ -372,6 +318,27 @@ const OfertasPage = () => {
         backgroundColor: '#ccc',
         transform: 'none'
       }
+    },
+    // ========== NOVO ESTILO: LUPA DE DETALHES ========== //
+    productDetailsButton: {
+      position: 'absolute',
+      top: '8px',
+      right: '8px',
+      width: isMobile ? '28px' : '32px',
+      height: isMobile ? '28px' : '32px',
+      backgroundColor: '#e03f3e',
+      color: 'white',
+      border: 'none',
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer',
+      fontSize: isMobile ? '14px' : '16px',
+      fontWeight: 'bold',
+      transition: 'all 0.3s ease',
+      zIndex: 5,
+      boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
     },
     pagination: {
       display: 'flex',
@@ -552,38 +519,38 @@ const OfertasPage = () => {
 
   // ========== RENDERIZAÇÃO ATUALIZADA ========== //
   return (
-<div style={styles.container}>
-  {/* Barra de boas-vindas melhorada */}
-  <div
-    style={{
-      ...styles.userWelcomeBar,
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}
-  >
-    <p style={styles.welcomeMessage}>
-      🎯 OFERTAS ESPECIAIS - Marques Vendas PMG
-    </p>
-    <a
-      href="/"
-      style={{ ...styles.homeButton, marginTop: '8px' }}
-    >
-      🏠 Página Inicial
-    </a>
-  </div>
+    <div style={styles.container}>
+      {/* Barra de boas-vindas melhorada */}
+      <div
+        style={{
+          ...styles.userWelcomeBar,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}
+      >
+        <p style={styles.welcomeMessage}>
+          🎯 OFERTAS ESPECIAIS - Marques Vendas PMG
+        </p>
+        <a
+          href="/"
+          style={{ ...styles.homeButton, marginTop: '8px' }}
+        >
+          🏠 Página Inicial
+        </a>
+      </div>
 
-  {/* Cabeçalho premium */}
-  <div style={styles.header}>
-    <img 
-      src="https://i.imgur.com/pBH5WpZ.png" 
-      alt="Marques Vendas PMG"
-      style={{ 
-        height: isMobile ? '60px' : '80px',
-        marginBottom: '20px',
-        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-      }}
-    />
+      {/* Cabeçalho premium */}
+      <div style={styles.header}>
+        <img 
+          src="https://i.imgur.com/pBH5WpZ.png" 
+          alt="Marques Vendas PMG"
+          style={{ 
+            height: isMobile ? '60px' : '80px',
+            marginBottom: '20px',
+            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+          }}
+        />
         <h1 style={styles.title}>🔥 OFERTAS ESPECIAIS</h1>
         <p style={styles.subtitle}>Produtos selecionados com condições exclusivas! ⚡ Entrega rápida</p>
         
@@ -624,10 +591,27 @@ const OfertasPage = () => {
         Mostrando {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, featuredProducts.length)} de {featuredProducts.length} produtos em oferta
       </div>
 
-      {/* Grade de produtos premium */}
+      {/* Grade de produtos premium COM LUPA */}
       <div style={styles.productsGrid}>
         {currentProducts.map(product => (
           <div key={product.id} style={styles.productCard}>
+            {/* BOTÃO LUPA - NOVO ELEMENTO ADICIONADO */}
+            <button
+              onClick={() => redirectToProductDetails(product.id)}
+              style={styles.productDetailsButton}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#b92c2b';
+                e.target.style.transform = 'scale(1.1)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#e03f3e';
+                e.target.style.transform = 'scale(1)';
+              }}
+              title="Ver detalhes do produto"
+            >
+              🔍
+            </button>
+            
             <img 
               src={product.image} 
               alt={product.name} 
@@ -776,53 +760,52 @@ const OfertasPage = () => {
       </div>
 	  
       {/* Popup FIFO */}
-{showFifoPopup && (
-  <div style={styles.fifoPopupOverlay}>
-    <div style={styles.fifoPopupContent}>
-      <button 
-        style={styles.fifoPopupClose}
-        onClick={() => setShowFifoPopup(false)}
-      >
-        X
-      </button>
-      <div style={styles.fifoPopupImageContainer}>
-        {/* Substitua esta parte ↓ */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={styles.fifoPopupImage} // Mantém os mesmos estilos
-        >
-          <source src={selectedFifoImage} type="video/mp4" />
-          Seu navegador não suporta vídeo HTML5
-        </video>
-      </div>
-      <a
-        href="https://www.marquesvendaspmg.shop/indicacoes"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={styles.fifoPopupButton}
-      >
-        PARTICIPE
-      </a>
-    </div>
-  </div>
-)}
+      {showFifoPopup && (
+        <div style={styles.fifoPopupOverlay}>
+          <div style={styles.fifoPopupContent}>
+            <button 
+              style={styles.fifoPopupClose}
+              onClick={() => setShowFifoPopup(false)}
+            >
+              X
+            </button>
+            <div style={styles.fifoPopupImageContainer}>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={styles.fifoPopupImage}
+              >
+                <source src={selectedFifoImage} type="video/mp4" />
+                Seu navegador não suporta vídeo HTML5
+              </video>
+            </div>
+            <a
+              href="https://www.marquesvendaspmg.shop/indicacoes"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.fifoPopupButton}
+            >
+              PARTICIPE
+            </a>
+          </div>
+        </div>
+      )}
 
-{/* Conteúdo SEO PMG Atacadista Ofertas - VISÍVEL APENAS PARA O GOOGLE */}
-<div style={{
-  opacity: '0', height: '0', overflow: 'hidden', position: 'absolute', pointerEvents: 'none'
-}}>
-  <h1>PMG Atacadista - Ofertas Especiais e Promoções em Atacado</h1>
-  <p>PMG Atacadista ofertas especiais para atacado. Confira as promoções da PMG Atacadista em laticínios, queijos, embutidos, bebidas, congelados e produtos alimentícios. PMG Atacadista preços competitivos com condições especiais para restaurantes, bares e mercados.</p>
-  
-  <h2>PMG Atacadista Ofertas da Semana</h2>
-  <p>PMG Atacadista ofertas com preços imbatíveis. PMG Atacadista promoções em produtos food service. PMG Atacadista descontos especiais para compras em grande quantidade.</p>
-  
-  <h3>PMG Atacadista App Ofertas</h3>
-  <p>PMG Atacadista app para acompanhar ofertas exclusivas. PMG Atacadista telefone para pedidos: (11) 91357-2902. PMG Atacadista entrega rápida na Grande São Paulo.</p>
-</div>
+      {/* Conteúdo SEO PMG Atacadista Ofertas - VISÍVEL APENAS PARA O GOOGLE */}
+      <div style={{
+        opacity: '0', height: '0', overflow: 'hidden', position: 'absolute', pointerEvents: 'none'
+      }}>
+        <h1>PMG Atacadista - Ofertas Especiais e Promoções em Atacado</h1>
+        <p>PMG Atacadista ofertas especiais para atacado. Confira as promoções da PMG Atacadista em laticínios, queijos, embutidos, bebidas, congelados e produtos alimentícios. PMG Atacadista preços competitivos com condições especiais para restaurantes, bares e mercados.</p>
+        
+        <h2>PMG Atacadista Ofertas da Semana</h2>
+        <p>PMG Atacadista ofertas com preços imbatíveis. PMG Atacadista promoções em produtos food service. PMG Atacadista descontos especiais para compras em grande quantidade.</p>
+        
+        <h3>PMG Atacadista App Ofertas</h3>
+        <p>PMG Atacadista app para acompanhar ofertas exclusivas. PMG Atacadista telefone para pedidos: (11) 91357-2902. PMG Atacadista entrega rápida na Grande São Paulo.</p>
+      </div>
 
       {/* Rodapé Premium com Redes Sociais */}
       <footer style={styles.footer}>
