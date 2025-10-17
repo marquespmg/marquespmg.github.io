@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
-import { getRelatedProducts, getFeaturedProducts } from './product-utils';
+import { getRelatedProducts, getFeaturedProducts } from '../public/product-utils';
 
 export default function FoodNews() {
   const [isMobile, setIsMobile] = useState(false);
