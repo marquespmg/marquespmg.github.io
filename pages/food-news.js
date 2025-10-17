@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { getRelatedProducts, getFeaturedProducts } from '../utils/product-utils';
+import ShareButtons from "../components/ShareButtons";
 
 export default function FoodNews() {
   const [isMobile, setIsMobile] = useState(false);
@@ -2311,7 +2312,9 @@ function ArticleCard({ article, isMobile }) {
         }}>
           {article.title}
         </h2>
-
+				  {/* BOTÕES DE COMPARTILHAMENTO */}
+           <ShareButtons articleTitle={article.title} /> 
+			   
         <p style={{
           color: '#555',
           fontSize: isMobile ? '0.9rem' : '1rem',
