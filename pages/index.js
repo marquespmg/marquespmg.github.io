@@ -637,35 +637,52 @@ const avaliacoes = [
   Produtos de qualidade com garantia e procedência. Atendimento personalizado para revendedores e estabelecimentos comerciais.
 </p>
 
-{/* BOTÃO DE OFERTAS - Com efeito hover */}
+{/* BOTÃO DE OFERTAS */}
 <Link href="/ofertas" passHref legacyBehavior>
   <a style={{
     display: 'inline-block',
     padding: isMobile ? '12px 24px' : '12px 25px',
-    backgroundColor: '#e74c3c', /* Vermelho original */
+    backgroundColor: '#e74c3c',
     color: '#fff',
     textDecoration: 'none',
     borderRadius: '30px',
     fontSize: isMobile ? '0.95rem' : '1rem',
     fontWeight: '600',
-    transition: 'all 0.3s ease', /* Transição suave */
+    transition: 'all 0.3s ease',
     boxShadow: '0 3px 10px rgba(231, 76, 60, 0.3)',
+    margin: isMobile ? '0 auto 10px' : '0 auto 10px',
+    width: isMobile ? '90%' : 'auto',
+    maxWidth: '400px',
+    textAlign: 'center',
+  }}>
+    🔥 {isMobile ? 'OFERTAS DA SEMANA' : 'CONFIRA NOSSAS OFERTAS DA SEMANA!'}
+  </a>
+</Link>
+
+{/* NOVO BOTÃO FOOD NEWS - ADICIONE AQUI */}
+<Link href="/food-news" passHref legacyBehavior>
+  <a style={{
+    display: 'inline-block',
+    padding: isMobile ? '12px 24px' : '12px 25px',
+    backgroundColor: '#095400',
+    color: '#fff',
+    textDecoration: 'none',
+    borderRadius: '30px',
+    fontSize: isMobile ? '0.95rem' : '1rem',
+    fontWeight: '600',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 3px 10px rgba(9, 84, 0, 0.3)',
     margin: isMobile ? '0 auto 20px' : '0 auto 15px',
     width: isMobile ? '90%' : 'auto',
     maxWidth: '400px',
     textAlign: 'center',
     ':hover': {
-      backgroundColor: '#c0392b', /* Vermelho mais escuro no hover */
-      color: '#fff',
+      backgroundColor: '#074000',
       transform: isMobile ? 'none' : 'translateY(-2px)',
-      boxShadow: '0 5px 15px rgba(192, 57, 43, 0.4)'
-    },
-    ':active': {
-      transform: isMobile ? 'scale(0.98)' : 'scale(0.98)',
-      backgroundColor: '#a53125' /* Vermelho ainda mais escuro ao clicar */
+      boxShadow: '0 5px 15px rgba(7, 64, 0, 0.4)'
     }
   }}>
-    🔥 {isMobile ? 'OFERTAS DA SEMANA' : 'CONFIRA NOSSAS OFERTAS DA SEMANA!'}
+    📰 {isMobile ? 'FOOD NEWS' : 'ACESSE O FOOD NEWS - BLOG'}
   </a>
 </Link>
 </header>
