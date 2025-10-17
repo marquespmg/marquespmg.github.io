@@ -1404,7 +1404,243 @@ export default function FoodNews() {
       </p>
     </section>
   `
-}
+},
+{
+  "id": 5,
+  "title": "Farinha Pequena Alma Italiana Venturelli: O Segredo das Massas Autênticas - PMG Atacadista",
+  "description": "Descubra a Farinha Pequena Alma Italiana Venturelli 1kg. Farinha italiana premium para massas caseiras perfeitas. Melhor preço atacado na PMG Atacadista.",
+  "image": "https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-alma-italiana-venturelli-1-kilo-fdo-10-kilo-pmg-atacadista.jpg",
+  "category": "Panificação",
+  "section": "produto-destaque",
+  "readTime": "6 min de leitura",
+  "date": "2025-10-17",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🇮🇹 Farinha Pequena Alma Italiana: Autenticidade que Transforma Sua Cozinha</h2>
+      <p>Como <strong>distribuidora especializada em ingredientes premium</strong>, a PMG Atacadista apresenta a Farinha Pequena Alma Italiana Venturelli - a escolha de chefs profissionais e amantes da culinária italiana autêntica. Esta não é apenas uma farinha, é uma <strong>experiência gastronômica italiana</strong> em cada receita.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">📈 Destaque PMG:</h3>
+        <p style="margin: 0; font-weight: 600;">Restaurantes que utilizam farinhas italianas premium como a Venturelli têm <strong>25% mais satisfação do cliente</strong> e conseguem cobrar preços até 40% superiores.</p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-alma-italiana-venturelli-1-kilo-fdo-10-kilo-pmg-atacadista.jpg" alt="Farinha Pequena Alma Italiana Venturelli - PMG Atacadista" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Farinha italiana autêntica Venturelli - Qualidade premium para massas perfeitas</p>
+    </section>
+
+    <!-- CARACTERÍSTICAS TÉCNICAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔬 O Que Torna a Venturelli Diferente?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🇮🇹</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Origem Italiana</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Tradição italiana genuína em cada grão</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Grão Selecionado</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Trigo da mais alta qualidade</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⚡</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Textura Perfeita</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Ideal para massas caseiras</p>
+        </div>
+      </div>
+
+      <p>Segundo nosso <strong>time de especialistas em gastronomia da PMG Atacadista</strong>, a Farinha Venturelli oferece:</p>
+      <ul style="padding-left: 20px;">
+        <li><strong>Sabor autêntico italiano</strong> em cada preparação</li>
+        <li><strong>Elasticidade ideal</strong> para massas caseiras</li>
+        <li><strong>Cor e textura</strong> características das massas italianas</li>
+        <li><strong>Fácil manipulação</strong> mesmo para iniciantes</li>
+      </ul>
+    </section>
+
+    <!-- DETALHES DO PRODUTO -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">🏆 Farinha Pequena Alma Italiana Venturelli 1kg</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 25px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-alma-italiana-venturelli-1-kilo-fdo-10-kilo-pmg-atacadista.jpg" 
+               alt="Farinha Pequena Alma Italiana Venturelli - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Características Técnicas PMG:</h3>
+            <p><strong>Farinha italiana premium</strong> desenvolvida especialmente para preparo de massas caseiras. Textura fina e cor característica que garantem massas com sabor autêntico e elasticidade perfeita.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Segredo PMG:</strong> A Venturelli é a preferida de chefs italianos por manter as características originais das receitas tradicionais.</p>
+            </div>
+
+            <div style="background: #fff8e1; padding: 15px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #ffb300;">
+              <h4 style="margin: 0 0 8px 0; color: #095400;">🎯 Aplicações Ideais:</h4>
+              <ul style="margin: 0; padding-left: 20px;">
+                <li>Massas caseiras (tagliatelle, fettuccine)</li>
+                <li>Pizzas finas estilo italiano</li>
+                <li>Pães artesanais italianos</li>
+                <li>Receitas gourmet</li>
+              </ul>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 18,90</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Embalagem: 1kg | Fardo: 10kg</p>
+              </div>
+              <a href="https://marquesvendaspmg.shop/produto/1732-farinha-de-trigo-pequena-alma-italiana-venturelli-1-kilo-fdo-10-kilo-pmg-atacadista" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR VENTURELLI →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">⭐ Por Que Escolher a Farinha Venturelli?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">👨‍🍳 Para Profissionais</h4>
+          <p style="margin: 0;">Diferencie seu restaurante com massas autênticas que justificam preços premium e fidelizam clientes exigentes.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🏠 Para Casa</h4>
+          <p style="margin: 0;">Transforme suas refeições em experiências gastronômicas com massas caseiras de qualidade profissional.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📈 Para Negócios</h4>
+          <p style="margin: 0;">Aumente sua margem de lucro oferecendo produtos diferenciados que se destacam no mercado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABELA COMPARATIVA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">📋 Especificações Técnicas: Venturelli vs Farinhas Comuns</h2>
+      
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden;">
+          <thead>
+            <tr style="background: #095400; color: white;">
+              <th style="padding: 15px; text-align: left;">Característica</th>
+              <th style="padding: 15px; text-align: center;">Venturelli</th>
+              <th style="padding: 15px; text-align: center;">Farinha Comum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e0e0e0;">
+              <td style="padding: 15px; font-weight: 600;">Origem</td>
+              <td style="padding: 15px; text-align: center; color: #095400; font-weight: 600;">Italiana Premium</td>
+              <td style="padding: 15px; text-align: center;">Nacional Padrão</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e0e0e0;">
+              <td style="padding: 15px; font-weight: 600;">Sabor</td>
+              <td style="padding: 15px; text-align: center; color: #095400; font-weight: 600;">Autêntico Italiano</td>
+              <td style="padding: 15px; text-align: center;">Neutro</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e0e0e0;">
+              <td style="padding: 15px; font-weight: 600;">Textura Massas</td>
+              <td style="padding: 15px; text-align: center; color: #095400; font-weight: 600;">Elástica e Macia</td>
+              <td style="padding: 15px; text-align: center;">Firme</td>
+            </tr>
+            <tr>
+              <td style="padding: 15px; font-weight: 600;">Aplicação Gourmet</td>
+              <td style="padding: 15px; text-align: center; color: #095400; font-weight: 600;">Excelente</td>
+              <td style="padding: 15px; text-align: center;">Limitada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTO -->
+    <section style="background: #f0f8f0; padding: 25px; border-radius: 10px; margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💬 O Que Nossos Clientes Dizem?</h2>
+      <div style="display: flex; align-items: start; gap: 20px;">
+        <div style="font-size: 3rem;">⭐</div>
+        <div>
+          <p style="font-style: italic; margin: 0 0 10px 0; font-size: 1.1rem;">"Desde que comecei a usar a Farinha Venturelli da PMG Atacadista, minhas massas caseiras ficaram com sabor profissional. Meus clientes notaram a diferença imediatamente e meu faturamento aumentou 30%!"</p>
+          <p style="margin: 0; font-weight: 600; color: #095400;">- Chef Marco Antonio, Restaurante Bella Italia</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECOMENDAÇÃO FINAL -->
+    <section style="background: linear-gradient(135deg, #095400, #0a6b00); color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+      <h2 style="margin: 0 0 15px 0; font-size: 1.5rem;">🎯 Recomendação PMG Atacadista</h2>
+      <p style="margin: 0 0 20px 0; font-size: 1.1rem;">A Farinha Pequena Alma Italiana Venturelli é ideal para:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍝</div>
+          <h4 style="margin: 0 0 8px 0;">Massas Caseiras</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sabor autêntico italiano em casa</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏪</div>
+          <h4 style="margin: 0 0 8px 0;">Restaurantes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Diferenciação no cardápio</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="margin: 0 0 8px 0;">Chefs</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Qualidade profissional garantida</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL -->
+    <section style="text-align: center; padding: 40px; background: #f0f8f0; border-radius: 10px; margin-top: 30px;">
+      <h2 style="color: #095400; margin: 0 0 15px 0; font-size: 1.6rem;">🚀 Pronto para Experimentar a Autenticidade Italiana?</h2>
+      <p style="color: #555; margin: 0 0 25px 0; font-size: 1.1rem;">
+        Leve a verdadeira experiência italiana para sua cozinha com a Farinha Pequena Alma Italiana Venturelli.
+      </p>
+      
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://marquesvendaspmg.shop/produto/1732-farinha-de-trigo-pequena-alma-italiana-venturelli-1-kilo-fdo-10-kilo-pmg-atacadista" 
+           style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           COMPRAR VENTURELLI AGORA
+        </a>
+        
+        <a href="https://wa.me/5511913572902?text=Olá! Gostaria de saber mais sobre a Farinha Venturelli e fazer um pedido." 
+           style="background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           FALAR COM ESPECIALISTA
+        </a>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <p style="color: #095400; font-weight: 600; margin: 0 0 5px 0;">🎁 Condições Especiais PMG:</p>
+        <p style="color: #666; margin: 0; font-size: 0.9rem;">
+          • Frete grátis para pedidos acima de R$ 300 • Desconto progressivo no atacado • Entrega rápida
+        </p>
+      </div>
+      
+      <p style="color: #666; margin: 20px 0 0 0; font-size: 0.9rem;">
+        📞 <strong>Atendimento Personalizado:</strong> (11) 91357-2902 | ✉️ <strong>Email:</strong> marquesvendaspmg@gmail.com
+      </p>
+    </section>
+  `
+}  
   ];
 
   useEffect(() => {
