@@ -1496,7 +1496,7 @@ export default function FoodNews() {
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
               <div>
-                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 18,90</span>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 89,28 FD</span>
                 <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Embalagem: 1kg | Fardo: 10kg</p>
               </div>
               <a href="https://marquesvendaspmg.shop/produto/1732-farinha-de-trigo-pequena-alma-italiana-venturelli-1-kilo-fdo-10-kilo-pmg-atacadista" 
@@ -1631,7 +1631,7 @@ export default function FoodNews() {
       <div style="margin-top: 20px;">
         <p style="color: #095400; font-weight: 600; margin: 0 0 5px 0;">🎁 Condições Especiais PMG:</p>
         <p style="color: #666; margin: 0; font-size: 0.9rem;">
-          • Frete grátis para pedidos acima de R$ 300 • Desconto progressivo no atacado • Entrega rápida
+          • Frete grátis para pedidos acima de R$ 750 • Desconto progressivo no atacado • Entrega rápida
         </p>
       </div>
       
