@@ -8,6 +8,11 @@ export default function FoodNews() {
   const [isMobile, setIsMobile] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 1; // Apenas 1 artigo por página
+  const [isClient, setIsClient] = useState(false); // ⬅️ APENAS ESTA LINHA
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // BANCO DE ARTIGOS - AGORA COM PRODUTOS DINÂMICOS
   const articles = [
@@ -1644,29 +1649,85 @@ export default function FoodNews() {
 }  
   ];
 
-// Seu useEffect existente
-useEffect(() => {
-  const checkScreenSize = () => {
-    setIsMobile(window.innerWidth <= 768);
-  };
-  
-  checkScreenSize();
-  window.addEventListener('resize', checkScreenSize);
-  
-  return () => {
-    window.removeEventListener('resize', checkScreenSize);
-  };
-}, []);
+  // Seu useEffect do isMobile
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
 
-// APENAS UM map dos artigos
-{articles.map((article) => {
-  console.log('📋 Renderizando artigo - ID:', article.id, 'Title:', article.title);
-  return (
-    <div key={article.id} id={`artigo-${article.id}`}>
-      {/* TODO O CONTEÚDO DO ARTIGO AQUI */}
-    </div>
-  );
-})}
+useEffect(() => {
+  if (!isClient) return;
+
+  // Lê o parâmetro ?page= da URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const pageFromUrl = parseInt(urlParams.get('page'));
+  
+  if (pageFromUrl && pageFromUrl !== currentPage) {
+    setCurrentPage(pageFromUrl);
+    console.log('📄 Página da URL:', pageFromUrl);
+  }
+
+  // Scroll para âncora (se houver)
+  const hash = window.location.hash;
+  if (hash) {
+    setTimeout(() => {
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        console.log('🎯 Scroll para:', hash);
+      }
+    }, 1000);
+  }
+}, [isClient]);
+
+{isClient ? (
+  // ✅ USA articles DIRETAMENTE (sem paginação)
+  articles.map((article) => {
+    const elementId = `artigo-${article.id}`;
+    
+    return (
+      <div key={article.id}>
+        {/* WRAPPER com ID FIXO e MUITO VISÍVEL */}
+        <section 
+          id={elementId}
+          style={{
+            border: `5px solid ${
+              article.id === 1 ? 'red' : 
+              article.id === 2 ? 'blue' : 
+              article.id === 3 ? 'green' : 
+              article.id === 4 ? 'orange' : 'purple'
+            }`,
+            padding: '20px',
+            margin: '30px 0',
+            background: '#f0f8f0',
+            borderRadius: '10px',
+            fontSize: '18px'
+          }}
+        >
+          {/* Título manual para identificar */}
+          <h1 style={{color: '#095400', fontSize: '24px'}}>
+            🎯 ARTIGO {article.id}: {article.title}
+          </h1>
+          
+          {/* Conteúdo do artigo */}
+          <div dangerouslySetInnerHTML={{ __html: article.content }} />
+        </section>
+      </div>
+    );
+  })
+) : (
+  <div style={{padding: '20px', textAlign: 'center'}}>
+    ⏳ Carregando artigos...
+  </div>
+)}
 
   // FILTRAGEM DOS ARTIGOS
   const filteredArticles = articles;
