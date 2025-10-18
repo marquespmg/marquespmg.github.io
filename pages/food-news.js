@@ -1644,18 +1644,29 @@ export default function FoodNews() {
 }  
   ];
 
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    
-    return () => {
-      window.removeEventListener('resize', checkScreenSize);
-    };
-  }, []);
+// Seu useEffect existente
+useEffect(() => {
+  const checkScreenSize = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+  
+  checkScreenSize();
+  window.addEventListener('resize', checkScreenSize);
+  
+  return () => {
+    window.removeEventListener('resize', checkScreenSize);
+  };
+}, []);
+
+// APENAS UM map dos artigos
+{articles.map((article) => {
+  console.log('📋 Renderizando artigo - ID:', article.id, 'Title:', article.title);
+  return (
+    <div key={article.id} id={`artigo-${article.id}`}>
+      {/* TODO O CONTEÚDO DO ARTIGO AQUI */}
+    </div>
+  );
+})}
 
   // FILTRAGEM DOS ARTIGOS
   const filteredArticles = articles;
@@ -2312,8 +2323,11 @@ function ArticleCard({ article, isMobile }) {
         }}>
           {article.title}
         </h2>
-				  {/* BOTÕES DE COMPARTILHAMENTO */}
-           <ShareButtons articleTitle={article.title} /> 
+      {/* BOTÕES DE COMPARTILHAMENTO */}
+      <ShareButtons 
+        articleTitle={article.title}
+        articleId={article.id}
+      />
 			   
         <p style={{
           color: '#555',
