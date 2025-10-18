@@ -5,21 +5,24 @@ export default function ShareButtons(props) {
   console.log('📦 Todos os props:', props);
   console.log('🎯 articleId:', props.articleId);
   console.log('🎯 articleTitle:', props.articleTitle);
+  console.log('🎯 articlesPerPage:', props.articlesPerPage);
   
-  const { articleTitle, articleId } = props;
+  const { articleTitle, articleId, articlesPerPage = 1 } = props; // ← CORRIGIDO AQUI
   const [shareUrl, setShareUrl] = useState('');
   const [isReady, setIsReady] = useState(false);
 
+  // Geração da URL corrigida
   useEffect(() => {
-    console.log('🔧 useEffect - articleId:', articleId);
-    
     if (typeof window !== 'undefined' && articleId) {
-      const currentUrl = `${window.location.origin}${window.location.pathname}#artigo-${articleId}`;
-      console.log('🔧 URL gerada:', currentUrl);
-      setShareUrl(currentUrl);
-      setIsReady(true);
+      // Como SEMPRE é 1 artigo por página, a página é igual ao ID
+      const articlePage = articleId; // ← SIMPLIFICADO
+      
+      const shareUrl = `${window.location.origin}${window.location.pathname}?page=${articlePage}#artigo-${articleId}`;
+      console.log('🔗 URL gerada:', shareUrl);
+      setShareUrl(shareUrl);
+      setIsReady(true); // ← ADICIONE ESTA LINHA
     }
-  }, [articleId]);
+  }, [articleId, articlesPerPage]); // ← ADICIONE articlesPerPage nas dependências
 
   const message = `📖 "${articleTitle}" - Marques Vendas PMG! 👇\n${shareUrl}`;
 
@@ -84,7 +87,7 @@ export default function ShareButtons(props) {
           onClick={copyLink}
           style={{...btnStyle, backgroundColor: '#333'}}
         >
-          Copiar
+          Copiar Link
         </button>
       </div>
     </div>
