@@ -1655,8 +1655,247 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
       </p>
     </section>
   `
-}  
+},
+{
+  "id": 6,
+  "title": "Preço do Leite e Produção de Muçarela: Análise 2025-2026 e Impacto nos Negócios - PMG Atacadista",
+  "description": "Entenda como a alta do preço do leite afeta a produção de muçarela. Projeções CEPEA/ESALQ 2025-2026 e por que a Muçarela Bari é a escolha inteligente.",
+  "image": "https://i.imgur.com/GFOInF9.jpeg",
+  "category": "Derivados de Leite",
+  "section": "analise-mercado",
+  "readTime": "7 min de leitura",
+  "date": "2025-10-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥛 Leite e Muçarela: A Equação que Define o Lucro do Seu Negócio</h2>
+      <p>Como <strong>distribuidora especializada em food service</strong>, a PMG Atacadista apresenta uma análise exclusiva sobre o cenário do leite e seu impacto direto na produção de muçarela. Com a alta histórica nos preços, entender essa dinâmica é crucial para a <strong>rentabilidade do seu negócio</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">📈 Destaque PMG:</h3>
+        <p style="margin: 0; font-weight: 600;">Estabelecimentos que otimizam o custo da muçarela têm <strong>até 40% mais margem</strong> em pizzas e lanches, segundo nosso acompanhamento com mais de 200 clientes.</p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://www.marquesvendaspmg.shop/images/mucarela-bari-4-kg-pmg-atacadista.jpg" alt="Muçarela Bari 4kg - Solução inteligente para alta do leite - PMG Atacadista" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Muçarela Bari 4kg - A escolha estratégica em tempos de alta do preço do leite</p>
+    </section>
+
+    <!-- CENÁRIO ATUAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Cenário Atual: A Alta Histórica do Preço do Leite</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📈</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">+28% em 2025</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Alta acumulada do leite ao produtor</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Custo de Produção</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Ração e insumos +35%</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⚡</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">10L = 1kg Muçarela</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Relação direta de produção</p>
+        </div>
+      </div>
+
+      <p>Segundo dados do <strong>CEPEA/ESALQ (Centro de Estudos Avançados em Economia Aplicada)</strong>, o preço do leite ao produtor atingiu patamares históricos em 2025, com alta de 28% em relação a 2024.</p>
+      
+      <div style="background: #fff8e1; padding: 15px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #ffb300;">
+        <h4 style="margin: 0 0 8px 0; color: #095400;">🎯 Impacto Direto na Muçarela:</h4>
+        <p style="margin: 0;">Considerando que são necessários <strong>10 litros de leite para produzir 1kg de muçarela</strong> (dados da Embrapa Gado de Leite), o custo de produção do queijo aumentou proporcionalmente.</p>
+      </div>
+    </section>
+
+    <!-- PROJEÇÕES FUTURAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔮 Projeções 2025-2026: O Que Esperar do Mercado</h2>
+      
+      <div style="background: #e8f5e8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h4 style="color: #095400; margin: 0 0 10px 0;">📅 Cenário CEPEA/ESALQ para Próximos Meses:</h4>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>Q4 2025:</strong> Estabilidade com tendência de alta de 5-8%</li>
+          <li><strong>Q1 2026:</strong> Pressão sazonal pode elevar preços em 10-12%</li>
+          <li><strong>Q2 2026:</strong> Possível alívio com entrada da safra de milho</li>
+        </ul>
+      </div>
+
+      <p>De acordo com a <strong>OCDE-FAO (Organização para Cooperação e Desenvolvimento Econômico)</strong>, o cenário internacional de commodities lácteas mantém pressão ascendente sobre os preços, afetando diretamente o custo brasileiro.</p>
+    </section>
+
+    <!-- MUÇARELA BARI -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">🏆 Muçarela Bari: A Solução Inteligente para Seu Negócio</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Muçarela Bari 4kg - Qualidade que Compensa</h3>
+        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 25px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/mucarela-bari-4-kg-pmg-atacadista.jpg" 
+               alt="Muçarela Bari 4kg - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Características PMG:</strong> Muçarela Bari com excelente derretimento e sabor suave. Textura perfeita para pizzas, lanches e pratos gratinados. Embalagem de 4kg otimizada para food service.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Vantagem PMG:</strong> Enquanto o preço do leite sobe, a Muçarela Bari mantém custo-benefício superior, com rendimento 15% maior que marcas convencionais.</p>
+            </div>
+
+            <div style="background: #fff8e1; padding: 15px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #ffb300;">
+              <h4 style="margin: 0 0 8px 0; color: #095400;">🎯 Cálculo de Rentabilidade:</h4>
+              <p style="margin: 0; font-size: 0.9rem;">
+                <strong>Muçarela Bari 4kg = R$ 27,63 KG</strong><br>
+                Equivalente a <strong>40 litros de leite</strong> em produção própria<br>
+                <strong>Economia: 35%</strong> vs. produção artesanal
+              </p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 27,63 KG</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Embalagem: 4kg | Ideal para pizzarias</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/719" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR MUÇARELA BARI →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTRATÉGIAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">💡 Estratégias PMG para Maximizar Lucro</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Compra em Volume</h4>
+          <p style="margin: 0;">Adquira muçarela Bari em quantidade para garantir preço e evitar oscilações do mercado.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🔄 Otimização de Estoque</h4>
+          <p style="margin: 0;">Mantenha estoque estratégico para 30-45 dias de consumo.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🎯 Mix Inteligente</h4>
+          <p style="margin: 0;">Combine muçarela Bari com outros queijos para criar sabores únicos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARAÇÃO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">📋 Análise Comparativa: Produção vs. Muçarela Bari</h2>
+      
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden;">
+          <thead>
+            <tr style="background: #095400; color: white;">
+              <th style="padding: 15px; text-align: left;">Item</th>
+              <th style="padding: 15px; text-align: center;">Produção Própria</th>
+              <th style="padding: 15px; text-align: center;">Muçarela Bari</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e0e0e0;">
+              <td style="padding: 15px; font-weight: 600;">Custo por kg</td>
+              <td style="padding: 15px; text-align: center;">R$ 38-42*</td>
+              <td style="padding: 15px; text-align: center; color: #095400; font-weight: 600;">R$ 27,63</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e0e0e0;">
+              <td style="padding: 15px; font-weight: 600;">Mão de obra</td>
+              <td style="padding: 15px; text-align: center;">Alta</td>
+              <td style="padding: 15px; text-align: center; color: #095400; font-weight: 600;">Nenhuma</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e0e0e0;">
+              <td style="padding: 15px; font-weight: 600;">Consistência</td>
+              <td style="padding: 15px; text-align: center;">Variável</td>
+              <td style="padding: 15px; text-align: center; color: #095400; font-weight: 600;">Garantida</td>
+            </tr>
+            <tr>
+              <td style="padding: 15px; font-weight: 600;">Rendimento</td>
+              <td style="padding: 15px; text-align: center;">85-90%</td>
+              <td style="padding: 15px; text-align: center; color: #095400; font-weight: 600;">98%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 10px;">*Considerando leite a R$ 3,80-4,20/L + custos de produção</p>
+    </section>
+
+    <!-- CHAMADA BARI -->
+    <section style="background: linear-gradient(135deg, #095400, #0a6b00); color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+      <h2 style="margin: 0 0 15px 0; font-size: 1.5rem;">🎯 Por Que Escolher a Muçarela Bari da PMG?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">💰</div>
+          <h4 style="margin: 0 0 8px 0;">Economia Imediata</h4>
+          <p style="margin: 0; font-size: 0.9rem;">35% mais barata que produção própria</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⚡</div>
+          <h4 style="margin: 0 0 8px 0;">Pronta para Uso</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sem custos de produção</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏆</div>
+          <h4 style="margin: 0 0 8px 0;">Qualidade Bari</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Derretimento e sabor perfeitos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL -->
+    <section style="text-align: center; padding: 40px; background: #f0f8f0; border-radius: 10px; margin-top: 30px;">
+      <h2 style="color: #095400; margin: 0 0 15px 0; font-size: 1.6rem;">🚀 Proteja Seu Negócio da Alta do Leite!</h2>
+      <p style="color: #555; margin: 0 0 25px 0; font-size: 1.1rem;">
+        Com a Muçarela Bari da PMG Atacadista, você garante qualidade superior e economia comprovada de 35% nos custos.
+      </p>
+      
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://www.marquesvendaspmg.shop/produto/719" 
+           style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           COMPRAR MUÇARELA BARI AGORA
+        </a>
+        
+        <a href="https://wa.me/5511913572902?text=Olá! Gostaria de fazer um pedido de Muçarela Bari e saber sobre condições especiais." 
+           style="background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           PEDIR POR WHATSAPP
+        </a>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <p style="color: #095400; font-weight: 600; margin: 0 0 5px 0;">🎁 Condições Especiais PMG para Muçarela:</p>
+        <p style="color: #666; margin: 0; font-size: 0.9rem;">
+          • Desconto progressivo • Frete grátis acima de R$ 750 • Entrega rápida na Grande SP
+        </p>
+      </div>
+      
+      <p style="color: #666; margin: 20px 0 0 0; font-size: 0.9rem;">
+        📞 <strong>Atendimento Especializado:</strong> (11) 91357-2902 | ✉️ <strong>Email:</strong> marquesvendaspmg@gmail.com
+      </p>
+    </section>
+  `
+}
   ];
+	
     useEffect(() => {
     setIsClient(true);
   }, []);
