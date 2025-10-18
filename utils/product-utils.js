@@ -1911,19 +1911,184 @@ const products = [
   { id: 2005, name: 'LICHIA EM CALDA BARÃO LALI 567 G (CX 24 LT)', category: 'Orientais', price: 22.93, image: 'https://www.marquesvendaspmg.shop/images/lichia-em-calda-barao-lali-567-g-cx-24-lt-pmg-atacadista.jpg' },
 ];
 
+// ========== FUNÇÃO PRINCIPAL INTELIGENTE ==========
+
+// Função INTELIGENTE para produtos relacionados baseado no ID do produto citado no artigo
+export const getRelatedProducts = (article) => {
+  try {
+    const { content, category, title } = article || {};
+    
+    console.log('🔍 Buscando produtos relacionados por ID do artigo...');
+    
+    if (!content) {
+      console.log('⚠️ Conteúdo do artigo não encontrado - usando fallback por categoria');
+      return getFallbackProducts(article).slice(0, 4);
+    }
+    
+    // 1. Extrai o ID do produto citado no artigo
+    const productId = extractProductIdFromContent(content);
+    console.log('🎯 ID do produto citado no artigo:', productId);
+    
+    let related = [];
+    
+    // 2. Se encontrou um ID, busca produtos com IDs sequenciais
+    if (productId) {
+      related = getSequentialProducts(productId, 4);
+      console.log(`📦 Produtos sequenciais encontrados:`, related.length);
+    }
+    
+    // 3. Se não encontrou produtos sequenciais, usa fallback inteligente
+    if (related.length === 0) {
+      console.log('🔄 Nenhum produto sequencial encontrado - usando fallback inteligente');
+      related = getFallbackProducts(article);
+    }
+    
+    // Remove duplicatas e limita a 4 produtos
+    const uniqueProducts = removeDuplicates(related).slice(0, 4);
+    
+    console.log(`🏁 Retornando ${uniqueProducts.length} produtos relacionados:`, uniqueProducts.map(p => `${p.name} (ID: ${p.id})`));
+    return uniqueProducts;
+    
+  } catch (error) {
+    console.error('❌ Erro em getRelatedProducts:', error);
+    return getFeaturedProducts().slice(0, 4);
+  }
+};
+
+// ========== FUNÇÕES DE BUSCA POR ID SEQUENCIAL ==========
+
+// Extrai o ID do produto do conteúdo do artigo
+const extractProductIdFromContent = (content) => {
+  if (!content) return null;
+  
+  // Procura por padrões como: /produto/719, /produto/720, etc.
+  const productIdPattern = /\/produto\/(\d+)/g;
+  const matches = [...content.matchAll(productIdPattern)];
+  
+  if (matches.length > 0) {
+    // Pega o primeiro ID encontrado
+    const firstId = parseInt(matches[0][1]);
+    console.log('🔎 IDs encontrados no artigo:', matches.map(m => m[1]), 'Usando:', firstId);
+    return firstId;
+  }
+  
+  return null;
+};
+
+// Busca produtos com IDs sequenciais a partir do ID base
+const getSequentialProducts = (baseId, limit = 4) => {
+  const results = [];
+  
+  console.log(`🔄 Buscando produtos sequenciais a partir do ID ${baseId}...`);
+  
+  // Tenta buscar produtos com IDs: baseId, baseId+1, baseId+2, baseId+3
+  for (let i = 0; i < limit * 2; i++) { // Busca em um range maior
+    const targetId = baseId + i;
+    const product = getProductById(targetId);
+    
+    if (product) {
+      results.push(product);
+      console.log(`✅ Encontrado produto sequencial: ${product.name} (ID: ${targetId})`);
+    }
+    
+    // Se já encontrou 4 produtos, para a busca
+    if (results.length >= limit) {
+      break;
+    }
+  }
+  
+  // Se não encontrou produtos sequenciais, tenta IDs anteriores
+  if (results.length === 0) {
+    console.log('🔄 Tentando IDs anteriores...');
+    for (let i = 1; i <= limit * 2; i++) {
+      const targetId = baseId - i;
+      const product = getProductById(targetId);
+      
+      if (product) {
+        results.push(product);
+        console.log(`✅ Encontrado produto anterior: ${product.name} (ID: ${targetId})`);
+      }
+      
+      if (results.length >= limit) break;
+    }
+  }
+  
+  return results;
+};
+
+// ========== FUNÇÕES DE FALLBACK INTELIGENTE ==========
+
+// Fallback inteligente caso não encontre produtos sequenciais
+const getFallbackProducts = (article) => {
+  const { category, title, content } = article || {};
+  
+  console.log('🔄 Executando fallback inteligente...');
+  
+  // 1. Tenta pela categoria primeiro
+  if (category) {
+    const categoryProducts = getProductsByCategory(category);
+    if (categoryProducts.length > 0) {
+      console.log(`📂 Fallback: ${categoryProducts.length} produtos na categoria "${category}"`);
+      
+      // Filtra por palavras-chave do artigo
+      const keywords = extractRelevantKeywords(title, content);
+      if (keywords.length > 0) {
+        const filtered = filterProductsByRelevance(categoryProducts, keywords);
+        if (filtered.length > 0) {
+          console.log(`🎯 Fallback: ${filtered.length} produtos filtrados por palavras-chave`);
+          return filtered;
+        }
+      }
+      
+      // Se não encontrou filtrado, retorna produtos populares da categoria
+      const popular = getPopularProductsFromCategory(categoryProducts);
+      console.log(`🌟 Fallback: ${popular.length} produtos populares da categoria`);
+      return popular;
+    }
+  }
+  
+  // 2. Tenta por palavras-chave no título
+  if (title) {
+    const keywords = extractRelevantKeywords(title, content);
+    if (keywords.length > 0) {
+      const keywordProducts = getProductsByKeywords(keywords);
+      if (keywordProducts.length > 0) {
+        console.log(`🔍 Fallback: ${keywordProducts.length} produtos por palavras-chave`);
+        return keywordProducts;
+      }
+    }
+  }
+  
+  // 3. Último fallback - produtos em destaque
+  console.log('🌟 Fallback final: produtos em destaque');
+  return getFeaturedProducts();
+};
+
+// ========== FUNÇÕES DE BUSCA BÁSICAS ==========
+
 // Função segura para buscar produtos por categoria
 export const getProductsByCategory = (category) => {
   try {
     if (!Array.isArray(products) || products.length === 0) {
+      console.warn('⚠️ Lista de produtos vazia ou inválida');
       return [];
     }
     
-    return products.filter(product => {
+    if (!category) {
+      console.warn('⚠️ Categoria não fornecida');
+      return [];
+    }
+    
+    const filteredProducts = products.filter(product => {
       if (!product || !product.category) return false;
-      return product.category.toLowerCase() === category.toLowerCase();
+      return product.category.toLowerCase().includes(category.toLowerCase());
     });
+    
+    console.log(`📂 Encontrados ${filteredProducts.length} produtos na categoria "${category}"`);
+    return filteredProducts;
+    
   } catch (error) {
-    console.error('Erro em getProductsByCategory:', error);
+    console.error('❌ Erro em getProductsByCategory:', error);
     return [];
   }
 };
@@ -1935,106 +2100,214 @@ export const getProductsByKeyword = (keyword) => {
       return [];
     }
     
+    if (!keyword || keyword.length < 3) {
+      return [];
+    }
+    
+    const searchTerm = keyword.toLowerCase().trim();
+    
     return products.filter(product => {
-      if (!product || !product.name) return false;
-      return product.name.toLowerCase().includes(keyword.toLowerCase());
+      if (!product) return false;
+      
+      // Busca no nome e na categoria
+      const nameMatch = product.name?.toLowerCase().includes(searchTerm);
+      const categoryMatch = product.category?.toLowerCase().includes(searchTerm);
+      
+      return nameMatch || categoryMatch;
     });
+    
   } catch (error) {
-    console.error('Erro em getProductsByKeyword:', error);
+    console.error('❌ Erro em getProductsByKeyword:', error);
     return [];
   }
 };
 
-// Função para produtos relacionados baseado no artigo
-export const getRelatedProducts = (article) => {
+// Função para buscar produtos por múltiplas palavras-chave
+export const getProductsByKeywords = (keywords) => {
   try {
-    const { category, title } = article || {};
-    
-    if (!category && !title) return [];
-    
-    let related = [];
-    
-    // Primeiro tenta pela categoria do artigo
-    if (category) {
-      related = getProductsByCategory(category);
+    if (!Array.isArray(keywords) || keywords.length === 0) {
+      return [];
     }
     
-    // Se não encontrar, busca por palavras-chave no título
-    if (related.length === 0 && title) {
-      const keywords = extractKeywords(title);
-      related = keywords.flatMap(keyword => 
-        getProductsByKeyword(keyword)
-      ).slice(0, 4);
-    }
+    let results = [];
     
-    // Remove duplicatas e limita a 4 produtos
-    const uniqueProducts = [...new Map(related.map(item => [item.id, item])).values()].slice(0, 4);
+    keywords.forEach(keyword => {
+      if (keyword && keyword.length >= 3) {
+        const found = getProductsByKeyword(keyword);
+        results = [...results, ...found];
+      }
+    });
     
-    return uniqueProducts;
+    // Remove duplicatas
+    const uniqueResults = removeDuplicates(results);
+    
+    return uniqueResults;
+    
   } catch (error) {
-    console.error('Erro em getRelatedProducts:', error);
+    console.error('❌ Erro em getProductsByKeywords:', error);
     return [];
   }
 };
 
-// Extrai palavras-chave do título do artigo
-const extractKeywords = (title) => {
+// Função para buscar produto por ID
+export const getProductById = (id) => {
+  return products.find(product => product.id === id) || null;
+};
+
+// ========== FUNÇÕES AUXILIARES ==========
+
+// Remove duplicatas de produtos
+const removeDuplicates = (products) => {
+  return [...new Map(products.map(item => [item.id, item])).values()];
+};
+
+// Extrai palavras-chave relevantes do título e conteúdo
+const extractRelevantKeywords = (title, content = '') => {
   if (!title) return [];
   
-  const commonWords = ['para', 'com', 'como', 'seu', 'sua', 'os', 'as', 'um', 'uma', 'de', 'da', 'do', 'em', 'no', 'na'];
-  return title
-    .toLowerCase()
-    .split(' ')
+  const commonWords = [
+    'para', 'com', 'como', 'seu', 'sua', 'os', 'as', 'um', 'uma', 'de', 'da', 'do', 
+    'em', 'no', 'na', 'por', 'que', 'é', 'ser', 'está', 'ao', 'mais', 'mas', 'ou',
+    'sem', 'sobre', 'entre', 'até', 'após', 'desde', 'este', 'esta', 'isso', 'aquilo'
+  ];
+  
+  // Combina título e conteúdo para análise
+  const fullText = `${title} ${content}`.toLowerCase();
+  
+  // Remove caracteres especiais e divide em palavras
+  const words = fullText
+    .replace(/[^\w\sà-ú]/g, ' ')
+    .split(/\s+/)
     .filter(word => 
       word.length > 3 && 
       !commonWords.includes(word) &&
-      !word.includes('?') &&
-      !word.includes('!') &&
-      !word.includes('.') &&
-      !word.includes(',')
+      !word.match(/^\d+$/)
     );
+  
+  // Conta frequência das palavras
+  const wordFrequency = {};
+  words.forEach(word => {
+    wordFrequency[word] = (wordFrequency[word] || 0) + 1;
+  });
+  
+  // Ordena por frequência e pega as mais relevantes
+  const sortedKeywords = Object.entries(wordFrequency)
+    .sort(([,a], [,b]) => b - a)
+    .slice(0, 6)
+    .map(([word]) => word);
+  
+  console.log('🔤 Palavras-chave extraídas:', sortedKeywords);
+  return sortedKeywords;
 };
 
-// Produtos em destaque
+// Filtra produtos por relevância
+const filterProductsByRelevance = (products, keywords) => {
+  if (!keywords || keywords.length === 0) {
+    return products.slice(0, 4);
+  }
+  
+  const scoredProducts = [];
+  
+  products.forEach(product => {
+    let score = 0;
+    const productText = product.name.toLowerCase();
+    
+    keywords.forEach(keyword => {
+      if (productText.includes(keyword.toLowerCase())) {
+        score += 10;
+      }
+    });
+    
+    if (score > 0) {
+      scoredProducts.push({ ...product, score });
+    }
+  });
+  
+  if (scoredProducts.length > 0) {
+    return scoredProducts
+      .sort((a, b) => b.score - a.score)
+      .map(({ score, ...product }) => product)
+      .slice(0, 4);
+  }
+  
+  return products.slice(0, 4);
+};
+
+// Pega produtos populares da categoria
+const getPopularProductsFromCategory = (products) => {
+  if (!products || products.length === 0) return [];
+  
+  const priorityKeywords = [
+    'muçarela', 'mussarela', 'queijo', 'cheddar', 'prato', 'coalho',
+    'pizza', 'hambúrguer', 'lanche', 'presunto', 'mortadela',
+    'farinha', 'trigo', 'massas', 'bebida', 'refrigerante'
+  ];
+  
+  const scoredProducts = products.map(product => {
+    let score = 0;
+    const productName = product.name.toLowerCase();
+    
+    priorityKeywords.forEach(keyword => {
+      if (productName.includes(keyword)) {
+        score += 5;
+      }
+    });
+    
+    // Bonus para produtos com embalagens maiores
+    if (productName.includes('kg') || productName.includes('kilo')) {
+      score += 2;
+    }
+    
+    return { ...product, score };
+  });
+  
+  return scoredProducts
+    .sort((a, b) => b.score - a.score)
+    .map(({ score, ...product }) => product)
+    .slice(0, 4);
+};
+
+// ========== FUNÇÕES DE SUPORTE ==========
+
+// Produtos em destaque (fallback final)
 export const getFeaturedProducts = () => {
   try {
     if (!Array.isArray(products) || products.length === 0) {
       return [];
     }
     
-    // Produtos das categorias mais populares
     const featuredCategories = [
-      'Derivados de Leite', 
-      'Bebidas', 
-      'Farináceos', 
-      'Salgados',
-      'Derivados de Bovino',
-      'Derivados de Suíno',
-      'Derivados do Mar'
+      'Acessórios', 'Derivados de Leite', 'Bebidas', 'Farináceos'
     ];
     
     const featured = products
-      .filter(product => 
-        product && featuredCategories.includes(product.category)
-      )
+      .filter(product => {
+        if (!product) return false;
+        return featuredCategories.includes(product.category);
+      })
       .slice(0, 8);
     
+    console.log(`🌟 ${featured.length} produtos em destaque`);
     return featured;
+    
   } catch (error) {
-    console.error('Erro em getFeaturedProducts:', error);
+    console.error('❌ Erro em getFeaturedProducts:', error);
     return [];
   }
 };
 
-// Função para debug
-export const getProductsStats = () => {
-  return {
-    total: products.length,
-    categories: [...new Set(products.map(p => p?.category).filter(Boolean))]
-  };
+// Função para buscar todos os produtos
+export const getAllProducts = () => {
+  return [...products];
 };
 
-// Função para buscar produto por ID
-export const getProductById = (id) => {
-  return products.find(product => product.id === id) || null;
+// Função para debug
+export const getProductsStats = () => {
+  const categories = [...new Set(products.map(p => p?.category).filter(Boolean))];
+  
+  return {
+    total: products.length,
+    categories: categories,
+    categoriesCount: categories.length
+  };
 };
