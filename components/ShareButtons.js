@@ -1,17 +1,33 @@
 import React, { useEffect, useState } from 'react';
 
-export default function ShareButtons({ articleTitle }) {
+export default function ShareButtons(props) {
+  // Debug para ver TODOS os props que estão chegando
+  console.log('📦 Todos os props:', props);
+  console.log('🎯 articleId:', props.articleId);
+  console.log('🎯 articleTitle:', props.articleTitle);
+  
+  const { articleTitle, articleId } = props;
   const [shareUrl, setShareUrl] = useState('');
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') setShareUrl(window.location.href);
-  }, []);
+    console.log('🔧 useEffect - articleId:', articleId);
+    
+    if (typeof window !== 'undefined' && articleId) {
+      const currentUrl = `${window.location.origin}${window.location.pathname}#artigo-${articleId}`;
+      console.log('🔧 URL gerada:', currentUrl);
+      setShareUrl(currentUrl);
+      setIsReady(true);
+    }
+  }, [articleId]);
 
   const message = `📖 "${articleTitle}" - Marques Vendas PMG! 👇\n${shareUrl}`;
 
   const copyLink = () => {
-    navigator.clipboard.writeText(shareUrl);
-    alert('🔗 Copiado!');
+    if (shareUrl) {
+      navigator.clipboard.writeText(shareUrl);
+      alert('🔗 Copiado!');
+    }
   };
 
   const btnStyle = {
@@ -26,6 +42,21 @@ export default function ShareButtons({ articleTitle }) {
     textAlign: 'center'
   };
 
+  if (!isReady) {
+    console.log('⏳ ShareButtons - Não está pronto, articleId:', articleId);
+    return (
+      <div style={{marginTop: '8px', padding: '6px 0', borderTop: '1px solid #f0f0f0'}}>
+        <p style={{fontSize: '11px', color: '#666', marginBottom: '4px'}}>Compartilhe:</p>
+        <div style={{display: 'flex', gap: '4px'}}>
+          <div style={{...btnStyle, backgroundColor: '#ccc', opacity: 0.5}}>WhatsApp</div>
+          <div style={{...btnStyle, backgroundColor: '#ccc', opacity: 0.5}}>Facebook</div>
+          <div style={{...btnStyle, backgroundColor: '#ccc', opacity: 0.5}}>Copiar</div>
+        </div>
+      </div>
+    );
+  }
+
+  console.log('✅ ShareButtons - PRONTO! URL:', shareUrl);
   return (
     <div style={{marginTop: '8px', padding: '6px 0', borderTop: '1px solid #f0f0f0'}}>
       <p style={{fontSize: '11px', color: '#666', marginBottom: '4px'}}>Compartilhe:</p>
@@ -53,7 +84,7 @@ export default function ShareButtons({ articleTitle }) {
           onClick={copyLink}
           style={{...btnStyle, backgroundColor: '#333'}}
         >
-          Copiar Link
+          Copiar
         </button>
       </div>
     </div>
