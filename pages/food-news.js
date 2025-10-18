@@ -4,15 +4,24 @@ import { useState, useEffect } from 'react';
 import { getRelatedProducts, getFeaturedProducts } from '../utils/product-utils';
 import ShareButtons from "../components/ShareButtons";
 
-export default function FoodNews() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 1; // Apenas 1 artigo por página
-  const [isClient, setIsClient] = useState(false); // ⬅️ APENAS ESTA LINHA
+// ⬇️⬇️⬇️ ESTA FUNÇÃO VAI AQUI (FORA DO COMPONENTE) ⬇️⬇️⬇️
+export async function getServerSideProps(context) {
+  const { query } = context;
+  const page = parseInt(query.page) || 1;
+  
+  return {
+    props: {
+      initialPage: page
+    }
+  };
+}
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+// ⬇️⬇️⬇️ AGORA O COMPONENTE ⬇️⬇️⬇️
+export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
+  const [isMobile, setIsMobile] = useState(false);
+  const [currentPage, setCurrentPage] = useState(initialPage); // ← USA initialPage
+  const articlesPerPage = 1;
+  const [isClient, setIsClient] = useState(false);
 
   // BANCO DE ARTIGOS - AGORA COM PRODUTOS DINÂMICOS
   const articles = [
@@ -1648,7 +1657,10 @@ export default function FoodNews() {
   `
 }  
   ];
-
+    useEffect(() => {
+    setIsClient(true);
+  }, []);
+	
   // Seu useEffect do isMobile
   useEffect(() => {
     const checkScreenSize = () => {
