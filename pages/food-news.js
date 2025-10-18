@@ -2327,6 +2327,7 @@ function ArticleCard({ article, isMobile }) {
       <ShareButtons 
         articleTitle={article.title}
         articleId={article.id}
+        articlesPerPage={1} // ← ADICIONE ESTA LINHA
       />
 			   
         <p style={{
