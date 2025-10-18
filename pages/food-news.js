@@ -1745,41 +1745,43 @@ useEffect(() => {
 // Cálculo mais preciso do artigo atual
 const currentArticle = currentArticles[0]; // Já que é 1 artigo por página
 
-  return (
-    <>
-      <Head>
-        <title>Blog PMG Atacadista - Receitas, Dicas e Produtos para Food Service</title>
-        <meta name="description" content="Blog oficial da Marques Vendas PMG com receitas exclusivas, dicas para negócios food service e análises técnicas de produtos. Especialistas em atacado." />
-      </Head>
-	  
-<Head>
-  {/* TÍTULO E DESCRIÇÃO DINÂMICOS */}
-  <title>{currentArticle ? `${currentArticle.title} | PMG Atacadista` : 'Blog PMG Atacadista - Receitas e Dicas Food Service'}</title>
-  <meta name="description" content={currentArticle ? currentArticle.description : "Blog oficial da Marques Vendas PMG com receitas exclusivas, dicas para negócios food service e análises técnicas de produtos."} />
-  
-  {/* OPEN GRAPH - FACEBOOK, WHATSAPP, ETC */}
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
-  <meta property="og:description" content={currentArticle ? currentArticle.description : "Conhecimento especializado em food service para alavancar seu negócio"} />
-  <meta property="og:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:url" content={`https://www.marquesvendaspmg.shop/food-news?page=${currentPage}`} />
-  <meta property="og:site_name" content="Marques Vendas PMG" />
-  <meta property="article:author" content={currentArticle ? currentArticle.author : "Marques Vendas PMG"} />
-  
-  {/* TWITTER CARD */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
-  <meta name="twitter:description" content={currentArticle ? currentArticle.description : "Conhecimento especializado em food service"} />
-  <meta name="twitter:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
-  <meta name="twitter:site" content="@marquesvendaspmg" />
-  
-  {/* OUTRAS META TAGS IMPORTANTES */}
-  <meta name="author" content={currentArticle ? currentArticle.author : "Marques Vendas PMG"} />
-  <meta property="article:published_time" content={currentArticle ? currentArticle.date : "2025-01-01"} />
-  <meta property="article:section" content={currentArticle ? currentArticle.category : "Food Service"} />
-</Head>
+return (
+  <>
+    {/* ❌ REMOVA ESTE HEAD ANTIGO */}
+    {/* <Head>
+      <title>Blog PMG Atacadista - Receitas, Dicas e Produtos para Food Service</title>
+      <meta name="description" content="Blog oficial da Marques Vendas PMG com receitas exclusivas, dicas para negócios food service e análises técnicas de produtos. Especialistas em atacado." />
+    </Head> */}
+
+    {/* ✅ DEIXE APENAS ESTE HEAD DINÂMICO */}
+    <Head>
+      {/* TÍTULO E DESCRIÇÃO DINÂMICOS */}
+      <title>{currentArticle ? `${currentArticle.title} | PMG Atacadista` : 'Blog PMG Atacadista - Receitas e Dicas Food Service'}</title>
+      <meta name="description" content={currentArticle ? currentArticle.description : "Blog oficial da Marques Vendas PMG com receitas exclusivas, dicas para negócios food service e análises técnicas de produtos."} />
+      
+      {/* OPEN GRAPH - FACEBOOK, WHATSAPP, ETC */}
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
+      <meta property="og:description" content={currentArticle ? currentArticle.description : "Conhecimento especializado em food service para alavancar seu negócio"} />
+      <meta property="og:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:url" content={`https://www.marquesvendaspmg.shop/food-news?page=${currentPage}`} />
+      <meta property="og:site_name" content="Marques Vendas PMG" />
+      <meta property="article:author" content={currentArticle ? currentArticle.author : "Marques Vendas PMG"} />
+      
+      {/* TWITTER CARD */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
+      <meta name="twitter:description" content={currentArticle ? currentArticle.description : "Conhecimento especializado em food service"} />
+      <meta name="twitter:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
+      <meta name="twitter:site" content="@marquesvendaspmg" />
+      
+      {/* OUTRAS META TAGS IMPORTANTES */}
+      <meta name="author" content={currentArticle ? currentArticle.author : "Marques Vendas PMG"} />
+      <meta property="article:published_time" content={currentArticle ? currentArticle.date : "2025-01-01"} />
+      <meta property="article:section" content={currentArticle ? currentArticle.category : "Food Service"} />
+    </Head>
 
       {/* ESTILOS GLOBAIS PARA MOBILE COM CORREÇÃO DAS LOGOS */}
       <style jsx global>{`
