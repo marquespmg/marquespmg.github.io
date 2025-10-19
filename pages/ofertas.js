@@ -5,16 +5,16 @@ import Link from 'next/link';
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 1756, name: 'FARINHA DE TRIGO PREMIUM ANACONDA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 124.22, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-premium-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1735, name: 'FARINHA DE TRIGO PEQUENA PREMIUM ANACONDA 1 KILO (FDO 10 KILO)', category: 'Ofertas', price: 45.33, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-premium-anaconda-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
-  { id: 1767, name: 'FARINHA DE TRIGO TIPO 1 SOL 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 100, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-sol-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1320, name: 'MARGARINA FOLHADOS & CROISSANTS 80 % AMÉLIA 2 KILO (CX 6 UN)', category: 'Ofertas', price: 215, image: 'https://www.marquesvendaspmg.shop/images/margarina-folhados-croissants-80-amelia-2-kilo-cx-6-un-pmg-atacadista.jpg' },
-  { id: 1318, name: 'MARGARINA COM SAL 80 % AMÉLIA (BD 14 KILO)', category: 'Ofertas', price: 189.99, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-80-amelia-bd-14-kilo-pmg-atacadista.jpg' },
-  { id: 1774, name: 'FERMENTO EM PÓ QUÍMICO TRADICIONAL DONA BENTA 100 G', category: 'Ofertas', price: 3.09, image: 'https://www.marquesvendaspmg.shop/images/fermento-em-po-quimico-tradicional-dona-benta-100-g-pmg-atacadista.jpg' },
-  { id: 1743, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 ROSA BRANCA 1 KILO (FDO 10 KILO)', category: 'Ofertas', price: 55.77, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-rosa-branca-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
-  { id: 1034, name: 'MORTADELA TRADICIONAL MARBA 5 KG', category: 'Ofertas', price: 11.99, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-marba-5-kg-pmg-atacadista.jpg' },
-  { id: 1059, name: 'PRESUNTO DÁLIA 3.3 KILO PÇ', category: 'Ofertas', price: 72.44, image: 'https://www.marquesvendaspmg.shop/images/presunto-dalia-33-kilo-pc-pmg-atacadista.jpg' },
-  { id: 502, name: 'OVOS BRANCOS TIPO GRANDE MODELO 60 UN (CX 2 BDJ)', category: 'Ofertas', price: 49.99, image: 'https://www.marquesvendaspmg.shop/images/ovos-brancos-tipo-grande-modelo-60-un-cx-2-bdj-pmg-atacadista.jpg' },
+{ id: 1518, name: 'CHOCOLATE AO LEITE MELKEN HARALD 2,1 KILO', category: 'Ofertas', price: 171.55, image: 'https://www.marquesvendaspmg.shop/images/chocolate-ao-leite-melken-harald-21-kilo-pmg-atacadista.jpg' },
+{ id: 640, name: 'CREME DE LEITE ITALAC 200 G (CX 24 UN)', category: 'Ofertas', price: 79.00, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-italac-200-g-cx-24-un-pmg-atacadista.jpg' },
+{ id: 672, name: 'LEITE CONDENSADO SEMIDESNATADO FOOD SERVICE PIRACANJUBA 2,5 KILO', category: 'Ofertas', price: 34.99, image: 'https://www.marquesvendaspmg.shop/images/leite-condensado-semidesnatado-food-service-piracanjuba-25-kilo-pmg-atacadista.jpg' },
+{ id: 613, name: 'CHANTY MIX AMÉLIA 1 L', category: 'Ofertas', price: 20.55, image: 'https://www.marquesvendaspmg.shop/images/chanty-mix-amelia-1-l-pmg-atacadista.jpg' },
+{ id: 1739, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 BUQUÊ 1 KILO (FDO 10 KILO)', category: 'Ofertas', price: 31.00, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-buque-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
+{ id: 1528, name: 'CHOCOLATE EM PÓ 50% CACAU DOIS FRADES NESTLÉ 1,01 KILO', category: 'Ofertas', price: 78.00, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-50-cacau-dois-frades-nestle-101-kilo-pmg-atacadista.jpg' },
+{ id: 719, name: 'MUÇARELA BARI 4 KG', category: 'Ofertas', price: 26.99, image: 'https://www.marquesvendaspmg.shop/images/mucarela-bari-4-kg-pmg-atacadista.jpg' },
+{ id: 627, name: 'CREAM CHEESE PHILADELPHIA 1,5 KILO', category: 'Ofertas', price: 59.99, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-15-kilo-pmg-atacadista.jpg' },
+{ id: 895, name: 'REQUEIJÃO DANÚBIO SEM AMIDO 1 KILO', category: 'Ofertas', price: 28.99, image: 'https://www.marquesvendaspmg.shop/images/requeijao-danubio-sem-amido-1-kilo-pmg-atacadista.jpg' },
+{ id: 9, name: 'AVENTAL EMBORRACHADO PRETO TAMANHO ÚNICO', category: 'Ofertas', price: 16.44, image: 'https://www.marquesvendaspmg.shop/images/avental-emborrachado-preto-tamanho-unico-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
