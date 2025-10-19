@@ -1893,6 +1893,442 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
       </p>
     </section>
   `
+},
+{
+  "id": 7,
+  "title": "Como Fazer Pizza Quatro Queijos Perfeita com Ingredientes Profissionais PMG Atacadista - Guia Completo 2025",
+  "description": "Aprenda a fazer pizza quatro queijos profissional com Molho Ekma, Muçarela Bari e Farinha Anaconda. Guia completo de custos e precificação para lucrar até 68%.",
+  "image": "https://i.imgur.com/nkTimUp.jpeg",
+  "category": "Receitas",
+  "section": "receitas-profissionais",
+  "readTime": "10 min de leitura",
+  "date": "2025-10-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Pizza Quatro Queijos Perfeita: Do Preparo à Precificação com Ingredientes PMG</h2>
+      <p>Como <strong>especialistas em food service</strong>, a PMG Atacadista revela o método profissional para fazer pizza quatro queijos que encanta clientes e <strong>gera até R$ 24,95 de lucro por pizza</strong>. Neste guia 2025, você aprenderá não só a receita, mas a precificar corretamente cada fatia.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">📈 Destaque PMG:</h3>
+        <p style="margin: 0; font-weight: 600;">Pizzarias que usam ingredientes profissionais e calculam custos corretamente têm <strong>taxa de repetição 45% maior</strong> e lucratividade 60% acima da média do mercado.</p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://www.marquesvendaspmg.shop/images/molho-para-pizza-ekma-17-kilo-cx-6-bag-pmg-atacadista.jpg" alt="Molho para Pizza Ekma - Ingrediente profissional para pizza quatro queijos - PMG Atacadista" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Molho Ekma Professional - Base perfeita para sua pizza quatro queijos</p>
+    </section>
+
+    <!-- INGREDIENTES PROFISSIONAIS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Ingredientes Profissionais PMG para Pizza Quatro Queijos</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍅</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Molho Ekma</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Tomate italiano premium</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">4 Queijos PMG</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Seleção premium</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Farinha Anaconda</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massa elástica profissional</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECEITA PASSO A PASSO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">👨‍🍳 Receita: Pizza Quatro Queijos Perfeita</h2>
+      
+      <div style="background: #fff8e1; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h4 style="color: #095400; margin: 0 0 15px 0;">📝 Ingredientes para a Massa (4 pizzas 35cm):</h4>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li>1 kg Farinha Anaconda Pizza</li>
+          <li>600 ml água gelada</li>
+          <li>20 g sal</li>
+          <li>15 g Fermento Fleischmann fresco</li>
+          <li>30 ml azeite</li>
+          <li>10 g açúcar</li>
+        </ul>
+      </div>
+
+      <div style="background: #e8f5e8; padding: 20px; border-radius: 8px;">
+        <h4 style="color: #095400; margin: 0 0 15px 0;">🔪 Modo de Preparo - Quatro Queijos:</h4>
+        <ol style="margin: 0; padding-left: 20px;">
+          <li><strong>Mistura:</strong> Dissolva o fermento na água com açúcar. Adicione farinha e sal, misture por 8min</li>
+          <li><strong>Sova:</strong> Sove até a massa ficar lisa e elástica (12-15min)</li>
+          <li><strong>Fermentação:</strong> Deixe descansar por 1h até dobrar de volume</li>
+          <li><strong>Divisão:</strong> Divida em 4 bolas de 400g cada</li>
+          <li><strong>Montagem:</strong> Abra a massa, espalhe 150g de molho Ekma</li>
+          <li><strong>Queijos:</strong> 120g Muçarela Bari + 30g Provolone Tirolez + 30g Gorgonzola Quatá + 20g Parmesão RJR</li>
+          <li><strong>Forno:</strong> 250°C por 8-10min até dourar</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CÁLCULO DE CUSTOS DETALHADO -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">💰 Cálculo de Custos: Quanto Custa Fazer Uma Pizza?</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">📊 Análise de Custos por Ingrediente PMG</h3>
+        
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden;">
+            <thead>
+              <tr style="background: #095400; color: white;">
+                <th style="padding: 15px; text-align: left;">Ingrediente</th>
+                <th style="padding: 15px; text-align: center;">Preço PMG</th>
+                <th style="padding: 15px; text-align: center;">Qtde/Pizza</th>
+                <th style="padding: 15px; text-align: center;">Custo/Pizza</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 15px; font-weight: 600;">Farinha Anaconda</td>
+                <td style="padding: 15px; text-align: center;">R$ 84,45/25kg</td>
+                <td style="padding: 15px; text-align: center;">250g</td>
+                <td style="padding: 15px; text-align: center; font-weight: 600;">R$ 0,85</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 15px; font-weight: 600;">Molho Ekma</td>
+                <td style="padding: 15px; text-align: center;">R$ 63,59/cx 6un</td>
+                <td style="padding: 15px; text-align: center;">150g</td>
+                <td style="padding: 15px; text-align: center; font-weight: 600;">R$ 0,94</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 15px; font-weight: 600;">Muçarela Bari</td>
+                <td style="padding: 15px; text-align: center;">R$ 27,63/kg</td>
+                <td style="padding: 15px; text-align: center;">120g</td>
+                <td style="padding: 15px; text-align: center; font-weight: 600;">R$ 3,32</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 15px; font-weight: 600;">Provolone Tirolez</td>
+                <td style="padding: 15px; text-align: center;">R$ 33,66/pç 335g</td>
+                <td style="padding: 15px; text-align: center;">30g</td>
+                <td style="padding: 15px; text-align: center; font-weight: 600;">R$ 3,01</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 15px; font-weight: 600;">Gorgonzola Quatá</td>
+                <td style="padding: 15px; text-align: center;">R$ 12,27/pç 180g</td>
+                <td style="padding: 15px; text-align: center;">30g</td>
+                <td style="padding: 15px; text-align: center; font-weight: 600;">R$ 2,04</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 15px; font-weight: 600;">Parmesão RJR</td>
+                <td style="padding: 15px; text-align: center;">R$ 37,71/kg</td>
+                <td style="padding: 15px; text-align: center;">20g</td>
+                <td style="padding: 15px; text-align: center; font-weight: 600;">R$ 0,75</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e0e0e0;">
+                <td style="padding: 15px; font-weight: 600;">Fermento Fleischmann</td>
+                <td style="padding: 15px; text-align: center;">R$ 11,49/500g</td>
+                <td style="padding: 15px; text-align: center;">4g</td>
+                <td style="padding: 15px; text-align: center; font-weight: 600;">R$ 0,09</td>
+              </tr>
+              <tr style="background: #f0f8f0;">
+                <td style="padding: 15px; font-weight: 700;">TOTAL INGREDIENTES</td>
+                <td style="padding: 15px; text-align: center;">-</td>
+                <td style="padding: 15px; text-align: center;">-</td>
+                <td style="padding: 15px; text-align: center; font-weight: 700; color: #095400;">R$ 11,00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Segredo PMG:</strong> Com ingredientes premium PMG, seu custo por pizza quatro queijos fica em apenas R$ 11,00! Isso permite margens excelentes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRECIFICAÇÃO ESTRATÉGICA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">🎯 Precificação Estratégica: Como Calcular o Preço de Venda</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📈 Custo Total por Pizza</h4>
+          <ul style="margin: 0; padding-left: 20px;">
+            <li>Ingredientes: <strong>R$ 11,00</strong></li>
+            <li>Gás/Energia: <strong>R$ 0,80</strong></li>
+            <li>Embalagem: <strong>R$ 1,65</strong></li>
+            <li>Mão de obra: <strong>R$ 1,50</strong></li>
+            <li style="font-weight: 700;">Custo Total: <strong>R$ 14,95</strong></li>
+          </ul>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">💰 Estratégias de Preço</h4>
+          <ul style="margin: 0; padding-left: 20px;">
+            <li><strong>Preço Mínimo:</strong> R$ 34,90 (133% markup)</li>
+            <li><strong>Preço Ideal:</strong> R$ 39,90 (167% markup)</li>
+            <li><strong>Preço Premium:</strong> R$ 44,90 (200% markup)</li>
+            <li style="font-weight: 700;">Lucro por pizza: <strong>R$ 19,95 a R$ 29,95</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background: #fff8e1; padding: 20px; border-radius: 8px; margin-top: 20px;">
+        <h4 style="color: #095400; margin: 0 0 10px 0;">📊 Fórmula PMG de Precificação para Pizzas Premium:</h4>
+        <p style="margin: 0; font-weight: 600;">(Custo Total × 2,5) + 20% = Preço de Venda Ideal</p>
+        <p style="margin: 10px 0 0 0; font-size: 0.9rem;">Exemplo: (R$ 14,95 × 2,5) + 20% = R$ 44,85 → Arredonde para R$ 44,90</p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS PMG -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">🛒 Ingredientes Profissionais PMG para Sua Pizza</h2>
+      
+      <!-- MOLHO EKMA -->
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">1. Molho para Pizza Ekma 1,7kg (CX 6 unidades)</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/molho-para-pizza-ekma-17-kilo-cx-6-bag-pmg-atacadista.jpg" 
+               alt="Molho para Pizza Ekma - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Características PMG:</strong> Molho de tomate italiano premium, textura perfeita para espalhar, sabor equilibrado entre doce e ácido. Cada bag produz até 11 pizzas.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Vantagem PMG:</strong> Custo de apenas R$ 0,94 por pizza! Tomate italiano com rendimento superior.</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 63,59</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Caixa com 6 bags • Rende 66 pizzas</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/428" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR MOLHO EKMA →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MUÇARELA BARI -->
+      <div style="background: #fff; border: 2px solid #e0e0e0; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">2. Muçarela Bari 4kg</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/mucarela-bari-4-kg-pmg-atacadista.jpg" 
+               alt="Muçarela Bari 4kg - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Características PMG:</strong> Derretimento perfeito, sabor suave e rendimento excelente. Base ideal para pizza quatro queijos.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Vantagem PMG:</strong> Apenas R$ 3,32 de queijo por pizza! Custo-benefício imbatível.</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 27,63</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Peça 4kg • Rende 33 pizzas</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/719" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR MUÇARELA BARI →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROVOLONE TIROLEZ -->
+      <div style="background: #fff; border: 2px solid #e0e0e0; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">3. Provolonete Tirolez 335g</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/provolonete-tirolez-335-g-pmg-atacadista.jpg" 
+               alt="Provolone Tirolez - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Características PMG:</strong> Sabor marcante e derretimento cremoso. Diferencial premium para sua pizza quatro queijos.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Vantagem PMG:</strong> Qualidade Tirolez que justifica preço premium. Cada unidade rende 11 pizzas.</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 33,66</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Unidade 335g • Rende 11 pizzas</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/819" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR PROVOLONE →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GORGONZOLA QUATÁ -->
+      <div style="background: #fff; border: 2px solid #e0e0e0; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">4. Gorgonzola Fracionado Quatá 180g</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-quata-180-g-pmg-atacadista.jpg" 
+               alt="Gorgonzola Quatá - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Características PMG:</strong> Sabor intenso e aroma característico. Toque sofisticado para a combinação de queijos.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Vantagem PMG:</strong> Cada unidade rende 6 pizzas. Sabor autêntico italiano.</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 12,27</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Unidade 180g • Rende 6 pizzas</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/653" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR GORGONZOLA →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARMESÃO RJR -->
+      <div style="background: #fff; border: 2px solid #e0e0e0; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">5. Parmesão Ralado Grosso RJR 1kg</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/parmesao-ralado-grosso-rjr-1-kg-pmg-atacadista.jpg" 
+               alt="Parmesão RJR - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Características PMG:</strong> Ralado na grossura ideal, sabor intenso e aroma marcante. Finalização perfeita.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Vantagem PMG:</strong> Cada pacote rende 50 pizzas! Praticidade e qualidade.</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 37,71</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Pacote 1kg • Rende 50 pizzas</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/800" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR PARMESÃO →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FARINHA ANACONDA -->
+      <div style="background: #fff; border: 2px solid #e0e0e0; border-radius: 10px; padding: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">6. Farinha de Trigo Pizza Anaconda 5kg</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg" 
+               alt="Farinha Anaconda Pizza - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Características PMG:</strong> W 295 ideal para pizza, elasticidade perfeita, fermentação controlada. Massa que não encolhe.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Vantagem PMG:</strong> Apenas R$ 0,85 de farinha por pizza! Qualidade profissional.</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 84,45</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Fardo 25kg • Rende 100 pizzas</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/1746" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR FARINHA ANACONDA →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO DE LUCRO -->
+    <section style="background: linear-gradient(135deg, #095400, #0a6b00); color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+      <h2 style="margin: 0 0 15px 0; font-size: 1.5rem;">💰 Resumo de Lucratividade: Pizza Quatro Queijos Premium</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍕</div>
+          <h4 style="margin: 0 0 8px 0;">Custo Total</h4>
+          <p style="margin: 0; font-size: 0.9rem;">R$ 14,95 por pizza</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">💵</div>
+          <h4 style="margin: 0 0 8px 0;">Preço de Venda</h4>
+          <p style="margin: 0; font-size: 0.9rem;">R$ 39,90</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📈</div>
+          <h4 style="margin: 0 0 8px 0;">Lucro Líquido</h4>
+          <p style="margin: 0; font-size: 0.9rem;">R$ 24,95</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🎯</div>
+          <h4 style="margin: 0 0 8px 0;">Margem</h4>
+          <p style="margin: 0; font-size: 0.9rem;">62,5%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL -->
+    <section style="text-align: center; padding: 40px; background: #f0f8f0; border-radius: 10px; margin-top: 30px;">
+      <h2 style="color: #095400; margin: 0 0 15px 0; font-size: 1.6rem;">🚀 Comece a Lucrar com Pizza Quatro Queijos Premium Hoje!</h2>
+      <p style="color: #555; margin: 0 0 25px 0; font-size: 1.1rem;">
+        Com os ingredientes profissionais PMG, sua pizza quatro queijos terá qualidade de restaurante e lucratividade comprovada de 62,5%.
+      </p>
+      
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://wa.me/5511913572902?text=Olá! Gostaria de montar um kit completo para pizza quatro queijos premium com todos os ingredientes PMG." 
+           style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           MONTAR KIT COMPLETO
+        </a>
+        
+        <a href="https://www.marquesvendaspmg.shop/categoria/derivados-de-leite" 
+           style="background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           VER TODOS OS QUEIJOS
+        </a>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <p style="color: #095400; font-weight: 600; margin: 0 0 5px 0;">🎁 Condições Especiais PMG para Pizzarias:</p>
+        <p style="color: #666; margin: 0; font-size: 0.9rem;">
+          • Desconto progressivo • Frete grátis acima de R$ 750 • Entrega rápida • Atendimento especializado
+        </p>
+      </div>
+      
+      <p style="color: #666; margin: 20px 0 0 0; font-size: 0.9rem;">
+        📞 <strong>Consultor de Pizzarias:</strong> (11) 91357-2902 | ✉️ <strong>Email:</strong> marquesvendaspmg@gmail.com
+      </p>
+    </section>
+  `
 }
   ];
 	
