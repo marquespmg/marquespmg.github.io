@@ -2108,7 +2108,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
               <div>
-                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 63,59</span>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 63,59 CX</span>
                 <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Caixa com 6 bags • Rende 66 pizzas</p>
               </div>
               <a href="https://www.marquesvendaspmg.shop/produto/428" 
@@ -2137,7 +2137,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
               <div>
-                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 27,63</span>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 27,63 KG</span>
                 <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Peça 4kg • Rende 33 pizzas</p>
               </div>
               <a href="https://www.marquesvendaspmg.shop/produto/719" 
@@ -2166,7 +2166,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
               <div>
-                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 33,66</span>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 33,66 PÇ</span>
                 <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Unidade 335g • Rende 11 pizzas</p>
               </div>
               <a href="https://www.marquesvendaspmg.shop/produto/819" 
@@ -2195,7 +2195,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
               <div>
-                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 12,27</span>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 12,27 PÇ</span>
                 <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Unidade 180g • Rende 6 pizzas</p>
               </div>
               <a href="https://www.marquesvendaspmg.shop/produto/653" 
@@ -2224,7 +2224,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
               <div>
-                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 37,71</span>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 37,71 PCT</span>
                 <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Pacote 1kg • Rende 50 pizzas</p>
               </div>
               <a href="https://www.marquesvendaspmg.shop/produto/800" 
@@ -2253,7 +2253,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
               <div>
-                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 84,45</span>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 84,45 FD</span>
                 <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Fardo 25kg • Rende 100 pizzas</p>
               </div>
               <a href="https://www.marquesvendaspmg.shop/produto/1746" 
