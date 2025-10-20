@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 // Hook para detectar tamanho da tela
 const useWindowSize = () => {
@@ -397,5 +396,6 @@ const PoliticaDevolucao = () => {
     </div>
   );
 };
+
 
 export default PoliticaDevolucao;
