@@ -1246,112 +1246,199 @@ const avaliacoes = [
   </div>
 </section>
 
-        {/* Rodapé - Adaptado para mobile */}
+{/* Rodapé Premium - Totalmente Reformulado */}
 <footer style={{
-  marginTop: isMobile ? '30px' : '50px',
-  padding: isMobile ? '20px 15px' : '30px 20px',
+  marginTop: isMobile ? '40px' : '60px',
+  padding: isMobile ? '25px 15px' : '40px 20px',
   textAlign: 'center',
   color: '#666',
   fontSize: isMobile ? '0.8rem' : '0.85rem',
-  borderTop: '1px solid #eee',
-  backgroundColor: '#f9f9f9' // Adicionado para melhor contraste
+  borderTop: '2px solid #095400',
+  backgroundColor: '#f8f9fa',
+  borderRadius: '12px 12px 0 0',
+  boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)'
 }}>
-  {/* Container principal dos links legais */}
-  <div id="legal-links-container" style={{
-    display: 'flex',
-    justifyContent: 'center',
-    gap: isMobile ? '10px' : '20px',
-    marginBottom: '15px',
-    flexWrap: 'wrap',
-    alignItems: 'center'
+  
+  {/* Título do Rodapé */}
+  <h3 style={{
+    color: '#095400',
+    fontSize: isMobile ? '1rem' : '1.1rem',
+    marginBottom: '20px',
+    fontWeight: '600'
   }}>
-    {/* Link de Política de Privacidade (versão Google-friendly) */}
+    📋 Informações Legais
+  </h3>
+
+  {/* Links Principais em Grid Organizado */}
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
+    gap: isMobile ? '15px' : '20px',
+    marginBottom: '25px',
+    maxWidth: '600px',
+    margin: '0 auto 25px auto'
+  }}>
+    
+    {/* Política de Privacidade */}
     <a 
       href="/politica-de-privacidade" 
       style={{ 
         color: '#095400', 
-        textDecoration: 'underline', // Sublinhado para melhor visibilidade
-        fontWeight: '600', // Negrito
-        fontSize: isMobile ? '0.85rem' : '0.9rem',
-        padding: '8px 12px',
-        borderRadius: '4px',
+        textDecoration: 'none',
+        fontWeight: '600',
+        fontSize: isMobile ? '0.8rem' : '0.85rem',
+        padding: '12px 8px',
+        borderRadius: '8px',
         transition: 'all 0.3s ease',
-        ':hover': {
-          backgroundColor: '#f0f0f0'
-        }
+        backgroundColor: 'white',
+        border: '1px solid #e0e0e0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+      }}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = '#095400';
+        e.target.style.color = 'white';
+        e.target.style.transform = 'translateY(-2px)';
+        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = 'white';
+        e.target.style.color = '#095400';
+        e.target.style.transform = 'translateY(0)';
+        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
       }}
       title="Política de Privacidade"
-      aria-label="Leia nossa Política de Privacidade Completa"
+      aria-label="Leia nossa Política de Privacidade"
     >
-      Política de Privacidade
+      <span>🔒</span>
+      {isMobile ? 'Privacidade' : 'Política de Privacidade'}
     </a>
 
-    <span style={{ color: '#095400' }}>|</span>
+    {/* Política de Devolução */}
+    <a 
+      href="/politica-devolucao" 
+      style={{ 
+        color: '#095400', 
+        textDecoration: 'none',
+        fontWeight: '600',
+        fontSize: isMobile ? '0.8rem' : '0.85rem',
+        padding: '12px 8px',
+        borderRadius: '8px',
+        transition: 'all 0.3s ease',
+        backgroundColor: 'white',
+        border: '1px solid #e0e0e0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+      }}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = '#095400';
+        e.target.style.color = 'white';
+        e.target.style.transform = 'translateY(-2px)';
+        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = 'white';
+        e.target.style.color = '#095400';
+        e.target.style.transform = 'translateY(0)';
+        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+      }}
+      title="Política de Devolução"
+      aria-label="Leia nossa Política de Devolução"
+    >
+      <span>🔄</span>
+      {isMobile ? 'Devolução' : 'Política de Devolução'}
+    </a>
 
-    {/* Link para Termos */}
+    {/* Termos de Uso */}
     <Link href="/termos" passHref legacyBehavior>
       <a style={{ 
         color: '#095400', 
-        textDecoration: 'underline', // Sublinhado para melhor visibilidade
-        fontWeight: '600', // Negrito
-        fontSize: isMobile ? '0.85rem' : '0.9rem',
-        padding: '8px 12px',
-        borderRadius: '4px',
+        textDecoration: 'none',
+        fontWeight: '600',
+        fontSize: isMobile ? '0.8rem' : '0.85rem',
+        padding: '12px 8px',
+        borderRadius: '8px',
         transition: 'all 0.3s ease',
-        ':hover': {
-          backgroundColor: '#f0f0f0'
-        }
+        backgroundColor: 'white',
+        border: '1px solid #e0e0e0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+      }}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = '#095400';
+        e.target.style.color = 'white';
+        e.target.style.transform = 'translateY(-2px)';
+        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = 'white';
+        e.target.style.color = '#095400';
+        e.target.style.transform = 'translateY(0)';
+        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
       }}
       title="Termos de Uso"
-      aria-label="Leia nossos Termos de Uso Completo"
+      aria-label="Leia nossos Termos de Uso"
     >
-      Termos de Uso
+      <span>📄</span>
+      {isMobile ? 'Termos' : 'Termos de Uso'}
     </a>
     </Link>
 
-    <span style={{ color: '#095400' }}>|</span>
-
-{/* Link para Quem Somos - VERSÃO BLINDADA */}
-<div style={{
-  position: 'relative',
-  zIndex: 9999,
-  isolation: 'isolate'
-}}>
-  <Link href="/quem-somos" passHref legacyBehavior>
-    <a 
-      onClick={(e) => {
-        // Fallback para garantir funcionamento em mobile
-        if (typeof window !== 'undefined' && window.innerWidth <= 768) {
-          e.preventDefault();
-          window.location.href = '/quem-somos';
-        }
-      }}
-      style={{ 
+    {/* Quem Somos */}
+    <Link href="/quem-somos" passHref legacyBehavior>
+      <a style={{ 
         color: '#095400', 
-        textDecoration: 'underline',
+        textDecoration: 'none',
         fontWeight: '600',
-        fontSize: isMobile ? '0.85rem' : '0.9rem',
-        padding: '8px 12px',
-        borderRadius: '4px',
+        fontSize: isMobile ? '0.8rem' : '0.85rem',
+        padding: '12px 8px',
+        borderRadius: '8px',
         transition: 'all 0.3s ease',
-        display: 'inline-block',
-        position: 'relative',
-        backgroundColor: 'transparent',
-        ':hover': {
-          backgroundColor: '#f0f0f0'
-        },
-        // Proteções extras para mobile
-        WebkitTapHighlightColor: 'transparent',
-        touchAction: 'manipulation'
+        backgroundColor: 'white',
+        border: '1px solid #e0e0e0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '8px',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+      }}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = '#095400';
+        e.target.style.color = 'white';
+        e.target.style.transform = 'translateY(-2px)';
+        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = 'white';
+        e.target.style.color = '#095400';
+        e.target.style.transform = 'translateY(0)';
+        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
       }}
       title="Quem Somos"
-      aria-label="Leia nossos Quem Somos Completo"
+      aria-label="Conheça mais sobre nós"
     >
-      Quem Somos
+      <span>👥</span>
+      {isMobile ? 'Sobre' : 'Quem Somos'}
     </a>
-  </Link>
+    </Link>
   </div>
-  </div>
+
+  {/* Linha Divisa Estilizada */}
+  <div style={{
+    height: '1px',
+    background: 'linear-gradient(90deg, transparent, #095400, transparent)',
+    margin: '20px auto',
+    maxWidth: '300px'
+  }}></div>
 
   {/* Informações de copyright e redes sociais */}
   <div style={{ 
