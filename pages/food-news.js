@@ -2329,6 +2329,386 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
       </p>
     </section>
   `
+},
+{
+  "id": 8,
+  "title": "Os 10 Produtos Mais Lucrativos para Lanchonetes e Pizzarias em 2025 — Guia PMG Atacadista",
+  "description": "Descubra os 10 produtos com maior margem de lucro para food service em 2025. Guia PMG Atacadista com análise de custo-benefício e giro de estoque.",
+  "image": "https://i.imgur.com/cDXFbxM.png",
+  "category": "Negócios",
+  "section": "gestao-foodservice",
+  "readTime": "11 min de leitura",
+  "date": "2025-10-20",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Os 10 Produtos que Estão Gerando Mais Lucro no Food Service em 2025</h2>
+      <p>Quem trabalha com <strong>lanchonetes, pizzarias e bares</strong> sabe que margem e giro são tudo. Em 2025, com os custos operacionais em alta, a escolha certa dos produtos faz diferença no caixa no final do mês. A <strong>PMG Atacadista</strong>, como <strong>distribuidora especializada em food service</strong>, revela os 10 produtos que estão rendendo mais para nossos clientes.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">📈 Destaque PMG:</h3>
+        <p style="margin: 0; font-weight: 600;">Estabelecimentos que focam nos produtos certos têm <strong>giro de estoque 3x maior</strong> e margem média 45% superior à concorrência.</p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/25RC2Bb.png" alt="Produtos mais lucrativos para lanchonetes e pizzarias 2025 - PMG Atacadista" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Guia completo dos produtos com melhor custo-benefício para food service em 2025</p>
+    </section>
+
+    <!-- 1. QUEIJOS PROFISSIONAIS -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">1. 🧀 Queijos Profissionais que Derretem de Verdade</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Muçarela Bari 4kg - O Campeão de Vendas</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/mucarela-bari-4-kg-pmg-atacadista.jpg" 
+               alt="Muçarela Bari 4kg - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Análise PMG:</strong> A <strong>Muçarela Bari</strong> lidera em custo-benefício com derretimento perfeito e preço competitivo. Cada kg sai por R$ 27,63, permitindo margens acima de 70% em pizzas e lanches.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Lucratividade:</strong> Custo de R$ 3,32 por pizza vs. preço de venda de R$ 39,90 = 88% de markup</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 27,63 KG</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Peça 4kg • Rende 33 pizzas</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/719" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR MUÇARELA BARI →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #e0e0e0; border-radius: 10px; padding: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Catupiry e Cheddar - Margens Premium</h3>
+        <p><strong>Dados PMG:</strong> Requeijões cremosos e chedders derretidos têm markup médio de 65%. São ideais para bordas recheadas, lanches gourmet e complementos que justificam preços 30% mais altos.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+          <a href="https://www.marquesvendaspmg.shop/produto/914" 
+             style="background: #095400; color: white; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; text-align: center; transition: all 0.3s ease;">
+             VER TODOS OS QUEIJOS
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MOLHOS E TEMPEROS -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">2. 🍅 Molhos Prontos e Temperos Concentrados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Molho para Pizza Ekma 1,7kg</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/molho-para-pizza-ekma-17-kilo-cx-6-bag-pmg-atacadista.jpg" 
+               alt="Molho para Pizza Ekma - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Análise PMG:</strong> O <strong>Molho Ekma</strong> oferece qualidade italiana com custo controlado. Cada bag rende 11 pizzas a R$ 0,94 de custo por pizza - 15% mais barato que produção artesanal.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Vantagem:</strong> Economia de mão de obra + consistência no sabor = maior satisfação do cliente</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 63,59 CX</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Caixa 6 bags • Rende 66 pizzas</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/428" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR MOLHO EKMA →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FARINÁCEOS -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">3. 🌾 Farináceos de Alto Rendimento</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Farinha de Trigo Pizza Anaconda 5kg</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg" 
+               alt="Farinha Anaconda Pizza - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Análise PMG:</strong> A <strong>Farinha Anaconda</strong> ofereve W 295 ideal para pizza, com elasticidade perfeita e fermentação controlada. Custo de apenas R$ 0,85 por pizza.</p>
+            
+            <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+              <p style="margin: 0; font-weight: 600;">💡 <strong>Economia:</strong> 25% de rendimento a mais vs. farinhas comuns + massa que não encolhe</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 84,45 FD</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Fardo 25kg • Rende 100 pizzas</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/1746" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR FARINHA ANACONDA →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CARNES E FRIOS -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">4. 🥓 Carnes e Frios com Giro Rápido</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Calabresa, Bacon e Presunto</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 20px;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌭</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Calabresa</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Markup: 75-90%</p>
+            <p style="margin: 5px 0 0 0; font-size: 0.8rem; color: #666;">Giro: 2x por semana</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥓</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Bacon</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Markup: 80-110%</p>
+            <p style="margin: 5px 0 0 0; font-size: 0.8rem; color: #666;">Giro: 3x por semana</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🍖</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Presunto</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Markup: 65-85%</p>
+            <p style="margin: 5px 0 0 0; font-size: 0.8rem; color: #666;">Giro: 2x por semana</p>
+          </div>
+        </div>
+
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Estratégia PMG:</strong> Frios representam 25% do faturamento médio de lanchonetes. Foque nos que têm maior giro.</p>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="https://www.marquesvendaspmg.shop/produto/979" 
+             style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+             VER CARNES E FRIOS PMG →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. BEBIDAS -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">5. 🥤 Bebidas com Boa Margem</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Refrigerantes, Sucos e Águas</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Refrigerante 2L</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Custo: R$ 4,50</p>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem; font-weight: 600;">Venda: R$ 8-12</p>
+          </div>
+          
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Suco 1L</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Custo: R$ 3,20</p>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem; font-weight: 600;">Venda: R$ 6-8</p>
+          </div>
+          
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Água 500ml</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Custo: R$ 0,60</p>
+            <p style="margin: 5px 0 0 0; font-size: 0.9rem; font-weight: 600;">Venda: R$ 2-3</p>
+          </div>
+        </div>
+
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dado PMG:</strong> Bebidas geram 18% do faturamento com apenas 8% do custo total. Margem média: 120%.</p>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="https://www.marquesvendaspmg.shop/produto/131" 
+             style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+             VER BEBIDAS PMG →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. DOCES E SOBREMESAS -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">6. 🍰 Doces e Sobremesas Fáceis de Revenda</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <p><strong>Análise PMG:</strong> Brownies, tortas e mousses prontos têm markup de 90-150%. O cliente já está no estabelecimento - é venda adicional fácil.</p>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Estratégia:</strong> Ofereça 2-3 opções de sobremesa. 30% dos clientes compram se forem lembrados.</p>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="marquesvendaspmg.shop/produto/1533" 
+             style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+             VER SOBREMESAS PMG →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PANIFICAÇÃO -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">7. 🥐 Itens de Panificação e Congelados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <p><strong>Análise PMG:</strong> Pães de hambúrguer, croissants e massas congeladas têm giro rápido e margem de 60-80%. Ideal para diversificar o cardápio sem aumentar custos fixos.</p>
+        
+        <div style="text-align: center;">
+          <a href="https://www.marquesvendaspmg.shop/produto/1733" 
+             style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+             VER FARINÁCEOS PMG →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. LIMPEZA -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">8. 🧼 Produtos de Limpeza e Higiene para Cozinha</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <p><strong>Análise PMG:</strong> Desinfetantes, detergentes e luvas representam apenas 3% do custo, mas evitam multas e garantem a qualidade. Compra inteligente gera economia de 25%.</p>
+        
+        <div style="text-align: center;">
+          <a href="https://www.marquesvendaspmg.shop/produto/1733" 
+             style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+             VER LIMPEZA PMG →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. EMBALAGENS -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">9. 📦 Embalagens e Descartáveis — O Lucro Invisível</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Caixa para Pizza 35cm</h3>
+        <div style="display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start;">
+          <img src="https://www.marquesvendaspmg.shop/images/caixa-para-pizza-branca-35-cm-pct-25-un-pmg-atacadista.jpg" 
+               alt="Caixa para Pizza - PMG Atacadista" 
+               style="width: 100%; border-radius: 8px;" />
+          <div>
+            <p><strong>Análise PMG:</strong> Custo de R$ 2,07 por caixa vs. percepção de valor que justifica preços 15% mais altos no delivery. Item obrigatório com retorno indireto.</p>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+              <div>
+                <span style="font-size: 1.3rem; font-weight: 700; color: #095400;">R$ 51,84 PCT</span>
+                <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Pacote 25 unidades</p>
+              </div>
+              <a href="https://www.marquesvendaspmg.shop/produto/21" 
+                 target="_blank"
+                 style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+                 COMPRAR CAIXAS →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. ESTOQUE INTELIGENTE -->
+    <section style="margin-bottom: 40px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">10. 📊 Dica Bônus: Estoque Inteligente com a PMG Atacadista</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <p><strong>Estratégia PMG:</strong> Compre em quantidade os produtos de giro rápido e mantenha estoque para 15-30 dias. A <strong>PMG Atacadista</strong> oferece desconto progressivo e entrega rápida na Grande SP.</p>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Calculadora PMG:</strong> Estoque otimizado reduz custos em 18% e aumenta disponibilidade para vendas em 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section style="background: linear-gradient(135deg, #095400, #0a6b00); color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+      <h2 style="margin: 0 0 15px 0; font-size: 1.5rem;">🎯 Resumo: Os Campeões de Lucratividade 2025</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+          <h4 style="margin: 0 0 8px 0;">Queijos</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Margem: 70-90%</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍅</div>
+          <h4 style="margin: 0 0 8px 0;">Molhos</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Margem: 60-80%</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="margin: 0 0 8px 0;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Margem: 100-120%</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📦</div>
+          <h4 style="margin: 0 0 8px 0;">Embalagens</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Retorno indireto</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL -->
+    <section style="text-align: center; padding: 40px; background: #f0f8f0; border-radius: 10px; margin-top: 30px;">
+      <h2 style="color: #095400; margin: 0 0 15px 0; font-size: 1.6rem;">🚀 Otimize Seu Estoque com a PMG Atacadista</h2>
+      <p style="color: #555; margin: 0 0 25px 0; font-size: 1.1rem;">
+        Esses são os campeões de venda que mantêm o caixa girando e o cliente voltando. A <strong>PMG Atacadista</strong> trabalha direto com o segmento de lanchonetes e pizzarias, garantindo preço justo e entrega rápida.
+      </p>
+      
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://www.marquesvendaspmg.shop/ofertas" 
+           style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           VER OFERTAS PMG
+        </a>
+        
+        <a href="https://wa.me/5511913572902?text=Olá! Gostaria de uma consultoria para otimizar meu estoque com os produtos mais lucrativos." 
+           style="background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           FALAR COM CONSULTOR
+        </a>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <p style="color: #095400; font-weight: 600; margin: 0 0 5px 0;">🎁 Vantagens PMG para Food Service:</p>
+        <p style="color: #666; margin: 0; font-size: 0.9rem;">
+          • <strong>Fornecedor food service São Paulo</strong> • Desconto progressivo • Frete grátis acima de R$ 750 • Entrega rápida
+        </p>
+      </div>
+      
+      <p style="color: #666; margin: 20px 0 0 0; font-size: 0.9rem;">
+        📞 <strong>Atendimento Food Service:</strong> (11) 91357-2902 | ✉️ <strong>Email:</strong> marquesvendaspmg@gmail.com
+      </p>
+    </section>
+  `
 }
   ];
 	
