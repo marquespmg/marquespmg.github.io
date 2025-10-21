@@ -9,7 +9,7 @@ export default function PoliticaDevolucao() {
     <>
       <Head>
         <title>Política de Devolução - Marques Vendas PMG</title>
-        <meta name="description" content="Conheça nossa política de trocas e devoluções da Marques Vendas PMG" />
+        <meta name="description" content="Política de devolução PMG: produtos novos, prazo de 1 dia para devolução no ato da entrega. Condições claras e transparentes." />
       </Head>
 
       <div style={{
@@ -40,7 +40,7 @@ export default function PoliticaDevolucao() {
             Política de Devolução
           </h1>
           <p style={{ color: '#666', fontSize: isMobile ? '0.9rem' : '1rem' }}>
-            Conheça nossos procedimentos para trocas e devoluções
+            Condições claras para trocas e devoluções - Produtos Novos | Prazo: 1 Dia
           </p>
         </header>
 
@@ -51,6 +51,79 @@ export default function PoliticaDevolucao() {
           padding: isMobile ? '20px' : '30px',
           boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
         }}>
+
+          {/* Informações Principais para Google */}
+          <section style={{ marginBottom: '30px', textAlign: 'center' }}>
+            <h2 style={{ 
+              color: '#095400', 
+              fontSize: isMobile ? '1.3rem' : '1.5rem',
+              marginBottom: '20px'
+            }}>
+              Informações da Política
+            </h2>
+            
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+              gap: '20px',
+              marginBottom: '15px'
+            }}>
+              <div style={{
+                padding: '15px'
+              }}>
+                <h3 style={{ 
+                  color: '#095400', 
+                  fontSize: isMobile ? '1.1rem' : '1.2rem',
+                  marginBottom: '10px'
+                }}>
+                  Condição do Produto
+                </h3>
+                <p style={{ 
+                  color: '#555', 
+                  margin: 0,
+                  fontSize: isMobile ? '0.95rem' : '1rem',
+                  fontWeight: '600'
+                }}>
+                  Apenas Produtos Novos
+                </p>
+                <p style={{ 
+                  color: '#666', 
+                  margin: '5px 0 0 0',
+                  fontSize: isMobile ? '0.85rem' : '0.9rem'
+                }}>
+                  Trabalhamos exclusivamente com produtos novos e lacrados
+                </p>
+              </div>
+
+              <div style={{
+                padding: '15px'
+              }}>
+                <h3 style={{ 
+                  color: '#095400', 
+                  fontSize: isMobile ? '1.1rem' : '1.2rem',
+                  marginBottom: '10px'
+                }}>
+                  Prazo de Devolução
+                </h3>
+                <p style={{ 
+                  color: '#555', 
+                  margin: 0,
+                  fontSize: isMobile ? '0.95rem' : '1rem',
+                  fontWeight: '600'
+                }}>
+                  1 Dia Útil
+                </p>
+                <p style={{ 
+                  color: '#666', 
+                  margin: '5px 0 0 0',
+                  fontSize: isMobile ? '0.85rem' : '0.9rem'
+                }}>
+                  Prazo para solicitação de devolução no ato da entrega
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Aviso Importante */}
           <section style={{ marginBottom: '30px' }}>
             <h2 style={{ 
@@ -58,7 +131,7 @@ export default function PoliticaDevolucao() {
               fontSize: isMobile ? '1.3rem' : '1.5rem',
               marginBottom: '15px'
             }}>
-              ⚠️ Atenção Importante
+              Atenção Importante
             </h2>
             <p style={{ 
               color: '#555', 
@@ -77,7 +150,7 @@ export default function PoliticaDevolucao() {
               fontSize: isMobile ? '1.3rem' : '1.5rem',
               marginBottom: '15px'
             }}>
-              Nossa Política
+              Nossa Política Completa
             </h2>
             <p style={{ 
               color: '#555', 
@@ -85,30 +158,67 @@ export default function PoliticaDevolucao() {
               marginBottom: '15px',
               fontSize: isMobile ? '0.95rem' : '1rem'
             }}>
-              Na <strong>PMG Atacadista</strong>, priorizamos a satisfação total de nossos clientes. 
-              Nossa política de devolução foi elaborada para garantir transparência e segurança 
-              em todas as transações.
+              Na <strong>PMG Atacadista</strong>, trabalhamos com <strong>produtos 100% novos</strong> e oferecemos 
+              <strong> prazo de 1 dia útil</strong> para devolução no ato da entrega.
             </p>
 
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              <strong>Devolução Aceita:</strong> A PMG aceita devolução <strong>apenas no ato da entrega</strong>, 
-              antes da assinatura da nota fiscal, se o cliente notar algo que não está conforme seu pedido.
-            </p>
+            <div style={{ marginBottom: '20px' }}>
+              <h3 style={{ 
+                color: '#095400', 
+                fontSize: isMobile ? '1.1rem' : '1.2rem',
+                marginBottom: '10px'
+              }}>
+                Devolução Aceita
+              </h3>
+              <ul style={{ 
+                color: '#555',
+                paddingLeft: '20px',
+                marginBottom: '15px',
+                fontSize: isMobile ? '0.95rem' : '1rem'
+              }}>
+                <li style={{ marginBottom: '8px' }}>
+                  <strong>Produtos novos</strong> com divergência no pedido
+                </li>
+                <li style={{ marginBottom: '8px' }}>
+                  <strong>Prazo de 1 dia</strong> no ato da entrega
+                </li>
+                <li style={{ marginBottom: '8px' }}>
+                  <strong>Antes</strong> da assinatura da nota fiscal
+                </li>
+                <li style={{ marginBottom: '8px' }}>
+                  Produtos devem estar lacrados e intactos
+                </li>
+              </ul>
+            </div>
 
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              <strong>Devolução Não Aceita:</strong> Não aceitamos devoluções após a assinatura da nota fiscal 
-              e conferência do pedido.
-            </p>
+            <div style={{ marginBottom: '20px' }}>
+              <h3 style={{ 
+                color: '#e53935', 
+                fontSize: isMobile ? '1.1rem' : '1.2rem',
+                marginBottom: '10px'
+              }}>
+                Devolução Não Aceita
+              </h3>
+              <ul style={{ 
+                color: '#555',
+                paddingLeft: '20px',
+                marginBottom: '15px',
+                fontSize: isMobile ? '0.95rem' : '1rem'
+              }}>
+                <li style={{ marginBottom: '8px' }}>
+                  Após assinatura da nota fiscal
+                </li>
+                <li style={{ marginBottom: '8px' }}>
+                  Fora do prazo de 1 dia útil
+                </li>
+                <li style={{ marginBottom: '8px' }}>
+                  Produtos abertos ou utilizados
+                </li>
+                <li style={{ marginBottom: '8px' }}>
+                  Embalagens violadas ou danificadas
+                </li>
+              </ul>
+            </div>
           </section>
 
           {/* Procedimentos no Ato da Entrega */}
@@ -127,46 +237,67 @@ export default function PoliticaDevolucao() {
               marginBottom: '15px',
               fontSize: isMobile ? '0.95rem' : '1rem'
             }}>
-              <strong>O que fazer durante a entrega:</strong>
-            </p>
-            <ul style={{ 
-              color: '#555',
-              paddingLeft: '20px',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              <li style={{ marginBottom: '8px' }}>
-                Conferir o pedido antes de assinar qualquer documento
-              </li>
-              <li style={{ marginBottom: '8px' }}>
-                Verificar se todos os produtos correspondem ao pedido
-              </li>
-              <li style={{ marginBottom: '8px' }}>
-                Checar a integridade das embalagens
-              </li>
-              <li style={{ marginBottom: '8px' }}>
-                Confirmar quantidades e especificações
-              </li>
-            </ul>
-
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              Se houver <strong>qualquer divergência</strong> entre o pedido e o que foi entregue, 
-              ou se encontrar produtos em condições inadequadas:
+              Você tem <strong>1 dia útil</strong> para verificar seu pedido durante a entrega:
             </p>
 
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)',
+              gap: '20px',
+              marginBottom: '20px'
+            }}>
+              <div>
+                <h4 style={{ 
+                  color: '#095400', 
+                  marginBottom: '10px',
+                  fontSize: isMobile ? '1rem' : '1.1rem'
+                }}>
+                  Conferência Obrigatória
+                </h4>
+                <ul style={{ 
+                  color: '#555',
+                  paddingLeft: '15px',
+                  margin: 0,
+                  fontSize: isMobile ? '0.9rem' : '0.95rem'
+                }}>
+                  <li style={{ marginBottom: '8px' }}>Verificar produtos correspondem ao pedido</li>
+                  <li style={{ marginBottom: '8px' }}>Conferir integridade das embalagens</li>
+                  <li style={{ marginBottom: '8px' }}>Confirmar quantidades exatas</li>
+                  <li style={{ marginBottom: '8px' }}>Checar especificações técnicas</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 style={{ 
+                  color: '#095400', 
+                  marginBottom: '10px',
+                  fontSize: isMobile ? '1rem' : '1.1rem'
+                }}>
+                  Prazo de 1 Dia
+                </h4>
+                <ul style={{ 
+                  color: '#555',
+                  paddingLeft: '15px',
+                  margin: 0,
+                  fontSize: isMobile ? '0.9rem' : '0.95rem'
+                }}>
+                  <li style={{ marginBottom: '8px' }}>Devolução apenas no ato da entrega</li>
+                  <li style={{ marginBottom: '8px' }}>Prazo máximo: 1 dia útil</li>
+                  <li style={{ marginBottom: '8px' }}>Antes da assinatura da NF</li>
+                  <li style={{ marginBottom: '8px' }}>Produtos devem estar lacrados</li>
+                </ul>
+              </div>
+            </div>
+
             <p style={{ 
-              color: '#555', 
+              color: '#e53935', 
               lineHeight: '1.6',
               marginBottom: '15px',
               fontSize: isMobile ? '0.95rem' : '1rem',
-              fontWeight: '600'
+              fontWeight: '600',
+              textAlign: 'center'
             }}>
-              <strong>NÃO ASSINE A NOTA FISCAL</strong> e entre em contato imediatamente.
+              NÃO ASSINE A NOTA FISCAL se encontrar qualquer problema!
             </p>
           </section>
 
@@ -185,20 +316,28 @@ export default function PoliticaDevolucao() {
               marginBottom: '15px',
               fontSize: isMobile ? '0.95rem' : '1rem'
             }}>
-              Se tiver algo fora do especificado na Nota Fiscal, entre em contato <strong>antes</strong> 
-              de assinar a nota fiscal para tomarmos todas as ações necessárias:
+              Problema no pedido? Você tem <strong>1 dia útil</strong> para resolver. Entre em contato antes de assinar a nota fiscal:
             </p>
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
-              marginBottom: '15px',
-              fontSize: isMobile ? '1rem' : '1.1rem',
-              fontWeight: '600',
-              textAlign: 'center'
+            
+            <div style={{
+              textAlign: 'center',
+              marginBottom: '15px'
             }}>
-              📱 (11) 91357-2902
-            </p>
-            <div style={{ textAlign: 'center', marginBottom: '15px' }}>
+              <p style={{ 
+                color: '#555', 
+                margin: '0 0 10px 0',
+                fontSize: isMobile ? '1.1rem' : '1.3rem',
+                fontWeight: '700'
+              }}>
+                (11) 91357-2902
+              </p>
+              <p style={{ 
+                color: '#666', 
+                margin: '0 0 15px 0',
+                fontSize: isMobile ? '0.9rem' : '1rem'
+              }}>
+                Contate-nos dentro do prazo de 1 dia
+              </p>
               <a 
                 href="https://wa.me/5511913572902" 
                 style={{
@@ -214,139 +353,71 @@ export default function PoliticaDevolucao() {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                💬 Chamar no WhatsApp
+                Chamar no WhatsApp
               </a>
             </div>
           </section>
 
-          {/* Situações Pós-entrega */}
+          {/* Resumo para Google */}
           <section style={{ marginBottom: '30px' }}>
             <h2 style={{ 
               color: '#095400', 
               fontSize: isMobile ? '1.3rem' : '1.5rem',
-              marginBottom: '15px'
-            }}>
-              Situações Pós-entrega
-            </h2>
-            
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
               marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              Caso ocorra <strong>qualquer reclamação posterior</strong> depois de ter sido assinado a nota fiscal 
-              e conferido o pedido, <strong>infelizmente não há o que fazer</strong>.
-            </p>
-
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              <strong>Por que essa política é necessária?</strong>
-            </p>
-            <ul style={{ 
-              color: '#555',
-              paddingLeft: '20px',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              <li style={{ marginBottom: '8px' }}>
-                Garantir a qualidade do produto no momento exato da entrega
-              </li>
-              <li style={{ marginBottom: '8px' }}>
-                Evitar fraudes e más utilizações
-              </li>
-              <li style={{ marginBottom: '8px' }}>
-                Manter preços competitivos para todos os clientes
-              </li>
-              <li style={{ marginBottom: '8px' }}>
-                Assegurar procedimentos claros e transparentes
-              </li>
-            </ul>
-          </section>
-
-          {/* Resumo Final */}
-          <section style={{ marginBottom: '30px' }}>
-            <h2 style={{ 
-              color: '#095400', 
-              fontSize: isMobile ? '1.3rem' : '1.5rem',
-              marginBottom: '15px'
+              textAlign: 'center'
             }}>
               Resumo da Política
             </h2>
             
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+              gap: '20px'
             }}>
-              <strong>Fazer:</strong>
-            </p>
-            <ul style={{ 
-              color: '#555',
-              paddingLeft: '20px',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              <li style={{ marginBottom: '8px' }}>Conferir pedido na hora da entrega</li>
-              <li style={{ marginBottom: '8px' }}>Recusar assinatura se houver problema</li>
-              <li style={{ marginBottom: '8px' }}>Ligar (11) 91357-2902 se necessário</li>
-              <li style={{ marginBottom: '8px' }}>Resolver tudo no ato da entrega</li>
-            </ul>
+              <div>
+                <h3 style={{ 
+                  color: '#095400', 
+                  fontSize: isMobile ? '1.1rem' : '1.2rem',
+                  marginBottom: '10px'
+                }}>
+                  Condições do Produto
+                </h3>
+                <ul style={{ 
+                  color: '#555',
+                  paddingLeft: '15px',
+                  margin: 0,
+                  fontSize: isMobile ? '0.9rem' : '0.95rem'
+                }}>
+                  <li style={{ marginBottom: '8px' }}><strong>Produtos Novos</strong> apenas</li>
+                  <li style={{ marginBottom: '8px' }}>Embalagens originais</li>
+                  <li style={{ marginBottom: '8px' }}>Lacrados e intactos</li>
+                  <li style={{ marginBottom: '8px' }}>Qualidade garantida</li>
+                </ul>
+              </div>
 
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              <strong>Não Fazer:</strong>
-            </p>
-            <ul style={{ 
-              color: '#555',
-              paddingLeft: '20px',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              <li style={{ marginBottom: '8px' }}>Assinar nota sem conferir</li>
-              <li style={{ marginBottom: '8px' }}>Aceitar produtos com divergências</li>
-              <li style={{ marginBottom: '8px' }}>Tentar resolver depois da assinatura</li>
-              <li style={{ marginBottom: '8px' }}>Deixar para reclamar posteriormente</li>
-            </ul>
+              <div>
+                <h3 style={{ 
+                  color: '#095400', 
+                  fontSize: isMobile ? '1.1rem' : '1.2rem',
+                  marginBottom: '10px'
+                }}>
+                  Prazo de Devolução
+                </h3>
+                <ul style={{ 
+                  color: '#555',
+                  paddingLeft: '15px',
+                  margin: 0,
+                  fontSize: isMobile ? '0.9rem' : '0.95rem'
+                }}>
+                  <li style={{ marginBottom: '8px' }}><strong>1 dia útil</strong> para devolução</li>
+                  <li style={{ marginBottom: '8px' }}>No ato da entrega</li>
+                  <li style={{ marginBottom: '8px' }}>Antes da assinatura</li>
+                  <li style={{ marginBottom: '8px' }}>Prazo limitado</li>
+                </ul>
+              </div>
+            </div>
           </section>
 
-          {/* Conclusão */}
-          <section style={{ marginBottom: '30px' }}>
-            <h2 style={{ 
-              color: '#095400', 
-              fontSize: isMobile ? '1.3rem' : '1.5rem',
-              marginBottom: '15px'
-            }}>
-              Conclusão
-            </h2>
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
-              marginBottom: '15px',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              Na <strong>PMG Atacadista</strong>, acreditamos na transparência e na qualidade de nossos produtos. 
-              Nossa política clara e objetiva visa proteger tanto o cliente quanto nossa empresa, 
-              garantindo que todas as transações sejam justas e bem documentadas.
-            </p>
-            <p style={{ 
-              color: '#555', 
-              lineHeight: '1.6',
-              fontSize: isMobile ? '0.95rem' : '1rem'
-            }}>
-              <strong>Lembre-se:</strong> Qualquer problema com o pedido deve ser resolvido 
-              <strong> no ato da entrega</strong>. Esta é a única forma de garantirmos uma solução rápida e eficaz.
-            </p>
-          </section>
         </div>
 
         {/* Rodapé */}
