@@ -2338,15 +2338,27 @@ export default function ProductPage({ product: initialProduct }) {
         
         {/* Header */}
         <div style={styles.header}>
-          <button 
-            style={styles.backButton}
-            onClick={() => router.push('/')}
-          >
-            <span style={styles.backButtonIcon}>←</span>
-            <span style={styles.backButtonText}>Início</span>
-          </button>
+          <div style={{ width: '80px' }}></div> {/* Espaçador para alinhamento */}
           
-          <h1 style={styles.title}>PMG ATACADISTA</h1>
+          <div style={styles.titleContainer}>
+            <h1 style={styles.title}>PMG ATACADISTA</h1>
+            
+            {/* Botões de Navegação Centralizados */}
+            <div style={styles.navigationButtons}>
+              <button 
+                style={styles.navButton}
+                onClick={() => router.push('/')}
+              >
+                Página Inicial
+              </button>
+              <button 
+                style={styles.navButton}
+                onClick={() => router.push('/produtos')}
+              >
+                Voltar para Produtos
+              </button>
+            </div>
+          </div>
           
           <div style={{ width: '80px' }}></div> {/* Espaçador para alinhamento */}
         </div>
@@ -2537,12 +2549,19 @@ export default function ProductPage({ product: initialProduct }) {
             padding: 15px 10px;
           }
           
-          .backButtonText {
-            display: none;
-          }
-          
           .title {
             font-size: 18px;
+          }
+          
+          .navigationButtons {
+            flex-direction: column;
+            gap: 8px;
+          }
+          
+          .navButton {
+            width: 100%;
+            font-size: 12px;
+            padding: 6px 10px;
           }
           
           .productContainer {
@@ -2585,6 +2604,10 @@ export default function ProductPage({ product: initialProduct }) {
           .sectionTitle {
             font-size: 18px;
           }
+          
+          .titleContainer {
+            gap: 8px;
+          }
         }
       `}</style>
     </>
@@ -2615,26 +2638,12 @@ const styles = {
     zIndex: '100'
   },
   
-  backButton: {
-    backgroundColor: '#095400',
-    color: 'white',
-    border: 'none',
-    padding: '10px 15px',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    fontSize: '16px',
+  titleContainer: {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    gap: '8px',
-    minWidth: 'auto'
-  },
-  
-  backButtonIcon: {
-    fontSize: '18px'
-  },
-  
-  backButtonText: {
-    fontSize: '14px'
+    gap: '12px',
+    flex: 1
   },
   
   title: {
@@ -2643,6 +2652,25 @@ const styles = {
     fontWeight: 'bold',
     margin: '0',
     textAlign: 'center'
+  },
+  
+  navigationButtons: {
+    display: 'flex',
+    gap: '12px',
+    justifyContent: 'center',
+    flexWrap: 'wrap'
+  },
+  
+  navButton: {
+    backgroundColor: '#095400',
+    color: 'white',
+    border: 'none',
+    padding: '8px 16px',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    transition: 'all 0.3s ease'
   },
   
   productContainer: {
@@ -2906,4 +2934,3 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
-
