@@ -1317,43 +1317,44 @@ const avaliacoes = [
       {isMobile ? 'Privacidade' : 'Política de Privacidade'}
     </a>
 
-    {/* Política de Devolução */}
-    <a 
-      href="/politica-devolucao" 
-      style={{ 
-        color: '#095400', 
-        textDecoration: 'none',
-        fontWeight: '600',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '12px 8px',
-        borderRadius: '8px',
-        transition: 'all 0.3s ease',
-        backgroundColor: 'white',
-        border: '1px solid #e0e0e0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-      }}
-      title="Política de Devolução"
-      aria-label="Leia nossa Política de Devolução"
-    >
-      <span>🔄</span>
-      {isMobile ? 'Devolução' : 'Política de Devolução'}
-    </a>
+      {/* Política de Devolução e Reembolso */}
+      <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Política de Devolução e Reembolso"
+        aria-label="Leia nossa Política de Devolução e Reembolso"
+      >
+        <span>🔄</span>
+        Política de Devolução e Reembolso
+      </a>
+      </Link>
 
     {/* Termos de Uso */}
     <Link href="/termos" passHref legacyBehavior>
