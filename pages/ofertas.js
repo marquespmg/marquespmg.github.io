@@ -807,216 +807,380 @@ const OfertasPage = () => {
         <p>PMG Atacadista app para acompanhar ofertas exclusivas. PMG Atacadista telefone para pedidos: (11) 91357-2902. PMG Atacadista entrega rápida na Grande São Paulo.</p>
       </div>
 
-      {/* Rodapé Premium com Redes Sociais */}
-      <footer style={styles.footer}>
-        {/* Redes Sociais */}
-        <div style={{ 
-          marginBottom: '20px',
+{/* Rodapé Corrigido - Totalmente Responsivo */}
+<footer style={{
+  marginTop: '60px',
+  padding: '30px 15px',
+  textAlign: 'center',
+  color: '#666',
+  fontSize: '14px',
+  borderTop: '2px solid #095400',
+  backgroundColor: '#f8f9fa',
+  borderRadius: '12px 12px 0 0',
+  boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)',
+  width: '100%',
+  boxSizing: 'border-box'
+}}>
+  
+  {/* Container Principal do Rodapé */}
+  <div style={{
+    maxWidth: '1200px',
+    margin: '0 auto',
+    width: '100%'
+  }}>
+    
+    {/* Título do Rodapé */}
+    <h3 style={{
+      color: '#095400',
+      fontSize: '18px',
+      marginBottom: '25px',
+      fontWeight: '600'
+    }}>
+      📋 Informações Legais
+    </h3>
+
+    {/* Links Principais em Grid Responsivo */}
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+      gap: '15px',
+      marginBottom: '30px',
+      width: '100%'
+    }}>
+      
+      {/* Política de Privacidade */}
+      <Link href="/politica-de-privacidade" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
-          gap: '15px'
-        }}>
-          <h3 style={{ 
-            color: '#095400', 
-            fontSize: isMobile ? '1rem' : '1.1rem',
-            marginBottom: '10px'
-          }}>
-            Siga-nos nas Redes Sociais
-          </h3>
-          
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: isMobile ? '20px' : '25px',
-            alignItems: 'center'
-          }}>
-            {/* Facebook */}
-            <a 
-              href="https://www.facebook.com/MarquesVendaspmg" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '40px',
-                height: '40px',
-                borderRadius: '8px',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.transform = 'scale(1.1)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.transform = 'scale(1)';
-              }}
-            >
-              <img 
-                src="https://i.imgur.com/prULUUA.png" 
-                alt="Facebook" 
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  transition: 'all 0.3s ease'
-                }}
-              />
-            </a>
-
-            {/* Instagram */}
-            <a 
-              href="https://www.instagram.com/marquesvendaspmg" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '40px',
-                height: '40px',
-                borderRadius: '8px',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.transform = 'scale(1.1)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.transform = 'scale(1)';
-              }}
-            >
-              <img 
-                src="https://i.imgur.com/I0ZZLjG.png" 
-                alt="Instagram" 
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  transition: 'all 0.3s ease'
-                }}
-              />
-            </a>
-
-            {/* YouTube */}
-            <a 
-              href="https://www.youtube.com/@MarquesVendasPMG" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '40px',
-                height: '40px',
-                borderRadius: '8px',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.transform = 'scale(1.1)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.transform = 'scale(1)';
-              }}
-            >
-              <img 
-                src="https://i.imgur.com/WfpZ8Gg.png" 
-                alt="YouTube" 
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  transition: 'all 0.3s ease'
-                }}
-              />
-            </a>
-          </div>
-        </div>
-
-        {/* Links Legais */}
-        <div style={{
-          display: 'flex',
           justifyContent: 'center',
-          gap: isMobile ? '15px' : '20px',
-          marginBottom: '20px',
-          flexWrap: 'wrap',
-          alignItems: 'center'
-        }}>
-          <a 
-            href="/politica-de-privacidade" 
-            style={{ 
-              color: '#095400', 
-              textDecoration: 'none',
-              fontWeight: '600',
-              fontSize: isMobile ? '0.8rem' : '0.85rem',
-              padding: '8px 12px',
-              borderRadius: '4px',
-              transition: 'all 0.3s ease',
-              ':hover': {
-                backgroundColor: '#f0f0f0'
-              }
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Política de Privacidade"
+        aria-label="Leia nossa Política de Privacidade"
+      >
+        <span>🔒</span>
+        Privacidade
+      </a>
+      </Link>
+
+      {/* Política de Devolução */}
+      <Link href="/politica-devolucao" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Política de Devolução"
+        aria-label="Leia nossa Política de Devolução"
+      >
+        <span>🔄</span>
+        Devolução
+      </a>
+      </Link>
+
+      {/* Termos de Uso */}
+      <Link href="/termos" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Termos de Uso"
+        aria-label="Leia nossos Termos de Uso"
+      >
+        <span>📄</span>
+        Termos
+      </a>
+      </Link>
+
+      {/* Quem Somos */}
+      <Link href="/quem-somos" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Quem Somos"
+        aria-label="Conheça mais sobre nós"
+      >
+        <span>👥</span>
+        Sobre
+      </a>
+      </Link>
+    </div>
+
+    {/* Linha Divisa Estilizada */}
+    <div style={{
+      height: '1px',
+      background: 'linear-gradient(90deg, transparent, #095400, transparent)',
+      margin: '25px auto',
+      maxWidth: '300px',
+      width: '100%'
+    }}></div>
+
+    {/* Redes Sociais */}
+    <div style={{
+      marginBottom: '20px'
+    }}>
+      <h4 style={{
+        color: '#095400',
+        fontSize: '16px',
+        marginBottom: '15px',
+        fontWeight: '600'
+      }}>
+        Siga-nos nas Redes Sociais
+      </h4>
+      
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '20px',
+        alignItems: 'center',
+        flexWrap: 'wrap'
+      }}>
+        {/* Facebook */}
+        <a 
+          href="https://www.facebook.com/MarquesVendaspmg" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '40px',
+            height: '40px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none',
+            backgroundColor: 'white',
+            border: '1px solid #e0e0e0',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <img 
+            src="https://i.imgur.com/prULUUA.png" 
+            alt="Facebook" 
+            style={{
+              width: '20px',
+              height: '20px'
             }}
-          >
-            Política de Privacidade
-          </a>
+          />
+        </a>
 
-          <span style={{ color: '#095400' }}>•</span>
+        {/* Instagram */}
+        <a 
+          href="https://www.instagram.com/marquesvendaspmg" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '40px',
+            height: '40px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none',
+            backgroundColor: 'white',
+            border: '1px solid #e0e0e0',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <img 
+            src="https://i.imgur.com/I0ZZLjG.png" 
+            alt="Instagram" 
+            style={{
+              width: '20px',
+              height: '20px'
+            }}
+          />
+        </a>
 
-          <Link href="/termos" passHref legacyBehavior>
-            <a style={{ 
-              color: '#095400', 
-              textDecoration: 'none',
-              fontWeight: '600',
-              fontSize: isMobile ? '0.8rem' : '0.85rem',
-              padding: '8px 12px',
-              borderRadius: '4px',
-              transition: 'all 0.3s ease',
-              ':hover': {
-                backgroundColor: '#f0f0f0'
-              }
-            }}>
-              Termos de Uso
-            </a>
-          </Link>
+        {/* YouTube */}
+        <a 
+          href="https://www.youtube.com/@MarquesVendasPMG" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '40px',
+            height: '40px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none',
+            backgroundColor: 'white',
+            border: '1px solid #e0e0e0',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <img 
+            src="https://i.imgur.com/WfpZ8Gg.png" 
+            alt="YouTube" 
+            style={{
+              width: '20px',
+              height: '20px'
+            }}
+          />
+        </a>
+      </div>
+    </div>
 
-          <span style={{ color: '#095400' }}>•</span>
-
-          <Link href="/quem-somos" passHref legacyBehavior>
-            <a style={{ 
-              color: '#095400', 
-              textDecoration: 'none',
-              fontWeight: '600',
-              fontSize: isMobile ? '0.8rem' : '0.85rem',
-              padding: '8px 12px',
-              borderRadius: '4px',
-              transition: 'all 0.3s ease',
-              ':hover': {
-                backgroundColor: '#f0f0f0'
-              }
-            }}>
-              Quem Somos
-            </a>
-          </Link>
-        </div>
-
-        {/* Copyright */}
-        <div style={{ textAlign: 'center' }}>
-          <p style={{ 
-            margin: '5px 0', 
-            fontSize: isMobile ? '0.8rem' : '0.85rem',
-            color: '#666'
-          }}>
-            © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-          </p>
-          <p style={{ 
-            margin: '5px 0', 
-            fontSize: isMobile ? '0.7rem' : '0.75rem', 
-            color: '#999',
-            lineHeight: '1.4'
-          }}>
-            Estrada Ferreira Guedes, 784 - Potuverá - CEP: 06885-150 - Itapecerica da Serra - SP
-          </p>
-        </div>
-      </footer>
+    {/* Informações de Contato e Copyright */}
+    <div style={{ 
+      textAlign: 'center',
+      paddingTop: '15px',
+      borderTop: '1px solid #e0e0e0'
+    }}>
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '14px',
+        color: '#666',
+        lineHeight: '1.5'
+      }}>
+        © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+      </p>
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '12px', 
+        color: '#888',
+        lineHeight: '1.4'
+      }}>
+        Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
+        <br />
+        CEP: 06885-150 - Itapecerica da Serra - SP
+      </p>
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '12px', 
+        color: '#888'
+      }}>
+        📞 Telefone: (11) 91357-2902
+      </p>
+    </div>
+  </div>
+</footer>
     </div>
   );
 };
