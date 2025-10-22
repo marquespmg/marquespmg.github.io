@@ -8,7 +8,7 @@ export default function PoliticaDevolucao() {
   return (
     <>
       <Head>
-        <title>Política de Devolução - Marques Vendas PMG</title>
+        <title>Política de Devolução e Reembolso - Marques Vendas PMG</title>
         <meta name="description" content="Política de devolução PMG: produtos novos, prazo de 1 dia para devolução no ato da entrega. Condições claras e transparentes." />
       </Head>
 
@@ -37,7 +37,7 @@ export default function PoliticaDevolucao() {
             fontSize: isMobile ? '1.8rem' : '2.2rem',
             marginBottom: '15px'
           }}>
-            Política de Devolução
+            Política de Devolução e Reembolso
           </h1>
           <p style={{ color: '#666', fontSize: isMobile ? '0.9rem' : '1rem' }}>
             Condições claras para trocas e devoluções - Produtos Novos | Prazo: 1 Dia
