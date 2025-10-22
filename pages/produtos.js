@@ -2213,6 +2213,39 @@ const ProductsPage = () => {
     };
   }, []);
 
+// ADICIONAR ESTE USEEFFECT APÓS OS EXISTENTES
+useEffect(() => {
+  const applyCategoryFilterFromURL = () => {
+    // Verificar se estamos no navegador
+    if (typeof window === 'undefined') return;
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoriaFromURL = urlParams.get('categoria');
+    
+    if (categoriaFromURL) {
+      // Encontrar a categoria correspondente (case insensitive)
+      const categoriaEncontrada = categories.find(cat => 
+        cat.toLowerCase() === categoriaFromURL.toLowerCase()
+      );
+      
+      if (categoriaEncontrada) {
+        setSelectedCategory(categoriaEncontrada);
+        setCurrentPage(1);
+        
+        // Rolagem suave para a seção de produtos
+        setTimeout(() => {
+          const productsSection = document.querySelector('.products-grid');
+          if (productsSection) {
+            productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 300);
+      }
+    }
+  };
+
+  applyCategoryFilterFromURL();
+}, []); // Executa apenas uma vez ao carregar a página
+
   // Função para login com Google
 const handleGoogleLogin = async () => {
   setLoading(true);
@@ -3999,6 +4032,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
