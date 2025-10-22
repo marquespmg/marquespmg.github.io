@@ -887,8 +887,8 @@ const OfertasPage = () => {
       </a>
       </Link>
 
-      {/* Política de Devolução */}
-      <Link href="/politica-devolucao" passHref legacyBehavior>
+      {/* Política de Devolução e Reembolso */}
+      <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
         <a style={{ 
           color: '#095400', 
           textDecoration: 'none',
@@ -918,11 +918,11 @@ const OfertasPage = () => {
           e.target.style.transform = 'translateY(0)';
           e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
         }}
-        title="Política de Devolução"
-        aria-label="Leia nossa Política de Devolução"
+        title="Política de Devolução e Reembolso"
+        aria-label="Leia nossa Política de Devolução e Reembolso"
       >
         <span>🔄</span>
-        Devolução
+        Política de Devolução e Reembolso
       </a>
       </Link>
 
