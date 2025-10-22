@@ -2477,334 +2477,376 @@ export default function ProductPage({ product: initialProduct }) {
       {/* Componente Cart Original - Como estava */}
       <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
 
-{/* Rodapé Premium - Totalmente Reformulado */}
+{/* Rodapé Corrigido - Totalmente Responsivo */}
 <footer style={{
-  marginTop: isMobile ? '40px' : '60px',
-  padding: isMobile ? '25px 15px' : '40px 20px',
+  marginTop: '60px',
+  padding: '30px 15px',
   textAlign: 'center',
   color: '#666',
-  fontSize: isMobile ? '0.8rem' : '0.85rem',
+  fontSize: '14px',
   borderTop: '2px solid #095400',
   backgroundColor: '#f8f9fa',
   borderRadius: '12px 12px 0 0',
-  boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)'
+  boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)',
+  width: '100%',
+  boxSizing: 'border-box'
 }}>
   
-  {/* Título do Rodapé */}
-  <h3 style={{
-    color: '#095400',
-    fontSize: isMobile ? '1rem' : '1.1rem',
-    marginBottom: '20px',
-    fontWeight: '600'
-  }}>
-    📋 Informações Legais
-  </h3>
-
-  {/* Links Principais em Grid Organizado */}
+  {/* Container Principal do Rodapé */}
   <div style={{
-    display: 'grid',
-    gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
-    gap: isMobile ? '15px' : '20px',
-    marginBottom: '25px',
-    maxWidth: '600px',
-    margin: '0 auto 25px auto'
+    maxWidth: '1200px',
+    margin: '0 auto',
+    width: '100%'
   }}>
     
-    {/* Política de Privacidade */}
-    <a 
-      href="/politica-de-privacidade" 
-      style={{ 
-        color: '#095400', 
-        textDecoration: 'none',
-        fontWeight: '600',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '12px 8px',
-        borderRadius: '8px',
-        transition: 'all 0.3s ease',
-        backgroundColor: 'white',
-        border: '1px solid #e0e0e0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-      }}
-      title="Política de Privacidade"
-      aria-label="Leia nossa Política de Privacidade"
-    >
-      <span>🔒</span>
-      {isMobile ? 'Privacidade' : 'Política de Privacidade'}
-    </a>
-
-    {/* Política de Devolução */}
-    <a 
-      href="/politica-devolucao" 
-      style={{ 
-        color: '#095400', 
-        textDecoration: 'none',
-        fontWeight: '600',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '12px 8px',
-        borderRadius: '8px',
-        transition: 'all 0.3s ease',
-        backgroundColor: 'white',
-        border: '1px solid #e0e0e0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-      }}
-      title="Política de Devolução"
-      aria-label="Leia nossa Política de Devolução"
-    >
-      <span>🔄</span>
-      {isMobile ? 'Devolução' : 'Política de Devolução'}
-    </a>
-
-    {/* Termos de Uso */}
-    <Link href="/termos" passHref legacyBehavior>
-      <a style={{ 
-        color: '#095400', 
-        textDecoration: 'none',
-        fontWeight: '600',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '12px 8px',
-        borderRadius: '8px',
-        transition: 'all 0.3s ease',
-        backgroundColor: 'white',
-        border: '1px solid #e0e0e0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-      }}
-      title="Termos de Uso"
-      aria-label="Leia nossos Termos de Uso"
-    >
-      <span>📄</span>
-      {isMobile ? 'Termos' : 'Termos de Uso'}
-    </a>
-    </Link>
-
-    {/* Quem Somos */}
-    <Link href="/quem-somos" passHref legacyBehavior>
-      <a style={{ 
-        color: '#095400', 
-        textDecoration: 'none',
-        fontWeight: '600',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '12px 8px',
-        borderRadius: '8px',
-        transition: 'all 0.3s ease',
-        backgroundColor: 'white',
-        border: '1px solid #e0e0e0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-      }}
-      title="Quem Somos"
-      aria-label="Conheça mais sobre nós"
-    >
-      <span>👥</span>
-      {isMobile ? 'Sobre' : 'Quem Somos'}
-    </a>
-    </Link>
-  </div>
-
-  {/* Linha Divisa Estilizada */}
-  <div style={{
-    height: '1px',
-    background: 'linear-gradient(90deg, transparent, #095400, transparent)',
-    margin: '20px auto',
-    maxWidth: '300px'
-  }}></div>
-
-  {/* Informações de copyright e redes sociais */}
-  <div style={{ 
-    marginTop: '10px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '15px'
-  }}>
-    {/* Redes Sociais - Versão Clean com Logos Visíveis */}
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      gap: isMobile ? '20px' : '25px',
-      alignItems: 'center'
+    {/* Título do Rodapé */}
+    <h3 style={{
+      color: '#095400',
+      fontSize: '18px',
+      marginBottom: '25px',
+      fontWeight: '600'
     }}>
-      {/* Facebook */}
-      <a 
-        href="https://www.facebook.com/MarquesVendaspmg" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '32px',
-          height: '32px',
-          borderRadius: '4px',
-          transition: 'all 0.3s ease',
-          textDecoration: 'none',
-          padding: '6px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.transform = 'scale(1.1)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.transform = 'scale(1)';
-        }}
-      >
-        <img 
-          src="https://i.imgur.com/prULUUA.png" 
-          alt="Facebook" 
-          style={{
-            width: '20px',
-            height: '20px',
-            transition: 'all 0.3s ease'
-          }}
-        />
-      </a>
+      📋 Informações Legais
+    </h3>
 
-      {/* Instagram */}
-      <a 
-        href="https://www.instagram.com/marquesvendaspmg" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
+    {/* Links Principais em Grid Responsivo */}
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+      gap: '15px',
+      marginBottom: '30px',
+      width: '100%'
+    }}>
+      
+      {/* Política de Privacidade */}
+      <Link href="/politica-de-privacidade" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          width: '32px',
-          height: '32px',
-          borderRadius: '4px',
-          transition: 'all 0.3s ease',
-          textDecoration: 'none',
-          padding: '6px'
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
         }}
         onMouseOver={(e) => {
-          e.target.style.transform = 'scale(1.1)';
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
         }}
         onMouseOut={(e) => {
-          e.target.style.transform = 'scale(1)';
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
         }}
+        title="Política de Privacidade"
+        aria-label="Leia nossa Política de Privacidade"
       >
-        <img 
-          src="https://i.imgur.com/I0ZZLjG.png" 
-          alt="Instagram" 
-          style={{
-            width: '20px',
-            height: '20px',
-            transition: 'all 0.3s ease'
-          }}
-        />
+        <span>🔒</span>
+        Privacidade
       </a>
+      </Link>
 
-      {/* YouTube */}
-      <a 
-        href="https://www.youtube.com/@MarquesVendasPMG" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
+      {/* Política de Devolução */}
+      <Link href="/politica-devolucao" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          width: '32px',
-          height: '32px',
-          borderRadius: '4px',
-          transition: 'all 0.3s ease',
-          textDecoration: 'none',
-          padding: '6px'
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
         }}
         onMouseOver={(e) => {
-          e.target.style.transform = 'scale(1.1)';
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
         }}
         onMouseOut={(e) => {
-          e.target.style.transform = 'scale(1)';
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
         }}
+        title="Política de Devolução"
+        aria-label="Leia nossa Política de Devolução"
       >
-        <img 
-          src="https://i.imgur.com/WfpZ8Gg.png" 
-          alt="YouTube" 
-          style={{
-            width: '20px',
-            height: '20px',
-            transition: 'all 0.3s ease'
-          }}
-        />
+        <span>🔄</span>
+        Devolução
       </a>
+      </Link>
+
+      {/* Termos de Uso */}
+      <Link href="/termos" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Termos de Uso"
+        aria-label="Leia nossos Termos de Uso"
+      >
+        <span>📄</span>
+        Termos
+      </a>
+      </Link>
+
+      {/* Quem Somos */}
+      <Link href="/quem-somos" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Quem Somos"
+        aria-label="Conheça mais sobre nós"
+      >
+        <span>👥</span>
+        Sobre
+      </a>
+      </Link>
     </div>
 
-    {/* Copyright e Endereço */}
-    <div style={{ textAlign: 'center' }}>
+    {/* Linha Divisa Estilizada */}
+    <div style={{
+      height: '1px',
+      background: 'linear-gradient(90deg, transparent, #095400, transparent)',
+      margin: '25px auto',
+      maxWidth: '300px',
+      width: '100%'
+    }}></div>
+
+    {/* Redes Sociais */}
+    <div style={{
+      marginBottom: '20px'
+    }}>
+      <h4 style={{
+        color: '#095400',
+        fontSize: '16px',
+        marginBottom: '15px',
+        fontWeight: '600'
+      }}>
+        Siga-nos nas Redes Sociais
+      </h4>
+      
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '20px',
+        alignItems: 'center',
+        flexWrap: 'wrap'
+      }}>
+        {/* Facebook */}
+        <a 
+          href="https://www.facebook.com/MarquesVendaspmg" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '40px',
+            height: '40px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none',
+            backgroundColor: 'white',
+            border: '1px solid #e0e0e0',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <img 
+            src="https://i.imgur.com/prULUUA.png" 
+            alt="Facebook" 
+            style={{
+              width: '20px',
+              height: '20px'
+            }}
+          />
+        </a>
+
+        {/* Instagram */}
+        <a 
+          href="https://www.instagram.com/marquesvendaspmg" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '40px',
+            height: '40px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none',
+            backgroundColor: 'white',
+            border: '1px solid #e0e0e0',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <img 
+            src="https://i.imgur.com/I0ZZLjG.png" 
+            alt="Instagram" 
+            style={{
+              width: '20px',
+              height: '20px'
+            }}
+          />
+        </a>
+
+        {/* YouTube */}
+        <a 
+          href="https://www.youtube.com/@MarquesVendasPMG" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '40px',
+            height: '40px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none',
+            backgroundColor: 'white',
+            border: '1px solid #e0e0e0',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <img 
+            src="https://i.imgur.com/WfpZ8Gg.png" 
+            alt="YouTube" 
+            style={{
+              width: '20px',
+              height: '20px'
+            }}
+          />
+        </a>
+      </div>
+    </div>
+
+    {/* Informações de Contato e Copyright */}
+    <div style={{ 
+      textAlign: 'center',
+      paddingTop: '15px',
+      borderTop: '1px solid #e0e0e0'
+    }}>
       <p style={{ 
-        margin: '5px 0', 
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        color: '#666'
+        margin: '8px 0', 
+        fontSize: '14px',
+        color: '#666',
+        lineHeight: '1.5'
       }}>
         © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
       </p>
       <p style={{ 
-        margin: '5px 0', 
-        fontSize: isMobile ? '0.7rem' : '0.8rem', 
-        color: '#999',
+        margin: '8px 0', 
+        fontSize: '12px', 
+        color: '#888',
         lineHeight: '1.4'
       }}>
-        • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
+        Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
+        <br />
+        CEP: 06885-150 - Itapecerica da Serra - SP
+      </p>
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '12px', 
+        color: '#888'
+      }}>
+        📞 Telefone: (11) 91357-2902
       </p>
     </div>
   </div>
@@ -3207,4 +3249,5 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
 
