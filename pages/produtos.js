@@ -2246,19 +2246,23 @@ useEffect(() => {
   applyCategoryFilterFromURL();
 }, []); // Executa apenas uma vez ao carregar a página
 
-// ADICIONAR ESTE USEEFFECT - coloque após os outros useEffects
+// SUBSTITUA O USEEFFECT PROBLEMÁTICO POR ESTE:
+
 useEffect(() => {
   const updateSEOMetaTags = () => {
+    // Só executa no cliente
     if (typeof window === 'undefined') return;
     
     const urlParams = new URLSearchParams(window.location.search);
     const categoriaFromURL = urlParams.get('categoria');
     
+    console.log('🔍 DEBUG SEO - Categoria detectada:', categoriaFromURL);
+    
     let pageTitle = '';
     let metaDescription = '';
 
     if (categoriaFromURL) {
-      // MAPEAMENTO COMPLETO DE SEO PARA TODAS AS CATEGORIAS
+      // MAPEAMENTO COMPLETO DE SEO
       const seoMap = {
         'acessórios': {
           title: 'Acessórios para Restaurantes e Bares - Utensílios Profissionais | PMG Atacadista',
@@ -2333,22 +2337,20 @@ useEffect(() => {
         pageTitle = seoData.title;
         metaDescription = seoData.description;
       } else {
-        // Fallback para categoria não mapeada
         pageTitle = `${categoriaFromURL} - PMG Atacadista | Melhor Preço em Atacado`;
         metaDescription = `Compre ${categoriaFromURL} com melhor preço atacado. PMG Atacadista - food service com entrega grátis SP e região.`;
       }
     } else {
-      // SEO padrão quando não há categoria
       pageTitle = 'Catálogo Completo - PMG Atacadista | Atacado Food Service SP';
-      metaDescription = 'Catálogo completo de produtos atacado. Bebidas, carnes, laticínios, mercearia, limpeza, acessórios. Melhor preço com entrega grátis SP.';
+      metaDescription = 'Catálogo completo de produtos atacado. Bebidas, carnes, laticínios, mercearia, limpeza. Melhor preço com entrega grátis SP.';
     }
 
-    // Atualiza a tag <title>
-    if (pageTitle) {
-      document.title = pageTitle;
-    }
-
-    // Atualiza a meta description
+    console.log('🔄 Atualizando título para:', pageTitle);
+    
+    // Força a atualização do título
+    document.title = pageTitle;
+    
+    // Atualiza meta description
     let metaDescTag = document.querySelector('meta[name="description"]');
     if (!metaDescTag) {
       metaDescTag = document.createElement('meta');
@@ -2357,27 +2359,29 @@ useEffect(() => {
     }
     metaDescTag.content = metaDescription;
 
-    // Atualiza meta og:title e og:description (para redes sociais)
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    
-    if (!ogTitle) {
-      ogTitle = document.createElement('meta');
-      ogTitle.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitle);
-    }
-    ogTitle.content = pageTitle;
+    // Múltiplas tentativas para garantir
+    const forceTitleUpdate = () => {
+      if (document.title !== pageTitle) {
+        console.log('🔄 Forçando atualização do título...');
+        document.title = pageTitle;
+      }
+    };
 
-    if (!ogDesc) {
-      ogDesc = document.createElement('meta');
-      ogDesc.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDesc);
-    }
-    ogDesc.content = metaDescription;
+    // Executa várias vezes para garantir
+    forceTitleUpdate();
+    setTimeout(forceTitleUpdate, 100);
+    setTimeout(forceTitleUpdate, 500);
+    setTimeout(forceTitleUpdate, 1000);
   };
 
+  // Executa imediatamente
   updateSEOMetaTags();
-}, [selectedCategory]); // Re-executa quando a categoria muda
+  
+  // Re-executa após o componente montar completamente
+  const timer = setTimeout(updateSEOMetaTags, 300);
+  
+  return () => clearTimeout(timer);
+}, [selectedCategory]); // REMOVI window.location.search da dependência
 
   // Função para login com Google
 const handleGoogleLogin = async () => {
@@ -4165,6 +4169,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
