@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
+import Link from 'next/link';
 
 // CONFIGURAÇÃO DAS PALAVRAS-CHAVE POR CATEGORIA
 const categoryKeywords = {
@@ -2175,6 +2176,7 @@ const ProductsPage = () => {
   const productsPerPage = windowWidth > 768 ? 20 : 10;
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Efeito para o carrossel automático
   useEffect(() => {
@@ -3470,6 +3472,381 @@ const removeFromCart = (productId) => {
           </div>
         </div>
 
+{/* Rodapé Corrigido - Totalmente Responsivo */}
+<footer style={{
+  marginTop: '60px',
+  padding: '30px 15px',
+  textAlign: 'center',
+  color: '#666',
+  fontSize: '14px',
+  borderTop: '2px solid #095400',
+  backgroundColor: '#f8f9fa',
+  borderRadius: '12px 12px 0 0',
+  boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)',
+  width: '100%',
+  boxSizing: 'border-box'
+}}>
+  
+  {/* Container Principal do Rodapé */}
+  <div style={{
+    maxWidth: '1200px',
+    margin: '0 auto',
+    width: '100%'
+  }}>
+    
+    {/* Título do Rodapé */}
+    <h3 style={{
+      color: '#095400',
+      fontSize: '18px',
+      marginBottom: '25px',
+      fontWeight: '600'
+    }}>
+      📋 Informações Legais
+    </h3>
+
+    {/* Links Principais em Grid Responsivo */}
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+      gap: '15px',
+      marginBottom: '30px',
+      width: '100%'
+    }}>
+      
+      {/* Política de Privacidade */}
+      <Link href="/politica-de-privacidade" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Política de Privacidade"
+        aria-label="Leia nossa Política de Privacidade"
+      >
+        <span>🔒</span>
+        Privacidade
+      </a>
+      </Link>
+
+      {/* Política de Devolução */}
+      <Link href="/politica-devolucao" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Política de Devolução"
+        aria-label="Leia nossa Política de Devolução"
+      >
+        <span>🔄</span>
+        Devolução
+      </a>
+      </Link>
+
+      {/* Termos de Uso */}
+      <Link href="/termos" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Termos de Uso"
+        aria-label="Leia nossos Termos de Uso"
+      >
+        <span>📄</span>
+        Termos
+      </a>
+      </Link>
+
+      {/* Quem Somos */}
+      <Link href="/quem-somos" passHref legacyBehavior>
+        <a style={{ 
+          color: '#095400', 
+          textDecoration: 'none',
+          fontWeight: '600',
+          fontSize: '14px',
+          padding: '12px 8px',
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+          backgroundColor: 'white',
+          border: '1px solid #e0e0e0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+          minHeight: '50px'
+        }}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#095400';
+          e.target.style.color = 'white';
+          e.target.style.transform = 'translateY(-2px)';
+          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+        }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = 'white';
+          e.target.style.color = '#095400';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+        }}
+        title="Quem Somos"
+        aria-label="Conheça mais sobre nós"
+      >
+        <span>👥</span>
+        Sobre
+      </a>
+      </Link>
+    </div>
+
+    {/* Linha Divisa Estilizada */}
+    <div style={{
+      height: '1px',
+      background: 'linear-gradient(90deg, transparent, #095400, transparent)',
+      margin: '25px auto',
+      maxWidth: '300px',
+      width: '100%'
+    }}></div>
+
+    {/* Redes Sociais */}
+    <div style={{
+      marginBottom: '20px'
+    }}>
+      <h4 style={{
+        color: '#095400',
+        fontSize: '16px',
+        marginBottom: '15px',
+        fontWeight: '600'
+      }}>
+        Siga-nos nas Redes Sociais
+      </h4>
+      
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '20px',
+        alignItems: 'center',
+        flexWrap: 'wrap'
+      }}>
+        {/* Facebook */}
+        <a 
+          href="https://www.facebook.com/MarquesVendaspmg" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '40px',
+            height: '40px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none',
+            backgroundColor: 'white',
+            border: '1px solid #e0e0e0',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <img 
+            src="https://i.imgur.com/prULUUA.png" 
+            alt="Facebook" 
+            style={{
+              width: '20px',
+              height: '20px'
+            }}
+          />
+        </a>
+
+        {/* Instagram */}
+        <a 
+          href="https://www.instagram.com/marquesvendaspmg" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '40px',
+            height: '40px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none',
+            backgroundColor: 'white',
+            border: '1px solid #e0e0e0',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <img 
+            src="https://i.imgur.com/I0ZZLjG.png" 
+            alt="Instagram" 
+            style={{
+              width: '20px',
+              height: '20px'
+            }}
+          />
+        </a>
+
+        {/* YouTube */}
+        <a 
+          href="https://www.youtube.com/@MarquesVendasPMG" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '40px',
+            height: '40px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            textDecoration: 'none',
+            backgroundColor: 'white',
+            border: '1px solid #e0e0e0',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.transform = 'scale(1.1)';
+            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.transform = 'scale(1)';
+            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+          }}
+        >
+          <img 
+            src="https://i.imgur.com/WfpZ8Gg.png" 
+            alt="YouTube" 
+            style={{
+              width: '20px',
+              height: '20px'
+            }}
+          />
+        </a>
+      </div>
+    </div>
+
+    {/* Informações de Contato e Copyright */}
+    <div style={{ 
+      textAlign: 'center',
+      paddingTop: '15px',
+      borderTop: '1px solid #e0e0e0'
+    }}>
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '14px',
+        color: '#666',
+        lineHeight: '1.5'
+      }}>
+        © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+      </p>
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '12px', 
+        color: '#888',
+        lineHeight: '1.4'
+      }}>
+        Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
+        <br />
+        CEP: 06885-150 - Itapecerica da Serra - SP
+      </p>
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '12px', 
+        color: '#888'
+      }}>
+        📞 Telefone: (11) 91357-2902
+      </p>
+    </div>
+  </div>
+</footer>
+
         {showAuthModal && (
           <div style={styles.authModal}>
             <div style={styles.authBox}>
@@ -3622,6 +3999,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
