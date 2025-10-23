@@ -3012,6 +3012,304 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
       </p>
     </section>
   `
+},
+{
+  "id": 10,
+  "title": "Como Comprar na PMG Atacadista em 2 Minutos — Guia Rápido para Fazer Seu Pedido Online",
+  "description": "Aprenda a comprar na PMG Atacadista em menos de 2 minutos. Guia passo a passo para fazer pedidos online com segurança e facilidade. Cadastro rápido!",
+  "image": "https://i.imgur.com/f2oQqzd.png",
+  "category": "Tutoriais",
+  "section": "como-comprar",
+  "readTime": "4 min de leitura",
+  "date": "2025-10-23",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">⚡ Como Comprar na PMG Atacadista em 2 Minutos — Guia Rápido 2025</h1>
+      <p>Você sabia que é possível <strong>fazer seu pedido na PMG Atacadista em menos de 2 minutos</strong>? Criamos este guia prático para mostrar como comprar no atacado pode ser <strong>rápido, simples e seguro</strong>. Perfect para quem busca <strong>agilidade no pedido online</strong> e <strong>preços direto de atacadista</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">⏱️ Destaque PMG:</h3>
+        <p style="margin: 0; font-weight: 600;">Cadastro rápido em <strong>1 minuto</strong> + pedido em <strong>1 minuto</strong> = Seu pedido feito em 2 minutos! Sem burocracia, apenas preços bons e entrega rápida.</p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/pBH5WpZ.jpeg" alt="Como comprar na PMG Atacadista - Guia rápido passo a passo 2025" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Comprar na PMG Atacadista é rápido, fácil e seguro - Comece agora mesmo!</p>
+    </section>
+
+    <!-- PASSO 1 -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">1. 📱 Acesse o Site da PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🌐</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Acesso Rápido</h4>
+          <p style="margin: 0; font-size: 0.9rem;">www.marquesvendaspmg.shop</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📱</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Mobile Friendly</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Site otimizado para celular</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⚡</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Carregamento Rápido</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Navegação sem espera</p>
+        </div>
+      </div>
+
+      <p>O primeiro passo é simples: acesse <a href="https://www.marquesvendaspmg.shop" style="color: #095400; font-weight: 600;">www.marquesvendaspmg.shop</a>. Nosso site é totalmente otimizado para <strong>celular e computador</strong>, com carregamento rápido para você não perder tempo.</p>
+
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop" 
+           style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+           ACESSAR SITE PMG AGORA →
+        </a>
+      </div>
+    </section>
+
+    <!-- PASSO 2 -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">2. 👤 Cadastro Rápido (1 Minuto)</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Informações Necessárias:</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">📝</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Nome Completo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Razão social ou nome</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">📧</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">E-mail</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Para contato e pedidos</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Telefone</h4>
+            <p style="margin: 0; font-size: 0.9rem;">WhatsApp para dúvidas</p>
+          </div>
+        </div>
+
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica PMG:</strong> Use o mesmo e-mail do seu CNPJ para facilitar futuras aprovações de crédito.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSO 3 -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">3. 🛒 Navegue e Escolha Seus Produtos</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Acesse Nossa Loja Completa</h3>
+        
+        <p>Após o cadastro, você será direcionado automaticamente para nossa <strong>página de produtos completa</strong> em <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">www.marquesvendaspmg.shop/produtos</a>.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🔍 Busca por Categoria</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Encontre por: Derivados de Leite, Farináceos, Bebidas, Carnes</p>
+          </div>
+          
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🔎 Busca por Nome</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Use a lupa para buscar produtos específicos</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin: 20px 0;">
+          <a href="https://www.marquesvendaspmg.shop/produtos" 
+             style="background: #095400; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.3s ease;">
+             VER TODOS OS PRODUTOS →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSO 4 -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">4. 🔍 Detalhes do Produto (Lupinha)</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Clique na Lupinha para Ver Tudo</h3>
+        
+        <div style="display: grid; grid-template-columns: 100px 1fr; gap: 20px; align-items: center; margin-bottom: 20px;">
+          <div style="font-size: 3rem; text-align: center;">🔍</div>
+          <div>
+            <p style="margin: 0;">Ao encontrar um produto que te interessa, <strong>clique no ícone da lupa</strong> para ver:</p>
+            <ul style="margin: 10px 0 0 0; padding-left: 20px;">
+              <li><strong>Preço atacado</strong> e quantidade mínima</li>
+              <li><strong>Imagens detalhadas</strong> do produto</li>
+              <li><strong>Descrição completa</strong> e especificações</li>
+              <li><strong>Disponibilidade</strong> em estoque</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin: 15px 0;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Exemplo Prático:</strong> Buscando <a href="https://www.marquesvendaspmg.shop/produto/719" style="color: #095400; font-weight: 600;">Muçarela Bari</a>? Clique na lupa e veja preço por kg, tamanho da peça e informações técnicas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSO 5 -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">5. 📦 Adicione ao Carrinho e Finalize</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <h3 style="color: #095400; margin: 0 0 15px 0; font-size: 1.3rem;">Pedido Rápido e Seguro</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🛒</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Adicione Itens</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Clique em "Adicionar ao Carrinho"</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">📋</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Revise Pedido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Confirme quantidades e valores</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">✅</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Finalize Compra</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Clique em "Finalizar Pedido"</p>
+          </div>
+        </div>
+
+        <div style="background: #fff8e1; padding: 15px; border-radius: 6px; margin: 15px 0;">
+          <h4 style="margin: 0 0 8px 0; color: #095400;">🎯 Opções de Pagamento PMG:</h4>
+          <ul style="margin: 0; padding-left: 20px;">
+            <li><strong>Cartão de Crédito/Debito</strong> - No ato da entrega</li>
+            <li><strong>Boleto Bancário</strong> - Sujeito a analise de credito</li>
+            <li><strong>Dinheiro</strong> - Não aceitamos pagamento antecipado</li>
+            <li><strong>Pedido por WhatsApp</strong> - Para clientes cadastrados</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 20px;">⭐ Por que Comprar na PMG Atacadista Online?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏰ Economia de Tempo</h4>
+          <p style="margin: 0;">Compre 24/7 sem sair de casa. Pedido rápido em 2 minutos vs. horas no trânsito.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">💰 Preço Direto</h4>
+          <p style="margin: 0;">Preços de atacado sem intermediários. Economia média de 25% vs. varejo.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Entrega Rápida</h4>
+          <p style="margin: 0;">São Paulo, interior, litoral, sul de mg e sul do rj: 24-48h. Frete grátis acima de R$ 750.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">❓ Perguntas Frequentes</h2>
+      
+      <div style="background: #fff; border: 2px solid #e0e0e0; border-radius: 10px; padding: 25px;">
+        <div style="margin-bottom: 15px;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Preciso ter CNPJ para comprar?</h4>
+          <p style="margin: 0;">Não! Aceitamos CPF para pequenas quantidades. CNPJ tem vantagens adicionais como aprovação de crédito.</p>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Qual o valor mínimo para pedido?</h4>
+          <p style="margin: 0;">O pedido minimo é R$ 750! Você pode comprar desde 1 unidade até quantidades maiores.</p>
+        </div>
+        
+        <div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">E se eu tiver dúvidas durante o pedido?</h4>
+          <p style="margin: 0;">Nosso WhatsApp está disponível: (11) 91357-2902. Te ajudamos em qualquer etapa!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section style="background: linear-gradient(135deg, #095400, #0a6b00); color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+      <h2 style="margin: 0 0 15px 0; font-size: 1.5rem;">🎯 Resumo: Comprar na PMG em 2 Minutos</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">1️⃣</div>
+          <h4 style="margin: 0 0 8px 0;">Acesse o Site</h4>
+          <p style="margin: 0; font-size: 0.9rem;">marquesvendaspmg.shop</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">2️⃣</div>
+          <h4 style="margin: 0 0 8px 0;">Cadastro Rápido</h4>
+          <p style="margin: 0; font-size: 0.9rem;">1 minuto</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">3️⃣</div>
+          <h4 style="margin: 0 0 8px 0;">Escolha Produtos</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Use a lupa</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">4️⃣</div>
+          <h4 style="margin: 0 0 8px 0;">Finalize Pedido</h4>
+          <p style="margin: 0; font-size: 0.9rem;">1 minuto</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL -->
+    <section style="text-align: center; padding: 40px; background: #f0f8f0; border-radius: 10px; margin-top: 30px;">
+      <h2 style="color: #095400; margin: 0 0 15px 0; font-size: 1.6rem;">🚀 Pronto para Fazer Seu Primeiro Pedido?</h2>
+      <p style="color: #555; margin: 0 0 25px 0; font-size: 1.1rem;">
+        Agora você sabe como comprar na PMG Atacadista em apenas 2 minutos. Simples, rápido e seguro!
+      </p>
+      
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://www.marquesvendaspmg.shop" 
+           style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           FAZER MEU CADASTRO AGORA
+        </a>
+        
+        <a href="https://wa.me/5511913572902?text=Olá! Gostaria de ajuda para fazer meu primeiro pedido na PMG Atacadista." 
+           style="background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
+           PEDIR AJUDA NO WHATSAPP
+        </a>
+      </div>
+      
+      <div style="margin-top: 20px;">
+        <p style="color: #095400; font-weight: 600; margin: 0 0 5px 0;">📞 Ainda com dúvidas?</p>
+        <p style="color: #666; margin: 0; font-size: 0.9rem;">
+          Nossa equipe está pronta para te ajudar no telefone: <strong>(11) 91357-2902</strong>
+        </p>
+      </div>
+      
+      <p style="color: #666; margin: 20px 0 0 0; font-size: 0.9rem;">
+        ✨ <strong>Experimente agora:</strong> Cadastro rápido + pedido fácil = Seu negócio abastecido em 2 minutos!
+      </p>
+    </section>
+  `
 }
   ];
 	
