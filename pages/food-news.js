@@ -3287,7 +3287,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
       </p>
       
       <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://www.marquesvendaspmg.shop" 
+        <a href="https://www.marquesvendaspmg.shop/produtos" 
            style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
            FAZER MEU CADASTRO AGORA
         </a>
