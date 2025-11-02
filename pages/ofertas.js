@@ -5,34 +5,15 @@ import Link from 'next/link';
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 978, name: 'CALABRESA AURORA 5 KILO', category: 'Ofertas', price: 107.00, image: 'https://www.marquesvendaspmg.shop/images/calabresa-aurora-5-kilo-pmg-atacadista.jpg' },
-  { id: 979, name: 'CALABRESA BRASA 2 KILO', category: 'Ofertas', price: 38.99, image: 'https://www.marquesvendaspmg.shop/images/calabresa-brasa-2-kilo-pmg-atacadista.jpg' },
-  { id: 980, name: 'CALABRESA CERATTI 2.5 KILO', category: 'Ofertas', price: 52.99, image: 'https://www.marquesvendaspmg.shop/images/calabresa-ceratti-25-kilo-pmg-atacadista.jpg' },
-  { id: 981, name: 'CALABRESA FATIADA CONGELADA FRIMESA 1 KILO', category: 'Ofertas', price: 25.50, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-congelada-frimesa-1-kilo-pmg-atacadista.jpg' },
-  { id: 1030, name: 'MORTADELA DEFUMADA OURO PERDIGÃO 4 KG', category: 'Ofertas', price: 22.80, image: 'https://www.marquesvendaspmg.shop/images/mortadela-defumada-ouro-perdigao-4-kg-pmg-atacadista.jpg' },
-  { id: 1031, name: 'MORTADELA REZENDE 5 KG', category: 'Ofertas', price: 8.99, image: 'https://www.marquesvendaspmg.shop/images/mortadela-rezende-5-kg-pmg-atacadista.jpg' },
-  { id: 1032, name: 'MORTADELA TRADICIONAL AURORA 5 KG', category: 'Ofertas', price: 11.70, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-aurora-5-kg-pmg-atacadista.jpg' },
-  { id: 1033, name: 'MORTADELA TRADICIONAL BOLOGNA CERATTI 6 KG', category: 'Ofertas', price: 44.15, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-bologna-ceratti-6-kg-pmg-atacadista.jpg' },
-  { id: 1034, name: 'MORTADELA TRADICIONAL MARBA 5 KG', category: 'Ofertas', price: 11.90, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-marba-5-kg-pmg-atacadista.jpg' },
-  { id: 932, name: 'APRESUNTADO AURORA 3,7 KILO PÇ', category: 'Ofertas', price: 70.99, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-aurora-37-kilo-pc-pmg-atacadista.jpg' },
-  { id: 933, name: 'APRESUNTADO DÁLIA 3,7 KILO PÇ', category: 'Ofertas', price: 55.99, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-dalia-37-kilo-pc-pmg-atacadista.jpg' },
-  { id: 934, name: 'APRESUNTADO DELI GOURMET 3,35 KILO PÇ', category: 'Ofertas', price: 59.50, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-deli-gourmet-335-kilo-pc-pmg-atacadista.jpg' },
-  { id: 1523, name: 'CHOCOLATE EM PÓ 100% CACAU MELKEN HARALD 500 G', category: 'Ofertas', price: 36.99, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-100-cacau-melken-harald-500-g-pmg-atacadista.jpg' },
-  { id: 1524, name: 'CHOCOLATE EM PÓ 33% CACAU DOCEIRO 1,05 KILO', category: 'Ofertas', price: 29.19, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-33-cacau-doceiro-105-kilo-pmg-atacadista.jpg' },
-  { id: 1525, name: 'CHOCOLATE EM PÓ 33% CACAU MELKEN HARALD 1,010 KILO', category: 'Ofertas', price: 39.88, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-33-cacau-melken-harald-1010-kilo-pmg-atacadista.jpg' },
-  { id: 1526, name: 'CHOCOLATE EM PÓ 50% CACAU ALIBRA 1 KILO', category: 'Ofertas', price: 41.27, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-50-cacau-alibra-1-kilo-pmg-atacadista.jpg' },
-  { id: 1738, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 ANACONDA 1 KILO (FDO 10 KILO)', category: 'Ofertas', price: 45.00, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-anaconda-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
-  { id: 1739, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 BUQUÊ 1 KILO (FDO 10 KILO)', category: 'Ofertas', price: 30.50, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-buque-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
-  { id: 1740, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 DONA BENTA 1 KILO (FDO 10 KILO)', category: 'Ofertas', price: 50.88, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-dona-benta-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
-  { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 17.12, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 13.12, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 57, name: 'ÁGUA MINERAL GRANDE BUONAVITA SEM GÁS 1,5 L (PCT 6 UN)', category: 'Ofertas', price: 13.69, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-buonavita-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 180, name: 'GUARANÁ ANTARCTICA LATA 350 ML (PCT 12 LT)', category: 'Ofertas', price: 41.55, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 181, name: 'GUARANÁ ANTARCTICA MIÚDA PET 200 ML (PCT 12 UN)', category: 'Ofertas', price: 22.99, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-miuda-pet-200-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 182, name: 'GUARANÁ ANTARCTICA PEQUENO PET 1 L (PCT 6 UN)', category: 'Ofertas', price: 23.99, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-pequeno-pet-1-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 126, name: 'COCA COLA LATA 350 ML (PCT 12 LT)', category: 'Ofertas', price: 38.99, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 127, name: 'COCA COLA MÉDIA PET 1 L (PCT 6 UN)', category: 'Ofertas', price: 43.60, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-media-pet-1-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 128, name: 'COCA COLA MIÚDA PET 200 ML (PCT 12 UN)', category: 'Ofertas', price: 26.99, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-miuda-pet-200-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Ofertas', price: 23.88, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Ofertas', price: 25.00, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Ofertas', price: 23.88, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1765, name: 'FARINHA DE TRIGO TIPO 1 NITA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 92.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1751, name: 'FARINHA DE TRIGO PIZZA NITA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 73.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1533, name: 'CHOCOLATE FORNEÁVEL AO LEITE CONFEITEIRO HARALD 1,010 KILO', category: 'Ofertas', price: 38.88, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-ao-leite-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
+  { id: 1543, name: 'CHOCOLATE FORNEÁVEL GRANDE AO LEITE CONFEITEIRO HARALD 2,010 KILO', category: 'Ofertas', price: 65.15, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-ao-leite-confeiteiro-harald-2010-kilo-pmg-atacadista.jpg' },
+  { id: 1540, name: 'CHOCOLATE FORNEÁVEL BRANCO CONFEITEIRO HARALD 1,010 KILO', category: 'Ofertas', price: 27.25, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
+  { id: 1538, name: 'CHOCOLATE FORNEÁVEL AVELÃ CONFEITEIRO HARALD 1,010 KILO', category: 'Ofertas', price: 32.55, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-avela-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
@@ -104,6 +85,14 @@ const OfertasPage = () => {
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [showFifoPopup, setShowFifoPopup] = useState(false);
   const [selectedFifoImage, setSelectedFifoImage] = useState('');
+  
+  // Contador regressivo Black Friday
+  const [timeLeft, setTimeLeft] = useState({
+          days: 26,
+          hours: 20,
+          minutes: 10,
+          seconds: 0
+  });
 
   // Configuração de paginação
   const productsPerPage = 10;
@@ -115,6 +104,39 @@ const OfertasPage = () => {
   // Refs para intervalos
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
+
+  // Configurar contador regressivo para 30 dias
+  useEffect(() => {
+    const blackFridayDate = new Date();
+    blackFridayDate.setDate(blackFridayDate.getDate() + 26);
+    blackFridayDate.setHours(23, 59, 59, 0);
+    
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = blackFridayDate - now;
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      } else {
+        setTimeLeft({
+          days: 26,
+          hours: 20,
+          minutes: 10,
+          seconds: 0
+        });
+      }
+    };
+    
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   // Função para redirecionar para detalhes do produto
   const redirectToProductDetails = (productId) => {
@@ -188,19 +210,19 @@ const OfertasPage = () => {
     }, 10000);
   };
 
-  // ========== ESTILOS ATUALIZADOS ========== //
+  // ========== ESTILOS ATUALIZADOS - TEMA BLACK FRIDAY ========== //
   const styles = {
     container: {
       maxWidth: '1200px',
       margin: '0 auto',
       padding: isMobile ? '10px' : '20px',
-      backgroundColor: '#ffffff',
+      backgroundColor: '#1a1a1a', // Fundo escuro Black Friday
       minHeight: '100vh',
       position: 'relative',
       fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
     },
     userWelcomeBar: {
-      backgroundColor: '#095400',
+      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
       color: 'white',
       padding: isMobile ? '12px 15px' : '15px 20px',
       borderRadius: '10px',
@@ -208,16 +230,18 @@ const OfertasPage = () => {
       justifyContent: 'space-between',
       alignItems: 'center',
       marginBottom: '20px',
-      boxShadow: '0 2px 10px rgba(9, 84, 0, 0.2)'
+      boxShadow: '0 2px 10px rgba(231, 76, 60, 0.4)',
+      border: '2px solid #ffd700'
     },
     welcomeMessage: {
       fontSize: isMobile ? '14px' : '16px',
       fontWeight: '600',
-      margin: 0
+      margin: 0,
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
     },
     homeButton: {
-      backgroundColor: 'white',
-      color: '#095400',
+      background: 'linear-gradient(45deg, #ffd700, #ffed4e)',
+      color: '#c0392b',
       border: 'none',
       padding: isMobile ? '8px 16px' : '10px 20px',
       borderRadius: '25px',
@@ -227,28 +251,30 @@ const OfertasPage = () => {
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       transition: 'all 0.3s ease',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
+      boxShadow: '0 2px 8px rgba(255, 215, 0, 0.4)',
+      border: '1px solid #fff'
     },
     header: {
       textAlign: 'center',
       marginBottom: isMobile ? '20px' : '30px',
       padding: isMobile ? '20px 15px' : '30px 20px',
-      backgroundColor: '#fff',
-      borderRadius: '12px',
-      boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
-      border: '1px solid #f0f0f0'
+      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+      borderRadius: '15px',
+      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.3)',
+      border: '2px solid #e74c3c'
     },
     title: {
-      color: '#095400',
+      color: '#ffd700',
       fontSize: isMobile ? '24px' : '32px',
       fontWeight: '700',
       marginBottom: '10px',
-      textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+      textShadow: '0 2px 4px rgba(0,0,0,0.5)'
     },
     subtitle: {
-      color: '#666',
+      color: '#ecf0f1',
       fontSize: isMobile ? '14px' : '16px',
-      marginBottom: '15px'
+      marginBottom: '15px',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
     },
     productsGrid: {
       display: 'grid',
@@ -257,23 +283,23 @@ const OfertasPage = () => {
       margin: '30px 0'
     },
     productCard: {
-      backgroundColor: '#fff',
+      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
       borderRadius: '12px',
-      boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
+      boxShadow: '0 5px 20px rgba(0,0,0,0.3)',
       overflow: 'hidden',
       transition: 'all 0.3s ease',
-      border: '1px solid #f0f0f0',
-      position: 'relative', // ← ADICIONADO para a lupa
+      border: '2px solid #e74c3c',
+      position: 'relative',
       ':hover': {
         transform: 'translateY(-5px)',
-        boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+        boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)'
       }
     },
     productImage: {
       width: '100%',
       height: isMobile ? '140px' : '200px',
       objectFit: 'cover',
-      borderBottom: '2px solid #f8f8f8'
+      borderBottom: '2px solid #e74c3c'
     },
     productInfo: {
       padding: isMobile ? '15px' : '20px'
@@ -285,7 +311,7 @@ const OfertasPage = () => {
     productName: {
       fontSize: isMobile ? '14px' : '15px',
       fontWeight: '600',
-      color: '#333',
+      color: '#ecf0f1',
       marginBottom: '8px',
       lineHeight: '1.4',
       display: '-webkit-box',
@@ -297,7 +323,7 @@ const OfertasPage = () => {
     showMoreButton: {
       background: 'none',
       border: 'none',
-      color: '#095400',
+      color: '#ffd700',
       fontSize: '12px',
       cursor: 'pointer',
       padding: '0',
@@ -308,14 +334,14 @@ const OfertasPage = () => {
     productPrice: {
       fontSize: isMobile ? '18px' : '20px',
       fontWeight: '700',
-      color: '#e53935',
+      color: '#ffd700',
       margin: '15px 0',
-      textShadow: '0 1px 2px rgba(0,0,0,0.1)'
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
     },
     addButton: {
       width: '100%',
       padding: isMobile ? '12px' : '14px',
-      backgroundColor: '#095400',
+      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
       color: '#fff',
       border: 'none',
       borderRadius: '8px',
@@ -323,28 +349,29 @@ const OfertasPage = () => {
       fontWeight: '600',
       cursor: 'pointer',
       transition: 'all 0.3s ease',
-      boxShadow: '0 2px 8px rgba(9, 84, 0, 0.3)',
+      boxShadow: '0 2px 8px rgba(231, 76, 60, 0.4)',
+      border: '1px solid #ffd700',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
       ':hover': {
-        backgroundColor: '#0a6b00',
+        background: 'linear-gradient(45deg, #c0392b, #a93226)',
         transform: 'translateY(-2px)'
       }
     },
     disabledButton: {
-      backgroundColor: '#ccc',
+      background: 'linear-gradient(45deg, #7f8c8d, #95a5a6)',
       cursor: 'not-allowed',
       ':hover': {
-        backgroundColor: '#ccc',
+        background: 'linear-gradient(45deg, #7f8c8d, #95a5a6)',
         transform: 'none'
       }
     },
-    // ========== NOVO ESTILO: LUPA DE DETALHES ========== //
     productDetailsButton: {
       position: 'absolute',
       top: '8px',
       right: '8px',
       width: isMobile ? '28px' : '32px',
       height: isMobile ? '28px' : '32px',
-      backgroundColor: '#e03f3e',
+      backgroundColor: '#e74c3c',
       color: 'white',
       border: 'none',
       borderRadius: '50%',
@@ -356,7 +383,8 @@ const OfertasPage = () => {
       fontWeight: 'bold',
       transition: 'all 0.3s ease',
       zIndex: 5,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+      boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+      border: '1px solid #ffd700'
     },
     pagination: {
       display: 'flex',
@@ -368,37 +396,40 @@ const OfertasPage = () => {
     },
     pageButton: {
       padding: isMobile ? '10px 15px' : '12px 18px',
-      backgroundColor: '#fff',
-      border: '2px solid #095400',
+      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+      border: '2px solid #e74c3c',
       borderRadius: '8px',
       cursor: 'pointer',
       fontSize: isMobile ? '14px' : '16px',
       fontWeight: '600',
-      color: '#095400',
+      color: '#ffd700',
       transition: 'all 0.3s ease',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
       ':hover': {
-        backgroundColor: '#095400',
+        background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
         color: '#fff'
       }
     },
     activePage: {
-      backgroundColor: '#095400',
+      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
       color: '#fff',
-      borderColor: '#095400'
+      borderColor: '#ffd700'
     },
     resultsInfo: {
       textAlign: 'center',
-      color: '#666',
+      color: '#ffd700',
       margin: '15px 0',
       fontSize: isMobile ? '14px' : '16px',
-      fontWeight: '500'
+      fontWeight: '500',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
     },
     bannerContainer: {
       margin: '40px 0 30px',
       position: 'relative',
-      borderRadius: '12px',
+      borderRadius: '15px',
       overflow: 'hidden',
-      boxShadow: '0 4px 20px rgba(0,0,0,0.15)'
+      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)',
+      border: '2px solid #e74c3c'
     },
     bannerImage: {
       width: '100%',
@@ -408,8 +439,8 @@ const OfertasPage = () => {
       position: 'absolute',
       top: '50%',
       transform: 'translateY(-50%)',
-      backgroundColor: 'rgba(255,255,255,0.9)',
-      color: '#095400',
+      backgroundColor: 'rgba(231, 76, 60, 0.9)',
+      color: 'white',
       border: 'none',
       borderRadius: '50%',
       width: isMobile ? '40px' : '50px',
@@ -419,12 +450,13 @@ const OfertasPage = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
       transition: 'all 0.3s ease',
       fontWeight: 'bold',
+      border: '1px solid #ffd700',
       ':hover': {
-        backgroundColor: '#095400',
-        color: 'white'
+        backgroundColor: '#ffd700',
+        color: '#e74c3c'
       }
     },
     prevButton: {
@@ -443,33 +475,36 @@ const OfertasPage = () => {
       width: isMobile ? '10px' : '12px',
       height: isMobile ? '10px' : '12px',
       borderRadius: '50%',
-      backgroundColor: '#ddd',
+      backgroundColor: '#7f8c8d',
       cursor: 'pointer',
       transition: 'all 0.3s ease'
     },
     activeDot: {
-      backgroundColor: '#095400',
+      backgroundColor: '#e74c3c',
       transform: 'scale(1.2)'
     },
     ctaSection: {
       textAlign: 'center', 
       margin: '50px 0',
       padding: isMobile ? '25px 15px' : '40px 20px',
-      backgroundColor: '#f0f8f0',
+      background: 'linear-gradient(135deg, #e74c3c, #c0392b)',
       borderRadius: '15px',
-      boxShadow: '0 5px 20px rgba(0,0,0,0.08)',
-      border: '1px solid #e0f0e0'
+      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)',
+      border: '3px solid #ffd700',
+      position: 'relative',
+      overflow: 'hidden'
     },
     footer: {
       marginTop: isMobile ? '40px' : '60px',
       padding: isMobile ? '25px 15px' : '40px 20px',
       textAlign: 'center',
-      color: '#666',
+      color: '#bdc3c7',
       fontSize: isMobile ? '0.8rem' : '0.85rem',
-      borderTop: '2px solid #f0f0f0',
-      backgroundColor: '#f9f9f9'
+      borderTop: '3px solid #e74c3c',
+      backgroundColor: '#2c3e50',
+      borderRadius: '12px 12px 0 0',
+      boxShadow: '0 -4px 15px rgba(231, 76, 60, 0.2)'
     },
-    // ========== ESTILOS DO POPUP FIFO (AJUSTADOS PARA 1080x1080) ========== //
     fifoPopupOverlay: {
       position: 'fixed',
       top: 0,
@@ -484,19 +519,20 @@ const OfertasPage = () => {
     },
     fifoPopupContent: {
       position: 'relative',
-      width: isMobile ? '90%' : 'auto', // Ajuste para desktop
-      maxWidth: '1080px', // Largura máxima igual à da imagem
+      width: isMobile ? '90%' : 'auto',
+      maxWidth: '1080px',
       maxHeight: isMobile ? '80vh' : '90vh',
       borderRadius: '12px',
       overflow: 'hidden',
       boxShadow: '0 5px 25px rgba(0,0,0,0.5)',
-      backgroundColor: '#fff',
+      backgroundColor: '#2c3e50',
+      border: '2px solid #e74c3c'
     },
     fifoPopupClose: {
       position: 'absolute',
       top: '10px',
       right: '10px',
-      backgroundColor: '#ff0000',
+      backgroundColor: '#e74c3c',
       color: 'white',
       border: 'none',
       borderRadius: '50%',
@@ -506,25 +542,26 @@ const OfertasPage = () => {
       fontWeight: 'bold',
       cursor: 'pointer',
       zIndex: 10,
+      border: '1px solid #ffd700'
     },
     fifoPopupImageContainer: {
       width: '100%',
       height: 'auto',
       display: 'flex',
       justifyContent: 'center',
-      backgroundColor: '#fff', // Fundo branco para imagens transparentes
+      backgroundColor: '#2c3e50',
     },
     fifoPopupImage: {
       width: '100%',
       height: 'auto',
       maxHeight: '70vh',
-      objectFit: 'contain', // Garante que a imagem não seja cortada
+      objectFit: 'contain',
     },
     fifoPopupButton: {
       display: 'block',
       width: '100%',
       padding: '15px',
-      backgroundColor: '#25D366',
+      background: 'linear-gradient(45deg, #25D366, #128C7E)',
       color: 'white',
       border: 'none',
       fontSize: isMobile ? '16px' : '18px',
@@ -532,13 +569,116 @@ const OfertasPage = () => {
       textAlign: 'center',
       cursor: 'pointer',
       textDecoration: 'none',
+      borderTop: '2px solid #ffd700'
     },
   };
 
-  // ========== RENDERIZAÇÃO ATUALIZADA ========== //
+  // ========== RENDERIZAÇÃO ATUALIZADA - TEMA BLACK FRIDAY ========== //
   return (
     <div style={styles.container}>
-      {/* Barra de boas-vindas melhorada */}
+      {/* BANNER SUPERIOR BLACK FRIDAY */}
+      <div style={{
+        background: 'linear-gradient(45deg, #000000, #e74c3c, #000000)',
+        color: 'white',
+        textAlign: 'center',
+        padding: isMobile ? '12px 10px' : '15px 20px',
+        marginBottom: isMobile ? '15px' : '20px',
+        borderRadius: '10px',
+        border: '2px solid #e74c3c',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '10px',
+          flexWrap: 'wrap'
+        }}>
+          <span style={{
+            fontSize: isMobile ? '1.1rem' : '1.3rem',
+            fontWeight: '800',
+            textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+            background: 'linear-gradient(45deg, #ffd700, #ffffff, #ffd700)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            animation: 'shine 2s infinite'
+          }}>
+            🚀 BLACK FRIDAY 2025 🚀
+          </span>
+          <span style={{
+            fontSize: isMobile ? '0.9rem' : '1rem',
+            fontWeight: '600'
+          }}>
+            Ofertas Exclusivas | Até 70% OFF
+          </span>
+        </div>
+      </div>
+
+      {/* CONTADOR REGRESSIVO - 30 DIAS */}
+      <div style={{
+        background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+        color: 'white',
+        padding: isMobile ? '15px 10px' : '20px 15px',
+        borderRadius: '12px',
+        textAlign: 'center',
+        marginBottom: isMobile ? '20px' : '30px',
+        border: '2px solid #e74c3c',
+        boxShadow: '0 4px 15px rgba(231, 76, 60, 0.3)'
+      }}>
+        <h3 style={{
+          margin: '0 0 15px 0',
+          fontSize: isMobile ? '1rem' : '1.2rem',
+          fontWeight: '600',
+          color: '#ffd700'
+        }}>
+          ⏰ BLACK FRIDAY 2025 - OFERTAS TERMINAM EM:
+        </h3>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: isMobile ? '8px' : '15px',
+          flexWrap: 'wrap'
+        }}>
+          {['Dias', 'Horas', 'Minutos', 'Segundos'].map((label, index) => (
+            <div key={label} style={{
+              textAlign: 'center',
+              minWidth: isMobile ? '70px' : '80px'
+            }}>
+              <div style={{
+                background: '#e74c3c',
+                color: 'white',
+                padding: '8px',
+                borderRadius: '8px',
+                fontSize: isMobile ? '1.2rem' : '1.5rem',
+                fontWeight: '800',
+                marginBottom: '5px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                border: '1px solid #ffd700'
+              }}>
+                {Object.values(timeLeft)[index]}
+              </div>
+              <div style={{
+                fontSize: isMobile ? '0.7rem' : '0.8rem',
+                color: '#bdc3c7',
+                fontWeight: '600'
+              }}>
+                {label}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style={{
+          margin: '15px 0 0 0',
+          fontSize: isMobile ? '0.7rem' : '0.8rem',
+          color: '#ffd700',
+          fontStyle: 'italic'
+        }}>
+          🚀 Prepare-se! As melhores ofertas do ano começam em breve
+        </p>
+      </div>
+
+      {/* Barra de boas-vindas Black Friday */}
       <div
         style={{
           ...styles.userWelcomeBar,
@@ -548,7 +688,7 @@ const OfertasPage = () => {
         }}
       >
         <p style={styles.welcomeMessage}>
-          🎯 OFERTAS ESPECIAIS - Marques Vendas PMG
+          🎯 BLACK FRIDAY EXCLUSIVE - Marques Vendas PMG
         </p>
         <a
           href="/"
@@ -558,21 +698,21 @@ const OfertasPage = () => {
         </a>
       </div>
 
-      {/* Cabeçalho premium */}
+      {/* Cabeçalho premium Black Friday */}
       <div style={styles.header}>
         <img 
           src="https://i.imgur.com/pBH5WpZ.png" 
-          alt="Marques Vendas PMG"
+          alt="Marques Vendas PMG Black Friday"
           style={{ 
             height: isMobile ? '60px' : '80px',
             marginBottom: '20px',
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
           }}
         />
-        <h1 style={styles.title}>🔥 OFERTAS ESPECIAIS</h1>
-        <p style={styles.subtitle}>Produtos selecionados com condições exclusivas! ⚡ Entrega rápida</p>
+        <h1 style={styles.title}>🔥 BLACK FRIDAY - OFERTAS ESPECIAIS</h1>
+        <p style={styles.subtitle}>🎁 Produtos selecionados com condições EXCLUSIVAS de Black Friday! ⚡ Entrega rápida</p>
         
-        {/* Destaques de credibilidade */}
+        {/* Destaques de credibilidade Black Friday */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -581,23 +721,34 @@ const OfertasPage = () => {
           marginTop: '20px'
         }}>
           {[
-            { icon: '🚚', title: 'Entrega Rápida', desc: 'Para toda região' },
-            { icon: '🏷️', title: 'Preço Competitivo', desc: 'Melhores condições' },
-            { icon: '🛡️', title: 'Garantia', desc: 'Produtos certificados' },
-            { icon: '👨‍💼', title: 'Atendimento', desc: 'Especializado' }
+            { icon: '🚚', title: 'Entrega Express', desc: 'Black Friday' },
+            { icon: '🏷️', title: 'Até 70% OFF', desc: 'Melhores Preços' },
+            { icon: '🛡️', title: 'Garantia', desc: 'Produtos Premium' },
+            { icon: '👨‍💼', title: 'Atendimento', desc: 'Especial BF' }
           ].map((item, index) => (
             <div key={index} style={{
-              backgroundColor: '#f8f8f8',
+              background: 'linear-gradient(135deg, #34495e, #2c3e50)',
               padding: isMobile ? '8px 12px' : '10px 15px',
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
-              gap: '8px'
+              gap: '8px',
+              border: '1px solid #e74c3c'
             }}>
-              <span style={{fontSize: isMobile ? '1rem' : '1.2rem'}}>{item.icon}</span>
+              <span style={{
+                fontSize: isMobile ? '1rem' : '1.2rem',
+                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))'
+              }}>{item.icon}</span>
               <div>
-                <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.8rem'}}>{item.title}</div>
-                <div style={{fontSize: isMobile ? '0.6rem' : '0.7rem', color: '#666'}}>{item.desc}</div>
+                <div style={{
+                  fontWeight: '600', 
+                  fontSize: isMobile ? '0.7rem' : '0.8rem',
+                  color: '#ffd700'
+                }}>{item.title}</div>
+                <div style={{
+                  fontSize: isMobile ? '0.6rem' : '0.7rem', 
+                  color: '#bdc3c7'
+                }}>{item.desc}</div>
               </div>
             </div>
           ))}
@@ -606,23 +757,25 @@ const OfertasPage = () => {
 
       {/* Informação de resultados */}
       <div style={styles.resultsInfo}>
-        Mostrando {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, featuredProducts.length)} de {featuredProducts.length} produtos em oferta
+        🎁 Mostrando {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, featuredProducts.length)} de {featuredProducts.length} produtos em OFERTA BLACK FRIDAY
       </div>
 
-      {/* Grade de produtos premium COM LUPA */}
+      {/* Grade de produtos premium COM LUPA - Tema Black Friday */}
       <div style={styles.productsGrid}>
         {currentProducts.map(product => (
           <div key={product.id} style={styles.productCard}>
-            {/* BOTÃO LUPA - NOVO ELEMENTO ADICIONADO */}
+            {/* BOTÃO LUPA */}
             <button
               onClick={() => redirectToProductDetails(product.id)}
               style={styles.productDetailsButton}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#b92c2b';
+                e.target.style.backgroundColor = '#ffd700';
+                e.target.style.color = '#e74c3c';
                 e.target.style.transform = 'scale(1.1)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#e03f3e';
+                e.target.style.backgroundColor = '#e74c3c';
+                e.target.style.color = 'white';
                 e.target.style.transform = 'scale(1)';
               }}
               title="Ver detalhes do produto"
@@ -635,7 +788,7 @@ const OfertasPage = () => {
               alt={product.name} 
               style={styles.productImage}
               onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x200/f8f8f8/666?text=Produto+Sem+Imagem';
+                e.target.src = 'https://via.placeholder.com/300x200/2c3e50/ecf0f1?text=Produto+Black+Friday';
               }}
             />
             <div style={styles.productInfo}>
@@ -656,7 +809,7 @@ const OfertasPage = () => {
                 )}
               </div>
               
-              <p style={product.price > 0 ? styles.productPrice : { ...styles.productPrice, color: '#999', textDecoration: 'line-through' }}>
+              <p style={product.price > 0 ? styles.productPrice : { ...styles.productPrice, color: '#7f8c8d', textDecoration: 'line-through' }}>
                 {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
               </p>
 
@@ -675,7 +828,7 @@ const OfertasPage = () => {
         ))}
       </div>
 
-      {/* Paginação melhorada */}
+      {/* Paginação melhorada - Tema Black Friday */}
       <div style={styles.pagination}>
         <button 
           onClick={prevPage} 
@@ -716,14 +869,24 @@ const OfertasPage = () => {
       {/* Carrinho */}
       <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} total={total} />
 
-      {/* CTA premium para produtos completos */}
+      {/* CTA premium para produtos completos - Black Friday */}
       <div style={styles.ctaSection}>
-        <h2 style={{ color: '#095400', marginBottom: '15px', fontSize: isMobile ? '20px' : '24px' }}>
-          📦 Catálogo Completo Disponível!
+        <h2 style={{ 
+          color: '#ffd700', 
+          marginBottom: '15px', 
+          fontSize: isMobile ? '20px' : '24px',
+          textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+        }}>
+          🎁 CATÁLOGO COMPLETO BLACK FRIDAY!
         </h2>
-        <p style={{ marginBottom: '25px', color: '#666', fontSize: isMobile ? '14px' : '16px' }}>
-          Acesse nosso catálogo completo com centenas de produtos para seu negócio.<br />
-          Cadastro rápido, condições especiais e atendimento personalizado.
+        <p style={{ 
+          marginBottom: '25px', 
+          color: 'white', 
+          fontSize: isMobile ? '14px' : '16px',
+          textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+        }}>
+          Acesse nosso catálogo completo com CENTENAS de produtos em OFERTA BLACK FRIDAY.<br />
+          Cadastro rápido, condições ESPECIAIS e atendimento personalizado.
         </p>
         <a 
           href="/produtos" 
@@ -732,18 +895,20 @@ const OfertasPage = () => {
             display: 'inline-block',
             textDecoration: 'none',
             padding: '15px 35px',
-            fontSize: isMobile ? '15px' : '17px'
+            fontSize: isMobile ? '15px' : '17px',
+            background: 'linear-gradient(45deg, #ffd700, #ffed4e)',
+            color: '#c0392b'
           }}
         >
-          📋 Ver Catálogo Completo
+          📋 VER CATÁLOGO BLACK FRIDAY
         </a>
       </div>
 
-      {/* Carrossel de banners */}
+      {/* Carrossel de banners - Tema Black Friday */}
       <div style={styles.bannerContainer}>
         <img
           src={isMobile ? banners[currentBannerIndex].mobile : banners[currentBannerIndex].desktop}
-          alt={`Banner ${currentBannerIndex + 1}`}
+          alt={`Banner Black Friday ${currentBannerIndex + 1}`}
           style={styles.bannerImage}
         />
         <button
@@ -777,7 +942,7 @@ const OfertasPage = () => {
         </div>
       </div>
 	  
-      {/* Popup FIFO */}
+      {/* Popup FIFO - Tema Black Friday */}
       {showFifoPopup && (
         <div style={styles.fifoPopupOverlay}>
           <div style={styles.fifoPopupContent}>
@@ -800,29 +965,29 @@ const OfertasPage = () => {
               </video>
             </div>
             <a
-              href="https://www.marquesvendaspmg.shop/indicacoes"
+              href="http://localhost:3000/indicacoes"
               target="_blank"
               rel="noopener noreferrer"
               style={styles.fifoPopupButton}
             >
-              PARTICIPE
+              🎁 PARTICIPE
             </a>
           </div>
         </div>
       )}
 
-      {/* Conteúdo SEO PMG Atacadista Ofertas - VISÍVEL APENAS PARA O GOOGLE */}
+      {/* Conteúdo SEO Black Friday - VISÍVEL APENAS PARA O GOOGLE */}
       <div style={{
         opacity: '0', height: '0', overflow: 'hidden', position: 'absolute', pointerEvents: 'none'
       }}>
-        <h1>PMG Atacadista - Ofertas Especiais e Promoções em Atacado</h1>
-        <p>PMG Atacadista ofertas especiais para atacado. Confira as promoções da PMG Atacadista em laticínios, queijos, embutidos, bebidas, congelados e produtos alimentícios. PMG Atacadista preços competitivos com condições especiais para restaurantes, bares e mercados.</p>
+        <h1>Black Friday PMG Atacadista 2025 - Ofertas Imperdíveis em Food Service</h1>
+        <p>Black Friday PMG Atacadista 2025 com as melhores ofertas para food service. PMG Atacadista Black Friday descontos de até 70% em laticínios, queijos, embutidos, bebidas e produtos alimentícios. Ofertas Black Friday PMG com condições especiais para restaurantes, bares e mercados.</p>
         
-        <h2>PMG Atacadista Ofertas da Semana</h2>
-        <p>PMG Atacadista ofertas com preços imbatíveis. PMG Atacadista promoções em produtos food service. PMG Atacadista descontos especiais para compras em grande quantidade.</p>
+        <h2>Black Friday Food Service 2025 - PMG Atacadista</h2>
+        <p>PMG Atacadista Black Friday ofertas exclusivas. Black Friday food service 2025 com preços imbatíveis. PMG Atacadista promoções Black Friday em produtos para restaurantes e estabelecimentos comerciais.</p>
         
-        <h3>PMG Atacadista App Ofertas</h3>
-        <p>PMG Atacadista app para acompanhar ofertas exclusivas. PMG Atacadista telefone para pedidos: (11) 91357-2902. PMG Atacadista entrega rápida na Grande São Paulo.</p>
+        <h3>Black Friday PMG Atacadista App</h3>
+        <p>PMG Atacadista app Black Friday para acompanhar ofertas exclusivas. PMG Atacadista telefone Black Friday: (11) 91357-2902. PMG Atacadista entrega rápida Black Friday na Grande São Paulo.</p>
       </div>
 
 {/* Rodapé Corrigido - Totalmente Responsivo */}
@@ -1199,6 +1364,25 @@ const OfertasPage = () => {
     </div>
   </div>
 </footer>
+
+      {/* CSS Animations para Black Friday */}
+      <style jsx global>{`
+        @keyframes shine {
+          0% { background-position: -200% center; }
+          100% { background-position: 200% center; }
+        }
+        
+        @keyframes pulse {
+          0% { transform: scale(1); opacity: 0.8; }
+          50% { transform: scale(1.05); opacity: 1; }
+          100% { transform: scale(1); opacity: 0.8; }
+        }
+        
+        .cta-button:hover {
+          transform: translateY(-3px) !important;
+          box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6) !important;
+        }
+      `}</style>
     </div>
   );
 };
