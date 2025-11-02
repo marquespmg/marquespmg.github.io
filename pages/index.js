@@ -7,8 +7,8 @@ export default function Home() {
   const banners = [
     { 
       id: 1,
-      desktop: 'https://i.imgur.com/MiXi0pu.png',
-      mobile: 'https://i.imgur.com/E4Lsuky.png'
+      desktop: 'https://i.imgur.com/QsSZxdw.jpeg',
+      mobile: 'https://i.imgur.com/QsSZxdw.jpeg'
     },
     { 
       id: 2,
