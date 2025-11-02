@@ -13,17 +13,17 @@ export default function Home() {
     { 
       id: 2,
       desktop: 'https://i.imgur.com/ivorfK2.png',
-      mobile: 'https://i.imgur.com/QoO08nZ.png'
+      mobile: 'https://i.imgur.com/ivorfK2.png'
     },
     { 
       id: 3,
       desktop: 'https://i.imgur.com/ennvys5.png',
-      mobile: 'https://i.imgur.com/J6hMBld.png'
+      mobile: 'https://i.imgur.com/ennvys5.png'
     },
     { 
       id: 4,
       desktop: 'https://i.imgur.com/8toaBek.png',
-      mobile: 'https://i.imgur.com/CAbEHOP.png'
+      mobile: 'https://i.imgur.com/8toaBek.png'
     },
     { 
       id: 5,
@@ -33,7 +33,7 @@ export default function Home() {
     { 
       id: 6,
       desktop: 'https://i.imgur.com/JD4UqWo.png',
-      mobile: 'https://i.imgur.com/eWmxDjj.png'
+      mobile: 'https://i.imgur.com/JD4UqWo.png'
     }
   ];
 
