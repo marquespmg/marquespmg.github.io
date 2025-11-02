@@ -121,11 +121,11 @@ const products = [
   { id: 56, name: 'ÁGUA MINERAL CRYSTAL SEM GÁS 500 ML (PCT 12 UN)', category: 'Bebidas', price: 23.99, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-crystal-sem-gas-500-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 57, name: 'ÁGUA MINERAL GRANDE BUONAVITA SEM GÁS 1,5 L (PCT 6 UN)', category: 'Bebidas', price: 13.79, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-buonavita-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 58, name: 'ÁGUA MINERAL GRANDE CRYSTAL SEM GÁS 1,5 L (PCT 6 UN)', category: 'Bebidas', price: 20.58, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-crystal-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 59, name: 'ÁGUA MINERAL SÃO LOURENÇO COM GÁS 300 ML (PCT 12 UN)', category: 'Bebidas', price: 28.22, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-com-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 60, name: 'ÁGUA MINERAL SÃO LOURENÇO SEM GÁS 300 ML (PCT 12 UN)', category: 'Bebidas', price: 24.47, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-sem-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 59, name: 'ÁGUA MINERAL SÃO LOURENÇO COM GÁS 300 ML (PCT 12 UN)', category: 'Bebidas', price: 26.84, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-com-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 60, name: 'ÁGUA MINERAL SÃO LOURENÇO SEM GÁS 300 ML (PCT 12 UN)', category: 'Bebidas', price: 23.1, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-sem-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 61, name: 'ÁGUA TÔNICA ANTARCTICA LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 42.41, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 62, name: 'ÁGUA TÔNICA ANTARCTICA ZERO AÇÚCARES LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 42.41, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-zero-acucares-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 63, name: 'ÁGUA TÔNICA SCHWEPPES LATA 350 ML (PCT 6 LT)', category: 'Bebidas', price: 19.73, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-schweppes-lata-350-ml-pct-6-lt-pmg-atacadista.jpg' },
+  { id: 63, name: 'ÁGUA TÔNICA SCHWEPPES LATA 350 ML (PCT 6 LT)', category: 'Bebidas', price: 19.6, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-schweppes-lata-350-ml-pct-6-lt-pmg-atacadista.jpg' },
   { id: 64, name: 'AGUARDENTE DE CANA KARIRI 960 ML', category: 'Bebidas', price: 16.2, image: 'https://www.marquesvendaspmg.shop/images/aguardente-de-cana-kariri-960-ml-pmg-atacadista.jpg' },
   { id: 65, name: 'AGUARDENTE DE CANA PITÚ 965 ML', category: 'Bebidas', price: 11.41, image: 'https://www.marquesvendaspmg.shop/images/aguardente-de-cana-pitu-965-ml-pmg-atacadista.jpg' },
   { id: 66, name: 'AGUARDENTE DE CANA PITÚ LATA 350 ML', category: 'Bebidas', price: 57.55, image: 'https://www.marquesvendaspmg.shop/images/aguardente-de-cana-pitu-lata-350-ml-pmg-atacadista.jpg' },
@@ -163,7 +163,7 @@ const products = [
   { id: 98, name: 'CERVEJA BRAHMA MALZBIER LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 61.95, image: 'https://www.marquesvendaspmg.shop/images/cerveja-brahma-malzbier-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 99, name: 'CERVEJA BUDWEISER LATA 350 ML (CX 12 LT)', category: 'Bebidas', price: 50.88, image: 'https://www.marquesvendaspmg.shop/images/cerveja-budweiser-lata-350-ml-cx-12-lt-pmg-atacadista.jpg' },
   { id: 100, name: 'CERVEJA BUDWEISER LONG NECK 330 ML (PCT 24 UN)', category: 'Bebidas', price: 145.53, image: 'https://www.marquesvendaspmg.shop/images/cerveja-budweiser-long-neck-330-ml-pct-24-un-pmg-atacadista.jpg' },
-  { id: 101, name: 'CERVEJA CORONA LONG NECK 330 ML (CX 24 UN)', category: 'Bebidas', price: 182.87, image: 'https://www.marquesvendaspmg.shop/images/cerveja-corona-long-neck-330-ml-cx-24-un-pmg-atacadista.jpg' },
+  { id: 101, name: 'CERVEJA CORONA LONG NECK 330 ML (CX 24 UN)', category: 'Bebidas', price: 192.27, image: 'https://www.marquesvendaspmg.shop/images/cerveja-corona-long-neck-330-ml-cx-24-un-pmg-atacadista.jpg' },
   { id: 102, name: 'CERVEJA EISENBAHN PILSEN PURO MALTE LATA 350 ML (CX 12 LT)', category: 'Bebidas', price: 52.48, image: 'https://www.marquesvendaspmg.shop/images/cerveja-eisenbahn-pilsen-puro-malte-lata-350-ml-cx-12-lt-pmg-atacadista.jpg' },
   { id: 103, name: 'CERVEJA HEINEKEN PURE MALT LAGER GARRAFA 600 ML (CX 12 UN)', category: 'Bebidas', price: 155.63, image: 'https://www.marquesvendaspmg.shop/images/cerveja-heineken-pure-malt-lager-garrafa-600-ml-cx-12-un-pmg-atacadista.jpg' },
   { id: 104, name: 'CERVEJA HEINEKEN PURE MALT LAGER LATA 350 ML (CX 12 LT)', category: 'Bebidas', price: 71.6, image: 'https://www.marquesvendaspmg.shop/images/cerveja-heineken-pure-malt-lager-lata-350-ml-cx-12-lt-pmg-atacadista.jpg' },
@@ -174,7 +174,7 @@ const products = [
   { id: 109, name: 'CERVEJA ITAIPAVA MALZBIER LONG NECK 330 ML (PCT 12 UN)', category: 'Bebidas', price: 59.25, image: 'https://www.marquesvendaspmg.shop/images/cerveja-itaipava-malzbier-long-neck-330-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 110, name: 'CERVEJA ITAIPAVA PILSEN LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 36.63, image: 'https://www.marquesvendaspmg.shop/images/cerveja-itaipava-pilsen-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 111, name: 'CERVEJA MÉDIA SKOL PILSEN LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 45.11, image: 'https://www.marquesvendaspmg.shop/images/cerveja-media-skol-pilsen-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 112, name: 'CERVEJA ORIGINAL PILSEN GARRAFA 600 ML (CX 12 UN)', category: 'Bebidas', price: 130.55, image: 'https://www.marquesvendaspmg.shop/images/cerveja-original-pilsen-garrafa-600-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 112, name: 'CERVEJA ORIGINAL PILSEN GARRAFA 600 ML (CX 12 UN)', category: 'Bebidas', price: 130.53, image: 'https://www.marquesvendaspmg.shop/images/cerveja-original-pilsen-garrafa-600-ml-cx-12-un-pmg-atacadista.jpg' },
   { id: 113, name: 'CERVEJA ORIGINAL PILSEN LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 56.37, image: 'https://www.marquesvendaspmg.shop/images/cerveja-original-pilsen-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 114, name: 'CERVEJA PEQUENA BRAHMA DUPLO MALTE LATA 269 ML (CX 15 LT)', category: 'Bebidas', price: 42.77, image: 'https://www.marquesvendaspmg.shop/images/cerveja-pequena-brahma-duplo-malte-lata-269-ml-cx-15-lt-pmg-atacadista.jpg' },
   { id: 115, name: 'CERVEJA PEQUENA BUDWEISER LATA 269 ML (CX 8 LT)', category: 'Bebidas', price: 27.32, image: 'https://www.marquesvendaspmg.shop/images/cerveja-pequena-budweiser-lata-269-ml-cx-8-lt-pmg-atacadista.jpg' },
@@ -188,15 +188,15 @@ const products = [
   { id: 123, name: 'CERVEJA STELLA ARTOIS LONG NECK 330 ML (PCT 24 UN)', category: 'Bebidas', price: 158.06, image: 'https://www.marquesvendaspmg.shop/images/cerveja-stella-artois-long-neck-330-ml-pct-24-un-pmg-atacadista.jpg' },
   { id: 124, name: 'CHÁ ICE TEA LEÃO PÊSSEGO 450 ML (PCT 6 UN)', category: 'Bebidas', price: 26.71, image: 'https://www.marquesvendaspmg.shop/images/cha-ice-tea-leao-pessego-450-ml-pct-6-un-pmg-atacadista.jpg' },
   { id: 125, name: 'CHOPP DE VINHO DRAFT 600 ML (CX 6 UN)', category: 'Bebidas', price: 59.63, image: 'https://www.marquesvendaspmg.shop/images/chopp-de-vinho-draft-600-ml-cx-6-un-pmg-atacadista.jpg' },
-  { id: 126, name: 'COCA COLA LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 40.23, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 127, name: 'COCA COLA MÉDIA PET 1 L (PCT 6 UN)', category: 'Bebidas', price: 44.6, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-media-pet-1-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 128, name: 'COCA COLA MIÚDA PET 200 ML (PCT 12 UN)', category: 'Bebidas', price: 27.84, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-miuda-pet-200-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 129, name: 'COCA COLA MIÚDA ZERO AÇÚCARES PET 200 ML (PCT 12 UN)', category: 'Bebidas', price: 25.96, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-miuda-zero-acucares-pet-200-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 130, name: 'COCA COLA PEQUENA PET 600 ML (PCT 12 UN)', category: 'Bebidas', price: 64.48, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-pequena-pet-600-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 126, name: 'COCA COLA LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 40.27, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
+  { id: 127, name: 'COCA COLA MÉDIA PET 1 L (PCT 6 UN)', category: 'Bebidas', price: 44.22, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-media-pet-1-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 128, name: 'COCA COLA MIÚDA PET 200 ML (PCT 12 UN)', category: 'Bebidas', price: 25.9, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-miuda-pet-200-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 129, name: 'COCA COLA MIÚDA ZERO AÇÚCARES PET 200 ML (PCT 12 UN)', category: 'Bebidas', price: 25.85, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-miuda-zero-acucares-pet-200-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 130, name: 'COCA COLA PEQUENA PET 600 ML (PCT 12 UN)', category: 'Bebidas', price: 65.25, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-pequena-pet-600-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 131, name: 'COCA COLA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 61.48, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 132, name: 'COCA COLA SEM AÇÚCAR LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 40.48, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-sem-acucar-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
+  { id: 132, name: 'COCA COLA SEM AÇÚCAR LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 40.44, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-sem-acucar-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 133, name: 'COCA COLA SEM AÇÚCAR PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 63.81, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-sem-acucar-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 134, name: 'COCA COLA SEM AÇÚCAR PET 600 ML (PCT 12 UN)', category: 'Bebidas', price: 66.64, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-sem-acucar-pet-600-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 134, name: 'COCA COLA SEM AÇÚCAR PET 600 ML (PCT 12 UN)', category: 'Bebidas', price: 66.41, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-sem-acucar-pet-600-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 135, name: 'CONHAQUE DE ALCATRÃO SÃO JOÃO DA BARRA 900 ML', category: 'Bebidas', price: 20.86, image: 'https://www.marquesvendaspmg.shop/images/conhaque-de-alcatrao-sao-joao-da-barra-900-ml-pmg-atacadista.jpg' },
   { id: 136, name: 'CONHAQUE DOMECQ 1 L', category: 'Bebidas', price: 34.11, image: 'https://www.marquesvendaspmg.shop/images/conhaque-domecq-1-l-pmg-atacadista.jpg' },
   { id: 137, name: 'CONHAQUE DREHER 900 ML', category: 'Bebidas', price: 19.02, image: 'https://www.marquesvendaspmg.shop/images/conhaque-dreher-900-ml-pmg-atacadista.jpg' },
@@ -231,8 +231,8 @@ const products = [
   { id: 166, name: 'FANTA LARANJA LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 45.16, image: 'https://www.marquesvendaspmg.shop/images/fanta-laranja-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 167, name: 'FANTA LARANJA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 54.69, image: 'https://www.marquesvendaspmg.shop/images/fanta-laranja-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 168, name: 'FANTA LARANJA PET 600 ML (PCT 12 UN)', category: 'Bebidas', price: 62.91, image: 'https://www.marquesvendaspmg.shop/images/fanta-laranja-pet-600-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 169, name: 'FANTA UVA LATA 350 ML (PCT 6 UN)', category: 'Bebidas', price: 22.31, image: 'https://www.marquesvendaspmg.shop/images/fanta-uva-lata-350-ml-pct-6-un-pmg-atacadista.jpg' },
-  { id: 170, name: 'FANTA UVA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 53.35, image: 'https://www.marquesvendaspmg.shop/images/fanta-uva-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 169, name: 'FANTA UVA LATA 350 ML (PCT 6 UN)', category: 'Bebidas', price: 22.06, image: 'https://www.marquesvendaspmg.shop/images/fanta-uva-lata-350-ml-pct-6-un-pmg-atacadista.jpg' },
+  { id: 170, name: 'FANTA UVA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 52.97, image: 'https://www.marquesvendaspmg.shop/images/fanta-uva-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 171, name: 'GIN BEEFEATER 750 ML', category: 'Bebidas', price: 89.45, image: 'https://www.marquesvendaspmg.shop/images/gin-beefeater-750-ml-pmg-atacadista.jpg' },
   { id: 172, name: 'GIN BOMBAY SAPPHIRE 750 ML', category: 'Bebidas', price: 91.96, image: 'https://www.marquesvendaspmg.shop/images/gin-bombay-sapphire-750-ml-pmg-atacadista.jpg' },
   { id: 173, name: 'GIN GORDON´S 750 ML', category: 'Bebidas', price: 63.19, image: 'https://www.marquesvendaspmg.shop/images/gin-gordons-750-ml-pmg-atacadista.jpg' },
@@ -246,8 +246,8 @@ const products = [
   { id: 181, name: 'GUARANÁ ANTARCTICA MIÚDA PET 200 ML (PCT 12 UN)', category: 'Bebidas', price: 23.27, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-miuda-pet-200-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 182, name: 'GUARANÁ ANTARCTICA PEQUENO PET 1 L (PCT 6 UN)', category: 'Bebidas', price: 22.66, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-pequeno-pet-1-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 183, name: 'GUARANÁ ANTARCTICA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 59.12, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 184, name: 'GUARANÁ ANTARCTICA PET 600 ML (PCT 12 UN)', category: 'Bebidas', price: 58.43, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-pet-600-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 185, name: 'GUARANÁ ANTARCTICA SEM AÇÚCARES LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 58.43, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-sem-acucares-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
+  { id: 184, name: 'GUARANÁ ANTARCTICA PET 600 ML (PCT 12 UN)', category: 'Bebidas', price: 58.44, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-pet-600-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 185, name: 'GUARANÁ ANTARCTICA SEM AÇÚCARES LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 59.86, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-sem-acucares-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 186, name: 'GUARANÁ ANTARCTICA SEM AÇÚCARES PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 59.12, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-sem-acucares-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 187, name: 'H2O LIMÃO SEM AÇÚCARES PET 1,5 L (PCT 6 UN)', category: 'Bebidas', price: 55.16, image: 'https://www.marquesvendaspmg.shop/images/h2o-limao-sem-acucares-pet-15-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 188, name: 'H2O LIMÃO SEM AÇÚCARES PET 500 ML (PCT 12 UN)', category: 'Bebidas', price: 56.59, image: 'https://www.marquesvendaspmg.shop/images/h2o-limao-sem-acucares-pet-500-ml-pct-12-un-pmg-atacadista.jpg' },
@@ -284,7 +284,7 @@ const products = [
   { id: 219, name: 'REFRESCO LARANJA E ACEROLA QUALIMAX 1 KILO (CX 10 PCT)', category: 'Bebidas', price: 124.23, image: 'https://www.marquesvendaspmg.shop/images/refresco-laranja-e-acerola-qualimax-1-kilo-cx-10-pct-pmg-atacadista.jpg' },
   { id: 220, name: 'REFRESCO LARANJA QUALIMAX 1 KILO (CX 10 PCT)', category: 'Bebidas', price: 124.35, image: 'https://www.marquesvendaspmg.shop/images/refresco-laranja-qualimax-1-kilo-cx-10-pct-pmg-atacadista.jpg' },
   { id: 221, name: 'REFRESCO LIMÃO CAMP 150 G (CX 12 PCT)', category: 'Bebidas', price: 79.24, image: 'https://www.marquesvendaspmg.shop/images/refresco-limao-camp-150-g-cx-12-pct-pmg-atacadista.jpg' },
-  { id: 222, name: 'REFRESCO LIMÃO QUALIMAX 1 KILO (CX 10 PCT)', category: 'Bebidas', price: 124.35, image: 'https://www.marquesvendaspmg.shop/images/refresco-limao-qualimax-1-kilo-cx-10-pct-pmg-atacadista.jpg' },
+  { id: 222, name: 'REFRESCO LIMÃO QUALIMAX 1 KILO (CX 10 PCT)', category: 'Bebidas', price: 104.81, image: 'https://www.marquesvendaspmg.shop/images/refresco-limao-qualimax-1-kilo-cx-10-pct-pmg-atacadista.jpg' },
   { id: 223, name: 'REFRESCO MANGA CAMP 150 G (CX 12 PCT)', category: 'Bebidas', price: 79.24, image: 'https://www.marquesvendaspmg.shop/images/refresco-manga-camp-150-g-cx-12-pct-pmg-atacadista.jpg' },
   { id: 224, name: 'REFRESCO MANGA QUALIMAX 1 KILO (CX 10 PCT)', category: 'Bebidas', price: 124.35, image: 'https://www.marquesvendaspmg.shop/images/refresco-manga-qualimax-1-kilo-cx-10-pct-pmg-atacadista.jpg' },
   { id: 225, name: 'REFRESCO MARACUJA CAMP 150 G (CX 12 PCT)', category: 'Bebidas', price: 79.24, image: 'https://www.marquesvendaspmg.shop/images/refresco-maracuja-camp-150-g-cx-12-pct-pmg-atacadista.jpg' },
@@ -301,15 +301,15 @@ const products = [
   { id: 236, name: 'SAQUÊ SECO DOURADO SAGAE 750 ML', category: 'Bebidas', price: 14.97, image: 'https://www.marquesvendaspmg.shop/images/saque-seco-dourado-sagae-750-ml-pmg-atacadista.jpg' },
   { id: 237, name: 'SAQUÊ SECO SENSHI 720 ML', category: 'Bebidas', price: 12.64, image: 'https://www.marquesvendaspmg.shop/images/saque-seco-senshi-720-ml-pmg-atacadista.jpg' },
   { id: 238, name: 'SAQUÊ SECO SOFT AZUMA KIRIN 740 ML', category: 'Bebidas', price: 25.89, image: 'https://www.marquesvendaspmg.shop/images/saque-seco-soft-azuma-kirin-740-ml-pmg-atacadista.jpg' },
-  { id: 239, name: 'SCHWEPPES CITRUS LATA 350 ML (PCT 6 LT)', category: 'Bebidas', price: 22.38, image: 'https://www.marquesvendaspmg.shop/images/schweppes-citrus-lata-350-ml-pct-6-lt-pmg-atacadista.jpg' },
+  { id: 239, name: 'SCHWEPPES CITRUS LATA 350 ML (PCT 6 LT)', category: 'Bebidas', price: 22.9, image: 'https://www.marquesvendaspmg.shop/images/schweppes-citrus-lata-350-ml-pct-6-lt-pmg-atacadista.jpg' },
   { id: 240, name: 'SCHWEPPES CITRUS LEVE EM AÇÚCARES LATA 350 ML (PCT 6 LT)', category: 'Bebidas', price: 23, image: 'https://www.marquesvendaspmg.shop/images/schweppes-citrus-leve-em-acucares-lata-350-ml-pct-6-lt-pmg-atacadista.jpg' },
-  { id: 241, name: 'SODA ANTARCTICA LIMONADA LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 38.93, image: 'https://www.marquesvendaspmg.shop/images/soda-antarctica-limonada-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
+  { id: 241, name: 'SODA ANTARCTICA LIMONADA LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 39.68, image: 'https://www.marquesvendaspmg.shop/images/soda-antarctica-limonada-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 242, name: 'SODA ANTARCTICA LIMONADA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 53.76, image: 'https://www.marquesvendaspmg.shop/images/soda-antarctica-limonada-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 243, name: 'SODA ANTARCTICA LIMONADA PET 600 ML (PCT 12 UN)', category: 'Bebidas', price: 55.63, image: 'https://www.marquesvendaspmg.shop/images/soda-antarctica-limonada-pet-600-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 244, name: 'SODA ANTARCTICA LIMONADA ZERO AÇÚCARES LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 39.34, image: 'https://www.marquesvendaspmg.shop/images/soda-antarctica-limonada-zero-acucares-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 245, name: 'SPRITE LATA 350 ML (PCT 6 UN)', category: 'Bebidas', price: 22.59, image: 'https://www.marquesvendaspmg.shop/images/sprite-lata-350-ml-pct-6-un-pmg-atacadista.jpg' },
-  { id: 246, name: 'SPRITE LEMON FRESH PET 510 ML (PCT 12 UN)', category: 'Bebidas', price: 37.13, image: 'https://www.marquesvendaspmg.shop/images/sprite-lemon-fresh-pet-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 247, name: 'SPRITE PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 52.62, image: 'https://www.marquesvendaspmg.shop/images/sprite-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 246, name: 'SPRITE LEMON FRESH PET 510 ML (PCT 12 UN)', category: 'Bebidas', price: 37.63, image: 'https://www.marquesvendaspmg.shop/images/sprite-lemon-fresh-pet-510-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 247, name: 'SPRITE PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 52.97, image: 'https://www.marquesvendaspmg.shop/images/sprite-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 248, name: 'STEINHAEGER BECOSA 980 ML', category: 'Bebidas', price: 32.46, image: 'https://www.marquesvendaspmg.shop/images/steinhaeger-becosa-980-ml-pmg-atacadista.jpg' },
   { id: 249, name: 'SUCO DE TOMATE RAIOLA 1 L', category: 'Bebidas', price: 28.26, image: 'https://www.marquesvendaspmg.shop/images/suco-de-tomate-raiola-1-l-pmg-atacadista.jpg' },
   { id: 250, name: 'SUCO DE TOMATE SUPERBOM 1 L', category: 'Bebidas', price: 22.54, image: 'https://www.marquesvendaspmg.shop/images/suco-de-tomate-superbom-1-l-pmg-atacadista.jpg' },
@@ -327,24 +327,24 @@ const products = [
   { id: 262, name: 'SUCO MAGUARY ABACAXI 500 ML (PCT 12 UN)', category: 'Bebidas', price: 78.43, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-abacaxi-500-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 263, name: 'SUCO MAGUARY GOIABA 500 ML (PCT 12 UN)', category: 'Bebidas', price: 78.43, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-goiaba-500-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 264, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 265, name: 'SUCO MAGUARY LARANJA TETRA PACK 1 L (CX 12 UN)', category: 'Bebidas', price: 74.57, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-laranja-tetra-pack-1-l-cx-12-un-pmg-atacadista.jpg' },
+  { id: 265, name: 'SUCO MAGUARY LARANJA TETRA PACK 1 L (CX 12 UN)', category: 'Bebidas', price: 56.19, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-laranja-tetra-pack-1-l-cx-12-un-pmg-atacadista.jpg' },
   { id: 266, name: 'SUCO MAGUARY MANGA 500 ML (PCT 12 UN)', category: 'Bebidas', price: 78.43, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-manga-500-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 267, name: 'SUCO MAGUARY MARACUJÁ 500 ML (PCT 12 UN)', category: 'Bebidas', price: 87.04, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-maracuja-500-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 268, name: 'SUCO MAGUARY MARACUJÁ LATA 335 ML (PCT 6 LT)', category: 'Bebidas', price: 22.59, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-maracuja-lata-335-ml-pct-6-lt-pmg-atacadista.jpg' },
-  { id: 269, name: 'SUCO MAGUARY MARACUJÁ TETRA PACK 1 L (CX 12 UN)', category: 'Bebidas', price: 74.57, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-maracuja-tetra-pack-1-l-cx-12-un-pmg-atacadista.jpg' },
+  { id: 269, name: 'SUCO MAGUARY MARACUJÁ TETRA PACK 1 L (CX 12 UN)', category: 'Bebidas', price: 56.19, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-maracuja-tetra-pack-1-l-cx-12-un-pmg-atacadista.jpg' },
   { id: 270, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 271, name: 'SUCO MAGUARY UVA 500 ML (PCT 12 UN)', category: 'Bebidas', price: 78.43, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-uva-500-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 272, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 273, name: 'SUCO MAGUARY UVA TETRA PACK 1 L (CX 12 UN)', category: 'Bebidas', price: 73.18, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-uva-tetra-pack-1-l-cx-12-un-pmg-atacadista.jpg' },
-  { id: 274, name: 'SUCO PEQUENO MAGUARY MAÇÃ 200 ML (CX 27 UN)', category: 'Bebidas', price: 50.5, image: 'https://www.marquesvendaspmg.shop/images/suco-pequeno-maguary-maca-200-ml-cx-27-un-pmg-atacadista.jpg' },
-  { id: 275, name: 'SUCO PEQUENO MAGUARY UVA 200 ML (CX 27 UN)', category: 'Bebidas', price: 49.58, image: 'https://www.marquesvendaspmg.shop/images/suco-pequeno-maguary-uva-200-ml-cx-27-un-pmg-atacadista.jpg' },
+  { id: 273, name: 'SUCO MAGUARY UVA TETRA PACK 1 L (CX 12 UN)', category: 'Bebidas', price: 55.15, image: 'https://www.marquesvendaspmg.shop/images/suco-maguary-uva-tetra-pack-1-l-cx-12-un-pmg-atacadista.jpg' },
+  { id: 274, name: 'SUCO PEQUENO MAGUARY MAÇÃ 200 ML (CX 27 UN)', category: 'Bebidas', price: 38.36, image: 'https://www.marquesvendaspmg.shop/images/suco-pequeno-maguary-maca-200-ml-cx-27-un-pmg-atacadista.jpg' },
+  { id: 275, name: 'SUCO PEQUENO MAGUARY UVA 200 ML (CX 27 UN)', category: 'Bebidas', price: 37.67, image: 'https://www.marquesvendaspmg.shop/images/suco-pequeno-maguary-uva-200-ml-cx-27-un-pmg-atacadista.jpg' },
   { id: 276, name: 'SUKITA LARANJA LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 40.96, image: 'https://www.marquesvendaspmg.shop/images/sukita-laranja-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 277, name: 'SUKITA LARANJA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 42.19, image: 'https://www.marquesvendaspmg.shop/images/sukita-laranja-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 277, name: 'SUKITA LARANJA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 42.96, image: 'https://www.marquesvendaspmg.shop/images/sukita-laranja-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 278, name: 'SUKITA LIMÃO PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 42.19, image: 'https://www.marquesvendaspmg.shop/images/sukita-limao-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 279, name: 'SUKITA TUBAÍNA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 41.96, image: 'https://www.marquesvendaspmg.shop/images/sukita-tubaina-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 279, name: 'SUKITA TUBAÍNA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 41.95, image: 'https://www.marquesvendaspmg.shop/images/sukita-tubaina-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML (CX 12 UN)', category: 'Bebidas', price: 103.07, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
   { id: 281, name: 'TEQUILA JOSE CUERVO ESPECIAL REPOSADO OURO 750 ML (CX 12 UN)', category: 'Bebidas', price: 103.07, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-reposado-ouro-750-ml-cx-12-un-pmg-atacadista.jpg' },
-  { id: 282, name: 'TUBAÍNA CAMPOS TUTTI FRUTTI PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 31.29, image: 'https://www.marquesvendaspmg.shop/images/tubaina-campos-tutti-frutti-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 282, name: 'TUBAÍNA CAMPOS TUTTI FRUTTI PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 31.03, image: 'https://www.marquesvendaspmg.shop/images/tubaina-campos-tutti-frutti-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 283, name: 'VINHO ARGENTINO TINTO MEIO SECO MALBEC RESERVADO CONCHA Y TORO 750 ML', category: 'Bebidas', price: 24.54, image: 'https://www.marquesvendaspmg.shop/images/vinho-argentino-tinto-meio-seco-malbec-reservado-concha-y-toro-750-ml-pmg-atacadista.jpg' },
   { id: 284, name: 'VINHO ARGENTINO TINTO SECO CABERNET SAUVIGNON BENJAMIN NIETO SENETINER 750 ML', category: 'Bebidas', price: 31.36, image: 'https://www.marquesvendaspmg.shop/images/vinho-argentino-tinto-seco-cabernet-sauvignon-benjamin-nieto-senetiner-750-ml-pmg-atacadista.jpg' },
   { id: 285, name: 'VINHO ARGENTINO TINTO SECO GATO NEGRO MALBEC SAN PEDRO 750 ML', category: 'Bebidas', price: 27.48, image: 'https://www.marquesvendaspmg.shop/images/vinho-argentino-tinto-seco-gato-negro-malbec-san-pedro-750-ml-pmg-atacadista.jpg' },
@@ -440,9 +440,9 @@ const products = [
   { id: 375, name: 'ERVILHA PEQUENA DA TERRINHA 500 G', category: 'Conservas/Enlatados', price: 6.51, image: 'https://www.marquesvendaspmg.shop/images/ervilha-pequena-da-terrinha-500-g-pmg-atacadista.jpg' },
   { id: 376, name: 'ERVILHA QUERO 170 G (CX 24 LT)', category: 'Conservas/Enlatados', price: 100.05, image: 'https://www.marquesvendaspmg.shop/images/ervilha-quero-170-g-cx-24-lt-pmg-atacadista.jpg' },
   { id: 377, name: 'EXTRATO DE TOMATE AJINOMOTO 2 KILO', category: 'Conservas/Enlatados', price: 29.82, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-ajinomoto-2-kilo-pmg-atacadista.jpg' },
-  { id: 378, name: 'EXTRATO DE TOMATE BONARE GOIÁS VERDE 1,7 KILO', category: 'Conservas/Enlatados', price: 33.1, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-bonare-goias-verde-17-kilo-pmg-atacadista.jpg' },
+  { id: 378, name: 'EXTRATO DE TOMATE BONARE GOIÁS VERDE 1,7 KILO', category: 'Conservas/Enlatados', price: 35.19, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-bonare-goias-verde-17-kilo-pmg-atacadista.jpg' },
   { id: 379, name: 'EXTRATO DE TOMATE BONARE GOIÁS VERDE 4 KILO', category: 'Conservas/Enlatados', price: 31.82, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-bonare-goias-verde-4-kilo-pmg-atacadista.jpg' },
-  { id: 380, name: 'EXTRATO DE TOMATE BONARE GOURMET SUPER CONCENTRADO GOIÁS VERDE 4 KILO', category: 'Conservas/Enlatados', price: 40.91, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-bonare-gourmet-super-concentrado-goias-verde-4-kilo-pmg-atacadista.jpg' },
+  { id: 380, name: 'EXTRATO DE TOMATE BONARE GOURMET SUPER CONCENTRADO GOIÁS VERDE 4 KILO', category: 'Conservas/Enlatados', price: 43.77, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-bonare-gourmet-super-concentrado-goias-verde-4-kilo-pmg-atacadista.jpg' },
   { id: 381, name: 'EXTRATO DE TOMATE EKMA 1,7 KILO', category: 'Conservas/Enlatados', price: 12.58, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-ekma-17-kilo-pmg-atacadista.jpg' },
   { id: 382, name: 'EXTRATO DE TOMATE ELEFANTE 1,04 KILO (CX 12 UN)', category: 'Conservas/Enlatados', price: 72.75, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-elefante-104-kilo-cx-12-un-pmg-atacadista.jpg' },
   { id: 383, name: 'EXTRATO DE TOMATE ELEFANTE 1,7 KILO', category: 'Conservas/Enlatados', price: 32.13, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-elefante-17-kilo-pmg-atacadista.jpg' },
@@ -450,8 +450,8 @@ const products = [
   { id: 385, name: 'MILHO BONARE GOIÁS VERDE 170 G (CX 24 LT)', category: 'Conservas/Enlatados', price: 77, image: 'https://www.marquesvendaspmg.shop/images/milho-bonare-goias-verde-170-g-cx-24-lt-pmg-atacadista.jpg' },
   { id: 386, name: 'MILHO GRANDE BONARE GOIÁS VERDE 1,7 KILO', category: 'Conservas/Enlatados', price: 22.92, image: 'https://www.marquesvendaspmg.shop/images/milho-grande-bonare-goias-verde-17-kilo-pmg-atacadista.jpg' },
   { id: 387, name: 'MILHO GRANDE FUGINI 1,7 KILO', category: 'Conservas/Enlatados', price: 22.43, image: 'https://www.marquesvendaspmg.shop/images/milho-grande-fugini-17-kilo-pmg-atacadista.jpg' },
-  { id: 388, name: 'MILHO GRANDE PREDILECTA 1,7 KILO', category: 'Conservas/Enlatados', price: 22.6, image: 'https://www.marquesvendaspmg.shop/images/milho-grande-predilecta-17-kilo-pmg-atacadista.jpg' },
-  { id: 389, name: 'MILHO GRANDE QUERO 1,7 KILO', category: 'Conservas/Enlatados', price: 20.54, image: 'https://www.marquesvendaspmg.shop/images/milho-grande-quero-17-kilo-pmg-atacadista.jpg' },
+  { id: 388, name: 'MILHO GRANDE PREDILECTA 1,7 KILO', category: 'Conservas/Enlatados', price: 23.26, image: 'https://www.marquesvendaspmg.shop/images/milho-grande-predilecta-17-kilo-pmg-atacadista.jpg' },
+  { id: 389, name: 'MILHO GRANDE QUERO 1,7 KILO', category: 'Conservas/Enlatados', price: 23.56, image: 'https://www.marquesvendaspmg.shop/images/milho-grande-quero-17-kilo-pmg-atacadista.jpg' },
   { id: 390, name: 'MILHO QUERO 170 G (CX 24 LT)', category: 'Conservas/Enlatados', price: 104.08, image: 'https://www.marquesvendaspmg.shop/images/milho-quero-170-g-cx-24-lt-pmg-atacadista.jpg' },
   { id: 391, name: 'MOLHO ALHO CEPÊRA 1,01 L', category: 'Conservas/Enlatados', price: 12.64, image: 'https://www.marquesvendaspmg.shop/images/molho-alho-cepera-101-l-pmg-atacadista.jpg' },
   { id: 392, name: 'MOLHO BACONNAISE JUNIOR 1,1 KILO', category: 'Conservas/Enlatados', price: 45.54, image: 'https://www.marquesvendaspmg.shop/images/molho-baconnaise-junior-11-kilo-pmg-atacadista.jpg' },
@@ -475,13 +475,13 @@ const products = [
   { id: 410, name: 'MOLHO DE PIMENTA VERMELHA MC ILHENNY TABASCO 60 ML (CX 12 VD)', category: 'Conservas/Enlatados', price: 261.24, image: 'https://www.marquesvendaspmg.shop/images/molho-de-pimenta-vermelha-mc-ilhenny-tabasco-60-ml-cx-12-vd-pmg-atacadista.jpg' },
   { id: 411, name: 'MOLHO DE PIMENTA VERMELHA SACHÊ CEPÊRA 5 G (CX 175 UN)', category: 'Conservas/Enlatados', price: 27.38, image: 'https://www.marquesvendaspmg.shop/images/molho-de-pimenta-vermelha-sache-cepera-5-g-cx-175-un-pmg-atacadista.jpg' },
   { id: 412, name: 'MOLHO DE PIMENTA VERMELHA SACHÊ PREDILECTA 3 G (CX 144 UN)', category: 'Conservas/Enlatados', price: 15.07, image: 'https://www.marquesvendaspmg.shop/images/molho-de-pimenta-vermelha-sache-predilecta-3-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 413, name: 'MOLHO DE TOMATE PIZZA BONARE GOIÁS VERDE 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 58.62, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-pizza-bonare-goias-verde-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
+  { id: 413, name: 'MOLHO DE TOMATE PIZZA BONARE GOIÁS VERDE 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 61.57, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-pizza-bonare-goias-verde-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
   { id: 414, name: 'MOLHO DE TOMATE PIZZA CEPÊRA MAMMA D ORO 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 105.57, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-pizza-cepera-mamma-d-oro-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
   { id: 415, name: 'MOLHO DE TOMATE REFOGADO TRADICIONAL BONARE GOURMET GOIÁS VERDE 1,02 KILO (CX 12 BAG)', category: 'Conservas/Enlatados', price: 62.11, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-refogado-tradicional-bonare-gourmet-goias-verde-102-kilo-cx-12-bag-pmg-atacadista.jpg' },
   { id: 416, name: 'MOLHO DE TOMATE REFOGADO TRADICIONAL EKMA 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 61.15, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-refogado-tradicional-ekma-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
-  { id: 417, name: 'MOLHO DE TOMATE TRADICIONAL BONARE GOIÁS VERDE 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 58.62, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-bonare-goias-verde-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
+  { id: 417, name: 'MOLHO DE TOMATE TRADICIONAL BONARE GOIÁS VERDE 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 61.57, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-bonare-goias-verde-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
   { id: 418, name: 'MOLHO DE TOMATE TRADICIONAL FUGINI 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 56.31, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-fugini-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
-  { id: 419, name: 'MOLHO DE TOMATE TRADICIONAL HEINZ 1,02 KILO (CX 12 BAG)', category: 'Conservas/Enlatados', price: 83.73, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-heinz-102-kilo-cx-12-bag-pmg-atacadista.jpg' },
+  { id: 419, name: 'MOLHO DE TOMATE TRADICIONAL HEINZ 1,02 KILO (CX 12 BAG)', category: 'Conservas/Enlatados', price: 92.25, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-heinz-102-kilo-cx-12-bag-pmg-atacadista.jpg' },
   { id: 420, name: 'MOLHO DE TOMATE TRADICIONAL MAMMA D ORO CEPÊRA 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 95.97, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-mamma-d-oro-cepera-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
   { id: 421, name: 'MOLHO DE TOMATE TRADICIONAL POMAROLA 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 63.59, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-pomarola-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
   { id: 422, name: 'MOLHO DE TOMATE TRADICIONAL QUERO BAG 2 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 62.31, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-quero-bag-2-kilo-cx-6-bag-pmg-atacadista.jpg' },
@@ -493,7 +493,7 @@ const products = [
   { id: 428, name: 'MOLHO PARA PIZZA EKMA 1,7 KILO (CX 6 BAG)', category: 'Conservas/Enlatados', price: 63.59, image: 'https://www.marquesvendaspmg.shop/images/molho-para-pizza-ekma-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
   { id: 429, name: 'MOLHO PIMENTA SACHÊ EKMA 3 ML (CX 174 UN)', category: 'Conservas/Enlatados', price: 16.54, image: 'https://www.marquesvendaspmg.shop/images/molho-pimenta-sache-ekma-3-ml-cx-174-un-pmg-atacadista.jpg' },
   { id: 430, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 431, name: 'MOLHO SALADA CAESAR CASTELO 236 ML (CX 12 UN)', category: 'Conservas/Enlatados', price: 100.49, image: 'https://www.marquesvendaspmg.shop/images/molho-salada-caesar-castelo-236-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 431, name: 'MOLHO SALADA CAESAR CASTELO 236 ML (CX 12 UN)', category: 'Conservas/Enlatados', price: 105.78, image: 'https://www.marquesvendaspmg.shop/images/molho-salada-caesar-castelo-236-ml-cx-12-un-pmg-atacadista.jpg' },
   { id: 432, name: 'MOLHO SALADA CAESAR KISABOR 240 ML (CX 12 UN)', category: 'Conservas/Enlatados', price: 61.69, image: 'https://www.marquesvendaspmg.shop/images/molho-salada-caesar-kisabor-240-ml-cx-12-un-pmg-atacadista.jpg' },
   { id: 433, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 434, name: 'MOLHO SALADA ITALIAN SACHÊ EKMA 18 G (CX 42 UN)', category: 'Conservas/Enlatados', price: 22.76, image: 'https://www.marquesvendaspmg.shop/images/molho-salada-italian-sache-ekma-18-g-cx-42-un-pmg-atacadista.jpg' },
@@ -519,7 +519,7 @@ const products = [
   { id: 454, name: 'SELETA DE LEGUMES BONARE GOIÁS VERDE 170 G (CX 24 LT)', category: 'Conservas/Enlatados', price: 97.39, image: 'https://www.marquesvendaspmg.shop/images/seleta-de-legumes-bonare-goias-verde-170-g-cx-24-lt-pmg-atacadista.jpg' },
   { id: 455, name: 'TOMATE PELADO INTEIRO ARCO BELLO 2,5 KILO', category: 'Conservas/Enlatados', price: 36.55, image: 'https://www.marquesvendaspmg.shop/images/tomate-pelado-inteiro-arco-bello-25-kilo-pmg-atacadista.jpg' },
   { id: 456, name: 'TOMATE PELADO INTEIRO OLÉ 2,5 KILO', category: 'Conservas/Enlatados', price: 26.8, image: 'https://www.marquesvendaspmg.shop/images/tomate-pelado-inteiro-ole-25-kilo-pmg-atacadista.jpg' },
-  { id: 457, name: 'TOMATE PELADO INTEIRO PREDILECTA 2,5 KILO', category: 'Conservas/Enlatados', price: 22.48, image: 'https://www.marquesvendaspmg.shop/images/tomate-pelado-inteiro-predilecta-25-kilo-pmg-atacadista.jpg' },
+  { id: 457, name: 'TOMATE PELADO INTEIRO PREDILECTA 2,5 KILO', category: 'Conservas/Enlatados', price: 26.59, image: 'https://www.marquesvendaspmg.shop/images/tomate-pelado-inteiro-predilecta-25-kilo-pmg-atacadista.jpg' },
   { id: 458, name: 'ASAS DE FRANGO CONGELADAS JUSSARA (CX 20 KILO)', category: 'Derivados de Ave', price: 200.1, image: 'https://www.marquesvendaspmg.shop/images/asas-de-frango-congeladas-jussara-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 459, name: 'BLANQUET DE PERU SADIA 1,75 KILO', category: 'Derivados de Ave', price: 83.2, image: 'https://www.marquesvendaspmg.shop/images/blanquet-de-peru-sadia-175-kilo-pmg-atacadista.jpg' },
   { id: 460, name: 'BURGER CHICKEN DE FRANGO CONGELADO EMPANADO SUPREME SEARA 2 KILO (CX 3 PCT)', category: 'Derivados de Ave', price: 171.03, image: 'https://www.marquesvendaspmg.shop/images/burger-chicken-de-frango-congelado-empanado-supreme-seara-2-kilo-cx-3-pct-pmg-atacadista.jpg' },
@@ -533,7 +533,7 @@ const products = [
   { id: 468, name: 'COXAS E SOBRECOXAS DE FRANGO CONGELADAS COM OSSO MIRA (CX 20 KILO)', category: 'Derivados de Ave', price: 188.96, image: 'https://www.marquesvendaspmg.shop/images/coxas-e-sobrecoxas-de-frango-congeladas-com-osso-mira-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 469, name: 'COXAS E SOBRECOXAS DE FRANGO CONGELADAS COM OSSO ROSAVES (CX 18 KILO)', category: 'Derivados de Ave', price: 155.14, image: 'https://www.marquesvendaspmg.shop/images/coxas-e-sobrecoxas-de-frango-congeladas-com-osso-rosaves-cx-18-kilo-pmg-atacadista.jpg' },
   { id: 470, name: 'COXAS E SOBRECOXAS DE FRANGO TEMPERADAS CONGELADAS COM OSSO FRANGÃO FOODS (CX 20 KILO)', category: 'Derivados de Ave', price: 152.88, image: 'https://www.marquesvendaspmg.shop/images/coxas-e-sobrecoxas-de-frango-temperadas-congeladas-com-osso-frangao-foods-cx-20-kilo-pmg-atacadista.jpg' },
-  { id: 471, name: 'COXINHAS DAS ASAS DE FRANGO CONGELADAS CANÇÃO (CX 20 KILO)', category: 'Derivados de Ave', price: 247.85, image: 'https://www.marquesvendaspmg.shop/images/coxinhas-das-asas-de-frango-congeladas-cancao-cx-20-kilo-pmg-atacadista.jpg' },
+  { id: 471, name: 'COXINHAS DAS ASAS DE FRANGO CONGELADAS CANÇÃO (CX 20 KILO)', category: 'Derivados de Ave', price: 204.91, image: 'https://www.marquesvendaspmg.shop/images/coxinhas-das-asas-de-frango-congeladas-cancao-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 472, name: 'COXINHAS DAS ASAS DE FRANGO CONGELADAS GUIBON (CX 18 KILO)', category: 'Derivados de Ave', price: 224.17, image: 'https://www.marquesvendaspmg.shop/images/coxinhas-das-asas-de-frango-congeladas-guibon-cx-18-kilo-pmg-atacadista.jpg' },
   { id: 473, name: 'FILÉ DE COXAS E SOBRECOXAS DE FRANGO CONGELADO ABR (CX 20 KILO)', category: 'Derivados de Ave', price: 285.89, image: 'https://www.marquesvendaspmg.shop/images/file-de-coxas-e-sobrecoxas-de-frango-congelado-abr-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 474, name: 'FILÉ DE PEITO DE FRANGO CONGELADO COZIDO DESFIADO E TEMPERADO PIF PAF 4 KILO (CX 4 PCT)', category: 'Derivados de Ave', price: 442.08, image: 'https://www.marquesvendaspmg.shop/images/file-de-peito-de-frango-congelado-cozido-desfiado-e-temperado-pif-paf-4-kilo-cx-4-pct-pmg-atacadista.jpg' },
@@ -541,7 +541,7 @@ const products = [
   { id: 476, name: 'FILÉ DE PEITO DE FRANGO CONGELADO SEM OSSO SEM PELE COM SASSAMI ABR (CX 20 KILO)', category: 'Derivados de Ave', price: 369.68, image: 'https://www.marquesvendaspmg.shop/images/file-de-peito-de-frango-congelado-sem-osso-sem-pele-com-sassami-abr-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 477, name: 'FILÉ DE PEITO DE FRANGO CONGELADO SEM OSSO SEM PELE COM SASSAMI JUSSARA (CX 20 KILO)', category: 'Derivados de Ave', price: 345.43, image: 'https://www.marquesvendaspmg.shop/images/file-de-peito-de-frango-congelado-sem-osso-sem-pele-com-sassami-jussara-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 478, name: 'FILÉ DE PEITO DE FRANGO CONGELADO SEM OSSO SEM PELE SEM SASSAMI CANÇÃO (CX 20 KILO)', category: 'Derivados de Ave', price: 369.2, image: 'https://www.marquesvendaspmg.shop/images/file-de-peito-de-frango-congelado-sem-osso-sem-pele-sem-sassami-cancao-cx-20-kilo-pmg-atacadista.jpg' },
-  { id: 479, name: 'FILÉ DE PEITO DE FRANGO CONGELADO SEM OSSO SEM PELE SEM SASSAMI PIONEIRO (CX 20 KILO)', category: 'Derivados de Ave', price: 329.14, image: 'https://www.marquesvendaspmg.shop/images/file-de-peito-de-frango-congelado-sem-osso-sem-pele-sem-sassami-pioneiro-cx-20-kilo-pmg-atacadista.jpg' },
+  { id: 479, name: 'FILÉ DE PEITO DE FRANGO CONGELADO SEM OSSO SEM PELE SEM SASSAMI PIONEIRO (CX 20 KILO)', category: 'Derivados de Ave', price: 354.73, image: 'https://www.marquesvendaspmg.shop/images/file-de-peito-de-frango-congelado-sem-osso-sem-pele-sem-sassami-pioneiro-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 480, name: 'FILÉ DE PEITO DE FRANGO CONGELADO SEM OSSO SEM PELE SEM SASSAMI RICO (CX 20 KILO)', category: 'Derivados de Ave', price: 317.32, image: 'https://www.marquesvendaspmg.shop/images/file-de-peito-de-frango-congelado-sem-osso-sem-pele-sem-sassami-rico-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 481, name: 'FILEZINHO SASSAMI DE FRANGO CONGELADO AURORA 1 KILO (CX 16 PCT)', category: 'Derivados de Ave', price: 292.11, image: 'https://www.marquesvendaspmg.shop/images/filezinho-sassami-de-frango-congelado-aurora-1-kilo-cx-16-pct-pmg-atacadista.jpg' },
   { id: 482, name: 'FILEZINHO SASSAMI DE FRANGO CONGELADO CANÇÃO (CX 20 KILO)', category: 'Derivados de Ave', price: 369.2, image: 'https://www.marquesvendaspmg.shop/images/filezinho-sassami-de-frango-congelado-cancao-cx-20-kilo-pmg-atacadista.jpg' },
@@ -555,11 +555,11 @@ const products = [
   { id: 490, name: 'FRANGO INTEIRO CONGELADO ALLIZ 2,5 KILO (CX 20 KILO)', category: 'Derivados de Ave', price: 126.88, image: 'https://www.marquesvendaspmg.shop/images/frango-inteiro-congelado-alliz-25-kilo-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 491, name: 'FRANGO INTEIRO CONGELADO MIRA 2,5 KILO (CX 20 KILO)', category: 'Derivados de Ave', price: 152.15, image: 'https://www.marquesvendaspmg.shop/images/frango-inteiro-congelado-mira-25-kilo-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 492, name: 'FRANGO INTEIRO CONGELADO NUTRIBEM 2,9 KILO (CX 20 KILO)', category: 'Derivados de Ave', price: 184.05, image: 'https://www.marquesvendaspmg.shop/images/frango-inteiro-congelado-nutribem-29-kilo-cx-20-kilo-pmg-atacadista.jpg' },
-  { id: 493, name: 'FRANGO SEM MIÚDOS CARCAÇA CONGELADO ALLIZ 1,7 KILO (CX 17 KILO)', category: 'Derivados de Ave', price: 240.12, image: 'https://www.marquesvendaspmg.shop/images/frango-sem-miudos-carcaca-congelado-alliz-17-kilo-cx-17-kilo-pmg-atacadista.jpg' },
+  { id: 493, name: 'FRANGO SEM MIÚDOS CARCAÇA CONGELADO ALLIZ 1,7 KILO (CX 17 KILO)', category: 'Derivados de Ave', price: 219.14, image: 'https://www.marquesvendaspmg.shop/images/frango-sem-miudos-carcaca-congelado-alliz-17-kilo-cx-17-kilo-pmg-atacadista.jpg' },
   { id: 494, name: 'GEMA DE OVO PASTEURIZADA RESFRIADA ASA 1 KILO', category: 'Derivados de Ave', price: 54.42, image: 'https://www.marquesvendaspmg.shop/images/gema-de-ovo-pasteurizada-resfriada-asa-1-kilo-pmg-atacadista.jpg' },
   { id: 495, name: 'GEMA DE OVO PASTEURIZADA RESFRIADA FLEISCHEGGS 1 KILO', category: 'Derivados de Ave', price: 90.61, image: 'https://www.marquesvendaspmg.shop/images/gema-de-ovo-pasteurizada-resfriada-fleischeggs-1-kilo-pmg-atacadista.jpg' },
   { id: 496, name: 'HAMBÚRGUER DE CARNE DE FRANGO EMPANADO LAR 100 G (CX 30 KILO)', category: 'Derivados de Ave', price: 68.89, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-de-carne-de-frango-empanado-lar-100-g-cx-30-kilo-pmg-atacadista.jpg' },
-  { id: 497, name: 'MEIO DAS ASAS DE FRANGO TULIPAS CONGELADAS TEMPERADAS ADORO 1 KILO (CX 20 PCT)', category: 'Derivados de Ave', price: 318.24, image: 'https://www.marquesvendaspmg.shop/images/meio-das-asas-de-frango-tulipas-congeladas-temperadas-adoro-1-kilo-cx-20-pct-pmg-atacadista.jpg' },
+  { id: 497, name: 'MEIO DAS ASAS DE FRANGO TULIPAS CONGELADAS TEMPERADAS ADORO 1 KILO (CX 20 PCT)', category: 'Derivados de Ave', price: 271.17, image: 'https://www.marquesvendaspmg.shop/images/meio-das-asas-de-frango-tulipas-congeladas-temperadas-adoro-1-kilo-cx-20-pct-pmg-atacadista.jpg' },
   { id: 498, name: 'MEIO DAS ASAS DE FRANGO TULIPAS CONGELADAS TEMPERADAS FRANGÃO FOODS (CX 20 KILO)', category: 'Derivados de Ave', price: 284.66, image: 'https://www.marquesvendaspmg.shop/images/meio-das-asas-de-frango-tulipas-congeladas-temperadas-frangao-foods-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 499, name: 'MEIO DAS ASAS DE FRANGO TULIPAS CONGELADAS TEMPERADAS ITABOM (CX 20 KILO)', category: 'Derivados de Ave', price: 386.78, image: 'https://www.marquesvendaspmg.shop/images/meio-das-asas-de-frango-tulipas-congeladas-temperadas-itabom-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 500, name: 'OVO INTEGRAL PASTEURIZADO RESFRIADO ASA 1 KILO', category: 'Derivados de Ave', price: 26.39, image: 'https://www.marquesvendaspmg.shop/images/ovo-integral-pasteurizado-resfriado-asa-1-kilo-pmg-atacadista.jpg' },
@@ -568,7 +568,7 @@ const products = [
   { id: 503, name: 'OVOS DE CODORNA GRANJA SÃO PAULO 1 KILO', category: 'Derivados de Ave', price: 27.7, image: 'https://www.marquesvendaspmg.shop/images/ovos-de-codorna-granja-sao-paulo-1-kilo-pmg-atacadista.jpg' },
   { id: 504, name: 'OVOS DE CODORNA LOUREIRO 900 G', category: 'Derivados de Ave', price: 29.17, image: 'https://www.marquesvendaspmg.shop/images/ovos-de-codorna-loureiro-900-g-pmg-atacadista.jpg' },
   { id: 505, name: 'PEITO DE FRANGO CONGELADO COM OSSO MIRA (CX 20 KILO)', category: 'Derivados de Ave', price: 225.77, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-com-osso-mira-cx-20-kilo-pmg-atacadista.jpg' },
-  { id: 506, name: 'PEITO DE FRANGO CONGELADO COM OSSO NUTRIBEM (CX 20 KILO)', category: 'Derivados de Ave', price: 247.85, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-com-osso-nutribem-cx-20-kilo-pmg-atacadista.jpg' },
+  { id: 506, name: 'PEITO DE FRANGO CONGELADO COM OSSO NUTRIBEM (CX 20 KILO)', category: 'Derivados de Ave', price: 245.4, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-com-osso-nutribem-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 507, name: 'PEITO DE FRANGO CONGELADO COZIDO DESFIADO ALFAMA 1 KILO (CX 6 PCT)', category: 'Derivados de Ave', price: 199.33, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-cozido-desfiado-alfama-1-kilo-cx-6-pct-pmg-atacadista.jpg' },
   { id: 508, name: 'PEITO DE FRANGO DEFUMADO SEM OSSO CERATTI 2,3 KILO', category: 'Derivados de Ave', price: 82.66, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-defumado-sem-osso-ceratti-23-kilo-pmg-atacadista.jpg' },
   { id: 509, name: 'PEITO DE PERU REZENDE 2,5 KILO', category: 'Derivados de Ave', price: 50.23, image: 'https://www.marquesvendaspmg.shop/images/peito-de-peru-rezende-25-kilo-pmg-atacadista.jpg' },
@@ -577,9 +577,9 @@ const products = [
   { id: 512, name: 'SOBRECOXAS DE FRANGO CONGELADAS COM OSSO ADORO (CX 20 KILO)', category: 'Derivados de Ave', price: 211.04, image: 'https://www.marquesvendaspmg.shop/images/sobrecoxas-de-frango-congeladas-com-osso-adoro-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 513, name: 'SOBRECOXAS DE FRANGO CONGELADAS COM OSSO INTERFOLHADAS ALLIZ (CX 20 KILO)', category: 'Derivados de Ave', price: 212.98, image: 'https://www.marquesvendaspmg.shop/images/sobrecoxas-de-frango-congeladas-com-osso-interfolhadas-alliz-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 514, name: 'SOBRECOXAS DE FRANGO CONGELADAS COM OSSO INTERFOLHADAS CANÇÃO (CX 18 KILO)', category: 'Derivados de Ave', price: 159.02, image: 'https://www.marquesvendaspmg.shop/images/sobrecoxas-de-frango-congeladas-com-osso-interfolhadas-cancao-cx-18-kilo-pmg-atacadista.jpg' },
-  { id: 515, name: 'SOBRECOXAS DE FRANGO CONGELADAS COM OSSO RICO (CX 20 KILO)', category: 'Derivados de Ave', price: 176.69, image: 'https://www.marquesvendaspmg.shop/images/sobrecoxas-de-frango-congeladas-com-osso-rico-cx-20-kilo-pmg-atacadista.jpg' },
+  { id: 515, name: 'SOBRECOXAS DE FRANGO CONGELADAS COM OSSO RICO (CX 20 KILO)', category: 'Derivados de Ave', price: 198.59, image: 'https://www.marquesvendaspmg.shop/images/sobrecoxas-de-frango-congeladas-com-osso-rico-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 516, name: 'STEAK DE FRANGO CONGELADO REZENDE 100 G (CX 72 UN)', category: 'Derivados de Ave', price: 121.54, image: 'https://www.marquesvendaspmg.shop/images/steak-de-frango-congelado-rezende-100-g-cx-72-un-pmg-atacadista.jpg' },
-  { id: 517, name: 'ACÉM BOVINO RESFRIADO BOI BRASIL 9 KG', category: 'Derivados de Bovino', price: 28.96, image: 'https://www.marquesvendaspmg.shop/images/acem-bovino-resfriado-boi-brasil-9-kg-pmg-atacadista.jpg' },
+  { id: 517, name: 'ACÉM BOVINO RESFRIADO BOI BRASIL 9 KG', category: 'Derivados de Bovino', price: 37.53, image: 'https://www.marquesvendaspmg.shop/images/acem-bovino-resfriado-boi-brasil-9-kg-pmg-atacadista.jpg' },
   { id: 518, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 519, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 520, name: 'ALCATRA COM MAMINHA BOVINA RESFRIADA BOI BRASIL 5 KG', category: 'Derivados de Bovino', price: 39.94, image: 'https://www.marquesvendaspmg.shop/images/alcatra-com-maminha-bovina-resfriada-boi-brasil-5-kg-pmg-atacadista.jpg' },
@@ -589,7 +589,7 @@ const products = [
   { id: 524, name: 'ARANHA DA ALCATRA BOVINA CONGELADA BOI BRASIL 2 KG', category: 'Derivados de Bovino', price: 30.16, image: 'https://www.marquesvendaspmg.shop/images/aranha-da-alcatra-bovina-congelada-boi-brasil-2-kg-pmg-atacadista.jpg' },
   { id: 525, name: 'ARANHA DA ALCATRA BOVINA CONGELADA TODA HORA PLENA 1.5 KG', category: 'Derivados de Bovino', price: 33.1, image: 'https://www.marquesvendaspmg.shop/images/aranha-da-alcatra-bovina-congelada-toda-hora-plena-15-kg-pmg-atacadista.jpg' },
   { id: 526, name: 'CAPA DE FILÉ BOVINA RESFRIADA NOSSO BEEF FRIGO NOSSO 2 KG', category: 'Derivados de Bovino', price: 29.49, image: 'https://www.marquesvendaspmg.shop/images/capa-de-file-bovina-resfriada-nosso-beef-frigo-nosso-2-kg-pmg-atacadista.jpg' },
-  { id: 527, name: 'CARNE DE SOL BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Derivados de Bovino', price: 54.83, image: 'https://www.marquesvendaspmg.shop/images/carne-de-sol-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
+  { id: 527, name: 'CARNE DE SOL BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Derivados de Bovino', price: 56.29, image: 'https://www.marquesvendaspmg.shop/images/carne-de-sol-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
   { id: 528, name: 'CARNE MOÍDA BOVINA CONGELADA ACÉM BOI FORTE 1 KG', category: 'Derivados de Bovino', price: 19, image: 'https://www.marquesvendaspmg.shop/images/carne-moida-bovina-congelada-acem-boi-forte-1-kg-pmg-atacadista.jpg' },
   { id: 529, name: 'CARNE MOÍDA BOVINA CONGELADA ALFAMA 1 KG', category: 'Derivados de Bovino', price: 28.51, image: 'https://www.marquesvendaspmg.shop/images/carne-moida-bovina-congelada-alfama-1-kg-pmg-atacadista.jpg' },
   { id: 530, name: 'CARNE MOÍDA BOVINA CONGELADA ALFAMA 2,5 KILO', category: 'Derivados de Bovino', price: 70.12, image: 'https://www.marquesvendaspmg.shop/images/carne-moida-bovina-congelada-alfama-25-kilo-pmg-atacadista.jpg' },
@@ -607,23 +607,23 @@ const products = [
   { id: 542, name: 'CONTRA FILÉ BOVINO RESFRIADO COM NOIX BOI BRASIL 3 KG', category: 'Derivados de Bovino', price: 42.83, image: 'https://www.marquesvendaspmg.shop/images/contra-file-bovino-resfriado-com-noix-boi-brasil-3-kg-pmg-atacadista.jpg' },
   { id: 543, name: 'CONTRA FILÉ BOVINO RESFRIADO COM NOIX GOLD BEEF 3 KG', category: 'Derivados de Bovino', price: 43.25, image: 'https://www.marquesvendaspmg.shop/images/contra-file-bovino-resfriado-com-noix-gold-beef-3-kg-pmg-atacadista.jpg' },
   { id: 544, name: 'CONTRA FILÉ BOVINO RESFRIADO SEM NOIX BOI BRASIL 4 KG', category: 'Derivados de Bovino', price: 45.06, image: 'https://www.marquesvendaspmg.shop/images/contra-file-bovino-resfriado-sem-noix-boi-brasil-4-kg-pmg-atacadista.jpg' },
-  { id: 545, name: 'CORDÃO DO FILÉ MIGNON BOVINO CONGELADO BOI BRASIL 3 KG', category: 'Derivados de Bovino', price: 29.56, image: 'https://www.marquesvendaspmg.shop/images/cordao-do-file-mignon-bovino-congelado-boi-brasil-3-kg-pmg-atacadista.jpg' },
+  { id: 545, name: 'CORDÃO DO FILÉ MIGNON BOVINO CONGELADO BOI BRASIL 3 KG', category: 'Derivados de Bovino', price: 26.67, image: 'https://www.marquesvendaspmg.shop/images/cordao-do-file-mignon-bovino-congelado-boi-brasil-3-kg-pmg-atacadista.jpg' },
   { id: 546, name: 'COSTELA BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Derivados de Bovino', price: 57.15, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
   { id: 547, name: 'COSTELA BOVINA CONGELADA EM TIRAS COM OSSO FRIGO NOSSO 2 KG', category: 'Derivados de Bovino', price: 18.66, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-em-tiras-com-osso-frigo-nosso-2-kg-pmg-atacadista.jpg' },
-  { id: 548, name: 'COSTELA BOVINA CONGELADA EM TIRAS SERRADA COM OSSO FRIGONOSSA 2.5 KG', category: 'Derivados de Bovino', price: 20.69, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-em-tiras-serrada-com-osso-frigonossa-25-kg-pmg-atacadista.jpg' },
+  { id: 548, name: 'COSTELA BOVINA CONGELADA EM TIRAS SERRADA COM OSSO FRIGONOSSA 2.5 KG', category: 'Derivados de Bovino', price: 20.39, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-em-tiras-serrada-com-osso-frigonossa-25-kg-pmg-atacadista.jpg' },
   { id: 549, name: 'COSTELA BOVINA CONGELADA JANELA COM OSSO GOLD BEEF PRIME GRILL 5 KG', category: 'Derivados de Bovino', price: 23.53, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-janela-com-osso-gold-beef-prime-grill-5-kg-pmg-atacadista.jpg' },
-  { id: 550, name: 'COSTELA BOVINA CONGELADA ROJÃO MINGA COM OSSO FRIGO NOSSO 9 KG', category: 'Derivados de Bovino', price: 21.6, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-rojao-minga-com-osso-frigo-nosso-9-kg-pmg-atacadista.jpg' },
+  { id: 550, name: 'COSTELA BOVINA CONGELADA ROJÃO MINGA COM OSSO FRIGO NOSSO 9 KG', category: 'Derivados de Bovino', price: 22.31, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-rojao-minga-com-osso-frigo-nosso-9-kg-pmg-atacadista.jpg' },
   { id: 551, name: 'COSTELA BOVINA CONGELADA ROJÃO MINGA COM OSSO PLENA 7 KG', category: 'Derivados de Bovino', price: 21.6, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-rojao-minga-com-osso-plena-7-kg-pmg-atacadista.jpg' },
   { id: 552, name: 'COXÃO DURO BOVINO RESFRIADO NOSSO BEEF FRIGO NOSSO 5 KG', category: 'Derivados de Bovino', price: 34.99, image: 'https://www.marquesvendaspmg.shop/images/coxao-duro-bovino-resfriado-nosso-beef-frigo-nosso-5-kg-pmg-atacadista.jpg' },
   { id: 553, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 554, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 36.71, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 555, name: 'COXÃO MOLE BOVINO RESFRIADO NOSSO BEEF FRIGO NOSSO 9 KG', category: 'Derivados de Bovino', price: 37.28, image: 'https://www.marquesvendaspmg.shop/images/coxao-mole-bovino-resfriado-nosso-beef-frigo-nosso-9-kg-pmg-atacadista.jpg' },
   { id: 556, name: 'CUPIM BOVINO CONGELADO DESFIADO ALFAMA 1 KG', category: 'Derivados de Bovino', price: 61.25, image: 'https://www.marquesvendaspmg.shop/images/cupim-bovino-congelado-desfiado-alfama-1-kg-pmg-atacadista.jpg' },
-  { id: 557, name: 'CUPIM BOVINO CONGELADO TIPO B FRIGO NOSSO 8.5 KG', category: 'Derivados de Bovino', price: 32.45, image: 'https://www.marquesvendaspmg.shop/images/cupim-bovino-congelado-tipo-b-frigo-nosso-85-kg-pmg-atacadista.jpg' },
+  { id: 557, name: 'CUPIM BOVINO CONGELADO TIPO B FRIGO NOSSO 8.5 KG', category: 'Derivados de Bovino', price: 32.58, image: 'https://www.marquesvendaspmg.shop/images/cupim-bovino-congelado-tipo-b-frigo-nosso-85-kg-pmg-atacadista.jpg' },
   { id: 558, name: 'CUPIM BOVINO CONGELADO TIPO B MONDELLI 5 KG', category: 'Derivados de Bovino', price: 39.82, image: 'https://www.marquesvendaspmg.shop/images/cupim-bovino-congelado-tipo-b-mondelli-5-kg-pmg-atacadista.jpg' },
   { id: 559, name: 'CUPIM BOVINO CONGELADO TIPO B PLENA 4 KG', category: 'Derivados de Bovino', price: 40.64, image: 'https://www.marquesvendaspmg.shop/images/cupim-bovino-congelado-tipo-b-plena-4-kg-pmg-atacadista.jpg' },
   { id: 560, name: 'FÍGADO BOVINO CONGELADO FRIGO NOSSO 4.5 KG', category: 'Derivados de Bovino', price: 34.87, image: 'https://www.marquesvendaspmg.shop/images/figado-bovino-congelado-frigo-nosso-45-kg-pmg-atacadista.jpg' },
-  { id: 561, name: 'FILÉ MIGNON BOVINO RESFRIADO "3 / 4" SEM CORDÃO FRIGORAÇA 1.5 KG', category: 'Derivados de Bovino', price: 76.2, image: 'https://www.marquesvendaspmg.shop/images/file-mignon-bovino-resfriado-3-4-sem-cordao-frigoraca-15-kg-pmg-atacadista.jpg' },
+  { id: 561, name: 'FILÉ MIGNON BOVINO RESFRIADO "3 / 4" SEM CORDÃO FRIGORAÇA 1.5 KG', category: 'Derivados de Bovino', price: 78.67, image: 'https://www.marquesvendaspmg.shop/images/file-mignon-bovino-resfriado-3-4-sem-cordao-frigoraca-15-kg-pmg-atacadista.jpg' },
   { id: 562, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 8.43, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 563, name: 'FILÉ MIGNON BOVINO RESFRIADO "4 / 5" SEM CORDÃO NOSSO GRILL FRIGO NOSSO 2 KG', category: 'Derivados de Bovino', price: 77.28, image: 'https://www.marquesvendaspmg.shop/images/file-mignon-bovino-resfriado-4-5-sem-cordao-nosso-grill-frigo-nosso-2-kg-pmg-atacadista.jpg' },
   { id: 564, name: 'FRALDINHA BOVINA RESFRIADA BOI BRASIL 1.2 KG', category: 'Derivados de Bovino', price: 35.86, image: 'https://www.marquesvendaspmg.shop/images/fraldinha-bovina-resfriada-boi-brasil-12-kg-pmg-atacadista.jpg' },
@@ -638,7 +638,7 @@ const products = [
   { id: 573, name: 'HAMBÚRGUER GRANDE DE CARNE BOVINA E AVES SABOR PICANHA BRASA BURGUERS 120 G (CX 30 UN)', category: 'Derivados de Bovino/Aves', price: 78.05, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-grande-de-carne-bovina-e-aves-sabor-picanha-brasa-burguers-120-g-cx-30-un-pmg-atacadista.jpg' },
   { id: 574, name: 'HAMBÚRGUER GRANDE DE CARNE BOVINA E AVES TRADICIONAL BRASA BURGUERS 120 G (CX 30 UN)', category: 'Derivados de Bovino/Aves', price: 35.26, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-grande-de-carne-bovina-e-aves-tradicional-brasa-burguers-120-g-cx-30-un-pmg-atacadista.jpg' },
   { id: 575, name: 'HAMBÚRGUER GRANDE DE CARNE BOVINA GOURMET MISTER BEEF 150 G (CX 20 UN)', category: 'Derivados de Bovino', price: 100.47, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-grande-de-carne-bovina-gourmet-mister-beef-150-g-cx-20-un-pmg-atacadista.jpg' },
-  { id: 576, name: 'HAMBÚRGUER MÉDIO DE CARNE BOVINA COSTELA ALFAMA 150 G (CX 24 UN)', category: 'Derivados de Bovino', price: 137.75, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-medio-de-carne-bovina-costela-alfama-150-g-cx-24-un-pmg-atacadista.jpg' },
+  { id: 576, name: 'HAMBÚRGUER MÉDIO DE CARNE BOVINA COSTELA ALFAMA 150 G (CX 24 UN)', category: 'Derivados de Bovino', price: 125.23, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-medio-de-carne-bovina-costela-alfama-150-g-cx-24-un-pmg-atacadista.jpg' },
   { id: 577, name: 'HAMBÚRGUER MÉDIO DE CARNE BOVINA E AVES SABOR PICANHA BRASA BURGUERS 90 G (CX 36 UN)', category: 'Derivados de Bovino/Aves', price: 71.92, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-medio-de-carne-bovina-e-aves-sabor-picanha-brasa-burguers-90-g-cx-36-un-pmg-atacadista.jpg' },
   { id: 578, name: 'HAMBÚRGUER MÉDIO DE CARNE BOVINA E AVES TRADICIONAL BRASA BURGUERS 90 G (CX 36 UN)', category: 'Derivados de Bovino/Aves', price: 68.52, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-medio-de-carne-bovina-e-aves-tradicional-brasa-burguers-90-g-cx-36-un-pmg-atacadista.jpg' },
   { id: 579, name: 'HAMBÚRGUER MÉDIO DE CARNE BOVINA SABOR CHURRASCO BRASA BURGUERS 90 G (CX 36 UN)', category: 'Derivados de Bovino', price: 36.54, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-medio-de-carne-bovina-sabor-churrasco-brasa-burguers-90-g-cx-36-un-pmg-atacadista.jpg' },
@@ -653,30 +653,30 @@ const products = [
   { id: 588, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 93.41, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 589, name: 'LAGARTO BOVINO RESFRIADO NOSSO BEEF FRIGO NOSSO 2 KG', category: 'Derivados de Bovino', price: 38.61, image: 'https://www.marquesvendaspmg.shop/images/lagarto-bovino-resfriado-nosso-beef-frigo-nosso-2-kg-pmg-atacadista.jpg' },
   { id: 590, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 591, name: 'MAMINHA DA ALCATRA BOVINA RESFRIADA JORDANÉSIA 1.2 KG', category: 'Derivados de Bovino', price: 37.46, image: 'https://www.marquesvendaspmg.shop/images/maminha-da-alcatra-bovina-resfriada-jordanesia-12-kg-pmg-atacadista.jpg' },
-  { id: 592, name: 'MIOLO DA ALCATRA BOVINA RESFRIADO JORDANÉSIA 3,5 KG', category: 'Derivados de Bovino', price: 45.11, image: 'https://www.marquesvendaspmg.shop/images/miolo-da-alcatra-bovina-resfriado-jordanesia-35-kg-pmg-atacadista.jpg' },
+  { id: 591, name: 'MAMINHA DA ALCATRA BOVINA RESFRIADA JORDANÉSIA 1.2 KG', category: 'Derivados de Bovino', price: 38.61, image: 'https://www.marquesvendaspmg.shop/images/maminha-da-alcatra-bovina-resfriada-jordanesia-12-kg-pmg-atacadista.jpg' },
+  { id: 592, name: 'MIOLO DA ALCATRA BOVINA RESFRIADO JORDANÉSIA 3,5 KG', category: 'Derivados de Bovino', price: 44.92, image: 'https://www.marquesvendaspmg.shop/images/miolo-da-alcatra-bovina-resfriado-jordanesia-35-kg-pmg-atacadista.jpg' },
   { id: 593, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 28.89, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 594, name: 'MÚSCULO DO TRASEIRO BOVINO RESFRIADO SEM OSSO BOI BRASIL 3.5 KG', category: 'Derivados de Bovino', price: 28.35, image: 'https://www.marquesvendaspmg.shop/images/musculo-do-traseiro-bovino-resfriado-sem-osso-boi-brasil-35-kg-pmg-atacadista.jpg' },
-  { id: 595, name: 'MÚSCULO DO TRASEIRO BOVINO RESFRIADO SEM OSSO FRIGO NOSSO 3.5 KG', category: 'Derivados de Bovino', price: 29.56, image: 'https://www.marquesvendaspmg.shop/images/musculo-do-traseiro-bovino-resfriado-sem-osso-frigo-nosso-35-kg-pmg-atacadista.jpg' },
-  { id: 596, name: 'PALETA BOVINA RESFRIADA SEM OSSO E SEM MÚSCULO BOI BRASIL 9 KG', category: 'Derivados de Bovino', price: 28.83, image: 'https://www.marquesvendaspmg.shop/images/paleta-bovina-resfriada-sem-osso-e-sem-musculo-boi-brasil-9-kg-pmg-atacadista.jpg' },
-  { id: 597, name: 'PASTRAMI BOVINO COZIDO E DEFUMADO CERATTI 1,5 KG', category: 'Derivados de Bovino', price: 121.05, image: 'https://www.marquesvendaspmg.shop/images/pastrami-bovino-cozido-e-defumado-ceratti-15-kg-pmg-atacadista.jpg' },
+  { id: 595, name: 'MÚSCULO DO TRASEIRO BOVINO RESFRIADO SEM OSSO FRIGO NOSSO 3.5 KG', category: 'Derivados de Bovino', price: 29.32, image: 'https://www.marquesvendaspmg.shop/images/musculo-do-traseiro-bovino-resfriado-sem-osso-frigo-nosso-35-kg-pmg-atacadista.jpg' },
+  { id: 596, name: 'PALETA BOVINA RESFRIADA SEM OSSO E SEM MÚSCULO BOI BRASIL 9 KG', category: 'Derivados de Bovino', price: 29.81, image: 'https://www.marquesvendaspmg.shop/images/paleta-bovina-resfriada-sem-osso-e-sem-musculo-boi-brasil-9-kg-pmg-atacadista.jpg' },
+  { id: 597, name: 'PASTRAMI BOVINO COZIDO E DEFUMADO CERATTI 1,5 KG', category: 'Derivados de Bovino', price: 110.08, image: 'https://www.marquesvendaspmg.shop/images/pastrami-bovino-cozido-e-defumado-ceratti-15-kg-pmg-atacadista.jpg' },
   { id: 598, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 599, name: 'PATINHO BOVINO RESFRIADO BOI BRASIL 5 KG', category: 'Derivados de Bovino', price: 38.49, image: 'https://www.marquesvendaspmg.shop/images/patinho-bovino-resfriado-boi-brasil-5-kg-pmg-atacadista.jpg' },
+  { id: 599, name: 'PATINHO BOVINO RESFRIADO BOI BRASIL 5 KG', category: 'Derivados de Bovino', price: 38.73, image: 'https://www.marquesvendaspmg.shop/images/patinho-bovino-resfriado-boi-brasil-5-kg-pmg-atacadista.jpg' },
   { id: 600, name: 'PATINHO BOVINO RESFRIADO JORDANÉSIA 5 KG', category: 'Derivados de Bovino', price: 35.45, image: 'https://www.marquesvendaspmg.shop/images/patinho-bovino-resfriado-jordanesia-5-kg-pmg-atacadista.jpg' },
   { id: 601, name: 'PEITO BOVINO RESFRIADO SEM OSSO FRIGO NOSSO 6,5 KG', category: 'Derivados de Bovino', price: 27.15, image: 'https://www.marquesvendaspmg.shop/images/peito-bovino-resfriado-sem-osso-frigo-nosso-65-kg-pmg-atacadista.jpg' },
-  { id: 602, name: 'PICANHA BOVINA RESFRIADA DEFUMADA CERATTI 1 KG', category: 'Derivados de Bovino', price: 200.71, image: 'https://www.marquesvendaspmg.shop/images/picanha-bovina-resfriada-defumada-ceratti-1-kg-pmg-atacadista.jpg' },
+  { id: 602, name: 'PICANHA BOVINA RESFRIADA DEFUMADA CERATTI 1 KG', category: 'Derivados de Bovino', price: 187.58, image: 'https://www.marquesvendaspmg.shop/images/picanha-bovina-resfriada-defumada-ceratti-1-kg-pmg-atacadista.jpg' },
   { id: 603, name: 'PICANHA BOVINA RESFRIADA TIPO A BOI BRASIL 1.3 KG', category: 'Derivados de Bovino', price: 64.49, image: 'https://www.marquesvendaspmg.shop/images/picanha-bovina-resfriada-tipo-a-boi-brasil-13-kg-pmg-atacadista.jpg' },
   { id: 604, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 605, name: 'QUEIJO CRISPY BURGER SEARA GOURMET 100 G (CX 26 UN)', category: 'Derivados de Bovino', price: 98.47, image: 'https://www.marquesvendaspmg.shop/images/queijo-crispy-burger-seara-gourmet-100-g-cx-26-un-pmg-atacadista.jpg' },
-  { id: 606, name: 'RABO BOVINO CONGELADO BOI BRASIL 2 KG', category: 'Derivados de Bovino', price: 22.99, image: 'https://www.marquesvendaspmg.shop/images/rabo-bovino-congelado-boi-brasil-2-kg-pmg-atacadista.jpg' },
+  { id: 606, name: 'RABO BOVINO CONGELADO BOI BRASIL 2 KG', category: 'Derivados de Bovino', price: 22.8, image: 'https://www.marquesvendaspmg.shop/images/rabo-bovino-congelado-boi-brasil-2-kg-pmg-atacadista.jpg' },
   { id: 607, name: 'PRODUTO EM FALTA', category: 'Derivados de Bovino', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 608, name: 'BASE CULINÁRIA LECO 1 KILO (CX 12 UN)', category: 'Derivados de Leite', price: 163.23, image: 'https://www.marquesvendaspmg.shop/images/base-culinaria-leco-1-kilo-cx-12-un-pmg-atacadista.jpg' },
-  { id: 609, name: 'CHANTILLY DECOR UP DELUXE 1 L', category: 'Derivados de Leite', price: 20.72, image: 'https://www.marquesvendaspmg.shop/images/chantilly-decor-up-deluxe-1-l-pmg-atacadista.jpg' },
+  { id: 609, name: 'CHANTILLY DECOR UP DELUXE 1 L', category: 'Derivados de Leite', price: 21.72, image: 'https://www.marquesvendaspmg.shop/images/chantilly-decor-up-deluxe-1-l-pmg-atacadista.jpg' },
   { id: 610, name: 'CHANTILLY GRAN FINALE 1 L', category: 'Derivados de Leite', price: 28.16, image: 'https://www.marquesvendaspmg.shop/images/chantilly-gran-finale-1-l-pmg-atacadista.jpg' },
   { id: 611, name: 'CHANTILLY SPRAY GRAN FINALE 250 G', category: 'Derivados de Leite', price: 24.96, image: 'https://www.marquesvendaspmg.shop/images/chantilly-spray-gran-finale-250-g-pmg-atacadista.jpg' },
   { id: 612, name: 'CHANTILLY SPRAY POLENGHI 250 G', category: 'Derivados de Leite', price: 28.41, image: 'https://www.marquesvendaspmg.shop/images/chantilly-spray-polenghi-250-g-pmg-atacadista.jpg' },
   { id: 613, name: 'CHANTY MIX AMÉLIA 1 L', category: 'Derivados de Leite', price: 21.25, image: 'https://www.marquesvendaspmg.shop/images/chanty-mix-amelia-1-l-pmg-atacadista.jpg' },
-  { id: 614, name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS POLENGHI "2,27" KILO', category: 'Derivados de Leite', price: 76.68, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-160-fatias-polenghi-227-kilo-pmg-atacadista.jpg' },
+  { id: 614, name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS POLENGHI "2,27" KILO', category: 'Derivados de Leite', price: 80.8, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-160-fatias-polenghi-227-kilo-pmg-atacadista.jpg' },
   { id: 615, name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS VIGOR 2,24 KILO', category: 'Derivados de Leite', price: 89.89, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-160-fatias-vigor-224-kilo-pmg-atacadista.jpg' },
   { id: 616, name: 'CHEDDAR FATIADO PROCESSADO 184 FATIAS SCHREIBER 2,27 KILO', category: 'Derivados de Leite', price: 91.98, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-184-fatias-schreiber-227-kilo-pmg-atacadista.jpg' },
   { id: 617, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
@@ -689,7 +689,7 @@ const products = [
   { id: 624, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 625, name: 'CREAM CHEESE PEQUENO SCALA 150 G', category: 'Derivados de Leite', price: 7.84, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-pequeno-scala-150-g-pmg-atacadista.jpg' },
   { id: 626, name: 'CREAM CHEESE PHILADELPHIA 3,6 KILO', category: 'Derivados de Leite', price: 144.1, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-36-kilo-pmg-atacadista.jpg' },
-  { id: 627, name: 'CREAM CHEESE PHILADELPHIA 1,5 KILO', category: 'Derivados de Leite', price: 61.34, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-15-kilo-pmg-atacadista.jpg' },
+  { id: 627, name: 'CREAM CHEESE PHILADELPHIA 1,5 KILO', category: 'Derivados de Leite', price: 66.69, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-15-kilo-pmg-atacadista.jpg' },
   { id: 628, name: 'CREAM CHEESE POLENGHI 3,6 KILO', category: 'Derivados de Leite', price: 36.71, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-36-kilo-pmg-atacadista.jpg' },
   { id: 629, name: 'CREAM CHEESE POLENGHI 1 KILO', category: 'Derivados de Leite', price: 35.92, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-1-kilo-pmg-atacadista.jpg' },
   { id: 630, name: 'CREAM CHEESE SACHÊ DANÚBIO 18 G (CX 144 UN)', category: 'Derivados de Leite', price: 136.94, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-sache-danubio-18-g-cx-144-un-pmg-atacadista.jpg' },
@@ -713,14 +713,14 @@ const products = [
   { id: 648, name: 'DOCE DE LEITE NESTLÉ 1,01 KILO', category: 'Derivados de Leite', price: 37.41, image: 'https://www.marquesvendaspmg.shop/images/doce-de-leite-nestle-101-kilo-pmg-atacadista.jpg' },
   { id: 649, name: 'DOCE DE LEITE SABOR DE MINAS 1,5 KILO', category: 'Derivados de Leite', price: 21.32, image: 'https://www.marquesvendaspmg.shop/images/doce-de-leite-sabor-de-minas-15-kilo-pmg-atacadista.jpg' },
   { id: 650, name: 'DOCE DE LEITE TRADICIONAL FRIMESA 400 G', category: 'Derivados de Leite', price: 8.67, image: 'https://www.marquesvendaspmg.shop/images/doce-de-leite-tradicional-frimesa-400-g-pmg-atacadista.jpg' },
-  { id: 651, name: 'GORGONZOLA BELLA ITÁLIA 3 KG', category: 'Derivados de Leite', price: 53.17, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-bella-italia-3-kg-pmg-atacadista.jpg' },
+  { id: 651, name: 'GORGONZOLA BELLA ITÁLIA 3 KG', category: 'Derivados de Leite', price: 46.82, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-bella-italia-3-kg-pmg-atacadista.jpg' },
   { id: 652, name: 'GORGONZOLA FRACIONADO BELLA ITÁLIA 200 G', category: 'Derivados de Leite', price: 9.81, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-bella-italia-200-g-pmg-atacadista.jpg' },
   { id: 653, name: 'GORGONZOLA FRACIONADO QUATÁ 180 G', category: 'Derivados de Leite', price: 12.64, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-quata-180-g-pmg-atacadista.jpg' },
   { id: 654, name: 'GORGONZOLA FRACIONADO QUEIJO AZUL SÃO VICENTE 180 G', category: 'Derivados de Leite', price: 11.09, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-queijo-azul-sao-vicente-180-g-pmg-atacadista.jpg' },
-  { id: 655, name: 'GORGONZOLA FRACIONADO QUEIJO AZUL SCALA 180 G', category: 'Derivados de Leite', price: 13.28, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-queijo-azul-scala-180-g-pmg-atacadista.jpg' },
+  { id: 655, name: 'GORGONZOLA FRACIONADO QUEIJO AZUL SCALA 180 G', category: 'Derivados de Leite', price: 15.26, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-queijo-azul-scala-180-g-pmg-atacadista.jpg' },
   { id: 656, name: 'GORGONZOLA FRACIONADO QUEIJO AZUL TIROLEZ 200 G', category: 'Derivados de Leite', price: 14.15, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-queijo-azul-tirolez-200-g-pmg-atacadista.jpg' },
   { id: 657, name: 'GORGONZOLA FRACIONADO QUEIJO AZUL YEMA 170 G', category: 'Derivados de Leite', price: 12.15, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-queijo-azul-yema-170-g-pmg-atacadista.jpg' },
-  { id: 658, name: 'GORGONZOLA QUATÁ 3 KG', category: 'Derivados de Leite', price: 52.44, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-quata-3-kg-pmg-atacadista.jpg' },
+  { id: 658, name: 'GORGONZOLA QUATÁ 3 KG', category: 'Derivados de Leite', price: 53.68, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-quata-3-kg-pmg-atacadista.jpg' },
   { id: 659, name: 'GORGONZOLA QUEIJO AZUL BURITIS 3 KG', category: 'Derivados de Leite', price: 52.78, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-queijo-azul-buritis-3-kg-pmg-atacadista.jpg' },
   { id: 660, name: 'GORGONZOLA QUEIJO AZUL SÃO VICENTE 3 KG', category: 'Derivados de Leite', price: 49.85, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-queijo-azul-sao-vicente-3-kg-pmg-atacadista.jpg' },
   { id: 661, name: 'GORGONZOLA QUEIJO AZUL TIROLEZ 3 KG', category: 'Derivados de Leite', price: 65.86, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-queijo-azul-tirolez-3-kg-pmg-atacadista.jpg' },
@@ -737,19 +737,19 @@ const products = [
   { id: 672, name: 'LEITE CONDENSADO SEMIDESNATADO FOOD SERVICE PIRACANJUBA 2,5 KILO', category: 'Derivados de Leite', price: 36.02, image: 'https://www.marquesvendaspmg.shop/images/leite-condensado-semidesnatado-food-service-piracanjuba-25-kilo-pmg-atacadista.jpg' },
   { id: 673, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 674, name: 'LEITE DESNATADO JUSSARA 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 60.45, image: 'https://www.marquesvendaspmg.shop/images/leite-desnatado-jussara-1-l-cx-12-un-pmg-atacadista.jpg' },
-  { id: 675, name: 'LEITE EM PÓ DESNATADO INSTANTÂNEO LA SERENISSIMA 300 G', category: 'Derivados de Leite', price: 12.94, image: 'https://www.marquesvendaspmg.shop/images/leite-em-po-desnatado-instantaneo-la-serenissima-300-g-pmg-atacadista.jpg' },
+  { id: 675, name: 'LEITE EM PÓ DESNATADO INSTANTÂNEO LA SERENISSIMA 300 G', category: 'Derivados de Leite', price: 11.03, image: 'https://www.marquesvendaspmg.shop/images/leite-em-po-desnatado-instantaneo-la-serenissima-300-g-pmg-atacadista.jpg' },
   { id: 676, name: 'LEITE EM PÓ INTEGRAL ITALAC 400 G', category: 'Derivados de Leite', price: 15.76, image: 'https://www.marquesvendaspmg.shop/images/leite-em-po-integral-italac-400-g-pmg-atacadista.jpg' },
   { id: 677, name: 'LEITE EM PÓ INTEGRAL JUSSARA 400 G', category: 'Derivados de Leite', price: 15.23, image: 'https://www.marquesvendaspmg.shop/images/leite-em-po-integral-jussara-400-g-pmg-atacadista.jpg' },
-  { id: 678, name: 'LEITE EM PÓ INTEGRAL LA SERENISSIMA 400 G', category: 'Derivados de Leite', price: 16.28, image: 'https://www.marquesvendaspmg.shop/images/leite-em-po-integral-la-serenissima-400-g-pmg-atacadista.jpg' },
+  { id: 678, name: 'LEITE EM PÓ INTEGRAL LA SERENISSIMA 400 G', category: 'Derivados de Leite', price: 16.36, image: 'https://www.marquesvendaspmg.shop/images/leite-em-po-integral-la-serenissima-400-g-pmg-atacadista.jpg' },
   { id: 679, name: 'LEITE EM PÓ INTEGRAL PIRACANJUBA 400 G', category: 'Derivados de Leite', price: 15.27, image: 'https://www.marquesvendaspmg.shop/images/leite-em-po-integral-piracanjuba-400-g-pmg-atacadista.jpg' },
   { id: 680, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 681, name: 'LEITE INTEGRAL ITALAC 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 55.96, image: 'https://www.marquesvendaspmg.shop/images/leite-integral-italac-1-l-cx-12-un-pmg-atacadista.jpg' },
-  { id: 682, name: 'LEITE INTEGRAL JUSSARA 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 61.95, image: 'https://www.marquesvendaspmg.shop/images/leite-integral-jussara-1-l-cx-12-un-pmg-atacadista.jpg' },
+  { id: 682, name: 'LEITE INTEGRAL JUSSARA 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 58.18, image: 'https://www.marquesvendaspmg.shop/images/leite-integral-jussara-1-l-cx-12-un-pmg-atacadista.jpg' },
   { id: 683, name: 'LEITE INTEGRAL QUATÁ 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 68.6, image: 'https://www.marquesvendaspmg.shop/images/leite-integral-quata-1-l-cx-12-un-pmg-atacadista.jpg' },
   { id: 684, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 685, name: 'LEITE INTEGRAL ZERO LACTOSE ITALAC 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 80.85, image: 'https://www.marquesvendaspmg.shop/images/leite-integral-zero-lactose-italac-1-l-cx-12-un-pmg-atacadista.jpg' },
-  { id: 686, name: 'LEITE SEMIDESNATADO ITALAC 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 70.27, image: 'https://www.marquesvendaspmg.shop/images/leite-semidesnatado-italac-1-l-cx-12-un-pmg-atacadista.jpg' },
-  { id: 687, name: 'LEITE SEMIDESNATADO ZERO LACTOSE JUSSARA 1 L', category: 'Derivados de Leite', price: 37.02, image: 'https://www.marquesvendaspmg.shop/images/leite-semidesnatado-zero-lactose-jussara-1-l-pmg-atacadista.jpg' },
+  { id: 685, name: 'LEITE INTEGRAL ZERO LACTOSE ITALAC 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 72.77, image: 'https://www.marquesvendaspmg.shop/images/leite-integral-zero-lactose-italac-1-l-cx-12-un-pmg-atacadista.jpg' },
+  { id: 686, name: 'LEITE SEMIDESNATADO ITALAC 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 58.18, image: 'https://www.marquesvendaspmg.shop/images/leite-semidesnatado-italac-1-l-cx-12-un-pmg-atacadista.jpg' },
+  { id: 687, name: 'LEITE SEMIDESNATADO ZERO LACTOSE JUSSARA 1 L', category: 'Derivados de Leite', price: 34.39, image: 'https://www.marquesvendaspmg.shop/images/leite-semidesnatado-zero-lactose-jussara-1-l-pmg-atacadista.jpg' },
   { id: 688, name: 'MANTEIGA COM SAL COYOTE (CX 5 KILO)', category: 'Derivados de Leite', price: 89.47, image: 'https://www.marquesvendaspmg.shop/images/manteiga-com-sal-coyote-cx-5-kilo-pmg-atacadista.jpg' },
   { id: 689, name: 'MANTEIGA COM SAL ITALAC 500 G', category: 'Derivados de Leite', price: 26.42, image: 'https://www.marquesvendaspmg.shop/images/manteiga-com-sal-italac-500-g-pmg-atacadista.jpg' },
   { id: 690, name: 'MANTEIGA COM SAL TRÊS MARIAS 10 KILO', category: 'Derivados de Leite', price: 383.44, image: 'https://www.marquesvendaspmg.shop/images/manteiga-com-sal-tres-marias-10-kilo-pmg-atacadista.jpg' },
@@ -767,7 +767,7 @@ const products = [
   { id: 702, name: 'MANTEIGA SEM SAL DE PRIMEIRA FRIZZO (CX 5 KILO)', category: 'Derivados de Leite', price: 108.64, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-de-primeira-frizzo-cx-5-kilo-pmg-atacadista.jpg' },
   { id: 703, name: 'MANTEIGA SEM SAL QUATRELATI (CX 5 KILO)', category: 'Derivados de Leite', price: 158.19, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-quatrelati-cx-5-kilo-pmg-atacadista.jpg' },
   { id: 704, name: 'MANTEIGA SEM SAL SCALA (CX 5 KILO)', category: 'Derivados de Leite', price: 247.96, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-scala-cx-5-kilo-pmg-atacadista.jpg' },
-  { id: 705, name: 'MANTEIGA SEM SAL TIROLEZ (CX 5 KILO)', category: 'Derivados de Leite', price: 249.17, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-tirolez-cx-5-kilo-pmg-atacadista.jpg' },
+  { id: 705, name: 'MANTEIGA SEM SAL TIROLEZ (CX 5 KILO)', category: 'Derivados de Leite', price: 231.73, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-tirolez-cx-5-kilo-pmg-atacadista.jpg' },
   { id: 706, name: 'MANTEIGA SEM SAL TRÊS MARIAS (CX 5 KILO)', category: 'Derivados de Leite', price: 153.38, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-tres-marias-cx-5-kilo-pmg-atacadista.jpg' },
   { id: 707, name: 'MISTURA DE REQUEIJÃO SABOR CHEDDAR CORONATA 1,5 KILO', category: 'Derivados de Leite', price: 31.49, image: 'https://www.marquesvendaspmg.shop/images/mistura-de-requeijao-sabor-cheddar-coronata-15-kilo-pmg-atacadista.jpg' },
   { id: 708, name: 'MISTURA DE REQUEIJÃO SABOR CHEDDAR DALLORA 1,8 KILO', category: 'Derivados de Leite', price: 25.34, image: 'https://www.marquesvendaspmg.shop/images/mistura-de-requeijao-sabor-cheddar-dallora-18-kilo-pmg-atacadista.jpg' },
@@ -783,11 +783,11 @@ const products = [
   { id: 718, name: 'MUÇARELA BACIO 4 KG', category: 'Derivados de Leite', price: 37.36, image: 'https://www.marquesvendaspmg.shop/images/mucarela-bacio-4-kg-pmg-atacadista.jpg' },
   { id: 719, name: 'MUÇARELA BARI 4 KG', category: 'Derivados de Leite', price: 27.63, image: 'https://www.marquesvendaspmg.shop/images/mucarela-bari-4-kg-pmg-atacadista.jpg' },
   { id: 720, name: 'MUÇARELA BOCCATELLE CORONATA 360 G', category: 'Derivados de Leite', price: 21.6, image: 'https://www.marquesvendaspmg.shop/images/mucarela-boccatelle-coronata-360-g-pmg-atacadista.jpg' },
-  { id: 721, name: 'MUÇARELA BONÍSSIMO 4 KG', category: 'Derivados de Leite', price: 27.05, image: 'https://www.marquesvendaspmg.shop/images/mucarela-bonissimo-4-kg-pmg-atacadista.jpg' },
+  { id: 721, name: 'MUÇARELA BONÍSSIMO 4 KG', category: 'Derivados de Leite', price: 26.45, image: 'https://www.marquesvendaspmg.shop/images/mucarela-bonissimo-4-kg-pmg-atacadista.jpg' },
   { id: 722, name: 'MUÇARELA CLÁSSICA 4 KG', category: 'Derivados de Leite', price: 32.64, image: 'https://www.marquesvendaspmg.shop/images/mucarela-classica-4-kg-pmg-atacadista.jpg' },
   { id: 723, name: 'MUÇARELA COBERTURA PARA PIZZA MOZZALET 2 KG', category: 'Derivados de Leite', price: 46.52, image: 'https://www.marquesvendaspmg.shop/images/mucarela-cobertura-para-pizza-mozzalet-2-kg-pmg-atacadista.jpg' },
   { id: 724, name: 'MUÇARELA COBERTURA PARA PIZZA MOZZANA 2 KG', category: 'Derivados de Leite', price: 51.56, image: 'https://www.marquesvendaspmg.shop/images/mucarela-cobertura-para-pizza-mozzana-2-kg-pmg-atacadista.jpg' },
-  { id: 725, name: 'MUÇARELA COOPERNOVA 4 KG', category: 'Derivados de Leite', price: 31.16, image: 'https://www.marquesvendaspmg.shop/images/mucarela-coopernova-4-kg-pmg-atacadista.jpg' },
+  { id: 725, name: 'MUÇARELA COOPERNOVA 4 KG', category: 'Derivados de Leite', price: 30.57, image: 'https://www.marquesvendaspmg.shop/images/mucarela-coopernova-4-kg-pmg-atacadista.jpg' },
   { id: 726, name: 'MUÇARELA COYOTE 4 KG', category: 'Derivados de Leite', price: 30.44, image: 'https://www.marquesvendaspmg.shop/images/mucarela-coyote-4-kg-pmg-atacadista.jpg' },
   { id: 727, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 728, name: 'MUÇARELA DE BÚFALA BOCCONCINO YEMA 330 G', category: 'Derivados de Leite', price: 23.32, image: 'https://www.marquesvendaspmg.shop/images/mucarela-de-bufala-bocconcino-yema-330-g-pmg-atacadista.jpg' },
@@ -797,30 +797,30 @@ const products = [
   { id: 732, name: 'MUÇARELA DE BÚFALA CEREJINHA YEMA 330 G', category: 'Derivados de Leite', price: 23.65, image: 'https://www.marquesvendaspmg.shop/images/mucarela-de-bufala-cerejinha-yema-330-g-pmg-atacadista.jpg' },
   { id: 733, name: 'MUÇARELA DE BÚFALA LEVITARE 4 KG', category: 'Derivados de Leite', price: 54.33, image: 'https://www.marquesvendaspmg.shop/images/mucarela-de-bufala-levitare-4-kg-pmg-atacadista.jpg' },
   { id: 734, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 735, name: 'MUÇARELA DE BÚFALA YEMA 3,7 KG', category: 'Derivados de Leite', price: 44.98, image: 'https://www.marquesvendaspmg.shop/images/mucarela-de-bufala-yema-37-kg-pmg-atacadista.jpg' },
-  { id: 736, name: 'MUÇARELA DOMILAC 3 KG', category: 'Derivados de Leite', price: 27.63, image: 'https://www.marquesvendaspmg.shop/images/mucarela-domilac-3-kg-pmg-atacadista.jpg' },
+  { id: 735, name: 'MUÇARELA DE BÚFALA YEMA 3,7 KG', category: 'Derivados de Leite', price: 44.72, image: 'https://www.marquesvendaspmg.shop/images/mucarela-de-bufala-yema-37-kg-pmg-atacadista.jpg' },
+  { id: 736, name: 'MUÇARELA DOMILAC 3 KG', category: 'Derivados de Leite', price: 27.05, image: 'https://www.marquesvendaspmg.shop/images/mucarela-domilac-3-kg-pmg-atacadista.jpg' },
   { id: 737, name: 'MUÇARELA FATIADA COYOTE 4 KG', category: 'Derivados de Leite', price: 144.79, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-coyote-4-kg-pmg-atacadista.jpg' },
   { id: 738, name: 'MUÇARELA FATIADA FRIZZO 2 KG', category: 'Derivados de Leite', price: 62.74, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-frizzo-2-kg-pmg-atacadista.jpg' },
-  { id: 739, name: 'MUÇARELA FATIADA HM 4 KG', category: 'Derivados de Leite', price: 118.24, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-hm-4-kg-pmg-atacadista.jpg' },
+  { id: 739, name: 'MUÇARELA FATIADA HM 4 KG', category: 'Derivados de Leite', price: 120.66, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-hm-4-kg-pmg-atacadista.jpg' },
   { id: 740, name: 'MUÇARELA FATIADA PROCESSADA 16 FATIAS SCAR 400 G', category: 'Derivados de Leite', price: 21.37, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-processada-16-fatias-scar-400-g-pmg-atacadista.jpg' },
   { id: 741, name: 'MUÇARELA FATIADA PROCESSADA POLENGHI 2,73 KG', category: 'Derivados de Leite', price: 104.71, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-processada-polenghi-273-kg-pmg-atacadista.jpg' },
   { id: 742, name: 'MUÇARELA FATIADA PROCESSADA SCHREIBER 2,27 KG', category: 'Derivados de Leite', price: 85.98, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-processada-schreiber-227-kg-pmg-atacadista.jpg' },
-  { id: 743, name: 'MUÇARELA FATIADA TIROLEZ 1 KG', category: 'Derivados de Leite', price: 46.25, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-tirolez-1-kg-pmg-atacadista.jpg' },
-  { id: 744, name: 'MUÇARELA FLEURY 4 KG', category: 'Derivados de Leite', price: 30.57, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fleury-4-kg-pmg-atacadista.jpg' },
-  { id: 745, name: 'MUÇARELA FRIOLACK 4 KG', category: 'Derivados de Leite', price: 26.57, image: 'https://www.marquesvendaspmg.shop/images/mucarela-friolack-4-kg-pmg-atacadista.jpg' },
+  { id: 743, name: 'MUÇARELA FATIADA TIROLEZ 1 KG', category: 'Derivados de Leite', price: 43.93, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-tirolez-1-kg-pmg-atacadista.jpg' },
+  { id: 744, name: 'MUÇARELA FLEURY 4 KG', category: 'Derivados de Leite', price: 29.4, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fleury-4-kg-pmg-atacadista.jpg' },
+  { id: 745, name: 'MUÇARELA FRIOLACK 4 KG', category: 'Derivados de Leite', price: 27.05, image: 'https://www.marquesvendaspmg.shop/images/mucarela-friolack-4-kg-pmg-atacadista.jpg' },
   { id: 746, name: 'MUÇARELA FRIZZO 4 KG', category: 'Derivados de Leite', price: 28.22, image: 'https://www.marquesvendaspmg.shop/images/mucarela-frizzo-4-kg-pmg-atacadista.jpg' },
   { id: 747, name: 'MUÇARELA HM 4 KG', category: 'Derivados de Leite', price: 26.75, image: 'https://www.marquesvendaspmg.shop/images/mucarela-hm-4-kg-pmg-atacadista.jpg' },
   { id: 748, name: 'MUÇARELA ITALAC 4 KG', category: 'Derivados de Leite', price: 31.16, image: 'https://www.marquesvendaspmg.shop/images/mucarela-italac-4-kg-pmg-atacadista.jpg' },
   { id: 749, name: 'MUÇARELA JÓIA 4 KG', category: 'Derivados de Leite', price: 32.92, image: 'https://www.marquesvendaspmg.shop/images/mucarela-joia-4-kg-pmg-atacadista.jpg' },
   { id: 750, name: 'MUÇARELA LA PAULINA 3,5 KG', category: 'Derivados de Leite', price: 28.8, image: 'https://www.marquesvendaspmg.shop/images/mucarela-la-paulina-35-kg-pmg-atacadista.jpg' },
   { id: 751, name: 'MUÇARELA LIRA 4 KG', category: 'Derivados de Leite', price: 31.16, image: 'https://www.marquesvendaspmg.shop/images/mucarela-lira-4-kg-pmg-atacadista.jpg' },
-  { id: 752, name: 'MUÇARELA LITORAL 4 KG', category: 'Derivados de Leite', price: 27.05, image: 'https://www.marquesvendaspmg.shop/images/mucarela-litoral-4-kg-pmg-atacadista.jpg' },
+  { id: 752, name: 'MUÇARELA LITORAL 4 KG', category: 'Derivados de Leite', price: 26.45, image: 'https://www.marquesvendaspmg.shop/images/mucarela-litoral-4-kg-pmg-atacadista.jpg' },
   { id: 753, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 754, name: 'MUÇARELA MONTE CASTELO 4 KG', category: 'Derivados de Leite', price: 28.22, image: 'https://www.marquesvendaspmg.shop/images/mucarela-monte-castelo-4-kg-pmg-atacadista.jpg' },
   { id: 755, name: 'MUÇARELA NATVILLE 4 KG', category: 'Derivados de Leite', price: 31.08, image: 'https://www.marquesvendaspmg.shop/images/mucarela-natville-4-kg-pmg-atacadista.jpg' },
   { id: 756, name: 'MUÇARELA PARAÍSO 4 KG', category: 'Derivados de Leite', price: 32.84, image: 'https://www.marquesvendaspmg.shop/images/mucarela-paraiso-4-kg-pmg-atacadista.jpg' },
   { id: 757, name: 'MUÇARELA PILOTO 4 KG', category: 'Derivados de Leite', price: 27.05, image: 'https://www.marquesvendaspmg.shop/images/mucarela-piloto-4-kg-pmg-atacadista.jpg' },
-  { id: 758, name: 'MUÇARELA POLENGHI 3,5 KG', category: 'Derivados de Leite', price: 33.51, image: 'https://www.marquesvendaspmg.shop/images/mucarela-polenghi-35-kg-pmg-atacadista.jpg' },
+  { id: 758, name: 'MUÇARELA POLENGHI 3,5 KG', category: 'Derivados de Leite', price: 32.92, image: 'https://www.marquesvendaspmg.shop/images/mucarela-polenghi-35-kg-pmg-atacadista.jpg' },
   { id: 759, name: 'MUÇARELA PRIMO 4 KG', category: 'Derivados de Leite', price: 28.11, image: 'https://www.marquesvendaspmg.shop/images/mucarela-primo-4-kg-pmg-atacadista.jpg' },
   { id: 760, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 761, name: 'MUÇARELA QUATIGUÁ 4 KG', category: 'Derivados de Leite', price: 29.4, image: 'https://www.marquesvendaspmg.shop/images/mucarela-quatigua-4-kg-pmg-atacadista.jpg' },
@@ -829,10 +829,10 @@ const products = [
   { id: 764, name: 'MUÇARELA SCALA 4 KG', category: 'Derivados de Leite', price: 35.86, image: 'https://www.marquesvendaspmg.shop/images/mucarela-scala-4-kg-pmg-atacadista.jpg' },
   { id: 765, name: 'MUÇARELA TIROLEZ 4 KG', category: 'Derivados de Leite', price: 35.28, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tirolez-4-kg-pmg-atacadista.jpg' },
   { id: 766, name: 'MUÇARELA TRADIÇÃO 4 KG', category: 'Derivados de Leite', price: 34.28, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tradicao-4-kg-pmg-atacadista.jpg' },
-  { id: 767, name: 'MUÇARELA TRÊS MARIAS "MATO GROSSO" 4 KG', category: 'Derivados de Leite', price: 31.86, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-mato-grosso-4-kg-pmg-atacadista.jpg' },
-  { id: 768, name: 'MUÇARELA TRÊS MARIAS "MINAS GERAIS" 4 KG', category: 'Derivados de Leite', price: 31.75, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-minas-gerais-4-kg-pmg-atacadista.jpg' },
-  { id: 769, name: 'MUÇARELA TRÊS MARIAS RONDÔNIA "JARU" 4 KG', category: 'Derivados de Leite', price: 32.92, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-rondonia-jaru-4-kg-pmg-atacadista.jpg' },
-  { id: 770, name: 'MUÇARELA TRÊS MARIAS RONDÔNIA "OURO PRETO" 4 KG', category: 'Derivados de Leite', price: 32.71, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-rondonia-ouro-preto-4-kg-pmg-atacadista.jpg' },
+  { id: 767, name: 'MUÇARELA TRÊS MARIAS "MATO GROSSO" 4 KG', category: 'Derivados de Leite', price: 31.75, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-mato-grosso-4-kg-pmg-atacadista.jpg' },
+  { id: 768, name: 'MUÇARELA TRÊS MARIAS "MINAS GERAIS" 4 KG', category: 'Derivados de Leite', price: 31.16, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-minas-gerais-4-kg-pmg-atacadista.jpg' },
+  { id: 769, name: 'MUÇARELA TRÊS MARIAS RONDÔNIA "JARU" 4 KG', category: 'Derivados de Leite', price: 32.33, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-rondonia-jaru-4-kg-pmg-atacadista.jpg' },
+  { id: 770, name: 'MUÇARELA TRÊS MARIAS RONDÔNIA "OURO PRETO" 4 KG', category: 'Derivados de Leite', price: 31.15, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-rondonia-ouro-preto-4-kg-pmg-atacadista.jpg' },
   { id: 771, name: 'MUÇARELA VACA E BÚFALA BOCCONCINO YEMA 330 G', category: 'Derivados de Leite', price: 19.16, image: 'https://www.marquesvendaspmg.shop/images/mucarela-vaca-e-bufala-bocconcino-yema-330-g-pmg-atacadista.jpg' },
   { id: 772, name: 'MUÇARELA VACA E BÚFALA CEREJAS YEMA 330 G', category: 'Derivados de Leite', price: 19.16, image: 'https://www.marquesvendaspmg.shop/images/mucarela-vaca-e-bufala-cerejas-yema-330-g-pmg-atacadista.jpg' },
   { id: 773, name: 'MUÇARELA VACA E BÚFALA MARGHERITA YEMA 700 G', category: 'Derivados de Leite', price: 53.55, image: 'https://www.marquesvendaspmg.shop/images/mucarela-vaca-e-bufala-margherita-yema-700-g-pmg-atacadista.jpg' },
@@ -840,8 +840,8 @@ const products = [
   { id: 775, name: 'NATA GRANDE FRIMESA 3,5 KG', category: 'Derivados de Leite', price: 160.49, image: 'https://www.marquesvendaspmg.shop/images/nata-grande-frimesa-35-kg-pmg-atacadista.jpg' },
   { id: 776, name: 'NATA PEQUENA FRIMESA 300 G', category: 'Derivados de Leite', price: 15.28, image: 'https://www.marquesvendaspmg.shop/images/nata-pequena-frimesa-300-g-pmg-atacadista.jpg' },
   { id: 777, name: 'PARMESÃO 1 / 4 SCALA 1,35 KG', category: 'Derivados de Leite', price: 133.4, image: 'https://www.marquesvendaspmg.shop/images/parmesao-1-4-scala-135-kg-pmg-atacadista.jpg' },
-  { id: 778, name: 'PARMESÃO 6 MESES IPANEMA 6 KG', category: 'Derivados de Leite', price: 75.72, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-ipanema-6-kg-pmg-atacadista.jpg' },
-  { id: 779, name: 'PARMESÃO 6 MESES LA SERENISSIMA 8 KG', category: 'Derivados de Leite', price: 76.7, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-la-serenissima-8-kg-pmg-atacadista.jpg' },
+  { id: 778, name: 'PARMESÃO 6 MESES IPANEMA 6 KG', category: 'Derivados de Leite', price: 71.89, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-ipanema-6-kg-pmg-atacadista.jpg' },
+  { id: 779, name: 'PARMESÃO 6 MESES LA SERENISSIMA 8 KG', category: 'Derivados de Leite', price: 77.92, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-la-serenissima-8-kg-pmg-atacadista.jpg' },
   { id: 780, name: 'PARMESÃO 6 MESES PEQUENO SIBÉRIA 3 KG', category: 'Derivados de Leite', price: 71.58, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-pequeno-siberia-3-kg-pmg-atacadista.jpg' },
   { id: 781, name: 'PARMESÃO 6 MESES POLENGHI 6,5 KG', category: 'Derivados de Leite', price: 61.44, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-polenghi-65-kg-pmg-atacadista.jpg' },
   { id: 782, name: 'PARMESÃO 6 MESES SCALA 6 KG', category: 'Derivados de Leite', price: 80.52, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-scala-6-kg-pmg-atacadista.jpg' },
@@ -858,7 +858,7 @@ const products = [
   { id: 793, name: 'PARMESÃO MONTANHÊS SCALA 6 KG', category: 'Derivados de Leite', price: 84.61, image: 'https://www.marquesvendaspmg.shop/images/parmesao-montanhes-scala-6-kg-pmg-atacadista.jpg' },
   { id: 794, name: 'PARMESÃO MONTANHÊS TRÊS MARIAS 5 KG', category: 'Derivados de Leite', price: 48.57, image: 'https://www.marquesvendaspmg.shop/images/parmesao-montanhes-tres-marias-5-kg-pmg-atacadista.jpg' },
   { id: 795, name: 'PARMESÃO PREMIUM 12 MESES SCALA 6 KG', category: 'Derivados de Leite', price: 97.14, image: 'https://www.marquesvendaspmg.shop/images/parmesao-premium-12-meses-scala-6-kg-pmg-atacadista.jpg' },
-  { id: 796, name: 'PARMESÃO RALADO FINO RJR 1 KG', category: 'Derivados de Leite', price: 35.78, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-fino-rjr-1-kg-pmg-atacadista.jpg' },
+  { id: 796, name: 'PARMESÃO RALADO FINO RJR 1 KG', category: 'Derivados de Leite', price: 37.71, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-fino-rjr-1-kg-pmg-atacadista.jpg' },
   { id: 797, name: 'PARMESÃO RALADO FINO S & A 1 KG', category: 'Derivados de Leite', price: 36.68, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-fino-s-a-1-kg-pmg-atacadista.jpg' },
   { id: 798, name: 'PARMESÃO RALADO FINO VALEZA 1 KG', category: 'Derivados de Leite', price: 38.34, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-fino-valeza-1-kg-pmg-atacadista.jpg' },
   { id: 799, name: 'PARMESÃO RALADO FINO VIGOR 1 KG', category: 'Derivados de Leite', price: 88.56, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-fino-vigor-1-kg-pmg-atacadista.jpg' },
@@ -872,21 +872,21 @@ const products = [
   { id: 807, name: 'PARMESÃO SACHÊ RALADO VIGOR 50 G (CX 20 UN)', category: 'Derivados de Leite', price: 111.45, image: 'https://www.marquesvendaspmg.shop/images/parmesao-sache-ralado-vigor-50-g-cx-20-un-pmg-atacadista.jpg' },
   { id: 808, name: 'PARMESÃO TROPICAL SAFIRA 6 KG', category: 'Derivados de Leite', price: 40.9, image: 'https://www.marquesvendaspmg.shop/images/parmesao-tropical-safira-6-kg-pmg-atacadista.jpg' },
   { id: 809, name: 'PARMESÃO TROPICAL SERRA NOVA 6 KG', category: 'Derivados de Leite', price: 42.08, image: 'https://www.marquesvendaspmg.shop/images/parmesao-tropical-serra-nova-6-kg-pmg-atacadista.jpg' },
-  { id: 810, name: 'PROVOLONE CRISTAL 5 KG', category: 'Derivados de Leite', price: 37.07, image: 'https://www.marquesvendaspmg.shop/images/provolone-cristal-5-kg-pmg-atacadista.jpg' },
+  { id: 810, name: 'PROVOLONE CRISTAL 5 KG', category: 'Derivados de Leite', price: 35.79, image: 'https://www.marquesvendaspmg.shop/images/provolone-cristal-5-kg-pmg-atacadista.jpg' },
   { id: 811, name: 'PROVOLONE GRANDE TIROLEZ 10 KG', category: 'Derivados de Leite', price: 73.62, image: 'https://www.marquesvendaspmg.shop/images/provolone-grande-tirolez-10-kg-pmg-atacadista.jpg' },
-  { id: 812, name: 'PROVOLONE PEQUENO TRÊS MARIAS 2 KG', category: 'Derivados de Leite', price: 43.46, image: 'https://www.marquesvendaspmg.shop/images/provolone-pequeno-tres-marias-2-kg-pmg-atacadista.jpg' },
+  { id: 812, name: 'PROVOLONE PEQUENO TRÊS MARIAS 2 KG', category: 'Derivados de Leite', price: 42.18, image: 'https://www.marquesvendaspmg.shop/images/provolone-pequeno-tres-marias-2-kg-pmg-atacadista.jpg' },
   { id: 813, name: 'PROVOLONE SCALA 5 KG', category: 'Derivados de Leite', price: 74.13, image: 'https://www.marquesvendaspmg.shop/images/provolone-scala-5-kg-pmg-atacadista.jpg' },
   { id: 814, name: 'PROVOLONE TÂNIA 5 KG', category: 'Derivados de Leite', price: 56.1, image: 'https://www.marquesvendaspmg.shop/images/provolone-tania-5-kg-pmg-atacadista.jpg' },
-  { id: 815, name: 'PROVOLONE TIROLEZ 5 KG', category: 'Derivados de Leite', price: 73.62, image: 'https://www.marquesvendaspmg.shop/images/provolone-tirolez-5-kg-pmg-atacadista.jpg' },
-  { id: 816, name: 'PROVOLONE TRÊS MARIAS 5 KG', category: 'Derivados de Leite', price: 43.46, image: 'https://www.marquesvendaspmg.shop/images/provolone-tres-marias-5-kg-pmg-atacadista.jpg' },
-  { id: 817, name: 'PROVOLONE YEMA 5 KG', category: 'Derivados de Leite', price: 42.18, image: 'https://www.marquesvendaspmg.shop/images/provolone-yema-5-kg-pmg-atacadista.jpg' },
+  { id: 815, name: 'PROVOLONE TIROLEZ 5 KG', category: 'Derivados de Leite', price: 73.61, image: 'https://www.marquesvendaspmg.shop/images/provolone-tirolez-5-kg-pmg-atacadista.jpg' },
+  { id: 816, name: 'PROVOLONE TRÊS MARIAS 5 KG', category: 'Derivados de Leite', price: 42.18, image: 'https://www.marquesvendaspmg.shop/images/provolone-tres-marias-5-kg-pmg-atacadista.jpg' },
+  { id: 817, name: 'PROVOLONE YEMA 5 KG', category: 'Derivados de Leite', price: 35.79, image: 'https://www.marquesvendaspmg.shop/images/provolone-yema-5-kg-pmg-atacadista.jpg' },
   { id: 818, name: 'PROVOLONETE SCALA 300 G', category: 'Derivados de Leite', price: 25.56, image: 'https://www.marquesvendaspmg.shop/images/provolonete-scala-300-g-pmg-atacadista.jpg' },
   { id: 819, name: 'PROVOLONETE TIROLEZ 335 G', category: 'Derivados de Leite', price: 33.66, image: 'https://www.marquesvendaspmg.shop/images/provolonete-tirolez-335-g-pmg-atacadista.jpg' },
-  { id: 820, name: 'QUEIJO BRIE FORMA POLENGHI 1 KG', category: 'Derivados de Leite', price: 66.56, image: 'https://www.marquesvendaspmg.shop/images/queijo-brie-forma-polenghi-1-kg-pmg-atacadista.jpg' },
+  { id: 820, name: 'QUEIJO BRIE FORMA POLENGHI 1 KG', category: 'Derivados de Leite', price: 67.61, image: 'https://www.marquesvendaspmg.shop/images/queijo-brie-forma-polenghi-1-kg-pmg-atacadista.jpg' },
   { id: 821, name: 'QUEIJO BRIE FORMA TIROLEZ 1 KG', category: 'Derivados de Leite', price: 77.18, image: 'https://www.marquesvendaspmg.shop/images/queijo-brie-forma-tirolez-1-kg-pmg-atacadista.jpg' },
   { id: 822, name: 'QUEIJO BRIE FORMA YEMA 1 KG', category: 'Derivados de Leite', price: 57.06, image: 'https://www.marquesvendaspmg.shop/images/queijo-brie-forma-yema-1-kg-pmg-atacadista.jpg' },
   { id: 823, name: 'QUEIJO COALHO BARRA CORONATA 2 KG', category: 'Derivados de Leite', price: 43.31, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-barra-coronata-2-kg-pmg-atacadista.jpg' },
-  { id: 824, name: 'QUEIJO COALHO BARRA CRISTAL 3,5 KG', category: 'Derivados de Leite', price: 40.49, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-barra-cristal-35-kg-pmg-atacadista.jpg' },
+  { id: 824, name: 'QUEIJO COALHO BARRA CRISTAL 3,5 KG', category: 'Derivados de Leite', price: 37.73, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-barra-cristal-35-kg-pmg-atacadista.jpg' },
   { id: 825, name: 'QUEIJO COALHO BARRA QUATÁ 7 KG', category: 'Derivados de Leite', price: 58.9, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-barra-quata-7-kg-pmg-atacadista.jpg' },
   { id: 826, name: 'QUEIJO COALHO BARRA TRÊS MARIAS 7 KG', category: 'Derivados de Leite', price: 45.4, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-barra-tres-marias-7-kg-pmg-atacadista.jpg' },
   { id: 827, name: 'QUEIJO COALHO BARRA YEMA 3,5 KG', category: 'Derivados de Leite', price: 50.31, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-barra-yema-35-kg-pmg-atacadista.jpg' },
@@ -897,7 +897,7 @@ const products = [
   { id: 832, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 833, name: 'QUEIJO COTTAGE TIROLEZ 400 G', category: 'Derivados de Leite', price: 20.87, image: 'https://www.marquesvendaspmg.shop/images/queijo-cottage-tirolez-400-g-pmg-atacadista.jpg' },
   { id: 834, name: 'QUEIJO EMMENTAL YEMA 13 KG', category: 'Derivados de Leite', price: 72.15, image: 'https://www.marquesvendaspmg.shop/images/queijo-emmental-yema-13-kg-pmg-atacadista.jpg' },
-  { id: 835, name: 'QUEIJO ESTEPE IPANEMA 6 KG', category: 'Derivados de Leite', price: 65.01, image: 'https://www.marquesvendaspmg.shop/images/queijo-estepe-ipanema-6-kg-pmg-atacadista.jpg' },
+  { id: 835, name: 'QUEIJO ESTEPE IPANEMA 6 KG', category: 'Derivados de Leite', price: 60.42, image: 'https://www.marquesvendaspmg.shop/images/queijo-estepe-ipanema-6-kg-pmg-atacadista.jpg' },
   { id: 836, name: 'QUEIJO ESTEPE TIROLEZ 7 KG', category: 'Derivados de Leite', price: 83.13, image: 'https://www.marquesvendaspmg.shop/images/queijo-estepe-tirolez-7-kg-pmg-atacadista.jpg' },
   { id: 837, name: 'QUEIJO FRACIONADO BRIE SÃO VICENTE 115 G', category: 'Derivados de Leite', price: 9.71, image: 'https://www.marquesvendaspmg.shop/images/queijo-fracionado-brie-sao-vicente-115-g-pmg-atacadista.jpg' },
   { id: 838, name: 'QUEIJO FRACIONADO CAMEMBERT SÃO VICENTE 125 G', category: 'Derivados de Leite', price: 11.66, image: 'https://www.marquesvendaspmg.shop/images/queijo-fracionado-camembert-sao-vicente-125-g-pmg-atacadista.jpg' },
@@ -922,7 +922,7 @@ const products = [
   { id: 857, name: 'QUEIJO POLENGUINHO POLENGHI 17 G', category: 'Derivados de Leite', price: 22.22, image: 'https://www.marquesvendaspmg.shop/images/queijo-polenguinho-polenghi-17-g-pmg-atacadista.jpg' },
   { id: 858, name: 'QUEIJO PRATO APOLO 3,5 KG', category: 'Derivados de Leite', price: 32.58, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-apolo-35-kg-pmg-atacadista.jpg' },
   { id: 859, name: 'QUEIJO PRATO CORONATA 3,5 KG', category: 'Derivados de Leite', price: 36.2, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-coronata-35-kg-pmg-atacadista.jpg' },
-  { id: 860, name: 'QUEIJO PRATO CRISTAL 3,5 KG', category: 'Derivados de Leite', price: 31.97, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-cristal-35-kg-pmg-atacadista.jpg' },
+  { id: 860, name: 'QUEIJO PRATO CRISTAL 3,5 KG', category: 'Derivados de Leite', price: 31.37, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-cristal-35-kg-pmg-atacadista.jpg' },
   { id: 861, name: 'QUEIJO PRATO DA VACA 3,5 KG', category: 'Derivados de Leite', price: 31.97, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-da-vaca-35-kg-pmg-atacadista.jpg' },
   { id: 862, name: 'QUEIJO PRATO DEALE 2,8 KG', category: 'Derivados de Leite', price: 31.37, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-deale-28-kg-pmg-atacadista.jpg' },
   { id: 863, name: 'QUEIJO PRATO ESFÉRICO TIROLEZ 2 KG', category: 'Derivados de Leite', price: 77.84, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-esferico-tirolez-2-kg-pmg-atacadista.jpg' },
@@ -932,9 +932,9 @@ const products = [
   { id: 867, name: 'QUEIJO PRATO FATIADO PROCESSADO SABOR AMERICAN CHEESE 25 FATIAS SCAR 500 G', category: 'Derivados de Leite', price: 24.13, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-fatiado-processado-sabor-american-cheese-25-fatias-scar-500-g-pmg-atacadista.jpg' },
   { id: 868, name: 'QUEIJO PRATO FATIADO PROCESSADO SABOR CHEDDAR 25 FATIAS SCAR 500 G', category: 'Derivados de Leite', price: 24.13, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-fatiado-processado-sabor-cheddar-25-fatias-scar-500-g-pmg-atacadista.jpg' },
   { id: 869, name: 'QUEIJO PRATO MONTE CASTELO 3,5 KG', category: 'Derivados de Leite', price: 31.67, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-monte-castelo-35-kg-pmg-atacadista.jpg' },
-  { id: 870, name: 'QUEIJO PRATO SCALA 3,5 KG', category: 'Derivados de Leite', price: 44.64, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-scala-35-kg-pmg-atacadista.jpg' },
+  { id: 870, name: 'QUEIJO PRATO SCALA 3,5 KG', category: 'Derivados de Leite', price: 44.04, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-scala-35-kg-pmg-atacadista.jpg' },
   { id: 871, name: 'QUEIJO PRATO TIROLEZ 3,5 KG', category: 'Derivados de Leite', price: 38.61, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-tirolez-35-kg-pmg-atacadista.jpg' },
-  { id: 872, name: 'QUEIJO PRATO TRÊS MARIAS 3,5 KG', category: 'Derivados de Leite', price: 38.01, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-tres-marias-35-kg-pmg-atacadista.jpg' },
+  { id: 872, name: 'QUEIJO PRATO TRÊS MARIAS 3,5 KG', category: 'Derivados de Leite', price: 37.4, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-tres-marias-35-kg-pmg-atacadista.jpg' },
   { id: 873, name: 'QUEIJO REINO TIROLEZ 1,6 KG', category: 'Derivados de Leite', price: 77.92, image: 'https://www.marquesvendaspmg.shop/images/queijo-reino-tirolez-16-kg-pmg-atacadista.jpg' },
   { id: 874, name: 'QUEIJO TIPO BURRATA DE BÚFALA DOR 180 G', category: 'Derivados de Leite', price: 21.09, image: 'https://www.marquesvendaspmg.shop/images/queijo-tipo-burrata-de-bufala-dor-180-g-pmg-atacadista.jpg' },
   { id: 875, name: 'QUEIJO TIPO BURRATA DE BÚFALA LEVITARE 150 G', category: 'Derivados de Leite', price: 22.39, image: 'https://www.marquesvendaspmg.shop/images/queijo-tipo-burrata-de-bufala-levitare-150-g-pmg-atacadista.jpg' },
@@ -959,7 +959,7 @@ const products = [
   { id: 894, name: 'REQUEIJÃO DALLORA COM AMIDO 3,6 KILO', category: 'Derivados de Leite', price: 47.66, image: 'https://www.marquesvendaspmg.shop/images/requeijao-dallora-com-amido-36-kilo-pmg-atacadista.jpg' },
   { id: 895, name: 'REQUEIJÃO DANÚBIO SEM AMIDO 1 KILO', category: 'Derivados de Leite', price: 36.47, image: 'https://www.marquesvendaspmg.shop/images/requeijao-danubio-sem-amido-1-kilo-pmg-atacadista.jpg' },
   { id: 896, name: 'REQUEIJÃO GALILEO COM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 13.69, image: 'https://www.marquesvendaspmg.shop/images/requeijao-galileo-com-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 897, name: 'REQUEIJÃO IPANEMA SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 42.53, image: 'https://www.marquesvendaspmg.shop/images/requeijao-ipanema-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 897, name: 'REQUEIJÃO IPANEMA SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 39.59, image: 'https://www.marquesvendaspmg.shop/images/requeijao-ipanema-sem-amido-15-kilo-pmg-atacadista.jpg' },
   { id: 898, name: 'REQUEIJÃO MILK TOP COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 11.82, image: 'https://www.marquesvendaspmg.shop/images/requeijao-milk-top-com-amido-18-kilo-pmg-atacadista.jpg' },
   { id: 899, name: 'REQUEIJÃO PARMATO COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 31.73, image: 'https://www.marquesvendaspmg.shop/images/requeijao-parmato-com-amido-18-kilo-pmg-atacadista.jpg' },
   { id: 900, name: 'REQUEIJÃO PEQUENO CORONATA COM AMIDO 400 G', category: 'Derivados de Leite', price: 8.22, image: 'https://www.marquesvendaspmg.shop/images/requeijao-pequeno-coronata-com-amido-400-g-pmg-atacadista.jpg' },
@@ -979,12 +979,12 @@ const products = [
   { id: 914, name: 'REQUEIJÃO SCALA SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 41.51, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scala-sem-amido-15-kilo-pmg-atacadista.jpg' },
   { id: 915, name: 'REQUEIJÃO SCALA SEM AMIDO 3,6 KILO', category: 'Derivados de Leite', price: 122.17, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scala-sem-amido-36-kilo-pmg-atacadista.jpg' },
   { id: 916, name: 'REQUEIJÃO SCALON SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 42.83, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scalon-sem-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 917, name: 'REQUEIJÃO TIROLEZ SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 41.81, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tirolez-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 917, name: 'REQUEIJÃO TIROLEZ SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 40.33, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tirolez-sem-amido-15-kilo-pmg-atacadista.jpg' },
   { id: 918, name: 'REQUEIJÃO TIROLEZ SEM AMIDO 3,6 KILO', category: 'Derivados de Leite', price: 96.07, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tirolez-sem-amido-36-kilo-pmg-atacadista.jpg' },
   { id: 919, name: 'REQUEIJÃO TOP MILK COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 13.88, image: 'https://www.marquesvendaspmg.shop/images/requeijao-top-milk-com-amido-18-kilo-pmg-atacadista.jpg' },
   { id: 920, name: 'REQUEIJÃO TRADICIONAL CORONATA SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 42.23, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tradicional-coronata-sem-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 921, name: 'REQUEIJÃO TRADICIONAL DALLORA SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 39.87, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tradicional-dallora-sem-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 922, name: 'REQUEIJÃO TRADICIONAL SOFFICE SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 41.71, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tradicional-soffice-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 921, name: 'REQUEIJÃO TRADICIONAL DALLORA SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 45.6, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tradicional-dallora-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 922, name: 'REQUEIJÃO TRADICIONAL SOFFICE SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 45.73, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tradicional-soffice-sem-amido-15-kilo-pmg-atacadista.jpg' },
   { id: 923, name: 'REQUEIJÃO TRÊS MARIAS SEM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 34.39, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tres-marias-sem-amido-18-kilo-pmg-atacadista.jpg' },
   { id: 924, name: 'REQUEIJÃO VALE DO PARDO COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 11.94, image: 'https://www.marquesvendaspmg.shop/images/requeijao-vale-do-pardo-com-amido-18-kilo-pmg-atacadista.jpg' },
   { id: 925, name: 'REQUEIJÃO VALEZA SEM AMIDO 1,003 KILO', category: 'Derivados de Leite', price: 27.63, image: 'https://www.marquesvendaspmg.shop/images/requeijao-valeza-sem-amido-1003-kilo-pmg-atacadista.jpg' },
@@ -994,15 +994,15 @@ const products = [
   { id: 929, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 930, name: 'RICOTA FRESCA CORONATA 520 G', category: 'Derivados de Leite', price: 15.49, image: 'https://www.marquesvendaspmg.shop/images/ricota-fresca-coronata-520-g-pmg-atacadista.jpg' },
   { id: 931, name: 'RICOTA FRESCA YEMA 400 G', category: 'Derivados de Leite', price: 13.16, image: 'https://www.marquesvendaspmg.shop/images/ricota-fresca-yema-400-g-pmg-atacadista.jpg' },
-  { id: 932, name: 'APRESUNTADO AURORA 3,7 KILO PÇ', category: 'Derivados de Suíno', price: 72.91, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-aurora-37-kilo-pc-pmg-atacadista.jpg' },
+  { id: 932, name: 'APRESUNTADO AURORA 3,7 KILO PÇ', category: 'Derivados de Suíno', price: 76.16, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-aurora-37-kilo-pc-pmg-atacadista.jpg' },
   { id: 933, name: 'APRESUNTADO DÁLIA 3,7 KILO PÇ', category: 'Derivados de Suíno', price: 57.43, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-dalia-37-kilo-pc-pmg-atacadista.jpg' },
   { id: 934, name: 'APRESUNTADO DELI GOURMET 3,35 KILO PÇ', category: 'Derivados de Suíno', price: 61.11, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-deli-gourmet-335-kilo-pc-pmg-atacadista.jpg' },
-  { id: 935, name: 'APRESUNTADO PEPERI AURORA 3,7 KILO PÇ', category: 'Derivados de Suíno', price: 63.62, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-peperi-aurora-37-kilo-pc-pmg-atacadista.jpg' },
+  { id: 935, name: 'APRESUNTADO PEPERI AURORA 3,7 KILO PÇ', category: 'Derivados de Suíno', price: 66.41, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-peperi-aurora-37-kilo-pc-pmg-atacadista.jpg' },
   { id: 936, name: 'APRESUNTADO PERDIGÃO 3,5 KILO PÇ', category: 'Derivados de Suíno', price: 70.98, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-perdigao-35-kilo-pc-pmg-atacadista.jpg' },
   { id: 937, name: 'APRESUNTADO PRIETO 3,65 KILO PÇ', category: 'Derivados de Suíno', price: 76.68, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-prieto-365-kilo-pc-pmg-atacadista.jpg' },
-  { id: 938, name: 'APRESUNTADO REZENDE 3,4 KILO PÇ', category: 'Derivados de Suíno', price: 63, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-rezende-34-kilo-pc-pmg-atacadista.jpg' },
+  { id: 938, name: 'APRESUNTADO REZENDE 3,4 KILO PÇ', category: 'Derivados de Suíno', price: 63.83, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-rezende-34-kilo-pc-pmg-atacadista.jpg' },
   { id: 939, name: 'APRESUNTADO SADIA 3,5 KILO PÇ', category: 'Derivados de Suíno', price: 78.98, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-sadia-35-kilo-pc-pmg-atacadista.jpg' },
-  { id: 940, name: 'APRESUNTADO SEARA 3,5 KILO PÇ', category: 'Derivados de Suíno', price: 67.44, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-seara-35-kilo-pc-pmg-atacadista.jpg' },
+  { id: 940, name: 'APRESUNTADO SEARA 3,5 KILO PÇ', category: 'Derivados de Suíno', price: 68.08, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-seara-35-kilo-pc-pmg-atacadista.jpg' },
   { id: 941, name: 'BACON EM CUBOS "BARRIGA" LACTOFRIOS 1 KILO PCT', category: 'Derivados de Suíno', price: 38.28, image: 'https://www.marquesvendaspmg.shop/images/bacon-em-cubos-barriga-lactofrios-1-kilo-pct-pmg-atacadista.jpg' },
   { id: 942, name: 'BACON EM CUBOS "PERNIL" LACTOFRIOS 1 KILO PCT', category: 'Derivados de Suíno', price: 30.23, image: 'https://www.marquesvendaspmg.shop/images/bacon-em-cubos-pernil-lactofrios-1-kilo-pct-pmg-atacadista.jpg' },
   { id: 943, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
@@ -1013,7 +1013,7 @@ const products = [
   { id: 948, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 949, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 950, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 951, name: 'BACON ESPECIAL SEARA 5 KILO KILO', category: 'Derivados de Suíno', price: 26.07, image: 'https://www.marquesvendaspmg.shop/images/bacon-especial-seara-5-kilo-kilo-pmg-atacadista.jpg' },
+  { id: 951, name: 'BACON ESPECIAL SEARA 5 KILO KILO', category: 'Derivados de Suíno', price: 24.6, image: 'https://www.marquesvendaspmg.shop/images/bacon-especial-seara-5-kilo-kilo-pmg-atacadista.jpg' },
   { id: 952, name: 'BACON FATIADO "BARRIGA" BRASA 1 KILO PCT', category: 'Derivados de Suíno', price: 61.99, image: 'https://www.marquesvendaspmg.shop/images/bacon-fatiado-barriga-brasa-1-kilo-pct-pmg-atacadista.jpg' },
   { id: 953, name: 'BACON FATIADO "PALETA" BRASA 1 KILO PCT', category: 'Derivados de Suíno', price: 33.39, image: 'https://www.marquesvendaspmg.shop/images/bacon-fatiado-paleta-brasa-1-kilo-pct-pmg-atacadista.jpg' },
   { id: 954, name: 'BACON FATIADO "PALETA" MISTER BEEF 1 KILO PCT', category: 'Derivados de Suíno', price: 37.67, image: 'https://www.marquesvendaspmg.shop/images/bacon-fatiado-paleta-mister-beef-1-kilo-pct-pmg-atacadista.jpg' },
@@ -1029,11 +1029,11 @@ const products = [
   { id: 964, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 965, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 966, name: 'BACON MANTA PERDIGÃO 4 KG KG', category: 'Derivados de Suíno', price: 30.97, image: 'https://www.marquesvendaspmg.shop/images/bacon-manta-perdigao-4-kg-kg-pmg-atacadista.jpg' },
-  { id: 967, name: 'BACON MANTA REZENDE 4 KG KG', category: 'Derivados de Suíno', price: 26.07, image: 'https://www.marquesvendaspmg.shop/images/bacon-manta-rezende-4-kg-kg-pmg-atacadista.jpg' },
+  { id: 967, name: 'BACON MANTA REZENDE 4 KG KG', category: 'Derivados de Suíno', price: 24.6, image: 'https://www.marquesvendaspmg.shop/images/bacon-manta-rezende-4-kg-kg-pmg-atacadista.jpg' },
   { id: 968, name: 'BACON MANTA SADIA 3.4 KG KG', category: 'Derivados de Suíno', price: 30.97, image: 'https://www.marquesvendaspmg.shop/images/bacon-manta-sadia-34-kg-kg-pmg-atacadista.jpg' },
   { id: 969, name: 'BACON MÉDIO AURORA 3.7 KG KG', category: 'Derivados de Suíno', price: 40.16, image: 'https://www.marquesvendaspmg.shop/images/bacon-medio-aurora-37-kg-kg-pmg-atacadista.jpg' },
-  { id: 970, name: 'BACON PALETA DÁLIA 4.5 KG KG', category: 'Derivados de Suíno', price: 24.93, image: 'https://www.marquesvendaspmg.shop/images/bacon-paleta-dalia-45-kg-kg-pmg-atacadista.jpg' },
-  { id: 971, name: 'BACON PALETA FRICASA 4 KG KG', category: 'Derivados de Suíno', price: 23.06, image: 'https://www.marquesvendaspmg.shop/images/bacon-paleta-fricasa-4-kg-kg-pmg-atacadista.jpg' },
+  { id: 970, name: 'BACON PALETA DÁLIA 4.5 KG KG', category: 'Derivados de Suíno', price: 25.37, image: 'https://www.marquesvendaspmg.shop/images/bacon-paleta-dalia-45-kg-kg-pmg-atacadista.jpg' },
+  { id: 971, name: 'BACON PALETA FRICASA 4 KG KG', category: 'Derivados de Suíno', price: 22.71, image: 'https://www.marquesvendaspmg.shop/images/bacon-paleta-fricasa-4-kg-kg-pmg-atacadista.jpg' },
   { id: 972, name: 'BANHA AURORA 1 KG PCT', category: 'Derivados de Suíno', price: 15.15, image: 'https://www.marquesvendaspmg.shop/images/banha-aurora-1-kg-pct-pmg-atacadista.jpg' },
   { id: 973, name: 'BANHA COOPAVEL 1 KG PCT', category: 'Derivados de Suíno', price: 12.63, image: 'https://www.marquesvendaspmg.shop/images/banha-coopavel-1-kg-pct-pmg-atacadista.jpg' },
   { id: 974, name: 'BARRIGA SUÍNA CONGELADA FRIELLA 5 KG KG', category: 'Derivados de Suíno', price: 25.82, image: 'https://www.marquesvendaspmg.shop/images/barriga-suina-congelada-friella-5-kg-kg-pmg-atacadista.jpg' },
@@ -1042,9 +1042,9 @@ const products = [
   { id: 977, name: 'BISTECA SUÍNA CONGELADA PAMPLONA (CX 10 KG)', category: 'Derivados de Suíno', price: 192.74, image: 'https://www.marquesvendaspmg.shop/images/bisteca-suina-congelada-pamplona-cx-10-kg-pmg-atacadista.jpg' },
   { id: 978, name: 'CALABRESA AURORA 5 KILO', category: 'Derivados de Suíno', price: 110.42, image: 'https://www.marquesvendaspmg.shop/images/calabresa-aurora-5-kilo-pmg-atacadista.jpg' },
   { id: 979, name: 'CALABRESA BRASA 2 KILO', category: 'Derivados de Suíno', price: 40.03, image: 'https://www.marquesvendaspmg.shop/images/calabresa-brasa-2-kilo-pmg-atacadista.jpg' },
-  { id: 980, name: 'CALABRESA CERATTI 2.5 KILO', category: 'Derivados de Suíno', price: 54.16, image: 'https://www.marquesvendaspmg.shop/images/calabresa-ceratti-25-kilo-pmg-atacadista.jpg' },
-  { id: 981, name: 'CALABRESA FATIADA CONGELADA FRIMESA 1 KILO', category: 'Derivados de Suíno', price: 25.98, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-congelada-frimesa-1-kilo-pmg-atacadista.jpg' },
-  { id: 982, name: 'CALABRESA FATIADA RESFRIADA CERATTI 1 KILO', category: 'Derivados de Suíno', price: 40.34, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-resfriada-ceratti-1-kilo-pmg-atacadista.jpg' },
+  { id: 980, name: 'CALABRESA CERATTI 2.5 KILO', category: 'Derivados de Suíno', price: 64.08, image: 'https://www.marquesvendaspmg.shop/images/calabresa-ceratti-25-kilo-pmg-atacadista.jpg' },
+  { id: 981, name: 'CALABRESA FATIADA CONGELADA FRIMESA 1 KILO', category: 'Derivados de Suíno', price: 26.09, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-congelada-frimesa-1-kilo-pmg-atacadista.jpg' },
+  { id: 982, name: 'CALABRESA FATIADA RESFRIADA CERATTI 1 KILO', category: 'Derivados de Suíno', price: 40.01, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-resfriada-ceratti-1-kilo-pmg-atacadista.jpg' },
   { id: 983, name: 'CALABRESA FATIADA RESFRIADA LACTOFRIOS 1 KILO', category: 'Derivados de Suíno', price: 21.33, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-resfriada-lactofrios-1-kilo-pmg-atacadista.jpg' },
   { id: 984, name: 'CALABRESA FATIADA RESFRIADA MISTER BEEF 1 KILO', category: 'Derivados de Suíno', price: 22.92, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-resfriada-mister-beef-1-kilo-pmg-atacadista.jpg' },
   { id: 985, name: 'CALABRESA FRICASA 2.5 KILO', category: 'Derivados de Suíno', price: 43.87, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fricasa-25-kilo-pmg-atacadista.jpg' },
@@ -1059,7 +1059,7 @@ const products = [
   { id: 994, name: 'CALABRESA RETA CERATTI 2.5 KILO', category: 'Derivados de Suíno', price: 65.47, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-ceratti-25-kilo-pmg-atacadista.jpg' },
   { id: 995, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 996, name: 'CALABRESA RETA PAMPLONA 2.5 KILO', category: 'Derivados de Suíno', price: 51.23, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-pamplona-25-kilo-pmg-atacadista.jpg' },
-  { id: 997, name: 'CALABRESA RETA PRIETO 2.5 KILO', category: 'Derivados de Suíno', price: 56.32, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-prieto-25-kilo-pmg-atacadista.jpg' },
+  { id: 997, name: 'CALABRESA RETA PRIETO 2.5 KILO', category: 'Derivados de Suíno', price: 56.33, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-prieto-25-kilo-pmg-atacadista.jpg' },
   { id: 998, name: 'CALABRESA RETA SADIA 2.5 KILO', category: 'Derivados de Suíno', price: 56.42, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-sadia-25-kilo-pmg-atacadista.jpg' },
   { id: 999, name: 'CALABRESA RETA SEARA 2.5 KILO', category: 'Derivados de Suíno', price: 48.87, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-seara-25-kilo-pmg-atacadista.jpg' },
   { id: 1000, name: 'CALABRESA SADIA 2.5 KILO', category: 'Derivados de Suíno', price: 55.84, image: 'https://www.marquesvendaspmg.shop/images/calabresa-sadia-25-kilo-pmg-atacadista.jpg' },
@@ -1072,30 +1072,30 @@ const products = [
   { id: 1007, name: 'COSTELA SUÍNA SALGADA REFFINATO 5 KILO PCT', category: 'Derivados de Suíno', price: 127.81, image: 'https://www.marquesvendaspmg.shop/images/costela-suina-salgada-reffinato-5-kilo-pct-pmg-atacadista.jpg' },
   { id: 1008, name: 'FILÉ MIGNON SUÍNO CONGELADO TEMPERADO PAMPLONA 1.3 KG', category: 'Derivados de Suíno', price: 29.4, image: 'https://www.marquesvendaspmg.shop/images/file-mignon-suino-congelado-temperado-pamplona-13-kg-pmg-atacadista.jpg' },
   { id: 1009, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 1010, name: 'LINGUIÇA SUÍNA CONGELADA COM ALHO SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 15.9, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-com-alho-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
-  { id: 1011, name: 'LINGUIÇA SUÍNA CONGELADA COM AZEITONAS SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 15.9, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-com-azeitonas-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
+  { id: 1010, name: 'LINGUIÇA SUÍNA CONGELADA COM ALHO SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 16.56, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-com-alho-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
+  { id: 1011, name: 'LINGUIÇA SUÍNA CONGELADA COM AZEITONAS SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 16.56, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-com-azeitonas-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
   { id: 1012, name: 'LINGUIÇA SUÍNA CONGELADA COM BACON SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 15.86, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-com-bacon-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
   { id: 1013, name: 'LINGUIÇA SUÍNA CONGELADA COM PIMENTA SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 15.9, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-com-pimenta-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
-  { id: 1014, name: 'LINGUIÇA SUÍNA CONGELADA COM PROVOLONE SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 15.9, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-com-provolone-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
-  { id: 1015, name: 'LINGUIÇA SUÍNA CONGELADA CUIABANA COM QUEIJO SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 19.48, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-cuiabana-com-queijo-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
-  { id: 1016, name: 'LINGUIÇA TOSCANA CONGELADA AURORA 5 KILO PCT', category: 'Derivados de Suíno', price: 123.92, image: 'https://www.marquesvendaspmg.shop/images/linguica-toscana-congelada-aurora-5-kilo-pct-pmg-atacadista.jpg' },
+  { id: 1014, name: 'LINGUIÇA SUÍNA CONGELADA COM PROVOLONE SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 16.56, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-com-provolone-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
+  { id: 1015, name: 'LINGUIÇA SUÍNA CONGELADA CUIABANA COM QUEIJO SABOR DE BRAGANÇA 500 G PCT', category: 'Derivados de Suíno', price: 20.02, image: 'https://www.marquesvendaspmg.shop/images/linguica-suina-congelada-cuiabana-com-queijo-sabor-de-braganca-500-g-pct-pmg-atacadista.jpg' },
+  { id: 1016, name: 'LINGUIÇA TOSCANA CONGELADA AURORA 5 KILO PCT', category: 'Derivados de Suíno', price: 129.87, image: 'https://www.marquesvendaspmg.shop/images/linguica-toscana-congelada-aurora-5-kilo-pct-pmg-atacadista.jpg' },
   { id: 1017, name: 'LINGUIÇA TOSCANA CONGELADA NA BRASA PERDIGÃO 5 KILO PCT', category: 'Derivados de Suíno', price: 122.51, image: 'https://www.marquesvendaspmg.shop/images/linguica-toscana-congelada-na-brasa-perdigao-5-kilo-pct-pmg-atacadista.jpg' },
   { id: 1018, name: 'LINGUIÇA TOSCANA CONGELADA SADIA 5 KILO PCT', category: 'Derivados de Suíno', price: 103.25, image: 'https://www.marquesvendaspmg.shop/images/linguica-toscana-congelada-sadia-5-kilo-pct-pmg-atacadista.jpg' },
   { id: 1019, name: 'LINGUIÇA TOSCANA CONGELADA SEARA 5 KILO PCT', category: 'Derivados de Suíno', price: 92.54, image: 'https://www.marquesvendaspmg.shop/images/linguica-toscana-congelada-seara-5-kilo-pct-pmg-atacadista.jpg' },
   { id: 1020, name: 'LOMBO CANADENSE AURORA 0.750G KG', category: 'Derivados de Suíno', price: 44.19, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-aurora-0750g-kg-pmg-atacadista.jpg' },
-  { id: 1021, name: 'LOMBO CANADENSE CERATTI 1 KG', category: 'Derivados de Suíno', price: 46.1, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-ceratti-1-kg-pmg-atacadista.jpg' },
+  { id: 1021, name: 'LOMBO CANADENSE CERATTI 1 KG', category: 'Derivados de Suíno', price: 47.2, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-ceratti-1-kg-pmg-atacadista.jpg' },
   { id: 1022, name: 'LOMBO CANADENSE DELI GOURMET 0.750G KG', category: 'Derivados de Suíno', price: 30.04, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-deli-gourmet-0750g-kg-pmg-atacadista.jpg' },
   { id: 1023, name: 'LOMBO CANADENSE LACTOFRIOS  1 KG', category: 'Derivados de Suíno', price: 33.92, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-lactofrios-1-kg-pmg-atacadista.jpg' },
   { id: 1024, name: 'LOMBO CANADENSE NOBRE  1 KG', category: 'Derivados de Suíno', price: 39.89, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-nobre-1-kg-pmg-atacadista.jpg' },
   { id: 1025, name: 'LOMBO CANADENSE SEARA GOURMET  1 KG', category: 'Derivados de Suíno', price: 44.08, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-seara-gourmet-1-kg-pmg-atacadista.jpg' },
   { id: 1026, name: 'LOMBO SUÍNO CONGELADO TEMPERADO PAMPLONA  1 KG', category: 'Derivados de Suíno', price: 29.4, image: 'https://www.marquesvendaspmg.shop/images/lombo-suino-congelado-temperado-pamplona-1-kg-pmg-atacadista.jpg' },
   { id: 1027, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 1028, name: 'LOMBO SUÍNO SALGADO REFFINATO 5 KILO PCT', category: 'Derivados de Suíno', price: 146.35, image: 'https://www.marquesvendaspmg.shop/images/lombo-suino-salgado-reffinato-5-kilo-pct-pmg-atacadista.jpg' },
+  { id: 1028, name: 'LOMBO SUÍNO SALGADO REFFINATO 5 KILO PCT', category: 'Derivados de Suíno', price: 143.79, image: 'https://www.marquesvendaspmg.shop/images/lombo-suino-salgado-reffinato-5-kilo-pct-pmg-atacadista.jpg' },
   { id: 1029, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 1030, name: 'MORTADELA DEFUMADA OURO PERDIGÃO 4 KG', category: 'Derivados de Suíno', price: 23.39, image: 'https://www.marquesvendaspmg.shop/images/mortadela-defumada-ouro-perdigao-4-kg-pmg-atacadista.jpg' },
   { id: 1031, name: 'MORTADELA REZENDE 5 KG', category: 'Derivados de Suíno', price: 9.2, image: 'https://www.marquesvendaspmg.shop/images/mortadela-rezende-5-kg-pmg-atacadista.jpg' },
   { id: 1032, name: 'MORTADELA TRADICIONAL AURORA 5 KG', category: 'Derivados de Suíno', price: 11.99, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-aurora-5-kg-pmg-atacadista.jpg' },
-  { id: 1033, name: 'MORTADELA TRADICIONAL BOLOGNA CERATTI 6 KG', category: 'Derivados de Suíno', price: 45.26, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-bologna-ceratti-6-kg-pmg-atacadista.jpg' },
+  { id: 1033, name: 'MORTADELA TRADICIONAL BOLOGNA CERATTI 6 KG', category: 'Derivados de Suíno', price: 43.68, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-bologna-ceratti-6-kg-pmg-atacadista.jpg' },
   { id: 1034, name: 'MORTADELA TRADICIONAL MARBA 5 KG', category: 'Derivados de Suíno', price: 12.31, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-marba-5-kg-pmg-atacadista.jpg' },
   { id: 1035, name: 'ORELHA SUÍNA SALGADA COM MÁSCARA FRIELLA 10 KILO PCT', category: 'Derivados de Suíno', price: 113.75, image: 'https://www.marquesvendaspmg.shop/images/orelha-suina-salgada-com-mascara-friella-10-kilo-pct-pmg-atacadista.jpg' },
   { id: 1036, name: 'ORELHA SUÍNA SALGADA COM MÁSCARA REFFINATO 5 KILO PCT', category: 'Derivados de Suíno', price: 69.66, image: 'https://www.marquesvendaspmg.shop/images/orelha-suina-salgada-com-mascara-reffinato-5-kilo-pct-pmg-atacadista.jpg' },
@@ -1109,14 +1109,14 @@ const products = [
   { id: 1044, name: 'PARMA PRESUNTO CRU FATIADO ITALIANO VITO BALDUCCI 500 G PCT', category: 'Derivados de Suíno', price: 66.84, image: 'https://www.marquesvendaspmg.shop/images/parma-presunto-cru-fatiado-italiano-vito-balducci-500-g-pct-pmg-atacadista.jpg' },
   { id: 1045, name: 'PARMA PRESUNTO CRU FATIADO NACIONAL SADIA 100 G PCT', category: 'Derivados de Suíno', price: 31.19, image: 'https://www.marquesvendaspmg.shop/images/parma-presunto-cru-fatiado-nacional-sadia-100-g-pct-pmg-atacadista.jpg' },
   { id: 1046, name: 'PÉ SUÍNO SALGADO FRIELLA 10 KILO PCT', category: 'Derivados de Suíno', price: 121.42, image: 'https://www.marquesvendaspmg.shop/images/pe-suino-salgado-friella-10-kilo-pct-pmg-atacadista.jpg' },
-  { id: 1047, name: 'PÉ SUÍNO SALGADO REFFINATO 5 KILO PCT', category: 'Derivados de Suíno', price: 60.72, image: 'https://www.marquesvendaspmg.shop/images/pe-suino-salgado-reffinato-5-kilo-pct-pmg-atacadista.jpg' },
-  { id: 1048, name: 'PEPPERONI FATIADO CERATTI 1 KILO PCT', category: 'Derivados de Suíno', price: 71.32, image: 'https://www.marquesvendaspmg.shop/images/pepperoni-fatiado-ceratti-1-kilo-pct-pmg-atacadista.jpg' },
-  { id: 1049, name: 'PEPPERONI FATIADO FRIMESA 1 KILO PCT', category: 'Derivados de Suíno', price: 31.89, image: 'https://www.marquesvendaspmg.shop/images/pepperoni-fatiado-frimesa-1-kilo-pct-pmg-atacadista.jpg' },
+  { id: 1047, name: 'PÉ SUÍNO SALGADO REFFINATO 5 KILO PCT', category: 'Derivados de Suíno', price: 51.13, image: 'https://www.marquesvendaspmg.shop/images/pe-suino-salgado-reffinato-5-kilo-pct-pmg-atacadista.jpg' },
+  { id: 1048, name: 'PEPPERONI FATIADO CERATTI 1 KILO PCT', category: 'Derivados de Suíno', price: 68.72, image: 'https://www.marquesvendaspmg.shop/images/pepperoni-fatiado-ceratti-1-kilo-pct-pmg-atacadista.jpg' },
+  { id: 1049, name: 'PEPPERONI FATIADO FRIMESA 1 KILO PCT', category: 'Derivados de Suíno', price: 67.95, image: 'https://www.marquesvendaspmg.shop/images/pepperoni-fatiado-frimesa-1-kilo-pct-pmg-atacadista.jpg' },
   { id: 1050, name: 'PEPPERONI FATIADO SADIA 1 KILO PCT', category: 'Derivados de Suíno', price: 99.79, image: 'https://www.marquesvendaspmg.shop/images/pepperoni-fatiado-sadia-1-kilo-pct-pmg-atacadista.jpg' },
   { id: 1051, name: 'PEPPERONI FATIADO SEARA GOURMET 100 G PCT', category: 'Derivados de Suíno', price: 10.43, image: 'https://www.marquesvendaspmg.shop/images/pepperoni-fatiado-seara-gourmet-100-g-pct-pmg-atacadista.jpg' },
   { id: 1052, name: 'PERNIL SUÍNO CONGELADO DESFIADO ALFAMA 1 KILO PCT', category: 'Derivados de Suíno', price: 39.61, image: 'https://www.marquesvendaspmg.shop/images/pernil-suino-congelado-desfiado-alfama-1-kilo-pct-pmg-atacadista.jpg' },
   { id: 1053, name: 'PERNIL SUÍNO CONGELADO SEM OSSO E SEM COURO FRIVATTI / FRIELLA 12 KG', category: 'Derivados de Suíno', price: 20.6, image: 'https://www.marquesvendaspmg.shop/images/pernil-suino-congelado-sem-osso-e-sem-couro-frivatti-friella-12-kg-pmg-atacadista.jpg' },
-  { id: 1054, name: 'PERNIL SUÍNO CONGELADO SEM OSSO TEMPERADO PAMPLONA 1 KG', category: 'Derivados de Suíno', price: 27.39, image: 'https://www.marquesvendaspmg.shop/images/pernil-suino-congelado-sem-osso-temperado-pamplona-1-kg-pmg-atacadista.jpg' },
+  { id: 1054, name: 'PERNIL SUÍNO CONGELADO SEM OSSO TEMPERADO PAMPLONA 1 KG', category: 'Derivados de Suíno', price: 28.58, image: 'https://www.marquesvendaspmg.shop/images/pernil-suino-congelado-sem-osso-temperado-pamplona-1-kg-pmg-atacadista.jpg' },
   { id: 1055, name: 'PERNIL SUÍNO SALGADO REFFINATO 5 KILO PCT', category: 'Derivados de Suíno', price: 125.9, image: 'https://www.marquesvendaspmg.shop/images/pernil-suino-salgado-reffinato-5-kilo-pct-pmg-atacadista.jpg' },
   { id: 1056, name: 'PICANHA SUÍNA CONGELADA TEMPERADA PAMPLONA 1 KG', category: 'Derivados de Suíno', price: 33.23, image: 'https://www.marquesvendaspmg.shop/images/picanha-suina-congelada-temperada-pamplona-1-kg-pmg-atacadista.jpg' },
   { id: 1057, name: 'PORCO A PASSARINHO CONGELADO TEMPERADO FRIMESA 1 KILO PCT', category: 'Derivados de Suíno', price: 27.3, image: 'https://www.marquesvendaspmg.shop/images/porco-a-passarinho-congelado-temperado-frimesa-1-kilo-pct-pmg-atacadista.jpg' },
@@ -1125,19 +1125,19 @@ const products = [
   { id: 1060, name: 'PRODUTO EM FALTA', category: 'Derivados de Suíno', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 1061, name: 'PRESUNTO PERDIGÃO 3.4 KILO PÇ', category: 'Derivados de Suíno', price: 88.34, image: 'https://www.marquesvendaspmg.shop/images/presunto-perdigao-34-kilo-pc-pmg-atacadista.jpg' },
   { id: 1062, name: 'PRESUNTO PRIETO 3.35 KILO PÇ', category: 'Derivados de Suíno', price: 81.08, image: 'https://www.marquesvendaspmg.shop/images/presunto-prieto-335-kilo-pc-pmg-atacadista.jpg' },
-  { id: 1063, name: 'PRESUNTO REZENDE 3.4 KILO PÇ', category: 'Derivados de Suíno', price: 76.8, image: 'https://www.marquesvendaspmg.shop/images/presunto-rezende-34-kilo-pc-pmg-atacadista.jpg' },
+  { id: 1063, name: 'PRESUNTO REZENDE 3.4 KILO PÇ', category: 'Derivados de Suíno', price: 76.6, image: 'https://www.marquesvendaspmg.shop/images/presunto-rezende-34-kilo-pc-pmg-atacadista.jpg' },
   { id: 1064, name: 'PRESUNTO SADIA 3.45 KILO PÇ', category: 'Derivados de Suíno', price: 102.21, image: 'https://www.marquesvendaspmg.shop/images/presunto-sadia-345-kilo-pc-pmg-atacadista.jpg' },
-  { id: 1065, name: 'PRESUNTO SEARA 3.5 KILO PÇ', category: 'Derivados de Suíno', price: 82.9, image: 'https://www.marquesvendaspmg.shop/images/presunto-seara-35-kilo-pc-pmg-atacadista.jpg' },
-  { id: 1066, name: 'RABO SUÍNO SALGADO COM SUAN REFFINATO 5 KILO PCT', category: 'Derivados de Suíno', price: 118.23, image: 'https://www.marquesvendaspmg.shop/images/rabo-suino-salgado-com-suan-reffinato-5-kilo-pct-pmg-atacadista.jpg' },
+  { id: 1065, name: 'PRESUNTO SEARA 3.5 KILO PÇ', category: 'Derivados de Suíno', price: 82.18, image: 'https://www.marquesvendaspmg.shop/images/presunto-seara-35-kilo-pc-pmg-atacadista.jpg' },
+  { id: 1066, name: 'RABO SUÍNO SALGADO COM SUAN REFFINATO 5 KILO PCT', category: 'Derivados de Suíno', price: 114.4, image: 'https://www.marquesvendaspmg.shop/images/rabo-suino-salgado-com-suan-reffinato-5-kilo-pct-pmg-atacadista.jpg' },
   { id: 1067, name: 'RABO SUÍNO SALGADO SEM SUAN FRIELLA 10 KILO PCT', category: 'Derivados de Suíno', price: 165.75, image: 'https://www.marquesvendaspmg.shop/images/rabo-suino-salgado-sem-suan-friella-10-kilo-pct-pmg-atacadista.jpg' },
   { id: 1068, name: 'ROSBEEF CERATTI 3 KILO PÇ', category: 'Derivados de Suíno', price: 267.88, image: 'https://www.marquesvendaspmg.shop/images/rosbeef-ceratti-3-kilo-pc-pmg-atacadista.jpg' },
-  { id: 1069, name: 'SALAME HAMBURGUÊS FATIADO DEFUMADO CERATTI 100 G PCT', category: 'Derivados de Suíno', price: 12.22, image: 'https://www.marquesvendaspmg.shop/images/salame-hamburgues-fatiado-defumado-ceratti-100-g-pct-pmg-atacadista.jpg' },
-  { id: 1070, name: 'SALAME ITALIANO DEFUMADO AURORA 0.600 G KG', category: 'Derivados de Suíno', price: 79.68, image: 'https://www.marquesvendaspmg.shop/images/salame-italiano-defumado-aurora-0600-g-kg-pmg-atacadista.jpg' },
+  { id: 1069, name: 'SALAME HAMBURGUÊS FATIADO DEFUMADO CERATTI 100 G PCT', category: 'Derivados de Suíno', price: 12.86, image: 'https://www.marquesvendaspmg.shop/images/salame-hamburgues-fatiado-defumado-ceratti-100-g-pct-pmg-atacadista.jpg' },
+  { id: 1070, name: 'SALAME ITALIANO DEFUMADO AURORA 0.600 G KG', category: 'Derivados de Suíno', price: 87.94, image: 'https://www.marquesvendaspmg.shop/images/salame-italiano-defumado-aurora-0600-g-kg-pmg-atacadista.jpg' },
   { id: 1071, name: 'SALAME ITALIANO DEFUMADO CERATTI 0.600 G KG', category: 'Derivados de Suíno', price: 88.55, image: 'https://www.marquesvendaspmg.shop/images/salame-italiano-defumado-ceratti-0600-g-kg-pmg-atacadista.jpg' },
-  { id: 1072, name: 'SALAME ITALIANO FATIADO DEFUMADO CERATTI 100 G PCT', category: 'Derivados de Suíno', price: 12.22, image: 'https://www.marquesvendaspmg.shop/images/salame-italiano-fatiado-defumado-ceratti-100-g-pct-pmg-atacadista.jpg' },
+  { id: 1072, name: 'SALAME ITALIANO FATIADO DEFUMADO CERATTI 100 G PCT', category: 'Derivados de Suíno', price: 12.86, image: 'https://www.marquesvendaspmg.shop/images/salame-italiano-fatiado-defumado-ceratti-100-g-pct-pmg-atacadista.jpg' },
   { id: 1073, name: 'SALAME ITALIANO SADIA 0.600 G KG', category: 'Derivados de Suíno', price: 85.11, image: 'https://www.marquesvendaspmg.shop/images/salame-italiano-sadia-0600-g-kg-pmg-atacadista.jpg' },
   { id: 1074, name: 'SALAME ITALIANO SEARA GOURMET 0.675 G KG', category: 'Derivados de Suíno', price: 71.99, image: 'https://www.marquesvendaspmg.shop/images/salame-italiano-seara-gourmet-0675-g-kg-pmg-atacadista.jpg' },
-  { id: 1075, name: 'SALSICHA CONGELADA HOT DOG AURORA 3 KILO PCT', category: 'Derivados de Suíno', price: 37, image: 'https://www.marquesvendaspmg.shop/images/salsicha-congelada-hot-dog-aurora-3-kilo-pct-pmg-atacadista.jpg' },
+  { id: 1075, name: 'SALSICHA CONGELADA HOT DOG AURORA 3 KILO PCT', category: 'Derivados de Suíno', price: 38.5, image: 'https://www.marquesvendaspmg.shop/images/salsicha-congelada-hot-dog-aurora-3-kilo-pct-pmg-atacadista.jpg' },
   { id: 1076, name: 'SALSICHA CONGELADA HOT DOG ESTRELA 3 KILO PCT', category: 'Derivados de Suíno', price: 27.42, image: 'https://www.marquesvendaspmg.shop/images/salsicha-congelada-hot-dog-estrela-3-kilo-pct-pmg-atacadista.jpg' },
   { id: 1077, name: 'SALSICHA CONGELADA HOT DOG PERDIGÃO 5 KILO PCT', category: 'Derivados de Suíno', price: 70.29, image: 'https://www.marquesvendaspmg.shop/images/salsicha-congelada-hot-dog-perdigao-5-kilo-pct-pmg-atacadista.jpg' },
   { id: 1078, name: 'SALSICHA CONGELADA HOT DOG SADIA 3 KILO PCT', category: 'Derivados de Suíno', price: 38.64, image: 'https://www.marquesvendaspmg.shop/images/salsicha-congelada-hot-dog-sadia-3-kilo-pct-pmg-atacadista.jpg' },
@@ -1153,12 +1153,12 @@ const products = [
   { id: 1088, name: 'ALCAPARRA DI SALERNO 700 G', category: 'Derivados de Vegetal', price: 56.1, image: 'https://www.marquesvendaspmg.shop/images/alcaparra-di-salerno-700-g-pmg-atacadista.jpg' },
   { id: 1089, name: 'ALHO FRITO CROCANTE OISHII 500 G', category: 'Derivados de Vegetal', price: 32.92, image: 'https://www.marquesvendaspmg.shop/images/alho-frito-crocante-oishii-500-g-pmg-atacadista.jpg' },
   { id: 1090, name: 'ALHO FRITO FINO DELEON 500 G', category: 'Derivados de Vegetal', price: 27.26, image: 'https://www.marquesvendaspmg.shop/images/alho-frito-fino-deleon-500-g-pmg-atacadista.jpg' },
-  { id: 1091, name: 'ALHO FRITO FINO ZAZO 500 G', category: 'Derivados de Vegetal', price: 21.16, image: 'https://www.marquesvendaspmg.shop/images/alho-frito-fino-zazo-500-g-pmg-atacadista.jpg' },
+  { id: 1091, name: 'ALHO FRITO FINO ZAZO 500 G', category: 'Derivados de Vegetal', price: 22.89, image: 'https://www.marquesvendaspmg.shop/images/alho-frito-fino-zazo-500-g-pmg-atacadista.jpg' },
   { id: 1092, name: 'ALHO INTEIRO DESCASCADO CONGELADO EASY CHEF 1,1 KILO', category: 'Derivados de Vegetal', price: 23.41, image: 'https://www.marquesvendaspmg.shop/images/alho-inteiro-descascado-congelado-easy-chef-11-kilo-pmg-atacadista.jpg' },
   { id: 1093, name: 'ALHO INTEIRO DESCASCADO CONGELADO PRATIGEL 1,02 KILO', category: 'Derivados de Vegetal', price: 23.08, image: 'https://www.marquesvendaspmg.shop/images/alho-inteiro-descascado-congelado-pratigel-102-kilo-pmg-atacadista.jpg' },
-  { id: 1094, name: 'ALHO TRITURADO DELEON 1 KILO', category: 'Derivados de Vegetal', price: 9.56, image: 'https://www.marquesvendaspmg.shop/images/alho-triturado-deleon-1-kilo-pmg-atacadista.jpg' },
+  { id: 1094, name: 'ALHO TRITURADO DELEON 1 KILO', category: 'Derivados de Vegetal', price: 10.01, image: 'https://www.marquesvendaspmg.shop/images/alho-triturado-deleon-1-kilo-pmg-atacadista.jpg' },
   { id: 1095, name: 'ALHO TRITURADO GRANDE ARCO BELLO (BD 3 KILO)', category: 'Derivados de Vegetal', price: 25.05, image: 'https://www.marquesvendaspmg.shop/images/alho-triturado-grande-arco-bello-bd-3-kilo-pmg-atacadista.jpg' },
-  { id: 1096, name: 'ALHO TRITURADO GRANDE DELEON 3 KILO', category: 'Derivados de Vegetal', price: 27.19, image: 'https://www.marquesvendaspmg.shop/images/alho-triturado-grande-deleon-3-kilo-pmg-atacadista.jpg' },
+  { id: 1096, name: 'ALHO TRITURADO GRANDE DELEON 3 KILO', category: 'Derivados de Vegetal', price: 28.53, image: 'https://www.marquesvendaspmg.shop/images/alho-triturado-grande-deleon-3-kilo-pmg-atacadista.jpg' },
   { id: 1097, name: 'ANÉIS DE CEBOLA CONGELADOS PRÉ FRITOS EMPANADOS PRÉ FORMADOS BEM BRASIL 1,05 KILO (CX 6 PCT)', category: 'Derivados de Vegetal', price: 138.17, image: 'https://www.marquesvendaspmg.shop/images/aneis-de-cebola-congelados-pre-fritos-empanados-pre-formados-bem-brasil-105-kilo-cx-6-pct-pmg-atacadista.jpg' },
   { id: 1098, name: 'ANÉIS DE CEBOLA CONGELADOS PRÉ FRITOS EMPANADOS PRÉ FORMADOS MCCAIN 1,05 KILO (CX 10 PCT)', category: 'Derivados de Vegetal', price: 226.29, image: 'https://www.marquesvendaspmg.shop/images/aneis-de-cebola-congelados-pre-fritos-empanados-pre-formados-mccain-105-kilo-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1099, name: 'ANÉIS DE CEBOLA CONGELADOS PRÉ FRITOS EMPANADOS PRÉ FORMADOS MORIXE 1,1 KILO (CX 10 PCT)', category: 'Derivados de Vegetal', price: 223.68, image: 'https://www.marquesvendaspmg.shop/images/aneis-de-cebola-congelados-pre-fritos-empanados-pre-formados-morixe-11-kilo-cx-10-pct-pmg-atacadista.jpg' },
@@ -1167,13 +1167,13 @@ const products = [
   { id: 1102, name: 'ARROZ ARBÓRIO DI SALERNO 1 KILO', category: 'Derivados de Vegetal', price: 24.73, image: 'https://www.marquesvendaspmg.shop/images/arroz-arborio-di-salerno-1-kilo-pmg-atacadista.jpg' },
   { id: 1103, name: 'ARROZ BASMATI CAMIL 500 G', category: 'Derivados de Vegetal', price: 15.98, image: 'https://www.marquesvendaspmg.shop/images/arroz-basmati-camil-500-g-pmg-atacadista.jpg' },
   { id: 1104, name: 'ARROZ BRANCO PEQUENO TIPO 1 CAMIL 1 KILO (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 74.68, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-pequeno-tipo-1-camil-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
-  { id: 1105, name: 'ARROZ BRANCO TIPO 1 FOOD SERVICE CAMIL 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 131.43, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-food-service-camil-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
-  { id: 1106, name: 'ARROZ BRANCO TIPO 1 NAMORADO 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 129.1, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-namorado-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
+  { id: 1105, name: 'ARROZ BRANCO TIPO 1 FOOD SERVICE CAMIL 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 126.8, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-food-service-camil-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
+  { id: 1106, name: 'ARROZ BRANCO TIPO 1 NAMORADO 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 121.86, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-namorado-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
   { id: 1107, name: 'ARROZ BRANCO TIPO 1 SOLITO 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 127.89, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-solito-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
   { id: 1108, name: 'ARROZ INTEGRAL CAMIL 1 KILO (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 64.37, image: 'https://www.marquesvendaspmg.shop/images/arroz-integral-camil-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
   { id: 1109, name: 'ARROZ INTEGRAL FOOD SERVICE CAMIL 2 KILO (FDO 5 PCT)', category: 'Derivados de Vegetal', price: 66.24, image: 'https://www.marquesvendaspmg.shop/images/arroz-integral-food-service-camil-2-kilo-fdo-5-pct-pmg-atacadista.jpg' },
   { id: 1110, name: 'ARROZ PARBOILIZADO TIPO 1 FOOD SERVICE CAMIL 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 178.57, image: 'https://www.marquesvendaspmg.shop/images/arroz-parboilizado-tipo-1-food-service-camil-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
-  { id: 1111, name: 'ARROZ PARBOILIZADO TIPO 1 NAMORADO 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 122.74, image: 'https://www.marquesvendaspmg.shop/images/arroz-parboilizado-tipo-1-namorado-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
+  { id: 1111, name: 'ARROZ PARBOILIZADO TIPO 1 NAMORADO 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 114.98, image: 'https://www.marquesvendaspmg.shop/images/arroz-parboilizado-tipo-1-namorado-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
   { id: 1112, name: 'ARROZ RISOTOS CULINÁRIA ITALIANA FOOD SERVICE CAMIL 2 KILO', category: 'Derivados de Vegetal', price: 33.52, image: 'https://www.marquesvendaspmg.shop/images/arroz-risotos-culinaria-italiana-food-service-camil-2-kilo-pmg-atacadista.jpg' },
   { id: 1113, name: 'ASPARGOS BRANCO DI SALERNO 395 G', category: 'Derivados de Vegetal', price: 48.17, image: 'https://www.marquesvendaspmg.shop/images/aspargos-branco-di-salerno-395-g-pmg-atacadista.jpg' },
   { id: 1114, name: 'AZEITE COMPOSTO 30% OLIVA E SOJA LISBOA 500 ML', category: 'Derivados de Vegetal', price: 12.57, image: 'https://www.marquesvendaspmg.shop/images/azeite-composto-30-oliva-e-soja-lisboa-500-ml-pmg-atacadista.jpg' },
@@ -1187,7 +1187,7 @@ const products = [
   { id: 1122, name: 'AZEITE DE OLIVA EXTRA VIRGEM GALLO 500 ML', category: 'Derivados de Vegetal', price: 36.81, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-extra-virgem-gallo-500-ml-pmg-atacadista.jpg' },
   { id: 1123, name: 'AZEITE DE OLIVA EXTRA VIRGEM MORIXE 500 ML', category: 'Derivados de Vegetal', price: 35.4, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-extra-virgem-morixe-500-ml-pmg-atacadista.jpg' },
   { id: 1124, name: 'AZEITE DE OLIVA GRANDE EXTRA VIRGEM GALLO 5 L (CX 2 GL)', category: 'Derivados de Vegetal', price: 337.45, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-grande-extra-virgem-gallo-5-l-cx-2-gl-pmg-atacadista.jpg' },
-  { id: 1125, name: 'AZEITE DE OLIVA GRANDE EXTRA VIRGEM REY 5,01 L (CX 3 GL)', category: 'Derivados de Vegetal', price: 286.39, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-grande-extra-virgem-rey-501-l-cx-3-gl-pmg-atacadista.jpg' },
+  { id: 1125, name: 'AZEITE DE OLIVA GRANDE EXTRA VIRGEM REY 5,01 L (CX 3 GL)', category: 'Derivados de Vegetal', price: 338.7, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-grande-extra-virgem-rey-501-l-cx-3-gl-pmg-atacadista.jpg' },
   { id: 1126, name: 'AZEITE DE OLIVA GRANDE EXTRA VIRGEM TERRANO 5,01 L (CX 3 GL)', category: 'Derivados de Vegetal', price: 361.4, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-grande-extra-virgem-terrano-501-l-cx-3-gl-pmg-atacadista.jpg' },
   { id: 1127, name: 'AZEITE DE OLIVA MÉDIO EXTRA VIRGEM GALLO 2 L (CX 6 GL)', category: 'Derivados de Vegetal', price: 136.32, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-medio-extra-virgem-gallo-2-l-cx-6-gl-pmg-atacadista.jpg' },
   { id: 1128, name: 'AZEITE DE OLIVA PEQUENO EXTRA VIRGEM GALLO 250 ML', category: 'Derivados de Vegetal', price: 19.96, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-pequeno-extra-virgem-gallo-250-ml-pmg-atacadista.jpg' },
@@ -1198,32 +1198,32 @@ const products = [
   { id: 1133, name: 'AZEITE GRANDE COMPOSTO 30% OLIVA E SOJA LISBOA 5,02 L', category: 'Derivados de Vegetal', price: 66.95, image: 'https://www.marquesvendaspmg.shop/images/azeite-grande-composto-30-oliva-e-soja-lisboa-502-l-pmg-atacadista.jpg' },
   { id: 1134, name: 'AZEITE GRANDE COMPOSTO 50% OLIVA E GIRASSOL LISBOA 5,02 L', category: 'Derivados de Vegetal', price: 84.23, image: 'https://www.marquesvendaspmg.shop/images/azeite-grande-composto-50-oliva-e-girassol-lisboa-502-l-pmg-atacadista.jpg' },
   { id: 1135, name: 'AZEITONA PRETA FATIADA ARCO BELLO (BD 1,8 KILO)', category: 'Derivados de Vegetal', price: 77.1, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-fatiada-arco-bello-bd-18-kilo-pmg-atacadista.jpg' },
-  { id: 1136, name: 'AZEITONA PRETA FATIADA COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 87.73, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-fatiada-colosso-2-kilo-pmg-atacadista.jpg' },
+  { id: 1136, name: 'AZEITONA PRETA FATIADA COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 90.39, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-fatiada-colosso-2-kilo-pmg-atacadista.jpg' },
   { id: 1137, name: 'AZEITONA PRETA FATIADA RAINHA (BD 1,8 KILO)', category: 'Derivados de Vegetal', price: 77.89, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-fatiada-rainha-bd-18-kilo-pmg-atacadista.jpg' },
   { id: 1138, name: 'AZEITONA PRETA GRAÚDA 11 X 13 AZAPA COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 116.97, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-grauda-11-x-13-azapa-colosso-2-kilo-pmg-atacadista.jpg' },
-  { id: 1139, name: 'AZEITONA PRETA GRAÚDA 12 X 16 COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 83.74, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-grauda-12-x-16-colosso-2-kilo-pmg-atacadista.jpg' },
+  { id: 1139, name: 'AZEITONA PRETA GRAÚDA 12 X 16 COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 97.04, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-grauda-12-x-16-colosso-2-kilo-pmg-atacadista.jpg' },
   { id: 1140, name: 'AZEITONA PRETA GRAÚDA 9 X 11 AZAPA ARCO BELLO 2 KILO', category: 'Derivados de Vegetal', price: 120.96, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-grauda-9-x-11-azapa-arco-bello-2-kilo-pmg-atacadista.jpg' },
   { id: 1141, name: 'AZEITONA PRETA MÉDIA 20 X 24 ARCO BELLO 2 KILO', category: 'Derivados de Vegetal', price: 87.73, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-media-20-x-24-arco-bello-2-kilo-pmg-atacadista.jpg' },
   { id: 1142, name: 'AZEITONA PRETA MÉDIA 20 X 24 TOZZI 2 KILO', category: 'Derivados de Vegetal', price: 63.67, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-media-20-x-24-tozzi-2-kilo-pmg-atacadista.jpg' },
-  { id: 1143, name: 'AZEITONA PRETA MÉDIA 24 X 28 COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 79.76, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-media-24-x-28-colosso-2-kilo-pmg-atacadista.jpg' },
+  { id: 1143, name: 'AZEITONA PRETA MÉDIA 24 X 28 COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 85.07, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-media-24-x-28-colosso-2-kilo-pmg-atacadista.jpg' },
   { id: 1144, name: 'AZEITONA PRETA MIÚDA 45 X 50 COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 83.74, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-miuda-45-x-50-colosso-2-kilo-pmg-atacadista.jpg' },
-  { id: 1145, name: 'AZEITONA PRETA SEM CAROÇO ARCO BELLO 1,8 KILO', category: 'Derivados de Vegetal', price: 90.39, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-sem-caroco-arco-bello-18-kilo-pmg-atacadista.jpg' },
+  { id: 1145, name: 'AZEITONA PRETA SEM CAROÇO ARCO BELLO 1,8 KILO', category: 'Derivados de Vegetal', price: 99.69, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-sem-caroco-arco-bello-18-kilo-pmg-atacadista.jpg' },
   { id: 1146, name: 'AZEITONA PRETA SEM CAROÇO COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 91.72, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-sem-caroco-colosso-2-kilo-pmg-atacadista.jpg' },
   { id: 1147, name: 'AZEITONA VERDE FATIADA ARCO BELLO (BD 1,8 KILO)', category: 'Derivados de Vegetal', price: 60.22, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-fatiada-arco-bello-bd-18-kilo-pmg-atacadista.jpg' },
   { id: 1148, name: 'AZEITONA VERDE FATIADA COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 69.12, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-fatiada-colosso-2-kilo-pmg-atacadista.jpg' },
-  { id: 1149, name: 'AZEITONA VERDE FATIADA RAINHA (BD 1,8 KILO)', category: 'Derivados de Vegetal', price: 59.19, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-fatiada-rainha-bd-18-kilo-pmg-atacadista.jpg' },
+  { id: 1149, name: 'AZEITONA VERDE FATIADA RAINHA (BD 1,8 KILO)', category: 'Derivados de Vegetal', price: 65.46, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-fatiada-rainha-bd-18-kilo-pmg-atacadista.jpg' },
   { id: 1150, name: 'AZEITONA VERDE GRAÚDA 16 X 20 COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 57.82, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-grauda-16-x-20-colosso-2-kilo-pmg-atacadista.jpg' },
   { id: 1151, name: 'AZEITONA VERDE MÉDIA 24 X 28 ARCO BELLO (BD 2 KILO)', category: 'Derivados de Vegetal', price: 55.7, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-24-x-28-arco-bello-bd-2-kilo-pmg-atacadista.jpg' },
   { id: 1152, name: 'AZEITONA VERDE MÉDIA 24 X 28 COLOSSO (BD GRANDE 15 KILO)', category: 'Derivados de Vegetal', price: 385.48, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-24-x-28-colosso-bd-grande-15-kilo-pmg-atacadista.jpg' },
-  { id: 1153, name: 'AZEITONA VERDE MÉDIA 24 X 28 COLOSSO (BD MÉDIO 7,5 KILO)', category: 'Derivados de Vegetal', price: 179.45, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-24-x-28-colosso-bd-medio-75-kilo-pmg-atacadista.jpg' },
+  { id: 1153, name: 'AZEITONA VERDE MÉDIA 24 X 28 COLOSSO (BD MÉDIO 7,5 KILO)', category: 'Derivados de Vegetal', price: 192.74, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-24-x-28-colosso-bd-medio-75-kilo-pmg-atacadista.jpg' },
   { id: 1154, name: 'AZEITONA VERDE MÉDIA 24 X 28 COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 52.51, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-24-x-28-colosso-2-kilo-pmg-atacadista.jpg' },
   { id: 1155, name: 'AZEITONA VERDE MÉDIA 24 X 28 NUCETE 1,01 KILO', category: 'Derivados de Vegetal', price: 25.26, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-24-x-28-nucete-101-kilo-pmg-atacadista.jpg' },
   { id: 1156, name: 'AZEITONA VERDE MÉDIA 24 X 28 TOZZI 2 KILO', category: 'Derivados de Vegetal', price: 43.01, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-24-x-28-tozzi-2-kilo-pmg-atacadista.jpg' },
   { id: 1157, name: 'AZEITONA VERDE MÉDIA 28 X 32 ARCO BELLO (BARRICA 40 KILO)', category: 'Derivados de Vegetal', price: 917.18, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-28-x-32-arco-bello-barrica-40-kilo-pmg-atacadista.jpg' },
-  { id: 1158, name: 'AZEITONA VERDE MÉDIA 32 X 45 RAINHA (BD 2 KILO)', category: 'Derivados de Vegetal', price: 45.91, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-32-x-45-rainha-bd-2-kilo-pmg-atacadista.jpg' },
+  { id: 1158, name: 'AZEITONA VERDE MÉDIA 32 X 45 RAINHA (BD 2 KILO)', category: 'Derivados de Vegetal', price: 49.59, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-32-x-45-rainha-bd-2-kilo-pmg-atacadista.jpg' },
   { id: 1159, name: 'AZEITONA VERDE MIÚDA 40 X 50 ARCO BELLO (BD 2 KILO)', category: 'Derivados de Vegetal', price: 39.88, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-miuda-40-x-50-arco-bello-bd-2-kilo-pmg-atacadista.jpg' },
-  { id: 1160, name: 'AZEITONA VERDE MIÚDA 45 X 50 COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 42.54, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-miuda-45-x-50-colosso-2-kilo-pmg-atacadista.jpg' },
-  { id: 1161, name: 'AZEITONA VERDE MIÚDA 45 X 50 RAINHA (BD 2 KILO)', category: 'Derivados de Vegetal', price: 36.59, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-miuda-45-x-50-rainha-bd-2-kilo-pmg-atacadista.jpg' },
+  { id: 1160, name: 'AZEITONA VERDE MIÚDA 45 X 50 COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 45.19, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-miuda-45-x-50-colosso-2-kilo-pmg-atacadista.jpg' },
+  { id: 1161, name: 'AZEITONA VERDE MIÚDA 45 X 50 RAINHA (BD 2 KILO)', category: 'Derivados de Vegetal', price: 40.85, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-miuda-45-x-50-rainha-bd-2-kilo-pmg-atacadista.jpg' },
   { id: 1162, name: 'AZEITONA VERDE RECHEADA COLOSSO 2 KILO', category: 'Derivados de Vegetal', price: 79.76, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-recheada-colosso-2-kilo-pmg-atacadista.jpg' },
   { id: 1163, name: 'AZEITONA VERDE SEM CAROÇO ARCO BELLO 1,8 KILO', category: 'Derivados de Vegetal', price: 62.98, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-sem-caroco-arco-bello-18-kilo-pmg-atacadista.jpg' },
   { id: 1164, name: 'AZEITONA VERDE SEM CAROÇO COLOSSO (BD GRANDE 14 KILO)', category: 'Derivados de Vegetal', price: 491.82, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-sem-caroco-colosso-bd-grande-14-kilo-pmg-atacadista.jpg' },
@@ -1255,8 +1255,8 @@ const products = [
   { id: 1190, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO FAST FOOD BEM BRASIL 2 KILO (CX 6 PCT)', category: 'Derivados de Vegetal', price: 71.4, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-fast-food-bem-brasil-2-kilo-cx-6-pct-pmg-atacadista.jpg' },
   { id: 1191, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO FAST FOOD BEM BRASIL 2 KILO (CX 7 PCT)', category: 'Derivados de Vegetal', price: 193.75, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-fast-food-bem-brasil-2-kilo-cx-7-pct-pmg-atacadista.jpg' },
   { id: 1192, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO FAST FOOD CRISPY BEM BRASIL 2 KILO (CX 6 PCT)', category: 'Derivados de Vegetal', price: 200.49, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-fast-food-crispy-bem-brasil-2-kilo-cx-6-pct-pmg-atacadista.jpg' },
-  { id: 1193, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO FAST FOOD MCCAIN 2,25 KILO (CX 8 PCT)', category: 'Derivados de Vegetal', price: 152.09, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-fast-food-mccain-225-kilo-cx-8-pct-pmg-atacadista.jpg' },
-  { id: 1194, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO LAMBWESTON 2,25 KILO (CX 8 PCT)', category: 'Derivados de Vegetal', price: 232.3, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-lambweston-225-kilo-cx-8-pct-pmg-atacadista.jpg' },
+  { id: 1193, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO FAST FOOD MCCAIN 2,25 KILO (CX 8 PCT)', category: 'Derivados de Vegetal', price: 222.93, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-fast-food-mccain-225-kilo-cx-8-pct-pmg-atacadista.jpg' },
+  { id: 1194, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO LAMBWESTON 2,25 KILO (CX 8 PCT)', category: 'Derivados de Vegetal', price: 220.68, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-lambweston-225-kilo-cx-8-pct-pmg-atacadista.jpg' },
   { id: 1195, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO MCCAIN 2,25 KILO (CX 8 PCT)', category: 'Derivados de Vegetal', price: 292.63, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-mccain-225-kilo-cx-8-pct-pmg-atacadista.jpg' },
   { id: 1196, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO MCCAIN 2,5 KILO (CX 5 PCT)', category: 'Derivados de Vegetal', price: 214.59, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-mccain-25-kilo-cx-5-pct-pmg-atacadista.jpg' },
   { id: 1197, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO SIMPLOT 2,25 KILO (CX 8 PCT)', category: 'Derivados de Vegetal', price: 244.28, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-simplot-225-kilo-cx-8-pct-pmg-atacadista.jpg' },
@@ -1284,15 +1284,15 @@ const products = [
   { id: 1219, name: 'BRÓCOLIS CONGELADO PRATIGEL 1,02 KILO (CX 10 PCT)', category: 'Derivados de Vegetal', price: 161.21, image: 'https://www.marquesvendaspmg.shop/images/brocolis-congelado-pratigel-102-kilo-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1220, name: 'CAFÉ EXTRA FORTE ALMOFADA BOM JESUS 500 G (CX 10 PCT)', category: 'Derivados de Vegetal', price: 240.38, image: 'https://www.marquesvendaspmg.shop/images/cafe-extra-forte-almofada-bom-jesus-500-g-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1221, name: 'CAFÉ EXTRA FORTE ALMOFADA COAMO 500 G (CX 10 PCT)', category: 'Derivados de Vegetal', price: 279.93, image: 'https://www.marquesvendaspmg.shop/images/cafe-extra-forte-almofada-coamo-500-g-cx-10-pct-pmg-atacadista.jpg' },
-  { id: 1222, name: 'CAFÉ EXTRA FORTE ALMOFADA SELETO 500 G (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 249.64, image: 'https://www.marquesvendaspmg.shop/images/cafe-extra-forte-almofada-seleto-500-g-fdo-10-pct-pmg-atacadista.jpg' },
+  { id: 1222, name: 'CAFÉ EXTRA FORTE ALMOFADA SELETO 500 G (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 237.97, image: 'https://www.marquesvendaspmg.shop/images/cafe-extra-forte-almofada-seleto-500-g-fdo-10-pct-pmg-atacadista.jpg' },
   { id: 1223, name: 'CAFÉ EXTRA FORTE ALMOFADA SOLLUS 500 G (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 235.06, image: 'https://www.marquesvendaspmg.shop/images/cafe-extra-forte-almofada-sollus-500-g-fdo-10-pct-pmg-atacadista.jpg' },
-  { id: 1224, name: 'CAFÉ EXTRA FORTE ALMOFADA UNIÃO 500 G (CX 10 PCT)', category: 'Derivados de Vegetal', price: 301.92, image: 'https://www.marquesvendaspmg.shop/images/cafe-extra-forte-almofada-uniao-500-g-cx-10-pct-pmg-atacadista.jpg' },
+  { id: 1224, name: 'CAFÉ EXTRA FORTE ALMOFADA UNIÃO 500 G (CX 10 PCT)', category: 'Derivados de Vegetal', price: 279.96, image: 'https://www.marquesvendaspmg.shop/images/cafe-extra-forte-almofada-uniao-500-g-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1225, name: 'CAFÉ TRADICIONAL ALMOFADA BOM JESUS 500 G (CX 10 PCT)', category: 'Derivados de Vegetal', price: 325.35, image: 'https://www.marquesvendaspmg.shop/images/cafe-tradicional-almofada-bom-jesus-500-g-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1226, name: 'CAFÉ TRADICIONAL ALMOFADA COAMO 500 G (CX 10 PCT)', category: 'Derivados de Vegetal', price: 275.05, image: 'https://www.marquesvendaspmg.shop/images/cafe-tradicional-almofada-coamo-500-g-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1227, name: 'CAFÉ TRADICIONAL ALMOFADA MELITTA 500 G (CX 10 PCT)', category: 'Derivados de Vegetal', price: 364.31, image: 'https://www.marquesvendaspmg.shop/images/cafe-tradicional-almofada-melitta-500-g-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1228, name: 'CAFÉ TRADICIONAL ALMOFADA PILÃO 500 G (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 371.62, image: 'https://www.marquesvendaspmg.shop/images/cafe-tradicional-almofada-pilao-500-g-fdo-10-pct-pmg-atacadista.jpg' },
-  { id: 1229, name: 'CAFÉ TRADICIONAL ALMOFADA SELETO 500 G (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 249.64, image: 'https://www.marquesvendaspmg.shop/images/cafe-tradicional-almofada-seleto-500-g-fdo-10-pct-pmg-atacadista.jpg' },
-  { id: 1230, name: 'CAFÉ TRADICIONAL ALMOFADA UNIÃO 500 G (CX 10 PCT)', category: 'Derivados de Vegetal', price: 301.92, image: 'https://www.marquesvendaspmg.shop/images/cafe-tradicional-almofada-uniao-500-g-cx-10-pct-pmg-atacadista.jpg' },
+  { id: 1229, name: 'CAFÉ TRADICIONAL ALMOFADA SELETO 500 G (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 237.97, image: 'https://www.marquesvendaspmg.shop/images/cafe-tradicional-almofada-seleto-500-g-fdo-10-pct-pmg-atacadista.jpg' },
+  { id: 1230, name: 'CAFÉ TRADICIONAL ALMOFADA UNIÃO 500 G (CX 10 PCT)', category: 'Derivados de Vegetal', price: 279.96, image: 'https://www.marquesvendaspmg.shop/images/cafe-tradicional-almofada-uniao-500-g-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1231, name: 'CATCHUP CEPÊRA 3,5 KILO', category: 'Derivados de Vegetal', price: 29.48, image: 'https://www.marquesvendaspmg.shop/images/catchup-cepera-35-kilo-pmg-atacadista.jpg' },
   { id: 1232, name: 'CATCHUP EKMA 3,3 KILO', category: 'Derivados de Vegetal', price: 22.27, image: 'https://www.marquesvendaspmg.shop/images/catchup-ekma-33-kilo-pmg-atacadista.jpg' },
   { id: 1233, name: 'CATCHUP EKMA 950 G', category: 'Derivados de Vegetal', price: 7.2, image: 'https://www.marquesvendaspmg.shop/images/catchup-ekma-950-g-pmg-atacadista.jpg' },
@@ -1300,7 +1300,7 @@ const products = [
   { id: 1235, name: 'CATCHUP GRANDE HEMMER 3,8 KILO', category: 'Derivados de Vegetal', price: 35.95, image: 'https://www.marquesvendaspmg.shop/images/catchup-grande-hemmer-38-kilo-pmg-atacadista.jpg' },
   { id: 1236, name: 'PRODUTO EM FALTA', category: 'Derivados de Vegetal', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 1237, name: 'CATCHUP KISABOR 1,01 KILO', category: 'Derivados de Vegetal', price: 6.75, image: 'https://www.marquesvendaspmg.shop/images/catchup-kisabor-101-kilo-pmg-atacadista.jpg' },
-  { id: 1238, name: 'CATCHUP LANCHERO 3 KILO (FD 6 GL)', category: 'Derivados de Vegetal', price: 12.75, image: 'https://www.marquesvendaspmg.shop/images/catchup-lanchero-3-kilo-fd-6-gl-pmg-atacadista.jpg' },
+  { id: 1238, name: 'CATCHUP LANCHERO 3 KILO (FD 6 GL)', category: 'Derivados de Vegetal', price: 13, image: 'https://www.marquesvendaspmg.shop/images/catchup-lanchero-3-kilo-fd-6-gl-pmg-atacadista.jpg' },
   { id: 1239, name: 'CATCHUP MÉDIO HEINZ 1,033 KILO', category: 'Derivados de Vegetal', price: 17.7, image: 'https://www.marquesvendaspmg.shop/images/catchup-medio-heinz-1033-kilo-pmg-atacadista.jpg' },
   { id: 1240, name: 'CATCHUP PEQUENO CEPÊRA 1,01 KILO', category: 'Derivados de Vegetal', price: 9.76, image: 'https://www.marquesvendaspmg.shop/images/catchup-pequeno-cepera-101-kilo-pmg-atacadista.jpg' },
   { id: 1241, name: 'CATCHUP PEQUENO HEINZ 397 G (CX 16 FR)', category: 'Derivados de Vegetal', price: 197.95, image: 'https://www.marquesvendaspmg.shop/images/catchup-pequeno-heinz-397-g-cx-16-fr-pmg-atacadista.jpg' },
@@ -1308,7 +1308,7 @@ const products = [
   { id: 1243, name: 'CATCHUP SACHÊ CEPÊRA 7 G (CX 175 UN)', category: 'Derivados de Vegetal', price: 18.59, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-cepera-7-g-cx-175-un-pmg-atacadista.jpg' },
   { id: 1244, name: 'CATCHUP SACHÊ EKMA 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 12.85, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-ekma-7-g-cx-168-un-pmg-atacadista.jpg' },
   { id: 1245, name: 'PRODUTO EM FALTA', category: 'Derivados de Vegetal', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 19.42, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 24.36, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1247, name: 'CATCHUP SACHÊ HELLMANN´S 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 22.55, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-hellmanns-7-g-cx-168-un-pmg-atacadista.jpg' },
   { id: 1248, name: 'CATCHUP SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Derivados de Vegetal', price: 21.94, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
   { id: 1249, name: 'CATCHUP SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 10.9, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
@@ -1320,7 +1320,7 @@ const products = [
   { id: 1255, name: 'CEBOLINHA GRANJA SÃO PAULO (BD 2 KILO)', category: 'Derivados de Vegetal', price: 57.26, image: 'https://www.marquesvendaspmg.shop/images/cebolinha-granja-sao-paulo-bd-2-kilo-pmg-atacadista.jpg' },
   { id: 1256, name: 'CENOURA CONGELADA BABY GRANO 2 KILO', category: 'Derivados de Vegetal', price: 41.77, image: 'https://www.marquesvendaspmg.shop/images/cenoura-congelada-baby-grano-2-kilo-pmg-atacadista.jpg' },
   { id: 1257, name: 'CHAMPIGNON FATIADO ARCO BELLO (BD 2 KILO)', category: 'Derivados de Vegetal', price: 61.81, image: 'https://www.marquesvendaspmg.shop/images/champignon-fatiado-arco-bello-bd-2-kilo-pmg-atacadista.jpg' },
-  { id: 1258, name: 'CHAMPIGNON FATIADO YGUARA 2 KILO (FD 4 BD)', category: 'Derivados de Vegetal', price: 59.91, image: 'https://www.marquesvendaspmg.shop/images/champignon-fatiado-yguara-2-kilo-fd-4-bd-pmg-atacadista.jpg' },
+  { id: 1258, name: 'CHAMPIGNON FATIADO YGUARA 2 KILO (FD 4 BD)', category: 'Derivados de Vegetal', price: 59.82, image: 'https://www.marquesvendaspmg.shop/images/champignon-fatiado-yguara-2-kilo-fd-4-bd-pmg-atacadista.jpg' },
   { id: 1259, name: 'CHAMPIGNON INTEIRO ARCO BELLO (BD 2 KILO)', category: 'Derivados de Vegetal', price: 91.72, image: 'https://www.marquesvendaspmg.shop/images/champignon-inteiro-arco-bello-bd-2-kilo-pmg-atacadista.jpg' },
   { id: 1260, name: 'COUVE FLOR CONGELADA GRANO 2 KILO (CX 5 PCT)', category: 'Derivados de Vegetal', price: 136.91, image: 'https://www.marquesvendaspmg.shop/images/couve-flor-congelada-grano-2-kilo-cx-5-pct-pmg-atacadista.jpg' },
   { id: 1261, name: 'ERVILHA CONGELADA GRANO 2 KILO', category: 'Derivados de Vegetal', price: 38.92, image: 'https://www.marquesvendaspmg.shop/images/ervilha-congelada-grano-2-kilo-pmg-atacadista.jpg' },
@@ -1351,12 +1351,12 @@ const products = [
   { id: 1286, name: 'GRÃO DE BICO PQ 1 KILO (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 12.11, image: 'https://www.marquesvendaspmg.shop/images/grao-de-bico-pq-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
   { id: 1287, name: 'LENTILHA DA TERRINHA 500 G (FDO 12 PCT)', category: 'Derivados de Vegetal', price: 13.74, image: 'https://www.marquesvendaspmg.shop/images/lentilha-da-terrinha-500-g-fdo-12-pct-pmg-atacadista.jpg' },
   { id: 1288, name: 'LENTILHA FOOD SERVICE CAMIL 2 KILO (FDO 5 PCT)', category: 'Derivados de Vegetal', price: 42.83, image: 'https://www.marquesvendaspmg.shop/images/lentilha-food-service-camil-2-kilo-fdo-5-pct-pmg-atacadista.jpg' },
-  { id: 1289, name: 'MAIONESE GRANDE HELLMANN´S 3 KILO', category: 'Derivados de Vegetal', price: 52.41, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-hellmanns-3-kilo-pmg-atacadista.jpg' },
+  { id: 1289, name: 'MAIONESE GRANDE HELLMANN´S 3 KILO', category: 'Derivados de Vegetal', price: 51.21, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-hellmanns-3-kilo-pmg-atacadista.jpg' },
   { id: 1290, name: 'MAIONESE GRANDE MARIANA 3 KILO', category: 'Derivados de Vegetal', price: 25.25, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-mariana-3-kilo-pmg-atacadista.jpg' },
-  { id: 1291, name: 'MAIONESE GRANDE QUERO 3 KILO', category: 'Derivados de Vegetal', price: 24.33, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-quero-3-kilo-pmg-atacadista.jpg' },
+  { id: 1291, name: 'MAIONESE GRANDE QUERO 3 KILO', category: 'Derivados de Vegetal', price: 25.27, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-quero-3-kilo-pmg-atacadista.jpg' },
   { id: 1292, name: 'MAIONESE GRILL JUNIOR 1,1 KILO', category: 'Derivados de Vegetal', price: 38.7, image: 'https://www.marquesvendaspmg.shop/images/maionese-grill-junior-11-kilo-pmg-atacadista.jpg' },
   { id: 1293, name: 'MAIONESE HEINZ 215 G (CX 16 FR)', category: 'Derivados de Vegetal', price: 162.3, image: 'https://www.marquesvendaspmg.shop/images/maionese-heinz-215-g-cx-16-fr-pmg-atacadista.jpg' },
-  { id: 1294, name: 'MAIONESE HELLMANN´S 2,8 KILO', category: 'Derivados de Vegetal', price: 38.95, image: 'https://www.marquesvendaspmg.shop/images/maionese-hellmanns-28-kilo-pmg-atacadista.jpg' },
+  { id: 1294, name: 'MAIONESE HELLMANN´S 2,8 KILO', category: 'Derivados de Vegetal', price: 43.15, image: 'https://www.marquesvendaspmg.shop/images/maionese-hellmanns-28-kilo-pmg-atacadista.jpg' },
   { id: 1295, name: 'MAIONESE PEQUENA MARIANA 1 KILO (CX 10 BAG)', category: 'Derivados de Vegetal', price: 63.79, image: 'https://www.marquesvendaspmg.shop/images/maionese-pequena-mariana-1-kilo-cx-10-bag-pmg-atacadista.jpg' },
   { id: 1296, name: 'MAIONESE PEQUENA VIGOR 1 KILO (CX 6 BAG)', category: 'Derivados de Vegetal', price: 69.03, image: 'https://www.marquesvendaspmg.shop/images/maionese-pequena-vigor-1-kilo-cx-6-bag-pmg-atacadista.jpg' },
   { id: 1297, name: 'MAIONESE PREDILECTA 2,8 KILO', category: 'Derivados de Vegetal', price: 21.71, image: 'https://www.marquesvendaspmg.shop/images/maionese-predilecta-28-kilo-pmg-atacadista.jpg' },
@@ -1364,24 +1364,24 @@ const products = [
   { id: 1299, name: 'MAIONESE SACHÊ CEPÊRA 7 G (CX 175 UN)', category: 'Derivados de Vegetal', price: 20.34, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-cepera-7-g-cx-175-un-pmg-atacadista.jpg' },
   { id: 1300, name: 'MAIONESE SACHÊ EKMA 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 18.1, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-ekma-7-g-cx-168-un-pmg-atacadista.jpg' },
   { id: 1301, name: 'MAIONESE SACHÊ FUGINI 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 13.5, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-fugini-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 19.42, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1303, name: 'MAIONESE SACHÊ HELLMANN´S 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 27.24, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-hellmanns-7-g-cx-168-un-pmg-atacadista.jpg' },
+  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 25.51, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1303, name: 'MAIONESE SACHÊ HELLMANN´S 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 25.43, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-hellmanns-7-g-cx-168-un-pmg-atacadista.jpg' },
   { id: 1304, name: 'MAIONESE SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Derivados de Vegetal', price: 21.94, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
-  { id: 1305, name: 'MAIONESE SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 8.97, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
+  { id: 1305, name: 'MAIONESE SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 9.11, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
   { id: 1306, name: 'MAIONESE SACHÊ PREDILECTA 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 14.36, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-predilecta-7-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1307, name: 'MAIONESE TEMPERADA JUNIOR 1,01 KILO', category: 'Derivados de Vegetal', price: 31.92, image: 'https://www.marquesvendaspmg.shop/images/maionese-temperada-junior-101-kilo-pmg-atacadista.jpg' },
   { id: 1308, name: 'MAIONESE TEMPERADA ZAFRÁN 1,05 KILO', category: 'Derivados de Vegetal', price: 26.43, image: 'https://www.marquesvendaspmg.shop/images/maionese-temperada-zafran-105-kilo-pmg-atacadista.jpg' },
   { id: 1309, name: 'MAIONESE VIGOR 2,8 KILO', category: 'Derivados de Vegetal', price: 30.92, image: 'https://www.marquesvendaspmg.shop/images/maionese-vigor-28-kilo-pmg-atacadista.jpg' },
   { id: 1310, name: 'MANDIOCA TOLETE CONGELADA E COZIDA ARRICO 1 KILO (CX 12 PCT)', category: 'Derivados de Vegetal', price: 131.06, image: 'https://www.marquesvendaspmg.shop/images/mandioca-tolete-congelada-e-cozida-arrico-1-kilo-cx-12-pct-pmg-atacadista.jpg' },
   { id: 1311, name: 'MANDIOCA TOLETE CONGELADA E COZIDA CONCEIÇÃO 2,5 KILO (CX 4 PCT)', category: 'Derivados de Vegetal', price: 118.94, image: 'https://www.marquesvendaspmg.shop/images/mandioca-tolete-congelada-e-cozida-conceicao-25-kilo-cx-4-pct-pmg-atacadista.jpg' },
-  { id: 1312, name: 'MANDIOCA TOLETE CONGELADA E COZIDA MATHEUS 2,5 KILO (CX 4 PCT)', category: 'Derivados de Vegetal', price: 144.89, image: 'https://www.marquesvendaspmg.shop/images/mandioca-tolete-congelada-e-cozida-matheus-25-kilo-cx-4-pct-pmg-atacadista.jpg' },
+  { id: 1312, name: 'MANDIOCA TOLETE CONGELADA E COZIDA MATHEUS 2,5 KILO (CX 4 PCT)', category: 'Derivados de Vegetal', price: 152.86, image: 'https://www.marquesvendaspmg.shop/images/mandioca-tolete-congelada-e-cozida-matheus-25-kilo-cx-4-pct-pmg-atacadista.jpg' },
   { id: 1313, name: 'MANJERICÃO DESIDRATADO BRASILSECO 500 G (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 10.74, image: 'https://www.marquesvendaspmg.shop/images/manjericao-desidratado-brasilseco-500-g-fdo-10-pct-pmg-atacadista.jpg' },
   { id: 1314, name: 'MARGARINA COM SAL 50 % AMÉLIA (BD 14 KILO)', category: 'Derivados de Vegetal', price: 117.59, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-50-amelia-bd-14-kilo-pmg-atacadista.jpg' },
   { id: 1315, name: 'MARGARINA COM SAL 50 % COAMO (BD 14,5 KILO)', category: 'Derivados de Vegetal', price: 123.94, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-50-coamo-bd-145-kilo-pmg-atacadista.jpg' },
   { id: 1316, name: 'MARGARINA COM SAL 75 % PRIMOR (BD 15 KILO)', category: 'Derivados de Vegetal', price: 191.52, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-75-primor-bd-15-kilo-pmg-atacadista.jpg' },
   { id: 1317, name: 'MARGARINA COM SAL 75 % SOFITELI (BD 15 KILO)', category: 'Derivados de Vegetal', price: 168.91, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-75-sofiteli-bd-15-kilo-pmg-atacadista.jpg' },
   { id: 1318, name: 'MARGARINA COM SAL 80 % AMÉLIA (BD 14 KILO)', category: 'Derivados de Vegetal', price: 166.16, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-80-amelia-bd-14-kilo-pmg-atacadista.jpg' },
-  { id: 1319, name: 'MARGARINA COM SAL 80 % COAMO (BD 14,5 KILO)', category: 'Derivados de Vegetal', price: 13.31, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-80-coamo-bd-145-kilo-pmg-atacadista.jpg' },
+  { id: 1319, name: 'MARGARINA COM SAL 80 % COAMO (BD 14,5 KILO)', category: 'Derivados de Vegetal', price: 161.04, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-80-coamo-bd-145-kilo-pmg-atacadista.jpg' },
   { id: 1320, name: 'MARGARINA FOLHADOS & CROISSANTS 80 % AMÉLIA 2 KILO (CX 6 UN)', category: 'Derivados de Vegetal', price: 172.55, image: 'https://www.marquesvendaspmg.shop/images/margarina-folhados-croissants-80-amelia-2-kilo-cx-6-un-pmg-atacadista.jpg' },
   { id: 1321, name: 'MARGARINA GRANDE COM SAL 80 % QUALY SADIA 1 KILO (CX 6 UN)', category: 'Derivados de Vegetal', price: 89.37, image: 'https://www.marquesvendaspmg.shop/images/margarina-grande-com-sal-80-qualy-sadia-1-kilo-cx-6-un-pmg-atacadista.jpg' },
   { id: 1322, name: 'MARGARINA MÉDIA COM SAL 80 % DORIANA 500 G (CX 12 UN)', category: 'Derivados de Vegetal', price: 85.44, image: 'https://www.marquesvendaspmg.shop/images/margarina-media-com-sal-80-doriana-500-g-cx-12-un-pmg-atacadista.jpg' },
@@ -1399,7 +1399,7 @@ const products = [
   { id: 1334, name: 'MISTURA DE ÓLEOS VEGETAIS FRY SEBELLA SINA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 158.06, image: 'https://www.marquesvendaspmg.shop/images/mistura-de-oleos-vegetais-fry-sebella-sina-bd-158-l-pmg-atacadista.jpg' },
   { id: 1335, name: 'MOLHO GRILL ZAFRÁN 1,05 KILO', category: 'Derivados de Vegetal', price: 29.2, image: 'https://www.marquesvendaspmg.shop/images/molho-grill-zafran-105-kilo-pmg-atacadista.jpg' },
   { id: 1336, name: 'PRODUTO EM FALTA', category: 'Derivados de Vegetal', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 1337, name: 'MOSTARDA AMARELA HEINZ 255 G (CX 16 FR)', category: 'Derivados de Vegetal', price: 8.27, image: 'https://www.marquesvendaspmg.shop/images/mostarda-amarela-heinz-255-g-cx-16-fr-pmg-atacadista.jpg' },
+  { id: 1337, name: 'MOSTARDA AMARELA HEINZ 255 G (CX 16 FR)', category: 'Derivados de Vegetal', price: 6.88, image: 'https://www.marquesvendaspmg.shop/images/mostarda-amarela-heinz-255-g-cx-16-fr-pmg-atacadista.jpg' },
   { id: 1338, name: 'MOSTARDA AMARELA HEMMER 1 KILO', category: 'Derivados de Vegetal', price: 16.3, image: 'https://www.marquesvendaspmg.shop/images/mostarda-amarela-hemmer-1-kilo-pmg-atacadista.jpg' },
   { id: 1339, name: 'MOSTARDA AMARELA KISABOR 1,01 KILO', category: 'Derivados de Vegetal', price: 6.22, image: 'https://www.marquesvendaspmg.shop/images/mostarda-amarela-kisabor-101-kilo-pmg-atacadista.jpg' },
   { id: 1340, name: 'MOSTARDA COM MEL CEPÊRA 400 G', category: 'Derivados de Vegetal', price: 12.45, image: 'https://www.marquesvendaspmg.shop/images/mostarda-com-mel-cepera-400-g-pmg-atacadista.jpg' },
@@ -1410,24 +1410,24 @@ const products = [
   { id: 1345, name: 'MOSTARDA GRANDE AMARELA EKMA 3,3 KILO', category: 'Derivados de Vegetal', price: 21.17, image: 'https://www.marquesvendaspmg.shop/images/mostarda-grande-amarela-ekma-33-kilo-pmg-atacadista.jpg' },
   { id: 1346, name: 'MOSTARDA GRANDE AMARELA HEINZ 2 KILO', category: 'Derivados de Vegetal', price: 44.38, image: 'https://www.marquesvendaspmg.shop/images/mostarda-grande-amarela-heinz-2-kilo-pmg-atacadista.jpg' },
   { id: 1347, name: 'MOSTARDA GRANDE AMARELA HEMMER 3,6 KILO', category: 'Derivados de Vegetal', price: 42.65, image: 'https://www.marquesvendaspmg.shop/images/mostarda-grande-amarela-hemmer-36-kilo-pmg-atacadista.jpg' },
-  { id: 1348, name: 'MOSTARDA GRANDE AMARELA LANCHERO 3 KILO (FD 6 GL)', category: 'Derivados de Vegetal', price: 12.36, image: 'https://www.marquesvendaspmg.shop/images/mostarda-grande-amarela-lanchero-3-kilo-fd-6-gl-pmg-atacadista.jpg' },
+  { id: 1348, name: 'MOSTARDA GRANDE AMARELA LANCHERO 3 KILO (FD 6 GL)', category: 'Derivados de Vegetal', price: 13, image: 'https://www.marquesvendaspmg.shop/images/mostarda-grande-amarela-lanchero-3-kilo-fd-6-gl-pmg-atacadista.jpg' },
   { id: 1349, name: 'MOSTARDA SACHÊ CEPÊRA 7 G (CX 175 UN)', category: 'Derivados de Vegetal', price: 15.98, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-cepera-7-g-cx-175-un-pmg-atacadista.jpg' },
   { id: 1350, name: 'MOSTARDA SACHÊ EKMA 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 12.85, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-ekma-7-g-cx-168-un-pmg-atacadista.jpg' },
   { id: 1351, name: 'MOSTARDA SACHÊ FUGINI 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 13.68, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-fugini-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 19.42, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1353, name: 'MOSTARDA SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Derivados de Vegetal', price: 19.42, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
+  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 24.36, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1353, name: 'MOSTARDA SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Derivados de Vegetal', price: 23.14, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
   { id: 1354, name: 'MOSTARDA SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 10.72, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
   { id: 1355, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', category: 'Derivados de Vegetal', price: 181.58, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao-bd-158-l-pmg-atacadista.jpg' },
   { id: 1356, name: 'ÓLEO DE ALGODÃO LIZA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 201.94, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-bd-158-l-pmg-atacadista.jpg' },
-  { id: 1357, name: 'ÓLEO DE ALGODÃO LIZA 900 ML', category: 'Derivados de Vegetal', price: 14.96, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-900-ml-pmg-atacadista.jpg' },
-  { id: 1358, name: 'ÓLEO DE ALGODÃO SOYA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 200.4, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-soya-bd-158-l-pmg-atacadista.jpg' },
+  { id: 1357, name: 'ÓLEO DE ALGODÃO LIZA 900 ML', category: 'Derivados de Vegetal', price: 14.97, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-900-ml-pmg-atacadista.jpg' },
+  { id: 1358, name: 'ÓLEO DE ALGODÃO SOYA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 200.46, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-soya-bd-158-l-pmg-atacadista.jpg' },
   { id: 1359, name: 'ÓLEO DE CANOLA LIZA 900 ML', category: 'Derivados de Vegetal', price: 16.43, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-canola-liza-900-ml-pmg-atacadista.jpg' },
   { id: 1360, name: 'ÓLEO DE GIRASSOL LIZA 900 ML', category: 'Derivados de Vegetal', price: 15.97, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-girassol-liza-900-ml-pmg-atacadista.jpg' },
   { id: 1361, name: 'ÓLEO DE MILHO LIZA 900 ML', category: 'Derivados de Vegetal', price: 16.23, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-milho-liza-900-ml-pmg-atacadista.jpg' },
   { id: 1362, name: 'ÓLEO DE SOJA COAMO 900 ML (CX 20 FR)', category: 'Derivados de Vegetal', price: 177.31, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-coamo-900-ml-cx-20-fr-pmg-atacadista.jpg' },
   { id: 1363, name: 'ÓLEO DE SOJA COCAMAR (LT 18 L)', category: 'Derivados de Vegetal', price: 194.25, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-cocamar-lt-18-l-pmg-atacadista.jpg' },
-  { id: 1364, name: 'ÓLEO DE SOJA LIZA 900 ML', category: 'Derivados de Vegetal', price: 57.84, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-liza-900-ml-pmg-atacadista.jpg' },
-  { id: 1365, name: 'ÓLEO DE SOJA VILA VELHA (GL 18 L)', category: 'Derivados de Vegetal', price: 166.52, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-vila-velha-gl-18-l-pmg-atacadista.jpg' },
+  { id: 1364, name: 'ÓLEO DE SOJA LIZA 900 ML', category: 'Derivados de Vegetal', price: 59.48, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-liza-900-ml-pmg-atacadista.jpg' },
+  { id: 1365, name: 'ÓLEO DE SOJA VILA VELHA (GL 18 L)', category: 'Derivados de Vegetal', price: 168.73, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-vila-velha-gl-18-l-pmg-atacadista.jpg' },
   { id: 1366, name: 'ÓLEO DE SOJA VILA VELHA 900 ML (CX 20 FR)', category: 'Derivados de Vegetal', price: 175.2, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-vila-velha-900-ml-cx-20-fr-pmg-atacadista.jpg' },
   { id: 1367, name: 'ORÉGANO CHILENO DI SALERNO 1 KILO (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 40.08, image: 'https://www.marquesvendaspmg.shop/images/oregano-chileno-di-salerno-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
   { id: 1368, name: 'ORÉGANO FLOCOS PENINA 200 G (FD 40 PCT)', category: 'Derivados de Vegetal', price: 10.85, image: 'https://www.marquesvendaspmg.shop/images/oregano-flocos-penina-200-g-fd-40-pct-pmg-atacadista.jpg' },
@@ -1447,7 +1447,7 @@ const products = [
   { id: 1382, name: 'PALMITO PICADO PUPUNHA DU CAMPO 1,8 KILO', category: 'Derivados de Vegetal', price: 41.06, image: 'https://www.marquesvendaspmg.shop/images/palmito-picado-pupunha-du-campo-18-kilo-pmg-atacadista.jpg' },
   { id: 1383, name: 'PALMITO PICADO PUPUNHA ITARIRI 1,8 KILO', category: 'Derivados de Vegetal', price: 39.1, image: 'https://www.marquesvendaspmg.shop/images/palmito-picado-pupunha-itariri-18-kilo-pmg-atacadista.jpg' },
   { id: 1384, name: 'PALMITO PICADO PUPUNHA OURO DO VALE 1,8 KILO', category: 'Derivados de Vegetal', price: 37.28, image: 'https://www.marquesvendaspmg.shop/images/palmito-picado-pupunha-ouro-do-vale-18-kilo-pmg-atacadista.jpg' },
-  { id: 1385, name: 'PALMITO PICADO PUPUNHA POTE D´ORO 1,8 KILO', category: 'Derivados de Vegetal', price: 35.78, image: 'https://www.marquesvendaspmg.shop/images/palmito-picado-pupunha-pote-doro-18-kilo-pmg-atacadista.jpg' },
+  { id: 1385, name: 'PALMITO PICADO PUPUNHA POTE D´ORO 1,8 KILO', category: 'Derivados de Vegetal', price: 38.34, image: 'https://www.marquesvendaspmg.shop/images/palmito-picado-pupunha-pote-doro-18-kilo-pmg-atacadista.jpg' },
   { id: 1386, name: 'PALMITO PICADO PUPUNHA PREMIER 1,8 KILO', category: 'Derivados de Vegetal', price: 45.72, image: 'https://www.marquesvendaspmg.shop/images/palmito-picado-pupunha-premier-18-kilo-pmg-atacadista.jpg' },
   { id: 1387, name: 'PALMITO RODELA PUPUNHA DU CAMPO 1,8 KILO', category: 'Derivados de Vegetal', price: 44.73, image: 'https://www.marquesvendaspmg.shop/images/palmito-rodela-pupunha-du-campo-18-kilo-pmg-atacadista.jpg' },
   { id: 1388, name: 'PALMITO RODELA PUPUNHA OURO DO VALE 1,8 KILO', category: 'Derivados de Vegetal', price: 45.8, image: 'https://www.marquesvendaspmg.shop/images/palmito-rodela-pupunha-ouro-do-vale-18-kilo-pmg-atacadista.jpg' },
@@ -1488,12 +1488,12 @@ const products = [
   { id: 1423, name: 'VINAGRE DE MAÇÃ CASTELO 750 ML (CX 12 FR)', category: 'Derivados de Vegetal', price: 139.57, image: 'https://www.marquesvendaspmg.shop/images/vinagre-de-maca-castelo-750-ml-cx-12-fr-pmg-atacadista.jpg' },
   { id: 1424, name: 'VINAGRE DE VINHO BRANCO GALLO 250 ML (CX 6 FR)', category: 'Derivados de Vegetal', price: 71.58, image: 'https://www.marquesvendaspmg.shop/images/vinagre-de-vinho-branco-gallo-250-ml-cx-6-fr-pmg-atacadista.jpg' },
   { id: 1425, name: 'VINAGRE DE VINHO TINTO GALLO 250 ML (CX 6 FR)', category: 'Derivados de Vegetal', price: 68.17, image: 'https://www.marquesvendaspmg.shop/images/vinagre-de-vinho-tinto-gallo-250-ml-cx-6-fr-pmg-atacadista.jpg' },
-  { id: 1426, name: 'VINAGRE GRANDE DE ÁLCOOL CASTELO (GL 5 L)', category: 'Derivados de Vegetal', price: 21.36, image: 'https://www.marquesvendaspmg.shop/images/vinagre-grande-de-alcool-castelo-gl-5-l-pmg-atacadista.jpg' },
+  { id: 1426, name: 'VINAGRE GRANDE DE ÁLCOOL CASTELO (GL 5 L)', category: 'Derivados de Vegetal', price: 25.38, image: 'https://www.marquesvendaspmg.shop/images/vinagre-grande-de-alcool-castelo-gl-5-l-pmg-atacadista.jpg' },
   { id: 1427, name: 'VINAGRE GRANDE DE ÁLCOOL TOSCANO (GL 5 L)', category: 'Derivados de Vegetal', price: 14.96, image: 'https://www.marquesvendaspmg.shop/images/vinagre-grande-de-alcool-toscano-gl-5-l-pmg-atacadista.jpg' },
   { id: 1428, name: 'VINAGRE SACHÊ DE VINHO TINTO BOM SABOR 4 ML (CX 200 UN)', category: 'Derivados de Vegetal', price: 29.55, image: 'https://www.marquesvendaspmg.shop/images/vinagre-sache-de-vinho-tinto-bom-sabor-4-ml-cx-200-un-pmg-atacadista.jpg' },
   { id: 1429, name: 'ALICHE ARGENTINO A VÁCUO DI SALERNO 500 G', category: 'Derivados do Mar', price: 138.04, image: 'https://www.marquesvendaspmg.shop/images/aliche-argentino-a-vacuo-di-salerno-500-g-pmg-atacadista.jpg' },
   { id: 1430, name: 'ALICHE ARGENTINO A VÁCUO MARCOL 500 G', category: 'Derivados do Mar', price: 122.07, image: 'https://www.marquesvendaspmg.shop/images/aliche-argentino-a-vacuo-marcol-500-g-pmg-atacadista.jpg' },
-  { id: 1431, name: 'ALICHE ARGENTINO DI SALERNO 1,5 KILO', category: 'Derivados do Mar', price: 394.27, image: 'https://www.marquesvendaspmg.shop/images/aliche-argentino-di-salerno-15-kilo-pmg-atacadista.jpg' },
+  { id: 1431, name: 'ALICHE ARGENTINO DI SALERNO 1,5 KILO', category: 'Derivados do Mar', price: 394.25, image: 'https://www.marquesvendaspmg.shop/images/aliche-argentino-di-salerno-15-kilo-pmg-atacadista.jpg' },
   { id: 1432, name: 'ALICHE NACIONAL RIBAMAR', category: 'Derivados do Mar', price: 49.18, image: 'https://www.marquesvendaspmg.shop/images/aliche-nacional-ribamar-pmg-atacadista.jpg' },
   { id: 1433, name: 'ATUM GRANDE PEDAÇOS EM ÓLEO POUCH GOMES DA COSTA 1 KILO', category: 'Derivados do Mar', price: 60.52, image: 'https://www.marquesvendaspmg.shop/images/atum-grande-pedacos-em-oleo-pouch-gomes-da-costa-1-kilo-pmg-atacadista.jpg' },
   { id: 1434, name: 'ATUM GRANDE RALADO AO NATURAL POUCH GOMES DA COSTA 1 KILO', category: 'Derivados do Mar', price: 50.05, image: 'https://www.marquesvendaspmg.shop/images/atum-grande-ralado-ao-natural-pouch-gomes-da-costa-1-kilo-pmg-atacadista.jpg' },
@@ -1515,7 +1515,7 @@ const products = [
   { id: 1450, name: 'ATUM PEQUENO SÓLIDO EM ÓLEO PESCADOR 140 G (CX 24 LT)', category: 'Derivados do Mar', price: 200.86, image: 'https://www.marquesvendaspmg.shop/images/atum-pequeno-solido-em-oleo-pescador-140-g-cx-24-lt-pmg-atacadista.jpg' },
   { id: 1451, name: 'ATUM RALADO EM ÓLEO CHICHARRO SANTA RITA 410 G', category: 'Derivados do Mar', price: 12.66, image: 'https://www.marquesvendaspmg.shop/images/atum-ralado-em-oleo-chicharro-santa-rita-410-g-pmg-atacadista.jpg' },
   { id: 1452, name: 'ATUM RALADO EM ÓLEO MARSUL 400 G', category: 'Derivados do Mar', price: 23.47, image: 'https://www.marquesvendaspmg.shop/images/atum-ralado-em-oleo-marsul-400-g-pmg-atacadista.jpg' },
-  { id: 1453, name: 'ATUM RALADO EM ÓLEO POUCH 88 500 G', category: 'Derivados do Mar', price: 19.42, image: 'https://www.marquesvendaspmg.shop/images/atum-ralado-em-oleo-pouch-88-500-g-pmg-atacadista.jpg' },
+  { id: 1453, name: 'ATUM RALADO EM ÓLEO POUCH 88 500 G', category: 'Derivados do Mar', price: 24.2, image: 'https://www.marquesvendaspmg.shop/images/atum-ralado-em-oleo-pouch-88-500-g-pmg-atacadista.jpg' },
   { id: 1454, name: 'ATUM RALADO EM ÓLEO POUCH COQUEIRO 480 G', category: 'Derivados do Mar', price: 22.54, image: 'https://www.marquesvendaspmg.shop/images/atum-ralado-em-oleo-pouch-coqueiro-480-g-pmg-atacadista.jpg' },
   { id: 1455, name: 'ATUM RALADO EM ÓLEO POUCH GOMES DA COSTA 500 G', category: 'Derivados do Mar', price: 26.46, image: 'https://www.marquesvendaspmg.shop/images/atum-ralado-em-oleo-pouch-gomes-da-costa-500-g-pmg-atacadista.jpg' },
   { id: 1456, name: 'ATUM RALADO EM ÓLEO TOURS 400 G', category: 'Derivados do Mar', price: 25.09, image: 'https://www.marquesvendaspmg.shop/images/atum-ralado-em-oleo-tours-400-g-pmg-atacadista.jpg' },
@@ -1528,12 +1528,12 @@ const products = [
   { id: 1463, name: 'FILÉ DE MERLUZA CONGELADO IQF PALEMON 1 KILO', category: 'Derivados do Mar', price: 21.93, image: 'https://www.marquesvendaspmg.shop/images/file-de-merluza-congelado-iqf-palemon-1-kilo-pmg-atacadista.jpg' },
   { id: 1464, name: 'FILÉ DE TILÁPIA CONGELADO NOVA PESCA 5 KILO', category: 'Derivados do Mar', price: 137.9, image: 'https://www.marquesvendaspmg.shop/images/file-de-tilapia-congelado-nova-pesca-5-kilo-pmg-atacadista.jpg' },
   { id: 1465, name: 'FILÉ DE TILÁPIA CONGELADO PALEMON 800 G', category: 'Derivados do Mar', price: 31.64, image: 'https://www.marquesvendaspmg.shop/images/file-de-tilapia-congelado-palemon-800-g-pmg-atacadista.jpg' },
-  { id: 1466, name: 'ISCAS DE FILÉ DE TILÁPIA EMPANADAS CONGELADAS IQF BAITA 700 G', category: 'Derivados do Mar', price: 17.37, image: 'https://www.marquesvendaspmg.shop/images/iscas-de-file-de-tilapia-empanadas-congeladas-iqf-baita-700-g-pmg-atacadista.jpg' },
+  { id: 1466, name: 'ISCAS DE FILÉ DE TILÁPIA EMPANADAS CONGELADAS IQF BAITA 700 G', category: 'Derivados do Mar', price: 41.03, image: 'https://www.marquesvendaspmg.shop/images/iscas-de-file-de-tilapia-empanadas-congeladas-iqf-baita-700-g-pmg-atacadista.jpg' },
   { id: 1467, name: 'POSTA DE CAÇÃO CONGELADA VIEIRA E COUTO 1 KILO', category: 'Derivados do Mar', price: 50.25, image: 'https://www.marquesvendaspmg.shop/images/posta-de-cacao-congelada-vieira-e-couto-1-kilo-pmg-atacadista.jpg' },
   { id: 1468, name: 'SARDINHAS EM ÓLEO COQUEIRO 125 G (CX 54 LT)', category: 'Derivados do Mar', price: 286.68, image: 'https://www.marquesvendaspmg.shop/images/sardinhas-em-oleo-coqueiro-125-g-cx-54-lt-pmg-atacadista.jpg' },
   { id: 1469, name: 'SARDINHAS EM ÓLEO GOMES DA COSTA 125 G (CX 50 LT)', category: 'Derivados do Mar', price: 268.94, image: 'https://www.marquesvendaspmg.shop/images/sardinhas-em-oleo-gomes-da-costa-125-g-cx-50-lt-pmg-atacadista.jpg' },
   { id: 1470, name: 'ABACAXI EM CALDA RODELAS TOZZI 400 G', category: 'Doces/Frutas', price: 17.81, image: 'https://www.marquesvendaspmg.shop/images/abacaxi-em-calda-rodelas-tozzi-400-g-pmg-atacadista.jpg' },
-  { id: 1471, name: 'ACHOCOLATADO EM PÓ ITALAC 700 G', category: 'Doces/Frutas', price: 9.82, image: 'https://www.marquesvendaspmg.shop/images/achocolatado-em-po-italac-700-g-pmg-atacadista.jpg' },
+  { id: 1471, name: 'ACHOCOLATADO EM PÓ ITALAC 700 G', category: 'Doces/Frutas', price: 10.15, image: 'https://www.marquesvendaspmg.shop/images/achocolatado-em-po-italac-700-g-pmg-atacadista.jpg' },
   { id: 1472, name: 'ACHOCOLATADO EM PÓ NESCAU 2 KILO', category: 'Doces/Frutas', price: 43.1, image: 'https://www.marquesvendaspmg.shop/images/achocolatado-em-po-nescau-2-kilo-pmg-atacadista.jpg' },
   { id: 1473, name: 'ACHOCOLATADO EM PÓ OVOMALTINE FLOCOS CROCANTES 750 G', category: 'Doces/Frutas', price: 38.99, image: 'https://www.marquesvendaspmg.shop/images/achocolatado-em-po-ovomaltine-flocos-crocantes-750-g-pmg-atacadista.jpg' },
   { id: 1474, name: 'ACHOCOLATADO EM PÓ TODDY 1.8 KILO', category: 'Doces/Frutas', price: 43.46, image: 'https://www.marquesvendaspmg.shop/images/achocolatado-em-po-toddy-18-kilo-pmg-atacadista.jpg' },
@@ -1580,18 +1580,18 @@ const products = [
   { id: 1515, name: 'CEREJA MARRASQUINO SEM TALO CEPÊRA 125 G', category: 'Doces/Frutas', price: 18.48, image: 'https://www.marquesvendaspmg.shop/images/cereja-marrasquino-sem-talo-cepera-125-g-pmg-atacadista.jpg' },
   { id: 1516, name: 'CEREJA MARRASQUINO SEM TALO CURICO 1,8 KILO', category: 'Doces/Frutas', price: 127.55, image: 'https://www.marquesvendaspmg.shop/images/cereja-marrasquino-sem-talo-curico-18-kilo-pmg-atacadista.jpg' },
   { id: 1517, name: 'CEREJA MARRASQUINO SEM TALO TOZZI 2,2 KILO', category: 'Doces/Frutas', price: 109.79, image: 'https://www.marquesvendaspmg.shop/images/cereja-marrasquino-sem-talo-tozzi-22-kilo-pmg-atacadista.jpg' },
-  { id: 1518, name: 'CHOCOLATE AO LEITE MELKEN HARALD 2,1 KILO', category: 'Doces/Frutas', price: 176.38, image: 'https://www.marquesvendaspmg.shop/images/chocolate-ao-leite-melken-harald-21-kilo-pmg-atacadista.jpg' },
+  { id: 1518, name: 'CHOCOLATE AO LEITE MELKEN HARALD 2,1 KILO', category: 'Doces/Frutas', price: 16.17, image: 'https://www.marquesvendaspmg.shop/images/chocolate-ao-leite-melken-harald-21-kilo-pmg-atacadista.jpg' },
   { id: 1519, name: 'CHOCOLATE AO LEITE NESTLÉ 2,1 KILO', category: 'Doces/Frutas', price: 181.49, image: 'https://www.marquesvendaspmg.shop/images/chocolate-ao-leite-nestle-21-kilo-pmg-atacadista.jpg' },
-  { id: 1520, name: 'CHOCOLATE BRANCO MELKEN HARALD 2,1 KILO', category: 'Doces/Frutas', price: 145.16, image: 'https://www.marquesvendaspmg.shop/images/chocolate-branco-melken-harald-21-kilo-pmg-atacadista.jpg' },
+  { id: 1520, name: 'CHOCOLATE BRANCO MELKEN HARALD 2,1 KILO', category: 'Doces/Frutas', price: 17.77, image: 'https://www.marquesvendaspmg.shop/images/chocolate-branco-melken-harald-21-kilo-pmg-atacadista.jpg' },
   { id: 1521, name: 'CHOCOLATE COBERTURA GOTAS AO LEITE TOP HARALD 2,050 KILO', category: 'Doces/Frutas', price: 153.43, image: 'https://www.marquesvendaspmg.shop/images/chocolate-cobertura-gotas-ao-leite-top-harald-2050-kilo-pmg-atacadista.jpg' },
   { id: 1522, name: 'CHOCOLATE COBERTURA GOTAS MEIO AMARGO 42% CACAU MELKEN HARALD 1,010 KILO', category: 'Doces/Frutas', price: 77.04, image: 'https://www.marquesvendaspmg.shop/images/chocolate-cobertura-gotas-meio-amargo-42-cacau-melken-harald-1010-kilo-pmg-atacadista.jpg' },
   { id: 1523, name: 'CHOCOLATE EM PÓ 100% CACAU MELKEN HARALD 500 G', category: 'Doces/Frutas', price: 37.71, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-100-cacau-melken-harald-500-g-pmg-atacadista.jpg' },
-  { id: 1524, name: 'CHOCOLATE EM PÓ 33% CACAU DOCEIRO 1,05 KILO', category: 'Doces/Frutas', price: 29.85, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-33-cacau-doceiro-105-kilo-pmg-atacadista.jpg' },
-  { id: 1525, name: 'CHOCOLATE EM PÓ 33% CACAU MELKEN HARALD 1,010 KILO', category: 'Doces/Frutas', price: 40.9, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-33-cacau-melken-harald-1010-kilo-pmg-atacadista.jpg' },
+  { id: 1524, name: 'CHOCOLATE EM PÓ 33% CACAU DOCEIRO 1,05 KILO', category: 'Doces/Frutas', price: 37.25, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-33-cacau-doceiro-105-kilo-pmg-atacadista.jpg' },
+  { id: 1525, name: 'CHOCOLATE EM PÓ 33% CACAU MELKEN HARALD 1,010 KILO', category: 'Doces/Frutas', price: 44.1, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-33-cacau-melken-harald-1010-kilo-pmg-atacadista.jpg' },
   { id: 1526, name: 'CHOCOLATE EM PÓ 50% CACAU ALIBRA 1 KILO', category: 'Doces/Frutas', price: 42.47, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-50-cacau-alibra-1-kilo-pmg-atacadista.jpg' },
-  { id: 1527, name: 'CHOCOLATE EM PÓ 50% CACAU DOCEIRO 1,05 KILO', category: 'Doces/Frutas', price: 29.26, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-50-cacau-doceiro-105-kilo-pmg-atacadista.jpg' },
+  { id: 1527, name: 'CHOCOLATE EM PÓ 50% CACAU DOCEIRO 1,05 KILO', category: 'Doces/Frutas', price: 48.48, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-50-cacau-doceiro-105-kilo-pmg-atacadista.jpg' },
   { id: 1528, name: 'CHOCOLATE EM PÓ 50% CACAU DOIS FRADES NESTLÉ 1,01 KILO', category: 'Doces/Frutas', price: 80.52, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-50-cacau-dois-frades-nestle-101-kilo-pmg-atacadista.jpg' },
-  { id: 1529, name: 'CHOCOLATE EM PÓ 50% CACAU MELKEN HARALD 1,010 KILO', category: 'Doces/Frutas', price: 56.24, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-50-cacau-melken-harald-1010-kilo-pmg-atacadista.jpg' },
+  { id: 1529, name: 'CHOCOLATE EM PÓ 50% CACAU MELKEN HARALD 1,010 KILO', category: 'Doces/Frutas', price: 66.36, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-50-cacau-melken-harald-1010-kilo-pmg-atacadista.jpg' },
   { id: 1530, name: 'CHOCOLATE EM PÓ 70% CACAU MELKEN HARALD 500 G', category: 'Doces/Frutas', price: 29.65, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-70-cacau-melken-harald-500-g-pmg-atacadista.jpg' },
   { id: 1531, name: 'CHOCOLATE FORNEÁVEL AO LEITE CAMP 1,010 KILO', category: 'Doces/Frutas', price: 34.88, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-ao-leite-camp-1010-kilo-pmg-atacadista.jpg' },
   { id: 1532, name: 'CHOCOLATE FORNEÁVEL AO LEITE CONFEIPOP 1,010 KILO', category: 'Doces/Frutas', price: 25.83, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-ao-leite-confeipop-1010-kilo-pmg-atacadista.jpg' },
@@ -1600,24 +1600,24 @@ const products = [
   { id: 1535, name: 'CHOCOLATE FORNEÁVEL AO LEITE VABENE 1,010 KILO', category: 'Doces/Frutas', price: 32.99, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-ao-leite-vabene-1010-kilo-pmg-atacadista.jpg' },
   { id: 1536, name: 'CHOCOLATE FORNEÁVEL AVELÃ CAMP 1,010 KILO', category: 'Doces/Frutas', price: 33.89, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-avela-camp-1010-kilo-pmg-atacadista.jpg' },
   { id: 1537, name: 'CHOCOLATE FORNEÁVEL AVELÃ CONFEIPOP 1,010 KILO', category: 'Doces/Frutas', price: 29.83, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-avela-confeipop-1010-kilo-pmg-atacadista.jpg' },
-  { id: 1538, name: 'CHOCOLATE FORNEÁVEL AVELÃ CONFEITEIRO HARALD 1,010 KILO', category: 'Doces/Frutas', price: 33.57, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-avela-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
+  { id: 1538, name: 'CHOCOLATE FORNEÁVEL AVELÃ CONFEITEIRO HARALD 1,010 KILO', category: 'Doces/Frutas', price: 33.56, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-avela-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
   { id: 1539, name: 'CHOCOLATE FORNEÁVEL BRANCO CONFEIPOP 1,010 KILO', category: 'Doces/Frutas', price: 23.76, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-confeipop-1010-kilo-pmg-atacadista.jpg' },
   { id: 1540, name: 'CHOCOLATE FORNEÁVEL BRANCO CONFEITEIRO HARALD 1,010 KILO', category: 'Doces/Frutas', price: 28.09, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
-  { id: 1541, name: 'CHOCOLATE FORNEÁVEL BRANCO DOCEIRO 1,005 KILO', category: 'Doces/Frutas', price: 23.3, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-doceiro-1005-kilo-pmg-atacadista.jpg' },
+  { id: 1541, name: 'CHOCOLATE FORNEÁVEL BRANCO DOCEIRO 1,005 KILO', category: 'Doces/Frutas', price: 29, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-doceiro-1005-kilo-pmg-atacadista.jpg' },
   { id: 1542, name: 'CHOCOLATE FORNEÁVEL BRANCO VABENE 1,010 KILO', category: 'Doces/Frutas', price: 23.41, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-vabene-1010-kilo-pmg-atacadista.jpg' },
-  { id: 1543, name: 'CHOCOLATE FORNEÁVEL GRANDE AO LEITE CONFEITEIRO HARALD 2,010 KILO', category: 'Doces/Frutas', price: 64.41, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-ao-leite-confeiteiro-harald-2010-kilo-pmg-atacadista.jpg' },
-  { id: 1544, name: 'CHOCOLATE FORNEÁVEL GRANDE AO LEITE DOCEIRO 2,010 KILO', category: 'Doces/Frutas', price: 50.3, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-ao-leite-doceiro-2010-kilo-pmg-atacadista.jpg' },
-  { id: 1545, name: 'CHOCOLATE FORNEÁVEL GRANDE AVELÃ DOCEIRO 2,010 KILO', category: 'Doces/Frutas', price: 52.44, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-avela-doceiro-2010-kilo-pmg-atacadista.jpg' },
+  { id: 1543, name: 'CHOCOLATE FORNEÁVEL GRANDE AO LEITE CONFEITEIRO HARALD 2,010 KILO', category: 'Doces/Frutas', price: 66.75, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-ao-leite-confeiteiro-harald-2010-kilo-pmg-atacadista.jpg' },
+  { id: 1544, name: 'CHOCOLATE FORNEÁVEL GRANDE AO LEITE DOCEIRO 2,010 KILO', category: 'Doces/Frutas', price: 62.73, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-ao-leite-doceiro-2010-kilo-pmg-atacadista.jpg' },
+  { id: 1545, name: 'CHOCOLATE FORNEÁVEL GRANDE AVELÃ DOCEIRO 2,010 KILO', category: 'Doces/Frutas', price: 65.45, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-avela-doceiro-2010-kilo-pmg-atacadista.jpg' },
   { id: 1546, name: 'CHOCOLATE GRANDE DISQUETI DORI 1,01 KILO', category: 'Doces/Frutas', price: 71.37, image: 'https://www.marquesvendaspmg.shop/images/chocolate-grande-disqueti-dori-101-kilo-pmg-atacadista.jpg' },
   { id: 1547, name: 'CHOCOLATE GRANULADO CROCANTE CAMP 1,010 KILO', category: 'Doces/Frutas', price: 18.81, image: 'https://www.marquesvendaspmg.shop/images/chocolate-granulado-crocante-camp-1010-kilo-pmg-atacadista.jpg' },
-  { id: 1548, name: 'CHOCOLATE GRANULADO CROCANTE CONFEITEIRO HARALD 1,010 KILO', category: 'Doces/Frutas', price: 26.24, image: 'https://www.marquesvendaspmg.shop/images/chocolate-granulado-crocante-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
+  { id: 1548, name: 'CHOCOLATE GRANULADO CROCANTE CONFEITEIRO HARALD 1,010 KILO', category: 'Doces/Frutas', price: 22.18, image: 'https://www.marquesvendaspmg.shop/images/chocolate-granulado-crocante-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
   { id: 1549, name: 'CHOCOLATE GRANULADO MACIO CAMP 1,010 KILO', category: 'Doces/Frutas', price: 24.55, image: 'https://www.marquesvendaspmg.shop/images/chocolate-granulado-macio-camp-1010-kilo-pmg-atacadista.jpg' },
   { id: 1550, name: 'CHOCOLATE GRANULADO MACIO CONFEITEIRO HARALD 1,010 KILO', category: 'Doces/Frutas', price: 26.63, image: 'https://www.marquesvendaspmg.shop/images/chocolate-granulado-macio-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
   { id: 1551, name: 'CHOCOLATE INOVARE AO LEITE HARALD 2,1 KILO', category: 'Doces/Frutas', price: 81.09, image: 'https://www.marquesvendaspmg.shop/images/chocolate-inovare-ao-leite-harald-21-kilo-pmg-atacadista.jpg' },
   { id: 1552, name: 'CHOCOLATE INOVARE BRANCO HARALD 2,1 KILO', category: 'Doces/Frutas', price: 93.36, image: 'https://www.marquesvendaspmg.shop/images/chocolate-inovare-branco-harald-21-kilo-pmg-atacadista.jpg' },
   { id: 1553, name: 'CHOCOLATE INOVARE INTENSO MEIO AMARGO HARALD 2,1 KILO', category: 'Doces/Frutas', price: 89.58, image: 'https://www.marquesvendaspmg.shop/images/chocolate-inovare-intenso-meio-amargo-harald-21-kilo-pmg-atacadista.jpg' },
   { id: 1554, name: 'CHOCOLATE M&M´S 1 KILO', category: 'Doces/Frutas', price: 82.81, image: 'https://www.marquesvendaspmg.shop/images/chocolate-mms-1-kilo-pmg-atacadista.jpg' },
-  { id: 1555, name: 'CHOCOLATE MEIO AMARGO MELKEN HARALD 2,1 KILO', category: 'Doces/Frutas', price: 169.99, image: 'https://www.marquesvendaspmg.shop/images/chocolate-meio-amargo-melken-harald-21-kilo-pmg-atacadista.jpg' },
+  { id: 1555, name: 'CHOCOLATE MEIO AMARGO MELKEN HARALD 2,1 KILO', category: 'Doces/Frutas', price: 17.27, image: 'https://www.marquesvendaspmg.shop/images/chocolate-meio-amargo-melken-harald-21-kilo-pmg-atacadista.jpg' },
   { id: 1556, name: 'CHOCOLATE MEIO AMARGO NESTLÉ 2,1 KILO', category: 'Doces/Frutas', price: 186.61, image: 'https://www.marquesvendaspmg.shop/images/chocolate-meio-amargo-nestle-21-kilo-pmg-atacadista.jpg' },
   { id: 1557, name: 'CHOCOLATE MINI DISQUETI DORI 500 G', category: 'Doces/Frutas', price: 36.43, image: 'https://www.marquesvendaspmg.shop/images/chocolate-mini-disqueti-dori-500-g-pmg-atacadista.jpg' },
   { id: 1558, name: 'CHOCOLATE PEQUENO PASTA CREMOSA KIT KAT NESTLÉ 1,01 KILO', category: 'Doces/Frutas', price: 80.52, image: 'https://www.marquesvendaspmg.shop/images/chocolate-pequeno-pasta-cremosa-kit-kat-nestle-101-kilo-pmg-atacadista.jpg' },
@@ -1638,12 +1638,12 @@ const products = [
   { id: 1573, name: 'CREME DE AVELÃ PEQUENO COM CACAU NUTBELLO 1,01 KILO', category: 'Doces/Frutas', price: 44.26, image: 'https://www.marquesvendaspmg.shop/images/creme-de-avela-pequeno-com-cacau-nutbello-101-kilo-pmg-atacadista.jpg' },
   { id: 1574, name: 'CREME DE AVELÃ PEQUENO COM CACAU NUTELLA 650 G', category: 'Doces/Frutas', price: 45.66, image: 'https://www.marquesvendaspmg.shop/images/creme-de-avela-pequeno-com-cacau-nutella-650-g-pmg-atacadista.jpg' },
   { id: 1575, name: 'CREME DE MORANGO \'MARROM\' RECHEIO ARTESANAL VABENE 1,01 KILO', category: 'Doces/Frutas', price: 34.51, image: 'https://www.marquesvendaspmg.shop/images/creme-de-morango-marrom-recheio-artesanal-vabene-101-kilo-pmg-atacadista.jpg' },
-  { id: 1576, name: 'CREME DE PISTACHE DOCEIRO 1,005 KILO', category: 'Doces/Frutas', price: 50.19, image: 'https://www.marquesvendaspmg.shop/images/creme-de-pistache-doceiro-1005-kilo-pmg-atacadista.jpg' },
+  { id: 1576, name: 'CREME DE PISTACHE DOCEIRO 1,005 KILO', category: 'Doces/Frutas', price: 62.74, image: 'https://www.marquesvendaspmg.shop/images/creme-de-pistache-doceiro-1005-kilo-pmg-atacadista.jpg' },
   { id: 1577, name: 'CREME DE PISTACHE PEQUENO VABENE 1,01 KILO', category: 'Doces/Frutas', price: 60.07, image: 'https://www.marquesvendaspmg.shop/images/creme-de-pistache-pequeno-vabene-101-kilo-pmg-atacadista.jpg' },
   { id: 1578, name: 'CREME FORNEÁVEL DE AMENDOIM DADINHO 1 KILO', category: 'Doces/Frutas', price: 46.77, image: 'https://www.marquesvendaspmg.shop/images/creme-forneavel-de-amendoim-dadinho-1-kilo-pmg-atacadista.jpg' },
-  { id: 1579, name: 'DAMASCO LERYC 1 KILO', category: 'Doces/Frutas', price: 88.64, image: 'https://www.marquesvendaspmg.shop/images/damasco-leryc-1-kilo-pmg-atacadista.jpg' },
-  { id: 1580, name: 'DAMASCO TURCO BRASILSECO 1 KILO', category: 'Doces/Frutas', price: 89.12, image: 'https://www.marquesvendaspmg.shop/images/damasco-turco-brasilseco-1-kilo-pmg-atacadista.jpg' },
-  { id: 1581, name: 'DOCE DE LEITE DOCEIRO 1,001 KILO', category: 'Doces/Frutas', price: 18.8, image: 'https://www.marquesvendaspmg.shop/images/doce-de-leite-doceiro-1001-kilo-pmg-atacadista.jpg' },
+  { id: 1579, name: 'DAMASCO LERYC 1 KILO', category: 'Doces/Frutas', price: 96.62, image: 'https://www.marquesvendaspmg.shop/images/damasco-leryc-1-kilo-pmg-atacadista.jpg' },
+  { id: 1580, name: 'DAMASCO TURCO BRASILSECO 1 KILO', category: 'Doces/Frutas', price: 97.14, image: 'https://www.marquesvendaspmg.shop/images/damasco-turco-brasilseco-1-kilo-pmg-atacadista.jpg' },
+  { id: 1581, name: 'DOCE DE LEITE DOCEIRO 1,001 KILO', category: 'Doces/Frutas', price: 23.47, image: 'https://www.marquesvendaspmg.shop/images/doce-de-leite-doceiro-1001-kilo-pmg-atacadista.jpg' },
   { id: 1582, name: 'FAROFA DE AMENDOIM CROCANTE VABENE 1,05 KILO', category: 'Doces/Frutas', price: 20.46, image: 'https://www.marquesvendaspmg.shop/images/farofa-de-amendoim-crocante-vabene-105-kilo-pmg-atacadista.jpg' },
   { id: 1583, name: 'FIGO EM CALDA TOZZI 400 G', category: 'Doces/Frutas', price: 16.5, image: 'https://www.marquesvendaspmg.shop/images/figo-em-calda-tozzi-400-g-pmg-atacadista.jpg' },
   { id: 1584, name: 'FRUTAS CRISTALIZADAS BRASILSECO 1 KILO', category: 'Doces/Frutas', price: 20.45, image: 'https://www.marquesvendaspmg.shop/images/frutas-cristalizadas-brasilseco-1-kilo-pmg-atacadista.jpg' },
@@ -1657,12 +1657,12 @@ const products = [
   { id: 1592, name: 'GELATINA UVA QUALIMAX 1 KILO', category: 'Doces/Frutas', price: 26.17, image: 'https://www.marquesvendaspmg.shop/images/gelatina-uva-qualimax-1-kilo-pmg-atacadista.jpg' },
   { id: 1593, name: 'GELÉIA DE DAMASCO HOMEMADE 2 KILO', category: 'Doces/Frutas', price: 60.12, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-damasco-homemade-2-kilo-pmg-atacadista.jpg' },
   { id: 1594, name: 'GELÉIA DE FRUTAS VERMELHAS HOMEMADE 2 KILO', category: 'Doces/Frutas', price: 60.12, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-frutas-vermelhas-homemade-2-kilo-pmg-atacadista.jpg' },
-  { id: 1595, name: 'GELÉIA DE MORANGO E ABACAXI SACHÊ HOMEMADE 15 G (CX 144 UN)', category: 'Doces/Frutas', price: 57.98, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-morango-e-abacaxi-sache-homemade-15-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1595, name: 'GELÉIA DE MORANGO E ABACAXI SACHÊ HOMEMADE 15 G (CX 144 UN)', category: 'Doces/Frutas', price: 61.4, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-morango-e-abacaxi-sache-homemade-15-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1596, name: 'GELÉIA DE MORANGO E GOIABA SACHÊ BOM SABOR / DEGUST 15 G (CX 144 UN)', category: 'Doces/Frutas', price: 84.76, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-morango-e-goiaba-sache-bom-sabor-degust-15-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1597, name: 'GELÉIA DE MORANGO E GOIABA SACHÊ HOMEMADE 15 G (CX 144 UN)', category: 'Doces/Frutas', price: 61.4, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-morango-e-goiaba-sache-homemade-15-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1598, name: 'GELÉIA DE MORANGO E GOIABA SACHÊ ISIS 10 G (CX 144 UN)', category: 'Doces/Frutas', price: 38.65, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-morango-e-goiaba-sache-isis-10-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1599, name: 'GELÉIA DE MORANGO E UVA SACHÊ BOM SABOR 15 G (CX 144 UN)', category: 'Doces/Frutas', price: 84.76, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-morango-e-uva-sache-bom-sabor-15-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1600, name: 'GELÉIA DE MORANGO HOMEMADE 2 KILO', category: 'Doces/Frutas', price: 57.26, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-morango-homemade-2-kilo-pmg-atacadista.jpg' },
+  { id: 1600, name: 'GELÉIA DE MORANGO HOMEMADE 2 KILO', category: 'Doces/Frutas', price: 60.12, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-morango-homemade-2-kilo-pmg-atacadista.jpg' },
   { id: 1601, name: 'GELÉIA DE PIMENTA AGRIDOCE PREDILECTA 320 G', category: 'Doces/Frutas', price: 23.79, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-pimenta-agridoce-predilecta-320-g-pmg-atacadista.jpg' },
   { id: 1602, name: 'GELÉIA DE PIMENTA AGRIDOCE VAL 230 G', category: 'Doces/Frutas', price: 11.84, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-pimenta-agridoce-val-230-g-pmg-atacadista.jpg' },
   { id: 1603, name: 'GELÉIA DE PIMENTA GOURMET HOMEMADE 320 G', category: 'Doces/Frutas', price: 18.19, image: 'https://www.marquesvendaspmg.shop/images/geleia-de-pimenta-gourmet-homemade-320-g-pmg-atacadista.jpg' },
@@ -1687,7 +1687,7 @@ const products = [
   { id: 1622, name: 'MEL SACHÊ ISIS 15 G (CX 144 UN)', category: 'Doces/Frutas', price: 88.75, image: 'https://www.marquesvendaspmg.shop/images/mel-sache-isis-15-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1623, name: 'MELADO DE CANA MINAMEL 500 G', category: 'Doces/Frutas', price: 13.16, image: 'https://www.marquesvendaspmg.shop/images/melado-de-cana-minamel-500-g-pmg-atacadista.jpg' },
   { id: 1624, name: 'NOZES MARIPOSA LERYC 1 KILO', category: 'Doces/Frutas', price: 67.29, image: 'https://www.marquesvendaspmg.shop/images/nozes-mariposa-leryc-1-kilo-pmg-atacadista.jpg' },
-  { id: 1625, name: 'NOZES MARIPOSA SEM CASCA BRASILSECO 1 KILO', category: 'Doces/Frutas', price: 71.64, image: 'https://www.marquesvendaspmg.shop/images/nozes-mariposa-sem-casca-brasilseco-1-kilo-pmg-atacadista.jpg' },
+  { id: 1625, name: 'NOZES MARIPOSA SEM CASCA BRASILSECO 1 KILO', category: 'Doces/Frutas', price: 74.13, image: 'https://www.marquesvendaspmg.shop/images/nozes-mariposa-sem-casca-brasilseco-1-kilo-pmg-atacadista.jpg' },
   { id: 1626, name: 'PAÇOQUINHA DE AMENDOIM QUADRADA DADINHO 20 G (CX 40 UN)', category: 'Doces/Frutas', price: 23.73, image: 'https://www.marquesvendaspmg.shop/images/pacoquinha-de-amendoim-quadrada-dadinho-20-g-cx-40-un-pmg-atacadista.jpg' },
   { id: 1627, name: 'PRODUTO EM FALTA', category: 'Doces/Frutas', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 1628, name: 'PRODUTO EM FALTA', category: 'Doces/Frutas', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
@@ -1697,17 +1697,17 @@ const products = [
   { id: 1632, name: 'PRODUTO EM FALTA', category: 'Doces/Frutas', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 1633, name: 'RECHEIO E COBERTURA SABOR CHOCOLATE MOÇA NESTLÉ 2,54 KILO', category: 'Doces/Frutas', price: 123.2, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-chocolate-moca-nestle-254-kilo-pmg-atacadista.jpg' },
   { id: 1634, name: 'PRODUTO EM FALTA', category: 'Doces/Frutas', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
-  { id: 1635, name: 'RECHEIO E COBERTURA SABOR LEITINHO DOCEIRO 1,005 KILO', category: 'Doces/Frutas', price: 33.02, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-leitinho-doceiro-1005-kilo-pmg-atacadista.jpg' },
+  { id: 1635, name: 'RECHEIO E COBERTURA SABOR LEITINHO DOCEIRO 1,005 KILO', category: 'Doces/Frutas', price: 41.18, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-leitinho-doceiro-1005-kilo-pmg-atacadista.jpg' },
   { id: 1636, name: 'RECHEIO E COBERTURA SABOR LEITINHO MELKEN 1,010 KILO', category: 'Doces/Frutas', price: 38.62, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-leitinho-melken-1010-kilo-pmg-atacadista.jpg' },
   { id: 1637, name: 'RECHEIO E COBERTURA SABOR LEITINHO VABENE 1,01 KILO', category: 'Doces/Frutas', price: 39.88, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-leitinho-vabene-101-kilo-pmg-atacadista.jpg' },
-  { id: 1638, name: 'RECHEIO E COBERTURA SABOR MORANGO DOCEIRO 1,005 KILO', category: 'Doces/Frutas', price: 24.84, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-morango-doceiro-1005-kilo-pmg-atacadista.jpg' },
+  { id: 1638, name: 'RECHEIO E COBERTURA SABOR MORANGO DOCEIRO 1,005 KILO', category: 'Doces/Frutas', price: 31.32, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-morango-doceiro-1005-kilo-pmg-atacadista.jpg' },
   { id: 1639, name: 'RECHEIO E COBERTURA SABOR OVOMALTINE 2,1 KILO', category: 'Doces/Frutas', price: 141.93, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-ovomaltine-21-kilo-pmg-atacadista.jpg' },
   { id: 1640, name: 'RECHEIO E COBERTURA SABOR OVOMALTINE 900 G', category: 'Doces/Frutas', price: 60.98, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-ovomaltine-900-g-pmg-atacadista.jpg' },
   { id: 1641, name: 'UVA PASSA BRANCA LERYC 1 KILO', category: 'Doces/Frutas', price: 33.94, image: 'https://www.marquesvendaspmg.shop/images/uva-passa-branca-leryc-1-kilo-pmg-atacadista.jpg' },
   { id: 1642, name: 'UVA PASSA BRANCA SEM SEMENTE BRASILSECO 1 KILO', category: 'Doces/Frutas', price: 43.46, image: 'https://www.marquesvendaspmg.shop/images/uva-passa-branca-sem-semente-brasilseco-1-kilo-pmg-atacadista.jpg' },
   { id: 1643, name: 'UVA PASSA PRETA LERYC 1 KILO', category: 'Doces/Frutas', price: 24.93, image: 'https://www.marquesvendaspmg.shop/images/uva-passa-preta-leryc-1-kilo-pmg-atacadista.jpg' },
   { id: 1644, name: 'UVA PASSA PRETA SEM SEMENTE BRASILSECO 1 KILO', category: 'Doces/Frutas', price: 24.93, image: 'https://www.marquesvendaspmg.shop/images/uva-passa-preta-sem-semente-brasilseco-1-kilo-pmg-atacadista.jpg' },
-  { id: 1645, name: 'XERÉM DE CAJU BRASILSECO 1 KILO', category: 'Doces/Frutas', price: 39.55, image: 'https://www.marquesvendaspmg.shop/images/xerem-de-caju-brasilseco-1-kilo-pmg-atacadista.jpg' },
+  { id: 1645, name: 'XERÉM DE CAJU BRASILSECO 1 KILO', category: 'Doces/Frutas', price: 40.9, image: 'https://www.marquesvendaspmg.shop/images/xerem-de-caju-brasilseco-1-kilo-pmg-atacadista.jpg' },
   { id: 1646, name: 'XERÉM DE CAJU LERYC 1 KILO', category: 'Doces/Frutas', price: 35.43, image: 'https://www.marquesvendaspmg.shop/images/xerem-de-caju-leryc-1-kilo-pmg-atacadista.jpg' },
   { id: 1647, name: 'AJINOMOTO FOOD SERVICE 10 KILO', category: 'Farináceos', price: 269.47, image: 'https://www.marquesvendaspmg.shop/images/ajinomoto-food-service-10-kilo-pmg-atacadista.jpg' },
   { id: 1648, name: 'AJINOMOTO PEQUENO 2 KILO', category: 'Farináceos', price: 77.01, image: 'https://www.marquesvendaspmg.shop/images/ajinomoto-pequeno-2-kilo-pmg-atacadista.jpg' },
@@ -1777,7 +1777,7 @@ const products = [
   { id: 1712, name: 'FARINHA DE ROSCA PQ 5 KILO', category: 'Farináceos', price: 50.38, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-rosca-pq-5-kilo-pmg-atacadista.jpg' },
   { id: 1713, name: 'FARINHA DE ROSCA YOKI 4 KILO', category: 'Farináceos', price: 62.74, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-rosca-yoki-4-kilo-pmg-atacadista.jpg' },
   { id: 1714, name: 'FARINHA DE TRIGO ESPECIAL 101 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 86.87, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-especial-101-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1715, name: 'FARINHA DE TRIGO FLOCADA PANKO KARUI 1 KILO', category: 'Farináceos', price: 11.34, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-flocada-panko-karui-1-kilo-pmg-atacadista.jpg' },
+  { id: 1715, name: 'FARINHA DE TRIGO FLOCADA PANKO KARUI 1 KILO', category: 'Farináceos', price: 19.43, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-flocada-panko-karui-1-kilo-pmg-atacadista.jpg' },
   { id: 1716, name: 'FARINHA DE TRIGO FLOCADA PANKO ORQUIDEA 1 KILO', category: 'Farináceos', price: 12.23, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-flocada-panko-orquidea-1-kilo-pmg-atacadista.jpg' },
   { id: 1717, name: 'FARINHA DE TRIGO FLOCADA PANKO QUALIMAX 1 KILO', category: 'Farináceos', price: 31.06, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-flocada-panko-qualimax-1-kilo-pmg-atacadista.jpg' },
   { id: 1718, name: 'FARINHA DE TRIGO FLOCADA PANKO ZAFRÁN 1,01 KILO', category: 'Farináceos', price: 25.63, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-flocada-panko-zafran-101-kilo-pmg-atacadista.jpg' },
@@ -1786,13 +1786,13 @@ const products = [
   { id: 1721, name: 'FARINHA DE TRIGO PASTEL 101 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 109.53, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-101-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1722, name: 'FARINHA DE TRIGO PASTEL ANACONDA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 102.56, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1723, name: 'FARINHA DE TRIGO PASTEL BUQUÊ 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 100.14, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-buque-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1724, name: 'FARINHA DE TRIGO PASTEL COAMO 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 92.49, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-coamo-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1724, name: 'FARINHA DE TRIGO PASTEL COAMO 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 85.13, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-coamo-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1725, name: 'FARINHA DE TRIGO PASTEL DONA BENTA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 107.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-dona-benta-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1726, name: 'FARINHA DE TRIGO PASTEL MARIA INÊS 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 90.49, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-maria-ines-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1727, name: 'FARINHA DE TRIGO PASTEL MIRELLA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 82.91, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-mirella-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1728, name: 'FARINHA DE TRIGO PASTEL NITA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 105.82, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1726, name: 'FARINHA DE TRIGO PASTEL MARIA INÊS 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 89.28, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-maria-ines-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1727, name: 'FARINHA DE TRIGO PASTEL MIRELLA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 108.59, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-mirella-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1728, name: 'FARINHA DE TRIGO PASTEL NITA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 103.54, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1729, name: 'FARINHA DE TRIGO PASTEL ROSA BRANCA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 127.65, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-rosa-branca-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1730, name: 'FARINHA DE TRIGO PASTEL SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 108.47, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1730, name: 'FARINHA DE TRIGO PASTEL SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 103.89, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1731, name: 'FARINHA DE TRIGO PASTEL VENTURELLI 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 103.02, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-venturelli-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1732, name: 'FARINHA DE TRIGO PEQUENA ALMA ITALIANA VENTURELLI 1 KILO (FDO 10 KILO)', category: 'Farináceos', price: 89.28, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-alma-italiana-venturelli-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
   { id: 1733, name: 'FARINHA DE TRIGO PEQUENA INTEGRAL ANACONDA 1 KILO (FDO 10 KILO)', category: 'Farináceos', price: 66.96, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-integral-anaconda-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
@@ -1813,9 +1813,9 @@ const products = [
   { id: 1748, name: 'FARINHA DE TRIGO PIZZA DONA BENTA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 98.09, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-dona-benta-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1749, name: 'FARINHA DE TRIGO PIZZA MARIA INÊS 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 69.98, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-maria-ines-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1750, name: 'FARINHA DE TRIGO PIZZA MIRELLA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 78.43, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-mirella-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1751, name: 'FARINHA DE TRIGO PIZZA NITA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 76.01, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1751, name: 'FARINHA DE TRIGO PIZZA NITA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 72.39, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1752, name: 'FARINHA DE TRIGO PIZZA ROSA BRANCA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 102.33, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-rosa-branca-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1753, name: 'FARINHA DE TRIGO PIZZA SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 85.67, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1753, name: 'FARINHA DE TRIGO PIZZA SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 81.44, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1754, name: 'FARINHA DE TRIGO PIZZA VENTURELLI 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 87.56, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-venturelli-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1755, name: 'FARINHA DE TRIGO PREMIUM 101 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 103.76, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-premium-101-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1756, name: 'FARINHA DE TRIGO PREMIUM ANACONDA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 127.89, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-premium-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
@@ -1825,9 +1825,9 @@ const products = [
   { id: 1760, name: 'FARINHA DE TRIGO TIPO 1 ANACONDA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 115.68, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1761, name: 'FARINHA DE TRIGO TIPO 1 BUQUÊ 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 74.81, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-buque-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1762, name: 'FARINHA DE TRIGO TIPO 1 DONA BENTA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 108.63, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-dona-benta-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1763, name: 'FARINHA DE TRIGO TIPO 1 FARINA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 77.22, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-farina-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1763, name: 'FARINHA DE TRIGO TIPO 1 FARINA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 76.01, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-farina-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1764, name: 'FARINHA DE TRIGO TIPO 1 GLOBO 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 81.42, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-globo-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1765, name: 'FARINHA DE TRIGO TIPO 1 NITA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 98.43, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1765, name: 'FARINHA DE TRIGO TIPO 1 NITA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 96.31, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1766, name: 'FARINHA DE TRIGO TIPO 1 ROSA BRANCA 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 115.5, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-rosa-branca-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1767, name: 'FARINHA DE TRIGO TIPO 1 SOL 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 103.5, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-sol-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1768, name: 'FARINHA DE TRIGO TIPO 1 VENTURELLI 5 KILO (FDO 25 KILO)', category: 'Farináceos', price: 114.16, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-venturelli-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
@@ -1850,11 +1850,11 @@ const products = [
   { id: 1785, name: 'KIMILHO FLOCÃO YOKI 500 G', category: 'Farináceos', price: 5.87, image: 'https://www.marquesvendaspmg.shop/images/kimilho-flocao-yoki-500-g-pmg-atacadista.jpg' },
   { id: 1786, name: 'MACARRÃO AVE MARIA COM OVOS DONA BENTA 500 G (FDO 24 PCT)', category: 'Farináceos', price: 71.79, image: 'https://www.marquesvendaspmg.shop/images/macarrao-ave-maria-com-ovos-dona-benta-500-g-fdo-24-pct-pmg-atacadista.jpg' },
   { id: 1787, name: 'MACARRÃO CARACOLINO COM OVOS RENATA 500 G (FDO 20 PCT)', category: 'Farináceos', price: 92.9, image: 'https://www.marquesvendaspmg.shop/images/macarrao-caracolino-com-ovos-renata-500-g-fdo-20-pct-pmg-atacadista.jpg' },
-  { id: 1788, name: 'MACARRÃO ESPAGUETE GRANO DURO PETYBON 500 G (FDO 24 PCT)', category: 'Farináceos', price: 142.55, image: 'https://www.marquesvendaspmg.shop/images/macarrao-espaguete-grano-duro-petybon-500-g-fdo-24-pct-pmg-atacadista.jpg' },
+  { id: 1788, name: 'MACARRÃO ESPAGUETE GRANO DURO PETYBON 500 G (FDO 24 PCT)', category: 'Farináceos', price: 143.20, image: 'https://www.marquesvendaspmg.shop/images/macarrao-espaguete-grano-duro-petybon-500-g-fdo-24-pct-pmg-atacadista.jpg' },
   { id: 1789, name: 'MACARRÃO ESPAGUETE Nº 8 COM OVOS BARILLA 500 G (FDO 30 PCT)', category: 'Farináceos', price: 155.29, image: 'https://www.marquesvendaspmg.shop/images/macarrao-espaguete-n-8-com-ovos-barilla-500-g-fdo-30-pct-pmg-atacadista.jpg' },
   { id: 1790, name: 'MACARRÃO ESPAGUETE Nº 8 COM OVOS DONA BENTA 500 G (FDO 24 PCT)', category: 'Farináceos', price: 77.83, image: 'https://www.marquesvendaspmg.shop/images/macarrao-espaguete-n-8-com-ovos-dona-benta-500-g-fdo-24-pct-pmg-atacadista.jpg' },
   { id: 1791, name: 'MACARRÃO ESPAGUETE Nº 8 COM OVOS PETYBON 500 G (FDO 24 PCT)', category: 'Farináceos', price: 85.44, image: 'https://www.marquesvendaspmg.shop/images/macarrao-espaguete-n-8-com-ovos-petybon-500-g-fdo-24-pct-pmg-atacadista.jpg' },
-  { id: 1792, name: 'MACARRÃO FETTUCCINE GRANO DURO PETYBON 500 G (FDO 24 PCT)', category: 'Farináceos', price: 142.355, image: 'https://www.marquesvendaspmg.shop/images/macarrao-fettuccine-grano-duro-petybon-500-g-fdo-24-pct-pmg-atacadista.jpg' },
+  { id: 1792, name: 'MACARRÃO FETTUCCINE GRANO DURO PETYBON 500 G (FDO 24 PCT)', category: 'Farináceos', price: 143.20, image: 'https://www.marquesvendaspmg.shop/images/macarrao-fettuccine-grano-duro-petybon-500-g-fdo-24-pct-pmg-atacadista.jpg' },
   { id: 1793, name: 'MACARRÃO FUSILLI GRANO DURO PETYBON 500 G (FDO 18 PCT)', category: 'Farináceos', price: 107.46, image: 'https://www.marquesvendaspmg.shop/images/macarrao-fusilli-grano-duro-petybon-500-g-fdo-18-pct-pmg-atacadista.jpg' },
   { id: 1794, name: 'MACARRÃO PARA YAKISSOBA TAICHI 4.5 KILO', category: 'Farináceos', price: 50.55, image: 'https://www.marquesvendaspmg.shop/images/macarrao-para-yakissoba-taichi-45-kilo-pmg-atacadista.jpg' },
   { id: 1795, name: 'MACARRÃO PARAFUSO COM OVOS DONA BENTA 500 G (FDO 24 PCT)', category: 'Farináceos', price: 75.29, image: 'https://www.marquesvendaspmg.shop/images/macarrao-parafuso-com-ovos-dona-benta-500-g-fdo-24-pct-pmg-atacadista.jpg' },
@@ -1869,7 +1869,7 @@ const products = [
   { id: 1804, name: 'MASSA PARA PASTEL E LASANHA QUADRADA CORTADA BRASILEIRINHA 50 UN', category: 'Farináceos', price: 33.8, image: 'https://www.marquesvendaspmg.shop/images/massa-para-pastel-e-lasanha-quadrada-cortada-brasileirinha-50-un-pmg-atacadista.jpg' },
   { id: 1805, name: 'MASSA PARA PASTEL E LASANHA ROLO BRASILEIRINHA 1 KILO', category: 'Farináceos', price: 39.52, image: 'https://www.marquesvendaspmg.shop/images/massa-para-pastel-e-lasanha-rolo-brasileirinha-1-kilo-pmg-atacadista.jpg' },
   { id: 1806, name: 'MASSA PARA PASTEL ROLO MASSA MÁGICA 1 KILO', category: 'Farináceos', price: 9.39, image: 'https://www.marquesvendaspmg.shop/images/massa-para-pastel-rolo-massa-magica-1-kilo-pmg-atacadista.jpg' },
-  { id: 1807, name: 'NOZ MOSCADA BOLA BRASILSECO 250 G', category: 'Farináceos', price: 50.57, image: 'https://www.marquesvendaspmg.shop/images/noz-moscada-bola-brasilseco-250-g-pmg-atacadista.jpg' },
+  { id: 1807, name: 'NOZ MOSCADA BOLA BRASILSECO 250 G', category: 'Farináceos', price: 48.04, image: 'https://www.marquesvendaspmg.shop/images/noz-moscada-bola-brasilseco-250-g-pmg-atacadista.jpg' },
   { id: 1808, name: 'NOZ MOSCADA EM PÓ BRASILSECO 250 G', category: 'Farináceos', price: 25.77, image: 'https://www.marquesvendaspmg.shop/images/noz-moscada-em-po-brasilseco-250-g-pmg-atacadista.jpg' },
   { id: 1809, name: 'PÃO DE ALHO CONGELADO BRASA BURGUERS 400 G', category: 'Farináceos', price: 10.66, image: 'https://www.marquesvendaspmg.shop/images/pao-de-alho-congelado-brasa-burguers-400-g-pmg-atacadista.jpg' },
   { id: 1810, name: 'PÃO DE QUEIJO CONGELADO BRASA BURGUERS 70 G 1 KILO', category: 'Farináceos', price: 18.63, image: 'https://www.marquesvendaspmg.shop/images/pao-de-queijo-congelado-brasa-burguers-70-g-1-kilo-pmg-atacadista.jpg' },
@@ -1930,7 +1930,7 @@ const products = [
   { id: 1865, name: 'SABÃO EM PÓ PRIMAVERA TIXAN YPÊ 800 G', category: 'Higiene', price: 17.2, image: 'https://www.marquesvendaspmg.shop/images/sabao-em-po-primavera-tixan-ype-800-g-pmg-atacadista.jpg' },
   { id: 1866, name: 'SACO DE PANO 34 X 52 CM', category: 'Higiene', price: 18.96, image: 'https://www.marquesvendaspmg.shop/images/saco-de-pano-34-x-52-cm-pmg-atacadista.jpg' },
   { id: 1867, name: 'SACO PARA LIXO PRETO 90 X 90 CM 100 L (FDO 100 UN)', category: 'Higiene', price: 68.22, image: 'https://www.marquesvendaspmg.shop/images/saco-para-lixo-preto-90-x-90-cm-100-l-fdo-100-un-pmg-atacadista.jpg' },
-  { id: 1868, name: 'ALGAS MARINHAS YAKI SUSHI NORI BLACK TAICHI 140 G', category: 'Orientais', price: 51.77, image: 'https://www.marquesvendaspmg.shop/images/algas-marinhas-yaki-sushi-nori-black-taichi-140-g-pmg-atacadista.jpg' },
+  { id: 1868, name: 'ALGAS MARINHAS YAKI SUSHI NORI BLACK TAICHI 140 G', category: 'Orientais', price: 50.99, image: 'https://www.marquesvendaspmg.shop/images/algas-marinhas-yaki-sushi-nori-black-taichi-140-g-pmg-atacadista.jpg' },
   { id: 1869, name: 'ALGAS MARINHAS YAKI SUSHI NORI GREEN TAICHI 140 G', category: 'Orientais', price: 39.62, image: 'https://www.marquesvendaspmg.shop/images/algas-marinhas-yaki-sushi-nori-green-taichi-140-g-pmg-atacadista.jpg' },
   { id: 1870, name: 'ARROZ JAPONÊS GUIN GRÃO CURTO CAMIL 5 KILO', category: 'Orientais', price: 76.32, image: 'https://www.marquesvendaspmg.shop/images/arroz-japones-guin-grao-curto-camil-5-kilo-pmg-atacadista.jpg' },
   { id: 1871, name: 'ARROZ JAPONÊS TIPO 1 CLASSE LONGO INARÍ SOLITO 5 KILO', category: 'Orientais', price: 64.33, image: 'https://www.marquesvendaspmg.shop/images/arroz-japones-tipo-1-classe-longo-inari-solito-5-kilo-pmg-atacadista.jpg' },
@@ -1940,7 +1940,7 @@ const products = [
   { id: 1875, name: 'LICHIA EM CALDA TAICHI 567 G', category: 'Orientais', price: 22.93, image: 'https://www.marquesvendaspmg.shop/images/lichia-em-calda-taichi-567-g-pmg-atacadista.jpg' },
   { id: 1876, name: 'MOLHO DE PIMENTA THAI SWEET CHILLI SAUCE TAICHI 1,01 L', category: 'Orientais', price: 22.81, image: 'https://www.marquesvendaspmg.shop/images/molho-de-pimenta-thai-sweet-chilli-sauce-taichi-101-l-pmg-atacadista.jpg' },
   { id: 1877, name: 'MOLHO DE PIMENTA THAI SWEET CHILLI ZAFRÁN 1,05 KILO', category: 'Orientais', price: 28.89, image: 'https://www.marquesvendaspmg.shop/images/molho-de-pimenta-thai-sweet-chilli-zafran-105-kilo-pmg-atacadista.jpg' },
-  { id: 1878, name: 'MOLHO SHOYU PREMIUM SACHÊ MITSUWA 8 ML (CX 250 UN)', category: 'Orientais', price: 36.91, image: 'https://www.marquesvendaspmg.shop/images/molho-shoyu-premium-sache-mitsuwa-8-ml-cx-250-un-pmg-atacadista.jpg' },
+  { id: 1878, name: 'MOLHO SHOYU PREMIUM SACHÊ MITSUWA 8 ML (CX 250 UN)', category: 'Orientais', price: 39.23, image: 'https://www.marquesvendaspmg.shop/images/molho-shoyu-premium-sache-mitsuwa-8-ml-cx-250-un-pmg-atacadista.jpg' },
   { id: 1879, name: 'MOLHO TARÊ KARUI 5 L', category: 'Orientais', price: 47.29, image: 'https://www.marquesvendaspmg.shop/images/molho-tare-karui-5-l-pmg-atacadista.jpg' },
   { id: 1880, name: 'MOLHO TARÊ MITSUWA 5 L', category: 'Orientais', price: 69.39, image: 'https://www.marquesvendaspmg.shop/images/molho-tare-mitsuwa-5-l-pmg-atacadista.jpg' },
   { id: 1881, name: 'MOLHO TARÊ SACHÊ MITSUWA 8 ML (CX 252 UN)', category: 'Orientais', price: 39.23, image: 'https://www.marquesvendaspmg.shop/images/molho-tare-sache-mitsuwa-8-ml-cx-252-un-pmg-atacadista.jpg' },
@@ -1961,7 +1961,7 @@ const products = [
   { id: 1896, name: 'DADINHO DE TAPIOCA COM QUEIJO DE COALHO CONGELADO PIF PAF 300 G', category: 'Salgados', price: 10.74, image: 'https://www.marquesvendaspmg.shop/images/dadinho-de-tapioca-com-queijo-de-coalho-congelado-pif-paf-300-g-pmg-atacadista.jpg' },
   { id: 1897, name: 'PRODUTO EM FALTA', category: 'Salgados', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 1898, name: 'WAFFLE CONGELADO FORNO DE MINAS 525 G (CX 3,15 KILO)', category: 'Salgados', price: 135.21, image: 'https://www.marquesvendaspmg.shop/images/waffle-congelado-forno-de-minas-525-g-cx-315-kilo-pmg-atacadista.jpg' },
-  { id: 1899, name: 'CHÁ DE CAMOMILA CANELA E MAÇÃ TWININGS 15 G (CX 12 UN)', category: 'Bebidas', price: 138.64, image: 'https://www.marquesvendaspmg.shop/images/cha-de-camomila-canela-e-maca-twinings-15-g-cx-12-un-pmg-atacadista.jpg' },
+  { id: 1899, name: 'CHÁ DE CAMOMILA CANELA E MAÇÃ TWININGS 15 G (CX 12 UN)', category: 'Bebidas', price: 173.25, image: 'https://www.marquesvendaspmg.shop/images/cha-de-camomila-canela-e-maca-twinings-15-g-cx-12-un-pmg-atacadista.jpg' },
   { id: 1900, name: 'CHÁ DE HORTELÃ TWININGS 17,5 G (CX 12 UN)', category: 'Bebidas', price: 196.82, image: 'https://www.marquesvendaspmg.shop/images/cha-de-hortela-twinings-175-g-cx-12-un-pmg-atacadista.jpg' },
   { id: 1901, name: 'CHÁ DE LIMÃO E FRAMBOESA TWININGS 15 G (CX 12 UN)', category: 'Bebidas', price: 173.25, image: 'https://www.marquesvendaspmg.shop/images/cha-de-limao-e-framboesa-twinings-15-g-cx-12-un-pmg-atacadista.jpg' },
   { id: 1902, name: 'CHÁ MATTE LEÃO SOLÚVEL COM LIMÃO 1 KG (CX 10 UN)', category: 'Bebidas', price: 31.4, image: 'https://www.marquesvendaspmg.shop/images/cha-matte-leao-soluvel-com-limao-1-kg-cx-10-un-pmg-atacadista.jpg' },
@@ -1974,8 +1974,8 @@ const products = [
   { id: 1909, name: 'COXINHAS DAS ASAS DE FRANGO APIMENTADAS EMPANADAS CONGELADAS SEARA 400 G (CX 12 PCT)', category: 'Derivados de Ave', price: 168.7, image: 'https://www.marquesvendaspmg.shop/images/coxinhas-das-asas-de-frango-apimentadas-empanadas-congeladas-seara-400-g-cx-12-pct-pmg-atacadista.jpg' },
   { id: 1910, name: 'ISCAS DE FRANGO EMPANADAS CONGELADAS SEARA 900 G (CX 5 PCT)', category: 'Derivados de Ave', price: 126.42, image: 'https://www.marquesvendaspmg.shop/images/iscas-de-frango-empanadas-congeladas-seara-900-g-cx-5-pct-pmg-atacadista.jpg' },
   { id: 1912, name: 'STEAK DE FRANGO EMPANADO CONGELADO PERDIGÃO 100 G (CX 45 UN)', category: 'Derivados de Ave', price: 85.61, image: 'https://www.marquesvendaspmg.shop/images/steak-de-frango-empanado-congelado-perdigao-100-g-cx-45-un-pmg-atacadista.jpg' },
-  { id: 1913, name: 'ACÉM BOVINO RESFRIADO MATOSO 14 KG (CX 28 KG)', category: 'Derivados de Bovino', price: 36.55, image: 'https://www.marquesvendaspmg.shop/images/acem-bovino-resfriado-matoso-14-kg-cx-28-kg-pmg-atacadista.jpg' },
-  { id: 1914, name: 'CAPA DE FILÉ BOVINA RESFRIADA MATOSO 1,3 KG (CX 23 KG)', category: 'Derivados de Bovino', price: 30.01, image: 'https://www.marquesvendaspmg.shop/images/capa-de-file-bovina-resfriada-matoso-13-kg-cx-23-kg-pmg-atacadista.jpg' },
+  { id: 1913, name: 'ACÉM BOVINO RESFRIADO MATOSO 14 KG (CX 28 KG)', category: 'Derivados de Bovino', price: 28.96, image: 'https://www.marquesvendaspmg.shop/images/acem-bovino-resfriado-matoso-14-kg-cx-28-kg-pmg-atacadista.jpg' },
+  { id: 1914, name: 'CAPA DE FILÉ BOVINA RESFRIADA MATOSO 1,3 KG (CX 23 KG)', category: 'Derivados de Bovino', price: 29.65, image: 'https://www.marquesvendaspmg.shop/images/capa-de-file-bovina-resfriada-matoso-13-kg-cx-23-kg-pmg-atacadista.jpg' },
   { id: 1915, name: 'CORDÃO DO FILÉ MIGNON BOVINO RESFRIADO FRIGOESTRELA 1,5 KG (CX 18 KG)', category: 'Derivados de Bovino', price: 33.3, image: 'https://www.marquesvendaspmg.shop/images/cordao-do-file-mignon-bovino-resfriado-frigoestrela-15-kg-cx-18-kg-pmg-atacadista.jpg' },
   { id: 1916, name: 'LAGARTO BOVINO RESFRIADO FRIGOESTRELA 3 KG (CX 26 KG)', category: 'Derivados de Bovino', price: 32.69, image: 'https://www.marquesvendaspmg.shop/images/lagarto-bovino-resfriado-frigoestrela-3-kg-cx-26-kg-pmg-atacadista.jpg' },
   { id: 1917, name: 'COMPOSTO LÁCTEO EM PÓ INTEGRAL ALIBRALAC 1 KG (FDO 10 PCT)', category: 'Derivados de Leite', price: 7.39, image: 'https://www.marquesvendaspmg.shop/images/composto-lacteo-em-po-integral-alibralac-1-kg-fdo-10-pct-pmg-atacadista.jpg' },
@@ -1991,13 +1991,13 @@ const products = [
   { id: 1927, name: 'MUÇARELA DE BÚFALA QUALIMUUM 4 KG (CX 6 PÇ)', category: 'Derivados de Leite', price: 37.41, image: 'https://www.marquesvendaspmg.shop/images/mucarela-de-bufala-qualimuum-4-kg-cx-6-pc-pmg-atacadista.jpg' },
   { id: 1928, name: 'MUÇARELA DEALE 4 KG (CX 6 PÇ)', category: 'Derivados de Leite', price: 29.4, image: 'https://www.marquesvendaspmg.shop/images/mucarela-deale-4-kg-cx-6-pc-pmg-atacadista.jpg' },
   { id: 1929, name: 'MUÇARELA FATIADA PEQUENA TIROLEZ 150 G (CX 28 PCT)', category: 'Derivados de Leite', price: 7.71, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-pequena-tirolez-150-g-cx-28-pct-pmg-atacadista.jpg' },
-  { id: 1930, name: 'MUÇARELA IMPERADOR 4 KG (CX 6 PÇ)', category: 'Derivados de Leite', price: 25.98, image: 'https://www.marquesvendaspmg.shop/images/mucarela-imperador-4-kg-cx-6-pc-pmg-atacadista.jpg' },
+  { id: 1930, name: 'MUÇARELA IMPERADOR 4 KG (CX 6 PÇ)', category: 'Derivados de Leite', price: 26.17, image: 'https://www.marquesvendaspmg.shop/images/mucarela-imperador-4-kg-cx-6-pc-pmg-atacadista.jpg' },
   { id: 1931, name: 'MUÇARELA INLARON 4 KG (CX 6 PÇ)', category: 'Derivados de Leite', price: 34.68, image: 'https://www.marquesvendaspmg.shop/images/mucarela-inlaron-4-kg-cx-6-pc-pmg-atacadista.jpg' },
   { id: 1932, name: 'MUÇARELA SUPREMA "3,5" KG (CX "8" PÇ)', category: 'Derivados de Leite', price: 28.01, image: 'https://www.marquesvendaspmg.shop/images/mucarela-suprema-35-kg-cx-8-pc-pmg-atacadista.jpg' },
   { id: 1933, name: 'PARMESÃO 6 MESES BURITIS 5,5 KG (CX 4 PÇ)', category: 'Derivados de Leite', price: 74.13, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-buritis-55-kg-cx-4-pc-pmg-atacadista.jpg' },
-  { id: 1934, name: 'PARMESÃO TROPICAL CRISTAL 5 KG (CX 4 PÇ)', category: 'Derivados de Leite', price: 37.07, image: 'https://www.marquesvendaspmg.shop/images/parmesao-tropical-cristal-5-kg-cx-4-pc-pmg-atacadista.jpg' },
+  { id: 1934, name: 'PARMESÃO TROPICAL CRISTAL 5 KG (CX 4 PÇ)', category: 'Derivados de Leite', price: 36.43, image: 'https://www.marquesvendaspmg.shop/images/parmesao-tropical-cristal-5-kg-cx-4-pc-pmg-atacadista.jpg' },
   { id: 1935, name: 'PROVOLONE APOLO 5 KG (CX 3 PÇ)', category: 'Derivados de Leite', price: 36.43, image: 'https://www.marquesvendaspmg.shop/images/provolone-apolo-5-kg-cx-3-pc-pmg-atacadista.jpg' },
-  { id: 1936, name: 'PROVOLONETE BURITIS 175 G (CX 45 UN)', category: 'Derivados de Leite', price: 12.66, image: 'https://www.marquesvendaspmg.shop/images/provolonete-buritis-175-g-cx-45-un-pmg-atacadista.jpg' },
+  { id: 1936, name: 'PROVOLONETE BURITIS 175 G (CX 45 UN)', category: 'Derivados de Leite', price: 10.21, image: 'https://www.marquesvendaspmg.shop/images/provolonete-buritis-175-g-cx-45-un-pmg-atacadista.jpg' },
   { id: 1937, name: 'QUEIJO COALHO BARRA BANDEIRA 2,5 KG (CX 5 UN)', category: 'Derivados de Leite', price: 39.26, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-barra-bandeira-25-kg-cx-5-un-pmg-atacadista.jpg' },
   { id: 1938, name: 'QUEIJO FRESCAL VALEZA 500 G (CX 36 PÇ)', category: 'Derivados de Leite', price: 26.21, image: 'https://www.marquesvendaspmg.shop/images/queijo-frescal-valeza-500-g-cx-36-pc-pmg-atacadista.jpg' },
   { id: 1939, name: 'QUEIJO MINAS FRESCAL YEMA 450 G (CX 8 PÇ)', category: 'Derivados de Leite', price: 39.62, image: 'https://www.marquesvendaspmg.shop/images/queijo-minas-frescal-yema-450-g-cx-8-pc-pmg-atacadista.jpg' },
@@ -2007,18 +2007,18 @@ const products = [
   { id: 1943, name: 'REQUEIJÃO COPO LIGHT EM CALORIAS DALLORA 200 G (CX 12 UN)', category: 'Derivados de Leite', price: 101.12, image: 'https://www.marquesvendaspmg.shop/images/requeijao-copo-light-em-calorias-dallora-200-g-cx-12-un-pmg-atacadista.jpg' },
   { id: 1944, name: 'REQUEIJÃO DALLORA FORNO E FOGÃO COM AMIDO 1,5 KG (CX 8 BIS)', category: 'Derivados de Leite', price: 16.35, image: 'https://www.marquesvendaspmg.shop/images/requeijao-dallora-forno-e-fogao-com-amido-15-kg-cx-8-bis-pmg-atacadista.jpg' },
   { id: 1945, name: 'APRESUNTADO FRIMESA 3,7 KG (CX 4 PÇ)', category: 'Derivados de Suíno', price: 61.46, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-frimesa-37-kg-cx-4-pc-pmg-atacadista.jpg' },
-  { id: 1946, name: 'BACON EM CUBOS BARRIGA E PALETA REZENDE 700 G (CX 12 PCT)', category: 'Derivados de Suíno', price: 20.99, image: 'https://www.marquesvendaspmg.shop/images/bacon-em-cubos-barriga-e-paleta-rezende-700-g-cx-12-pct-pmg-atacadista.jpg' },
+  { id: 1946, name: 'BACON EM CUBOS BARRIGA E PALETA REZENDE 700 G (CX 12 PCT)', category: 'Derivados de Suíno', price: 19.83, image: 'https://www.marquesvendaspmg.shop/images/bacon-em-cubos-barriga-e-paleta-rezende-700-g-cx-12-pct-pmg-atacadista.jpg' },
   { id: 1947, name: 'BACON EM CUBOS BARRIGA FRIMESA 1 KG (CX 10 PCT)', category: 'Derivados de Suíno', price: 38.23, image: 'https://www.marquesvendaspmg.shop/images/bacon-em-cubos-barriga-frimesa-1-kg-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1948, name: 'BACON EM CUBOS PALETA E PAPADA MISTER BEEF 1 KG (CX 18 PCT)', category: 'Derivados de Suíno', price: 36.45, image: 'https://www.marquesvendaspmg.shop/images/bacon-em-cubos-paleta-e-papada-mister-beef-1-kg-cx-18-pct-pmg-atacadista.jpg' },
   { id: 1949, name: 'BANHA FRIMESA 1 KG (CX 18 PCT)', category: 'Derivados de Suíno', price: 13.22, image: 'https://www.marquesvendaspmg.shop/images/banha-frimesa-1-kg-cx-18-pct-pmg-atacadista.jpg' },
   { id: 1950, name: 'BANHA NOBRE 1 KG (CX 15 PCT)', category: 'Derivados de Suíno', price: 17.2, image: 'https://www.marquesvendaspmg.shop/images/banha-nobre-1-kg-cx-15-pct-pmg-atacadista.jpg' },
   { id: 1951, name: 'CALABRESA RETA MISTER BEEF 2,5 KG (CX 5 PCT)', category: 'Derivados de Suíno', price: 57.3, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-mister-beef-25-kg-cx-5-pct-pmg-atacadista.jpg' },
   { id: 1952, name: 'CARRÉ SUÍNO CONGELADO COM OSSO PAMPLONA 5 KG (CX 20 KG)', category: 'Derivados de Suíno', price: 17.15, image: 'https://www.marquesvendaspmg.shop/images/carre-suino-congelado-com-osso-pamplona-5-kg-cx-20-kg-pmg-atacadista.jpg' },
-  { id: 1953, name: 'COPA AURORA 600 G (CX 5 KG)', category: 'Derivados de Suíno', price: 101.51, image: 'https://www.marquesvendaspmg.shop/images/copa-aurora-600-g-cx-5-kg-pmg-atacadista.jpg' },
+  { id: 1953, name: 'COPA AURORA 600 G (CX 5 KG)', category: 'Derivados de Suíno', price: 101.54, image: 'https://www.marquesvendaspmg.shop/images/copa-aurora-600-g-cx-5-kg-pmg-atacadista.jpg' },
   { id: 1954, name: 'COPA LOMBO SOBREPALETA SUÍNA SEM OSSO CONGELADA FRIELLA 3 KG (CX 22 KG)', category: 'Derivados de Suíno', price: 22.87, image: 'https://www.marquesvendaspmg.shop/images/copa-lombo-sobrepaleta-suina-sem-osso-congelada-friella-3-kg-cx-22-kg-pmg-atacadista.jpg' },
   { id: 1955, name: 'COSTELINHA SUÍNA CONGELADA EM TIRAS COM OSSO FRIELLA 1 KG (CX 20 KG)', category: 'Derivados de Suíno', price: 21.73, image: 'https://www.marquesvendaspmg.shop/images/costelinha-suina-congelada-em-tiras-com-osso-friella-1-kg-cx-20-kg-pmg-atacadista.jpg' },
   { id: 1956, name: 'LOMBO SUÍNO SEM OSSO CONGELADO PAMPLONA 5 KG (CX 25 KG)', category: 'Derivados de Suíno', price: 23.01, image: 'https://www.marquesvendaspmg.shop/images/lombo-suino-sem-osso-congelado-pamplona-5-kg-cx-25-kg-pmg-atacadista.jpg' },
-  { id: 1957, name: 'MORTADELA DEFUMADA SEARA GOURMET 5 KG (CX 2 PÇ)', category: 'Derivados de Suíno', price: 14.6, image: 'https://www.marquesvendaspmg.shop/images/mortadela-defumada-seara-gourmet-5-kg-cx-2-pc-pmg-atacadista.jpg' },
+  { id: 1957, name: 'MORTADELA DEFUMADA SEARA GOURMET 5 KG (CX 2 PÇ)', category: 'Derivados de Suíno', price: 15.02, image: 'https://www.marquesvendaspmg.shop/images/mortadela-defumada-seara-gourmet-5-kg-cx-2-pc-pmg-atacadista.jpg' },
   { id: 1958, name: 'MORTADELA ITALIANA 471 SP SEARA GOURMET 4,8 KG (CX 2 PÇ)', category: 'Derivados de Suíno', price: 27.44, image: 'https://www.marquesvendaspmg.shop/images/mortadela-italiana-471-sp-seara-gourmet-48-kg-cx-2-pc-pmg-atacadista.jpg' },
   { id: 1959, name: 'PAIO SUÍNO PERDIGÃO 2,5 KG (CX 4 PCT)', category: 'Derivados de Suíno', price: 84.8, image: 'https://www.marquesvendaspmg.shop/images/paio-suino-perdigao-25-kg-cx-4-pct-pmg-atacadista.jpg' },
   { id: 1960, name: 'PEPPERONI FATIADO SABOR DE BRAGANÇA 1 KG (CX 3 PCT)', category: 'Derivados de Suíno', price: 58.18, image: 'https://www.marquesvendaspmg.shop/images/pepperoni-fatiado-sabor-de-braganca-1-kg-cx-3-pct-pmg-atacadista.jpg' },
@@ -2030,9 +2030,9 @@ const products = [
   { id: 1966, name: 'AZEITONA VERDE GRAÚDA 12 X 16 TOZZI 2 KG (CX 4 BD)', category: 'Derivados de Vegetal', price: 34.83, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-grauda-12-x-16-tozzi-2-kg-cx-4-bd-pmg-atacadista.jpg' },
   { id: 1967, name: 'BATATA CONGELADA PRÉ FRITA SURECRISP SKIN-ON WAFFLE FRIES CROSSTRAX MCCAIN 2,04 KG (CX 6 PCT)', category: 'Derivados de Vegetal', price: 278.89, image: 'https://www.marquesvendaspmg.shop/images/batata-congelada-pre-frita-surecrisp-skinon-waffle-fries-crosstrax-mccain-204-kg-cx-6-pct-pmg-atacadista.jpg' },
   { id: 1968, name: 'CATCHUP REAL ZAFRÁN 1,05  KG (CX 5 BAG)', category: 'Derivados de Vegetal', price: 25.63, image: 'https://www.marquesvendaspmg.shop/images/catchup-real-zafran-105-kg-cx-5-bag-pmg-atacadista.jpg' },
-  { id: 1969, name: 'CEBOLA CARAMELIZADA CAPELISTA 1,8 KG (CX 6 BD)', category: 'Derivados de Vegetal', price: 57.26, image: 'https://www.marquesvendaspmg.shop/images/cebola-caramelizada-capelista-18-kg-cx-6-bd-pmg-atacadista.jpg' },
+  { id: 1969, name: 'CEBOLA CARAMELIZADA CAPELISTA 1,8 KG (CX 6 BD)', category: 'Derivados de Vegetal', price: 60.12, image: 'https://www.marquesvendaspmg.shop/images/cebola-caramelizada-capelista-18-kg-cx-6-bd-pmg-atacadista.jpg' },
   { id: 1970, name: 'ESPINAFRE EM FOLHAS CONGELADO GRANO 2 KG (CX 5 PCT)', category: 'Derivados de Vegetal', price: 35.06, image: 'https://www.marquesvendaspmg.shop/images/espinafre-em-folhas-congelado-grano-2-kg-cx-5-pct-pmg-atacadista.jpg' },
-  { id: 1971, name: 'GORDURA VEGETAL SUPREMA GOLDEN LT BUNGE 2,5 KG (CX 2 GL)', category: 'Derivados de Vegetal', price: 26.78, image: 'https://www.marquesvendaspmg.shop/images/gordura-vegetal-suprema-golden-lt-bunge-25-kg-cx-2-gl-pmg-atacadista.jpg' },
+  { id: 1971, name: 'GORDURA VEGETAL SUPREMA GOLDEN LT BUNGE 2,5 KG (CX 2 GL)', category: 'Derivados de Vegetal', price: 53.38, image: 'https://www.marquesvendaspmg.shop/images/gordura-vegetal-suprema-golden-lt-bunge-25-kg-cx-2-gl-pmg-atacadista.jpg' },
   { id: 1972, name: 'MANJERICÃO FLOCOS PENINA 200 G (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 3.57, image: 'https://www.marquesvendaspmg.shop/images/manjericao-flocos-penina-200-g-fdo-10-pct-pmg-atacadista.jpg' },
   { id: 1973, name: 'MARGARINA COM SAL 82 % DELÍCIA SUPREME SABOR MANTEIGA 500 G (CX 12 UN)', category: 'Derivados de Vegetal', price: 82.81, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-82-delicia-supreme-sabor-manteiga-500-g-cx-12-un-pmg-atacadista.jpg' },
   { id: 1974, name: 'ÓLEO DE SOJA FRY MAX SOYA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 167.11, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-fry-max-soya-pmg-atacadista.jpeg' },
@@ -2042,8 +2042,8 @@ const products = [
   { id: 1978, name: 'PURÊ DE BATATA LBS 1 KG (CX 8 PCT)', category: 'Derivados de Vegetal', price: 23, image: 'https://www.marquesvendaspmg.shop/images/pure-de-batata-lbs-1-kg-cx-8-pct-pmg-atacadista.jpg' },
   { id: 1979, name: 'PURÊ DE BATATAS PENINA 500 G (CX 20 PCT)', category: 'Derivados de Vegetal', price: 18.38, image: 'https://www.marquesvendaspmg.shop/images/pure-de-batatas-penina-500-g-cx-20-pct-pmg-atacadista.jpg' },
   { id: 1980, name: 'VINAGRE SACHÊ ISIS 4 ML (CX 200 UN)', category: 'Derivados de Vegetal', price: 24.34, image: 'https://www.marquesvendaspmg.shop/images/vinagre-sache-isis-4-ml-cx-200-un-pmg-atacadista.jpg' },
-  { id: 1981, name: 'BACALHAU POLACA DO ALASCA SALGADO SECO FILÉ EM PEDAÇOS SEAPRO 5 KG (CX 2 PCT)', category: 'Derivados do Mar', price: 192.74, image: 'https://www.marquesvendaspmg.shop/images/bacalhau-polaca-do-alasca-salgado-seco-file-em-pedacos-seapro-5-kg-cx-2-pct-pmg-atacadista.jpg' },
-  { id: 1982, name: 'ACHOCOLATADO EM PÓ Q-ALIMENTARE 5 KG (FDO 4 PCT)', category: 'Doces/Frutas', price: 76.06, image: 'https://www.marquesvendaspmg.shop/images/achocolatado-em-po-qalimentare-5-kg-fdo-4-pct-pmg-atacadista.jpg' },
+  { id: 1981, name: 'BACALHAU POLACA DO ALASCA SALGADO SECO FILÉ EM PEDAÇOS SEAPRO 5 KG (CX 2 PCT)', category: 'Derivados do Mar', price: 199.39, image: 'https://www.marquesvendaspmg.shop/images/bacalhau-polaca-do-alasca-salgado-seco-file-em-pedacos-seapro-5-kg-cx-2-pct-pmg-atacadista.jpg' },
+  { id: 1982, name: 'ACHOCOLATADO EM PÓ Q-ALIMENTARE 5 KG (FDO 4 PCT)', category: 'Doces/Frutas', price: 89.15, image: 'https://www.marquesvendaspmg.shop/images/achocolatado-em-po-qalimentare-5-kg-fdo-4-pct-pmg-atacadista.jpg' },
   { id: 1983, name: 'CHOCOLATE CHOCOCANDY DORI 500 G (CX 12 PCT)', category: 'Doces/Frutas', price: 16.06, image: 'https://www.marquesvendaspmg.shop/images/chocolate-chococandy-dori-500-g-cx-12-pct-pmg-atacadista.jpg' },
   { id: 1984, name: 'COCO RALADO FLOCADO ÚMIDO E ADOÇADO QUALICOCO 1,010 KG (CX 10 PCT)', category: 'Doces/Frutas', price: 37.08, image: 'https://www.marquesvendaspmg.shop/images/coco-ralado-flocado-umido-e-adocado-qualicoco-1010-kg-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1985, name: 'CREME DE BUENO RECHEIO ARTESANAL VABENE 1,01 KG (CX 8 BIS)', category: 'Doces/Frutas', price: 36.72, image: 'https://www.marquesvendaspmg.shop/images/creme-de-bueno-recheio-artesanal-vabene-101-kg-cx-8-bis-pmg-atacadista.jpg' },
@@ -2055,7 +2055,7 @@ const products = [
   { id: 1991, name: 'PISTACHE CRU SEM CASCA LERYC 1 KG (CX 10 PCT)', category: 'Doces/Frutas', price: 230.06, image: 'https://www.marquesvendaspmg.shop/images/pistache-cru-sem-casca-leryc-1-kg-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1992, name: 'POLPA DE ABACAXI COM HORTELÃ CONGELADA ICEFRUIT 100 G (CX 20 UN)', category: 'Doces/Frutas', price: 41.69, image: 'https://www.marquesvendaspmg.shop/images/polpa-de-abacaxi-com-hortela-congelada-icefruit-100-g-cx-20-un-pmg-atacadista.jpg' },
   { id: 1993, name: 'POLPA DE CAJU CONGELADA ICEFRUIT 100 G (CX 20 UN)', category: 'Doces/Frutas', price: 61.64, image: 'https://www.marquesvendaspmg.shop/images/polpa-de-caju-congelada-icefruit-100-g-cx-20-un-pmg-atacadista.jpg' },
-  { id: 1994, name: 'RECHEIO E COBERTURA FORNEÁVEL SABOR PISTACHE HARALD 1,010 KG (CX 8 BIS)', category: 'Doces/Frutas', price: 52.76, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-forneavel-sabor-pistache-harald-1010-kg-cx-8-bis-pmg-atacadista.jpg' },
+  { id: 1994, name: 'RECHEIO E COBERTURA FORNEÁVEL SABOR PISTACHE HARALD 1,010 KG (CX 8 BIS)', category: 'Doces/Frutas', price: 52.7, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-forneavel-sabor-pistache-harald-1010-kg-cx-8-bis-pmg-atacadista.jpg' },
   { id: 1995, name: 'COUSCOUS LA PASTINA 500 G (CX 12 PCT)', category: 'Farináceos', price: 22.58, image: 'https://www.marquesvendaspmg.shop/images/couscous-la-pastina-500-g-cx-12-pct-pmg-atacadista.jpg' },
   { id: 1996, name: 'CURAU COM LEITE LBS 1 KG (CX 10 UN)', category: 'Farináceos', price: 13.6, image: 'https://www.marquesvendaspmg.shop/images/curau-com-leite-lbs-1-kg-cx-10-un-pmg-atacadista.jpg' },
   { id: 1997, name: 'FARINHA DE TRIGO TIPO 1 PURÍSSIMA ORIGINALE COAMO 5 KG (FDO 25 KG)', category: 'Farináceos', price: 101.22, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-purissima-originale-coamo-5-kg-fdo-25-kg-pmg-atacadista.jpg' },
@@ -2067,34 +2067,15 @@ const products = [
   { id: 2003, name: 'TAPIOCA OISHII 1 KG (FD 10 PCT)', category: 'Farináceos', price: 6.77, image: 'https://www.marquesvendaspmg.shop/images/tapioca-oishii-1-kg-fd-10-pct-pmg-atacadista.jpg' },
   { id: 2004, name: 'PANO MULTIUSO AZUL BOBINA 50 UNIDADES 28 CM X 25 CM LIFE CLEAN (CX 12 UN)', category: 'Higiene', price: 22.76, image: 'https://www.marquesvendaspmg.shop/images/pano-multiuso-azul-bobina-50-unidades-28-cm-x-25-cm-life-clean-cx-12-un-pmg-atacadista.jpg' },
   { id: 2005, name: 'LICHIA EM CALDA BARÃO LALI 567 G (CX 24 LT)', category: 'Orientais', price: 22.93, image: 'https://www.marquesvendaspmg.shop/images/lichia-em-calda-barao-lali-567-g-cx-24-lt-pmg-atacadista.jpg' },
-  { id: 978, name: 'CALABRESA AURORA 5 KILO', category: '⏳ Ofertas da Semana 🚨', price: 107.00, image: 'https://www.marquesvendaspmg.shop/images/calabresa-aurora-5-kilo-pmg-atacadista.jpg' },
-  { id: 979, name: 'CALABRESA BRASA 2 KILO', category: '⏳ Ofertas da Semana 🚨', price: 38.99, image: 'https://www.marquesvendaspmg.shop/images/calabresa-brasa-2-kilo-pmg-atacadista.jpg' },
-  { id: 980, name: 'CALABRESA CERATTI 2.5 KILO', category: '⏳ Ofertas da Semana 🚨', price: 52.99, image: 'https://www.marquesvendaspmg.shop/images/calabresa-ceratti-25-kilo-pmg-atacadista.jpg' },
-  { id: 981, name: 'CALABRESA FATIADA CONGELADA FRIMESA 1 KILO', category: '⏳ Ofertas da Semana 🚨', price: 25.50, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-congelada-frimesa-1-kilo-pmg-atacadista.jpg' },
-  { id: 1030, name: 'MORTADELA DEFUMADA OURO PERDIGÃO 4 KG', category: '⏳ Ofertas da Semana 🚨', price: 22.80, image: 'https://www.marquesvendaspmg.shop/images/mortadela-defumada-ouro-perdigao-4-kg-pmg-atacadista.jpg' },
-  { id: 1031, name: 'MORTADELA REZENDE 5 KG', category: '⏳ Ofertas da Semana 🚨', price: 8.99, image: 'https://www.marquesvendaspmg.shop/images/mortadela-rezende-5-kg-pmg-atacadista.jpg' },
-  { id: 1032, name: 'MORTADELA TRADICIONAL AURORA 5 KG', category: '⏳ Ofertas da Semana 🚨', price: 11.70, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-aurora-5-kg-pmg-atacadista.jpg' },
-  { id: 1033, name: 'MORTADELA TRADICIONAL BOLOGNA CERATTI 6 KG', category: '⏳ Ofertas da Semana 🚨', price: 44.15, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-bologna-ceratti-6-kg-pmg-atacadista.jpg' },
-  { id: 1034, name: 'MORTADELA TRADICIONAL MARBA 5 KG', category: '⏳ Ofertas da Semana 🚨', price: 11.90, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-marba-5-kg-pmg-atacadista.jpg' },
-  { id: 932, name: 'APRESUNTADO AURORA 3,7 KILO PÇ', category: '⏳ Ofertas da Semana 🚨', price: 70.99, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-aurora-37-kilo-pc-pmg-atacadista.jpg' },
-  { id: 933, name: 'APRESUNTADO DÁLIA 3,7 KILO PÇ', category: '⏳ Ofertas da Semana 🚨', price: 55.99, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-dalia-37-kilo-pc-pmg-atacadista.jpg' },
-  { id: 934, name: 'APRESUNTADO DELI GOURMET 3,35 KILO PÇ', category: '⏳ Ofertas da Semana 🚨', price: 59.50, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-deli-gourmet-335-kilo-pc-pmg-atacadista.jpg' },
-  { id: 1523, name: 'CHOCOLATE EM PÓ 100% CACAU MELKEN HARALD 500 G', category: '⏳ Ofertas da Semana 🚨', price: 36.99, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-100-cacau-melken-harald-500-g-pmg-atacadista.jpg' },
-  { id: 1524, name: 'CHOCOLATE EM PÓ 33% CACAU DOCEIRO 1,05 KILO', category: '⏳ Ofertas da Semana 🚨', price: 29.19, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-33-cacau-doceiro-105-kilo-pmg-atacadista.jpg' },
-  { id: 1525, name: 'CHOCOLATE EM PÓ 33% CACAU MELKEN HARALD 1,010 KILO', category: '⏳ Ofertas da Semana 🚨', price: 39.88, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-33-cacau-melken-harald-1010-kilo-pmg-atacadista.jpg' },
-  { id: 1526, name: 'CHOCOLATE EM PÓ 50% CACAU ALIBRA 1 KILO', category: '⏳ Ofertas da Semana 🚨', price: 41.27, image: 'https://www.marquesvendaspmg.shop/images/chocolate-em-po-50-cacau-alibra-1-kilo-pmg-atacadista.jpg' },
-  { id: 1738, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 ANACONDA 1 KILO (FDO 10 KILO)', category: '⏳ Ofertas da Semana 🚨', price: 45.00, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-anaconda-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
-  { id: 1739, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 BUQUÊ 1 KILO (FDO 10 KILO)', category: '⏳ Ofertas da Semana 🚨', price: 30.50, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-buque-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
-  { id: 1740, name: 'FARINHA DE TRIGO PEQUENA TIPO 1 DONA BENTA 1 KILO (FDO 10 KILO)', category: '⏳ Ofertas da Semana 🚨', price: 50.88, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pequena-tipo-1-dona-benta-1-kilo-fdo-10-kilo-pmg-atacadista.jpg' },
-  { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 17.12, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 13.12, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 57, name: 'ÁGUA MINERAL GRANDE BUONAVITA SEM GÁS 1,5 L (PCT 6 UN)', category: '⏳ Ofertas da Semana 🚨', price: 13.69, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-buonavita-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 180, name: 'GUARANÁ ANTARCTICA LATA 350 ML (PCT 12 LT)', category: '⏳ Ofertas da Semana 🚨', price: 41.55, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 181, name: 'GUARANÁ ANTARCTICA MIÚDA PET 200 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 22.99, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-miuda-pet-200-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 182, name: 'GUARANÁ ANTARCTICA PEQUENO PET 1 L (PCT 6 UN)', category: '⏳ Ofertas da Semana 🚨', price: 23.99, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-pequeno-pet-1-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 126, name: 'COCA COLA LATA 350 ML (PCT 12 LT)', category: '⏳ Ofertas da Semana 🚨', price: 38.99, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 127, name: 'COCA COLA MÉDIA PET 1 L (PCT 6 UN)', category: '⏳ Ofertas da Semana 🚨', price: 43.60, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-media-pet-1-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 128, name: 'COCA COLA MIÚDA PET 200 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 26.99, image: 'https://www.marquesvendaspmg.shop/images/coca-cola-miuda-pet-200-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: '⏳ Ofertas da Semana 🚨', price: 23.88, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: '⏳ Ofertas da Semana 🚨', price: 25.00, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: '⏳ Ofertas da Semana 🚨', price: 23.88, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1765, name: 'FARINHA DE TRIGO TIPO 1 NITA 5 KILO (FDO 25 KILO)', category: '⏳ Ofertas da Semana 🚨', price: 92.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1751, name: 'FARINHA DE TRIGO PIZZA NITA 5 KILO (FDO 25 KILO)', category: '⏳ Ofertas da Semana 🚨', price: 73.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1533, name: 'CHOCOLATE FORNEÁVEL AO LEITE CONFEITEIRO HARALD 1,010 KILO', category: '⏳ Ofertas da Semana 🚨', price: 38.88, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-ao-leite-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
+  { id: 1543, name: 'CHOCOLATE FORNEÁVEL GRANDE AO LEITE CONFEITEIRO HARALD 2,010 KILO', category: '⏳ Ofertas da Semana 🚨', price: 65.15, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-ao-leite-confeiteiro-harald-2010-kilo-pmg-atacadista.jpg' },
+  { id: 1540, name: 'CHOCOLATE FORNEÁVEL BRANCO CONFEITEIRO HARALD 1,010 KILO', category: '⏳ Ofertas da Semana 🚨', price: 27.25, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
+  { id: 1538, name: 'CHOCOLATE FORNEÁVEL AVELÃ CONFEITEIRO HARALD 1,010 KILO', category: '⏳ Ofertas da Semana 🚨', price: 32.55, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-avela-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
@@ -2194,7 +2175,47 @@ const ProductsPage = () => {
   const productsPerPage = windowWidth > 768 ? 20 : 10;
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
+
+  // Contador regressivo Black Friday
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  // Configurar contador regressivo para 26 dias
+  useEffect(() => {
+    const blackFridayDate = new Date();
+    blackFridayDate.setDate(blackFridayDate.getDate() + 26);
+    blackFridayDate.setHours(23, 59, 59, 0);
+    
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = blackFridayDate - now;
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      } else {
+        setTimeLeft({
+          days: 26,
+          hours: 20,
+          minutes: 10,
+          seconds: 0
+        });
+      }
+    };
+    
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   // Efeito para o carrossel automático
   useEffect(() => {
@@ -2231,176 +2252,6 @@ const ProductsPage = () => {
     };
   }, []);
 
-// ADICIONAR ESTE USEEFFECT APÓS OS EXISTENTES
-useEffect(() => {
-  const applyCategoryFilterFromURL = () => {
-    // Verificar se estamos no navegador
-    if (typeof window === 'undefined') return;
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const categoriaFromURL = urlParams.get('categoria');
-    
-    if (categoriaFromURL) {
-      // Encontrar a categoria correspondente (case insensitive)
-      const categoriaEncontrada = categories.find(cat => 
-        cat.toLowerCase() === categoriaFromURL.toLowerCase()
-      );
-      
-      if (categoriaEncontrada) {
-        setSelectedCategory(categoriaEncontrada);
-        setCurrentPage(1);
-        
-        // Rolagem suave para a seção de produtos
-        setTimeout(() => {
-          const productsSection = document.querySelector('.products-grid');
-          if (productsSection) {
-            productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 300);
-      }
-    }
-  };
-
-  applyCategoryFilterFromURL();
-}, []); // Executa apenas uma vez ao carregar a página
-
-// SUBSTITUA O USEEFFECT PROBLEMÁTICO POR ESTE:
-
-useEffect(() => {
-  const updateSEOMetaTags = () => {
-    // Só executa no cliente
-    if (typeof window === 'undefined') return;
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const categoriaFromURL = urlParams.get('categoria');
-    
-    console.log('🔍 DEBUG SEO - Categoria detectada:', categoriaFromURL);
-    
-    let pageTitle = '';
-    let metaDescription = '';
-
-    if (categoriaFromURL) {
-      // MAPEAMENTO COMPLETO DE SEO
-      const seoMap = {
-        'acessórios': {
-          title: 'Acessórios para Restaurantes e Bares - Utensílios Profissionais | PMG Atacadista',
-          description: 'Acessórios e utensílios profissionais para restaurantes, bares e food service. Melhor preço atacado com entrega grátis SP.'
-        },
-        'bebidas': {
-          title: 'Bebidas para Atacado - Cervejas, Refris, Sucos, Águas | PMG Atacadista',
-          description: 'Melhor preço em bebidas para seu negócio! Cervejas Skol, Brahma, Heineken. Refrigerantes, sucos, águas, energéticos. Atacado food service com entrega grátis.'
-        },
-        'conservas/enlatados': {
-          title: 'Conservas e Enlatados para Atacado - Milho, Ervilha, Seleta | PMG Atacadista',
-          description: 'Conservas, enlatados e produtos em lata para seu restaurante. Milho, ervilha, seleta, palmito, azeitonas. Atacado food service SP.'
-        },
-        'derivados de ave': {
-          title: 'Produtos de Frango para Atacado - Frango Inteiro, Cortes, Embutidos | PMG',
-          description: 'Derivados de frango e ave para food service. Frango inteiro, cortes, filé, coxa, sobrecoxa, linguiça de frango. Melhor preço atacado.'
-        },
-        'derivados de bovino': {
-          title: 'Carnes Bovinas para Atacado - Picanha, Alcatra, Contrafilé | PMG Atacadista',
-          description: 'Carnes bovinas premium para churrascos e restaurantes. Picanha, alcatra, contrafilé, maminha. Melhor preço atacado com entrega rápida.'
-        },
-        'derivados de leite': {
-          title: 'Laticínios para Atacado - Queijos, Manteiga, Iogurte, Requeijão | PMG',
-          description: 'Laticínios e derivados de leite para seu negócio. Queijos, manteiga, iogurte, requeijão, cream cheese. Atacado food service SP.'
-        },
-        'derivados de suíno': {
-          title: 'Produtos Suínos para Atacado - Linguiça, Bacon, Pernil, Carne de Porco | PMG',
-          description: 'Derivados de suínos e carne de porco para restaurantes. Linguiça toscana, bacon, pernil, costela, lombo. Melhor preço atacado.'
-        },
-        'derivados de vegetal': {
-          title: 'Produtos Vegetais para Atacado - Hortifruti, Legumes, Verduras | PMG Atacadista',
-          description: 'Derivados vegetais e hortifruti para food service. Legumes, verduras, produtos congelados, polpas. Atacado com entrega grátis SP.'
-        },
-        'derivados do mar': {
-          title: 'Frutos do Mar e Pescados para Atacado - Peixes, Camarão, Polvo | PMG',
-          description: 'Frutos do mar e pescados frescos e congelados. Peixes, camarão, polvo, lula, mariscos. Melhor preço atacado para restaurantes.'
-        },
-        'doces/frutas': {
-          title: 'Doces e Frutas para Atacado - Sobremesas, Geleias, Frutas Frescas | PMG',
-          description: 'Doces, sobremesas e frutas para seu estabelecimento. Geleias, compotas, frutas frescas e secas. Atacado food service SP.'
-        },
-        'farináceos': {
-          title: 'Farináceos para Atacado - Arroz, Feijão, Macarrão, Farinha | PMG Atacadista',
-          description: 'Farináceos e mantimentos para seu comércio. Arroz, feijão, macarrão, farinha de trigo, óleo, açúcar. Melhor preço atacado região SP.'
-        },
-        'higiene': {
-          title: 'Produtos de Higiene e Limpeza para Atacado - Sabão, Detergente, Álcool | PMG',
-          description: 'Produtos de higiene e limpeza profissional para restaurantes e mercados. Sabão, detergente, álcool, desinfetante. Atacado SP.'
-        },
-        'orientais': {
-          title: 'Produtos Orientais para Atacado - Temperos, Molhos, Massas Asiáticas | PMG',
-          description: 'Produtos orientais e asiáticos para food service. Shoyu, temperos, molhos, massas, ingredientes. Melhor preço atacado SP.'
-        },
-        'panificação': {
-          title: 'Produtos de Panificação para Atacado - Pães, Bolos, Farinhas | PMG Atacadista',
-          description: 'Produtos para panificação e confeitaria. Farinhas, fermentos, pães, bolos, ingredientes. Atacado para padarias e restaurantes.'
-        },
-        'salgados': {
-          title: 'Salgados e Congelados para Atacado - Coxinhas, Empadas, Pizzas | PMG',
-          description: 'Salgados, congelados e pratos prontos para seu negócio. Coxinhas, empadas, pizzas, esfihas. Melhor preço atacado food service.'
-        },
-        '⏳ ofertas da semana 🚨': {
-          title: '🔥 Ofertas da Semana - Promoções Imperdíveis em Atacado | PMG Atacadista',
-          description: 'Promoções da semana com até 50% off! Ofertas especiais em bebidas, carnes, laticínios, mercearia. Corre que é por tempo limitado!'
-        }
-      };
-
-      const categoriaLower = categoriaFromURL.toLowerCase();
-      const seoData = seoMap[categoriaLower];
-
-      if (seoData) {
-        pageTitle = seoData.title;
-        metaDescription = seoData.description;
-      } else {
-        pageTitle = `${categoriaFromURL} - PMG Atacadista | Melhor Preço em Atacado`;
-        metaDescription = `Compre ${categoriaFromURL} com melhor preço atacado. PMG Atacadista - food service com entrega grátis SP e região.`;
-      }
-    } else {
-      pageTitle = 'Catálogo Completo - PMG Atacadista | Atacado Food Service SP';
-      metaDescription = 'Catálogo completo de produtos atacado. Bebidas, carnes, laticínios, mercearia, limpeza. Melhor preço com entrega grátis SP.';
-    }
-
-    console.log('🔄 Atualizando título para:', pageTitle);
-    
-    // Força a atualização do título
-    document.title = pageTitle;
-    
-    // Atualiza meta description
-    let metaDescTag = document.querySelector('meta[name="description"]');
-    if (!metaDescTag) {
-      metaDescTag = document.createElement('meta');
-      metaDescTag.name = 'description';
-      document.head.appendChild(metaDescTag);
-    }
-    metaDescTag.content = metaDescription;
-
-    // Múltiplas tentativas para garantir
-    const forceTitleUpdate = () => {
-      if (document.title !== pageTitle) {
-        console.log('🔄 Forçando atualização do título...');
-        document.title = pageTitle;
-      }
-    };
-
-    // Executa várias vezes para garantir
-    forceTitleUpdate();
-    setTimeout(forceTitleUpdate, 100);
-    setTimeout(forceTitleUpdate, 500);
-    setTimeout(forceTitleUpdate, 1000);
-  };
-
-  // Executa imediatamente
-  updateSEOMetaTags();
-  
-  // Re-executa após o componente montar completamente
-  const timer = setTimeout(updateSEOMetaTags, 300);
-  
-  return () => clearTimeout(timer);
-}, [selectedCategory]); // REMOVI window.location.search da dependência
-
   // Função para login com Google
 const handleGoogleLogin = async () => {
   setLoading(true);
@@ -2408,7 +2259,7 @@ const handleGoogleLogin = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'https://www.marquesvendaspmg.shop/produtos', // <- aqui é o segredo
+        redirectTo: 'https://www.marquesvendaspmg.shop/produtos',
         queryParams: {
           access_type: 'offline',
           prompt: 'consent',
@@ -2465,7 +2316,7 @@ const handleGoogleLogin = async () => {
           .eq('id', user.id)
           .single();
         
-        if (error && error.code !== 'PGRST116') { // PGRST116 = nenhum resultado encontrado
+        if (error && error.code !== 'PGRST116') {
           console.error('Erro ao buscar usuário:', error);
         }
         
@@ -2692,13 +2543,13 @@ const removeFromCart = (productId) => {
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Estilos atualizados com os novos elementos
+  // ========== ESTILOS ATUALIZADOS - TEMA BLACK FRIDAY ========== //
   const styles = {
     container: {
       maxWidth: '1200px',
       margin: '0 auto',
       padding: windowWidth > 768 ? '20px' : '10px',
-      backgroundColor: '#f9f9f9',
+      backgroundColor: '#1a1a1a', // Fundo escuro Black Friday
       minHeight: '100vh',
       position: 'relative'
     },
@@ -2706,37 +2557,42 @@ const removeFromCart = (productId) => {
       textAlign: 'center',
       marginBottom: windowWidth > 768 ? '20px' : '10px',
       padding: windowWidth > 768 ? '20px' : '15px',
-      backgroundColor: '#fff',
-      borderRadius: '10px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
+      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+      borderRadius: '15px',
+      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.3)',
+      border: '2px solid #e74c3c'
     },
     userWelcomeBar: {
-      backgroundColor: '#095400',
+      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
       color: 'white',
       padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
-      borderRadius: '8px',
+      borderRadius: '10px',
       flex: 1,
       display: 'flex',
-      flexDirection: 'column',      // muda de linha
-      alignItems: 'flex-start',     // alinha à esquerda
-      gap: '6px'                    // espaço entre mensagem e botão
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      gap: '6px',
+      boxShadow: '0 2px 10px rgba(231, 76, 60, 0.4)',
+      border: '2px solid #ffd700'
     },
     welcomeMessage: {
       fontSize: windowWidth > 768 ? '16px' : '14px',
       fontWeight: '600',
-      margin: 0
+      margin: 0,
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
     },
     homeButton: {
-      backgroundColor: 'white',
-      color: '#095400',
-      border: '1px solid #095400', // opcional pra destacar
+      background: 'linear-gradient(45deg, #ffd700, #ffed4e)',
+      color: '#c0392b',
+      border: '1px solid #fff',
       padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
       borderRadius: '20px',
       fontSize: windowWidth > 768 ? '14px' : '12px',
       fontWeight: '600',
       cursor: 'pointer',
       textDecoration: 'none',
-      whiteSpace: 'nowrap'
+      whiteSpace: 'nowrap',
+      boxShadow: '0 2px 8px rgba(255, 215, 0, 0.4)'
     },
     topHeaderContainer: {
       display: 'flex',
@@ -2749,13 +2605,15 @@ const removeFromCart = (productId) => {
       display: 'block',
       margin: '0 auto 20px',
       padding: '10px 20px',
-      backgroundColor: '#f0f0f0',
-      border: 'none',
+      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+      border: '1px solid #ffd700',
       borderRadius: '30px',
       fontSize: '14px',
       fontWeight: '600',
       cursor: 'pointer',
-      transition: 'all 0.3s'
+      transition: 'all 0.3s',
+      color: 'white',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
     },
     searchBar: {
       display: 'flex',
@@ -2768,11 +2626,13 @@ const removeFromCart = (productId) => {
       maxWidth: '500px',
       padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
       borderRadius: '30px',
-      border: '1px solid #ddd',
+      border: '2px solid #e74c3c',
       fontSize: windowWidth > 768 ? '16px' : '14px',
       outline: 'none',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
-      transition: 'all 0.3s'
+      boxShadow: '0 2px 8px rgba(231, 76, 60, 0.3)',
+      transition: 'all 0.3s',
+      backgroundColor: '#2c3e50',
+      color: '#ecf0f1'
     },
     categoryMenu: {
       display: 'flex',
@@ -2781,9 +2641,10 @@ const removeFromCart = (productId) => {
       gap: windowWidth > 768 ? '10px' : '5px',
       margin: windowWidth > 768 ? '30px 0' : '15px 0',
       padding: windowWidth > 768 ? '15px' : '10px',
-      backgroundColor: '#fff',
-      borderRadius: '10px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+      borderRadius: '15px',
+      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.3)',
+      border: '2px solid #e74c3c',
       overflowX: windowWidth <= 768 ? 'auto' : 'visible',
       whiteSpace: 'nowrap',
       scrollbarWidth: 'none',
@@ -2793,20 +2654,22 @@ const removeFromCart = (productId) => {
       }
     },
     categoryButton: {
-      backgroundColor: '#f0f0f0',
-      color: '#333',
-      border: 'none',
+      background: 'linear-gradient(135deg, #34495e, #2c3e50)',
+      color: '#ecf0f1',
+      border: '1px solid #e74c3c',
       padding: windowWidth > 768 ? '10px 20px' : '8px 12px',
       borderRadius: '30px',
       fontSize: windowWidth > 768 ? '14px' : '12px',
       fontWeight: '600',
       cursor: 'pointer',
       transition: 'all 0.3s',
-      whiteSpace: 'nowrap'
+      whiteSpace: 'nowrap',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
     },
     activeCategory: {
-      backgroundColor: '#095400',
-      color: '#fff'
+      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+      color: '#fff',
+      border: '1px solid #ffd700'
     },
     productsGrid: {
       display: 'grid',
@@ -2815,18 +2678,23 @@ const removeFromCart = (productId) => {
       margin: windowWidth > 768 ? '30px 0' : '15px 0'
     },
     productCard: {
-      backgroundColor: '#fff',
+      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
       borderRadius: '12px',
-      boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
+      boxShadow: '0 5px 20px rgba(0,0,0,0.3)',
       overflow: 'hidden',
       transition: 'transform 0.3s, box-shadow 0.3s',
-      position: 'relative'
+      position: 'relative',
+      border: '2px solid #e74c3c',
+      ':hover': {
+        transform: 'translateY(-5px)',
+        boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)'
+      }
     },
     productImage: {
       width: '100%',
       height: windowWidth > 768 ? '180px' : '120px',
       objectFit: 'cover',
-      borderBottom: '1px solid #eee'
+      borderBottom: '2px solid #e74c3c'
     },
     productInfo: {
       padding: windowWidth > 768 ? '20px' : '10px',
@@ -2841,7 +2709,7 @@ const removeFromCart = (productId) => {
     productName: {
       fontSize: windowWidth > 768 ? '16px' : '14px',
       fontWeight: '600',
-      color: '#333',
+      color: '#ecf0f1',
       marginBottom: '5px',
       display: '-webkit-box',
       WebkitLineClamp: expandedDescriptions ? 'unset' : (windowWidth > 768 ? 2 : 3),
@@ -2852,7 +2720,7 @@ const removeFromCart = (productId) => {
     showMoreButton: {
       background: 'none',
       border: 'none',
-      color: '#095400',
+      color: '#ffd700',
       fontSize: '12px',
       cursor: 'pointer',
       padding: '0',
@@ -2863,31 +2731,38 @@ const removeFromCart = (productId) => {
     productPrice: {
       fontSize: windowWidth > 768 ? '18px' : '16px',
       fontWeight: '700',
-      color: '#e53935',
-      margin: windowWidth > 768 ? '15px 0' : '10px 0'
+      color: '#ffd700',
+      margin: windowWidth > 768 ? '15px 0' : '10px 0',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
     },
     unavailablePrice: {
       fontSize: windowWidth > 768 ? '18px' : '16px',
       fontWeight: '700',
-      color: '#999',
+      color: '#7f8c8d',
       margin: windowWidth > 768 ? '15px 0' : '10px 0',
       textDecoration: 'line-through'
     },
     addButton: {
       width: '100%',
       padding: windowWidth > 768 ? '12px' : '10px',
-      backgroundColor: '#095400',
+      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
       color: '#fff',
       border: 'none',
       borderRadius: '6px',
       fontSize: windowWidth > 768 ? '15px' : '13px',
       fontWeight: '600',
       cursor: 'pointer',
-      transition: 'background-color 0.3s'
+      transition: 'background-color 0.3s',
+      border: '1px solid #ffd700',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+      ':hover': {
+        background: 'linear-gradient(45deg, #c0392b, #a93226)'
+      }
     },
     disabledButton: {
-      backgroundColor: '#ccc',
-      cursor: 'not-allowed'
+      background: 'linear-gradient(45deg, #7f8c8d, #95a5a6)',
+      cursor: 'not-allowed',
+      border: '1px solid #bdc3c7'
     },
     pagination: {
       display: 'flex',
@@ -2899,23 +2774,31 @@ const removeFromCart = (productId) => {
     },
     pageButton: {
       padding: windowWidth > 768 ? '8px 15px' : '6px 10px',
-      backgroundColor: '#fff',
-      border: '1px solid #ddd',
+      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+      border: '2px solid #e74c3c',
       borderRadius: '6px',
       cursor: 'pointer',
       transition: 'all 0.3s',
-      fontSize: windowWidth > 768 ? '14px' : '12px'
+      fontSize: windowWidth > 768 ? '14px' : '12px',
+      color: '#ffd700',
+      fontWeight: '600',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+      ':hover': {
+        background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+        color: '#fff'
+      }
     },
     activePage: {
-      backgroundColor: '#095400',
+      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
       color: '#fff',
-      borderColor: '#095400'
+      borderColor: '#ffd700'
     },
     resultsInfo: {
       textAlign: 'center',
-      color: '#666',
+      color: '#ffd700',
       margin: windowWidth > 768 ? '20px 0' : '10px 0',
-      fontSize: windowWidth > 768 ? '14px' : '12px'
+      fontSize: windowWidth > 768 ? '14px' : '12px',
+      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
     },
     authModal: {
       position: 'fixed',
@@ -2931,17 +2814,18 @@ const removeFromCart = (productId) => {
       padding: windowWidth > 768 ? '0' : '10px'
     },
     authBox: {
-      backgroundColor: '#fff',
-      borderRadius: '10px',
+      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+      borderRadius: '15px',
       padding: windowWidth > 768 ? '30px' : '20px',
       width: '90%',
       maxWidth: '400px',
-      boxShadow: '0 5px 20px rgba(0,0,0,0.2)'
+      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)',
+      border: '2px solid #e74c3c'
     },
     authToggle: {
       background: 'none',
       border: 'none',
-      color: '#095400',
+      color: '#ffd700',
       cursor: 'pointer',
       fontWeight: '600',
       textDecoration: 'underline',
@@ -2954,7 +2838,7 @@ const removeFromCart = (productId) => {
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: 'rgba(255,255,255,0.9)',
+      backgroundColor: 'rgba(26, 26, 26, 0.95)',
       zIndex: 999,
       display: 'flex',
       justifyContent: 'center',
@@ -2966,28 +2850,30 @@ const removeFromCart = (productId) => {
       fontSize: windowWidth > 768 ? '24px' : '18px',
       fontWeight: 'bold',
       marginBottom: '20px',
-      color: '#095400',
-      textAlign: 'center'
+      color: '#ffd700',
+      textAlign: 'center',
+      textShadow: '0 2px 4px rgba(0,0,0,0.5)'
     },
     bannerContainer: {
       margin: windowWidth > 768 ? '40px 0' : '20px 0',
       position: 'relative',
       width: '100%',
       overflow: 'hidden',
-      borderRadius: '10px',
-      boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+      borderRadius: '15px',
+      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)',
+      border: '2px solid #e74c3c'
     },
     bannerImage: {
       width: '100%',
       display: 'block',
       transition: 'transform 0.5s ease',
-      borderRadius: '10px'
+      borderRadius: '15px'
     },
     bannerNavButton: {
       position: 'absolute',
       top: '50%',
       transform: 'translateY(-50%)',
-      backgroundColor: 'rgba(0,0,0,0.5)',
+      backgroundColor: 'rgba(231, 76, 60, 0.9)',
       color: 'white',
       border: 'none',
       borderRadius: '50%',
@@ -2998,7 +2884,12 @@ const removeFromCart = (productId) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      zIndex: 10
+      zIndex: 10,
+      border: '1px solid #ffd700',
+      ':hover': {
+        backgroundColor: '#ffd700',
+        color: '#e74c3c'
+      }
     },
     prevButton: {
       left: '10px'
@@ -3015,13 +2906,14 @@ const removeFromCart = (productId) => {
       width: windowWidth > 768 ? '12px' : '8px',
       height: windowWidth > 768 ? '12px' : '8px',
       borderRadius: '50%',
-      backgroundColor: '#ccc',
+      backgroundColor: '#7f8c8d',
       margin: '0 5px',
       cursor: 'pointer',
       transition: 'background-color 0.3s'
     },
     activeDot: {
-      backgroundColor: '#095400'
+      backgroundColor: '#e74c3c',
+      transform: 'scale(1.2)'
     },
     toastContainer: {
       position: 'fixed',
@@ -3030,10 +2922,10 @@ const removeFromCart = (productId) => {
       zIndex: 1000
     },
     promoToast: {
-      background: '#fff',
-      borderLeft: '4px solid #2ecc71',
+      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+      borderLeft: '4px solid #e74c3c',
       borderRadius: '8px',
-      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
       padding: '16px',
       maxWidth: '320px',
       opacity: 0,
@@ -3041,7 +2933,8 @@ const removeFromCart = (productId) => {
       transition: 'opacity 0.4s, transform 0.4s',
       display: 'flex',
       gap: '12px',
-      marginBottom: '10px'
+      marginBottom: '10px',
+      border: '1px solid #e74c3c'
     },
     promoToastShow: {
       opacity: 1,
@@ -3059,42 +2952,43 @@ const removeFromCart = (productId) => {
       border: 'none',
       fontSize: '18px',
       cursor: 'pointer',
-      color: '#95a5a6',
+      color: '#ffd700',
       alignSelf: 'flex-start'
     },
     toastTitle: {
       margin: '0 0 8px 0',
-      color: '#2c3e50',
+      color: '#ffd700',
       fontSize: '16px',
       fontWeight: 700
     },
     toastMessage: {
       margin: 0,
-      color: '#7f8c8d',
+      color: '#ecf0f1',
       fontSize: '14px',
       lineHeight: 1.4
     },
     toastHighlight: {
-      color: '#e74c3c',
+      color: '#ffd700',
       fontWeight: 'bold'
     },
     toastWhatsappBtn: {
       display: 'inline-block',
       marginTop: '12px',
-      background: '#25D366',
+      background: 'linear-gradient(45deg, #25D366, #128C7E)',
       color: 'white',
       padding: '8px 12px',
       borderRadius: '6px',
       textDecoration: 'none',
       fontWeight: 'bold',
-      fontSize: '13px'
+      fontSize: '13px',
+      border: '1px solid #ffd700'
     },
     googleLoginButton: {
       width: '100%',
       padding: '12px 20px',
-      backgroundColor: '#fff',
-      color: '#757575',
-      border: '1px solid #ddd',
+      background: 'linear-gradient(135deg, #34495e, #2c3e50)',
+      color: '#ffd700',
+      border: '1px solid #e74c3c',
       borderRadius: '6px',
       fontSize: '15px',
       fontWeight: '600',
@@ -3105,7 +2999,11 @@ const removeFromCart = (productId) => {
       justifyContent: 'center',
       gap: '10px',
       marginTop: '15px',
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+      boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+      ':hover': {
+        background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+        color: 'white'
+      }
     },
     googleLogo: {
       width: '20px',
@@ -3116,21 +3014,22 @@ const removeFromCart = (productId) => {
       height: '32px',
       borderRadius: '50%',
       objectFit: 'cover',
-      marginRight: '10px'
+      marginRight: '10px',
+      border: '2px solid #ffd700'
     },
     userInfoContainer: {
       display: 'flex',
       alignItems: 'center',
       gap: '10px'
     },
-    // NOVO ESTILO: Lupa de detalhes do produto
+    // ESTILO LUPA - TEMA BLACK FRIDAY
     productDetailsButton: {
       position: 'absolute',
       top: '8px',
       right: '8px',
       width: windowWidth > 768 ? '32px' : '28px',
       height: windowWidth > 768 ? '32px' : '28px',
-      backgroundColor: '#e53935',
+      backgroundColor: '#e74c3c',
       color: 'white',
       border: 'none',
       borderRadius: '50%',
@@ -3142,7 +3041,13 @@ const removeFromCart = (productId) => {
       fontWeight: 'bold',
       transition: 'all 0.3s ease',
       zIndex: 5,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+      boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+      border: '1px solid #ffd700',
+      ':hover': {
+        backgroundColor: '#ffd700',
+        color: '#e74c3c',
+        transform: 'scale(1.1)'
+      }
     }
   };
 
@@ -3159,7 +3064,7 @@ const removeFromCart = (productId) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#fff',
+          color: '#ffd700',
           fontSize: '20px',
           fontWeight: 'bold',
           zIndex: 9999
@@ -3167,6 +3072,108 @@ const removeFromCart = (productId) => {
           Aguarde...
         </div>
       )}
+
+      {/* BANNER SUPERIOR BLACK FRIDAY */}
+      <div style={{
+        background: 'linear-gradient(45deg, #000000, #e74c3c, #000000)',
+        color: 'white',
+        textAlign: 'center',
+        padding: windowWidth > 768 ? '15px 20px' : '12px 10px',
+        marginBottom: windowWidth > 768 ? '20px' : '15px',
+        borderRadius: '10px',
+        border: '2px solid #e74c3c',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '10px',
+          flexWrap: 'wrap'
+        }}>
+          <span style={{
+            fontSize: windowWidth > 768 ? '1.3rem' : '1.1rem',
+            fontWeight: '800',
+            textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+            background: 'linear-gradient(45deg, #ffd700, #ffffff, #ffd700)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            animation: 'shine 2s infinite'
+          }}>
+            🚀 BLACK FRIDAY 2025 🚀
+          </span>
+          <span style={{
+            fontSize: windowWidth > 768 ? '1rem' : '0.9rem',
+            fontWeight: '600'
+          }}>
+            Catálogo Completo com Ofertas Exclusivas!
+          </span>
+        </div>
+      </div>
+
+      {/* CONTADOR REGRESSIVO - 26 DIAS */}
+      <div style={{
+        background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+        color: 'white',
+        padding: windowWidth > 768 ? '20px 15px' : '15px 10px',
+        borderRadius: '12px',
+        textAlign: 'center',
+        marginBottom: windowWidth > 768 ? '30px' : '20px',
+        border: '2px solid #e74c3c',
+        boxShadow: '0 4px 15px rgba(231, 76, 60, 0.3)'
+      }}>
+        <h3 style={{
+          margin: '0 0 15px 0',
+          fontSize: windowWidth > 768 ? '1.2rem' : '1rem',
+          fontWeight: '600',
+          color: '#ffd700'
+        }}>
+          ⏰ BLACK FRIDAY 2025 - OFERTAS TERMINAM EM:
+        </h3>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: windowWidth > 768 ? '15px' : '8px',
+          flexWrap: 'wrap'
+        }}>
+          {['Dias', 'Horas', 'Minutos', 'Segundos'].map((label, index) => (
+            <div key={label} style={{
+              textAlign: 'center',
+              minWidth: windowWidth > 768 ? '80px' : '70px'
+            }}>
+              <div style={{
+                background: '#e74c3c',
+                color: 'white',
+                padding: '8px',
+                borderRadius: '8px',
+                fontSize: windowWidth > 768 ? '1.5rem' : '1.2rem',
+                fontWeight: '800',
+                marginBottom: '5px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                border: '1px solid #ffd700'
+              }}>
+                {Object.values(timeLeft)[index]}
+              </div>
+              <div style={{
+                fontSize: windowWidth > 768 ? '0.8rem' : '0.7rem',
+                color: '#bdc3c7',
+                fontWeight: '600'
+              }}>
+                {label}
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style={{
+          margin: '15px 0 0 0',
+          fontSize: windowWidth > 768 ? '0.8rem' : '0.7rem',
+          color: '#ffd700',
+          fontStyle: 'italic'
+        }}>
+          🚀 Prepare-se! As melhores ofertas do ano começam em breve
+        </p>
+      </div>
 
       {/* Notificações Toast */}
       <div style={styles.toastContainer}>
@@ -3218,17 +3225,21 @@ const removeFromCart = (productId) => {
       <div style={styles.container}>
         {pageBlocked && (
           <div style={styles.pageBlocker}>
-            <p style={styles.blockerMessage}>Faça login para acessar os preços e comprar</p>
+            <p style={styles.blockerMessage}>🎯 Faça login para acessar os preços BLACK FRIDAY e comprar</p>
             <button
               onClick={() => setShowAuthModal(true)}
-              style={styles.addButton}
+              style={{
+                ...styles.addButton,
+                padding: '15px 30px',
+                fontSize: '16px'
+              }}
             >
-              Acessar minha conta
+              🚀 ACESSAR MINHA CONTA BLACK FRIDAY
             </button>
           </div>
         )}
 
-        {/* Barra de boas-vindas com foto do usuário */}
+        {/* Barra de boas-vindas com foto do usuário - Tema Black Friday */}
         {user && (
           <div style={styles.userWelcomeBar}>
             <div style={styles.userInfoContainer}>
@@ -3240,11 +3251,11 @@ const removeFromCart = (productId) => {
                 />
               )}
               <p style={styles.welcomeMessage}>
-                {userName ? `Olá ${userName}, seja bem-vindo(a)!` : `Olá ${user.email}, seja bem-vindo(a)!`}
+                {userName ? `🎉 Olá ${userName}, seja bem-vindo(a) à BLACK FRIDAY!` : `🎉 Olá ${user.email}, seja bem-vindo(a) à BLACK FRIDAY!`}
               </p>
             </div>
             <a href="/" style={styles.homeButton}>
-              Página Inicial
+              🏠 Página Inicial
             </a>
           </div>
         )}
@@ -3252,25 +3263,28 @@ const removeFromCart = (productId) => {
         <div style={styles.header}>
           <img 
             src="https://i.imgur.com/pBH5WpZ.png" 
-            alt="Logo" 
+            alt="Logo Black Friday" 
             style={{ 
               height: windowWidth > 768 ? '60px' : '50px', 
-              marginBottom: windowWidth > 768 ? '15px' : '10px' 
+              marginBottom: windowWidth > 768 ? '15px' : '10px',
+              filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
             }} 
           />
           <h1 style={{ 
-            color: '#095400', 
+            color: '#ffd700', 
             fontSize: windowWidth > 768 ? '28px' : '22px', 
             fontWeight: '700',
-            marginBottom: '10px'
+            marginBottom: '10px',
+            textShadow: '0 2px 4px rgba(0,0,0,0.5)'
           }}>
-            PMG ATACADISTA
+            🎁 PMG ATACADISTA - BLACK FRIDAY
           </h1>
           <p style={{ 
-            color: '#666', 
-            fontSize: windowWidth > 768 ? '16px' : '14px' 
+            color: '#ecf0f1', 
+            fontSize: windowWidth > 768 ? '16px' : '14px',
+            textShadow: '0 1px 2px rgba(0,0,0,0.3)'
           }}>
-            Encontre os melhores produtos para seu negócio
+            Catálogo completo com as melhores ofertas para seu negócio
           </p>
         </div>
 
@@ -3279,14 +3293,14 @@ const removeFromCart = (productId) => {
             onClick={handleLogout}
             style={styles.logoutButton}
           >
-            Sair da Conta
+            🚪 Sair da Conta
           </button>
         )}
 
         <div style={styles.searchBar}>
           <input
             type="text"
-            placeholder="🔍 Pesquisar produtos..."
+            placeholder="🔍 Pesquisar produtos BLACK FRIDAY..."
             value={searchTerm}
             onChange={(e) => {
               setSearchTerm(e.target.value);
@@ -3316,7 +3330,7 @@ const removeFromCart = (productId) => {
 
 <div style={styles.productsGrid}>
   {currentProducts.map(product => {
-    const seo = generateImageSEO(product); // ← LINHA ADICIONADA
+    const seo = generateImageSEO(product);
     
     return (
       <div 
@@ -3326,18 +3340,10 @@ const removeFromCart = (productId) => {
           ...(product.price === 0 && { opacity: 0.7 })
         }}
       >
-        {/* BOTÃO LUPA - NOVO ELEMENTO ADICIONADO */}
+        {/* BOTÃO LUPA - TEMA BLACK FRIDAY */}
         <button
           onClick={() => redirectToProductDetails(product.id)}
           style={styles.productDetailsButton}
-          onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#b92c2b';
-            e.target.style.transform = 'scale(1.1)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.backgroundColor = '#e03f3e';
-            e.target.style.transform = 'scale(1)';
-          }}
           title="Ver detalhes do produto"
         >
           🔍
@@ -3345,11 +3351,11 @@ const removeFromCart = (productId) => {
         
         <img 
           src={product.image} 
-          alt={seo.alt}                    // ← MODIFICADO
-          title={seo.title}                // ← ADICIONADO
+          alt={seo.alt}
+          title={seo.title}
           style={styles.productImage}
           onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
+            e.target.src = 'https://via.placeholder.com/250x180/2c3e50/ecf0f1?text=Produto+Black+Friday';
           }}
         />
               <div style={styles.productInfo}>
@@ -3372,8 +3378,8 @@ const removeFromCart = (productId) => {
                     {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
                   </p>
                 ) : (
-                  <p style={{ color: '#666', fontStyle: 'italic' }}>
-                    Faça login para ver o preço
+                  <p style={{ color: '#ffd700', fontStyle: 'italic', fontWeight: '600' }}>
+                    🔒 Faça login para ver o preço BLACK FRIDAY
                   </p>
                 )}
 
@@ -3386,7 +3392,7 @@ const removeFromCart = (productId) => {
                       ...(product.price === 0 && styles.disabledButton)
                     }}
                   >
-                    {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
+                    {product.price > 0 ? '🛒 Adicionar ao Carrinho' : '❌ Indisponível'}
                   </button>
                 )}
               </div>
@@ -3395,7 +3401,7 @@ const removeFromCart = (productId) => {
         })}
         </div>
 		
-{/* ✅ AGORA SIM - Script de dados estruturados Schema.org */}
+{/* Script de dados estruturados Schema.org */}
 <>
 <script
   type="application/ld+json"
@@ -3404,7 +3410,6 @@ const removeFromCart = (productId) => {
       "@context": "https://schema.org",
       "@graph": currentProducts.map(product => {
         
-        // Gera descrição automática baseada no nome e categoria
         const generateDescription = (product) => {
           const baseDescription = {
             'Bebidas': `Refresque-se com ${product.name}. Perfeita para momentos especiais, oferecendo qualidade e sabor incomparáveis.`,
@@ -3415,7 +3420,6 @@ const removeFromCart = (productId) => {
           return baseDescription[product.category] || baseDescription.default;
         };
 
-        // Gera brand automático baseado no nome
         const generateBrand = (product) => {
           const brandMap = {
             'ITAIPAVA': 'Itaipava',
@@ -3608,25 +3612,25 @@ const removeFromCart = (productId) => {
           </div>
         )}
 
-{/* Conteúdo SEO PMG Atacadista Produtos - VISÍVEL APENAS PARA O GOOGLE */}
+{/* Conteúdo SEO Black Friday - VISÍVEL APENAS PARA O GOOGLE */}
 <div style={{
   opacity: '0', height: '0', overflow: 'hidden', position: 'absolute', pointerEvents: 'none'
 }}>
-  <h1>PMG Atacadista - Catálogo Completo de Produtos Food Service</h1>
-  <p>PMG Atacadista catálogo completo com laticínios, queijos, embutidos, massas, bebidas, congelados e produtos alimentícios. PMG Atacadista produtos das melhores marcas para seu negócio.</p>
+  <h1>Black Friday PMG Atacadista 2025 - Catálogo Completo Food Service</h1>
+  <p>Black Friday PMG Atacadista 2025 catálogo completo com laticínios, queijos, embutidos, massas, bebidas, congelados e produtos alimentícios. PMG Atacadista Black Friday produtos das melhores marcas para seu negócio.</p>
   
-  <h2>PMG Atacadista Produtos em Destaque</h2>
-  <p>PMG Atacadista laticínios e derivados. PMG Atacadista queijos diversos. PMG Atacadista embutidos e frios. PMG Atacadista massas e farináceos. PMG Atacadista bebidas não alcoólicas. PMG Atacadista congelados e pré-preparados.</p>
+  <h2>Black Friday PMG Atacadista Produtos em Destaque</h2>
+  <p>PMG Atacadista Black Friday laticínios e derivados. PMG Atacadista queijos diversos Black Friday. PMG Atacadista embutidos e frios promoção. PMG Atacadista massas e farináceos ofertas. PMG Atacadista bebidas não alcoólicas Black Friday. PMG Atacadista congelados e pré-preparados promoção.</p>
   
-  <h3>PMG Atacadista Fornecedor</h3>
-  <p>PMG Atacadista fornecedor autorizado das principais marcas do mercado. PMG Atacadista qualidade garantida e procedência. PMG Atacadista estoque permanente.</p>
+  <h3>Black Friday PMG Atacadista Fornecedor</h3>
+  <p>PMG Atacadista fornecedor autorizado Black Friday das principais marcas do mercado. PMG Atacadista qualidade garantida e procedência. PMG Atacadista estoque permanente Black Friday.</p>
 </div>
 
-        {/* Área dos Banners */}
+        {/* Área dos Banners - Tema Black Friday */}
         <div style={styles.bannerContainer}>
           <img
             src={windowWidth > 768 ? banners[currentBannerIndex].desktop : banners[currentBannerIndex].mobile}
-            alt={`Banner ${currentBannerIndex + 1}`}
+            alt={`Banner Black Friday ${currentBannerIndex + 1}`}
             style={styles.bannerImage}
           />
           <button
@@ -4039,17 +4043,18 @@ const removeFromCart = (productId) => {
           <div style={styles.authModal}>
             <div style={styles.authBox}>
               <h2 style={{ 
-                color: '#095400', 
+                color: '#ffd700', 
                 textAlign: 'center',
                 marginBottom: '20px',
-                fontSize: windowWidth > 768 ? '24px' : '20px'
+                fontSize: windowWidth > 768 ? '24px' : '20px',
+                textShadow: '0 1px 2px rgba(0,0,0,0.3)'
               }}>
-                {authType === 'login' ? 'Acesse Sua Conta' : 'Crie Sua Conta'}
+                {authType === 'login' ? '🎯 Acesse Sua Conta BLACK FRIDAY' : '🎁 Crie Sua Conta BLACK FRIDAY'}
               </h2>
 
               {authError && (
                 <p style={{ 
-                  color: '#e53935', 
+                  color: '#e74c3c', 
                   textAlign: 'center',
                   marginBottom: '15px',
                   fontSize: windowWidth > 768 ? '16px' : '14px'
@@ -4113,13 +4118,14 @@ const removeFromCart = (productId) => {
                     type="submit"
                     style={styles.addButton}
                   >
-                    {authType === 'login' ? 'Entrar' : 'Cadastrar'}
+                    {authType === 'login' ? '🚀 Entrar' : '🎁 Cadastrar'}
                   </button>
 
                   <p style={{ 
                     textAlign: 'center', 
                     marginTop: '15px',
-                    fontSize: windowWidth > 768 ? '16px' : '14px'
+                    fontSize: windowWidth > 768 ? '16px' : '14px',
+                    color: '#ecf0f1'
                   }}>
                     {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
                     <button
@@ -4135,7 +4141,7 @@ const removeFromCart = (productId) => {
                   </p>
                 </form>
                 
-                {/* Adicionar o botão de login com Google */}
+                {/* Botão de login com Google - Tema Black Friday */}
                 <div style={{ 
                   marginTop: '20px', 
                   textAlign: 'center',
@@ -4146,12 +4152,12 @@ const removeFromCart = (productId) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     margin: '15px 0',
-                    color: '#757575'
+                    color: '#ffd700'
                   }}>
                     <div style={{ 
                       flex: 1, 
                       height: '1px', 
-                      backgroundColor: '#ddd' 
+                      backgroundColor: '#e74c3c' 
                     }}></div>
                     <span style={{ 
                       padding: '0 10px', 
@@ -4160,7 +4166,7 @@ const removeFromCart = (productId) => {
                     <div style={{ 
                       flex: 1, 
                       height: '1px', 
-                      backgroundColor: '#ddd' 
+                      backgroundColor: '#e74c3c' 
                     }}></div>
                   </div>
                   
@@ -4181,19 +4187,23 @@ const removeFromCart = (productId) => {
           )}
 
           <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
+
+          {/* CSS Animations para Black Friday */}
+          <style jsx global>{`
+            @keyframes shine {
+              0% { background-position: -200% center; }
+              100% { background-position: 200% center; }
+            }
+            
+            @keyframes pulse {
+              0% { transform: scale(1); opacity: 0.8; }
+              50% { transform: scale(1.05); opacity: 1; }
+              100% { transform: scale(1); opacity: 0.8; }
+            }
+          `}</style>
         </div>
       </>
     );
   };
 
   export default ProductsPage;
-
-
-
-
-
-
-
-
-
-
