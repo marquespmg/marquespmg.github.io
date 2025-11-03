@@ -147,19 +147,18 @@ const avaliacoes = [
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const toastTimers = useRef([]);
 
-  // Contador regressivo Black Friday
-  const [timeLeft, setTimeLeft] = useState({
-          days: 26,
-          hours: 20,
-          minutes: 10,
-          seconds: 0
-  });
+// Contador regressivo Black Friday - VERSÃO CORRIGIDA
+const [timeLeft, setTimeLeft] = useState({
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0
+});
 
-// Contador regressivo Black Friday - 26 dias para 2025
+// Configurar contador regressivo para 26 dias - CORRIGIDO
 useEffect(() => {
-  // Define a data da Black Friday 2025 (26 dias a partir de agora)
   const blackFridayDate = new Date();
-  blackFridayDate.setDate(blackFridayDate.getDate() + 26);
+  blackFridayDate.setDate(blackFridayDate.getDate() + 25);
   blackFridayDate.setHours(23, 59, 59, 0);
   
   const updateCountdown = () => {
@@ -174,18 +173,18 @@ useEffect(() => {
         seconds: Math.floor((difference % (1000 * 60)) / 1000)
       });
     } else {
-      // Se acabou o tempo, zera tudo
-        setTimeLeft({
-          days: 26,
-          hours: 20,
-          minutes: 10,
-          seconds: 0
-        });
-      }
-    };
+      // QUANDO ACABAR O TEMPO, ZERA TUDO - CORREÇÃO AQUI
+      setTimeLeft({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      });
+    }
+  };
   
   updateCountdown();
-  const interval = setInterval(updateCountdown, 0.1);
+  const interval = setInterval(updateCountdown, 1000);
   
   return () => clearInterval(interval);
 }, []);
