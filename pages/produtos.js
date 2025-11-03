@@ -2076,6 +2076,28 @@ const products = [
   { id: 1543, name: 'CHOCOLATE FORNEÁVEL GRANDE AO LEITE CONFEITEIRO HARALD 2,010 KILO', category: '⏳ Ofertas da Semana 🚨', price: 65.15, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-ao-leite-confeiteiro-harald-2010-kilo-pmg-atacadista.jpg' },
   { id: 1540, name: 'CHOCOLATE FORNEÁVEL BRANCO CONFEITEIRO HARALD 1,010 KILO', category: '⏳ Ofertas da Semana 🚨', price: 27.25, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
   { id: 1538, name: 'CHOCOLATE FORNEÁVEL AVELÃ CONFEITEIRO HARALD 1,010 KILO', category: '⏳ Ofertas da Semana 🚨', price: 32.55, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-avela-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
+  { id: 381, name: 'EXTRATO DE TOMATE EKMA 1,7 KILO', category: '⏳ Ofertas da Semana 🚨', price: 12.30, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-ekma-17-kilo-pmg-atacadista.jpg' },
+  { id: 395, name: 'MOLHO BARBECUE EKMA 3,5 KILO', category: '⏳ Ofertas da Semana 🚨', price: 28.80, image: 'https://www.marquesvendaspmg.shop/images/molho-barbecue-ekma-35-kilo-pmg-atacadista.jpg' },
+  { id: 416, name: 'MOLHO DE TOMATE REFOGADO TRADICIONAL EKMA 1,7 KILO (CX 6 BAG)', category: '⏳ Ofertas da Semana 🚨', price: 61.15, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-refogado-tradicional-ekma-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
+  { id: 1232, name: 'CATCHUP EKMA 3,3 KILO', category: '⏳ Ofertas da Semana 🚨', price: 21.01, image: 'https://www.marquesvendaspmg.shop/images/catchup-ekma-33-kilo-pmg-atacadista.jpg' },
+  { id: 1945, name: 'APRESUNTADO FRIMESA 3,7 KG (CX 4 PÇ)', category: '⏳ Ofertas da Semana 🚨', price: 60.00, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-frimesa-37-kg-cx-4-pc-pmg-atacadista.jpg' },
+  { id: 1947, name: 'BACON EM CUBOS BARRIGA FRIMESA 1 KG (CX 10 PCT)', category: '⏳ Ofertas da Semana 🚨', price: 37.80, image: 'https://www.marquesvendaspmg.shop/images/bacon-em-cubos-barriga-frimesa-1-kg-cx-10-pct-pmg-atacadista.jpg' },
+  { id: 1949, name: 'BANHA FRIMESA 1 KG (CX 18 PCT)', category: '⏳ Ofertas da Semana 🚨', price: 12.88, image: 'https://www.marquesvendaspmg.shop/images/banha-frimesa-1-kg-cx-18-pct-pmg-atacadista.jpg' },
+  { id: 981, name: 'CALABRESA FATIADA CONGELADA FRIMESA 1 KILO', category: '⏳ Ofertas da Semana 🚨', price: 25.50, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-congelada-frimesa-1-kilo-pmg-atacadista.jpg' },
+  { id: 646, name: 'DOCE DE LEITE FRIMESA 4,8 KILO', category: '⏳ Ofertas da Semana 🚨', price: 98.25, image: 'https://www.marquesvendaspmg.shop/images/doce-de-leite-frimesa-48-kilo-pmg-atacadista.jpg' },
+  { id: 1235, name: 'CATCHUP GRANDE HEMMER 3,8 KILO', category: '⏳ Ofertas da Semana 🚨', price: 34.70, image: 'https://www.marquesvendaspmg.shop/images/catchup-grande-hemmer-38-kilo-pmg-atacadista.jpg' },
+  { id: 1248, name: 'CATCHUP SACHÊ HEMMER 7 G (CX 190 UN)', category: '⏳ Ofertas da Semana 🚨', price: 21.50, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
+  { id: 1304, name: 'MAIONESE SACHÊ HEMMER 7 G (CX 190 UN)', category: '⏳ Ofertas da Semana 🚨', price: 21.50, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
+  { id: 1353, name: 'MOSTARDA SACHÊ HEMMER 7 G (CX 190 UN)', category: '⏳ Ofertas da Semana 🚨', price: 22.50, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
+  { id: 1392, name: 'PEPINOS RODELAS AGRIDOCE HEMMER 440 G', category: '⏳ Ofertas da Semana 🚨', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/pepinos-rodelas-agridoce-hemmer-440-g-pmg-atacadista.jpg' },
+  { id: 1291, name: 'MAIONESE GRANDE QUERO 3 KILO', category: '⏳ Ofertas da Semana 🚨', price: 24.88, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-quero-3-kilo-pmg-atacadista.jpg' },
+  { id: 1790, name: 'MACARRÃO ESPAGUETE Nº 8 COM OVOS DONA BENTA 500 G (FDO 24 PCT)', category: '⏳ Ofertas da Semana 🚨', price: 75.00, image: 'https://www.marquesvendaspmg.shop/images/macarrao-espaguete-n-8-com-ovos-dona-benta-500-g-fdo-24-pct-pmg-atacadista.jpg' },
+  { id: 1795, name: 'MACARRÃO PARAFUSO COM OVOS DONA BENTA 500 G (FDO 24 PCT)', category: '⏳ Ofertas da Semana 🚨', price: 73.00, image: 'https://www.marquesvendaspmg.shop/images/macarrao-parafuso-com-ovos-dona-benta-500-g-fdo-24-pct-pmg-atacadista.jpg' },
+  { id: 1786, name: 'MACARRÃO AVE MARIA COM OVOS DONA BENTA 500 G (FDO 24 PCT)', category: '⏳ Ofertas da Semana 🚨', price: 70.00, image: 'https://www.marquesvendaspmg.shop/images/macarrao-ave-maria-com-ovos-dona-benta-500-g-fdo-24-pct-pmg-atacadista.jpg' },
+  { id: 784, name: 'PARMESÃO 6 MESES TIROLEZ 7 KG', category: '⏳ Ofertas da Semana 🚨', price: 67.82, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-tirolez-7-kg-pmg-atacadista.jpg' },
+  { id: 661, name: 'GORGONZOLA QUEIJO AZUL TIROLEZ 3 KG', category: '⏳ Ofertas da Semana 🚨', price: 64.00, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-queijo-azul-tirolez-3-kg-pmg-atacadista.jpg' },
+  { id: 821, name: 'QUEIJO BRIE FORMA TIROLEZ 1 KG', category: '⏳ Ofertas da Semana 🚨', price: 75.00, image: 'https://www.marquesvendaspmg.shop/images/queijo-brie-forma-tirolez-1-kg-pmg-atacadista.jpg' },
+  { id: 836, name: 'QUEIJO ESTEPE TIROLEZ 7 KG', category: '⏳ Ofertas da Semana 🚨', price: 81.00, image: 'https://www.marquesvendaspmg.shop/images/queijo-estepe-tirolez-7-kg-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
@@ -4207,4 +4229,5 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
