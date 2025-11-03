@@ -147,6 +147,7 @@ const avaliacoes = [
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const toastTimers = useRef([]);
 
+  // build fix
 // Contador regressivo Black Friday - VERSÃO CORRIGIDA
 const [timeLeft, setTimeLeft] = useState({
   days: 0,
