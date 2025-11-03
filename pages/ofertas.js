@@ -108,13 +108,13 @@ const OfertasPage = () => {
   const [showFifoPopup, setShowFifoPopup] = useState(false);
   const [selectedFifoImage, setSelectedFifoImage] = useState('');
   
-  // Contador regressivo Black Friday
-  const [timeLeft, setTimeLeft] = useState({
-          days: 26,
-          hours: 20,
-          minutes: 10,
-          seconds: 0
-  });
+// Contador regressivo Black Friday - VERSÃO CORRIGIDA
+const [timeLeft, setTimeLeft] = useState({
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0
+});
 
   // Configuração de paginação
   const productsPerPage = 10;
