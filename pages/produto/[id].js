@@ -1989,6 +1989,12 @@ useEffect(() => {
       });
     }
   };
+  
+  updateCountdown();
+  const interval = setInterval(updateCountdown, 1000);
+  
+  return () => clearInterval(interval);
+}, []);
 
   // Verificar usuário logado
   useEffect(() => {
@@ -3356,4 +3362,5 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
 
