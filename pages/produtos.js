@@ -62,6 +62,8 @@ const categories = [
   'Farináceos', 'Higiene', 'Orientais', 'Panificação', 'Salgados', '⏳ Ofertas da Semana 🚨'
 ];
 
+// build fix
+
 const products = [
   { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 2, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
@@ -4230,6 +4232,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
