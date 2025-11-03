@@ -127,38 +127,39 @@ const OfertasPage = () => {
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
 
-  // Configurar contador regressivo para 30 dias
-  useEffect(() => {
-    const blackFridayDate = new Date();
-    blackFridayDate.setDate(blackFridayDate.getDate() + 26);
-    blackFridayDate.setHours(23, 59, 59, 0);
+// Configurar contador regressivo para 26 dias - CORRIGIDO
+useEffect(() => {
+  const blackFridayDate = new Date();
+  blackFridayDate.setDate(blackFridayDate.getDate() + 25);
+  blackFridayDate.setHours(23, 59, 59, 0);
+  
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const difference = blackFridayDate - now;
     
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = blackFridayDate - now;
-      
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
-        });
-      } else {
-        setTimeLeft({
-          days: 26,
-          hours: 20,
-          minutes: 10,
-          seconds: 0
-        });
-      }
-    };
-    
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-    
-    return () => clearInterval(interval);
-  }, []);
+    if (difference > 0) {
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((difference % (1000 * 60)) / 1000)
+      });
+    } else {
+      // QUANDO ACABAR O TEMPO, ZERA TUDO - CORREÇÃO AQUI
+      setTimeLeft({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      });
+    }
+  };
+  
+  updateCountdown();
+  const interval = setInterval(updateCountdown, 1000);
+  
+  return () => clearInterval(interval);
+}, []);
 
   // Função para redirecionar para detalhes do produto
   const redirectToProductDetails = (productId) => {
