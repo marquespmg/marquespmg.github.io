@@ -971,7 +971,7 @@ const products = [
   { id: 906, name: 'REQUEIJÃO SABOR CHEDDAR CORONATA 1,5 KILO', category: 'Derivados de Leite', price: 38.61, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-coronata-15-kilo-pmg-atacadista.jpg' },
   { id: 907, name: 'REQUEIJÃO SABOR CHEDDAR PEQUENO CORONATA 240 G', category: 'Derivados de Leite', price: 9.84, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-pequeno-coronata-240-g-pmg-atacadista.jpg' },
   { id: 908, name: 'REQUEIJÃO SABOR CHEDDAR POLENGHI 1,5 KILO', category: 'Derivados de Leite', price: 57.07, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-polenghi-15-kilo-pmg-atacadista.jpg' },
-  { id: 909, name: 'REQUEIJÃO SABOR CHEDDAR SCALA 1,5 KILO', category: 'Derivados de Leite', price: 33.54, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-scala-15-kilo-pmg-atacadista.jpg' },
+  { id: 909, name: 'REQUEIJÃO SABOR CHEDDAR SCALA 1,5 KILO', category: 'Derivados de Leite', price: 54.54, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-scala-15-kilo-pmg-atacadista.jpg' },
   { id: 910, name: 'REQUEIJÃO SABOR CHEDDAR SCALON 1,02 KILO', category: 'Derivados de Leite', price: 32.45, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-scalon-102-kilo-pmg-atacadista.jpg' },
   { id: 911, name: 'REQUEIJÃO SABOR CHEDDAR SOFFICE 1,2 KILO', category: 'Derivados de Leite', price: 37.16, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-soffice-12-kilo-pmg-atacadista.jpg' },
   { id: 912, name: 'REQUEIJÃO SABOR CHEDDAR TIROLEZ 1,5 KILO', category: 'Derivados de Leite', price: 49.95, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-tirolez-15-kilo-pmg-atacadista.jpg' },
@@ -4207,3 +4207,4 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
