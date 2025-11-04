@@ -2069,9 +2069,9 @@ const products = [
   { id: 2003, name: 'TAPIOCA OISHII 1 KG (FD 10 PCT)', category: 'Farináceos', price: 6.77, image: 'https://www.marquesvendaspmg.shop/images/tapioca-oishii-1-kg-fd-10-pct-pmg-atacadista.jpg' },
   { id: 2004, name: 'PANO MULTIUSO AZUL BOBINA 50 UNIDADES 28 CM X 25 CM LIFE CLEAN (CX 12 UN)', category: 'Higiene', price: 22.76, image: 'https://www.marquesvendaspmg.shop/images/pano-multiuso-azul-bobina-50-unidades-28-cm-x-25-cm-life-clean-cx-12-un-pmg-atacadista.jpg' },
   { id: 2005, name: 'LICHIA EM CALDA BARÃO LALI 567 G (CX 24 LT)', category: 'Orientais', price: 22.93, image: 'https://www.marquesvendaspmg.shop/images/lichia-em-calda-barao-lali-567-g-cx-24-lt-pmg-atacadista.jpg' },
-  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: '⏳ Ofertas da Semana 🚨', price: 23.88, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: '⏳ Ofertas da Semana 🚨', price: 25.00, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: '⏳ Ofertas da Semana 🚨', price: 23.88, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: '⏳ Ofertas da Semana 🚨', price: 18.99, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: '⏳ Ofertas da Semana 🚨', price: 18.99, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: '⏳ Ofertas da Semana 🚨', price: 18.99, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1765, name: 'FARINHA DE TRIGO TIPO 1 NITA 5 KILO (FDO 25 KILO)', category: '⏳ Ofertas da Semana 🚨', price: 92.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1751, name: 'FARINHA DE TRIGO PIZZA NITA 5 KILO (FDO 25 KILO)', category: '⏳ Ofertas da Semana 🚨', price: 73.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1533, name: 'CHOCOLATE FORNEÁVEL AO LEITE CONFEITEIRO HARALD 1,010 KILO', category: '⏳ Ofertas da Semana 🚨', price: 38.88, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-ao-leite-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
@@ -4242,6 +4242,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
