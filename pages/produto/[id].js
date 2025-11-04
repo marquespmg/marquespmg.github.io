@@ -1179,7 +1179,7 @@ const products = [
   { id: 1242, name: 'CATCHUP PEQUENO HEMMER 1 KILO', category: 'Derivados de Vegetal', price: 13.57, image: 'https://www.marquesvendaspmg.shop/images/catchup-pequeno-hemmer-1-kilo-pmg-atacadista.jpg' },
   { id: 1243, name: 'CATCHUP SACHÊ CEPÊRA 7 G (CX 175 UN)', category: 'Derivados de Vegetal', price: 18.59, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-cepera-7-g-cx-175-un-pmg-atacadista.jpg' },
   { id: 1244, name: 'CATCHUP SACHÊ EKMA 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 12.85, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-ekma-7-g-cx-168-un-pmg-atacadista.jpg' },
-  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 24.36, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 18.99, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1247, name: 'CATCHUP SACHÊ HELLMANN´S 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 22.55, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-hellmanns-7-g-cx-168-un-pmg-atacadista.jpg' },
   { id: 1248, name: 'CATCHUP SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Derivados de Vegetal', price: 21.94, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
   { id: 1249, name: 'CATCHUP SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 10.9, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
@@ -1233,7 +1233,7 @@ const products = [
   { id: 1299, name: 'MAIONESE SACHÊ CEPÊRA 7 G (CX 175 UN)', category: 'Derivados de Vegetal', price: 20.34, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-cepera-7-g-cx-175-un-pmg-atacadista.jpg' },
   { id: 1300, name: 'MAIONESE SACHÊ EKMA 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 18.1, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-ekma-7-g-cx-168-un-pmg-atacadista.jpg' },
   { id: 1301, name: 'MAIONESE SACHÊ FUGINI 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 13.5, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-fugini-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 25.51, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 18.99, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1303, name: 'MAIONESE SACHÊ HELLMANN´S 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 25.43, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-hellmanns-7-g-cx-168-un-pmg-atacadista.jpg' },
   { id: 1304, name: 'MAIONESE SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Derivados de Vegetal', price: 21.94, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
   { id: 1305, name: 'MAIONESE SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 9.11, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
@@ -1281,7 +1281,7 @@ const products = [
   { id: 1349, name: 'MOSTARDA SACHÊ CEPÊRA 7 G (CX 175 UN)', category: 'Derivados de Vegetal', price: 15.98, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-cepera-7-g-cx-175-un-pmg-atacadista.jpg' },
   { id: 1350, name: 'MOSTARDA SACHÊ EKMA 7 G (CX 168 UN)', category: 'Derivados de Vegetal', price: 12.85, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-ekma-7-g-cx-168-un-pmg-atacadista.jpg' },
   { id: 1351, name: 'MOSTARDA SACHÊ FUGINI 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 13.68, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-fugini-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 24.36, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 18.99, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1353, name: 'MOSTARDA SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Derivados de Vegetal', price: 23.14, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
   { id: 1354, name: 'MOSTARDA SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 10.72, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
   { id: 1355, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', category: 'Derivados de Vegetal', price: 181.58, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao-bd-158-l-pmg-atacadista.jpg' },
@@ -3372,6 +3372,7 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
 
 
 
