@@ -148,7 +148,7 @@ const avaliacoes = [
   const toastTimers = useRef([]);
 
   // build fix
-// Contador regressivo Black Friday - VERSÃO CORRIGIDA
+// Contador regressivo Black Friday 2025 - VERSÃO DEFINITIVA
 const [timeLeft, setTimeLeft] = useState({
   days: 0,
   hours: 0,
@@ -156,28 +156,38 @@ const [timeLeft, setTimeLeft] = useState({
   seconds: 0
 });
 
-// Configurar contador regressivo para 26 dias - CORRIGIDO
+// Configurar contador regressivo para BLACK FRIDAY 2025
 useEffect(() => {
-  const blackFridayDate = new Date();
-  blackFridayDate.setDate(blackFridayDate.getDate() + 25);
-  blackFridayDate.setHours(23, 59, 59, 0);
+  // Data da Black Friday 2025: 28 de Novembro de 2025
+  const blackFridayDate = new Date('November 28, 2025 23:59:59');
   
   const updateCountdown = () => {
     const now = new Date().getTime();
     const difference = blackFridayDate - now;
     
     if (difference > 0) {
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      
       setTimeLeft({
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        days: days,
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
       });
+      
+      // DEBUG
+      console.log('🎯 CONTADOR 2025:', { 
+        dias: days,
+        dataAlvo: blackFridayDate.toLocaleDateString('pt-BR')
+      });
+      
     } else {
-      // QUANDO ACABAR O TEMPO, ZERA TUDO - CORREÇÃO AQUI
       setTimeLeft({
         days: 0,
-        hours: 0,
+        hours: 0, 
         minutes: 0,
         seconds: 0
       });
