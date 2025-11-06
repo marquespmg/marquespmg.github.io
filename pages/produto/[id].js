@@ -1717,8 +1717,8 @@ const products = [
   { id: 1799, name: 'MACARRÃO PENNE COM OVOS PETYBON 500 G (FDO 18 PCT)', category: 'Farináceos', price: 62.12, image: 'https://www.marquesvendaspmg.shop/images/macarrao-penne-com-ovos-petybon-500-g-fdo-18-pct-pmg-atacadista.jpg' },
   { id: 1800, name: 'MACARRÃO PENNE GRANO DURO PETYBON 500 G (FDO 18 PCT)', category: 'Farináceos', price: 107.46, image: 'https://www.marquesvendaspmg.shop/images/macarrao-penne-grano-duro-petybon-500-g-fdo-18-pct-pmg-atacadista.jpg' },
   { id: 1801, name: 'MACARRÃO TALHARIM N° 3 COM OVOS RENATA 500 G (CX 20 PCT)', category: 'Farináceos', price: 143.57, image: 'https://www.marquesvendaspmg.shop/images/macarrao-talharim-n-3-com-ovos-renata-500-g-cx-20-pct-pmg-atacadista.jpg' },
-  { id: 1802, name: 'MASSA PARA LASANHA COM OVOS PETYBON 500 G', category: 'Farináceos', price: 151.55, image: 'https://www.marquesvendaspmg.shop/images/massa-para-lasanha-com-ovos-petybon-500-g-pmg-atacadista.jpg' },
-  { id: 1803, name: 'MASSA PARA LASANHA COM OVOS RENATA 500 G', category: 'Farináceos', price: 141.17, image: 'https://www.marquesvendaspmg.shop/images/massa-para-lasanha-com-ovos-renata-500-g-pmg-atacadista.jpg' },
+  { id: 1802, name: 'MASSA PARA LASANHA COM OVOS PETYBON 500 G (CX 20 PCT)', category: 'Farináceos', price: 172.55, image: 'https://www.marquesvendaspmg.shop/images/massa-para-lasanha-com-ovos-petybon-500-g-pmg-atacadista.jpg' },
+  { id: 1803, name: 'MASSA PARA LASANHA COM OVOS RENATA 500 G (CX 20 PCT)', category: 'Farináceos', price: 160.17, image: 'https://www.marquesvendaspmg.shop/images/massa-para-lasanha-com-ovos-renata-500-g-pmg-atacadista.jpg' },
   { id: 1804, name: 'MASSA PARA PASTEL E LASANHA QUADRADA CORTADA BRASILEIRINHA 50 UN', category: 'Farináceos', price: 33.8, image: 'https://www.marquesvendaspmg.shop/images/massa-para-pastel-e-lasanha-quadrada-cortada-brasileirinha-50-un-pmg-atacadista.jpg' },
   { id: 1805, name: 'MASSA PARA PASTEL E LASANHA ROLO BRASILEIRINHA 1 KILO', category: 'Farináceos', price: 39.52, image: 'https://www.marquesvendaspmg.shop/images/massa-para-pastel-e-lasanha-rolo-brasileirinha-1-kilo-pmg-atacadista.jpg' },
   { id: 1806, name: 'MASSA PARA PASTEL ROLO MASSA MÁGICA 1 KILO', category: 'Farináceos', price: 9.39, image: 'https://www.marquesvendaspmg.shop/images/massa-para-pastel-rolo-massa-magica-1-kilo-pmg-atacadista.jpg' },
@@ -3372,6 +3372,7 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
 
 
 
