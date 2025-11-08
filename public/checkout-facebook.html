@@ -381,30 +381,13 @@
                 this.showCheckoutContent();
             }
 
-            // ✅ MÉTODO CORRIGIDO - COM SEUS PRODUTOS REAIS DO FACEBOOK
-            async loadProductsFromURL() {
-                try {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const productsParam = urlParams.get('products');
-                    
-                    console.log('📦 Produtos recebidos do Facebook:', productsParam);
-
-                    if (!productsParam) {
-                        // Modo de teste - mostra produtos de exemplo
-                        this.products = [
-                            {
-                                id: '7',
-                                name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)',
-                                price: 821.75,
-                                quantity: 1,
-                                total: 821.75,
-                                image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg'
-                            }
-                        ];
-                        this.subtotal = 821.75;
-                        this.total = 821.75;
-                        return;
-                    }
+// ✅ MÉTODO CORRIGIDO - FUNCIONA COM OU SEM PRODUTOS
+async loadProductsFromURL() {
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productsParam = urlParams.get('products');
+        
+        console.log('📦 Produtos recebidos do Facebook:', productsParam);
 
                     // ✅ SEUS PRODUTOS REAIS DO FACEBOOK - ATUALIZE COM MAIS PRODUTOS!
                     const productDatabase = {
@@ -10432,37 +10415,44 @@
                     this.products = [];
                     this.subtotal = 0;
 
-                    // Processa os produtos da URL do Facebook (exemplo: "7:2,8:1")
-                    productsParam.split(',').forEach(entry => {
-                        const [id, quantity] = entry.split(':');
-                        const product = productDatabase[id];
-                        
-                        if (product) {
-                            const total = product.price * parseInt(quantity);
-                            this.products.push({
-                                id,
-                                name: product.name,
-                                price: product.price,
-                                quantity: parseInt(quantity),
-                                total: total,
-                                image: product.image
-                            });
-                            this.subtotal += total;
-                            console.log(`✅ Produto carregado: ${product.name} - ${quantity}x - R$ ${total}`);
-                        } else {
-                            console.warn(`⚠️ Produto não encontrado: ID ${id}`);
-                        }
-                    });
+        if (!productsParam) {
+            // ✅ MODO SEM PRODUTOS - MOSTRA MENSAGEM AMIGÁVEL
+            console.log('ℹ️ Nenhum produto na URL - Modo de preview do Facebook');
+            this.showCheckoutContent(); // Mostra a página mesmo sem produtos
+            this.hideLoading();
+            return;
+        }
 
-                    this.total = this.subtotal;
-
-                    console.log(`💰 Subtotal calculado: R$ ${this.subtotal}`);
-
-                } catch (error) {
-                    console.error('❌ Erro:', error);
-                    this.showError('Erro ao carregar produtos: ' + error.message);
-                }
+        // Processa os produtos da URL do Facebook
+        productsParam.split(',').forEach(entry => {
+            const [id, quantity] = entry.split(':');
+            const product = productDatabase[id];
+            
+            if (product) {
+                const total = product.price * parseInt(quantity);
+                this.products.push({
+                    id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: parseInt(quantity),
+                    total: total,
+                    image: product.image
+                });
+                this.subtotal += total;
+                console.log(`✅ Produto carregado: ${product.name} - ${quantity}x - R$ ${total}`);
+            } else {
+                console.warn(`⚠️ Produto não encontrado: ID ${id}`);
             }
+        });
+
+        this.total = this.subtotal;
+        console.log(`💰 Subtotal calculado: R$ ${this.subtotal}`);
+
+    } catch (error) {
+        console.error('❌ Erro:', error);
+        this.showError('Erro ao carregar produtos: ' + error.message);
+    }
+}
 
             renderProducts() {
                 const productList = document.getElementById('productList');
