@@ -94,9 +94,6 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     }
   }, [cart.length]);
 
-  // ... (RESTANTE DO CÓDIGO PERMANECE EXATAMENTE IGUAL) ...
-  // [Mantém todas as funções de cálculo, groupedCart, adjustQuantity, etc]
-
   // Funções de cálculo (mantidas iguais)
   const isBoxProduct = (productName) => {
     return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
@@ -217,14 +214,14 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     )}`;
   };
 
-  // ✅ JSX do carrinho (igual ao anterior)
+  // ✅ JSX DO CARRINHO CORRIGIDO PARA MOBILE
   return (
     <>
-      {/* Botão flutuante do carrinho */}
+      {/* Botão flutuante do carrinho - MELHORADO */}
       <div style={{
         position: 'fixed',
-        right: '15px',
-        bottom: '15px',
+        right: isMobile ? '20px' : '15px',
+        bottom: isMobile ? '20px' : '15px',
         zIndex: 1001,
         display: isMobile ? 'block' : 'none'
       }}>
@@ -235,15 +232,16 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
             color: 'white',
             border: 'none',
             borderRadius: '50%',
-            width: '60px',
-            height: '60px',
-            fontSize: '24px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+            width: isMobile ? '65px' : '60px',
+            height: isMobile ? '65px' : '60px',
+            fontSize: isMobile ? '26px' : '24px',
+            boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            position: 'relative'
+            position: 'relative',
+            transition: 'all 0.2s ease'
           }}
         >
           🛒 
@@ -255,12 +253,14 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               backgroundColor: '#E74C3C',
               color: 'white',
               borderRadius: '50%',
-              width: '24px',
-              height: '24px',
-              fontSize: '12px',
+              width: isMobile ? '26px' : '24px',
+              height: isMobile ? '26px' : '24px',
+              fontSize: isMobile ? '13px' : '12px',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              fontWeight: 'bold',
+              border: '2px solid white'
             }}>
               {cart.length}
             </span>
@@ -270,22 +270,24 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         {showAddedFeedback && (
           <div style={{
             position: 'absolute',
-            top: '-10px',
-            right: '-10px',
+            top: '-15px',
+            right: '-15px',
             backgroundColor: '#27AE60',
             color: 'white',
-            borderRadius: '12px',
-            padding: '4px 8px',
-            fontSize: '12px',
+            borderRadius: '15px',
+            padding: isMobile ? '6px 12px' : '4px 8px',
+            fontSize: isMobile ? '13px' : '12px',
             fontWeight: 'bold',
             animation: 'fadeInOut 2s ease-in-out',
-            zIndex: 1002
+            zIndex: 1002,
+            whiteSpace: 'nowrap'
           }}>
-            Item adicionado!
+            ✅ Item adicionado!
           </div>
         )}
       </div>
 
+      {/* Overlay para mobile */}
       {isMobile && isOpen && (
         <div 
           style={{
@@ -294,197 +296,489 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0,0,0,0.5)',
+            backgroundColor: 'rgba(0,0,0,0.6)',
             zIndex: 999,
-            backdropFilter: 'blur(2px)'
+            backdropFilter: 'blur(3px)'
           }}
           onClick={() => setIsOpen(false)}
         />
       )}
 
+      {/* Container principal do carrinho - CORREÇÕES DE RESPONSIVIDADE */}
       <div style={{
         position: 'fixed',
         right: isMobile ? (isOpen ? '0' : '-100%') : '25px',
         bottom: isMobile ? '0' : 'auto',
         top: isMobile ? 'auto' : '25px',
         width: isMobile ? '100%' : '380px',
-        height: isMobile ? '70vh' : 'auto',
+        height: isMobile ? '85vh' : 'auto', // Aumentei a altura para mobile
         backgroundColor: '#fff',
-        borderRadius: isMobile ? '12px 12px 0 0' : '12px',
-        boxShadow: '0 6px 30px rgba(0, 0, 0, 0.12)',
-        padding: '20px',
+        borderRadius: isMobile ? '20px 20px 0 0' : '12px',
+        boxShadow: '0 -5px 25px rgba(0, 0, 0, 0.15)',
+        padding: isMobile ? '25px 20px' : '20px',
         zIndex: 1000,
-        maxHeight: isMobile ? '70vh' : '85vh',
+        maxHeight: isMobile ? '85vh' : '85vh',
         overflowY: 'auto',
         overflowX: 'hidden',
-        fontFamily: "'Segoe UI', Roboto, sans-serif",
-        transition: isMobile ? 'transform 0.3s ease' : 'right 0.3s ease',
+        fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
+        transition: isMobile ? 'transform 0.3s ease-out' : 'right 0.3s ease',
         boxSizing: 'border-box',
-        transform: isMobile ? (isOpen ? 'translateY(0)' : 'translateY(100%)') : 'none'
+        transform: isMobile ? (isOpen ? 'translateY(0)' : 'translateY(100%)') : 'none',
+        WebkitOverflowScrolling: 'touch' // Melhor scroll no iOS
       }}>
+        
+        {/* Header do carrinho mobile - MELHORADO */}
         {isMobile && (
           <div style={{
             position: 'sticky',
             top: 0,
             backgroundColor: '#fff',
-            paddingBottom: '10px',
+            paddingBottom: '15px',
             zIndex: 1,
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            borderBottom: '1px solid #eee',
-            marginBottom: '10px'
+            borderBottom: '2px solid #f0f0f0',
+            marginBottom: '15px'
           }}>
-            <h2 style={{ fontSize: '18px', fontWeight: 600, margin: 0, color: '#333' }}>
-              Seu Carrinho
+            <h2 style={{ 
+              fontSize: '20px', 
+              fontWeight: 700, 
+              margin: 0, 
+              color: '#2C3E50',
+              paddingLeft: '5px'
+            }}>
+              🛒 Seu Carrinho
             </h2>
             <button 
               onClick={() => setIsOpen(false)}
-              style={{ background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', color: '#666', padding: '5px' }}
+              style={{ 
+                background: 'none', 
+                border: 'none', 
+                fontSize: '28px', 
+                cursor: 'pointer', 
+                color: '#7F8C8D', 
+                padding: '8px',
+                borderRadius: '50%',
+                width: '40px',
+                height: '40px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'background 0.2s'
+              }}
+              onMouseOver={(e) => e.target.style.background = '#f8f9fa'}
+              onMouseOut={(e) => e.target.style.background = 'none'}
             >
               ×
             </button>
           </div>
         )}
 
+        {/* Banner de frete grátis - MELHORADO */}
         <div style={{
-          backgroundColor: '#FFF9E6',
-          color: '#E67E22',
-          padding: '12px',
-          borderRadius: '8px',
+          backgroundColor: '#E8F5E8',
+          color: '#27AE60',
+          padding: isMobile ? '14px' : '12px',
+          borderRadius: '10px',
           textAlign: 'center',
           marginBottom: '20px',
-          fontSize: isMobile ? '13px' : '14px',
-          fontWeight: 600,
-          border: '1px solid #FFEECC',
+          fontSize: isMobile ? '14px' : '14px',
+          fontWeight: 700,
+          border: '1px solid #C8E6C9',
+          lineHeight: '1.4'
         }}>
-          🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$750
+          🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$ 750
         </div>
 
         {isLoading ? (
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px' }}>
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            height: '100px',
+            flexDirection: 'column',
+            gap: '15px'
+          }}>
             <div style={{
-              border: '3px solid #f3f3f3',
-              borderTop: '3px solid #2ECC71',
+              border: '4px solid #f3f3f3',
+              borderTop: '4px solid #2ECC71',
               borderRadius: '50%',
-              width: '30px',
-              height: '30px',
+              width: '40px',
+              height: '40px',
               animation: 'spin 1s linear infinite'
             }}></div>
+            <p style={{ color: '#666', fontSize: '14px' }}>Carregando carrinho...</p>
           </div>
         ) : groupedCart.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '20px', color: '#666' }}>
-            <p style={{ fontSize: '16px' }}>Seu carrinho está vazio</p>
-            <p style={{ fontSize: '14px', marginTop: '8px' }}>Adicione produtos para continuar</p>
+          <div style={{ 
+            textAlign: 'center', 
+            padding: '40px 20px', 
+            color: '#7F8C8D' 
+          }}>
+            <div style={{ fontSize: '48px', marginBottom: '15px' }}>🛒</div>
+            <p style={{ fontSize: '18px', fontWeight: 500, marginBottom: '8px' }}>Seu carrinho está vazio</p>
+            <p style={{ fontSize: '15px' }}>Adicione produtos para continuar</p>
           </div>
         ) : (
           <>
-            <ul style={{ listStyle: 'none', padding: 0, marginBottom: '20px', maxHeight: isMobile ? 'calc(70vh - 400px)' : 'none', overflowY: 'auto' }}>
+            {/* Lista de produtos - CORREÇÕES CRÍTICAS PARA MOBILE */}
+            <div style={{ 
+              marginBottom: '20px', 
+              maxHeight: isMobile ? 'calc(85vh - 400px)' : 'none', 
+              overflowY: 'auto',
+              paddingRight: '5px'
+            }}>
               {groupedCart.map((product) => {
                 const calculated = calculateProductPrice(product);
                 return (
-                  <li key={`${product.id}-${product.quantity}`} style={{ padding: '14px 0', borderBottom: '1px solid #f0f0f0' }}>
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <div 
+                    key={`${product.id}-${product.quantity}`} 
+                    style={{ 
+                      padding: isMobile ? '18px 0' : '14px 0', 
+                      borderBottom: '2px solid #f8f9fa',
+                      backgroundColor: '#fff',
+                      borderRadius: '8px',
+                      marginBottom: '8px'
+                    }}
+                  >
+                    {/* Layout do produto - MELHORADO PARA MOBILE */}
+                    <div style={{ 
+                      display: 'flex', 
+                      alignItems: 'flex-start', 
+                      gap: isMobile ? '15px' : '12px',
+                      marginBottom: '12px'
+                    }}>
                       <img 
                         src={product.image} 
                         alt={product.name}
-                        style={{ width: '60px', height: '60px', borderRadius: '6px', objectFit: 'cover', border: '1px solid #eee' }}
+                        style={{ 
+                          width: isMobile ? '70px' : '60px', 
+                          height: isMobile ? '70px' : '60px', 
+                          borderRadius: '8px', 
+                          objectFit: 'cover', 
+                          border: '1px solid #eee',
+                          flexShrink: 0
+                        }}
                       />
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <p style={{ fontWeight: 600, margin: 0, color: '#333', fontSize: '15px' }}>
+                      <div style={{ 
+                        flex: 1, 
+                        minWidth: 0,
+                        paddingRight: '5px'
+                      }}>
+                        <p style={{ 
+                          fontWeight: 600, 
+                          margin: '0 0 6px 0', 
+                          color: '#2C3E50', 
+                          fontSize: isMobile ? '16px' : '15px',
+                          lineHeight: '1.3',
+                          wordWrap: 'break-word'
+                        }}>
                           {product.name}
                         </p>
                         {product.isBox && product.boxWeight ? (
-                          <p style={{ margin: '4px 0 0', fontSize: '14px', color: '#666' }}>
-                            {product.quantity}x Caixa • {product.boxWeight}KG
+                          <p style={{ 
+                            margin: '2px 0 0', 
+                            fontSize: isMobile ? '14px' : '13px', 
+                            color: '#666',
+                            lineHeight: '1.2'
+                          }}>
+                            📦 {product.quantity}x Caixa • {product.boxWeight}KG
                           </p>
                         ) : calculated.weight ? (
-                          <p style={{ margin: '4px 0 0', fontSize: '14px', color: '#666' }}>
-                            {product.quantity}x • {calculated.weight} KG × R$ {calculated.unitPrice.toFixed(2)}/KG
+                          <p style={{ 
+                            margin: '2px 0 0', 
+                            fontSize: isMobile ? '14px' : '13px', 
+                            color: '#666',
+                            lineHeight: '1.2'
+                          }}>
+                            ⚖️ {product.quantity}x • {calculated.weight} KG × R$ {calculated.unitPrice.toFixed(2)}/KG
                           </p>
                         ) : (
-                          <p style={{ margin: '4px 0 0', fontSize: '14px', color: '#666' }}>
-                            {product.quantity}x • R$ {calculated.unitPrice.toFixed(2)}
+                          <p style={{ 
+                            margin: '2px 0 0', 
+                            fontSize: isMobile ? '14px' : '13px', 
+                            color: '#666',
+                            lineHeight: '1.2'
+                          }}>
+                            📋 {product.quantity}x • R$ {calculated.unitPrice.toFixed(2)}
                           </p>
                         )}
                       </div>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginLeft: '72px', marginTop: '10px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+
+                    {/* Controles de quantidade e preço - MELHORADOS */}
+                    <div style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'space-between',
+                      marginTop: '12px',
+                      paddingLeft: isMobile ? '0' : '72px'
+                    }}>
+                      <div style={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: isMobile ? '12px' : '8px',
+                        background: '#f8f9fa',
+                        borderRadius: '25px',
+                        padding: isMobile ? '8px 12px' : '6px 10px'
+                      }}>
                         <button
                           onClick={() => adjustQuantity(product.id, -1)}
-                          style={{ background: '#f0f0f0', border: 'none', borderRadius: '4px', width: '28px', height: '28px', cursor: 'pointer' }}
+                          style={{ 
+                            background: '#E74C3C', 
+                            color: 'white',
+                            border: 'none', 
+                            borderRadius: '50%', 
+                            width: isMobile ? '36px' : '28px', 
+                            height: isMobile ? '36px' : '28px', 
+                            cursor: 'pointer',
+                            fontSize: isMobile ? '18px' : '14px',
+                            fontWeight: 'bold',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transition: 'all 0.2s'
+                          }}
+                          onMouseOver={(e) => e.target.style.background = '#C0392B'}
+                          onMouseOut={(e) => e.target.style.background = '#E74C3C'}
                         > - </button>
-                        <span style={{ fontSize: '14px' }}>{product.quantity}</span>
+                        <span style={{ 
+                          fontSize: isMobile ? '16px' : '14px', 
+                          fontWeight: '600',
+                          minWidth: '20px',
+                          textAlign: 'center'
+                        }}>
+                          {product.quantity}
+                        </span>
                         <button
                           onClick={() => adjustQuantity(product.id, 1)}
-                          style={{ background: '#f0f0f0', border: 'none', borderRadius: '4px', width: '28px', height: '28px', cursor: 'pointer' }}
+                          style={{ 
+                            background: '#2ECC71', 
+                            color: 'white',
+                            border: 'none', 
+                            borderRadius: '50%', 
+                            width: isMobile ? '36px' : '28px', 
+                            height: isMobile ? '36px' : '28px', 
+                            cursor: 'pointer',
+                            fontSize: isMobile ? '18px' : '14px',
+                            fontWeight: 'bold',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transition: 'all 0.2s'
+                          }}
+                          onMouseOver={(e) => e.target.style.background = '#27AE60'}
+                          onMouseOut={(e) => e.target.style.background = '#2ECC71'}
                         > + </button>
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <p style={{ fontWeight: 600, margin: 0, color: '#E74C3C', fontSize: '15px' }}>
+                      
+                      <div style={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: isMobile ? '15px' : '12px' 
+                      }}>
+                        <p style={{ 
+                          fontWeight: 700, 
+                          margin: 0, 
+                          color: '#E74C3C', 
+                          fontSize: isMobile ? '17px' : '15px',
+                          textAlign: 'right'
+                        }}>
                           R$ {product.totalPrice.toFixed(2)}
                         </p>
                         <button
                           onClick={() => removeFromCart(product.id)}
-                          style={{ background: 'none', border: 'none', color: '#E74C3C', cursor: 'pointer', fontSize: '20px' }}
+                          style={{ 
+                            background: '#FF6B6B', 
+                            color: 'white', 
+                            border: 'none', 
+                            borderRadius: '50%',
+                            width: isMobile ? '38px' : '32px',
+                            height: isMobile ? '38px' : '32px',
+                            cursor: 'pointer', 
+                            fontSize: isMobile ? '18px' : '16px',
+                            fontWeight: 'bold',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            transition: 'all 0.2s'
+                          }}
+                          onMouseOver={(e) => e.target.style.background = '#EE5A52'}
+                          onMouseOut={(e) => e.target.style.background = '#FF6B6B'}
                         > × </button>
                       </div>
                     </div>
-                  </li>
+                  </div>
                 );
               })}
-            </ul>
+            </div>
 
-            <div style={{ backgroundColor: '#FFF3E0', color: '#E65100', padding: '12px', borderRadius: '8px', marginBottom: '20px', textAlign: 'center' }}>
+            {/* Aviso de pagamento - MELHORADO */}
+            <div style={{ 
+              backgroundColor: '#FFF3E0', 
+              color: '#E65100', 
+              padding: isMobile ? '15px' : '12px', 
+              borderRadius: '10px', 
+              marginBottom: '20px', 
+              textAlign: 'center',
+              border: '1px solid #FFE0B2',
+              fontSize: isMobile ? '14px' : '13px',
+              fontWeight: 500
+            }}>
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
-            <div style={{ backgroundColor: '#FAFAFA', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '1px solid #EEE' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ color: '#666' }}>Subtotal:</span>
-                <span style={{ fontWeight: 500 }}>R$ {total.toFixed(2)}</span>
-              </div>
+            {/* Resumo do pedido - MELHORADO */}
+            <div style={{ 
+              backgroundColor: '#F8F9FA', 
+              padding: isMobile ? '20px' : '16px', 
+              borderRadius: '12px', 
+              marginBottom: '20px', 
+              border: '2px solid #E9ECEF' 
+            }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                <span style={{ color: '#666' }}>Frete:</span>
-                <span style={{ color: '#27AE60', fontWeight: 500 }}>Grátis</span>
+                <span style={{ color: '#495057', fontSize: isMobile ? '15px' : '14px' }}>Subtotal:</span>
+                <span style={{ fontWeight: 600, fontSize: isMobile ? '15px' : '14px' }}>R$ {total.toFixed(2)}</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '12px', borderTop: '1px dashed #DDD' }}>
-                <span style={{ fontWeight: 600 }}>Total:</span>
-                <span style={{ fontWeight: 600, color: '#E74C3C', fontSize: '17px' }}>R$ {total.toFixed(2)}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px' }}>
+                <span style={{ color: '#495057', fontSize: isMobile ? '15px' : '14px' }}>Frete:</span>
+                <span style={{ color: '#27AE60', fontWeight: 600, fontSize: isMobile ? '15px' : '14px' }}>Grátis</span>
+              </div>
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                paddingTop: '15px', 
+                borderTop: '2px solid #DEE2E6' 
+              }}>
+                <span style={{ fontWeight: 700, fontSize: isMobile ? '17px' : '16px' }}>Total:</span>
+                <span style={{ 
+                  fontWeight: 700, 
+                  color: '#E74C3C', 
+                  fontSize: isMobile ? '18px' : '17px' 
+                }}>
+                  R$ {total.toFixed(2)}
+                </span>
               </div>
             </div>
 
-            <div style={{ marginBottom: '20px' }}>
-              <h3 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '12px', color: '#333' }}>💳 Forma de Pagamento</h3>
-              <div style={{ display: 'grid', gap: '8px' }}>
+            {/* Seleção de pagamento - MELHORADO */}
+            <div style={{ marginBottom: '25px' }}>
+              <h3 style={{ 
+                fontSize: isMobile ? '17px' : '16px', 
+                fontWeight: 700, 
+                marginBottom: '15px', 
+                color: '#2C3E50' 
+              }}>
+                💳 Forma de Pagamento
+              </h3>
+              <div style={{ display: 'grid', gap: '10px' }}>
                 {['Dinheiro', 'Cartão de Débito', 'Cartão de Crédito'].map(method => (
-                  <label key={method} style={{ display: 'flex', alignItems: 'center', padding: '12px 14px', borderRadius: '8px', background: paymentMethod === method ? '#E8F5E9' : '#FAFAFA', border: `1px solid ${paymentMethod === method ? '#A5D6A7' : '#EEE'}`, cursor: 'pointer' }}>
-                    <input type="radio" name="payment" value={method} checked={paymentMethod === method} onChange={() => setPaymentMethod(method)} style={{ marginRight: '12px', accentColor: '#2ECC71' }} />
+                  <label 
+                    key={method} 
+                    style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      padding: isMobile ? '16px' : '12px 14px', 
+                      borderRadius: '10px', 
+                      background: paymentMethod === method ? '#E8F5E9' : '#FAFAFA', 
+                      border: `2px solid ${paymentMethod === method ? '#2ECC71' : '#EEE'}`, 
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                      fontSize: isMobile ? '15px' : '14px'
+                    }}
+                  >
+                    <input 
+                      type="radio" 
+                      name="payment" 
+                      value={method} 
+                      checked={paymentMethod === method} 
+                      onChange={() => setPaymentMethod(method)} 
+                      style={{ 
+                        marginRight: '15px', 
+                        accentColor: '#2ECC71',
+                        width: isMobile ? '18px' : '16px',
+                        height: isMobile ? '18px' : '16px'
+                      }} 
+                    />
                     {method}
                   </label>
                 ))}
               </div>
             </div>
 
+            {/* Botão finalizar - MELHORADO */}
             <button
               onClick={() => window.open(generateWhatsAppMessage(), '_blank')}
               disabled={!isTotalValid || !paymentMethod}
-              style={{ width: '100%', padding: '16px', background: isTotalValid && paymentMethod ? '#2ECC71' : '#95A5A6', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 600, fontSize: '16px', cursor: isTotalValid && paymentMethod ? 'pointer' : 'not-allowed' }}
-            > 📲 Finalizar Pedido </button>
+              style={{ 
+                width: '100%', 
+                padding: isMobile ? '18px' : '16px', 
+                background: isTotalValid && paymentMethod ? '#2ECC71' : '#BDC3C7', 
+                color: 'white', 
+                border: 'none', 
+                borderRadius: '12px', 
+                fontWeight: 700, 
+                fontSize: isMobile ? '17px' : '16px', 
+                cursor: isTotalValid && paymentMethod ? 'pointer' : 'not-allowed',
+                transition: 'all 0.3s',
+                boxShadow: isTotalValid && paymentMethod ? '0 4px 15px rgba(46, 204, 113, 0.3)' : 'none'
+              }}
+              onMouseOver={(e) => {
+                if (isTotalValid && paymentMethod) {
+                  e.target.style.background = '#27AE60';
+                  e.target.style.transform = 'translateY(-2px)';
+                }
+              }}
+              onMouseOut={(e) => {
+                if (isTotalValid && paymentMethod) {
+                  e.target.style.background = '#2ECC71';
+                  e.target.style.transform = 'translateY(0)';
+                }
+              }}
+            > 
+              📲 {isMobile ? 'FINALIZAR PEDIDO NO WHATSAPP' : 'Finalizar Pedido'} 
+            </button>
 
-            {!isTotalValid && <p style={{ color: '#E74C3C', textAlign: 'center', marginTop: '12px', fontSize: '14px' }}>O pedido mínimo é R$ 750.00</p>}
+            {!isTotalValid && (
+              <p style={{ 
+                color: '#E74C3C', 
+                textAlign: 'center', 
+                marginTop: '15px', 
+                fontSize: isMobile ? '14px' : '13px',
+                fontWeight: 500
+              }}>
+                ❌ O pedido mínimo é R$ 750.00
+              </p>
+            )}
           </>
         )}
       </div>
 
       <style>{`
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spin { 
+          0% { transform: rotate(0deg); } 
+          100% { transform: rotate(360deg); } 
+        }
         @keyframes fadeInOut {
           0% { opacity: 0; transform: translateY(10px); }
           20% { opacity: 1; transform: translateY(0); }
           80% { opacity: 1; transform: translateY(0); }
           100% { opacity: 0; transform: translateY(-10px); }
+        }
+        
+        /* Melhorias de scroll para mobile */
+        @media (max-width: 768px) {
+          ::-webkit-scrollbar {
+            width: 6px;
+          }
+          ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+          ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+          }
         }
       `}</style>
     </>
@@ -492,4 +786,3 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 };
 
 export default Cart;
-
