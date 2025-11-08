@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Pedido - Marques Vendas PMG</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .checkout-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2ECC71, #27AE60);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .alert-banner {
+            background: #E8F5E8;
+            border: 2px solid #2ECC71;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: #27AE60;
+            font-size: 16px;
+        }
+
+        .alert-warning {
+            background: #FFF3E0;
+            border: 2px solid #FF9800;
+            color: #E65100;
+        }
+
+        .products-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2C3E50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border: 2px solid #E9ECEF;
+        }
+
+        .product-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-weight: 600;
+            color: #2C3E50;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .product-details {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .product-quantity {
+            background: #2ECC71;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .summary-section {
+            background: #F8F9FA;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #E9ECEF;
+            margin-bottom: 25px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #DEE2E6;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            border-top: 2px solid #DEE2E6;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .summary-total {
+            color: #E74C3C;
+            font-size: 20px;
+        }
+
+        .payment-section {
+            margin-bottom: 30px;
+        }
+
+        .payment-options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #FAFAFA;
+            border: 2px solid #EEE;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-option:hover {
+            border-color: #2ECC71;
+            background: #F0FFF4;
+        }
+
+        .payment-option input {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            accent-color: #2ECC71;
+        }
+
+        .payment-option label {
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .whatsapp-button {
+            width: '100%';
+            padding: 20px;
+            background: #2ECC71;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .whatsapp-button:hover {
+            background: #27AE60;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+        }
+
+        .whatsapp-button:disabled {
+            background: #BDC3C7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #2ECC71;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .error-message {
+            background: #FDEDED;
+            color: #E74C3C;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid #F5B7B1;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 25px 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .product-item {
+                padding: 15px;
+            }
+
+            .product-image {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="header">
+            <h1>🛒 Finalizar Pedido</h1>
+            <p>Marques Vendas PMG • Frete Grátis • Entrega Rápida</p>
+        </div>
+
+        <div class="content">
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Carregando seu pedido...</p>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <div id="checkoutContent" style="display: none;">
+                <!-- Banner de Frete Grátis -->
+                <div id="freteBanner" class="alert-banner">
+                    🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$ 750
+                </div>
+
+                <!-- Seção de Produtos -->
+                <div class="products-section">
+                    <h2 class="section-title">📦 Seus Produtos</h2>
+                    <div id="productList" class="product-list">
+                        <!-- Produtos serão inseridos aqui via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Resumo do Pedido -->
+                <div class="summary-section">
+                    <h2 class="section-title">💰 Resumo do Pedido</h2>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Frete:</span>
+                        <span style="color: #27AE60; font-weight: 600;">Grátis</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Total:</span>
+                        <span id="total" class="summary-total">R$ 0,00</span>
+                    </div>
+                </div>
+
+                <!-- Seção de Pagamento -->
+                <div class="payment-section">
+                    <h2 class="section-title">💳 Forma de Pagamento</h2>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="Dinheiro">
+                            💵 Dinheiro
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="Cartão de Débito">
+                            💳 Cartão de Débito
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="Cartão de Crédito">
+                            💳 Cartão de Crédito
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Botão do WhatsApp -->
+                <button id="whatsappButton" class="whatsapp-button" disabled>
+                    📲 Finalizar Pedido no WhatsApp
+                </button>
+
+                <div id="minOrderMessage" style="text-align: center; margin-top: 15px; color: #E74C3C; font-weight: 500;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class FacebookCheckout {
+            constructor() {
+                this.products = [];
+                this.subtotal = 0;
+                this.total = 0;
+                this.paymentMethod = '';
+                this.PEDIDO_MINIMO = 750.00;
+                
+                this.init();
+            }
+
+            async init() {
+                this.showLoading();
+                await this.loadProductsFromURL();
+                this.renderProducts();
+                this.setupEventListeners();
+                this.hideLoading();
+                this.showCheckoutContent();
+            }
+
+            // ✅ MÉTODO CORRIGIDO - COM SEUS PRODUTOS REAIS DO FACEBOOK
+            async loadProductsFromURL() {
+                try {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const productsParam = urlParams.get('products');
+                    
+                    console.log('📦 Produtos recebidos do Facebook:', productsParam);
+
+                    if (!productsParam) {
+                        // Modo de teste - mostra produtos de exemplo
+                        this.products = [
+                            {
+                                id: '7',
+                                name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)',
+                                price: 821.75,
+                                quantity: 1,
+                                total: 821.75,
+                                image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg'
+                            }
+                        ];
+                        this.subtotal = 821.75;
+                        this.total = 821.75;
+                        return;
+                    }
+
+                    // ✅ SEUS PRODUTOS REAIS DO FACEBOOK - ATUALIZE COM MAIS PRODUTOS!
+                    const productDatabase = {
+                        '7': { 
+                            name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', 
+                            price: 821.75,
+                            image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg'
+                        },
+                        // ADICIONE SEUS OUTROS PRODUTOS AQUI:
+                        // '8': { name: 'NOME DO PRODUTO 2', price: 150.00, image: 'URL_DA_IMAGEM' },
+                        // '9': { name: 'NOME DO PRODUTO 3', price: 200.00, image: 'URL_DA_IMAGEM' },
+                        // '10': { name: 'NOME DO PRODUTO 4', price: 300.00, image: 'URL_DA_IMAGEM' }
+                    };
+
+                    this.products = [];
+                    this.subtotal = 0;
+
+                    // Processa os produtos da URL do Facebook (exemplo: "7:2,8:1")
+                    productsParam.split(',').forEach(entry => {
+                        const [id, quantity] = entry.split(':');
+                        const product = productDatabase[id];
+                        
+                        if (product) {
+                            const total = product.price * parseInt(quantity);
+                            this.products.push({
+                                id,
+                                name: product.name,
+                                price: product.price,
+                                quantity: parseInt(quantity),
+                                total: total,
+                                image: product.image
+                            });
+                            this.subtotal += total;
+                            console.log(`✅ Produto carregado: ${product.name} - ${quantity}x - R$ ${total}`);
+                        } else {
+                            console.warn(`⚠️ Produto não encontrado: ID ${id}`);
+                        }
+                    });
+
+                    this.total = this.subtotal;
+
+                    console.log(`💰 Subtotal calculado: R$ ${this.subtotal}`);
+
+                } catch (error) {
+                    console.error('❌ Erro:', error);
+                    this.showError('Erro ao carregar produtos: ' + error.message);
+                }
+            }
+
+            renderProducts() {
+                const productList = document.getElementById('productList');
+                productList.innerHTML = '';
+
+                this.products.forEach(product => {
+                    const productElement = document.createElement('div');
+                    productElement.className = 'product-item';
+                    
+                    productElement.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="product-image" 
+                             onerror="this.src='https://via.placeholder.com/80x80/4CAF50/white?text=Produto'">
+                        <div class="product-info">
+                            <div class="product-name">${product.name}</div>
+                            <div class="product-details">
+                                R$ ${product.price.toFixed(2)} × ${product.quantity} un
+                            </div>
+                        </div>
+                        <div class="product-quantity">
+                            ${product.quantity}x
+                        </div>
+                    `;
+                    
+                    productList.appendChild(productElement);
+                });
+
+                // Atualizar totais
+                document.getElementById('subtotal').textContent = `R$ ${this.subtotal.toFixed(2)}`;
+                document.getElementById('total').textContent = `R$ ${this.total.toFixed(2)}`;
+
+                // Atualizar banner de frete
+                this.updateFreteBanner();
+            }
+
+            updateFreteBanner() {
+                const freteBanner = document.getElementById('freteBanner');
+                const minOrderMessage = document.getElementById('minOrderMessage');
+                
+                if (this.subtotal >= this.PEDIDO_MINIMO) {
+                    freteBanner.innerHTML = '✅ PEDIDO MÍNIMO ATINGIDO! • 🚚 FRETE GRÁTIS';
+                    freteBanner.style.background = '#E8F5E8';
+                    freteBanner.style.borderColor = '#2ECC71';
+                    freteBanner.style.color = '#27AE60';
+                    minOrderMessage.textContent = '';
+                } else {
+                    const falta = this.PEDIDO_MINIMO - this.subtotal;
+                    freteBanner.innerHTML = `⚠️ ADICIONE MAIS R$ ${falta.toFixed(2)} PARA FRETE GRÁTIS`;
+                    freteBanner.className = 'alert-banner alert-warning';
+                    minOrderMessage.textContent = `❌ Pedido mínimo de R$ ${this.PEDIDO_MINIMO.toFixed(2)} não atingido`;
+                }
+            }
+
+            setupEventListeners() {
+                // Ouvir mudanças nos métodos de pagamento
+                document.querySelectorAll('input[name="payment"]').forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        this.paymentMethod = e.target.value;
+                        this.updateWhatsAppButton();
+                    });
+                });
+
+                // Botão do WhatsApp
+                document.getElementById('whatsappButton').addEventListener('click', () => {
+                    this.finalizeOrder();
+                });
+            }
+
+            updateWhatsAppButton() {
+                const button = document.getElementById('whatsappButton');
+                const isEnabled = this.paymentMethod && this.subtotal >= this.PEDIDO_MINIMO;
+                
+                button.disabled = !isEnabled;
+                
+                if (isEnabled) {
+                    button.innerHTML = '📲 Finalizar Pedido no WhatsApp';
+                } else if (!this.paymentMethod) {
+                    button.innerHTML = '💳 Selecione a forma de pagamento';
+                } else {
+                    button.innerHTML = `❌ Pedido mínimo: R$ ${this.PEDIDO_MINIMO.toFixed(2)}`;
+                }
+            }
+
+            finalizeOrder() {
+                if (!this.paymentMethod || this.subtotal < this.PEDIDO_MINIMO) {
+                    return;
+                }
+
+                const itemsText = this.products.map(product => 
+                    `▪ ${product.name} (${product.quantity}x) - R$ ${product.total.toFixed(2)}`
+                ).join('\n');
+
+                const message = `🛒 *PEDIDO VIA FACEBOOK* 🛒\n\n${itemsText}\n\n` +
+                    `💰 *TOTAL: R$ ${this.total.toFixed(2)}*\n` +
+                    `💳 *Pagamento:* ${this.paymentMethod}\n` +
+                    `📦 *Entrega:* Frete grátis\n\n` +
+                    `Por favor, confirme meu pedido!`;
+
+                const whatsappUrl = `https://wa.me/5511913572902?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            }
+
+            showLoading() {
+                document.getElementById('loading').style.display = 'block';
+            }
+
+            hideLoading() {
+                document.getElementById('loading').style.display = 'none';
+            }
+
+            showCheckoutContent() {
+                document.getElementById('checkoutContent').style.display = 'block';
+            }
+
+            showError(message) {
+                document.getElementById('errorMessage').textContent = message;
+                document.getElementById('errorMessage').style.display = 'block';
+                this.hideLoading();
+            }
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            new FacebookCheckout();
+        });
+    </script>
+</body>
+</html>
