@@ -67,6 +67,12 @@
             color: #E65100;
         }
 
+        .alert-success {
+            background: #E8F5E8;
+            border: 2px solid #2ECC71;
+            color: #27AE60;
+        }
+
         .products-section {
             margin-bottom: 30px;
         }
@@ -130,6 +136,65 @@
             font-size: 14px;
         }
 
+        /* NOVO: Estilos para seção de cupom */
+        .coupon-section {
+            margin-bottom: 25px;
+        }
+
+        .coupon-input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .coupon-input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #E9ECEF;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .coupon-input:focus {
+            outline: none;
+            border-color: #2ECC71;
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+        }
+
+        .coupon-button {
+            padding: 15px 25px;
+            background: #3498DB;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .coupon-button:hover {
+            background: #2980B9;
+            transform: translateY(-1px);
+        }
+
+        .coupon-button:disabled {
+            background: #BDC3C7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .coupon-message {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
         .summary-section {
             background: #F8F9FA;
             padding: 25px;
@@ -156,6 +221,11 @@
         .summary-total {
             color: #E74C3C;
             font-size: 20px;
+        }
+
+        .discount-row {
+            color: #27AE60;
+            font-weight: 600;
         }
 
         .payment-section {
@@ -197,7 +267,7 @@
         }
 
         .whatsapp-button {
-            width: '100%';
+            width: 100%;
             padding: 20px;
             background: #2ECC71;
             color: white;
@@ -282,6 +352,14 @@
                 width: 60px;
                 height: 60px;
             }
+
+            .coupon-input-group {
+                flex-direction: column;
+            }
+
+            .coupon-button {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -314,12 +392,34 @@
                     </div>
                 </div>
 
+                <!-- NOVA SEÇÃO: Código Promocional -->
+                <div class="coupon-section">
+                    <h2 class="section-title">🎁 Código Promocional</h2>
+                    <div class="coupon-input-group">
+                        <input 
+                            type="text" 
+                            id="couponInput" 
+                            class="coupon-input" 
+                            placeholder="Digite seu cupom de desconto"
+                            maxlength="20"
+                        >
+                        <button id="applyCouponButton" class="coupon-button">
+                            Aplicar
+                        </button>
+                    </div>
+                    <div id="couponMessage" class="coupon-message" style="display: none;"></div>
+                </div>
+
                 <!-- Resumo do Pedido -->
                 <div class="summary-section">
                     <h2 class="section-title">💰 Resumo do Pedido</h2>
                     <div class="summary-row">
                         <span>Subtotal:</span>
                         <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="summary-row" id="discountRow" style="display: none;">
+                        <span>Desconto:</span>
+                        <span id="discountAmount" style="color: #27AE60;">- R$ 0,00</span>
                     </div>
                     <div class="summary-row">
                         <span>Frete:</span>
@@ -367,7 +467,17 @@
                 this.subtotal = 0;
                 this.total = 0;
                 this.paymentMethod = '';
+                this.couponCode = '';
+                this.discount = 0;
                 this.PEDIDO_MINIMO = 750.00;
+                
+                // Cupons válidos - ADICIONE SEUS CUPONS AQUI
+                this.validCoupons = {
+                    'DESCONTO10': 0.10, // 10% de desconto
+                    'PROMO15': 0.15,    // 15% de desconto
+                    'PRIMEIRACOMPRA': 0.20, // 20% de desconto
+                    'FRETE5': 0.05      // 5% de desconto
+                };
                 
                 this.init();
             }
@@ -381,16 +491,15 @@
                 this.showCheckoutContent();
             }
 
-// ✅ MÉTODO CORRIGIDO - FUNCIONA COM OU SEM PRODUTOS
-async loadProductsFromURL() {
-    try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const productsParam = urlParams.get('products');
-        
-        console.log('📦 Produtos recebidos do Facebook:', productsParam);
+            async loadProductsFromURL() {
+                try {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const productsParam = urlParams.get('products');
+                    
+                    console.log('📦 Produtos recebidos do Facebook:', productsParam);
 
                     // ✅ SEUS PRODUTOS REAIS DO FACEBOOK - ATUALIZE COM MAIS PRODUTOS!
-                    const productDatabase = {
+const productDatabase = {
     "1": {
         "name": "PRODUTO EM FALTA",
         "price": 0,
@@ -10415,44 +10524,48 @@ async loadProductsFromURL() {
                     this.products = [];
                     this.subtotal = 0;
 
-        if (!productsParam) {
-            // ✅ MODO SEM PRODUTOS - MOSTRA MENSAGEM AMIGÁVEL
-            console.log('ℹ️ Nenhum produto na URL - Modo de preview do Facebook');
-            this.showCheckoutContent(); // Mostra a página mesmo sem produtos
-            this.hideLoading();
-            return;
-        }
+                    if (!productsParam) {
+                        console.log('ℹ️ Nenhum produto na URL - Modo de preview do Facebook');
+                        this.showCheckoutContent();
+                        this.hideLoading();
+                        return;
+                    }
 
-        // Processa os produtos da URL do Facebook
-        productsParam.split(',').forEach(entry => {
-            const [id, quantity] = entry.split(':');
-            const product = productDatabase[id];
-            
-            if (product) {
-                const total = product.price * parseInt(quantity);
-                this.products.push({
-                    id,
-                    name: product.name,
-                    price: product.price,
-                    quantity: parseInt(quantity),
-                    total: total,
-                    image: product.image
-                });
-                this.subtotal += total;
-                console.log(`✅ Produto carregado: ${product.name} - ${quantity}x - R$ ${total}`);
-            } else {
-                console.warn(`⚠️ Produto não encontrado: ID ${id}`);
+                    // Processa os produtos da URL do Facebook
+                    productsParam.split(',').forEach(entry => {
+                        const [id, quantity] = entry.split(':');
+                        const product = productDatabase[id];
+                        
+                        if (product) {
+                            const total = product.price * parseInt(quantity);
+                            this.products.push({
+                                id,
+                                name: product.name,
+                                price: product.price,
+                                quantity: parseInt(quantity),
+                                total: total,
+                                image: product.image
+                            });
+                            this.subtotal += total;
+                            console.log(`✅ Produto carregado: ${product.name} - ${quantity}x - R$ ${total}`);
+                        } else {
+                            console.warn(`⚠️ Produto não encontrado: ID ${id}`);
+                        }
+                    });
+
+                    this.calculateTotal();
+                    console.log(`💰 Subtotal calculado: R$ ${this.subtotal}`);
+
+                } catch (error) {
+                    console.error('❌ Erro:', error);
+                    this.showError('Erro ao carregar produtos: ' + error.message);
+                }
             }
-        });
 
-        this.total = this.subtotal;
-        console.log(`💰 Subtotal calculado: R$ ${this.subtotal}`);
-
-    } catch (error) {
-        console.error('❌ Erro:', error);
-        this.showError('Erro ao carregar produtos: ' + error.message);
-    }
-}
+            calculateTotal() {
+                this.total = this.subtotal - this.discount;
+                if (this.total < 0) this.total = 0;
+            }
 
             renderProducts() {
                 const productList = document.getElementById('productList');
@@ -10479,26 +10592,38 @@ async loadProductsFromURL() {
                     productList.appendChild(productElement);
                 });
 
-                // Atualizar totais
+                this.updateSummary();
+                this.updateFreteBanner();
+            }
+
+            updateSummary() {
                 document.getElementById('subtotal').textContent = `R$ ${this.subtotal.toFixed(2)}`;
                 document.getElementById('total').textContent = `R$ ${this.total.toFixed(2)}`;
-
-                // Atualizar banner de frete
-                this.updateFreteBanner();
+                
+                // Atualizar desconto
+                const discountRow = document.getElementById('discountRow');
+                const discountAmount = document.getElementById('discountAmount');
+                
+                if (this.discount > 0) {
+                    discountRow.style.display = 'flex';
+                    discountAmount.textContent = `- R$ ${this.discount.toFixed(2)}`;
+                } else {
+                    discountRow.style.display = 'none';
+                }
             }
 
             updateFreteBanner() {
                 const freteBanner = document.getElementById('freteBanner');
                 const minOrderMessage = document.getElementById('minOrderMessage');
                 
-                if (this.subtotal >= this.PEDIDO_MINIMO) {
+                if (this.total >= this.PEDIDO_MINIMO) {
                     freteBanner.innerHTML = '✅ PEDIDO MÍNIMO ATINGIDO! • 🚚 FRETE GRÁTIS';
                     freteBanner.style.background = '#E8F5E8';
                     freteBanner.style.borderColor = '#2ECC71';
                     freteBanner.style.color = '#27AE60';
                     minOrderMessage.textContent = '';
                 } else {
-                    const falta = this.PEDIDO_MINIMO - this.subtotal;
+                    const falta = this.PEDIDO_MINIMO - this.total;
                     freteBanner.innerHTML = `⚠️ ADICIONE MAIS R$ ${falta.toFixed(2)} PARA FRETE GRÁTIS`;
                     freteBanner.className = 'alert-banner alert-warning';
                     minOrderMessage.textContent = `❌ Pedido mínimo de R$ ${this.PEDIDO_MINIMO.toFixed(2)} não atingido`;
@@ -10518,11 +10643,73 @@ async loadProductsFromURL() {
                 document.getElementById('whatsappButton').addEventListener('click', () => {
                     this.finalizeOrder();
                 });
+
+                // NOVO: Botão de aplicar cupom
+                document.getElementById('applyCouponButton').addEventListener('click', () => {
+                    this.applyCoupon();
+                });
+
+                // NOVO: Aplicar cupom com Enter
+                document.getElementById('couponInput').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.applyCoupon();
+                    }
+                });
+            }
+
+            applyCoupon() {
+                const couponInput = document.getElementById('couponInput');
+                const couponMessage = document.getElementById('couponMessage');
+                const couponCode = couponInput.value.trim().toUpperCase();
+                
+                if (!couponCode) {
+                    this.showCouponMessage('❌ Digite um código promocional', 'error');
+                    return;
+                }
+
+                if (this.validCoupons[couponCode]) {
+                    const discountRate = this.validCoupons[couponCode];
+                    this.discount = this.subtotal * discountRate;
+                    this.couponCode = couponCode;
+                    this.calculateTotal();
+                    
+                    this.showCouponMessage(`✅ Cupom aplicado! ${(discountRate * 100)}% de desconto`, 'success');
+                    this.updateSummary();
+                    this.updateFreteBanner();
+                    this.updateWhatsAppButton();
+                    
+                    // Desabilita o input após aplicar com sucesso
+                    couponInput.disabled = true;
+                    document.getElementById('applyCouponButton').disabled = true;
+                    
+                } else {
+                    this.showCouponMessage('❌ Código promocional inválido', 'error');
+                    this.discount = 0;
+                    this.couponCode = '';
+                    this.calculateTotal();
+                    this.updateSummary();
+                }
+            }
+
+            showCouponMessage(message, type) {
+                const couponMessage = document.getElementById('couponMessage');
+                couponMessage.textContent = message;
+                couponMessage.style.display = 'block';
+                
+                if (type === 'success') {
+                    couponMessage.style.background = '#E8F5E8';
+                    couponMessage.style.border = '1px solid #2ECC71';
+                    couponMessage.style.color = '#27AE60';
+                } else {
+                    couponMessage.style.background = '#FDEDED';
+                    couponMessage.style.border = '1px solid #F5B7B1';
+                    couponMessage.style.color = '#E74C3C';
+                }
             }
 
             updateWhatsAppButton() {
                 const button = document.getElementById('whatsappButton');
-                const isEnabled = this.paymentMethod && this.subtotal >= this.PEDIDO_MINIMO;
+                const isEnabled = this.paymentMethod && this.total >= this.PEDIDO_MINIMO;
                 
                 button.disabled = !isEnabled;
                 
@@ -10536,7 +10723,7 @@ async loadProductsFromURL() {
             }
 
             finalizeOrder() {
-                if (!this.paymentMethod || this.subtotal < this.PEDIDO_MINIMO) {
+                if (!this.paymentMethod || this.total < this.PEDIDO_MINIMO) {
                     return;
                 }
 
@@ -10544,8 +10731,14 @@ async loadProductsFromURL() {
                     `▪ ${product.name} (${product.quantity}x) - R$ ${product.total.toFixed(2)}`
                 ).join('\n');
 
-                const message = `🛒 *PEDIDO VIA FACEBOOK* 🛒\n\n${itemsText}\n\n` +
-                    `💰 *TOTAL: R$ ${this.total.toFixed(2)}*\n` +
+                let message = `🛒 *PEDIDO VIA FACEBOOK* 🛒\n\n${itemsText}\n\n` +
+                    `💰 *Subtotal: R$ ${this.subtotal.toFixed(2)}*\n`;
+                
+                if (this.discount > 0) {
+                    message += `🎁 *Desconto: -R$ ${this.discount.toFixed(2)} (Cupom: ${this.couponCode})*\n`;
+                }
+                
+                message += `💰 *TOTAL: R$ ${this.total.toFixed(2)}*\n` +
                     `💳 *Pagamento:* ${this.paymentMethod}\n` +
                     `📦 *Entrega:* Frete grátis\n\n` +
                     `Por favor, confirme meu pedido!`;
