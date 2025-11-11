@@ -737,7 +737,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                 }
               }}
             > 
-              📲 {isMobile ? 'FINALIZAR PEDIDO NO WHATSAPP' : 'Finalizar Pedido'} 
+              📲 {isMobile ? 'FINALIZAR PEDIDO' : 'Finalizar Pedido'} 
             </button>
 
             {!isTotalValid && (
@@ -786,3 +786,4 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 };
 
 export default Cart;
+
