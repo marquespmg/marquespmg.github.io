@@ -572,7 +572,7 @@ const products = [
   { id: 505, name: 'PEITO DE FRANGO CONGELADO COM OSSO MIRA (CX 20 KILO)', category: 'Derivados de Ave', price: 225.77, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-com-osso-mira-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 506, name: 'PEITO DE FRANGO CONGELADO COM OSSO NUTRIBEM (CX 20 KILO)', category: 'Derivados de Ave', price: 245.4, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-com-osso-nutribem-cx-20-kilo-pmg-atacadista.jpg' },
   { id: 507, name: 'PEITO DE FRANGO CONGELADO COZIDO DESFIADO ALFAMA 1 KILO (CX 6 PCT)', category: 'Derivados de Ave', price: 199.33, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-cozido-desfiado-alfama-1-kilo-cx-6-pct-pmg-atacadista.jpg' },
-  { id: 508, name: 'PEITO DE FRANGO DEFUMADO SEM OSSO CERATTI 2,3 KILO', category: 'Derivados de Ave', price: 82.66, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-defumado-sem-osso-ceratti-23-kilo-pmg-atacadista.jpg' },
+  { id: 508, name: 'PEITO DE FRANGO DEFUMADO SEM OSSO CERATTI 2,3 KILO', category: 'Derivados de Ave', price: 85.99, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-defumado-sem-osso-ceratti-23-kilo-pmg-atacadista.jpg' },
   { id: 509, name: 'PEITO DE PERU REZENDE 2,5 KILO', category: 'Derivados de Ave', price: 50.23, image: 'https://www.marquesvendaspmg.shop/images/peito-de-peru-rezende-25-kilo-pmg-atacadista.jpg' },
   { id: 510, name: 'PEITO DE PERU SADIA 2,5 KILO', category: 'Derivados de Ave', price: 61.7, image: 'https://www.marquesvendaspmg.shop/images/peito-de-peru-sadia-25-kilo-pmg-atacadista.jpg' },
   { id: 511, name: 'PEITO DE PERU SEARA 2,5 KILO', category: 'Derivados de Ave', price: 55.28, image: 'https://www.marquesvendaspmg.shop/images/peito-de-peru-seara-25-kilo-pmg-atacadista.jpg' },
@@ -4242,6 +4242,7 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
+
 
 
 
