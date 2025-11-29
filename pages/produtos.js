@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 
 // CONFIGURAÇÃO DAS PALAVRAS-CHAVE POR CATEGORIA
 const categoryKeywords = {
@@ -2171,6 +2173,7 @@ const ToastNotification = ({ id, icon, title, message, highlight, whatsapp, onCl
 };
 
 const ProductsPage = () => {
+  const router = useRouter();
   const { width: windowWidth } = useWindowSize();
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -2198,6 +2201,40 @@ const ProductsPage = () => {
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [showRedirectMessage, setShowRedirectMessage] = useState(false);
+  const [redirectDestination, setRedirectDestination] = useState('');
+  
+// SUBSTITUA O USEEFFECT EXISTENTE POR ESTE:
+useEffect(() => {
+  const checkAndRedirectAfterLogin = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (user) {
+      // Verifica se há parâmetro de redirecionamento na URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const returnTo = urlParams.get('returnTo');
+      
+      if (returnTo) {
+        // Decodifica a URL
+        const decodedUrl = decodeURIComponent(returnTo);
+        
+        // Verifica se é uma URL válida (produto ou outra página)
+        if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
+          // Mostra mensagem centralizada
+          setRedirectDestination(decodedUrl);
+          setShowRedirectMessage(true);
+          
+          // Redireciona após 2 segundos (tempo para usuário ver a mensagem)
+          setTimeout(() => {
+            router.push(decodedUrl);
+          }, 2000);
+        }
+      }
+    }
+  };
+
+  checkAndRedirectAfterLogin();
+}, [router]);
 
   // Efeito para o carrossel automático
   useEffect(() => {
@@ -2408,10 +2445,16 @@ useEffect(() => {
 const handleGoogleLogin = async () => {
   setLoading(true);
   try {
+    // Captura o parâmetro returnTo da URL atual
+    const urlParams = new URLSearchParams(window.location.search);
+    const returnTo = urlParams.get('returnTo');
+    
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'https://www.marquesvendaspmg.shop/produtos', // <- aqui é o segredo
+        redirectTo: returnTo 
+          ? `https://www.marquesvendaspmg.shop/produtos?returnTo=${encodeURIComponent(returnTo)}`
+          : 'https://www.marquesvendaspmg.shop/produtos',
         queryParams: {
           access_type: 'offline',
           prompt: 'consent',
@@ -2420,6 +2463,8 @@ const handleGoogleLogin = async () => {
     });
 
     if (error) throw error;
+    
+    // O redirecionamento será tratado pelo useEffect quando o usuário voltar
   } catch (error) {
     setAuthError(error.message);
   } finally {
@@ -2561,37 +2606,57 @@ const handleGoogleLogin = async () => {
     }
   }, [cart, user]);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-      if (error) throw error;
-      setUser(data.user);
-      
-      // Busca o nome do usuário após login
-      const { data: profileData } = await supabase
-        .from('profiles')
-        .select('full_name')
-        .eq('id', data.user.id)
-        .single();
-      
-      if (profileData) {
-        setUserName(profileData.full_name || '');
-      }
-      
-      setShowAuthModal(false);
-      setPageBlocked(false);
-      await loadCartFromSupabase(data.user.id);
-    } catch (error) {
-      setAuthError(error.message);
-    } finally {
-      setLoading(false);
+const handleLogin = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+    if (error) throw error;
+    
+    setUser(data.user);
+    
+    // Busca o nome do usuário após login
+    const { data: profileData } = await supabase
+      .from('profiles')
+      .select('full_name')
+      .eq('id', data.user.id)
+      .single();
+    
+    if (profileData) {
+      setUserName(profileData.full_name || '');
     }
-  };
+    
+    setShowAuthModal(false);
+    setPageBlocked(false);
+    await loadCartFromSupabase(data.user.id);
+    
+    // VERIFICA E PREPARA REDIRECIONAMENTO APÓS LOGIN
+    const urlParams = new URLSearchParams(window.location.search);
+    const returnTo = urlParams.get('returnTo');
+    
+    if (returnTo) {
+      const decodedUrl = decodeURIComponent(returnTo);
+      if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
+        // Mostra mensagem centralizada
+        setRedirectDestination(decodedUrl);
+        setShowRedirectMessage(true);
+        
+        // Redireciona após 2 segundos
+        setTimeout(() => {
+          router.push(decodedUrl);
+        }, 2000);
+      }
+    }
+    
+  } catch (error) {
+    setAuthError(error.message);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -3171,6 +3236,77 @@ const removeFromCart = (productId) => {
         </div>
       )}
 
+    {/* MENSAGEM DE REDIRECIONAMENTO CENTRALIZADA - ADICIONE ESTE BLOCO */}
+    {showRedirectMessage && (
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9998,
+        flexDirection: 'column'
+      }}>
+        <div style={{
+          backgroundColor: 'white',
+          padding: '30px',
+          borderRadius: '15px',
+          textAlign: 'center',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
+          maxWidth: '400px',
+          width: '90%'
+        }}>
+          <div style={{
+            fontSize: '48px',
+            marginBottom: '15px'
+          }}>
+            ✅
+          </div>
+          <h3 style={{
+            color: '#095400',
+            marginBottom: '15px',
+            fontSize: '20px'
+          }}>
+            Login realizado com sucesso!
+          </h3>
+          <p style={{
+            color: '#666',
+            marginBottom: '20px',
+            fontSize: '16px',
+            lineHeight: '1.4'
+          }}>
+            Redirecionando para o produto...
+          </p>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '10px'
+          }}>
+            <div style={{
+              width: '20px',
+              height: '20px',
+              border: '2px solid #095400',
+              borderTop: '2px solid transparent',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite'
+            }}></div>
+            <span style={{
+              color: '#095400',
+              fontSize: '14px',
+              fontWeight: '600'
+            }}>
+              Aguarde 2 segundos
+            </span>
+          </div>
+        </div>
+      </div>
+    )}
+	
       {/* Notificações Toast */}
       <div style={styles.toastContainer}>
         {showFreteToast && (
