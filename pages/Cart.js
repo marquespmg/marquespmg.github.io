@@ -157,7 +157,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   }, []);
 
   const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
-  const isTotalValid = total >= 750;
+  const isTotalValid = total >= 900;
 
   // Função para ajustar quantidade
   const adjustQuantity = (productId, adjustment) => {
@@ -388,7 +388,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
           border: '1px solid #C8E6C9',
           lineHeight: '1.4'
         }}>
-          🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$ 750
+          🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$ 900
         </div>
 
         {isLoading ? (
@@ -748,7 +748,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                 fontSize: isMobile ? '14px' : '13px',
                 fontWeight: 500
               }}>
-                ❌ O pedido mínimo é R$ 750.00
+                ❌ O pedido mínimo é R$ 900.00
               </p>
             )}
           </>
@@ -786,4 +786,5 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 };
 
 export default Cart;
+
 
