@@ -2003,11 +2003,14 @@ export default function ProductPage({ product: initialProduct }) {
   };
 
   const handleBuyNow = () => {
-    if (!user) {
-      alert('⚠️ Faça login para continuar a compra');
-      return;
+    if (user) {
+      // Lógica para usuário logado
+      console.log('Processando compra...', product);
+      // Aqui você pode adicionar a lógica de compra
+    } else {
+      // REDIRECIONA PARA A PÁGINA DE PRODUTOS
+      router.push('/produtos');
     }
-    addToCart(product);
   };
 
   if (loading) {
@@ -2299,32 +2302,33 @@ export default function ProductPage({ product: initialProduct }) {
               R$ {product.price.toFixed(2)}
             </div>
 
-            {/* Botões de Ação */}
-            <div style={styles.actionButtons}>
-              <button
-                onClick={() => addToCart(product)}
-                style={styles.addToCartButton}
-              >
-                <span style={styles.buttonIcon}>🛒</span>
-                Adicionar ao Carrinho
-              </button>
-              
-              <button
-                onClick={handleBuyNow}
-                style={{
-                  ...styles.buyNowButton,
-                  ...(!user && styles.disabledButton)
-                }}
-              >
-                {user ? 'Comprar Agora' : 'Fazer Login'}
-              </button>
-            </div>
+          {/* Botões de Ação */}
+          <div style={styles.actionButtons}>
+            <button
+              onClick={() => addToCart(product)}
+              style={styles.addToCartButton}
+            >
+              <span style={styles.buttonIcon}>🛒</span>
+              Adicionar ao Carrinho
+            </button>
+            
+            {/* BOTÃO CORRIGIDO - Agora redireciona para /produtos quando não logado */}
+            <button
+              onClick={handleBuyNow}
+              style={{
+                ...styles.buyNowButton,
+                ...(!user && styles.disabledButton)
+              }}
+            >
+              {user ? 'Comprar Agora' : 'Fazer Login'}
+            </button>
+          </div>
 
-            {!user && (
-              <div style={styles.loginWarning}>
-                ⚠️ Faça login para finalizar a compra
-              </div>
-            )}
+          {!user && (
+            <div style={styles.loginWarning}>
+              ⚠️ Faça login para finalizar a compra
+            </div>
+          )}
 
             {/* Descrição do produto */}
             <div style={styles.descriptionSection}>
@@ -3156,3 +3160,4 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
