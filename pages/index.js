@@ -3,12 +3,12 @@ import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
-  // Dados do carrossel com versões temáticas Black Friday
+  // Dados do carrossel com versões otimizadas para desktop e mobile
   const banners = [
     { 
       id: 1,
-      desktop: 'https://i.imgur.com/QsSZxdw.jpeg',
-      mobile: 'https://i.imgur.com/QsSZxdw.jpeg'
+      desktop: 'https://i.imgur.com/MiXi0pu.png',
+      mobile: 'https://i.imgur.com/MiXi0pu.png'
     },
     { 
       id: 2,
@@ -147,59 +147,6 @@ const avaliacoes = [
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const toastTimers = useRef([]);
 
-  // build fix
-// Contador regressivo Black Friday 2025 - VERSÃO DEFINITIVA
-const [timeLeft, setTimeLeft] = useState({
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0
-});
-
-// Configurar contador regressivo para BLACK FRIDAY 2025
-useEffect(() => {
-  // Data da Black Friday 2025: 28 de Novembro de 2025
-  const blackFridayDate = new Date('November 28, 2025 23:59:59');
-  
-  const updateCountdown = () => {
-    const now = new Date().getTime();
-    const difference = blackFridayDate - now;
-    
-    if (difference > 0) {
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-      
-      setTimeLeft({
-        days: days,
-        hours: hours,
-        minutes: minutes,
-        seconds: seconds
-      });
-      
-      // DEBUG
-      console.log('🎯 CONTADOR 2025:', { 
-        dias: days,
-        dataAlvo: blackFridayDate.toLocaleDateString('pt-BR')
-      });
-      
-    } else {
-      setTimeLeft({
-        days: 0,
-        hours: 0, 
-        minutes: 0,
-        seconds: 0
-      });
-    }
-  };
-  
-  updateCountdown();
-  const interval = setInterval(updateCountdown, 1000);
-  
-  return () => clearInterval(interval);
-}, []);
-
   // Verifica o tamanho da tela e calcula proporções
   useEffect(() => {
     const checkScreenSize = () => {
@@ -294,75 +241,79 @@ useEffect(() => {
 
   return (
     <>
-      <Head>
-        {/* Título Otimizado para Black Friday */}
-        <title>BLACK FRIDAY Marques Vendas PMG - Ofertas Imperdíveis Food Service | Até 70% OFF</title>
-        
-        {/* Meta Description Otimizada para Black Friday */}
-        <meta name="description" content="BLACK FRIDAY 2024! Distribuidora Marques Vendas PMG com ofertas especiais para food service. Até 70% OFF em laticínios, queijos, bebidas e mais. Entrega rápida!" />
-        
-        {/* Viewport */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        
-        {/* Charset */}
-        <meta charSet="utf-8" />
-        
-        {/* Google Verification */}
-        <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
-        
-        {/* ========== OPEN GRAPH (Facebook/WhatsApp) ========== */}
-        <meta property="og:title" content="🔥 BLACK FRIDAY Marques Vendas PMG - Ofertas Imperdíveis Food Service" />
-        <meta property="og:description" content="Aproveite nossa Black Friday! Até 70% OFF em produtos para seu negócio. Ofertas por tempo limitado!" />
-        <meta property="og:image" content="https://i.imgur.com/pBH5WpZ.png" />
-        <meta property="og:url" content="https://www.marquesvendaspmg.shop" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Marques Vendas PMG" />
-        <meta property="og:locale" content="pt_BR" />
-        
-        {/* Open Graph para o Vídeo */}
-        <meta property="og:video" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
-        <meta property="og:video:type" content="text/html" />
-        <meta property="og:video:width" content="1280" />
-        <meta property="og:video:height" content="720" />
-        <meta property="og:video:secure_url" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
-        
-        {/* ========== TWITTER CARD ========== */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="BLACK FRIDAY Marques Vendas PMG - Ofertas Imperdíveis" />
-        <meta name="twitter:description" content="Aproveite as melhores ofertas de Black Friday para food service. Até 70% OFF!" />
-        <meta name="twitter:image" content="https://i.imgur.com/pBH5WpZ.png" />
-        <meta name="twitter:site" content="@marquesvendaspmg" />
-        
-        {/* Schema.org otimizado para Black Friday */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Event",
-            "name": "Black Friday Marques Vendas PMG 2024",
-            "startDate": "2024-11-01",
-            "endDate": "2024-11-30",
-            "eventStatus": "https://schema.org/EventScheduled",
-            "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-            "location": {
-              "@type": "VirtualLocation",
-              "url": "https://www.marquesvendaspmg.shop"
-            },
-            "description": "Ofertas especiais de Black Friday para food service. Descontos de até 70% em laticínios, queijos, bebidas e produtos alimentícios.",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "BRL",
-              "availability": "https://schema.org/InStock",
-              "validFrom": "2024-11-01"
-            },
-            "organizer": {
-              "@type": "Organization",
-              "name": "Marques Vendas PMG",
-              "url": "https://www.marquesvendaspmg.shop"
-            }
-          })}
-        </script>
-
+<Head>
+  {/* Título Otimizado */}
+  <title>Marques Vendas PMG - Distribuidora Food Service | Atacadista em Itapecerica da Serra</title>
+  
+  {/* Meta Description Otimizada */}
+  <meta name="description" content="Distribuidora autorizada Marques Vendas PMG - Atacadista food service com produtos de qualidade para restaurantes, bares e mercados. Entrega rápida na região. Atendimento especializado." />
+  
+  {/* Viewport */}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  {/* Charset */}
+  <meta charSet="utf-8" />
+  
+  {/* Google Verification */}
+  <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
+  
+  {/* ========== OPEN GRAPH (Facebook/WhatsApp) ========== */}
+  <meta property="og:title" content="Marques Vendas PMG - Distribuidora Food Service | Atacadista Autorizado" />
+  <meta property="og:description" content="Distribuidora autorizada com produtos de qualidade para seu negócio. Entrega rápida e atendimento especializado." />
+  <meta property="og:image" content="https://i.imgur.com/pBH5WpZ.png" />
+  <meta property="og:url" content="https://www.marquesvendaspmg.shop" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Marques Vendas PMG" />
+  <meta property="og:locale" content="pt_BR" />
+  
+  {/* Open Graph para o Vídeo */}
+  <meta property="og:video" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
+  <meta property="og:video:type" content="text/html" />
+  <meta property="og:video:width" content="1280" />
+  <meta property="og:video:height" content="720" />
+  <meta property="og:video:secure_url" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
+  
+  {/* ========== TWITTER CARD ========== */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Marques Vendas PMG - Distribuidora Food Service" />
+  <meta name="twitter:description" content="Distribuidora autorizada com produtos de qualidade para restaurantes, bares e mercados." />
+  <meta name="twitter:image" content="https://i.imgur.com/pBH5WpZ.png" />
+  <meta name="twitter:site" content="@marquesvendaspmg" />
+  
+  {/* ========== SCHEMA.ORG (Google Rich Results) ========== */}
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Marques Vendas PMG",
+	  "image": "https://i.imgur.com/jrERRsC.png",
+      "description": "Distribuidora autorizada food service com produtos de qualidade para restaurantes, bares e mercados",
+      "url": "https://www.marquesvendaspmg.shop",
+      "telephone": "+55-11-91357-2902",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+        "addressLocality": "Itapecerica da Serra",
+        "addressRegion": "SP",
+        "postalCode": "06885-150",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-23.7167",
+        "longitude": "-46.8492"
+      },
+      "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00",
+      "priceRange": "$$",
+      "areaServed": "Grande São Paulo",
+      "sameAs": [
+        "https://www.facebook.com/MarquesVendaspmg",
+        "https://www.instagram.com/marquesvendaspmg",
+        "https://www.youtube.com/@MarquesVendasPMG"
+      ]
+    })}
+  </script>
+  
 {/* Schema para Vídeo - VERSÃO CORRIGIDA COM DADOS REAIS */}
 <script type="application/ld+json">
   {JSON.stringify({
@@ -599,142 +550,39 @@ useEffect(() => {
   ]
 })}
 </script>
-        
-        {/* Keywords otimizadas para Black Friday */}
-        <meta name="keywords" content="black friday food service, distribuidora black friday, atacadista black friday, ofertas black friday, desconto food service, marques vendas pmg black friday, atacado black friday" />
-        <meta name="author" content="Marques Vendas PMG" />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://www.marquesvendaspmg.shop" />
-        
-        {/* Sitemap */}
-        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-        
-        {/* Favicon */}
-        <link rel="icon" href="https://i.imgur.com/pBH5WpZ.png" />
-        
-        {/* Theme Color para Mobile - Tema Black Friday */}
-        <meta name="theme-color" content="#000000" />
-        <meta name="msapplication-TileColor" content="#000000" />
-        
-        {/* Apple Touch Icon */}
-        <link rel="apple-touch-icon" href="https://i.imgur.com/pBH5WpZ.png" />
-      </Head>
+  
+  {/* ========== KEYWORDS E OTIMIZAÇÕES EXTRAS ========== */}
+  <meta name="keywords" content="distribuidora food service, atacadista itapecerica, produtos para restaurante, atacado bebidas, alimentos atacado, marques vendas pmg, distribuidora autorizada, atacadista grande sp" />
+  <meta name="author" content="Marques Vendas PMG" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  
+  {/* Canonical URL */}
+  <link rel="canonical" href="https://www.marquesvendaspmg.shop" />
+  
+  {/* Sitemap */}
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  
+  {/* Favicon */}
+  <link rel="icon" href="https://i.imgur.com/pBH5WpZ.png" />
+  
+  {/* Theme Color para Mobile */}
+  <meta name="theme-color" content="#095400" />
+  <meta name="msapplication-TileColor" content="#095400" />
+  
+  {/* Apple Touch Icon */}
+  <link rel="apple-touch-icon" href="https://i.imgur.com/pBH5WpZ.png" />
+</Head>
 
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
         padding: isMobile ? '10px' : '20px',
         minHeight: '100vh',
-        backgroundColor: '#1a1a1a', // Fundo escuro para tema Black Friday
+        backgroundColor: '#ffffff',
         fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
         position: 'relative'
       }}>
-
-{/* BANNER SUPERIOR BLACK FRIDAY 2025 */}
-<div style={{
-  background: 'linear-gradient(45deg, #000000, #e74c3c, #000000)',
-  color: 'white',
-  textAlign: 'center',
-  padding: isMobile ? '12px 10px' : '15px 20px',
-  marginBottom: isMobile ? '15px' : '20px',
-  borderRadius: '10px',
-  border: '2px solid #e74c3c',
-  position: 'relative',
-  overflow: 'hidden'
-}}>
-  <div style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '10px',
-    flexWrap: 'wrap'
-  }}>
-    <span style={{
-      fontSize: isMobile ? '1.1rem' : '1.3rem',
-      fontWeight: '800',
-      textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-      background: 'linear-gradient(45deg, #ffd700, #ffffff, #ffd700)',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      animation: 'shine 2s infinite'
-    }}>
-      🚀 BLACK FRIDAY 2025 🚀
-    </span>
-    <span style={{
-      fontSize: isMobile ? '0.9rem' : '1rem',
-      fontWeight: '600'
-    }}>
-      Prepare-se para as Maiores Ofertas!
-    </span>
-  </div>
-</div>
-
-{/* CONTADOR REGRESSIVO - 30 DIAS */}
-<div style={{
-  background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-  color: 'white',
-  padding: isMobile ? '15px 10px' : '20px 15px',
-  borderRadius: '12px',
-  textAlign: 'center',
-  marginBottom: isMobile ? '20px' : '30px',
-  border: '2px solid #e74c3c',
-  boxShadow: '0 4px 15px rgba(231, 76, 60, 0.3)'
-}}>
-  <h3 style={{
-    margin: '0 0 15px 0',
-    fontSize: isMobile ? '1rem' : '1.2rem',
-    fontWeight: '600',
-    color: '#ffd700'
-  }}>
-    ⏰ BLACK FRIDAY 2025 - OFERTAS TERMINAM EM:
-  </h3>
-  <div style={{
-    display: 'flex',
-    justifyContent: 'center',
-    gap: isMobile ? '8px' : '15px',
-    flexWrap: 'wrap'
-  }}>
-    {['Dias', 'Horas', 'Minutos', 'Segundos'].map((label, index) => (
-      <div key={label} style={{
-        textAlign: 'center',
-        minWidth: isMobile ? '70px' : '80px'
-      }}>
-        <div style={{
-          background: '#e74c3c',
-          color: 'white',
-          padding: '8px',
-          borderRadius: '8px',
-          fontSize: isMobile ? '1.2rem' : '1.5rem',
-          fontWeight: '800',
-          marginBottom: '5px',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-          border: '1px solid #ffd700'
-        }}>
-          {Object.values(timeLeft)[index]}
-        </div>
-        <div style={{
-          fontSize: isMobile ? '0.7rem' : '0.8rem',
-          color: '#bdc3c7',
-          fontWeight: '600'
-        }}>
-          {label}
-        </div>
-      </div>
-    ))}
-  </div>
-  <p style={{
-    margin: '15px 0 0 0',
-    fontSize: isMobile ? '0.7rem' : '0.8rem',
-    color: '#ffd700',
-    fontStyle: 'italic'
-  }}>
-    🚀 Prepare-se! As melhores ofertas do ano começam em breve
-  </p>
-</div>
-
-        {/* Cabeçalho Premium - Tema Black Friday */}
+        {/* Cabeçalho Premium - Adaptado para mobile */}
         <header style={{
           display: 'flex',
           flexDirection: 'column',
@@ -743,108 +591,103 @@ useEffect(() => {
           marginBottom: isMobile ? '5px' : '10px'
         }}>
           <div style={{
-            background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+            backgroundColor: '#095400',
             padding: isMobile ? '8px 15px' : '10px 25px',
             borderRadius: '30px',
             marginBottom: isMobile ? '10px' : '15px',
             color: 'white',
             fontSize: isMobile ? '0.8rem' : '0.9rem',
             fontWeight: '600',
-            boxShadow: '0 2px 10px rgba(231, 76, 60, 0.4)',
-            border: '1px solid #ffd700'
+            boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
           }}>
-            🏆 BLACK FRIDAY EXCLUSIVE
+            Marques Vendas PMG
           </div>
           
           <img 
             src="https://i.imgur.com/pBH5WpZ.png" 
-            alt="Marques Vendas PMG Black Friday" 
+            alt="Marques Vendas PMG" 
             style={{ 
               width: isMobile ? '180px' : '220px',
               margin: isMobile ? '10px 0' : '15px 0',
-              filter: 'drop-shadow(0 3px 8px rgba(231, 76, 60, 0.3))'
+              filter: 'drop-shadow(0 3px 5px rgba(0,0,0,0.1))'
             }} 
           />
           
           <h1 style={{ 
-            color: '#ffd700', 
+            color: '#095400', 
             fontSize: isMobile ? '1.5rem' : '2rem',
             margin: isMobile ? '5px 0 10px' : '10px 0 15px',
             textAlign: 'center',
             fontWeight: '700',
             lineHeight: '1.3',
-            padding: isMobile ? '0 10px' : '0',
-            textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+            padding: isMobile ? '0 10px' : '0'
           }}>
-            BLACK FRIDAY <span style={{color: '#e74c3c'}}>PMG</span> FOOD SERVICE
+            Marques Vendas PMG Distribuidora <span style={{whiteSpace: 'nowrap'}}>Food Service</span>
           </h1>
           
           <p style={{ 
-            color: '#ecf0f1', 
-            fontSize: isMobile ? '0.9rem' : '1rem',
-            maxWidth: '600px',
-            textAlign: 'center',
-            lineHeight: '1.6',
-            marginBottom: isMobile ? '15px' : '20px',
-            padding: isMobile ? '0 15px' : '0'
-          }}>
-            🎯 <strong>MAIORES DESCONTOS DO ANO!</strong> Produtos de qualidade com garantia e procedência. 
-            Ofertas especiais para revendedores e estabelecimentos comerciais.
-          </p>
+  color: '#555', 
+  fontSize: isMobile ? '0.9rem' : '1rem',
+  maxWidth: '600px',
+  textAlign: 'center',
+  lineHeight: '1.6',
+  marginBottom: isMobile ? '15px' : '20px',
+  padding: isMobile ? '0 15px' : '0'
+}}>
+  Produtos de qualidade com garantia e procedência. Atendimento personalizado para revendedores e estabelecimentos comerciais.
+</p>
 
-          {/* BOTÕES PRINCIPAIS - TEMA BLACK FRIDAY */}
-          <div style={{
-            display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
-            gap: '15px',
-            alignItems: 'center',
-            width: isMobile ? '90%' : 'auto',
-            maxWidth: '500px'
-          }}>
-            <Link href="/ofertas" passHref legacyBehavior>
-              <a style={{
-                display: 'inline-block',
-                padding: isMobile ? '14px 20px' : '16px 30px',
-                background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
-                color: '#fff',
-                textDecoration: 'none',
-                borderRadius: '30px',
-                fontSize: isMobile ? '1rem' : '1.1rem',
-                fontWeight: '700',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(231, 76, 60, 0.4)',
-                textAlign: 'center',
-                flex: 1,
-                border: '2px solid #ffd700',
-                textShadow: '0 1px 2px rgba(0,0,0,0.3)'
-              }}>
-                🔥 VER OFERTAS BLACK FRIDAY
-              </a>
-            </Link>
+{/* BOTÃO DE OFERTAS */}
+<Link href="/ofertas" passHref legacyBehavior>
+  <a style={{
+    display: 'inline-block',
+    padding: isMobile ? '12px 24px' : '12px 25px',
+    backgroundColor: '#e74c3c',
+    color: '#fff',
+    textDecoration: 'none',
+    borderRadius: '30px',
+    fontSize: isMobile ? '0.95rem' : '1rem',
+    fontWeight: '600',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 3px 10px rgba(231, 76, 60, 0.3)',
+    margin: isMobile ? '0 auto 10px' : '0 auto 10px',
+    width: isMobile ? '90%' : 'auto',
+    maxWidth: '400px',
+    textAlign: 'center',
+  }}>
+    🔥 {isMobile ? 'OFERTAS DA SEMANA' : 'CONFIRA NOSSAS OFERTAS DA SEMANA!'}
+  </a>
+</Link>
 
-            <Link href="/food-news" passHref legacyBehavior>
-              <a style={{
-                display: 'inline-block',
-                padding: isMobile ? '12px 20px' : '14px 25px',
-                background: 'linear-gradient(45deg, #34495e, #2c3e50)',
-                color: '#fff',
-                textDecoration: 'none',
-                borderRadius: '30px',
-                fontSize: isMobile ? '0.9rem' : '1rem',
-                fontWeight: '600',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 3px 10px rgba(52, 73, 94, 0.4)',
-                textAlign: 'center',
-                flex: 1,
-                border: '1px solid #7f8c8d'
-              }}>
-                📰 BLOG BLACK FRIDAY
-              </a>
-            </Link>
-          </div>
-        </header>
+{/* NOVO BOTÃO FOOD NEWS - ADICIONE AQUI */}
+<Link href="/food-news" passHref legacyBehavior>
+  <a style={{
+    display: 'inline-block',
+    padding: isMobile ? '12px 24px' : '12px 25px',
+    backgroundColor: '#095400',
+    color: '#fff',
+    textDecoration: 'none',
+    borderRadius: '30px',
+    fontSize: isMobile ? '0.95rem' : '1rem',
+    fontWeight: '600',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 3px 10px rgba(9, 84, 0, 0.3)',
+    margin: isMobile ? '0 auto 20px' : '0 auto 15px',
+    width: isMobile ? '90%' : 'auto',
+    maxWidth: '400px',
+    textAlign: 'center',
+    ':hover': {
+      backgroundColor: '#074000',
+      transform: isMobile ? 'none' : 'translateY(-2px)',
+      boxShadow: '0 5px 15px rgba(7, 64, 0, 0.4)'
+    }
+  }}>
+    📰 {isMobile ? 'FOOD NEWS' : 'ACESSE O FOOD NEWS - BLOG'}
+  </a>
+</Link>
+</header>
 
-        {/* Destaques de Credibilidade - Tema Black Friday */}
+        {/* Destaques de Credibilidade - Adaptado para mobile */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -853,50 +696,77 @@ useEffect(() => {
           margin: isMobile ? '20px 0' : '30px 0',
           padding: isMobile ? '0 10px' : '0'
         }}>
-          {[
-            { icon: '🚚', title: 'Entrega Rápida', desc: 'Black Friday Express' },
-            { icon: '🏷️', title: 'Até 70% OFF', desc: 'Melhores Preços' },
-            { icon: '🛡️', title: 'Garantia', desc: 'Produtos Certificados' },
-            { icon: '👨‍💼', title: 'Atendimento', desc: 'Especial Black Friday' }
-          ].map((item, index) => (
-            <div key={index} style={{
-              background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-              padding: isMobile ? '12px 15px' : '15px 20px',
-              borderRadius: '10px',
-              display: 'flex',
-              alignItems: 'center',
-              minWidth: isMobile ? 'unset' : '200px',
-              flex: isMobile ? '1 1 140px' : '0 0 auto',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-              border: '1px solid #34495e'
-            }}>
-              <span style={{
-                fontSize: isMobile ? '1.3rem' : '1.5rem', 
-                marginRight: isMobile ? '10px' : '12px',
-                filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.3))'
-              }}>
-                {item.icon}
-              </span>
-              <div>
-                <div style={{
-                  fontWeight: '600', 
-                  fontSize: isMobile ? '0.8rem' : '0.9rem',
-                  color: '#ecf0f1'
-                }}>
-                  {item.title}
-                </div>
-                <div style={{
-                  fontSize: isMobile ? '0.7rem' : '0.8rem', 
-                  color: '#bdc3c7'
-                }}>
-                  {item.desc}
-                </div>
-              </div>
+          <div style={{
+            backgroundColor: '#f8f8f8',
+            padding: isMobile ? '10px 15px' : '15px 20px',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+          }}>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🚚</span>
+            <div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Entrega Rápida</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Para toda região</div>
             </div>
-          ))}
+          </div>
+          
+          <div style={{
+            backgroundColor: '#f8f8f8',
+            padding: isMobile ? '10px 15px' : '15px 20px',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+          }}>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🏷️</span>
+            <div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Preço Competitivo</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Melhores condições</div>
+            </div>
+          </div>
+          
+          <div style={{
+            backgroundColor: '#f8f8f8',
+            padding: isMobile ? '10px 15px' : '15px 20px',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+          }}>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🛡️</span>
+            <div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Garantia</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Produtos certificados</div>
+            </div>
+          </div>
+
+          {/* NOVO DESTAQUE - Atendimento Personalizado */}
+          <div style={{
+            backgroundColor: '#f8f8f8',
+            padding: isMobile ? '10px 15px' : '15px 20px',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+          }}>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>👨‍💼</span>
+            <div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Atendimento Personalizado</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Especializado no seu negócio</div>
+            </div>
+          </div>
         </div>
 
-        {/* Carrossel - Mantém o mesmo funcionamento mas com tema escuro */}
+        {/* Carrossel Otimizado - Melhorias para mobile */}
         <div 
           ref={carouselRef}
           style={{
@@ -905,11 +775,10 @@ useEffect(() => {
             maxWidth: '1200px',
             margin: isMobile ? '20px auto' : '40px auto',
             overflow: 'hidden',
-            borderRadius: '15px',
-            boxShadow: '0 8px 25px rgba(231, 76, 60, 0.2)',
+            borderRadius: '10px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
             height: `${dimensions.height}px`,
-            backgroundColor: '#2c3e50',
-            border: '2px solid #e74c3c'
+            backgroundColor: '#f8f8f8'
           }}
         >
           <div style={{
@@ -947,7 +816,7 @@ useEffect(() => {
             ))}
           </div>
           
-          {/* Botões de navegação - Estilo Black Friday */}
+          {/* Botões de navegação - Melhorados para mobile */}
           <button 
             onClick={goToPrevSlide}
             style={{
@@ -955,7 +824,7 @@ useEffect(() => {
               top: '50%',
               left: isMobile ? '5px' : '15px',
               transform: 'translateY(-50%)',
-              background: 'rgba(231, 76, 60, 0.9)',
+              background: 'rgba(255,255,255,0.7)',
               border: 'none',
               borderRadius: '50%',
               width: isMobile ? '35px' : '40px',
@@ -965,13 +834,11 @@ useEffect(() => {
               justifyContent: 'center',
               cursor: 'pointer',
               zIndex: 10,
-              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-              color: 'white',
-              fontWeight: 'bold'
+              boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
             }}
             aria-label="Slide anterior"
           >
-            ❮
+            <span style={{ fontSize: isMobile ? '16px' : '20px', color: '#095400' }}>❮</span>
           </button>
           
           <button 
@@ -981,7 +848,7 @@ useEffect(() => {
               top: '50%',
               right: isMobile ? '5px' : '15px',
               transform: 'translateY(-50%)',
-              background: 'rgba(231, 76, 60, 0.9)',
+              background: 'rgba(255,255,255,0.7)',
               border: 'none',
               borderRadius: '50%',
               width: isMobile ? '35px' : '40px',
@@ -991,16 +858,14 @@ useEffect(() => {
               justifyContent: 'center',
               cursor: 'pointer',
               zIndex: 10,
-              boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-              color: 'white',
-              fontWeight: 'bold'
+              boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
             }}
             aria-label="Próximo slide"
           >
-            ❯
+            <span style={{ fontSize: isMobile ? '16px' : '20px', color: '#095400' }}>❯</span>
           </button>
           
-          {/* Indicadores de slide - Tema Black Friday */}
+          {/* Indicadores de slide - Melhorados para mobile */}
           <div style={{
             position: 'absolute',
             bottom: isMobile ? '10px' : '15px',
@@ -1021,9 +886,8 @@ useEffect(() => {
                   border: 'none',
                   padding: 0,
                   cursor: 'pointer',
-                  backgroundColor: currentSlide === index ? '#e74c3c' : 'rgba(255,255,255,0.3)',
-                  transition: 'background-color 0.3s',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                  backgroundColor: currentSlide === index ? '#095400' : 'rgba(255,255,255,0.5)',
+                  transition: 'background-color 0.3s'
                 }}
                 aria-label={`Ir para slide ${index + 1}`}
               />
@@ -1031,7 +895,7 @@ useEffect(() => {
           </div>
         </div>
 
-{/* Seção "Conheça Nossa Operação" - Tema Black Friday */}
+{/* Seção "Conheça Nossa Operação" */}
 <section style={{
   display: 'flex',
   flexDirection: 'column',
@@ -1040,34 +904,31 @@ useEffect(() => {
   padding: isMobile ? '0 10px' : '0 20px'
 }}>
   <h2 style={{
-    color: '#ffd700',
+    color: '#333',
     fontSize: isMobile ? '1.2rem' : '1.8rem',
     fontWeight: '600',
     marginBottom: isMobile ? '15px' : '30px',
     textAlign: 'center',
-    padding: isMobile ? '0 10px' : '0',
-    textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+    padding: isMobile ? '0 10px' : '0'
   }}>
-    🎬 Conheça Nossa Operação - Black Friday
+    Conheça Nossa Operação
   </h2>
   
-  {/* Vídeo do YouTube - Container Estilizado */}
+  {/* Vídeo do YouTube */}
   <div style={{
     width: '100%',
     maxWidth: isMobile ? '100%' : '900px',
-    borderRadius: '15px',
+    borderRadius: '10px',
     overflow: 'hidden',
-    boxShadow: '0 8px 25px rgba(231, 76, 60, 0.3)',
+    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
     marginBottom: isMobile ? '15px' : '30px',
-    aspectRatio: '16/9',
-    border: '3px solid #e74c3c',
-    backgroundColor: '#2c3e50'
+    aspectRatio: '16/9'
   }}>
     <iframe
       width="100%"
       height="100%"
       src="https://www.youtube.com/embed/xOPT4YXLV2E?autoplay=0&mute=0&rel=0&modestbranding=1&playsinline=1"
-      title="PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados - Black Friday"
+      title="PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados"
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen
@@ -1078,279 +939,312 @@ useEffect(() => {
     />
   </div>
 
-  {/* Texto descritivo temático */}
+{/* Texto descritivo para SEO - ESCONDIDO visualmente mas o Google lê */}
+<div style={{ 
+  maxWidth: '800px',
+  marginTop: '20px',
+  opacity: '0',
+  height: '0',
+  overflow: 'hidden',
+  position: 'absolute'
+}}>
+  <h3>PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados</h3>
+  <p>Há 30 anos a PMG Atacadista conecta negócios com confiança e resultados sólidos. Distribuidora food service especializada em atacado para restaurantes, bares, mercados e estabelecimentos comerciais. Localizada em Itapecerica da Serra, atendemos toda a Grande São Paulo com entrega rápida e condições especiais para compras em atacado.</p>
+  <p>Trabalhamos com laticínios, queijos, embutidos, massas, bebidas, congelados e produtos alimentícios em geral. Estrutura moderna com controle de qualidade e temperatura para garantir a procedência e frescor dos produtos. Atendimento personalizado para revendedores e comerciantes com mais de 30 anos de experiência no mercado.</p>
+  <p>Produtos das melhores marcas do mercado com garantia de qualidade e procedência. Conheça nossa operação completa através do vídeo e veja porque somos referência em distribuição food service na região.</p>
+</div>
+  
   <p style={{
-    color: '#ecf0f1',
+    color: '#666',
     fontSize: isMobile ? '0.85rem' : '1rem',
     maxWidth: '600px',
     textAlign: 'center',
     lineHeight: '1.6',
     padding: isMobile ? '0 15px' : '0'
   }}>
-    🚀 <strong>Preparados para a Black Friday 2025!</strong> Nossa estrutura completa 
-    para atender sua demanda com agilidade e qualidade durante as maiores ofertas do ano.
+    Nossa estrutura preparada para atender sua demanda com agilidade e qualidade.
   </p>
 </section>
 
-        {/* Seção CTA Black Friday - TOTALMENTE REFEITA */}
-        <section style={{
-          textAlign: 'center',
-          margin: isMobile ? '30px 0' : '50px 0',
-          padding: isMobile ? '30px 15px' : '40px 20px',
-          background: 'linear-gradient(135deg, #e74c3c, #c0392b)',
-          borderRadius: '15px',
-          boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)',
-          border: '3px solid #ffd700',
-          position: 'relative',
-          overflow: 'hidden'
+{/* Conteúdo SEO PMG Atacadista - VISÍVEL APENAS PARA O GOOGLE */}
+<div style={{
+  opacity: '0',
+  height: '0',
+  overflow: 'hidden',
+  position: 'absolute',
+  pointerEvents: 'none'
+}}>
+  <h1>PMG Atacadista - Distribuidora e Atacadista em Itapecerica da Serra</h1>
+  
+  <h2>PMG Atacadista - 30 Anos no Mercado</h2>
+  <p>A PMG Atacadista é uma distribuidora e atacadista localizada em Itapecerica da Serra, atendendo toda a Grande São Paulo. Com mais de 30 anos de experiência, a PMG Atacadista oferece produtos de qualidade para restaurantes, bares, mercados e estabelecimentos comerciais.</p>
+  
+  <h3>PMG Atacadista Telefone e Contato</h3>
+  <p>Telefone da PMG Atacadista: (11) 91357-2902. Endereço da PMG Atacadista: Estrada Ferreira Guedes, 784 - Potuverá, Itapecerica da Serra - SP, CEP 06885-150.</p>
+  
+  <h3>PMG Atacadista Produtos e Serviços</h3>
+  <p>PMG Atacadista trabalha com laticínios, queijos, embutidos, massas, bebidas, congelados e diversos produtos alimentícios. PMG Atacadista app para facilitar pedidos. PMG Atacadista entrega rápida.</p>
+  
+  <h3>PMG Atacadista Redes Sociais</h3>
+  <p>PMG Atacadista Facebook: facebook.com/MarquesVendaspmg. PMG Atacadista Instagram: instagram.com/marquesvendaspmg. PMG Atacadista YouTube: youtube.com/@MarquesVendasPMG.</p>
+  
+  <h3>PMG Atacadista Santo Amaro e Região</h3>
+  <p>PMG Atacadista atende Santo Amaro e toda região da Grande São Paulo. PMG Atacadista distribuidora autorizada. PMG Atacadista preços competitivos.</p>
+  
+  <h3>PNG Atacadista</h3>
+  <p>Também conhecida como PNG Atacadista, a PMG Atacadista é referência em distribuição food service. PMG Atacadista confiança e resultados.</p>
+  
+  <h3>PMG Atacadista Itapecerica da Serra</h3>
+  <p>PMG Atacadista Itapecerica da Serra - distribuidora local com entrega para toda região. PMG Atacadista estoque amplo e variedade de produtos.</p>
+  
+  <h3>PMG Atacado</h3>
+  <p>PMG Atacado - condições especiais para compras em grande quantidade. PMG Atacadista melhores preços de atacado.</p>
+  
+  <h3>PMG</h3>
+  <p>PMG - Empresa sólida no mercado de distribuição. PMG tradição e qualidade. PMG atendimento personalizado.</p>
+</div>
+
+{/* Seção CTA Simplificada com suas Frases - CORRIGIDA */}
+<section style={{
+  textAlign: 'center',
+  margin: isMobile ? '30px 0' : '50px 0',
+  padding: isMobile ? '25px 15px' : '35px 20px',
+  backgroundColor: '#f0f8f0',
+  borderRadius: '12px',
+  boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
+  width: '100%',
+  maxWidth: '800px',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  border: '1px solid #e0f0e0',
+  boxSizing: 'border-box' // ← ADICIONE ISSO
+}}>
+  <div style={{
+    maxWidth: '600px',
+    margin: '0 auto'
+  }}>
+    <h2 style={{
+      color: '#095400',
+      fontSize: isMobile ? '1.4rem' : '1.8rem',
+      fontWeight: '700',
+      marginBottom: isMobile ? '15px' : '20px',
+      lineHeight: '1.3'
+    }}>
+      Cadastre-se gratuitamente
+    </h2>
+    
+    <p style={{
+      color: '#444',
+      fontSize: isMobile ? '1rem' : '1.1rem',
+      margin: isMobile ? '0 auto 20px' : '0 auto 30px',
+      lineHeight: '1.6',
+      maxWidth: '95%' // ← EVITA TEXTO MUITO LONGO
+    }}>
+      Ganhe acesso completo ao nosso catálogo com condições especiais para seu negócio!
+    </p>
+    
+    <Link href="/produtos" passHref legacyBehavior>
+      <a 
+        className="cta-button" // ← MUDEI PARA CLASSNAME
+        style={{
+          display: 'inline-block',
+          padding: isMobile ? '14px 30px' : '16px 40px',
+          backgroundColor: '#095400',
+          color: '#fff',
+          textDecoration: 'none',
+          borderRadius: '8px',
+          fontSize: isMobile ? '1.1rem' : '1.2rem',
+          fontWeight: '700',
+          transition: 'all 0.3s ease',
+          boxShadow: '0 4px 12px rgba(9, 84, 0, 0.3)',
+          marginBottom: '15px'
+        }}
+      >
+        COMPRE AGORA →
+      </a>
+    </Link>
+
+    <p style={{
+      color: '#666',
+      fontSize: isMobile ? '0.8rem' : '0.9rem',
+      fontStyle: 'italic',
+      margin: '10px 0 0 0'
+    }}>
+      Cadastro rápido e sem complicação. Leva menos de 2 minutos!
+    </p>
+  </div>
+</section>
+
+        {/* Seção de Avaliações */}
+{/* Seção de Avaliações - Versão Otimizada */}
+<section style={{
+  margin: isMobile ? '20px 0' : '40px 0',
+  padding: isMobile ? '0 10px' : '0 20px',
+  width: '100%',
+  overflow: 'hidden'
+}}>
+  <h2 style={{
+    color: '#095400',
+    fontSize: isMobile ? '1.3rem' : '1.5rem',
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: isMobile ? '15px' : '25px',
+    padding: '0 15px'
+  }}>
+    O que nossos clientes dizem
+  </h2>
+
+  <div style={{
+    position: 'relative',
+    maxWidth: '100%',
+    margin: '0 auto'
+  }}>
+    <div 
+      ref={avaliacoesRef}
+      style={{
+        display: 'flex',
+        overflowX: 'auto',
+        scrollBehavior: 'smooth',
+        gap: '15px',
+        padding: '10px',
+        scrollbarWidth: 'none', /* Firefox */
+        msOverflowStyle: 'none', /* IE/Edge */
+        '&::-webkit-scrollbar': {
+          display: 'none' /* Chrome/Safari */
+        }
+      }}
+    >
+      {avaliacoes.map((avaliacao, index) => (
+        <div key={index} style={{
+          minWidth: isMobile ? '85vw' : '28vw',
+          maxWidth: isMobile ? '85vw' : '28vw',
+          padding: '20px',
+          background: '#fff',
+          borderRadius: '10px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          flexShrink: 0,
+          boxSizing: 'border-box'
         }}>
-          {/* Elementos decorativos */}
-          <div style={{
-            position: 'absolute',
-            top: '-50%',
-            left: '-50%',
-            width: '200%',
-            height: '200%',
-            background: 'radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%)',
-            animation: 'pulse 4s infinite'
-          }}></div>
-          
-          <div style={{
-            position: 'relative',
-            zIndex: 2
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            marginBottom: '12px',
+            flexWrap: 'wrap'
           }}>
-            <h2 style={{
-              color: '#ffd700',
-              fontSize: isMobile ? '1.6rem' : '2.2rem',
-              fontWeight: '800',
-              marginBottom: isMobile ? '15px' : '20px',
-              lineHeight: '1.3',
-              textShadow: '0 2px 4px rgba(0,0,0,0.5)'
-            }}>
-              🎁 BLACK FRIDAY EXCLUSIVA
-            </h2>
-            
-            <p style={{
-              color: 'white',
-              fontSize: isMobile ? '1.1rem' : '1.3rem',
-              margin: isMobile ? '0 auto 25px' : '0 auto 30px',
-              lineHeight: '1.6',
-              maxWidth: '90%',
-              fontWeight: '600',
-              textShadow: '0 1px 2px rgba(0,0,0,0.3)'
-            }}>
-              Cadastre-se AGORA e garanta condições ESPECIAIS de Black Friday!
-            </p>
-            
-            <Link href="/produtos" passHref legacyBehavior>
-              <a 
-                style={{
-                  display: 'inline-block',
-                  padding: isMobile ? '16px 35px' : '18px 45px',
-                  background: 'linear-gradient(45deg, #ffd700, #ffed4e)',
-                  color: '#c0392b',
-                  textDecoration: 'none',
-                  borderRadius: '50px',
-                  fontSize: isMobile ? '1.2rem' : '1.4rem',
-                  fontWeight: '800',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 6px 20px rgba(255, 215, 0, 0.4)',
-                  marginBottom: '15px',
-                  border: '2px solid #fff',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px'
-                }}
-              >
-                🚀 QUERO OFERTAS BLACK FRIDAY!
-              </a>
-            </Link>
-
-            <p style={{
-              color: '#ffd700',
-              fontSize: isMobile ? '0.9rem' : '1rem',
-              fontStyle: 'italic',
-              margin: '15px 0 0 0',
-              fontWeight: '600',
-              textShadow: '0 1px 2px rgba(0,0,0,0.3)'
-            }}>
-              ⚡ Oferta válida apenas durante o mês de novembro!
-            </p>
-          </div>
-        </section>
-
-        {/* Seção de Avaliações - Tema Escuro */}
-        <section style={{
-          margin: isMobile ? '20px 0' : '40px 0',
-          padding: isMobile ? '0 10px' : '0 20px',
-          width: '100%',
-          overflow: 'hidden'
-        }}>
-          <h2 style={{
-            color: '#ffd700',
-            fontSize: isMobile ? '1.3rem' : '1.5rem',
-            fontWeight: '600',
-            textAlign: 'center',
-            marginBottom: isMobile ? '15px' : '25px',
-            padding: '0 15px',
-            textShadow: '0 1px 2px rgba(0,0,0,0.3)'
-          }}>
-            ⭐ Clientes Satisfeitos na Black Friday
-          </h2>
-
-          <div style={{
-            position: 'relative',
-            maxWidth: '100%',
-            margin: '0 auto'
-          }}>
-            <div 
-              ref={avaliacoesRef}
-              style={{
+            <img 
+              src={avaliacao.foto} 
+              alt={avaliacao.nome} 
+              style={{ 
+                width: '45px', 
+                height: '45px', 
+                borderRadius: '50%', 
+                objectFit: 'cover',
+                marginRight: '10px'
+              }} 
+            />
+            <div>
+              <h3 style={{ 
+                color: '#095400', 
+                fontSize: isMobile ? '0.95rem' : '1rem',
+                margin: '0 0 3px 0',
+                fontWeight: '600'
+              }}>
+                {avaliacao.nome}
+              </h3>
+              <div style={{ 
                 display: 'flex',
-                overflowX: 'auto',
-                scrollBehavior: 'smooth',
-                gap: '15px',
-                padding: '10px',
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-                '&::-webkit-scrollbar': {
-                  display: 'none'
-                }
-              }}
-            >
-              {avaliacoes.map((avaliacao, index) => (
-                <div key={index} style={{
-                  minWidth: isMobile ? '85vw' : '28vw',
-                  maxWidth: isMobile ? '85vw' : '28vw',
-                  padding: '20px',
-                  background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-                  borderRadius: '10px',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
-                  flexShrink: 0,
-                  boxSizing: 'border-box',
-                  border: '1px solid #34495e'
-                }}>
-                  <div style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    marginBottom: '12px',
-                    flexWrap: 'wrap'
-                  }}>
-                    <img 
-                      src={avaliacao.foto} 
-                      alt={avaliacao.nome} 
-                      style={{ 
-                        width: '45px', 
-                        height: '45px', 
-                        borderRadius: '50%', 
-                        objectFit: 'cover',
-                        marginRight: '10px',
-                        border: '2px solid #e74c3c'
-                      }} 
-                    />
-                    <div>
-                      <h3 style={{ 
-                        color: '#ffd700', 
-                        fontSize: isMobile ? '0.95rem' : '1rem',
-                        margin: '0 0 3px 0',
-                        fontWeight: '600'
-                      }}>
-                        {avaliacao.nome}
-                      </h3>
-                      <div style={{ 
-                        display: 'flex',
-                        gap: '2px'
-                      }}>
-                        {[...Array(5)].map((_, i) => (
-                          <span 
-                            key={i} 
-                            style={{ 
-                              color: i < avaliacao.estrelas ? '#FFD700' : '#7f8c8d',
-                              fontSize: isMobile ? '16px' : '18px',
-                              lineHeight: '1',
-                              textShadow: '0 1px 2px rgba(0,0,0,0.3)'
-                            }}
-                          >
-                            ★
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p style={{ 
-                    color: '#ecf0f1', 
-                    fontSize: isMobile ? '0.88rem' : '0.92rem',
-                    lineHeight: '1.5',
-                    margin: 0,
-                    wordBreak: 'break-word',
-                    hyphens: 'auto'
-                  }}>
-                    "{avaliacao.texto}"
-                  </p>
-                </div>
-              ))}
+                gap: '2px'
+              }}>
+                {[...Array(5)].map((_, i) => (
+                  <span 
+                    key={i} 
+                    style={{ 
+                      color: i < avaliacao.estrelas ? '#FFD700' : '#e0e0e0',
+                      fontSize: isMobile ? '16px' : '18px',
+                      lineHeight: '1'
+                    }}
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
             </div>
-
-            {/* Botões de Navegação - Estilo Black Friday */}
-            <button 
-              onClick={() => {
-                const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
-                avaliacoesRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-              }}
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: isMobile ? '5px' : '10px',
-                transform: 'translateY(-50%)',
-                background: 'rgba(231, 76, 60, 0.9)',
-                border: 'none',
-                borderRadius: '50%',
-                width: '36px',
-                height: '36px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-                zIndex: 2,
-                color: 'white',
-                fontSize: '18px',
-                fontWeight: 'bold'
-              }}
-              aria-label="Avaliação anterior"
-            >
-              ❮
-            </button>
-            <button 
-              onClick={() => {
-                const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
-                avaliacoesRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-              }}
-              style={{
-                position: 'absolute',
-                top: '50%',
-                right: isMobile ? '5px' : '10px',
-                transform: 'translateY(-50%)',
-                background: 'rgba(231, 76, 60, 0.9)',
-                border: 'none',
-                borderRadius: '50%',
-                width: '36px',
-                height: '36px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-                zIndex: 2,
-                color: 'white',
-                fontSize: '18px',
-                fontWeight: 'bold'
-              }}
-              aria-label="Próxima avaliação"
-            >
-              ❯
-            </button>
           </div>
-        </section>
+          <p style={{ 
+            color: '#555', 
+            fontSize: isMobile ? '0.88rem' : '0.92rem',
+            lineHeight: '1.5',
+            margin: 0,
+            wordBreak: 'break-word',
+            hyphens: 'auto'
+          }}>
+            "{avaliacao.texto}"
+          </p>
+        </div>
+      ))}
+    </div>
+
+    {/* Botões de Navegação - Estilo Melhorado */}
+    <button 
+      onClick={() => {
+        const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
+        avaliacoesRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      }}
+      style={{
+        position: 'absolute',
+        top: '50%',
+        left: isMobile ? '5px' : '10px',
+        transform: 'translateY(-50%)',
+        background: 'rgba(255,255,255,0.9)',
+        border: '1px solid #e0e0e0',
+        borderRadius: '50%',
+        width: '36px',
+        height: '36px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+        zIndex: 2,
+        color: '#095400',
+        fontSize: '18px',
+        fontWeight: 'bold'
+      }}
+      aria-label="Avaliação anterior"
+    >
+      ❮
+    </button>
+    <button 
+      onClick={() => {
+        const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
+        avaliacoesRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }}
+      style={{
+        position: 'absolute',
+        top: '50%',
+        right: isMobile ? '5px' : '10px',
+        transform: 'translateY(-50%)',
+        background: 'rgba(255,255,255,0.9)',
+        border: '1px solid #e0e0e0',
+        borderRadius: '50%',
+        width: '36px',
+        height: '36px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+        zIndex: 2,
+        color: '#095400',
+        fontSize: '18px',
+        fontWeight: 'bold'
+      }}
+      aria-label="Próxima avaliação"
+    >
+      ❯
+    </button>
+  </div>
+</section>
 
 {/* Rodapé Premium - Totalmente Reformulado */}
 <footer style={{
@@ -1686,24 +1580,13 @@ useEffect(() => {
   </div>
 </footer>
 
-        {/* CSS Animations para Black Friday */}
-        <style jsx global>{`
-          @keyframes shine {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-          }
-          
-          @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.8; }
-          }
-          
-          .cta-button:hover {
-            transform: translateY(-3px) !important;
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6) !important;
-          }
-        `}</style>
+<style jsx global>{`
+  /* Garante que o link fique acima das notificações */
+  #legal-links-container {
+    position: relative;
+    z-index: 100;
+  }
+`}</style>
       </div>
     </>
   );
