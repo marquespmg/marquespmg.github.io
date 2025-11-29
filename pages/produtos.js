@@ -62,8 +62,6 @@ const categories = [
   'Farináceos', 'Higiene', 'Orientais', 'Panificação', 'Salgados', '⏳ Ofertas da Semana 🚨'
 ];
 
-// build fix
-
 const products = [
   { id: 1, name: 'PRODUTO EM FALTA', category: 'Bebidas', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 2, name: 'PRODUTO EM FALTA', category: 'Conservas/Enlatados', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
@@ -822,7 +820,7 @@ const products = [
   { id: 755, name: 'MUÇARELA NATVILLE 4 KG', category: 'Derivados de Leite', price: 31.08, image: 'https://www.marquesvendaspmg.shop/images/mucarela-natville-4-kg-pmg-atacadista.jpg' },
   { id: 756, name: 'MUÇARELA PARAÍSO 4 KG', category: 'Derivados de Leite', price: 32.84, image: 'https://www.marquesvendaspmg.shop/images/mucarela-paraiso-4-kg-pmg-atacadista.jpg' },
   { id: 757, name: 'MUÇARELA PILOTO 4 KG', category: 'Derivados de Leite', price: 27.05, image: 'https://www.marquesvendaspmg.shop/images/mucarela-piloto-4-kg-pmg-atacadista.jpg' },
-  { id: 758, name: 'MUÇARELA POLENGHI 3.5 KG', category: 'Derivados de Leite', price: 32.92, image: 'https://www.marquesvendaspmg.shop/images/mucarela-polenghi-35-kg-pmg-atacadista.jpg' },
+  { id: 758, name: 'MUÇARELA POLENGHI 3,5 KG', category: 'Derivados de Leite', price: 32.92, image: 'https://www.marquesvendaspmg.shop/images/mucarela-polenghi-35-kg-pmg-atacadista.jpg' },
   { id: 759, name: 'MUÇARELA PRIMO 4 KG', category: 'Derivados de Leite', price: 28.11, image: 'https://www.marquesvendaspmg.shop/images/mucarela-primo-4-kg-pmg-atacadista.jpg' },
   { id: 760, name: 'PRODUTO EM FALTA', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/produto-em-falta-pmg-atacadista.jpg' },
   { id: 761, name: 'MUÇARELA QUATIGUÁ 4 KG', category: 'Derivados de Leite', price: 28.8, image: 'https://www.marquesvendaspmg.shop/images/mucarela-quatigua-4-kg-pmg-atacadista.jpg' },
@@ -2199,58 +2197,7 @@ const ProductsPage = () => {
   const productsPerPage = windowWidth > 768 ? 20 : 10;
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
-
-// Contador regressivo Black Friday 2025 - VERSÃO DEFINITIVA
-const [timeLeft, setTimeLeft] = useState({
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0
-});
-
-// Configurar contador regressivo para BLACK FRIDAY 2025
-useEffect(() => {
-  // Data da Black Friday 2025: 28 de Novembro de 2025
-  const blackFridayDate = new Date('November 28, 2025 23:59:59');
-  
-  const updateCountdown = () => {
-    const now = new Date().getTime();
-    const difference = blackFridayDate - now;
-    
-    if (difference > 0) {
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-      
-      setTimeLeft({
-        days: days,
-        hours: hours,
-        minutes: minutes,
-        seconds: seconds
-      });
-      
-      // DEBUG
-      console.log('🎯 CONTADOR 2025:', { 
-        dias: days,
-        dataAlvo: blackFridayDate.toLocaleDateString('pt-BR')
-      });
-      
-    } else {
-      setTimeLeft({
-        days: 0,
-        hours: 0, 
-        minutes: 0,
-        seconds: 0
-      });
-    }
-  };
-  
-  updateCountdown();
-  const interval = setInterval(updateCountdown, 1000);
-  
-  return () => clearInterval(interval);
-}, []);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Efeito para o carrossel automático
   useEffect(() => {
@@ -2287,6 +2234,176 @@ useEffect(() => {
     };
   }, []);
 
+// ADICIONAR ESTE USEEFFECT APÓS OS EXISTENTES
+useEffect(() => {
+  const applyCategoryFilterFromURL = () => {
+    // Verificar se estamos no navegador
+    if (typeof window === 'undefined') return;
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoriaFromURL = urlParams.get('categoria');
+    
+    if (categoriaFromURL) {
+      // Encontrar a categoria correspondente (case insensitive)
+      const categoriaEncontrada = categories.find(cat => 
+        cat.toLowerCase() === categoriaFromURL.toLowerCase()
+      );
+      
+      if (categoriaEncontrada) {
+        setSelectedCategory(categoriaEncontrada);
+        setCurrentPage(1);
+        
+        // Rolagem suave para a seção de produtos
+        setTimeout(() => {
+          const productsSection = document.querySelector('.products-grid');
+          if (productsSection) {
+            productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 300);
+      }
+    }
+  };
+
+  applyCategoryFilterFromURL();
+}, []); // Executa apenas uma vez ao carregar a página
+
+// SUBSTITUA O USEEFFECT PROBLEMÁTICO POR ESTE:
+
+useEffect(() => {
+  const updateSEOMetaTags = () => {
+    // Só executa no cliente
+    if (typeof window === 'undefined') return;
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoriaFromURL = urlParams.get('categoria');
+    
+    console.log('🔍 DEBUG SEO - Categoria detectada:', categoriaFromURL);
+    
+    let pageTitle = '';
+    let metaDescription = '';
+
+    if (categoriaFromURL) {
+      // MAPEAMENTO COMPLETO DE SEO
+      const seoMap = {
+        'acessórios': {
+          title: 'Acessórios para Restaurantes e Bares - Utensílios Profissionais | PMG Atacadista',
+          description: 'Acessórios e utensílios profissionais para restaurantes, bares e food service. Melhor preço atacado com entrega grátis SP.'
+        },
+        'bebidas': {
+          title: 'Bebidas para Atacado - Cervejas, Refris, Sucos, Águas | PMG Atacadista',
+          description: 'Melhor preço em bebidas para seu negócio! Cervejas Skol, Brahma, Heineken. Refrigerantes, sucos, águas, energéticos. Atacado food service com entrega grátis.'
+        },
+        'conservas/enlatados': {
+          title: 'Conservas e Enlatados para Atacado - Milho, Ervilha, Seleta | PMG Atacadista',
+          description: 'Conservas, enlatados e produtos em lata para seu restaurante. Milho, ervilha, seleta, palmito, azeitonas. Atacado food service SP.'
+        },
+        'derivados de ave': {
+          title: 'Produtos de Frango para Atacado - Frango Inteiro, Cortes, Embutidos | PMG',
+          description: 'Derivados de frango e ave para food service. Frango inteiro, cortes, filé, coxa, sobrecoxa, linguiça de frango. Melhor preço atacado.'
+        },
+        'derivados de bovino': {
+          title: 'Carnes Bovinas para Atacado - Picanha, Alcatra, Contrafilé | PMG Atacadista',
+          description: 'Carnes bovinas premium para churrascos e restaurantes. Picanha, alcatra, contrafilé, maminha. Melhor preço atacado com entrega rápida.'
+        },
+        'derivados de leite': {
+          title: 'Laticínios para Atacado - Queijos, Manteiga, Iogurte, Requeijão | PMG',
+          description: 'Laticínios e derivados de leite para seu negócio. Queijos, manteiga, iogurte, requeijão, cream cheese. Atacado food service SP.'
+        },
+        'derivados de suíno': {
+          title: 'Produtos Suínos para Atacado - Linguiça, Bacon, Pernil, Carne de Porco | PMG',
+          description: 'Derivados de suínos e carne de porco para restaurantes. Linguiça toscana, bacon, pernil, costela, lombo. Melhor preço atacado.'
+        },
+        'derivados de vegetal': {
+          title: 'Produtos Vegetais para Atacado - Hortifruti, Legumes, Verduras | PMG Atacadista',
+          description: 'Derivados vegetais e hortifruti para food service. Legumes, verduras, produtos congelados, polpas. Atacado com entrega grátis SP.'
+        },
+        'derivados do mar': {
+          title: 'Frutos do Mar e Pescados para Atacado - Peixes, Camarão, Polvo | PMG',
+          description: 'Frutos do mar e pescados frescos e congelados. Peixes, camarão, polvo, lula, mariscos. Melhor preço atacado para restaurantes.'
+        },
+        'doces/frutas': {
+          title: 'Doces e Frutas para Atacado - Sobremesas, Geleias, Frutas Frescas | PMG',
+          description: 'Doces, sobremesas e frutas para seu estabelecimento. Geleias, compotas, frutas frescas e secas. Atacado food service SP.'
+        },
+        'farináceos': {
+          title: 'Farináceos para Atacado - Arroz, Feijão, Macarrão, Farinha | PMG Atacadista',
+          description: 'Farináceos e mantimentos para seu comércio. Arroz, feijão, macarrão, farinha de trigo, óleo, açúcar. Melhor preço atacado região SP.'
+        },
+        'higiene': {
+          title: 'Produtos de Higiene e Limpeza para Atacado - Sabão, Detergente, Álcool | PMG',
+          description: 'Produtos de higiene e limpeza profissional para restaurantes e mercados. Sabão, detergente, álcool, desinfetante. Atacado SP.'
+        },
+        'orientais': {
+          title: 'Produtos Orientais para Atacado - Temperos, Molhos, Massas Asiáticas | PMG',
+          description: 'Produtos orientais e asiáticos para food service. Shoyu, temperos, molhos, massas, ingredientes. Melhor preço atacado SP.'
+        },
+        'panificação': {
+          title: 'Produtos de Panificação para Atacado - Pães, Bolos, Farinhas | PMG Atacadista',
+          description: 'Produtos para panificação e confeitaria. Farinhas, fermentos, pães, bolos, ingredientes. Atacado para padarias e restaurantes.'
+        },
+        'salgados': {
+          title: 'Salgados e Congelados para Atacado - Coxinhas, Empadas, Pizzas | PMG',
+          description: 'Salgados, congelados e pratos prontos para seu negócio. Coxinhas, empadas, pizzas, esfihas. Melhor preço atacado food service.'
+        },
+        '⏳ ofertas da semana 🚨': {
+          title: '🔥 Ofertas da Semana - Promoções Imperdíveis em Atacado | PMG Atacadista',
+          description: 'Promoções da semana com até 50% off! Ofertas especiais em bebidas, carnes, laticínios, mercearia. Corre que é por tempo limitado!'
+        }
+      };
+
+      const categoriaLower = categoriaFromURL.toLowerCase();
+      const seoData = seoMap[categoriaLower];
+
+      if (seoData) {
+        pageTitle = seoData.title;
+        metaDescription = seoData.description;
+      } else {
+        pageTitle = `${categoriaFromURL} - PMG Atacadista | Melhor Preço em Atacado`;
+        metaDescription = `Compre ${categoriaFromURL} com melhor preço atacado. PMG Atacadista - food service com entrega grátis SP e região.`;
+      }
+    } else {
+      pageTitle = 'Catálogo Completo - PMG Atacadista | Atacado Food Service SP';
+      metaDescription = 'Catálogo completo de produtos atacado. Bebidas, carnes, laticínios, mercearia, limpeza. Melhor preço com entrega grátis SP.';
+    }
+
+    console.log('🔄 Atualizando título para:', pageTitle);
+    
+    // Força a atualização do título
+    document.title = pageTitle;
+    
+    // Atualiza meta description
+    let metaDescTag = document.querySelector('meta[name="description"]');
+    if (!metaDescTag) {
+      metaDescTag = document.createElement('meta');
+      metaDescTag.name = 'description';
+      document.head.appendChild(metaDescTag);
+    }
+    metaDescTag.content = metaDescription;
+
+    // Múltiplas tentativas para garantir
+    const forceTitleUpdate = () => {
+      if (document.title !== pageTitle) {
+        console.log('🔄 Forçando atualização do título...');
+        document.title = pageTitle;
+      }
+    };
+
+    // Executa várias vezes para garantir
+    forceTitleUpdate();
+    setTimeout(forceTitleUpdate, 100);
+    setTimeout(forceTitleUpdate, 500);
+    setTimeout(forceTitleUpdate, 1000);
+  };
+
+  // Executa imediatamente
+  updateSEOMetaTags();
+  
+  // Re-executa após o componente montar completamente
+  const timer = setTimeout(updateSEOMetaTags, 300);
+  
+  return () => clearTimeout(timer);
+}, [selectedCategory]); // REMOVI window.location.search da dependência
+
   // Função para login com Google
 const handleGoogleLogin = async () => {
   setLoading(true);
@@ -2294,7 +2411,7 @@ const handleGoogleLogin = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'https://www.marquesvendaspmg.shop/produtos',
+        redirectTo: 'https://www.marquesvendaspmg.shop/produtos', // <- aqui é o segredo
         queryParams: {
           access_type: 'offline',
           prompt: 'consent',
@@ -2351,7 +2468,7 @@ const handleGoogleLogin = async () => {
           .eq('id', user.id)
           .single();
         
-        if (error && error.code !== 'PGRST116') {
+        if (error && error.code !== 'PGRST116') { // PGRST116 = nenhum resultado encontrado
           console.error('Erro ao buscar usuário:', error);
         }
         
@@ -2578,13 +2695,13 @@ const removeFromCart = (productId) => {
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // ========== ESTILOS ATUALIZADOS - TEMA BLACK FRIDAY ========== //
+  // Estilos atualizados com os novos elementos
   const styles = {
     container: {
       maxWidth: '1200px',
       margin: '0 auto',
       padding: windowWidth > 768 ? '20px' : '10px',
-      backgroundColor: '#1a1a1a', // Fundo escuro Black Friday
+      backgroundColor: '#f9f9f9',
       minHeight: '100vh',
       position: 'relative'
     },
@@ -2592,42 +2709,37 @@ const removeFromCart = (productId) => {
       textAlign: 'center',
       marginBottom: windowWidth > 768 ? '20px' : '10px',
       padding: windowWidth > 768 ? '20px' : '15px',
-      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-      borderRadius: '15px',
-      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.3)',
-      border: '2px solid #e74c3c'
+      backgroundColor: '#fff',
+      borderRadius: '10px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
     },
     userWelcomeBar: {
-      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+      backgroundColor: '#095400',
       color: 'white',
       padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
-      borderRadius: '10px',
+      borderRadius: '8px',
       flex: 1,
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      gap: '6px',
-      boxShadow: '0 2px 10px rgba(231, 76, 60, 0.4)',
-      border: '2px solid #ffd700'
+      flexDirection: 'column',      // muda de linha
+      alignItems: 'flex-start',     // alinha à esquerda
+      gap: '6px'                    // espaço entre mensagem e botão
     },
     welcomeMessage: {
       fontSize: windowWidth > 768 ? '16px' : '14px',
       fontWeight: '600',
-      margin: 0,
-      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+      margin: 0
     },
     homeButton: {
-      background: 'linear-gradient(45deg, #ffd700, #ffed4e)',
-      color: '#c0392b',
-      border: '1px solid #fff',
+      backgroundColor: 'white',
+      color: '#095400',
+      border: '1px solid #095400', // opcional pra destacar
       padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
       borderRadius: '20px',
       fontSize: windowWidth > 768 ? '14px' : '12px',
       fontWeight: '600',
       cursor: 'pointer',
       textDecoration: 'none',
-      whiteSpace: 'nowrap',
-      boxShadow: '0 2px 8px rgba(255, 215, 0, 0.4)'
+      whiteSpace: 'nowrap'
     },
     topHeaderContainer: {
       display: 'flex',
@@ -2640,15 +2752,13 @@ const removeFromCart = (productId) => {
       display: 'block',
       margin: '0 auto 20px',
       padding: '10px 20px',
-      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
-      border: '1px solid #ffd700',
+      backgroundColor: '#f0f0f0',
+      border: 'none',
       borderRadius: '30px',
       fontSize: '14px',
       fontWeight: '600',
       cursor: 'pointer',
-      transition: 'all 0.3s',
-      color: 'white',
-      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+      transition: 'all 0.3s'
     },
     searchBar: {
       display: 'flex',
@@ -2661,13 +2771,11 @@ const removeFromCart = (productId) => {
       maxWidth: '500px',
       padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
       borderRadius: '30px',
-      border: '2px solid #e74c3c',
+      border: '1px solid #ddd',
       fontSize: windowWidth > 768 ? '16px' : '14px',
       outline: 'none',
-      boxShadow: '0 2px 8px rgba(231, 76, 60, 0.3)',
-      transition: 'all 0.3s',
-      backgroundColor: '#2c3e50',
-      color: '#ecf0f1'
+      boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+      transition: 'all 0.3s'
     },
     categoryMenu: {
       display: 'flex',
@@ -2676,10 +2784,9 @@ const removeFromCart = (productId) => {
       gap: windowWidth > 768 ? '10px' : '5px',
       margin: windowWidth > 768 ? '30px 0' : '15px 0',
       padding: windowWidth > 768 ? '15px' : '10px',
-      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-      borderRadius: '15px',
-      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.3)',
-      border: '2px solid #e74c3c',
+      backgroundColor: '#fff',
+      borderRadius: '10px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
       overflowX: windowWidth <= 768 ? 'auto' : 'visible',
       whiteSpace: 'nowrap',
       scrollbarWidth: 'none',
@@ -2689,22 +2796,20 @@ const removeFromCart = (productId) => {
       }
     },
     categoryButton: {
-      background: 'linear-gradient(135deg, #34495e, #2c3e50)',
-      color: '#ecf0f1',
-      border: '1px solid #e74c3c',
+      backgroundColor: '#f0f0f0',
+      color: '#333',
+      border: 'none',
       padding: windowWidth > 768 ? '10px 20px' : '8px 12px',
       borderRadius: '30px',
       fontSize: windowWidth > 768 ? '14px' : '12px',
       fontWeight: '600',
       cursor: 'pointer',
       transition: 'all 0.3s',
-      whiteSpace: 'nowrap',
-      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+      whiteSpace: 'nowrap'
     },
     activeCategory: {
-      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
-      color: '#fff',
-      border: '1px solid #ffd700'
+      backgroundColor: '#095400',
+      color: '#fff'
     },
     productsGrid: {
       display: 'grid',
@@ -2713,23 +2818,18 @@ const removeFromCart = (productId) => {
       margin: windowWidth > 768 ? '30px 0' : '15px 0'
     },
     productCard: {
-      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+      backgroundColor: '#fff',
       borderRadius: '12px',
-      boxShadow: '0 5px 20px rgba(0,0,0,0.3)',
+      boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
       overflow: 'hidden',
       transition: 'transform 0.3s, box-shadow 0.3s',
-      position: 'relative',
-      border: '2px solid #e74c3c',
-      ':hover': {
-        transform: 'translateY(-5px)',
-        boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)'
-      }
+      position: 'relative'
     },
     productImage: {
       width: '100%',
       height: windowWidth > 768 ? '180px' : '120px',
       objectFit: 'cover',
-      borderBottom: '2px solid #e74c3c'
+      borderBottom: '1px solid #eee'
     },
     productInfo: {
       padding: windowWidth > 768 ? '20px' : '10px',
@@ -2744,7 +2844,7 @@ const removeFromCart = (productId) => {
     productName: {
       fontSize: windowWidth > 768 ? '16px' : '14px',
       fontWeight: '600',
-      color: '#ecf0f1',
+      color: '#333',
       marginBottom: '5px',
       display: '-webkit-box',
       WebkitLineClamp: expandedDescriptions ? 'unset' : (windowWidth > 768 ? 2 : 3),
@@ -2755,7 +2855,7 @@ const removeFromCart = (productId) => {
     showMoreButton: {
       background: 'none',
       border: 'none',
-      color: '#ffd700',
+      color: '#095400',
       fontSize: '12px',
       cursor: 'pointer',
       padding: '0',
@@ -2766,38 +2866,31 @@ const removeFromCart = (productId) => {
     productPrice: {
       fontSize: windowWidth > 768 ? '18px' : '16px',
       fontWeight: '700',
-      color: '#ffd700',
-      margin: windowWidth > 768 ? '15px 0' : '10px 0',
-      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+      color: '#e53935',
+      margin: windowWidth > 768 ? '15px 0' : '10px 0'
     },
     unavailablePrice: {
       fontSize: windowWidth > 768 ? '18px' : '16px',
       fontWeight: '700',
-      color: '#7f8c8d',
+      color: '#999',
       margin: windowWidth > 768 ? '15px 0' : '10px 0',
       textDecoration: 'line-through'
     },
     addButton: {
       width: '100%',
       padding: windowWidth > 768 ? '12px' : '10px',
-      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+      backgroundColor: '#095400',
       color: '#fff',
       border: 'none',
       borderRadius: '6px',
       fontSize: windowWidth > 768 ? '15px' : '13px',
       fontWeight: '600',
       cursor: 'pointer',
-      transition: 'background-color 0.3s',
-      border: '1px solid #ffd700',
-      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
-      ':hover': {
-        background: 'linear-gradient(45deg, #c0392b, #a93226)'
-      }
+      transition: 'background-color 0.3s'
     },
     disabledButton: {
-      background: 'linear-gradient(45deg, #7f8c8d, #95a5a6)',
-      cursor: 'not-allowed',
-      border: '1px solid #bdc3c7'
+      backgroundColor: '#ccc',
+      cursor: 'not-allowed'
     },
     pagination: {
       display: 'flex',
@@ -2809,31 +2902,23 @@ const removeFromCart = (productId) => {
     },
     pageButton: {
       padding: windowWidth > 768 ? '8px 15px' : '6px 10px',
-      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-      border: '2px solid #e74c3c',
+      backgroundColor: '#fff',
+      border: '1px solid #ddd',
       borderRadius: '6px',
       cursor: 'pointer',
       transition: 'all 0.3s',
-      fontSize: windowWidth > 768 ? '14px' : '12px',
-      color: '#ffd700',
-      fontWeight: '600',
-      textShadow: '0 1px 2px rgba(0,0,0,0.3)',
-      ':hover': {
-        background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
-        color: '#fff'
-      }
+      fontSize: windowWidth > 768 ? '14px' : '12px'
     },
     activePage: {
-      background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+      backgroundColor: '#095400',
       color: '#fff',
-      borderColor: '#ffd700'
+      borderColor: '#095400'
     },
     resultsInfo: {
       textAlign: 'center',
-      color: '#ffd700',
+      color: '#666',
       margin: windowWidth > 768 ? '20px 0' : '10px 0',
-      fontSize: windowWidth > 768 ? '14px' : '12px',
-      textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+      fontSize: windowWidth > 768 ? '14px' : '12px'
     },
     authModal: {
       position: 'fixed',
@@ -2849,18 +2934,17 @@ const removeFromCart = (productId) => {
       padding: windowWidth > 768 ? '0' : '10px'
     },
     authBox: {
-      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-      borderRadius: '15px',
+      backgroundColor: '#fff',
+      borderRadius: '10px',
       padding: windowWidth > 768 ? '30px' : '20px',
       width: '90%',
       maxWidth: '400px',
-      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)',
-      border: '2px solid #e74c3c'
+      boxShadow: '0 5px 20px rgba(0,0,0,0.2)'
     },
     authToggle: {
       background: 'none',
       border: 'none',
-      color: '#ffd700',
+      color: '#095400',
       cursor: 'pointer',
       fontWeight: '600',
       textDecoration: 'underline',
@@ -2873,7 +2957,7 @@ const removeFromCart = (productId) => {
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: 'rgba(26, 26, 26, 0.95)',
+      backgroundColor: 'rgba(255,255,255,0.9)',
       zIndex: 999,
       display: 'flex',
       justifyContent: 'center',
@@ -2885,30 +2969,28 @@ const removeFromCart = (productId) => {
       fontSize: windowWidth > 768 ? '24px' : '18px',
       fontWeight: 'bold',
       marginBottom: '20px',
-      color: '#ffd700',
-      textAlign: 'center',
-      textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+      color: '#095400',
+      textAlign: 'center'
     },
     bannerContainer: {
       margin: windowWidth > 768 ? '40px 0' : '20px 0',
       position: 'relative',
       width: '100%',
       overflow: 'hidden',
-      borderRadius: '15px',
-      boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)',
-      border: '2px solid #e74c3c'
+      borderRadius: '10px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
     },
     bannerImage: {
       width: '100%',
       display: 'block',
       transition: 'transform 0.5s ease',
-      borderRadius: '15px'
+      borderRadius: '10px'
     },
     bannerNavButton: {
       position: 'absolute',
       top: '50%',
       transform: 'translateY(-50%)',
-      backgroundColor: 'rgba(231, 76, 60, 0.9)',
+      backgroundColor: 'rgba(0,0,0,0.5)',
       color: 'white',
       border: 'none',
       borderRadius: '50%',
@@ -2919,12 +3001,7 @@ const removeFromCart = (productId) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      zIndex: 10,
-      border: '1px solid #ffd700',
-      ':hover': {
-        backgroundColor: '#ffd700',
-        color: '#e74c3c'
-      }
+      zIndex: 10
     },
     prevButton: {
       left: '10px'
@@ -2941,14 +3018,13 @@ const removeFromCart = (productId) => {
       width: windowWidth > 768 ? '12px' : '8px',
       height: windowWidth > 768 ? '12px' : '8px',
       borderRadius: '50%',
-      backgroundColor: '#7f8c8d',
+      backgroundColor: '#ccc',
       margin: '0 5px',
       cursor: 'pointer',
       transition: 'background-color 0.3s'
     },
     activeDot: {
-      backgroundColor: '#e74c3c',
-      transform: 'scale(1.2)'
+      backgroundColor: '#095400'
     },
     toastContainer: {
       position: 'fixed',
@@ -2957,10 +3033,10 @@ const removeFromCart = (productId) => {
       zIndex: 1000
     },
     promoToast: {
-      background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-      borderLeft: '4px solid #e74c3c',
+      background: '#fff',
+      borderLeft: '4px solid #2ecc71',
       borderRadius: '8px',
-      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
       padding: '16px',
       maxWidth: '320px',
       opacity: 0,
@@ -2968,8 +3044,7 @@ const removeFromCart = (productId) => {
       transition: 'opacity 0.4s, transform 0.4s',
       display: 'flex',
       gap: '12px',
-      marginBottom: '10px',
-      border: '1px solid #e74c3c'
+      marginBottom: '10px'
     },
     promoToastShow: {
       opacity: 1,
@@ -2987,43 +3062,42 @@ const removeFromCart = (productId) => {
       border: 'none',
       fontSize: '18px',
       cursor: 'pointer',
-      color: '#ffd700',
+      color: '#95a5a6',
       alignSelf: 'flex-start'
     },
     toastTitle: {
       margin: '0 0 8px 0',
-      color: '#ffd700',
+      color: '#2c3e50',
       fontSize: '16px',
       fontWeight: 700
     },
     toastMessage: {
       margin: 0,
-      color: '#ecf0f1',
+      color: '#7f8c8d',
       fontSize: '14px',
       lineHeight: 1.4
     },
     toastHighlight: {
-      color: '#ffd700',
+      color: '#e74c3c',
       fontWeight: 'bold'
     },
     toastWhatsappBtn: {
       display: 'inline-block',
       marginTop: '12px',
-      background: 'linear-gradient(45deg, #25D366, #128C7E)',
+      background: '#25D366',
       color: 'white',
       padding: '8px 12px',
       borderRadius: '6px',
       textDecoration: 'none',
       fontWeight: 'bold',
-      fontSize: '13px',
-      border: '1px solid #ffd700'
+      fontSize: '13px'
     },
     googleLoginButton: {
       width: '100%',
       padding: '12px 20px',
-      background: 'linear-gradient(135deg, #34495e, #2c3e50)',
-      color: '#ffd700',
-      border: '1px solid #e74c3c',
+      backgroundColor: '#fff',
+      color: '#757575',
+      border: '1px solid #ddd',
       borderRadius: '6px',
       fontSize: '15px',
       fontWeight: '600',
@@ -3034,11 +3108,7 @@ const removeFromCart = (productId) => {
       justifyContent: 'center',
       gap: '10px',
       marginTop: '15px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-      ':hover': {
-        background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
-        color: 'white'
-      }
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
     },
     googleLogo: {
       width: '20px',
@@ -3049,22 +3119,21 @@ const removeFromCart = (productId) => {
       height: '32px',
       borderRadius: '50%',
       objectFit: 'cover',
-      marginRight: '10px',
-      border: '2px solid #ffd700'
+      marginRight: '10px'
     },
     userInfoContainer: {
       display: 'flex',
       alignItems: 'center',
       gap: '10px'
     },
-    // ESTILO LUPA - TEMA BLACK FRIDAY
+    // NOVO ESTILO: Lupa de detalhes do produto
     productDetailsButton: {
       position: 'absolute',
       top: '8px',
       right: '8px',
       width: windowWidth > 768 ? '32px' : '28px',
       height: windowWidth > 768 ? '32px' : '28px',
-      backgroundColor: '#e74c3c',
+      backgroundColor: '#e53935',
       color: 'white',
       border: 'none',
       borderRadius: '50%',
@@ -3076,13 +3145,7 @@ const removeFromCart = (productId) => {
       fontWeight: 'bold',
       transition: 'all 0.3s ease',
       zIndex: 5,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-      border: '1px solid #ffd700',
-      ':hover': {
-        backgroundColor: '#ffd700',
-        color: '#e74c3c',
-        transform: 'scale(1.1)'
-      }
+      boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
     }
   };
 
@@ -3099,7 +3162,7 @@ const removeFromCart = (productId) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#ffd700',
+          color: '#fff',
           fontSize: '20px',
           fontWeight: 'bold',
           zIndex: 9999
@@ -3107,108 +3170,6 @@ const removeFromCart = (productId) => {
           Aguarde...
         </div>
       )}
-
-      {/* BANNER SUPERIOR BLACK FRIDAY */}
-      <div style={{
-        background: 'linear-gradient(45deg, #000000, #e74c3c, #000000)',
-        color: 'white',
-        textAlign: 'center',
-        padding: windowWidth > 768 ? '15px 20px' : '12px 10px',
-        marginBottom: windowWidth > 768 ? '20px' : '15px',
-        borderRadius: '10px',
-        border: '2px solid #e74c3c',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '10px',
-          flexWrap: 'wrap'
-        }}>
-          <span style={{
-            fontSize: windowWidth > 768 ? '1.3rem' : '1.1rem',
-            fontWeight: '800',
-            textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-            background: 'linear-gradient(45deg, #ffd700, #ffffff, #ffd700)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            animation: 'shine 2s infinite'
-          }}>
-            🚀 BLACK FRIDAY 2025 🚀
-          </span>
-          <span style={{
-            fontSize: windowWidth > 768 ? '1rem' : '0.9rem',
-            fontWeight: '600'
-          }}>
-            Catálogo Completo com Ofertas Exclusivas!
-          </span>
-        </div>
-      </div>
-
-      {/* CONTADOR REGRESSIVO - 26 DIAS */}
-      <div style={{
-        background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-        color: 'white',
-        padding: windowWidth > 768 ? '20px 15px' : '15px 10px',
-        borderRadius: '12px',
-        textAlign: 'center',
-        marginBottom: windowWidth > 768 ? '30px' : '20px',
-        border: '2px solid #e74c3c',
-        boxShadow: '0 4px 15px rgba(231, 76, 60, 0.3)'
-      }}>
-        <h3 style={{
-          margin: '0 0 15px 0',
-          fontSize: windowWidth > 768 ? '1.2rem' : '1rem',
-          fontWeight: '600',
-          color: '#ffd700'
-        }}>
-          ⏰ BLACK FRIDAY 2025 - OFERTAS TERMINAM EM:
-        </h3>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: windowWidth > 768 ? '15px' : '8px',
-          flexWrap: 'wrap'
-        }}>
-          {['Dias', 'Horas', 'Minutos', 'Segundos'].map((label, index) => (
-            <div key={label} style={{
-              textAlign: 'center',
-              minWidth: windowWidth > 768 ? '80px' : '70px'
-            }}>
-              <div style={{
-                background: '#e74c3c',
-                color: 'white',
-                padding: '8px',
-                borderRadius: '8px',
-                fontSize: windowWidth > 768 ? '1.5rem' : '1.2rem',
-                fontWeight: '800',
-                marginBottom: '5px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-                border: '1px solid #ffd700'
-              }}>
-                {Object.values(timeLeft)[index]}
-              </div>
-              <div style={{
-                fontSize: windowWidth > 768 ? '0.8rem' : '0.7rem',
-                color: '#bdc3c7',
-                fontWeight: '600'
-              }}>
-                {label}
-              </div>
-            </div>
-          ))}
-        </div>
-        <p style={{
-          margin: '15px 0 0 0',
-          fontSize: windowWidth > 768 ? '0.8rem' : '0.7rem',
-          color: '#ffd700',
-          fontStyle: 'italic'
-        }}>
-          🚀 Prepare-se! As melhores ofertas do ano começam em breve
-        </p>
-      </div>
 
       {/* Notificações Toast */}
       <div style={styles.toastContainer}>
@@ -3260,21 +3221,17 @@ const removeFromCart = (productId) => {
       <div style={styles.container}>
         {pageBlocked && (
           <div style={styles.pageBlocker}>
-            <p style={styles.blockerMessage}>🎯 Faça login para acessar os preços BLACK FRIDAY e comprar</p>
+            <p style={styles.blockerMessage}>Faça login para acessar os preços e comprar</p>
             <button
               onClick={() => setShowAuthModal(true)}
-              style={{
-                ...styles.addButton,
-                padding: '15px 30px',
-                fontSize: '16px'
-              }}
+              style={styles.addButton}
             >
-              🚀 ACESSAR MINHA CONTA BLACK FRIDAY
+              Acessar minha conta
             </button>
           </div>
         )}
 
-        {/* Barra de boas-vindas com foto do usuário - Tema Black Friday */}
+        {/* Barra de boas-vindas com foto do usuário */}
         {user && (
           <div style={styles.userWelcomeBar}>
             <div style={styles.userInfoContainer}>
@@ -3286,11 +3243,11 @@ const removeFromCart = (productId) => {
                 />
               )}
               <p style={styles.welcomeMessage}>
-                {userName ? `🎉 Olá ${userName}, seja bem-vindo(a) à BLACK FRIDAY!` : `🎉 Olá ${user.email}, seja bem-vindo(a) à BLACK FRIDAY!`}
+                {userName ? `Olá ${userName}, seja bem-vindo(a)!` : `Olá ${user.email}, seja bem-vindo(a)!`}
               </p>
             </div>
             <a href="/" style={styles.homeButton}>
-              🏠 Página Inicial
+              Página Inicial
             </a>
           </div>
         )}
@@ -3298,28 +3255,25 @@ const removeFromCart = (productId) => {
         <div style={styles.header}>
           <img 
             src="https://i.imgur.com/pBH5WpZ.png" 
-            alt="Logo Black Friday" 
+            alt="Logo" 
             style={{ 
               height: windowWidth > 768 ? '60px' : '50px', 
-              marginBottom: windowWidth > 768 ? '15px' : '10px',
-              filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
+              marginBottom: windowWidth > 768 ? '15px' : '10px' 
             }} 
           />
           <h1 style={{ 
-            color: '#ffd700', 
+            color: '#095400', 
             fontSize: windowWidth > 768 ? '28px' : '22px', 
             fontWeight: '700',
-            marginBottom: '10px',
-            textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+            marginBottom: '10px'
           }}>
-            🎁 PMG ATACADISTA - BLACK FRIDAY
+            PMG ATACADISTA
           </h1>
           <p style={{ 
-            color: '#ecf0f1', 
-            fontSize: windowWidth > 768 ? '16px' : '14px',
-            textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+            color: '#666', 
+            fontSize: windowWidth > 768 ? '16px' : '14px' 
           }}>
-            Catálogo completo com as melhores ofertas para seu negócio
+            Encontre os melhores produtos para seu negócio
           </p>
         </div>
 
@@ -3328,14 +3282,14 @@ const removeFromCart = (productId) => {
             onClick={handleLogout}
             style={styles.logoutButton}
           >
-            🚪 Sair da Conta
+            Sair da Conta
           </button>
         )}
 
         <div style={styles.searchBar}>
           <input
             type="text"
-            placeholder="🔍 Pesquisar produtos BLACK FRIDAY..."
+            placeholder="🔍 Pesquisar produtos..."
             value={searchTerm}
             onChange={(e) => {
               setSearchTerm(e.target.value);
@@ -3365,7 +3319,7 @@ const removeFromCart = (productId) => {
 
 <div style={styles.productsGrid}>
   {currentProducts.map(product => {
-    const seo = generateImageSEO(product);
+    const seo = generateImageSEO(product); // ← LINHA ADICIONADA
     
     return (
       <div 
@@ -3375,10 +3329,18 @@ const removeFromCart = (productId) => {
           ...(product.price === 0 && { opacity: 0.7 })
         }}
       >
-        {/* BOTÃO LUPA - TEMA BLACK FRIDAY */}
+        {/* BOTÃO LUPA - NOVO ELEMENTO ADICIONADO */}
         <button
           onClick={() => redirectToProductDetails(product.id)}
           style={styles.productDetailsButton}
+          onMouseOver={(e) => {
+            e.target.style.backgroundColor = '#b92c2b';
+            e.target.style.transform = 'scale(1.1)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.backgroundColor = '#e03f3e';
+            e.target.style.transform = 'scale(1)';
+          }}
           title="Ver detalhes do produto"
         >
           🔍
@@ -3386,11 +3348,11 @@ const removeFromCart = (productId) => {
         
         <img 
           src={product.image} 
-          alt={seo.alt}
-          title={seo.title}
+          alt={seo.alt}                    // ← MODIFICADO
+          title={seo.title}                // ← ADICIONADO
           style={styles.productImage}
           onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/250x180/2c3e50/ecf0f1?text=Produto+Black+Friday';
+            e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
           }}
         />
               <div style={styles.productInfo}>
@@ -3413,8 +3375,8 @@ const removeFromCart = (productId) => {
                     {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
                   </p>
                 ) : (
-                  <p style={{ color: '#ffd700', fontStyle: 'italic', fontWeight: '600' }}>
-                    🔒 Faça login para ver o preço BLACK FRIDAY
+                  <p style={{ color: '#666', fontStyle: 'italic' }}>
+                    Faça login para ver o preço
                   </p>
                 )}
 
@@ -3427,7 +3389,7 @@ const removeFromCart = (productId) => {
                       ...(product.price === 0 && styles.disabledButton)
                     }}
                   >
-                    {product.price > 0 ? '🛒 Adicionar ao Carrinho' : '❌ Indisponível'}
+                    {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
                   </button>
                 )}
               </div>
@@ -3436,7 +3398,7 @@ const removeFromCart = (productId) => {
         })}
         </div>
 		
-{/* Script de dados estruturados Schema.org */}
+{/* ✅ AGORA SIM - Script de dados estruturados Schema.org */}
 <>
 <script
   type="application/ld+json"
@@ -3445,6 +3407,7 @@ const removeFromCart = (productId) => {
       "@context": "https://schema.org",
       "@graph": currentProducts.map(product => {
         
+        // Gera descrição automática baseada no nome e categoria
         const generateDescription = (product) => {
           const baseDescription = {
             'Bebidas': `Refresque-se com ${product.name}. Perfeita para momentos especiais, oferecendo qualidade e sabor incomparáveis.`,
@@ -3455,6 +3418,7 @@ const removeFromCart = (productId) => {
           return baseDescription[product.category] || baseDescription.default;
         };
 
+        // Gera brand automático baseado no nome
         const generateBrand = (product) => {
           const brandMap = {
             'ITAIPAVA': 'Itaipava',
@@ -3647,25 +3611,25 @@ const removeFromCart = (productId) => {
           </div>
         )}
 
-{/* Conteúdo SEO Black Friday - VISÍVEL APENAS PARA O GOOGLE */}
+{/* Conteúdo SEO PMG Atacadista Produtos - VISÍVEL APENAS PARA O GOOGLE */}
 <div style={{
   opacity: '0', height: '0', overflow: 'hidden', position: 'absolute', pointerEvents: 'none'
 }}>
-  <h1>Black Friday PMG Atacadista 2025 - Catálogo Completo Food Service</h1>
-  <p>Black Friday PMG Atacadista 2025 catálogo completo com laticínios, queijos, embutidos, massas, bebidas, congelados e produtos alimentícios. PMG Atacadista Black Friday produtos das melhores marcas para seu negócio.</p>
+  <h1>PMG Atacadista - Catálogo Completo de Produtos Food Service</h1>
+  <p>PMG Atacadista catálogo completo com laticínios, queijos, embutidos, massas, bebidas, congelados e produtos alimentícios. PMG Atacadista produtos das melhores marcas para seu negócio.</p>
   
-  <h2>Black Friday PMG Atacadista Produtos em Destaque</h2>
-  <p>PMG Atacadista Black Friday laticínios e derivados. PMG Atacadista queijos diversos Black Friday. PMG Atacadista embutidos e frios promoção. PMG Atacadista massas e farináceos ofertas. PMG Atacadista bebidas não alcoólicas Black Friday. PMG Atacadista congelados e pré-preparados promoção.</p>
+  <h2>PMG Atacadista Produtos em Destaque</h2>
+  <p>PMG Atacadista laticínios e derivados. PMG Atacadista queijos diversos. PMG Atacadista embutidos e frios. PMG Atacadista massas e farináceos. PMG Atacadista bebidas não alcoólicas. PMG Atacadista congelados e pré-preparados.</p>
   
-  <h3>Black Friday PMG Atacadista Fornecedor</h3>
-  <p>PMG Atacadista fornecedor autorizado Black Friday das principais marcas do mercado. PMG Atacadista qualidade garantida e procedência. PMG Atacadista estoque permanente Black Friday.</p>
+  <h3>PMG Atacadista Fornecedor</h3>
+  <p>PMG Atacadista fornecedor autorizado das principais marcas do mercado. PMG Atacadista qualidade garantida e procedência. PMG Atacadista estoque permanente.</p>
 </div>
 
-        {/* Área dos Banners - Tema Black Friday */}
+        {/* Área dos Banners */}
         <div style={styles.bannerContainer}>
           <img
             src={windowWidth > 768 ? banners[currentBannerIndex].desktop : banners[currentBannerIndex].mobile}
-            alt={`Banner Black Friday ${currentBannerIndex + 1}`}
+            alt={`Banner ${currentBannerIndex + 1}`}
             style={styles.bannerImage}
           />
           <button
@@ -4078,18 +4042,17 @@ const removeFromCart = (productId) => {
           <div style={styles.authModal}>
             <div style={styles.authBox}>
               <h2 style={{ 
-                color: '#ffd700', 
+                color: '#095400', 
                 textAlign: 'center',
                 marginBottom: '20px',
-                fontSize: windowWidth > 768 ? '24px' : '20px',
-                textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+                fontSize: windowWidth > 768 ? '24px' : '20px'
               }}>
-                {authType === 'login' ? '🎯 Acesse Sua Conta BLACK FRIDAY' : '🎁 Crie Sua Conta BLACK FRIDAY'}
+                {authType === 'login' ? 'Acesse Sua Conta' : 'Crie Sua Conta'}
               </h2>
 
               {authError && (
                 <p style={{ 
-                  color: '#e74c3c', 
+                  color: '#e53935', 
                   textAlign: 'center',
                   marginBottom: '15px',
                   fontSize: windowWidth > 768 ? '16px' : '14px'
@@ -4153,14 +4116,13 @@ const removeFromCart = (productId) => {
                     type="submit"
                     style={styles.addButton}
                   >
-                    {authType === 'login' ? '🚀 Entrar' : '🎁 Cadastrar'}
+                    {authType === 'login' ? 'Entrar' : 'Cadastrar'}
                   </button>
 
                   <p style={{ 
                     textAlign: 'center', 
                     marginTop: '15px',
-                    fontSize: windowWidth > 768 ? '16px' : '14px',
-                    color: '#ecf0f1'
+                    fontSize: windowWidth > 768 ? '16px' : '14px'
                   }}>
                     {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
                     <button
@@ -4176,7 +4138,7 @@ const removeFromCart = (productId) => {
                   </p>
                 </form>
                 
-                {/* Botão de login com Google - Tema Black Friday */}
+                {/* Adicionar o botão de login com Google */}
                 <div style={{ 
                   marginTop: '20px', 
                   textAlign: 'center',
@@ -4187,12 +4149,12 @@ const removeFromCart = (productId) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     margin: '15px 0',
-                    color: '#ffd700'
+                    color: '#757575'
                   }}>
                     <div style={{ 
                       flex: 1, 
                       height: '1px', 
-                      backgroundColor: '#e74c3c' 
+                      backgroundColor: '#ddd' 
                     }}></div>
                     <span style={{ 
                       padding: '0 10px', 
@@ -4201,7 +4163,7 @@ const removeFromCart = (productId) => {
                     <div style={{ 
                       flex: 1, 
                       height: '1px', 
-                      backgroundColor: '#e74c3c' 
+                      backgroundColor: '#ddd' 
                     }}></div>
                   </div>
                   
@@ -4222,35 +4184,9 @@ const removeFromCart = (productId) => {
           )}
 
           <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
-
-          {/* CSS Animations para Black Friday */}
-          <style jsx global>{`
-            @keyframes shine {
-              0% { background-position: -200% center; }
-              100% { background-position: 200% center; }
-            }
-            
-            @keyframes pulse {
-              0% { transform: scale(1); opacity: 0.8; }
-              50% { transform: scale(1.05); opacity: 1; }
-              100% { transform: scale(1); opacity: 0.8; }
-            }
-          `}</style>
         </div>
       </>
     );
   };
 
   export default ProductsPage;
-
-
-
-
-
-
-
-
-
-
-
-
