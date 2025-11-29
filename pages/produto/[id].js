@@ -719,7 +719,7 @@ const products = [
   { id: 755, name: 'MUÇARELA NATVILLE 4 KG', category: 'Derivados de Leite', price: 31.08, image: 'https://www.marquesvendaspmg.shop/images/mucarela-natville-4-kg-pmg-atacadista.jpg' },
   { id: 756, name: 'MUÇARELA PARAÍSO 4 KG', category: 'Derivados de Leite', price: 32.84, image: 'https://www.marquesvendaspmg.shop/images/mucarela-paraiso-4-kg-pmg-atacadista.jpg' },
   { id: 757, name: 'MUÇARELA PILOTO 4 KG', category: 'Derivados de Leite', price: 27.05, image: 'https://www.marquesvendaspmg.shop/images/mucarela-piloto-4-kg-pmg-atacadista.jpg' },
-  { id: 758, name: 'MUÇARELA POLENGHI 3.5 KG', category: 'Derivados de Leite', price: 32.92, image: 'https://www.marquesvendaspmg.shop/images/mucarela-polenghi-35-kg-pmg-atacadista.jpg' },
+  { id: 758, name: 'MUÇARELA POLENGHI 3,5 KG', category: 'Derivados de Leite', price: 32.92, image: 'https://www.marquesvendaspmg.shop/images/mucarela-polenghi-35-kg-pmg-atacadista.jpg' },
   { id: 759, name: 'MUÇARELA PRIMO 4 KG', category: 'Derivados de Leite', price: 28.11, image: 'https://www.marquesvendaspmg.shop/images/mucarela-primo-4-kg-pmg-atacadista.jpg' },
   { id: 761, name: 'MUÇARELA QUATIGUÁ 4 KG', category: 'Derivados de Leite', price: 28.8, image: 'https://www.marquesvendaspmg.shop/images/mucarela-quatigua-4-kg-pmg-atacadista.jpg' },
   { id: 764, name: 'MUÇARELA SCALA 4 KG', category: 'Derivados de Leite', price: 35.28, image: 'https://www.marquesvendaspmg.shop/images/mucarela-scala-4-kg-pmg-atacadista.jpg' },
@@ -1952,58 +1952,8 @@ export default function ProductPage({ product: initialProduct }) {
   const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(!initialProduct);
+  const [isMobile, setIsMobile] = useState(false);
 
-// Contador regressivo Black Friday 2025 - VERSÃO DEFINITIVA
-const [timeLeft, setTimeLeft] = useState({
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0
-});
-
-// Configurar contador regressivo para BLACK FRIDAY 2025
-useEffect(() => {
-  // Data da Black Friday 2025: 28 de Novembro de 2025
-  const blackFridayDate = new Date('November 28, 2025 23:59:59');
-  
-  const updateCountdown = () => {
-    const now = new Date().getTime();
-    const difference = blackFridayDate - now;
-    
-    if (difference > 0) {
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-      
-      setTimeLeft({
-        days: days,
-        hours: hours,
-        minutes: minutes,
-        seconds: seconds
-      });
-      
-      // DEBUG
-      console.log('🎯 CONTADOR 2025:', { 
-        dias: days,
-        dataAlvo: blackFridayDate.toLocaleDateString('pt-BR')
-      });
-      
-    } else {
-      setTimeLeft({
-        days: 0,
-        hours: 0, 
-        minutes: 0,
-        seconds: 0
-      });
-    }
-  };
-  
-  updateCountdown();
-  const interval = setInterval(updateCountdown, 1000);
-  
-  return () => clearInterval(interval);
-}, []);
 
   // Verificar usuário logado
   useEffect(() => {
@@ -2068,9 +2018,7 @@ useEffect(() => {
         minHeight: '50vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#1a1a1a',
-        color: '#ffd700'
+        justifyContent: 'center'
       }}>
         <div>Carregando...</div>
       </div>
@@ -2086,21 +2034,18 @@ useEffect(() => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#1a1a1a',
-        color: '#ffd700'
+        justifyContent: 'center'
       }}>
-        <h1 style={{ marginBottom: '20px', color: '#ffd700' }}>Produto não encontrado</h1>
+        <h1 style={{ marginBottom: '20px', color: '#333' }}>Produto não encontrado</h1>
         <button 
           style={{
-            background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+            backgroundColor: '#095400',
             color: 'white',
-            border: '1px solid #ffd700',
+            border: 'none',
             padding: '12px 24px',
             borderRadius: '5px',
             cursor: 'pointer',
-            fontSize: '16px',
-            fontWeight: 'bold'
+            fontSize: '16px'
           }}
           onClick={() => router.push('/')}
         >
@@ -2116,182 +2061,182 @@ useEffect(() => {
   return (
     <>
       <Head>
-        {/* Título otimizado para BLACK FRIDAY */}
-        <title>{product.name} BLACK FRIDAY PMG | {product.category} | Ofertas Exclusivas</title>
+        {/* Título otimizado para PMG ATACADISTA */}
+        <title>{product.name} PMG ATACADISTA | {product.category} | Marques Vendas PMG</title>
         
-        {/* Meta Description otimizada para BLACK FRIDAY */}
+        {/* Meta Description otimizada para conversão */}
         <meta 
           name="description" 
-          content={`🔥 BLACK FRIDAY: ${product.name} por R$ ${product.price.toFixed(2)}! PMG ATACADISTA - Ofertas exclusivas em ${product.category} para food service. Entrega rápida SP, MG, RJ.`} 
+          content={`${product.name} PMG ATACADISTA - Compre no atacado por R$ ${product.price.toFixed(2)}. Melhores preços em ${product.category} para food service. Entrega rápida SP, MG, RJ.`} 
         />
         
-        {/* Keywords otimizadas para BLACK FRIDAY */}
+        {/* Keywords otimizadas para PMG */}
         <meta 
           name="keywords" 
-          content={`black friday pmg, black friday atacadista, ${product.name} black friday, ${product.category} ofertas, atacado food service black friday, marques vendas pmg black friday, comprar ${product.category.toLowerCase()} black friday, preço ${product.name.toLowerCase()} black friday`} 
+          content={`pmg atacadista, pmg atacado, ${product.name} pmg, ${product.category}, atacado food service, marques vendas pmg, comprar ${product.category.toLowerCase()} atacado, preço ${product.name.toLowerCase()}, distribuidora atacadista sp`} 
         />
         
         {/* Canonical URL */}
         <link rel="canonical" href={canonicalUrl} />
         
         {/* Open Graph Tags para redes sociais */}
-        <meta property="og:title" content={`🔥 ${product.name} BLACK FRIDAY PMG`} />
-        <meta property="og:description" content={`Compre ${product.name} na BLACK FRIDAY por R$ ${product.price.toFixed(2)}! PMG Atacadista - Ofertas exclusivas para food service.`} />
+        <meta property="og:title" content={`${product.name} PMG ATACADISTA`} />
+        <meta property="og:description" content={`Compre ${product.name} no atacado por R$ ${product.price.toFixed(2)}. PMG Atacadista - Melhores preços para food service.`} />
         <meta property="og:image" content={product.image} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="product" />
-        <meta property="og:site_name" content="Marques Vendas PMG Atacadista - Black Friday" />
+        <meta property="og:site_name" content="Marques Vendas PMG Atacadista" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`🔥 ${product.name} BLACK FRIDAY PMG`} />
-        <meta name="twitter:description" content={`Compre ${product.name} na BLACK FRIDAY por R$ ${product.price.toFixed(2)}! PMG - Ofertas exclusivas para food service.`} />
+        <meta name="twitter:title" content={`${product.name} PMG ATACADISTA`} />
+        <meta name="twitter:description" content={`Compre ${product.name} no atacado por R$ ${product.price.toFixed(2)}. PMG - Atacado para food service.`} />
         <meta name="twitter:image" content={product.image} />
 
-        {/* Schema.org Structured Data - ATUALIZADO PARA BLACK FRIDAY */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Product",
-              "productID": `pmg-bf-${product.id}`,
-              "name": `${product.name} BLACK FRIDAY PMG`,
-              "description": `${product.name} BLACK FRIDAY PMG ATACADISTA - Oferta exclusiva para food service no atacado. Entrega rápida para São Paulo, Minas Gerais e Rio de Janeiro.`,
-              "category": product.category,
-              "image": product.image,
-              "brand": {
-                "@type": "Brand",
-                "name": "PMG ATACADISTA BLACK FRIDAY"
-              },
-              "sku": `PMG-BF-${product.id}`,
-              "mpn": `PMG-BF-${product.id}`,
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "37"
-              },
-              "review": [
-                {
-                  "@type": "Review",
-                  "author": { 
-                    "@type": "Person", 
-                    "name": "Carlos, pizzaria cliente da PMG" 
-                  },
-                  "datePublished": "2025-09-28",
-                  "reviewBody": "Produto de excelente qualidade e o site da Marques Vendas PMG é rápido e confiável.",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  }
-                },
-                {
-                  "@type": "Review",
-                  "author": { 
-                    "@type": "Person", 
-                    "name": "Fernanda, restaurante parceiro" 
-                  },
-                  "datePublished": "2025-08-11",
-                  "reviewBody": "A muçarela Bari chegou no prazo e com ótimo custo-benefício. Atendimento excelente!",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  }
-                }
-              ],
-              "offers": {
-                "@type": "Offer",
-                "url": canonicalUrl,
-                "price": product.price.toString(),
-                "priceCurrency": "BRL",
-                "availability": "https://schema.org/InStock",
-                "priceValidUntil": "2026-12-31",
-                "itemCondition": "https://schema.org/NewCondition",
-                "shippingDetails": {
-                  "@type": "OfferShippingDetails",
-                  "shippingRate": {
-                    "@type": "MonetaryAmount",
-                    "value": "0.00",
-                    "currency": "BRL"
-                  },
-                  "deliveryTime": {
-                    "@type": "ShippingDeliveryTime",
-                    "handlingTime": { 
-                      "@type": "QuantitativeValue", 
-                      "minValue": 0, 
-                      "maxValue": 1, 
-                      "unitCode": "d" 
-                    },
-                    "transitTime": { 
-                      "@type": "QuantitativeValue", 
-                      "minValue": 1, 
-                      "maxValue": 2, 
-                      "unitCode": "d" 
-                    }
-                  },
-                  "shippingDestination": [
-                    { 
-                      "@type": "DefinedRegion", 
-                      "addressCountry": "BR", 
-                      "addressRegion": "SP" 
-                    },
-                    { 
-                      "@type": "DefinedRegion", 
-                      "addressCountry": "BR", 
-                      "addressRegion": "MG", 
-                      "name": "Sul de Minas" 
-                    },
-                    { 
-                      "@type": "DefinedRegion", 
-                      "addressCountry": "BR", 
-                      "addressRegion": "RJ", 
-                      "name": "Sul do Rio de Janeiro" 
-                    }
-                  ]
-                },
-                "hasMerchantReturnPolicy": {
-                  "@type": "MerchantReturnPolicy",
-                  "applicableCountry": "BR",
-                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                  "merchantReturnDays": 0,
-                  "returnMethod": "https://schema.org/ReturnByMail",
-                  "returnFees": "https://schema.org/FreeReturn",
-                  "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
-                },
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": product.price.toString(),
-                  "priceCurrency": "BRL",
-                  "referenceQuantity": {
-                    "@type": "QuantitativeValue",
-                    "value": "1",
-                    "unitCode": "KGM"
-                  }
-                },
-                "seller": {
-                  "@type": "LocalBusiness",
-                  "priceRange": "$$",
-                  "name": "Marques Vendas PMG ATACADISTA - BLACK FRIDAY",
-                  "url": "https://www.marquesvendaspmg.shop",
-                  "image": "https://i.imgur.com/jrERRsC.png",
-                  "telephone": "+55-11-91357-2902",
-                  "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-                    "postalCode": "06885-150",
-                    "addressLocality": "Itapecerica da Serra",
-                    "addressRegion": "SP",
-                    "addressCountry": "BR"
-                  }
-                }
-              }
-            })
-          }}
-        />
+{/* Schema.org Structured Data - COMPLETO */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "productID": `pmg-${product.id}`,
+      "name": `${product.name} PMG ATACADISTA`,
+      "description": `${product.name} PMG ATACADISTA - Produto de alta qualidade para food service no atacado. Entrega rápida para São Paulo, Minas Gerais e Rio de Janeiro.`,
+      "category": product.category,
+      "image": product.image,
+      "brand": {
+        "@type": "Brand",
+        "name": "PMG ATACADISTA"
+      },
+      "sku": `PMG-${product.id}`,
+      "mpn": `PMG-${product.id}`,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "37"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { 
+            "@type": "Person", 
+            "name": "Carlos, pizzaria cliente da PMG" 
+          },
+          "datePublished": "2025-09-28",
+          "reviewBody": "Produto de excelente qualidade e o site da Marques Vendas PMG é rápido e confiável.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": { 
+            "@type": "Person", 
+            "name": "Fernanda, restaurante parceiro" 
+          },
+          "datePublished": "2025-08-11",
+          "reviewBody": "A muçarela Bari chegou no prazo e com ótimo custo-benefício. Atendimento excelente!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        }
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": canonicalUrl,
+        "price": product.price.toString(),
+        "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2026-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0.00",
+            "currency": "BRL"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": { 
+              "@type": "QuantitativeValue", 
+              "minValue": 0, 
+              "maxValue": 1, 
+              "unitCode": "d" 
+            },
+            "transitTime": { 
+              "@type": "QuantitativeValue", 
+              "minValue": 1, 
+              "maxValue": 2, 
+              "unitCode": "d" 
+            }
+          },
+          "shippingDestination": [
+            { 
+              "@type": "DefinedRegion", 
+              "addressCountry": "BR", 
+              "addressRegion": "SP" 
+            },
+            { 
+              "@type": "DefinedRegion", 
+              "addressCountry": "BR", 
+              "addressRegion": "MG", 
+              "name": "Sul de Minas" 
+            },
+            { 
+              "@type": "DefinedRegion", 
+              "addressCountry": "BR", 
+              "addressRegion": "RJ", 
+              "name": "Sul do Rio de Janeiro" 
+            }
+          ]
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "BR",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 0,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn",
+          "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
+        },
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": product.price.toString(),
+          "priceCurrency": "BRL",
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": "1",
+            "unitCode": "KGM"
+          }
+        },
+        "seller": {
+          "@type": "LocalBusiness",
+          "priceRange": "$$",
+          "name": "Marques Vendas PMG ATACADISTA",
+          "url": "https://www.marquesvendaspmg.shop",
+          "image": "https://i.imgur.com/jrERRsC.png",
+          "telephone": "+55-11-91357-2902",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+            "postalCode": "06885-150",
+            "addressLocality": "Itapecerica da Serra",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+          }
+        }
+      }
+    })
+  }}
+/>
 
         {/* Viewport para mobile */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -2300,108 +2245,6 @@ useEffect(() => {
       {/* Container Principal */}
       <div style={styles.container}>
         
-        {/* BANNER SUPERIOR BLACK FRIDAY */}
-        <div style={{
-          background: 'linear-gradient(45deg, #000000, #e74c3c, #000000)',
-          color: 'white',
-          textAlign: 'center',
-          padding: '12px 20px',
-          marginBottom: '20px',
-          borderRadius: '10px',
-          border: '2px solid #e74c3c',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '10px',
-            flexWrap: 'wrap'
-          }}>
-            <span style={{
-              fontSize: '1.3rem',
-              fontWeight: '800',
-              textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-              background: 'linear-gradient(45deg, #ffd700, #ffffff, #ffd700)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              animation: 'shine 2s infinite'
-            }}>
-              🚀 BLACK FRIDAY 2025 🚀
-            </span>
-            <span style={{
-              fontSize: '1rem',
-              fontWeight: '600'
-            }}>
-              Ofertas Exclusivas | Até 70% OFF
-            </span>
-          </div>
-        </div>
-
-        {/* CONTADOR REGRESSIVO - 30 DIAS */}
-        <div style={{
-          background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-          color: 'white',
-          padding: '20px 15px',
-          borderRadius: '12px',
-          textAlign: 'center',
-          marginBottom: '30px',
-          border: '2px solid #e74c3c',
-          boxShadow: '0 4px 15px rgba(231, 76, 60, 0.3)'
-        }}>
-          <h3 style={{
-            margin: '0 0 15px 0',
-            fontSize: '1.2rem',
-            fontWeight: '600',
-            color: '#ffd700'
-          }}>
-            ⏰ BLACK FRIDAY 2025 - OFERTAS TERMINAM EM:
-          </h3>
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '15px',
-            flexWrap: 'wrap'
-          }}>
-            {['Dias', 'Horas', 'Minutos', 'Segundos'].map((label, index) => (
-              <div key={label} style={{
-                textAlign: 'center',
-                minWidth: '80px'
-              }}>
-                <div style={{
-                  background: '#e74c3c',
-                  color: 'white',
-                  padding: '8px',
-                  borderRadius: '8px',
-                  fontSize: '1.5rem',
-                  fontWeight: '800',
-                  marginBottom: '5px',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-                  border: '1px solid #ffd700'
-                }}>
-                  {Object.values(timeLeft)[index]}
-                </div>
-                <div style={{
-                  fontSize: '0.8rem',
-                  color: '#bdc3c7',
-                  fontWeight: '600'
-                }}>
-                  {label}
-                </div>
-              </div>
-            ))}
-          </div>
-          <p style={{
-            margin: '15px 0 0 0',
-            fontSize: '0.8rem',
-            color: '#ffd700',
-            fontStyle: 'italic'
-          }}>
-            🚀 Prepare-se! As melhores ofertas do ano começam em breve
-          </p>
-        </div>
-
         {/* Header */}
         <div style={styles.header}>
           <div style={{ width: '80px' }}></div> {/* Espaçador para alinhamento */}
@@ -2436,17 +2279,17 @@ useEffect(() => {
           <div style={styles.imageContainer}>
             <img 
               src={product.image} 
-              alt={`${product.name} BLACK FRIDAY PMG ATACADISTA`}
+              alt={`${product.name} PMG ATACADISTA`}
               style={styles.productImage}
               onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/400x300/2c3e50/ffd700?text=PMG+BLACK+FRIDAY';
+                e.target.src = 'https://via.placeholder.com/400x300/095400/ffffff?text=PMG+ATACADISTA';
               }}
             />
           </div>
 
           {/* Informações do Produto */}
           <div style={styles.productInfo}>
-            <h1 style={styles.productName}>{product.name} <span style={styles.pmgBadge}>🔥 BLACK FRIDAY</span></h1>
+            <h1 style={styles.productName}>{product.name} <span style={styles.pmgBadge}>PMG ATACADISTA</span></h1>
             
             <div style={styles.productCategory}>
               {product.category}
@@ -2463,7 +2306,7 @@ useEffect(() => {
                 style={styles.addToCartButton}
               >
                 <span style={styles.buttonIcon}>🛒</span>
-                🎯 Adicionar ao Carrinho
+                Adicionar ao Carrinho
               </button>
               
               <button
@@ -2473,21 +2316,21 @@ useEffect(() => {
                   ...(!user && styles.disabledButton)
                 }}
               >
-                {user ? '🚀 Comprar Agora' : '🔒 Fazer Login'}
+                {user ? 'Comprar Agora' : 'Fazer Login'}
               </button>
             </div>
 
             {!user && (
               <div style={styles.loginWarning}>
-                ⚠️ Faça login para aproveitar as ofertas BLACK FRIDAY
+                ⚠️ Faça login para finalizar a compra
               </div>
             )}
 
             {/* Descrição do produto */}
             <div style={styles.descriptionSection}>
-              <h2 style={styles.sectionTitle}>🎁 Descrição do Produto - BLACK FRIDAY</h2>
+              <h2 style={styles.sectionTitle}>Descrição do Produto</h2>
               <p style={styles.descriptionText}>
-                {product.name} - <strong>OFERTA EXCLUSIVA BLACK FRIDAY!</strong> Produto de alta qualidade para food service, bares e restaurantes. 
+                {product.name} - Produto de alta qualidade para food service, bares e restaurantes. 
                 PMG ATACADISTA oferece os melhores preços em {product.category.toLowerCase()} com 
                 garantia de procedência e qualidade.
               </p>
@@ -2495,7 +2338,7 @@ useEffect(() => {
 
             {/* Informações de entrega */}
             <div style={styles.deliveryInfo}>
-              <h3 style={styles.sectionTitle}>🚚 Entrega Rápida - BLACK FRIDAY</h3>
+              <h3 style={styles.sectionTitle}>🚚 Entrega Rápida</h3>
               <div style={styles.deliveryList}>
                 <div style={styles.deliveryItem}>
                   <span style={styles.checkIcon}>✓</span>
@@ -2507,18 +2350,18 @@ useEffect(() => {
                 </div>
                 <div style={styles.deliveryItem}>
                   <span style={styles.checkIcon}>✓</span>
-                  Atendimento especial BLACK FRIDAY
+                  Atendimento para food service
                 </div>
               </div>
             </div>
 
             {/* Vantagens PMG */}
             <div style={styles.advantagesSection}>
-              <h3 style={styles.sectionTitle}>🌟 Por que comprar na PMG ATACADISTA na BLACK FRIDAY?</h3>
+              <h3 style={styles.sectionTitle}>🌟 Por que comprar na PMG ATACADISTA?</h3>
               <div style={styles.advantagesList}>
                 <div style={styles.advantageItem}>
                   <span style={styles.advantageIcon}>💰</span>
-                  Melhores preços de atacado BLACK FRIDAY
+                  Melhores preços de atacado
                 </div>
                 <div style={styles.advantageItem}>
                   <span style={styles.advantageIcon}>⚡</span>
@@ -2530,7 +2373,7 @@ useEffect(() => {
                 </div>
                 <div style={styles.advantageItem}>
                   <span style={styles.advantageIcon}>⭐</span>
-                  Produtos de qualidade garantida
+                  Produtos de qualidade
                 </div>
               </div>
             </div>
@@ -2928,15 +2771,11 @@ useEffect(() => {
             padding: 15px 10px;
           }
           
-          .backButtonText {
-            display: none;
-          }
-          
           .title {
             font-size: 18px;
           }
           
-		            .navigationButtons {
+          .navigationButtons {
             flex-direction: column;
             gap: 8px;
           }
@@ -2946,7 +2785,7 @@ useEffect(() => {
             font-size: 12px;
             padding: 6px 10px;
           }
-
+          
           .productContainer {
             flex-direction: column;
             gap: 20px;
@@ -2987,76 +2826,54 @@ useEffect(() => {
           .sectionTitle {
             font-size: 18px;
           }
-        }
-
-        /* Animação shine para Black Friday */
-        @keyframes shine {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
+          
+          .titleContainer {
+            gap: 8px;
+          }
         }
       `}</style>
     </>
   );
 }
 
-// ========== ESTILOS ATUALIZADOS - TEMA BLACK FRIDAY ========== //
+// Estilos otimizados para mobile-first
 const styles = {
   container: {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '15px',
     fontFamily: 'Arial, sans-serif',
-    minHeight: '100vh',
-    backgroundColor: '#1a1a1a' // Fundo escuro Black Friday
+    minHeight: '100vh'
   },
   
-
   header: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '20px',
     padding: '15px',
-    background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-    borderRadius: '15px',
-    boxShadow: '0 8px 25px rgba(231, 76, 60, 0.3)',
-    border: '2px solid #e74c3c',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
     position: 'sticky',
     top: '0',
     zIndex: '100'
   },
   
-  backButton: {
-    background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
-    color: 'white',
-    border: '1px solid #ffd700',
-    padding: '10px 15px',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    fontSize: '16px',
+  titleContainer: {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    gap: '8px',
-    minWidth: 'auto',
-    fontWeight: 'bold',
-    textShadow: '0 1px 2px rgba(0,0,0,0.3)'
-  },
-  
-  backButtonIcon: {
-    fontSize: '18px'
-  },
-  
-  backButtonText: {
-    fontSize: '14px'
+    gap: '12px',
+    flex: 1
   },
   
   title: {
-    color: '#ffd700',
+    color: '#095400',
     fontSize: '20px',
     fontWeight: 'bold',
     margin: '0',
-    textAlign: 'center',
-    textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+    textAlign: 'center'
   },
   
   navigationButtons: {
@@ -3097,8 +2914,7 @@ const styles = {
     height: '300px',
     objectFit: 'cover',
     borderRadius: '15px',
-    boxShadow: '0 8px 25px rgba(231, 76, 60, 0.4)',
-    border: '2px solid #e74c3c'
+    boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
   },
   
   productInfo: {
@@ -3109,41 +2925,36 @@ const styles = {
   
   productName: {
     fontSize: '24px',
-    color: '#ecf0f1',
+    color: '#333',
     fontWeight: 'bold',
     margin: '0',
-    lineHeight: '1.3',
-    textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+    lineHeight: '1.3'
   },
   
   pmgBadge: {
-    background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+    backgroundColor: '#095400',
     color: 'white',
     padding: '4px 8px',
     borderRadius: '6px',
     fontSize: '14px',
-    marginLeft: '8px',
-    border: '1px solid #ffd700'
+    marginLeft: '8px'
   },
   
   productCategory: {
     fontSize: '16px',
-    color: '#ffd700',
-    background: 'linear-gradient(135deg, #34495e, #2c3e50)',
+    color: '#666',
+    backgroundColor: '#f0f0f0',
     padding: '8px 15px',
     borderRadius: '20px',
     display: 'inline-block',
-    alignSelf: 'flex-start',
-    border: '1px solid #e74c3c',
-    textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+    alignSelf: 'flex-start'
   },
   
   productPrice: {
     fontSize: '28px',
-    color: '#ffd700',
+    color: '#095400',
     fontWeight: 'bold',
-    margin: '0',
-    textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+    margin: '0'
   },
   
   actionButtons: {
@@ -3153,9 +2964,9 @@ const styles = {
   },
   
   addToCartButton: {
-    background: 'linear-gradient(45deg, #e74c3c, #c0392b)',
+    backgroundColor: '#ff0000',
     color: 'white',
-    border: '1px solid #ffd700',
+    border: 'none',
     padding: '15px 20px',
     borderRadius: '8px',
     cursor: 'pointer',
@@ -3166,40 +2977,25 @@ const styles = {
     gap: '8px',
     flex: '1',
     minWidth: '200px',
-    justifyContent: 'center',
-    textShadow: '0 1px 2px rgba(0,0,0,0.3)',
-    boxShadow: '0 4px 15px rgba(231, 76, 60, 0.4)',
-    transition: 'all 0.3s ease',
-    ':hover': {
-      transform: 'translateY(-2px)',
-      boxShadow: '0 6px 20px rgba(231, 76, 60, 0.6)'
-    }
+    justifyContent: 'center'
   },
   
   buyNowButton: {
-    background: 'linear-gradient(45deg, #ffd700, #ffed4e)',
-    color: '#c0392b',
-    border: '1px solid #fff',
+    backgroundColor: '#095400',
+    color: 'white',
+    border: 'none',
     padding: '15px 20px',
     borderRadius: '8px',
     cursor: 'pointer',
     fontSize: '16px',
     fontWeight: 'bold',
     flex: '1',
-    minWidth: '200px',
-    textShadow: '0 1px 2px rgba(0,0,0,0.3)',
-    boxShadow: '0 4px 15px rgba(255, 215, 0, 0.4)',
-    transition: 'all 0.3s ease',
-    ':hover': {
-      transform: 'translateY(-2px)',
-      boxShadow: '0 6px 20px rgba(255, 215, 0, 0.6)'
-    }
+    minWidth: '200px'
   },
   
   disabledButton: {
-    background: 'linear-gradient(45deg, #7f8c8d, #95a5a6)',
-    cursor: 'not-allowed',
-    border: '1px solid #bdc3c7'
+    backgroundColor: '#ccc',
+    cursor: 'not-allowed'
   },
   
   buttonIcon: {
@@ -3207,14 +3003,13 @@ const styles = {
   },
   
   loginWarning: {
-    background: 'linear-gradient(135deg, #2c3e50, #34495e)',
-    border: '1px solid #e74c3c',
-    color: '#ffd700',
+    backgroundColor: '#fff3cd',
+    border: '1px solid #ffeaa7',
+    color: '#856404',
     padding: '12px',
     borderRadius: '8px',
     fontSize: '14px',
-    textAlign: 'center',
-    textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+    textAlign: 'center'
   },
   
   descriptionSection: {
@@ -3222,25 +3017,24 @@ const styles = {
   },
   
   sectionTitle: {
-    color: '#ffd700',
+    color: '#095400',
     fontSize: '20px',
     fontWeight: 'bold',
-    marginBottom: '15px',
-    textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+    marginBottom: '15px'
   },
   
   descriptionText: {
-    color: '#ecf0f1',
+    color: '#666',
     lineHeight: '1.6',
     fontSize: '15px',
     margin: '0'
   },
   
   deliveryInfo: {
-    background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+    backgroundColor: '#f8f9fa',
     padding: '20px',
     borderRadius: '10px',
-    border: '2px solid #e74c3c'
+    border: '1px solid #e9ecef'
   },
   
   deliveryList: {
@@ -3254,19 +3048,19 @@ const styles = {
     alignItems: 'center',
     gap: '10px',
     fontSize: '14px',
-    color: '#ecf0f1'
+    color: '#555'
   },
   
   checkIcon: {
-    color: '#ffd700',
+    color: '#28a745',
     fontWeight: 'bold'
   },
   
   advantagesSection: {
-    background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+    backgroundColor: '#e8f5e8',
     padding: '20px',
     borderRadius: '10px',
-    border: '2px solid #ffd700'
+    border: '1px solid #095400'
   },
   
   advantagesList: {
@@ -3280,20 +3074,19 @@ const styles = {
     alignItems: 'center',
     gap: '10px',
     fontSize: '14px',
-    color: '#ecf0f1'
+    color: '#333'
   },
   
   advantageIcon: {
     fontSize: '18px'
   },
   
-  // Estilos do Rodapé - Tema Black Friday
+  // Estilos do Rodapé
   footer: {
-    background: 'linear-gradient(135deg, #2c3e50, #34495e)',
+    backgroundColor: '#095400',
     color: 'white',
     padding: '30px 20px',
-    marginTop: '50px',
-    borderTop: '3px solid #e74c3c'
+    marginTop: '50px'
   },
   
   footerContent: {
@@ -3312,8 +3105,7 @@ const styles = {
   footerTitle: {
     fontSize: '22px',
     fontWeight: 'bold',
-    marginBottom: '8px',
-    color: '#ffd700'
+    marginBottom: '8px'
   },
   
   footerSubtitle: {
@@ -3337,13 +3129,7 @@ const styles = {
     borderRadius: '4px',
     transition: 'all 0.3s ease',
     textDecoration: 'none',
-    padding: '6px',
-    backgroundColor: '#34495e',
-    border: '1px solid #e74c3c',
-    ':hover': {
-      backgroundColor: '#e74c3c',
-      transform: 'scale(1.1)'
-    }
+    padding: '6px'
   },
   
   socialIcon: {
@@ -3359,8 +3145,7 @@ const styles = {
     opacity: '0.8',
     borderTop: '1px solid rgba(255,255,255,0.2)',
     paddingTop: '20px',
-    width: '100%',
-    color: '#ffd700'
+    width: '100%'
   }
 };
 
@@ -3371,13 +3156,3 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
-
-
-
-
-
-
-
-
-
-
