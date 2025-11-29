@@ -2002,16 +2002,17 @@ export default function ProductPage({ product: initialProduct }) {
     setCart(newCart);
   };
 
-  const handleBuyNow = () => {
-    if (user) {
-      // Lógica para usuário logado
-      console.log('Processando compra...', product);
-      // Aqui você pode adicionar a lógica de compra
-    } else {
-      // REDIRECIONA PARA A PÁGINA DE PRODUTOS
-      router.push('/produtos');
-    }
-  };
+const handleBuyNow = () => {
+  if (user) {
+    // Lógica para usuário logado
+    console.log('Processando compra...', product);
+    addToCart(product);
+  } else {
+    // Redireciona para produtos COM parâmetro de retorno
+    const returnUrl = encodeURIComponent(router.asPath);
+    router.push(`/produtos?returnTo=${returnUrl}`);
+  }
+};
 
   if (loading) {
     return (
@@ -3160,4 +3161,3 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
-
