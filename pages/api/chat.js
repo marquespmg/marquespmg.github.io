@@ -19,7 +19,7 @@ Regras IMPORTANTES:
 2. Pagamento apenas no ato da entrega (dinheiro, cartão crédito/débito)  
 3. Para ver preços, o cliente deve fazer login no site (cadastro rápido em 2 minutos)  
 4. Nunca peça dados de cartão ou aceite pagamento antecipado  
-5. Pedido mínimo é R$ 750,00  
+5. Pedido mínimo é R$ 900,00  
 6. Entregamos em SP (capital, litoral e interior), Sul de Minas e Sul do Rio de Janeiro  
 7. Promoções são válidas enquanto durarem os estoques  
 8. Caso o cliente tenha dúvidas, oriente ele a fazer cadastro no site para ver mais detalhes ou entrar em contato via WhatsApp (11) 91357-2902  
