@@ -5,9 +5,6 @@ import Link from 'next/link';
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Ofertas', price: 23.88, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Ofertas', price: 25.00, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Ofertas', price: 23.88, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1765, name: 'FARINHA DE TRIGO TIPO 1 NITA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 92.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-tipo-1-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1751, name: 'FARINHA DE TRIGO PIZZA NITA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 73.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-nita-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1533, name: 'CHOCOLATE FORNEÁVEL AO LEITE CONFEITEIRO HARALD 1,010 KILO', category: 'Ofertas', price: 34.88, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-ao-leite-confeiteiro-harald-1010-kilo-pmg-atacadista.jpg' },
@@ -23,11 +20,6 @@ const featuredProducts = [
   { id: 1949, name: 'BANHA FRIMESA 1 KG (CX 18 PCT)', category: 'Ofertas', price: 12.88, image: 'https://www.marquesvendaspmg.shop/images/banha-frimesa-1-kg-cx-18-pct-pmg-atacadista.jpg' },
   { id: 981, name: 'CALABRESA FATIADA CONGELADA FRIMESA 1 KILO', category: 'Ofertas', price: 25.50, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-congelada-frimesa-1-kilo-pmg-atacadista.jpg' },
   { id: 646, name: 'DOCE DE LEITE FRIMESA 4,8 KILO', category: 'Ofertas', price: 98.25, image: 'https://www.marquesvendaspmg.shop/images/doce-de-leite-frimesa-48-kilo-pmg-atacadista.jpg' },
-  { id: 1235, name: 'CATCHUP GRANDE HEMMER 3,8 KILO', category: 'Ofertas', price: 34.70, image: 'https://www.marquesvendaspmg.shop/images/catchup-grande-hemmer-38-kilo-pmg-atacadista.jpg' },
-  { id: 1248, name: 'CATCHUP SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Ofertas', price: 21.50, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
-  { id: 1304, name: 'MAIONESE SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Ofertas', price: 21.50, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
-  { id: 1353, name: 'MOSTARDA SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Ofertas', price: 22.50, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
-  { id: 1392, name: 'PEPINOS RODELAS AGRIDOCE HEMMER 440 G', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/pepinos-rodelas-agridoce-hemmer-440-g-pmg-atacadista.jpg' },
   { id: 1291, name: 'MAIONESE GRANDE QUERO 3 KILO', category: 'Ofertas', price: 24.88, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-quero-3-kilo-pmg-atacadista.jpg' },
   { id: 1790, name: 'MACARRÃO ESPAGUETE Nº 8 COM OVOS DONA BENTA 500 G (FDO 24 PCT)', category: 'Ofertas', price: 75.00, image: 'https://www.marquesvendaspmg.shop/images/macarrao-espaguete-n-8-com-ovos-dona-benta-500-g-fdo-24-pct-pmg-atacadista.jpg' },
   { id: 1795, name: 'MACARRÃO PARAFUSO COM OVOS DONA BENTA 500 G (FDO 24 PCT)', category: 'Ofertas', price: 73.00, image: 'https://www.marquesvendaspmg.shop/images/macarrao-parafuso-com-ovos-dona-benta-500-g-fdo-24-pct-pmg-atacadista.jpg' },
