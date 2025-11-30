@@ -635,7 +635,6 @@ const products = [
   { id: 685, name: 'LEITE INTEGRAL ZERO LACTOSE ITALAC 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 72.77, image: 'https://www.marquesvendaspmg.shop/images/leite-integral-zero-lactose-italac-1-l-cx-12-un-pmg-atacadista.jpg' },
   { id: 686, name: 'LEITE SEMIDESNATADO ITALAC 1 L (CX 12 UN)', category: 'Derivados de Leite', price: 58.18, image: 'https://www.marquesvendaspmg.shop/images/leite-semidesnatado-italac-1-l-cx-12-un-pmg-atacadista.jpg' },
   { id: 687, name: 'LEITE SEMIDESNATADO ZERO LACTOSE JUSSARA 1 L', category: 'Derivados de Leite', price: 34.39, image: 'https://www.marquesvendaspmg.shop/images/leite-semidesnatado-zero-lactose-jussara-1-l-pmg-atacadista.jpg' },
-  { id: 688, name: 'MANTEIGA COM SAL COYOTE (CX 5 KILO)', category: 'Derivados de Leite', price: 83.08, image: 'https://www.marquesvendaspmg.shop/images/manteiga-com-sal-coyote-cx-5-kilo-pmg-atacadista.jpg' },
   { id: 689, name: 'MANTEIGA COM SAL ITALAC 500 G', category: 'Derivados de Leite', price: 26.42, image: 'https://www.marquesvendaspmg.shop/images/manteiga-com-sal-italac-500-g-pmg-atacadista.jpg' },
   { id: 690, name: 'MANTEIGA COM SAL TRÊS MARIAS 10 KILO', category: 'Derivados de Leite', price: 383.44, image: 'https://www.marquesvendaspmg.shop/images/manteiga-com-sal-tres-marias-10-kilo-pmg-atacadista.jpg' },
   { id: 691, name: 'MANTEIGA PEQUENA "EXTRA" SEM SAL LA SERENISSIMA 200 G (CX 10 UN)', category: 'Derivados de Leite', price: 125.52, image: 'https://www.marquesvendaspmg.shop/images/manteiga-pequena-extra-sem-sal-la-serenissima-200-g-cx-10-un-pmg-atacadista.jpg' },
@@ -648,7 +647,6 @@ const products = [
   { id: 698, name: 'MANTEIGA SACHÊ SEM SAL PRESIDENT 10 G (CX 192 UN)', category: 'Derivados de Leite', price: 124.86, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sache-sem-sal-president-10-g-cx-192-un-pmg-atacadista.jpg' },
   { id: 699, name: 'MANTEIGA SACHÊ SEM SAL VIGOR 10 G (CX 192 UN)', category: 'Derivados de Leite', price: 124.7, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sache-sem-sal-vigor-10-g-cx-192-un-pmg-atacadista.jpg' },
   { id: 700, name: 'MANTEIGA SEM SAL BLEND PASSA QUATRO (CX 5 KILO)', category: 'Derivados de Leite', price: 95.86, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-blend-passa-quatro-cx-5-kilo-pmg-atacadista.jpg' },
-  { id: 701, name: 'MANTEIGA SEM SAL COYOTE (CX 5 KILO)', category: 'Derivados de Leite', price: 83.08, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-coyote-cx-5-kilo-pmg-atacadista.jpg' },
   { id: 702, name: 'MANTEIGA SEM SAL DE PRIMEIRA FRIZZO (CX 5 KILO)', category: 'Derivados de Leite', price: 108.64, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-de-primeira-frizzo-cx-5-kilo-pmg-atacadista.jpg' },
   { id: 703, name: 'MANTEIGA SEM SAL QUATRELATI (CX 5 KILO)', category: 'Derivados de Leite', price: 76.69, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-quatrelati-cx-5-kilo-pmg-atacadista.jpg' },
   { id: 704, name: 'MANTEIGA SEM SAL SCALA (CX 5 KILO)', category: 'Derivados de Leite', price: 233.26, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-scala-cx-5-kilo-pmg-atacadista.jpg' },
@@ -680,7 +678,6 @@ const products = [
   { id: 733, name: 'MUÇARELA DE BÚFALA LEVITARE 4 KG', category: 'Derivados de Leite', price: 56.1, image: 'https://www.marquesvendaspmg.shop/images/mucarela-de-bufala-levitare-4-kg-pmg-atacadista.jpg' },
   { id: 735, name: 'MUÇARELA DE BÚFALA YEMA 3.7 KG', category: 'Derivados de Leite', price: 44.72, image: 'https://www.marquesvendaspmg.shop/images/mucarela-de-bufala-yema-37-kg-pmg-atacadista.jpg' },
   { id: 736, name: 'MUÇARELA DOMILAC 3 KG', category: 'Derivados de Leite', price: 26.09, image: 'https://www.marquesvendaspmg.shop/images/mucarela-domilac-3-kg-pmg-atacadista.jpg' },
-  { id: 737, name: 'MUÇARELA FATIADA COYOTE 4 KG', category: 'Derivados de Leite', price: 144.79, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-coyote-4-kg-pmg-atacadista.jpg' },
   { id: 738, name: 'MUÇARELA FATIADA FRIZZO 2 KG', category: 'Derivados de Leite', price: 61.53, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-frizzo-2-kg-pmg-atacadista.jpg' },
   { id: 739, name: 'MUÇARELA FATIADA HM 4 KG', category: 'Derivados de Leite', price: 113.42, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-hm-4-kg-pmg-atacadista.jpg' },
   { id: 740, name: 'MUÇARELA FATIADA PROCESSADA 16 FATIAS SCAR 400 G', category: 'Derivados de Leite', price: 21.37, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-processada-16-fatias-scar-400-g-pmg-atacadista.jpg' },
@@ -2038,6 +2035,7 @@ export async function getServerSideProps({ res }) {
 export default function SiteMap() {
   return null;
 }
+
 
 
 
