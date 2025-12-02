@@ -587,7 +587,7 @@ const products = [
   { id: 625, name: 'CREAM CHEESE PEQUENO SCALA 150 G', category: 'Derivados de Leite', price: 7.84, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-pequeno-scala-150-g-pmg-atacadista.jpg' },
   { id: 626, name: 'CREAM CHEESE PHILADELPHIA 3,6 KILO', category: 'Derivados de Leite', price: 144.1, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-36-kilo-pmg-atacadista.jpg' },
   { id: 627, name: 'CREAM CHEESE PHILADELPHIA 1,5 KILO', category: 'Derivados de Leite', price: 66.69, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-15-kilo-pmg-atacadista.jpg' },
-  { id: 628, name: 'CREAM CHEESE POLENGHI 3,6 KILO', category: 'Derivados de Leite', price: 120.67, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-36-kilo-pmg-atacadista.jpg' },
+  { id: 628, name: 'CREAM CHEESE POLENGHI 3,6 KILO', category: 'Derivados de Leite', price: 36.71, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-36-kilo-pmg-atacadista.jpg' },
   { id: 629, name: 'CREAM CHEESE POLENGHI 1 KILO', category: 'Derivados de Leite', price: 35.92, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-1-kilo-pmg-atacadista.jpg' },
   { id: 630, name: 'CREAM CHEESE SACHÊ DANÚBIO 18 G (CX 144 UN)', category: 'Derivados de Leite', price: 136.94, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-sache-danubio-18-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 631, name: 'CREAM CHEESE SACHÊ PRESIDENT 18 G (CX 120 UN)', category: 'Derivados de Leite', price: 117.86, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-sache-president-18-g-cx-120-un-pmg-atacadista.jpg' },
@@ -1268,7 +1268,7 @@ const products = [
   { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 19.42, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1353, name: 'MOSTARDA SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Derivados de Vegetal', price: 23.14, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
   { id: 1354, name: 'MOSTARDA SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 10.72, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
-  { id: 1355, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', category: 'Derivados de Vegetal', price: 180.41, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao-bd-158-l-pmg-atacadista.jpg' },
+  { id: 1355, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', category: 'Derivados de Vegetal', price: 9.79, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao-bd-158-l-pmg-atacadista.jpg' },
   { id: 1356, name: 'ÓLEO DE ALGODÃO LIZA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 201.94, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-bd-158-l-pmg-atacadista.jpg' },
   { id: 1357, name: 'ÓLEO DE ALGODÃO LIZA 900 ML', category: 'Derivados de Vegetal', price: 14.97, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-900-ml-pmg-atacadista.jpg' },
   { id: 1358, name: 'ÓLEO DE ALGODÃO SOYA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 200.46, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-soya-bd-158-l-pmg-atacadista.jpg' },
@@ -1982,6 +1982,18 @@ export default function ProductPage({ product: initialProduct }) {
   const [isMobile, setIsMobile] = useState(false);
   const [openRegions, setOpenRegions] = useState({});
 
+  // Verificar se é mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Verificar usuário logado
   useEffect(() => {
     checkUser();
@@ -2101,7 +2113,7 @@ export default function ProductPage({ product: initialProduct }) {
     <>
       <Head>
         {/* Título otimizado para PMG ATACADISTA */}
-        <title>{product.name} PMG ATACADISTA | {product.category} | Marques Vendas PMG</title>
+        <title>{product.name} | PMG ATACADISTA | {product.category} | Marques Vendas PMG</title>
         
         {/* Meta Description otimizada para conversão */}
         <meta 
@@ -2119,7 +2131,7 @@ export default function ProductPage({ product: initialProduct }) {
         <link rel="canonical" href={canonicalUrl} />
         
         {/* Open Graph Tags para redes sociais */}
-        <meta property="og:title" content={`${product.name} PMG ATACADISTA`} />
+        <meta property="og:title" content={`${product.name} | PMG ATACADISTA`} />
         <meta property="og:description" content={`Compre ${product.name} no atacado por R$ ${product.price.toFixed(2)}. PMG Atacadista - Melhores preços para food service.`} />
         <meta property="og:image" content={product.image} />
         <meta property="og:url" content={canonicalUrl} />
@@ -2128,7 +2140,7 @@ export default function ProductPage({ product: initialProduct }) {
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${product.name} PMG ATACADISTA`} />
+        <meta name="twitter:title" content={`${product.name} | PMG ATACADISTA`} />
         <meta name="twitter:description" content={`Compre ${product.name} no atacado por R$ ${product.price.toFixed(2)}. PMG - Atacado para food service.`} />
         <meta name="twitter:image" content={product.image} />
 
@@ -2140,7 +2152,7 @@ export default function ProductPage({ product: initialProduct }) {
               "@context": "https://schema.org",
               "@type": "Product",
               "productID": `pmg-${product.id}`,
-              "name": `${product.name} PMG ATACADISTA`,
+              "name": `${product.name} | PMG ATACADISTA`,
               "description": `${product.name} PMG ATACADISTA - Produto de alta qualidade para food service no atacado. Entrega rápida para São Paulo, Minas Gerais e Rio de Janeiro.`,
               "category": product.category,
               "image": product.image,
@@ -2183,7 +2195,7 @@ export default function ProductPage({ product: initialProduct }) {
                     "@type": "Rating",
                     "ratingValue": "5",
                     "bestRating": "5",
-                    "worstRating": "1"
+                    worstRating: "1"
                   }
                 }
               ],
@@ -2284,15 +2296,16 @@ export default function ProductPage({ product: initialProduct }) {
       {/* Container Principal */}
       <div style={styles.container}>
         
-        {/* Header */}
+        {/* Header Atualizado - Título e botões organizados */}
         <div style={styles.header}>
           <div style={{ width: '80px' }}></div> {/* Espaçador para alinhamento */}
           
           <div style={styles.titleContainer}>
+            {/* TÍTULO PMG ATACADISTA */}
             <h1 style={styles.title}>PMG ATACADISTA</h1>
             
-            {/* Botões de Navegação Centralizados */}
-            <div style={styles.navigationButtons}>
+            {/* LINHA DE BOTÕES - ABAIXO DO TÍTULO */}
+            <div style={styles.buttonsRow}>
               <button 
                 style={styles.navButton}
                 onClick={() => router.push('/')}
@@ -2304,6 +2317,12 @@ export default function ProductPage({ product: initialProduct }) {
                 onClick={() => router.push('/produtos')}
               >
                 Voltar para Produtos
+              </button>
+              <button 
+                style={styles.ofertasButton}
+                onClick={() => router.push('/ofertas')}
+              >
+                🔥 Ofertas
               </button>
             </div>
           </div>
@@ -2328,8 +2347,16 @@ export default function ProductPage({ product: initialProduct }) {
 
           {/* Informações do Produto */}
           <div style={styles.productInfo}>
-            <h1 style={styles.productName}>{product.name} <span style={styles.pmgBadge}>PMG ATACADISTA</span></h1>
-            
+            {/* NOME DO PRODUTO COM QUEBRA DE TEXTO CORRIGIDA */}
+            <div style={styles.productNameContainer}>
+              <h1 style={styles.productName}>
+                {product.name}
+              </h1>
+              <div style={styles.pmgBrand}>
+                <span style={styles.pmgBadge}>PMG ATACADISTA</span>
+              </div>
+            </div>
+
             <div style={styles.productCategory}>
               {product.category}
             </div>
@@ -2348,7 +2375,6 @@ export default function ProductPage({ product: initialProduct }) {
                 Adicionar ao Carrinho
               </button>
               
-              {/* BOTÃO CORRIGIDO - Agora redireciona para /produtos quando não logado */}
               <button
                 onClick={handleBuyNow}
                 style={{
@@ -2376,65 +2402,65 @@ export default function ProductPage({ product: initialProduct }) {
               </p>
             </div>
 
-{/* NOVA SEÇÃO: Cidades Atendidas com Menu Colapsível */}
-<div style={styles.deliveryInfo}>
-  <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
-  
-  {/* Menu de Regiões */}
-  <div style={styles.regionsContainer}>
-    {Object.entries(citiesData).map(([key, region]) => (
-      <div key={key} style={styles.regionSection}>
-        <button 
-          onClick={() => toggleRegion(key)}
-          style={styles.regionButton}
-        >
-          <span style={styles.regionTitle}>
-            {region.title}
-          </span>
-          <span style={{
-            ...styles.arrow,
-            transform: openRegions[key] ? 'rotate(180deg)' : 'rotate(0deg)'
-          }}>
-            ▼
-          </span>
-        </button>
-        
-        {openRegions[key] && (
-          <div style={styles.citiesList}>
-            {/* PARA SP: Mostrar regiões */}
-            {key === 'sp' && region.regions.map((regiao, index) => (
-              <div key={index} style={styles.regionItem}>
-                {regiao}
+            {/* NOVA SEÇÃO: Cidades Atendidas com Menu Colapsível */}
+            <div style={styles.deliveryInfo}>
+              <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
+              
+              {/* Menu de Regiões */}
+              <div style={styles.regionsContainer}>
+                {Object.entries(citiesData).map(([key, region]) => (
+                  <div key={key} style={styles.regionSection}>
+                    <button 
+                      onClick={() => toggleRegion(key)}
+                      style={styles.regionButton}
+                    >
+                      <span style={styles.regionTitle}>
+                        {region.title}
+                      </span>
+                      <span style={{
+                        ...styles.arrow,
+                        transform: openRegions[key] ? 'rotate(180deg)' : 'rotate(0deg)'
+                      }}>
+                        ▼
+                      </span>
+                    </button>
+                    
+                    {openRegions[key] && (
+                      <div style={styles.citiesList}>
+                        {/* PARA SP: Mostrar regiões */}
+                        {key === 'sp' && region.regions.map((regiao, index) => (
+                          <div key={index} style={styles.regionItem}>
+                            {regiao}
+                          </div>
+                        ))}
+                        
+                        {/* PARA RJ E MG: Mostrar cidades */}
+                        {(key === 'rj' || key === 'mg') && region.cities.map((city, index) => (
+                          <div key={index} style={styles.cityItem}>
+                            📍 {city}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
-            
-            {/* PARA RJ E MG: Mostrar cidades */}
-            {(key === 'rj' || key === 'mg') && region.cities.map((city, index) => (
-              <div key={index} style={styles.cityItem}>
-                📍 {city}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
 
-  <div style={styles.deliveryList}>
-    <div style={styles.deliveryItem}>
-      <span style={styles.checkIcon}>✓</span>
-      Frete grátis
-    </div>
-    <div style={styles.deliveryItem}>
-      <span style={styles.checkIcon}>✓</span>
-      Entrega em 1-2 dias úteis
-    </div>
-    <div style={styles.deliveryItem}>
-      <span style={styles.checkIcon}>✓</span>
-      Atendimento para food service
-    </div>
-  </div>
-</div>
+              <div style={styles.deliveryList}>
+                <div style={styles.deliveryItem}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Frete grátis
+                </div>
+                <div style={styles.deliveryItem}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Entrega em 1-2 dias úteis
+                </div>
+                <div style={styles.deliveryItem}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Atendimento para food service
+                </div>
+              </div>
+            </div>
 
             {/* Vantagens PMG */}
             <div style={styles.advantagesSection}>
@@ -2840,7 +2866,7 @@ export default function ProductPage({ product: initialProduct }) {
   </div>
 </footer>
 
-      {/* CSS Styles */}
+      {/* CSS Styles Atualizados */}
       <style jsx>{`
         /* Estilos responsivos */
         @media (max-width: 768px) {
@@ -2850,21 +2876,35 @@ export default function ProductPage({ product: initialProduct }) {
           
           .header {
             padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
           
           .title {
-            font-size: 18px;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
           }
           
-          .navigationButtons {
-            flex-direction: column;
+          /* BOTÕES EM LINHA MAS RESPONSIVOS */
+          .buttonsRow {
+            display: flex;
+            flex-direction: row;
             gap: 8px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+            flex-wrap: wrap;
           }
           
-          .navButton {
-            width: 100%;
+          .navButton, .ofertasButton {
             font-size: 12px;
-            padding: 6px 10px;
+            padding: 8px 12px;
+            min-width: 0;
+            flex: 1;
+            max-width: 120px;
           }
           
           .productContainer {
@@ -2878,7 +2918,8 @@ export default function ProductPage({ product: initialProduct }) {
           }
           
           .productName {
-            font-size: 22px;
+            font-size: 18px;
+            line-height: 1.3;
           }
           
           .actionButtons {
@@ -2889,44 +2930,76 @@ export default function ProductPage({ product: initialProduct }) {
           .buyNowButton {
             width: 100%;
           }
-          
-          .socialLinks {
-            gap: 20px;
-          }
-
-          .citiesList {
-            grid-template-columns: 1fr;
-          }
         }
         
         @media (max-width: 480px) {
+          .title {
+            font-size: 18px;
+            margin-bottom: 12px;
+          }
+          
+          .buttonsRow {
+            gap: 6px;
+          }
+          
+          .navButton, .ofertasButton {
+            font-size: 11px;
+            padding: 6px 8px;
+            max-width: 110px;
+          }
+          
           .productName {
-            font-size: 20px;
+            font-size: 16px;
           }
           
           .productPrice {
-            font-size: 24px;
+            font-size: 22px;
           }
           
           .sectionTitle {
-            font-size: 18px;
+            font-size: 16px;
+          }
+        }
+
+        /* PARA CELULARES MUITO PEQUENOS */
+        @media (max-width: 360px) {
+          .navButton, .ofertasButton {
+            font-size: 10px;
+            padding: 5px 6px;
+            max-width: 100px;
           }
           
-          .titleContainer {
-            gap: 8px;
+          .title {
+            font-size: 16px;
           }
+        }
 
-          .regionButton {
-            padding: 12px 15px;
-            font-size: 14px;
+        /* DESKTOP */
+        @media (min-width: 769px) {
+          .buttonsRow {
+            display: flex;
+            gap: 15px;
           }
+          
+          .navButton, .ofertasButton {
+            min-width: 150px;
+            font-size: 14px;
+            padding: 10px 16px;
+            max-width: none;
+          }
+        }
+        
+        /* Estilos gerais */
+        .productName {
+          word-break: break-word;
+          overflow-wrap: break-word;
         }
       `}</style>
     </>
   );
 }
 
-// Estilos otimizados para mobile-first
+// Estilos otimizados
 const styles = {
   container: {
     maxWidth: '1200px',
@@ -2941,7 +3014,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '20px',
-    padding: '15px',
+    padding: '20px 15px',
     backgroundColor: '#fff',
     borderRadius: '10px',
     boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
@@ -2954,35 +3027,53 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '12px',
+    gap: '15px',
     flex: 1
   },
   
   title: {
     color: '#095400',
-    fontSize: '20px',
+    fontSize: '24px',
     fontWeight: 'bold',
     margin: '0',
     textAlign: 'center'
   },
   
-  navigationButtons: {
+  buttonsRow: {
     display: 'flex',
-    gap: '12px',
+    gap: '10px',
     justifyContent: 'center',
-    flexWrap: 'wrap'
+    alignItems: 'center',
+    width: '100%',
+    maxWidth: '600px'
   },
   
   navButton: {
     backgroundColor: '#095400',
     color: 'white',
     border: 'none',
-    padding: '8px 16px',
+    padding: '10px 16px',
     borderRadius: '6px',
     cursor: 'pointer',
     fontSize: '14px',
     fontWeight: 'bold',
-    transition: 'all 0.3s ease'
+    transition: 'all 0.3s ease',
+    textAlign: 'center',
+    flex: 1
+  },
+  
+  ofertasButton: {
+    backgroundColor: '#ff0000',
+    color: 'white',
+    border: 'none',
+    padding: '10px 16px',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    transition: 'all 0.3s ease',
+    textAlign: 'center',
+    flex: 1
   },
   
   productContainer: {
@@ -3013,21 +3104,35 @@ const styles = {
     gap: '20px'
   },
   
+  productNameContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px'
+  },
+  
   productName: {
     fontSize: '24px',
     color: '#333',
     fontWeight: 'bold',
     margin: '0',
-    lineHeight: '1.3'
+    lineHeight: '1.3',
+    wordBreak: 'break-word',
+    overflowWrap: 'break-word',
+    hyphens: 'auto'
+  },
+  
+  pmgBrand: {
+    marginTop: '5px'
   },
   
   pmgBadge: {
     backgroundColor: '#095400',
     color: 'white',
-    padding: '4px 8px',
+    padding: '8px 15px',
     borderRadius: '6px',
-    fontSize: '14px',
-    marginLeft: '8px'
+    fontSize: '16px',
+    fontWeight: 'bold',
+    display: 'inline-block'
   },
   
   productCategory: {
@@ -3127,15 +3232,6 @@ const styles = {
     border: '1px solid #e9ecef'
   },
 
-  // NOVOS ESTILOS PARA O MENU DE CIDADES
-  regionItem: {
-  fontSize: '14px',
-  color: '#095400',
-  padding: '8px 0',
-  borderBottom: '1px solid #f0f0f0',
-  fontWeight: '600'
-},
-
   regionsContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -3190,6 +3286,14 @@ const styles = {
     padding: '5px 0',
     borderBottom: '1px solid #f0f0f0'
   },
+
+  regionItem: {
+    fontSize: '14px',
+    color: '#095400',
+    padding: '8px 0',
+    borderBottom: '1px solid #f0f0f0',
+    fontWeight: '600'
+  },
   
   deliveryList: {
     display: 'flex',
@@ -3243,7 +3347,3 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
-
-
-
-
