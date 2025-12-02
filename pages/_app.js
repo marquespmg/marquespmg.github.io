@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
-import Markito from '../pages/Markito'; // Importe o componente do chat
+import Markito from '../pages/Markito';
+import SeasonalOverlay from '@/components/SeasonalOverlay/SeasonalOverlay'; // ADICIONE ESTA LINHA
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
 
-  // Google Analytics (mantido igual)
+  // Google Analytics
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }) {
     gtag('config', 'G-89LSRYEHF1');
   }, []);
 
-  // Funções do carrinho (mantidas)
+  // Funções do carrinho (SUA VERSÃO ORIGINAL)
   const addToCart = (product) => {
     setCart([...cart, product]);
     setTotal(total + product.price);
@@ -74,7 +75,10 @@ function MyApp({ Component, pageProps }) {
         }}
       />
 
-      {/* Componente principal + Chat Widget */}
+      {/* PELÍCULA DECORATIVA NATALINA - ADICIONE AQUI */}
+      <SeasonalOverlay />
+
+      {/* Componente principal */}
       <Component 
         {...pageProps} 
         cart={cart}
@@ -83,7 +87,7 @@ function MyApp({ Component, pageProps }) {
         removeFromCart={removeFromCart}
       />
       
-      <Markito /> {/* Chat fixo em todas as páginas */}
+      <Markito /> {/* Chat fixo */}
     </>
   );
 }
