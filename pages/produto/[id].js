@@ -587,7 +587,7 @@ const products = [
   { id: 625, name: 'CREAM CHEESE PEQUENO SCALA 150 G', category: 'Derivados de Leite', price: 7.84, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-pequeno-scala-150-g-pmg-atacadista.jpg' },
   { id: 626, name: 'CREAM CHEESE PHILADELPHIA 3,6 KILO', category: 'Derivados de Leite', price: 144.1, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-36-kilo-pmg-atacadista.jpg' },
   { id: 627, name: 'CREAM CHEESE PHILADELPHIA 1,5 KILO', category: 'Derivados de Leite', price: 66.69, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-15-kilo-pmg-atacadista.jpg' },
-  { id: 628, name: 'CREAM CHEESE POLENGHI 3,6 KILO', category: 'Derivados de Leite', price: 36.71, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-36-kilo-pmg-atacadista.jpg' },
+  { id: 628, name: 'CREAM CHEESE POLENGHI 3,6 KILO', category: 'Derivados de Leite', price: 120.63, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-36-kilo-pmg-atacadista.jpg' },
   { id: 629, name: 'CREAM CHEESE POLENGHI 1 KILO', category: 'Derivados de Leite', price: 35.92, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-1-kilo-pmg-atacadista.jpg' },
   { id: 630, name: 'CREAM CHEESE SACHÊ DANÚBIO 18 G (CX 144 UN)', category: 'Derivados de Leite', price: 136.94, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-sache-danubio-18-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 631, name: 'CREAM CHEESE SACHÊ PRESIDENT 18 G (CX 120 UN)', category: 'Derivados de Leite', price: 117.86, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-sache-president-18-g-cx-120-un-pmg-atacadista.jpg' },
@@ -1268,7 +1268,7 @@ const products = [
   { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 19.42, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1353, name: 'MOSTARDA SACHÊ HEMMER 7 G (CX 190 UN)', category: 'Derivados de Vegetal', price: 23.14, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-hemmer-7-g-cx-190-un-pmg-atacadista.jpg' },
   { id: 1354, name: 'MOSTARDA SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 10.72, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
-  { id: 1355, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', category: 'Derivados de Vegetal', price: 9.79, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao-bd-158-l-pmg-atacadista.jpg' },
+  { id: 1355, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', category: 'Derivados de Vegetal', price: 180.41, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao-bd-158-l-pmg-atacadista.jpg' },
   { id: 1356, name: 'ÓLEO DE ALGODÃO LIZA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 201.94, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-bd-158-l-pmg-atacadista.jpg' },
   { id: 1357, name: 'ÓLEO DE ALGODÃO LIZA 900 ML', category: 'Derivados de Vegetal', price: 14.97, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-900-ml-pmg-atacadista.jpg' },
   { id: 1358, name: 'ÓLEO DE ALGODÃO SOYA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 200.46, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-soya-bd-158-l-pmg-atacadista.jpg' },
@@ -3347,3 +3347,4 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
