@@ -4,6 +4,47 @@ import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+// ========== DADOS DAS CIDADES ========== //
+const citiesData = {
+  sp: {
+    title: "🏢 Estado de São Paulo",
+    regions: [
+      '🏞️ Interior',
+      '🏖️ Litoral', 
+      '🏙️ Capital',
+      '📍 Zona Sul',
+      '📍 Zona Leste',
+      '📍 Zona Norte',
+      '📍 Zona Oeste'
+    ]
+  },
+  rj: {
+    title: "🏖️ Sul do Rio de Janeiro",
+    cities: [
+      'BARRA DO PIRAÍ', 'BARRA MANSA', 'ENG. PAULO FRONTIN', 'ITATIAIA', 'MENDES',
+      'PARATY', 'PETRÓPOLIS', 'PINHEIRAL', 'PIRAÍ', 'PORTO REAL', 'QUATIS',
+      'RESENDE', 'RIO CLARO', 'VALENÇA', 'VASSOURAS', 'VOLTA REDONDA'
+    ]
+  },
+  mg: {
+    title: "⛰️ Sul de Minas Gerais", 
+    cities: [
+      'ANDRADAS', 'BAEPENDI', 'BOM REPOUSO', 'BRAZÓPOLIS', 'BUENO BRANDÃO',
+      'CABO VERDE', 'CAMANDUCAIA', 'CAMBUÍ', 'CAMBUQUIRA', 'CAPITÓLIO',
+      'CARMO DE MINAS', 'CAXAMBÚ', 'CONCEIÇÃO DO RIO VERDE', 'CONCEIÇÃO DOS OUROS',
+      'CONGONHAL', 'CONSOLAÇÃO', 'CORREGO DO BOM JESUS', 'CRISTINA', 'CRUZÍLIA',
+      'DELFIM MOREIRA', 'ELOI MENDES', 'ESTIVA', 'EXTREMA', 'FRUTAL', 'GONÇALVES',
+      'GUAPÉ', 'GUARANESIA', 'GUAXUPÉ', 'ILICÍNEA', 'ITAJUBÁ', 'ITAMONTE',
+      'ITANHANDU', 'ITAPEVA', 'JACUTINGA', 'LAMBARI', 'MARIA DA FÉ',
+      'MONTE SANTO DE MINAS', 'MONTE SIÃO', 'MONTE VERDE', 'OURO FINO',
+      'PARAISÓPOLIS', 'PASSA QUATRO', 'PIRANGUÇU', 'PIRANGUINHO', 'PLANURA',
+      'POÇOS DE CALDAS', 'POUSO ALEGRE', 'POUSO ALTO', 'SANTA RITA DO SAPUCAÍ',
+      'SÃO LOURENÇO', 'SÃO SEBASTIÃO DO PARAÍSO', 'SÃO SEBASTIÃO DO RIO VERDE',
+      'SAPUCAÍ-MIRIM', 'SOLEDADE DE MINAS', 'TOLEDO', 'TRÊS CORAÇÕES',
+      'TRÊS PONTAS', 'VARGINHA', 'VIRGÍNIA'
+    ]
+  }
+};
 
 // CONFIGURAÇÃO DAS PALAVRAS-CHAVE POR CATEGORIA
 const categoryKeywords = {
@@ -2184,6 +2225,16 @@ const ProductsPage = () => {
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [showFreteToast, setShowFreteToast] = useState(false);
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
+  const citiesButtonRef = useRef(null);
+  
+  // NOVOS ESTADOS PARA O MENU DE CIDADES
+  const [showCitiesMenu, setShowCitiesMenu] = useState(false);
+  const [openRegions, setOpenRegions] = useState({
+    sp: false,
+    rj: false,
+    mg: false
+  });
+  
   const productsPerPage = windowWidth > 768 ? 20 : 10;
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
@@ -2191,6 +2242,14 @@ const ProductsPage = () => {
   const [showRedirectMessage, setShowRedirectMessage] = useState(false);
   const [redirectDestination, setRedirectDestination] = useState('');
   
+  // FUNÇÃO PARA ALTERNAR AS REGIÕES
+  const toggleRegion = (regionKey) => {
+    setOpenRegions(prev => ({
+      ...prev,
+      [regionKey]: !prev[regionKey]
+    }));
+  };
+
 // SUBSTITUA O USEEFFECT EXISTENTE POR ESTE:
 useEffect(() => {
   const checkAndRedirectAfterLogin = async () => {
@@ -2258,6 +2317,27 @@ useEffect(() => {
     };
   }, []);
 
+  // Efeito para fechar o menu de cidades ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showCitiesMenu) {
+        const menuElement = document.querySelector('[data-cities-menu]');
+        const buttonElement = document.querySelector('[data-cities-button]');
+        
+        if (menuElement && buttonElement) {
+          if (!menuElement.contains(event.target) && !buttonElement.contains(event.target)) {
+            setShowCitiesMenu(false);
+          }
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showCitiesMenu]);
+
 // ADICIONAR ESTE USEEFFECT APÓS OS EXISTENTES
 useEffect(() => {
   const applyCategoryFilterFromURL = () => {
@@ -2292,7 +2372,6 @@ useEffect(() => {
 }, []); // Executa apenas uma vez ao carregar a página
 
 // SUBSTITUA O USEEFFECT PROBLEMÁTICO POR ESTE:
-
 useEffect(() => {
   const updateSEOMetaTags = () => {
     // Só executa no cliente
@@ -2765,34 +2844,51 @@ const removeFromCart = (productId) => {
       borderRadius: '10px',
       boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
     },
-    userWelcomeBar: {
-      backgroundColor: '#095400',
-      color: 'white',
-      padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
-      borderRadius: '8px',
-      flex: 1,
-      display: 'flex',
-      flexDirection: 'column',      // muda de linha
-      alignItems: 'flex-start',     // alinha à esquerda
-      gap: '6px'                    // espaço entre mensagem e botão
-    },
-    welcomeMessage: {
-      fontSize: windowWidth > 768 ? '16px' : '14px',
-      fontWeight: '600',
-      margin: 0
-    },
-    homeButton: {
-      backgroundColor: 'white',
-      color: '#095400',
-      border: '1px solid #095400', // opcional pra destacar
-      padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-      borderRadius: '20px',
-      fontSize: windowWidth > 768 ? '14px' : '12px',
-      fontWeight: '600',
-      cursor: 'pointer',
-      textDecoration: 'none',
-      whiteSpace: 'nowrap'
-    },
+userWelcomeContainer: {
+  backgroundColor: '#095400',
+  color: 'white',
+  padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
+  borderRadius: '8px',
+  marginBottom: windowWidth > 768 ? '20px' : '15px'
+},
+
+welcomeRow: {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '10px',
+  marginBottom: '10px'
+},
+
+welcomeMessage: {
+  fontSize: windowWidth > 768 ? '16px' : '14px',
+  fontWeight: '600',
+  margin: 0
+},
+
+buttonsRow: {
+  display: 'flex',
+  gap: '10px',
+  alignItems: 'center',
+  flexWrap: 'wrap'
+},
+
+homeButton: {
+  backgroundColor: 'white',
+  color: '#095400',
+  border: '1px solid #095400',
+  padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+  borderRadius: '20px',
+  fontSize: windowWidth > 768 ? '14px' : '12px',
+  fontWeight: '600',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  whiteSpace: 'nowrap',
+  transition: 'all 0.3s',
+  '&:hover': {
+    backgroundColor: '#095400',
+    color: 'white'
+  }
+},
     topHeaderContainer: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -3166,13 +3262,12 @@ const removeFromCart = (productId) => {
       width: '20px',
       height: '20px'
     },
-    userAvatar: {
-      width: '32px',
-      height: '32px',
-      borderRadius: '50%',
-      objectFit: 'cover',
-      marginRight: '10px'
-    },
+userAvatar: {
+  width: '32px',
+  height: '32px',
+  borderRadius: '50%',
+  objectFit: 'cover'
+},
     userInfoContainer: {
       display: 'flex',
       alignItems: 'center',
@@ -3197,7 +3292,71 @@ const removeFromCart = (productId) => {
       fontWeight: 'bold',
       transition: 'all 0.3s ease',
       zIndex: 5,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+      boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+      '&:hover': {
+        backgroundColor: '#c62828',
+        transform: 'scale(1.1)'
+      }
+    },
+    
+    // ========== NOVOS ESTILOS PARA O BOTÃO DE CIDADES ========== //
+citiesButton: {
+  backgroundColor: '#e53935',
+  color: 'white',
+  border: 'none',
+  padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+  borderRadius: '20px',
+  fontSize: windowWidth > 768 ? '14px' : '12px',
+  fontWeight: '600',
+  cursor: 'pointer',
+  transition: 'all 0.3s',
+  whiteSpace: 'nowrap',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '5px',
+  boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
+  position: 'relative',
+  '&:hover': {
+    backgroundColor: '#c62828',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
+  }
+},
+
+// ========== MENU DROPDOWN CENTRALIZADO ========== //
+citiesMenuDropdown: {
+  position: 'absolute',
+  top: '100%',
+  left: '50%',
+  transform: 'translateX(-50%)',
+  backgroundColor: 'white',
+  borderRadius: '10px',
+  boxShadow: '0 5px 20px rgba(0,0,0,0.2)',
+  zIndex: 1000,
+  marginTop: '10px',
+  width: windowWidth > 768 ? '350px' : '280px',
+  maxHeight: '60vh',
+  overflowY: 'auto',
+  padding: '15px',
+  border: '2px solid #095400',
+  // Responsividade para celular
+  ...(windowWidth <= 768 && {
+    width: '90vw',
+    maxWidth: '95vw'
+  })
+},
+
+// Container para posicionamento relativo
+citiesButtonContainer: {
+  position: 'relative',
+  display: 'inline-block'
+},
+    
+    // Container para os botões do topo
+    topButtonsContainer: {
+      display: 'flex',
+      gap: '10px',
+      alignItems: 'center'
     }
   };
 
@@ -3223,7 +3382,7 @@ const removeFromCart = (productId) => {
         </div>
       )}
 
-    {/* MENSAGEM DE REDIRECIONAMENTO CENTRALIZADA - ADICIONE ESTE BLOCO */}
+    {/* MENSAGEM DE REDIRECIONAMENTO CENTRALIZADA */}
     {showRedirectMessage && (
       <div style={{
         position: 'fixed',
@@ -3354,26 +3513,374 @@ const removeFromCart = (productId) => {
           </div>
         )}
 
-        {/* Barra de boas-vindas com foto do usuário */}
-        {user && (
-          <div style={styles.userWelcomeBar}>
-            <div style={styles.userInfoContainer}>
-              {userAvatar && (
-                <img 
-                  src={userAvatar} 
-                  alt="Foto do usuário"
-                  style={styles.userAvatar} 
-                />
-              )}
-              <p style={styles.welcomeMessage}>
-                {userName ? `Olá ${userName}, seja bem-vindo(a)!` : `Olá ${user.email}, seja bem-vindo(a)!`}
-              </p>
+{/* ========== 1. BOTÃO DE CIDADES ========== */}
+{user && (
+  <div style={{
+    backgroundColor: '#095400',
+    color: 'white',
+    padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
+    borderRadius: '8px',
+    marginBottom: windowWidth > 768 ? '20px' : '15px'
+  }}>
+    {/* Linha 1: Mensagem de boas-vindas */}
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+      marginBottom: '10px'
+    }}>
+      {userAvatar && (
+        <img 
+          src={userAvatar} 
+          alt="Foto do usuário"
+          style={{
+            width: '32px',
+            height: '32px',
+            borderRadius: '50%',
+            objectFit: 'cover'
+          }} 
+        />
+      )}
+      <p style={{
+        fontSize: windowWidth > 768 ? '16px' : '14px',
+        fontWeight: '600',
+        margin: 0
+      }}>
+        {userName ? `Olá ${userName}, seja bem-vindo(a)!` : `Olá ${user.email}, seja bem-vindo(a)!`}
+      </p>
+    </div>
+    
+    {/* Linha 2: Botões */}
+    <div style={{
+      display: 'flex',
+      gap: '10px',
+      alignItems: 'center',
+      flexWrap: 'wrap'
+    }}>
+      <a href="/" style={{
+        backgroundColor: 'white',
+        color: '#095400',
+        border: '1px solid #095400',
+        padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+        borderRadius: '20px',
+        fontSize: windowWidth > 768 ? '14px' : '12px',
+        fontWeight: '600',
+        cursor: 'pointer',
+        textDecoration: 'none',
+        whiteSpace: 'nowrap',
+        transition: 'all 0.3s',
+        '&:hover': {
+          backgroundColor: '#095400',
+          color: 'white'
+        }
+      }}>
+        Página Inicial
+      </a>
+      
+      {/* BOTÃO CIDADES - AGORA COM CONTAINER */}
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+        <button
+          onClick={() => setShowCitiesMenu(!showCitiesMenu)}
+          style={{
+            backgroundColor: '#e53935',
+            color: 'white',
+            border: 'none',
+            padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+            borderRadius: '20px',
+            fontSize: windowWidth > 768 ? '14px' : '12px',
+            fontWeight: '600',
+            cursor: 'pointer',
+            transition: 'all 0.3s',
+            whiteSpace: 'nowrap',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
+            '&:hover': {
+              backgroundColor: '#c62828',
+              transform: 'translateY(-2px)',
+              boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
+            }
+          }}
+        >
+          Onde Entregamos
+          <span style={{
+            transition: 'transform 0.3s',
+            fontSize: '12px',
+            transform: showCitiesMenu ? 'rotate(180deg)' : 'rotate(0deg)'
+          }}>
+            ▼
+          </span>
+        </button>
+        
+        {/* MENU DROPDOWN - CENTRALIZADO E RESPONSIVO */}
+        {showCitiesMenu && (
+          <>
+            {/* Overlay para fechar ao clicar fora */}
+            <div 
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 998,
+                backgroundColor: 'transparent'
+              }}
+              onClick={() => setShowCitiesMenu(false)}
+            />
+            
+            {/* Container do Menu - Centralizado abaixo do botão */}
+            <div 
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                zIndex: 999,
+                backgroundColor: 'white',
+                borderRadius: '8px',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
+                border: '2px solid #e53935',
+                width: windowWidth > 768 ? '350px' : '280px',
+                maxHeight: '400px',
+                overflowY: 'auto',
+                marginTop: '8px'
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Cabeçalho do Menu */}
+              <div style={{
+                padding: '12px 15px',
+                borderBottom: '1px solid #eee',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                backgroundColor: '#fff5f5'
+              }}>
+                <strong style={{ 
+                  color: '#095400', 
+                  fontSize: windowWidth > 768 ? '16px' : '14px',
+                  fontWeight: '600'
+                }}>
+                  📍 Onde Entregamos
+                </strong>
+                <button
+                  onClick={() => setShowCitiesMenu(false)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#e53935',
+                    cursor: 'pointer',
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    padding: '0',
+                    width: '24px',
+                    height: '24px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '50%',
+                    '&:hover': {
+                      backgroundColor: '#f0f0f0'
+                    }
+                  }}
+                >
+                  ×
+                </button>
+              </div>
+              
+              {/* Conteúdo do Menu */}
+              <div style={{ padding: '15px' }}>
+                
+             {/* São Paulo */}
+<div style={{ marginBottom: '15px' }}>
+  <div 
+    onClick={() => toggleRegion('sp')}
+    style={{
+      color: '#095400',
+      fontWeight: '600',
+      fontSize: windowWidth > 768 ? '15px' : '13px',
+      marginBottom: '8px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      cursor: 'pointer',
+      padding: '5px',
+      borderRadius: '4px',
+      '&:hover': {
+        backgroundColor: '#f9f9f9'
+      }
+    }}
+  >
+    <span>🏢</span>
+    <span>Estado de São Paulo</span>
+    <span style={{
+      marginLeft: 'auto',
+      fontSize: '12px',
+      transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
+      transition: 'transform 0.2s'
+    }}>
+      ▼
+    </span>
+  </div>
+  
+  {openRegions.sp && (
+    <div style={{
+      marginLeft: '10px',
+      paddingLeft: '10px',
+      borderLeft: '2px solid #095400',
+      maxHeight: '120px',
+      overflowY: 'auto'
+    }}>
+      {citiesData.sp.regions.map((regiao, index) => (
+        <div key={index} style={{
+          padding: '5px 0',
+          color: '#555',
+          fontSize: windowWidth > 768 ? '13px' : '12px'
+        }}>
+          • {regiao}
+        </div>
+      ))}
+    </div>
+  )}
+</div>
+                
+                {/* Rio de Janeiro */}
+                <div style={{ marginBottom: '15px' }}>
+                  <div 
+                    onClick={() => toggleRegion('rj')}
+                    style={{
+                      color: '#095400',
+                      fontWeight: '600',
+                      fontSize: windowWidth > 768 ? '15px' : '13px',
+                      marginBottom: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '5px',
+                      borderRadius: '4px',
+                      '&:hover': {
+                        backgroundColor: '#f9f9f9'
+                      }
+                    }}
+                  >
+                    <span>🏖️</span>
+                    <span>Sul do Rio de Janeiro</span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontSize: '12px',
+                      transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s'
+                    }}>
+                      ▼
+                    </span>
+                  </div>
+                  
+                  {openRegions.rj && (
+                    <div style={{
+                      marginLeft: '10px',
+                      paddingLeft: '10px',
+                      borderLeft: '2px solid #e53935',
+                      maxHeight: '120px',
+                      overflowY: 'auto'
+                    }}>
+                      {citiesData.rj.cities.map((city, index) => (
+                        <div key={index} style={{
+                          padding: '5px 0',
+                          color: '#555',
+                          fontSize: windowWidth > 768 ? '13px' : '12px'
+                        }}>
+                          • {city}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
+                {/* Minas Gerais */}
+                <div>
+                  <div 
+                    onClick={() => toggleRegion('mg')}
+                    style={{
+                      color: '#095400',
+                      fontWeight: '600',
+                      fontSize: windowWidth > 768 ? '15px' : '13px',
+                      marginBottom: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '5px',
+                      borderRadius: '4px',
+                      '&:hover': {
+                        backgroundColor: '#f9f9f9'
+                      }
+                    }}
+                  >
+                    <span>⛰️</span>
+                    <span>Sul de Minas Gerais</span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontSize: '12px',
+                      transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s'
+                    }}>
+                      ▼
+                    </span>
+                  </div>
+                  
+                  {openRegions.mg && (
+                    <div style={{
+                      marginLeft: '10px',
+                      paddingLeft: '10px',
+                      borderLeft: '2px solid #e53935',
+                      maxHeight: '120px',
+                      overflowY: 'auto'
+                    }}>
+                      {citiesData.mg.cities.slice(0, 59).map((city, index) => (
+                        <div key={index} style={{
+                          padding: '5px 0',
+                          color: '#555',
+                          fontSize: windowWidth > 768 ? '13px' : '12px'
+                        }}>
+                          • {city}
+                        </div>
+                      ))}
+                      {citiesData.mg.cities.length > 59 && (
+                        <div style={{
+                          color: '#888',
+                          fontSize: '12px',
+                          fontStyle: 'italic',
+                          padding: '5px 0'
+                        }}>
+                          + {citiesData.mg.cities.length - 59} cidades...
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+              
+              {/* Rodapé do Menu */}
+              <div style={{
+                padding: '10px 15px',
+                borderTop: '1px solid #eee',
+                fontSize: '12px',
+                color: '#888',
+                textAlign: 'center',
+                backgroundColor: '#f9f9f9'
+              }}>
+                Clique nas regiões para expandir
+              </div>
             </div>
-            <a href="/" style={styles.homeButton}>
-              Página Inicial
-            </a>
-          </div>
+          </>
         )}
+      </div>
+    </div>
+  </div>
+)}
 
         <div style={styles.header}>
           <img 
@@ -3457,11 +3964,11 @@ const removeFromCart = (productId) => {
           onClick={() => redirectToProductDetails(product.id)}
           style={styles.productDetailsButton}
           onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#b92c2b';
+            e.target.style.backgroundColor = '#c62828';
             e.target.style.transform = 'scale(1.1)';
           }}
           onMouseOut={(e) => {
-            e.target.style.backgroundColor = '#e03f3e';
+            e.target.style.backgroundColor = '#e53935';
             e.target.style.transform = 'scale(1)';
           }}
           title="Ver detalhes do produto"
@@ -4313,7 +4820,3 @@ const removeFromCart = (productId) => {
   };
 
   export default ProductsPage;
-
-
-
-
