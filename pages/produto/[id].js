@@ -2100,7 +2100,7 @@ export default function ProductPage({ product: initialProduct }) {
           }}
           onClick={() => router.push('/')}
         >
-          Voltar para Produtos
+          Mais produtos
         </button>
       </div>
     );
@@ -2316,7 +2316,7 @@ export default function ProductPage({ product: initialProduct }) {
                 style={styles.navButton}
                 onClick={() => router.push('/produtos')}
               >
-                Voltar para Produtos
+                Mais produtos
               </button>
               <button 
                 style={styles.ofertasButton}
@@ -3347,4 +3347,5 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
 
