@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 
 // ========== PRODUTOS EM OFERTA ========== //
+// VOCÊ SÓ PRECISA MUDAR ESTES PRODUTOS TODO DOMINGO!
 const featuredProducts = [
   { id: 17, name: 'BAÚ MOCHILA VERMELHO LAMINADO COM BOLSÃO PARA PIZZA MIL ROTAS (UN)', category: 'Ofertas', price: 178.99, image: 'https://www.marquesvendaspmg.shop/images/bau-mochila-vermelho-laminado-com-bolsao-para-pizza-mil-rotas-un-pmg-atacadista.jpg' },
   { id: 160, name: 'ESPUMANTE BRANCO MOSCATEL SALTON 750 ML', category: 'Ofertas', price: 27.55, image: 'https://www.marquesvendaspmg.shop/images/espumante-branco-moscatel-salton-750-ml-pmg-atacadista.jpg' },
@@ -49,6 +50,78 @@ const fifoImages = [
   'https://i.imgur.com/OTzM2vT.mp4',
 ];
 
+// ========== FUNÇÕES DE SEO DINÂMICAS ========== //
+// FUNÇÃO 1: Gera SEO automático baseado nos produtos atuais
+const generateDynamicSEO = (products) => {
+  // Extrai categorias e marcas dos produtos atuais
+  const categories = [...new Set(products.map(p => {
+    if (p.name.includes('WHISKY')) return 'whisky';
+    if (p.name.includes('GIN')) return 'gin';
+    if (p.name.includes('ESPUMANTE')) return 'espumante';
+    if (p.name.includes('BAÚ') || p.name.includes('MOCHILA')) return 'equipamentos';
+    return 'produtos';
+  }))];
+
+  // Extrai marcas dos produtos
+  const brands = products.map(p => {
+    if (p.name.includes('JOHNNIE WALKER')) return 'Johnnie Walker';
+    if (p.name.includes('SALTON')) return 'Salton';
+    if (p.name.includes('ROCK´S')) return 'Rock´s';
+    if (p.name.includes('WHITE HORSE')) return 'White Horse';
+    if (p.name.includes('MIL ROTAS')) return 'Mil Rotas';
+    return null;
+  }).filter(Boolean);
+
+  // Gera texto SEO dinâmico
+  return {
+    title: `Ofertas PMG Atacadista - ${categories.join(', ').toUpperCase()} em Promoção`,
+    description: `Ofertas especiais PMG Atacadista: ${products.slice(0, 3).map(p => p.name).join(', ')}. Confira todas as ofertas da semana com os melhores preços em atacado. Entrega rápida para São Paulo e região.`,
+    keywords: `ofertas pmg atacadista, ${categories.join(', ')}, ${brands.join(', ')}, atacado food service, preço baixo atacado`
+  };
+};
+
+// FUNÇÃO 2: Gera alt e title das imagens
+const generateImageSEO = (product) => {
+  return {
+    alt: `${product.name} - Oferta PMG Atacadista - Atacado Food Service`,
+    title: `${product.name} - Oferta Especial da Semana - PMG Atacadista`,
+  };
+};
+
+// FUNÇÃO 3: Gera brand automático
+const generateBrand = (productName) => {
+  const brandMap = {
+    'JOHNNIE WALKER': 'Johnnie Walker',
+    'SALTON': 'Salton',
+    'ROCK´S': 'Rock´s',
+    'WHITE HORSE': 'White Horse',
+    'MIL ROTAS': 'Mil Rotas',
+    'default': 'Marcas Premium'
+  };
+  
+  const foundBrand = Object.keys(brandMap).find(brand => 
+    productName.toUpperCase().includes(brand)
+  );
+  return brandMap[foundBrand] || brandMap.default;
+};
+
+// FUNÇÃO 4: Gera descrição do produto
+const generateProductDescription = (product) => {
+  if (product.name.includes('WHISKY')) {
+    return `${product.name} em oferta especial! Whisky premium importado para seu bar ou restaurante. Melhor preço atacado com entrega garantida.`;
+  }
+  if (product.name.includes('GIN')) {
+    return `${product.name} em promoção! Gin premium nacional. Perfeito para drinks especiais em seu estabelecimento.`;
+  }
+  if (product.name.includes('ESPUMANTE')) {
+    return `${product.name} em oferta! Espumante nacional de qualidade para celebrações e eventos.`;
+  }
+  if (product.name.includes('BAÚ') || product.name.includes('MOCHILA')) {
+    return `${product.name} em promoção! Equipamento profissional para transporte de alimentos. Qualidade garantida.`;
+  }
+  return `${product.name} em oferta especial PMG Atacadista! Produto selecionado com o melhor preço atacado.`;
+};
+
 // ========== HOOK PARA DETECTAR TAMANHO DA TELA ========== //
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
@@ -78,7 +151,10 @@ const OfertasPage = () => {
   const { width: windowWidth } = useWindowSize();
   const isMobile = windowWidth <= 768;
   
-  // Estados (removidos os de notificação)
+  // Gera SEO dinâmico baseado nos produtos
+  const dynamicSEO = generateDynamicSEO(featuredProducts);
+  
+  // Estados
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -116,8 +192,20 @@ const OfertasPage = () => {
     }));
   };
 
-  // Efeitos (removidos os de notificação)
+  // Efeitos
   useEffect(() => {
+    // Atualiza título da página dinamicamente
+    document.title = dynamicSEO.title;
+    
+    // Atualiza meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = dynamicSEO.description;
+
     // Carrossel automático
     bannerIntervalRef.current = setInterval(() => {
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
@@ -168,6 +256,48 @@ const OfertasPage = () => {
     bannerIntervalRef.current = setInterval(() => {
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
     }, 10000);
+  };
+
+  // Gera Schema.org dinâmico baseado nos produtos
+  const generateSchemaOrg = () => {
+    const productSchemas = currentProducts.map(product => ({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": product.name,
+      "description": generateProductDescription(product),
+      "category": product.category,
+      "image": product.image,
+      "brand": {
+        "@type": "Brand",
+        "name": generateBrand(product.name)
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": product.price.toString(),
+        "priceCurrency": "BRL",
+        "priceValidUntil": "2024-12-31", // Atualize esta data semanalmente
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "PMG Atacadista",
+          "url": "https://www.marquesvendaspmg.shop",
+          "telephone": "+5511913572902"
+        }
+      }
+    }));
+
+    // Schema adicional para a página de ofertas
+    const pageSchema = {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Ofertas PMG Atacadista",
+      "description": dynamicSEO.description,
+      "url": "https://www.marquesvendaspmg.shop/ofertas",
+      "numberOfItems": featuredProducts.length,
+      "mainEntity": productSchemas
+    };
+
+    return [pageSchema, ...productSchemas];
   };
 
   // ========== ESTILOS ATUALIZADOS ========== //
@@ -245,24 +375,46 @@ const OfertasPage = () => {
       overflow: 'hidden',
       transition: 'all 0.3s ease',
       border: '1px solid #f0f0f0',
-      position: 'relative', // ← ADICIONADO para a lupa
+      position: 'relative',
+      height: '100%', // Garante que todos os cards tenham mesma altura
+      display: 'flex',
+      flexDirection: 'column',
       ':hover': {
         transform: 'translateY(-5px)',
         boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
       }
     },
+    // IMAGEM AJUSTADA PARA NÃO CORTAR
+    productImageContainer: {
+      width: '100%',
+      height: isMobile ? '160px' : '220px',
+      overflow: 'hidden',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#FFFFFF',
+      borderBottom: '2px solid #f0f0f0'
+    },
     productImage: {
       width: '100%',
-      height: isMobile ? '140px' : '200px',
-      objectFit: 'cover',
-      borderBottom: '2px solid #f8f8f8'
+      height: '100%',
+      objectFit: 'contain', // Mudei de 'cover' para 'contain' para não cortar
+      padding: '10px',
+      transition: 'transform 0.3s ease',
+      ':hover': {
+        transform: 'scale(1.05)'
+      }
     },
     productInfo: {
-      padding: isMobile ? '15px' : '20px'
+      padding: isMobile ? '15px' : '20px',
+      flex: '1',
+      display: 'flex',
+      flexDirection: 'column'
     },
     productNameContainer: {
-      minHeight: isMobile ? '70px' : 'auto',
-      marginBottom: '12px'
+      minHeight: isMobile ? '60px' : '70px',
+      marginBottom: '12px',
+      flex: '1'
     },
     productName: {
       fontSize: isMobile ? '14px' : '15px',
@@ -306,6 +458,7 @@ const OfertasPage = () => {
       cursor: 'pointer',
       transition: 'all 0.3s ease',
       boxShadow: '0 2px 8px rgba(9, 84, 0, 0.3)',
+      marginTop: 'auto', // Empurra o botão para baixo
       ':hover': {
         backgroundColor: '#0a6b00',
         transform: 'translateY(-2px)'
@@ -319,7 +472,7 @@ const OfertasPage = () => {
         transform: 'none'
       }
     },
-    // ========== NOVO ESTILO: LUPA DE DETALHES ========== //
+    // LUPA DE DETALHES
     productDetailsButton: {
       position: 'absolute',
       top: '8px',
@@ -338,7 +491,11 @@ const OfertasPage = () => {
       fontWeight: 'bold',
       transition: 'all 0.3s ease',
       zIndex: 5,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+      boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+      ':hover': {
+        backgroundColor: '#b92c2b',
+        transform: 'scale(1.1)'
+      }
     },
     pagination: {
       display: 'flex',
@@ -442,16 +599,7 @@ const OfertasPage = () => {
       boxShadow: '0 5px 20px rgba(0,0,0,0.08)',
       border: '1px solid #e0f0e0'
     },
-    footer: {
-      marginTop: isMobile ? '40px' : '60px',
-      padding: isMobile ? '25px 15px' : '40px 20px',
-      textAlign: 'center',
-      color: '#666',
-      fontSize: isMobile ? '0.8rem' : '0.85rem',
-      borderTop: '2px solid #f0f0f0',
-      backgroundColor: '#f9f9f9'
-    },
-    // ========== ESTILOS DO POPUP FIFO (AJUSTADOS PARA 1080x1080) ========== //
+    // ESTILOS DO POPUP FIFO
     fifoPopupOverlay: {
       position: 'fixed',
       top: 0,
@@ -466,8 +614,8 @@ const OfertasPage = () => {
     },
     fifoPopupContent: {
       position: 'relative',
-      width: isMobile ? '90%' : 'auto', // Ajuste para desktop
-      maxWidth: '1080px', // Largura máxima igual à da imagem
+      width: isMobile ? '90%' : 'auto',
+      maxWidth: '1080px',
       maxHeight: isMobile ? '80vh' : '90vh',
       borderRadius: '12px',
       overflow: 'hidden',
@@ -494,13 +642,13 @@ const OfertasPage = () => {
       height: 'auto',
       display: 'flex',
       justifyContent: 'center',
-      backgroundColor: '#fff', // Fundo branco para imagens transparentes
+      backgroundColor: '#fff',
     },
     fifoPopupImage: {
       width: '100%',
       height: 'auto',
       maxHeight: '70vh',
-      objectFit: 'contain', // Garante que a imagem não seja cortada
+      objectFit: 'contain',
     },
     fifoPopupButton: {
       display: 'block',
@@ -517,10 +665,19 @@ const OfertasPage = () => {
     },
   };
 
-  // ========== RENDERIZAÇÃO ATUALIZADA ========== //
+  // ========== RENDERIZAÇÃO ========== //
   return (
     <div style={styles.container}>
-      {/* Barra de boas-vindas melhorada */}
+      {/* ✅ SCHEMA.ORG DINÂMICO */}
+      {generateSchemaOrg().map((schema, index) => (
+        <script
+          key={`schema-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+
+      {/* Barra de boas-vindas */}
       <div
         style={{
           ...styles.userWelcomeBar,
@@ -530,7 +687,7 @@ const OfertasPage = () => {
         }}
       >
         <p style={styles.welcomeMessage}>
-          🎯 OFERTAS ESPECIAIS - Marques Vendas PMG
+          🎯 OFERTAS DA SEMANA - Marques Vendas PMG
         </p>
         <a
           href="/"
@@ -540,7 +697,7 @@ const OfertasPage = () => {
         </a>
       </div>
 
-      {/* Cabeçalho premium */}
+      {/* Cabeçalho */}
       <div style={styles.header}>
         <img 
           src="https://i.imgur.com/pBH5WpZ.png" 
@@ -551,10 +708,25 @@ const OfertasPage = () => {
             filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
           }}
         />
-        <h1 style={styles.title}>🔥 OFERTAS ESPECIAIS</h1>
-        <p style={styles.subtitle}>Produtos selecionados com condições exclusivas! ⚡ Entrega rápida</p>
         
-        {/* Destaques de credibilidade */}
+        {/* ✅ H1 DINÂMICO */}
+        <h1 style={styles.title}>🔥 Ofertas PMG Atacadista</h1>
+        
+        {/* ✅ H2 DINÂMICO */}
+        <h2 style={{ 
+          color: '#e53935', 
+          fontSize: isMobile ? '18px' : '24px',
+          marginBottom: '15px',
+          fontWeight: '600'
+        }}>
+          Produtos Selecionados com Condições Especiais
+        </h2>
+        
+        <p style={styles.subtitle}>
+          ⚡ Ofertas válidas por tempo limitado! Aproveite os melhores preços em atacado
+        </p>
+        
+        {/* Destaques */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
@@ -564,7 +736,7 @@ const OfertasPage = () => {
         }}>
           {[
             { icon: '🚚', title: 'Entrega Rápida', desc: 'Para toda região' },
-            { icon: '🏷️', title: 'Preço Competitivo', desc: 'Melhores condições' },
+            { icon: '🏷️', title: 'Preço Baixo', desc: 'Melhores condições' },
             { icon: '🛡️', title: 'Garantia', desc: 'Produtos certificados' },
             { icon: '👨‍💼', title: 'Atendimento', desc: 'Especializado' }
           ].map((item, index) => (
@@ -591,73 +763,85 @@ const OfertasPage = () => {
         Mostrando {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, featuredProducts.length)} de {featuredProducts.length} produtos em oferta
       </div>
 
-      {/* Grade de produtos premium COM LUPA */}
+      {/* ✅ H3 DINÂMICO */}
+      <h3 style={{ 
+        color: '#333', 
+        fontSize: isMobile ? '18px' : '22px',
+        fontWeight: '700',
+        margin: '30px 0 15px',
+        textAlign: 'center'
+      }}>
+        🛒 Produtos em Destaque - Clique na Lupa para Detalhes
+      </h3>
+
+      {/* Grade de produtos COM IMAGENS AJUSTADAS */}
       <div style={styles.productsGrid}>
-        {currentProducts.map(product => (
-          <div key={product.id} style={styles.productCard}>
-            {/* BOTÃO LUPA - NOVO ELEMENTO ADICIONADO */}
-            <button
-              onClick={() => redirectToProductDetails(product.id)}
-              style={styles.productDetailsButton}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#b92c2b';
-                e.target.style.transform = 'scale(1.1)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#e03f3e';
-                e.target.style.transform = 'scale(1)';
-              }}
-              title="Ver detalhes do produto"
-            >
-              🔍
-            </button>
-            
-            <img 
-              src={product.image} 
-              alt={product.name} 
-              style={styles.productImage}
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/300x200/f8f8f8/666?text=Produto+Sem+Imagem';
-              }}
-            />
-            <div style={styles.productInfo}>
-              <div style={styles.productNameContainer}>
-                <h3 style={{
-                  ...styles.productName,
-                  WebkitLineClamp: expandedDescriptions[product.id] ? 'unset' : (isMobile ? 3 : 3)
-                }}>
-                  {product.name}
-                </h3>
-                {product.name.length > (isMobile ? 40 : 60) && (
-                  <button 
-                    onClick={() => toggleDescription(product.id)}
-                    style={styles.showMoreButton}
-                  >
-                    {expandedDescriptions[product.id] ? '[Mostrar menos]' : '[Mostrar mais]'}
-                  </button>
-                )}
+        {currentProducts.map(product => {
+          const seo = generateImageSEO(product);
+          
+          return (
+            <div key={product.id} style={styles.productCard}>
+              {/* BOTÃO LUPA */}
+              <button
+                onClick={() => redirectToProductDetails(product.id)}
+                style={styles.productDetailsButton}
+                title="Ver detalhes do produto"
+              >
+                🔍
+              </button>
+              
+              {/* CONTAINER DA IMAGEM - AJUSTADO */}
+              <div style={styles.productImageContainer}>
+                <img 
+                  src={product.image} 
+                  alt={seo.alt}
+                  title={seo.title}
+                  style={styles.productImage}
+                  onError={(e) => {
+                    e.target.src = 'https://via.placeholder.com/300x300/f8f8f8/666?text=Produto+Sem+Imagem';
+                  }}
+                />
               </div>
               
-              <p style={product.price > 0 ? styles.productPrice : { ...styles.productPrice, color: '#999', textDecoration: 'line-through' }}>
-                {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
-              </p>
+              <div style={styles.productInfo}>
+                <div style={styles.productNameContainer}>
+                  <h4 style={{
+                    ...styles.productName,
+                    WebkitLineClamp: expandedDescriptions[product.id] ? 'unset' : (isMobile ? 3 : 3)
+                  }}>
+                    {product.name}
+                  </h4>
+                  {product.name.length > (isMobile ? 40 : 60) && (
+                    <button 
+                      onClick={() => toggleDescription(product.id)}
+                      style={styles.showMoreButton}
+                    >
+                      {expandedDescriptions[product.id] ? '[Mostrar menos]' : '[Mostrar mais]'}
+                    </button>
+                  )}
+                </div>
+                
+                <p style={product.price > 0 ? styles.productPrice : { ...styles.productPrice, color: '#999', textDecoration: 'line-through' }}>
+                  {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
+                </p>
 
-              <button
-                onClick={() => addToCart(product)}
-                disabled={product.price === 0}
-                style={{
-                  ...styles.addButton,
-                  ...(product.price === 0 && styles.disabledButton)
-                }}
-              >
-                {product.price > 0 ? '🛒 Adicionar ao Carrinho' : '❌ Indisponível'}
-              </button>
+                <button
+                  onClick={() => addToCart(product)}
+                  disabled={product.price === 0}
+                  style={{
+                    ...styles.addButton,
+                    ...(product.price === 0 && styles.disabledButton)
+                  }}
+                >
+                  {product.price > 0 ? '🛒 Adicionar ao Carrinho' : '❌ Indisponível'}
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
-      {/* Paginação melhorada */}
+      {/* Paginação */}
       <div style={styles.pagination}>
         <button 
           onClick={prevPage} 
@@ -698,15 +882,31 @@ const OfertasPage = () => {
       {/* Carrinho */}
       <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} total={total} />
 
-      {/* CTA premium para produtos completos */}
+      {/* CTA */}
       <div style={styles.ctaSection}>
-        <h2 style={{ color: '#095400', marginBottom: '15px', fontSize: isMobile ? '20px' : '24px' }}>
-          📦 Catálogo Completo Disponível!
+        <h2 style={{ 
+          color: '#095400', 
+          marginBottom: '15px', 
+          fontSize: isMobile ? '20px' : '24px',
+          fontWeight: '700'
+        }}>
+          📦 Catálogo Completo de Produtos
         </h2>
+        
+        <h3 style={{ 
+          color: '#e53935', 
+          marginBottom: '15px', 
+          fontSize: isMobile ? '18px' : '22px',
+          fontWeight: '600'
+        }}>
+          🎁 Mais Produtos em Oferta no Catálogo Completo!
+        </h3>
+        
         <p style={{ marginBottom: '25px', color: '#666', fontSize: isMobile ? '14px' : '16px' }}>
           Acesse nosso catálogo completo com centenas de produtos para seu negócio.<br />
           Cadastro rápido, condições especiais e atendimento personalizado.
         </p>
+        
         <a 
           href="/produtos" 
           style={{
@@ -758,7 +958,7 @@ const OfertasPage = () => {
           ))}
         </div>
       </div>
-	  
+      
       {/* Popup FIFO */}
       {showFifoPopup && (
         <div style={styles.fifoPopupOverlay}>
@@ -793,394 +993,422 @@ const OfertasPage = () => {
         </div>
       )}
 
-      {/* Conteúdo SEO PMG Atacadista Ofertas - VISÍVEL APENAS PARA O GOOGLE */}
+      {/* ✅ CONTEÚDO SEO DINÂMICO E INVISÍVEL */}
       <div style={{
-        opacity: '0', height: '0', overflow: 'hidden', position: 'absolute', pointerEvents: 'none'
+        opacity: '0', 
+        height: '0', 
+        overflow: 'hidden', 
+        position: 'absolute', 
+        pointerEvents: 'none',
+        zIndex: -1
       }}>
-        <h1>PMG Atacadista - Ofertas Especiais e Promoções em Atacado</h1>
-        <p>PMG Atacadista ofertas especiais para atacado. Confira as promoções da PMG Atacadista em laticínios, queijos, embutidos, bebidas, congelados e produtos alimentícios. PMG Atacadista preços competitivos com condições especiais para restaurantes, bares e mercados.</p>
+        <h1>Ofertas PMG Atacadista - {featuredProducts.length} Produtos em Promoção</h1>
         
-        <h2>PMG Atacadista Ofertas da Semana</h2>
-        <p>PMG Atacadista ofertas com preços imbatíveis. PMG Atacadista promoções em produtos food service. PMG Atacadista descontos especiais para compras em grande quantidade.</p>
+        <h2>Ofertas da Semana PMG Atacadista</h2>
+        <p>
+          Confira as ofertas especiais da PMG Atacadista desta semana. 
+          {featuredProducts.map((product, index) => 
+            ` ${product.name}${index < featuredProducts.length - 1 ? ',' : '.'}`
+          ).join('')}
+          Todas as ofertas PMG Atacadista são válidas por tempo limitado e possuem estoque garantido.
+        </p>
         
-        <h3>PMG Atacadista App Ofertas</h3>
-        <p>PMG Atacadista app para acompanhar ofertas exclusivas. PMG Atacadista telefone para pedidos: (11) 91357-2902. PMG Atacadista entrega rápida na Grande São Paulo.</p>
+        <h3>PMG Atacadista Ofertas por Categoria</h3>
+        <p>
+          PMG Atacadista ofertas em bebidas alcoólicas: whisky, gin, espumante. 
+          PMG Atacadista ofertas em equipamentos para food service. 
+          PMG Atacadista preços especiais para atacado com entrega rápida.
+        </p>
+        
+        <h4>Como Comprar nas Ofertas PMG Atacadista</h4>
+        <p>
+          Para adquirir os produtos em oferta da PMG Atacadista, basta adicionar ao carrinho e finalizar o pedido. 
+          PMG Atacadista aceita pagamento na entrega, cartão, PIX. 
+          Entrega para São Paulo capital, interior SP, Sul de Minas e Sul do Rio de Janeiro.
+        </p>
+        
+        <h5>PMG Atacadista Contato Ofertas</h5>
+        <p>
+          Telefone PMG Atacadista ofertas: (11) 91357-2902. 
+          WhatsApp PMG Atacadista: (11) 91357-2902. 
+          Endereço PMG Atacadista: Estrada Ferreira Guedes, 784 - Potuverá, Itapecerica da Serra - SP.
+        </p>
       </div>
 
-{/* Rodapé Corrigido - Totalmente Responsivo */}
-<footer style={{
-  marginTop: '60px',
-  padding: '30px 15px',
-  textAlign: 'center',
-  color: '#666',
-  fontSize: '14px',
-  borderTop: '2px solid #095400',
-  backgroundColor: '#f8f9fa',
-  borderRadius: '12px 12px 0 0',
-  boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)',
-  width: '100%',
-  boxSizing: 'border-box'
-}}>
-  
-  {/* Container Principal do Rodapé */}
-  <div style={{
-    maxWidth: '1200px',
-    margin: '0 auto',
-    width: '100%'
-  }}>
-    
-    {/* Título do Rodapé */}
-    <h3 style={{
-      color: '#095400',
-      fontSize: '18px',
-      marginBottom: '25px',
-      fontWeight: '600'
-    }}>
-      📋 Informações Legais
-    </h3>
-
-    {/* Links Principais em Grid Responsivo */}
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-      gap: '15px',
-      marginBottom: '30px',
-      width: '100%'
-    }}>
-      
-      {/* Política de Privacidade */}
-      <Link href="/politica-de-privacidade" passHref legacyBehavior>
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none',
-          fontWeight: '600',
-          fontSize: '14px',
-          padding: '12px 8px',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-          backgroundColor: 'white',
-          border: '1px solid #e0e0e0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-          minHeight: '50px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#095400';
-          e.target.style.color = 'white';
-          e.target.style.transform = 'translateY(-2px)';
-          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = 'white';
-          e.target.style.color = '#095400';
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-        }}
-        title="Política de Privacidade"
-        aria-label="Leia nossa Política de Privacidade"
-      >
-        <span>🔒</span>
-        Privacidade
-      </a>
-      </Link>
-
-      {/* Política de Devolução e Reembolso */}
-      <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none',
-          fontWeight: '600',
-          fontSize: '14px',
-          padding: '12px 8px',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-          backgroundColor: 'white',
-          border: '1px solid #e0e0e0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-          minHeight: '50px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#095400';
-          e.target.style.color = 'white';
-          e.target.style.transform = 'translateY(-2px)';
-          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = 'white';
-          e.target.style.color = '#095400';
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-        }}
-        title="Política de Devolução e Reembolso"
-        aria-label="Leia nossa Política de Devolução e Reembolso"
-      >
-        <span>🔄</span>
-        Política de Devolução e Reembolso
-      </a>
-      </Link>
-
-      {/* Termos de Uso */}
-      <Link href="/termos" passHref legacyBehavior>
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none',
-          fontWeight: '600',
-          fontSize: '14px',
-          padding: '12px 8px',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-          backgroundColor: 'white',
-          border: '1px solid #e0e0e0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-          minHeight: '50px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#095400';
-          e.target.style.color = 'white';
-          e.target.style.transform = 'translateY(-2px)';
-          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = 'white';
-          e.target.style.color = '#095400';
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-        }}
-        title="Termos de Uso"
-        aria-label="Leia nossos Termos de Uso"
-      >
-        <span>📄</span>
-        Termos
-      </a>
-      </Link>
-
-      {/* Quem Somos */}
-      <Link href="/quem-somos" passHref legacyBehavior>
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none',
-          fontWeight: '600',
-          fontSize: '14px',
-          padding: '12px 8px',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-          backgroundColor: 'white',
-          border: '1px solid #e0e0e0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-          minHeight: '50px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#095400';
-          e.target.style.color = 'white';
-          e.target.style.transform = 'translateY(-2px)';
-          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = 'white';
-          e.target.style.color = '#095400';
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-        }}
-        title="Quem Somos"
-        aria-label="Conheça mais sobre nós"
-      >
-        <span>👥</span>
-        Sobre
-      </a>
-      </Link>
-    </div>
-
-    {/* Linha Divisa Estilizada */}
-    <div style={{
-      height: '1px',
-      background: 'linear-gradient(90deg, transparent, #095400, transparent)',
-      margin: '25px auto',
-      maxWidth: '300px',
-      width: '100%'
-    }}></div>
-
-    {/* Redes Sociais */}
-    <div style={{
-      marginBottom: '20px'
-    }}>
-      <h4 style={{
-        color: '#095400',
-        fontSize: '16px',
-        marginBottom: '15px',
-        fontWeight: '600'
-      }}>
-        Siga-nos nas Redes Sociais
-      </h4>
-      
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '20px',
-        alignItems: 'center',
-        flexWrap: 'wrap'
-      }}>
-        {/* Facebook */}
-        <a 
-          href="https://www.facebook.com/MarquesVendaspmg" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '40px',
-            height: '40px',
-            borderRadius: '8px',
-            transition: 'all 0.3s ease',
-            textDecoration: 'none',
-            backgroundColor: 'white',
-            border: '1px solid #e0e0e0',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-          }}
-          onMouseOver={(e) => {
-            e.target.style.transform = 'scale(1.1)';
-            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = 'scale(1)';
-            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-          }}
-        >
-          <img 
-            src="https://i.imgur.com/prULUUA.png" 
-            alt="Facebook" 
-            style={{
-              width: '20px',
-              height: '20px'
-            }}
-          />
-        </a>
-
-        {/* Instagram */}
-        <a 
-          href="https://www.instagram.com/marquesvendaspmg" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '40px',
-            height: '40px',
-            borderRadius: '8px',
-            transition: 'all 0.3s ease',
-            textDecoration: 'none',
-            backgroundColor: 'white',
-            border: '1px solid #e0e0e0',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-          }}
-          onMouseOver={(e) => {
-            e.target.style.transform = 'scale(1.1)';
-            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = 'scale(1)';
-            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-          }}
-        >
-          <img 
-            src="https://i.imgur.com/I0ZZLjG.png" 
-            alt="Instagram" 
-            style={{
-              width: '20px',
-              height: '20px'
-            }}
-          />
-        </a>
-
-        {/* YouTube */}
-        <a 
-          href="https://www.youtube.com/@MarquesVendasPMG" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '40px',
-            height: '40px',
-            borderRadius: '8px',
-            transition: 'all 0.3s ease',
-            textDecoration: 'none',
-            backgroundColor: 'white',
-            border: '1px solid #e0e0e0',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-          }}
-          onMouseOver={(e) => {
-            e.target.style.transform = 'scale(1.1)';
-            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = 'scale(1)';
-            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-          }}
-        >
-          <img 
-            src="https://i.imgur.com/WfpZ8Gg.png" 
-            alt="YouTube" 
-            style={{
-              width: '20px',
-              height: '20px'
-            }}
-          />
-        </a>
-      </div>
-    </div>
-
-    {/* Informações de Contato e Copyright */}
-    <div style={{ 
-      textAlign: 'center',
-      paddingTop: '15px',
-      borderTop: '1px solid #e0e0e0'
-    }}>
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '14px',
+      {/* Rodapé (mantido igual) */}
+      <footer style={{
+        marginTop: '60px',
+        padding: '30px 15px',
+        textAlign: 'center',
         color: '#666',
-        lineHeight: '1.5'
+        fontSize: '14px',
+        borderTop: '2px solid #095400',
+        backgroundColor: '#f8f9fa',
+        borderRadius: '12px 12px 0 0',
+        boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)',
+        width: '100%',
+        boxSizing: 'border-box'
       }}>
-        © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-      </p>
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '12px', 
-        color: '#888',
-        lineHeight: '1.4'
-      }}>
-        Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
-        <br />
-        CEP: 06885-150 - Itapecerica da Serra - SP
-      </p>
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '12px', 
-        color: '#888'
-      }}>
-        📞 Telefone: (11) 91357-2902
-      </p>
-    </div>
-  </div>
-</footer>
+        
+        {/* Container Principal do Rodapé */}
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          width: '100%'
+        }}>
+          
+          {/* Título do Rodapé */}
+          <h3 style={{
+            color: '#095400',
+            fontSize: '18px',
+            marginBottom: '25px',
+            fontWeight: '600'
+          }}>
+            📋 Informações Legais
+          </h3>
+
+          {/* Links Principais em Grid Responsivo */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+            gap: '15px',
+            marginBottom: '30px',
+            width: '100%'
+          }}>
+            
+            {/* Política de Privacidade */}
+            <Link href="/politica-de-privacidade" passHref legacyBehavior>
+              <a style={{ 
+                color: '#095400', 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: 'white',
+                border: '1px solid #e0e0e0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                minHeight: '50px'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.color = 'white';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'white';
+                e.target.style.color = '#095400';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Política de Privacidade"
+              aria-label="Leia nossa Política de Privacidade"
+            >
+              <span>🔒</span>
+              Privacidade
+            </a>
+            </Link>
+
+            {/* Política de Devolução e Reembolso */}
+            <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
+              <a style={{ 
+                color: '#095400', 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: 'white',
+                border: '1px solid #e0e0e0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                minHeight: '50px'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.color = 'white';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'white';
+                e.target.style.color = '#095400';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Política de Devolução e Reembolso"
+              aria-label="Leia nossa Política de Devolução e Reembolso"
+            >
+              <span>🔄</span>
+              Política de Devolução e Reembolso
+            </a>
+            </Link>
+
+            {/* Termos de Uso */}
+            <Link href="/termos" passHref legacyBehavior>
+              <a style={{ 
+                color: '#095400', 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: 'white',
+                border: '1px solid #e0e0e0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                minHeight: '50px'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.color = 'white';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'white';
+                e.target.style.color = '#095400';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Termos de Uso"
+              aria-label="Leia nossos Termos de Uso"
+            >
+              <span>📄</span>
+              Termos
+            </a>
+            </Link>
+
+            {/* Quem Somos */}
+            <Link href="/quem-somos" passHref legacyBehavior>
+              <a style={{ 
+                color: '#095400', 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: 'white',
+                border: '1px solid #e0e0e0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                minHeight: '50px'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.color = 'white';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'white';
+                e.target.style.color = '#095400';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Quem Somos"
+              aria-label="Conheça mais sobre nós"
+            >
+              <span>👥</span>
+              Sobre
+            </a>
+            </Link>
+          </div>
+
+          {/* Linha Divisa */}
+          <div style={{
+            height: '1px',
+            background: 'linear-gradient(90deg, transparent, #095400, transparent)',
+            margin: '25px auto',
+            maxWidth: '300px',
+            width: '100%'
+          }}></div>
+
+          {/* Redes Sociais */}
+          <div style={{
+            marginBottom: '20px'
+          }}>
+            <h4 style={{
+              color: '#095400',
+              fontSize: '16px',
+              marginBottom: '15px',
+              fontWeight: '600'
+            }}>
+              Siga-nos nas Redes Sociais
+            </h4>
+            
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '20px',
+              alignItems: 'center',
+              flexWrap: 'wrap'
+            }}>
+              {/* Facebook */}
+              <a 
+                href="https://www.facebook.com/MarquesVendaspmg" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'scale(1.1)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                }}
+              >
+                <img 
+                  src="https://i.imgur.com/prULUUA.png" 
+                  alt="Facebook" 
+                  style={{
+                    width: '20px',
+                    height: '20px'
+                  }}
+                />
+              </a>
+
+              {/* Instagram */}
+              <a 
+                href="https://www.instagram.com/marquesvendaspmg" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'scale(1.1)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                }}
+              >
+                <img 
+                  src="https://i.imgur.com/I0ZZLjG.png" 
+                  alt="Instagram" 
+                  style={{
+                    width: '20px',
+                    height: '20px'
+                  }}
+                />
+              </a>
+
+              {/* YouTube */}
+              <a 
+                href="https://www.youtube.com/@MarquesVendasPMG" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'scale(1.1)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                }}
+              >
+                <img 
+                  src="https://i.imgur.com/WfpZ8Gg.png" 
+                  alt="YouTube" 
+                  style={{
+                    width: '20px',
+                    height: '20px'
+                  }}
+                />
+              </a>
+            </div>
+          </div>
+
+          {/* Informações de Contato e Copyright */}
+          <div style={{ 
+            textAlign: 'center',
+            paddingTop: '15px',
+            borderTop: '1px solid #e0e0e0'
+          }}>
+            <p style={{ 
+              margin: '8px 0', 
+              fontSize: '14px',
+              color: '#666',
+              lineHeight: '1.5'
+            }}>
+              © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+            </p>
+            <p style={{ 
+              margin: '8px 0', 
+              fontSize: '12px', 
+              color: '#888',
+              lineHeight: '1.4'
+            }}>
+              Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
+              <br />
+              CEP: 06885-150 - Itapecerica da Serra - SP
+            </p>
+            <p style={{ 
+              margin: '8px 0', 
+              fontSize: '12px', 
+              color: '#888'
+            }}>
+              📞 Telefone: (11) 91357-2902
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
