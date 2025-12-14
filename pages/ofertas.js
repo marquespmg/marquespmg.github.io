@@ -16,6 +16,16 @@ const featuredProducts = [
   { id: 361, name: 'WHISKY WHITE HORSE 1 L', category: 'Ofertas', price: 65.88, image: 'https://www.marquesvendaspmg.shop/images/whisky-white-horse-1-l-pmg-atacadista.jpg' },
   { id: 175, name: 'GIN ROCK´S 1 L', category: 'Ofertas', price: 28.55, image: 'https://www.marquesvendaspmg.shop/images/gin-rocks-1-l-pmg-atacadista.jpg' },
   { id: 176, name: 'GIN ROCK´S STRAWBERRY 1 L', category: 'Ofertas', price: 28.55, image: 'https://www.marquesvendaspmg.shop/images/gin-rocks-strawberry-1-l-pmg-atacadista.jpg' },
+  { id: 162, name: 'ESPUMANTE CHANDON BABY BRUT ROSÉ 187 ML', category: 'Ofertas', price: 33.50, image: 'https://www.marquesvendaspmg.shop/images/espumante-chandon-baby-brut-rose-187-ml-pmg-atacadista.jpg' },
+  { id: 165, name: 'ESPUMANTE CHANDON RÉSERVE BRUT 750 ML', category: 'Ofertas', price: 85.20, image: 'https://www.marquesvendaspmg.shop/images/espumante-chandon-reserve-brut-750-ml-pmg-atacadista.jpg' },
+  { id: 360, name: 'WHISKY PASSPORT 1 L', category: 'Ofertas', price: 47.55, image: 'https://www.marquesvendaspmg.shop/images/whisky-passport-1-l-pmg-atacadista.jpg' },
+  { id: 347, name: 'WHISKY JACK DANIEL´S TENNESSEE FIRE 1 L', category: 'Ofertas', price: 135.99, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-fire-1-l-pmg-atacadista.jpg' },
+  { id: 348, name: 'WHISKY JACK DANIEL´S TENNESSEE HONEY 1 L', category: 'Ofertas', price: 137.99, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-honey-1-l-pmg-atacadista.jpg' },
+  { id: 349, name: 'WHISKY JACK DANIEL´S TENNESSEE OLD No.7 1 L', category: 'Ofertas', price: 137.99, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-old-no7-1-l-pmg-atacadista.jpg' },
+  { id: 173, name: 'GIN GORDON´S 750 ML', category: 'Ofertas', price: 61.20, image: 'https://www.marquesvendaspmg.shop/images/gin-gordons-750-ml-pmg-atacadista.jpg' },
+  { id: 171, name: 'GIN BEEFEATER 750 ML', category: 'Ofertas', price: 87.00, image: 'https://www.marquesvendaspmg.shop/images/gin-beefeater-750-ml-pmg-atacadista.jpg' },
+  { id: 339, name: 'VODKA SMIRNOFF 998 ML', category: 'Ofertas', price: 31.99, image: 'https://www.marquesvendaspmg.shop/images/vodka-smirnoff-998-ml-pmg-atacadista.jpg' },
+  { id: 327, name: 'VODKA ABSOLUT 1 L', category: 'Ofertas', price: 74.00, image: 'https://www.marquesvendaspmg.shop/images/vodka-absolut-1-l-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
