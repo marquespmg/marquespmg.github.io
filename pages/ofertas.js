@@ -6,26 +6,16 @@ import Link from 'next/link';
 // ========== PRODUTOS EM OFERTA ========== //
 // VOCÊ SÓ PRECISA MUDAR ESTES PRODUTOS TODO DOMINGO!
 const featuredProducts = [
-  { id: 17, name: 'BAÚ MOCHILA VERMELHO LAMINADO COM BOLSÃO PARA PIZZA MIL ROTAS (UN)', category: 'Ofertas', price: 178.99, image: 'https://www.marquesvendaspmg.shop/images/bau-mochila-vermelho-laminado-com-bolsao-para-pizza-mil-rotas-un-pmg-atacadista.jpg' },
-  { id: 160, name: 'ESPUMANTE BRANCO MOSCATEL SALTON 750 ML', category: 'Ofertas', price: 27.55, image: 'https://www.marquesvendaspmg.shop/images/espumante-branco-moscatel-salton-750-ml-pmg-atacadista.jpg' },
-  { id: 161, name: 'ESPUMANTE BRANCO NATURAL BRUT SALTON 750 ML', category: 'Ofertas', price: 27.55, image: 'https://www.marquesvendaspmg.shop/images/espumante-branco-natural-brut-salton-750-ml-pmg-atacadista.jpg' },
-  { id: 352, name: 'WHISKY JOHNNIE WALKER BLACK LABEL 12 ANOS 1 L', category: 'Ofertas', price: 170.88, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-black-label-12-anos-1-l-pmg-atacadista.jpg' },
-  { id: 353, name: 'WHISKY JOHNNIE WALKER BLUE LABEL 750 ML', category: 'Ofertas', price: 992.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-blue-label-750-ml-pmg-atacadista.jpg' },
-  { id: 355, name: 'WHISKY JOHNNIE WALKER GOLD LABEL RESERVE 750 ML', category: 'Ofertas', price: 227.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-gold-label-reserve-750-ml-pmg-atacadista.jpg' },
-  { id: 356, name: 'WHISKY JOHNNIE WALKER RED LABEL 1 L', category: 'Ofertas', price: 84.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-red-label-1-l-pmg-atacadista.jpg' },
-  { id: 361, name: 'WHISKY WHITE HORSE 1 L', category: 'Ofertas', price: 65.88, image: 'https://www.marquesvendaspmg.shop/images/whisky-white-horse-1-l-pmg-atacadista.jpg' },
-  { id: 175, name: 'GIN ROCK´S 1 L', category: 'Ofertas', price: 28.55, image: 'https://www.marquesvendaspmg.shop/images/gin-rocks-1-l-pmg-atacadista.jpg' },
-  { id: 176, name: 'GIN ROCK´S STRAWBERRY 1 L', category: 'Ofertas', price: 28.55, image: 'https://www.marquesvendaspmg.shop/images/gin-rocks-strawberry-1-l-pmg-atacadista.jpg' },
-  { id: 162, name: 'ESPUMANTE CHANDON BABY BRUT ROSÉ 187 ML', category: 'Ofertas', price: 33.50, image: 'https://www.marquesvendaspmg.shop/images/espumante-chandon-baby-brut-rose-187-ml-pmg-atacadista.jpg' },
-  { id: 165, name: 'ESPUMANTE CHANDON RÉSERVE BRUT 750 ML', category: 'Ofertas', price: 85.20, image: 'https://www.marquesvendaspmg.shop/images/espumante-chandon-reserve-brut-750-ml-pmg-atacadista.jpg' },
-  { id: 360, name: 'WHISKY PASSPORT 1 L', category: 'Ofertas', price: 47.55, image: 'https://www.marquesvendaspmg.shop/images/whisky-passport-1-l-pmg-atacadista.jpg' },
-  { id: 347, name: 'WHISKY JACK DANIEL´S TENNESSEE FIRE 1 L', category: 'Ofertas', price: 135.99, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-fire-1-l-pmg-atacadista.jpg' },
-  { id: 348, name: 'WHISKY JACK DANIEL´S TENNESSEE HONEY 1 L', category: 'Ofertas', price: 137.99, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-honey-1-l-pmg-atacadista.jpg' },
-  { id: 349, name: 'WHISKY JACK DANIEL´S TENNESSEE OLD No.7 1 L', category: 'Ofertas', price: 137.99, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-old-no7-1-l-pmg-atacadista.jpg' },
-  { id: 173, name: 'GIN GORDON´S 750 ML', category: 'Ofertas', price: 61.20, image: 'https://www.marquesvendaspmg.shop/images/gin-gordons-750-ml-pmg-atacadista.jpg' },
-  { id: 171, name: 'GIN BEEFEATER 750 ML', category: 'Ofertas', price: 87.00, image: 'https://www.marquesvendaspmg.shop/images/gin-beefeater-750-ml-pmg-atacadista.jpg' },
-  { id: 339, name: 'VODKA SMIRNOFF 998 ML', category: 'Ofertas', price: 31.99, image: 'https://www.marquesvendaspmg.shop/images/vodka-smirnoff-998-ml-pmg-atacadista.jpg' },
-  { id: 327, name: 'VODKA ABSOLUT 1 L', category: 'Ofertas', price: 74.00, image: 'https://www.marquesvendaspmg.shop/images/vodka-absolut-1-l-pmg-atacadista.jpg' },
+  { id: 1746, name: 'FARINHA DE TRIGO PIZZA ANACONDA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 80.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1749, name: 'FARINHA DE TRIGO PIZZA MARIA INÊS 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 68.00, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-maria-ines-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1750, name: 'FARINHA DE TRIGO PIZZA MIRELLA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 76.00, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-mirella-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 719, name: 'MUÇARELA BARI 4 KG', category: 'Ofertas', price: 26.40, image: 'https://www.marquesvendaspmg.shop/images/mucarela-bari-4-kg-pmg-atacadista.jpg' },
+  { id: 746, name: 'MUÇARELA FRIZZO 4 KG', category: 'Ofertas', price: 27.50, image: 'https://www.marquesvendaspmg.shop/images/mucarela-frizzo-4-kg-pmg-atacadista.jpg' },
+  { id: 750, name: 'MUÇARELA LA PAULINA 3.5 KG', category: 'Ofertas', price: 26.40, image: 'https://www.marquesvendaspmg.shop/images/mucarela-la-paulina-35-kg-pmg-atacadista.jpg' },
+  { id: 764, name: 'MUÇARELA SCALA 4 KG', category: 'Ofertas', price: 33.99, image: 'https://www.marquesvendaspmg.shop/images/mucarela-scala-4-kg-pmg-atacadista.jpg' },
+  { id: 770, name: 'MUÇARELA TRÊS MARIAS RONDÔNIA "OURO PRETO" 4 KG', category: 'Ofertas', price: 27.99, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-rondonia-ouro-preto-4-kg-pmg-atacadista.jpg' },
+  { id: 428, name: 'MOLHO PARA PIZZA EKMA 1,7 KILO (CX 6 BAG)', category: 'Ofertas', price: 59.00, image: 'https://www.marquesvendaspmg.shop/images/molho-para-pizza-ekma-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
+  { id: 978, name: 'CALABRESA AURORA 5 KILO', category: 'Ofertas', price: 108.00, image: 'https://www.marquesvendaspmg.shop/images/calabresa-aurora-5-kilo-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
