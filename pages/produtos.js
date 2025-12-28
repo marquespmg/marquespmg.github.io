@@ -3,6 +3,7 @@ import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Head from 'next/head'; // ← JÁ DEVE ESTAR AÍ
 
 // ========== DADOS DAS CIDADES ========== //
 const citiesData = {
@@ -3248,6 +3249,23 @@ citiesButtonContainer: {
 
   return (
     <>
+      {/* ========== HEAD OTIMIZADO PARA SEO ========== */}
+      <Head>
+        <title>PMG Atacadista | Catálogo Completo Atacado Food Service São Paulo</title>
+        <meta name="description" content="PMG Atacadista - Melhor preço em atacado para SP, Sul Minas e Sul RJ. Bebidas, carnes, laticínios, mercearia. Entrega grátis para restaurantes e mercados." />
+        <meta name="keywords" content="atacado SP, atacado São Paulo, food service, atacadista Itapecerica, PMG Atacadista, atacado bebidas, atacado carnes" />
+        <meta property="og:title" content="PMG Atacadista | Catálogo Atacado Food Service" />
+        <meta property="og:description" content="Melhor preço em atacado para restaurantes e mercados. Entrega em SP, Sul Minas e Sul RJ." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.marquesvendaspmg.shop/produtos" />
+        <meta property="og:image" content="https://i.imgur.com/jrERRsC.png" />
+        <meta property="og:site_name" content="PMG Atacadista" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow" />
+        <link rel="canonical" href="https://www.marquesvendaspmg.shop/produtos" />
+      </Head>
+      {/* ========== FIM DO HEAD ========== */}
+	
       {loading && (
         <div style={{
           position: 'fixed',
@@ -3443,6 +3461,7 @@ citiesButtonContainer: {
       alignItems: 'center',
       flexWrap: 'wrap'
     }}>
+      {/* BOTÃO PÁGINA INICIAL */}
       <a href="/" style={{
         backgroundColor: 'white',
         color: '#095400',
@@ -3455,7 +3474,7 @@ citiesButtonContainer: {
         textDecoration: 'none',
         whiteSpace: 'nowrap',
         transition: 'all 0.3s',
-        '&:hover': {
+        ':hover': {
           backgroundColor: '#095400',
           color: 'white'
         }
@@ -3463,7 +3482,7 @@ citiesButtonContainer: {
         Página Inicial
       </a>
       
-      {/* BOTÃO CIDADES - AGORA COM CONTAINER */}
+      {/* BOTÃO ONDE ENTREGAMOS */}
       <div style={{ position: 'relative', display: 'inline-block' }}>
         <button
           onClick={() => setShowCitiesMenu(!showCitiesMenu)}
@@ -3482,7 +3501,7 @@ citiesButtonContainer: {
             alignItems: 'center',
             gap: '5px',
             boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
-            '&:hover': {
+            ':hover': {
               backgroundColor: '#c62828',
               transform: 'translateY(-2px)',
               boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
@@ -3567,7 +3586,7 @@ citiesButtonContainer: {
                     alignItems: 'center',
                     justifyContent: 'center',
                     borderRadius: '50%',
-                    '&:hover': {
+                    ':hover': {
                       backgroundColor: '#f0f0f0'
                     }
                   }}
@@ -3579,58 +3598,58 @@ citiesButtonContainer: {
               {/* Conteúdo do Menu */}
               <div style={{ padding: '15px' }}>
                 
-             {/* São Paulo */}
-<div style={{ marginBottom: '15px' }}>
-  <div 
-    onClick={() => toggleRegion('sp')}
-    style={{
-      color: '#095400',
-      fontWeight: '600',
-      fontSize: windowWidth > 768 ? '15px' : '13px',
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      cursor: 'pointer',
-      padding: '5px',
-      borderRadius: '4px',
-      '&:hover': {
-        backgroundColor: '#f9f9f9'
-      }
-    }}
-  >
-    <span>🏢</span>
-    <span>Estado de São Paulo</span>
-    <span style={{
-      marginLeft: 'auto',
-      fontSize: '12px',
-      transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
-      transition: 'transform 0.2s'
-    }}>
-      ▼
-    </span>
-  </div>
-  
-  {openRegions.sp && (
-    <div style={{
-      marginLeft: '10px',
-      paddingLeft: '10px',
-      borderLeft: '2px solid #095400',
-      maxHeight: '120px',
-      overflowY: 'auto'
-    }}>
-      {citiesData.sp.regions.map((regiao, index) => (
-        <div key={index} style={{
-          padding: '5px 0',
-          color: '#555',
-          fontSize: windowWidth > 768 ? '13px' : '12px'
-        }}>
-          • {regiao}
-        </div>
-      ))}
-    </div>
-  )}
-</div>
+                {/* São Paulo */}
+                <div style={{ marginBottom: '15px' }}>
+                  <div 
+                    onClick={() => toggleRegion('sp')}
+                    style={{
+                      color: '#095400',
+                      fontWeight: '600',
+                      fontSize: windowWidth > 768 ? '15px' : '13px',
+                      marginBottom: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '5px',
+                      borderRadius: '4px',
+                      ':hover': {
+                        backgroundColor: '#f9f9f9'
+                      }
+                    }}
+                  >
+                    <span>🏢</span>
+                    <span>Estado de São Paulo</span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontSize: '12px',
+                      transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s'
+                    }}>
+                      ▼
+                    </span>
+                  </div>
+                  
+                  {openRegions.sp && (
+                    <div style={{
+                      marginLeft: '10px',
+                      paddingLeft: '10px',
+                      borderLeft: '2px solid #095400',
+                      maxHeight: '120px',
+                      overflowY: 'auto'
+                    }}>
+                      {citiesData.sp.regions.map((regiao, index) => (
+                        <div key={index} style={{
+                          padding: '5px 0',
+                          color: '#555',
+                          fontSize: windowWidth > 768 ? '13px' : '12px'
+                        }}>
+                          • {regiao}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
                 
                 {/* Rio de Janeiro */}
                 <div style={{ marginBottom: '15px' }}>
@@ -3647,7 +3666,7 @@ citiesButtonContainer: {
                       cursor: 'pointer',
                       padding: '5px',
                       borderRadius: '4px',
-                      '&:hover': {
+                      ':hover': {
                         backgroundColor: '#f9f9f9'
                       }
                     }}
@@ -3700,7 +3719,7 @@ citiesButtonContainer: {
                       cursor: 'pointer',
                       padding: '5px',
                       borderRadius: '4px',
-                      '&:hover': {
+                      ':hover': {
                         backgroundColor: '#f9f9f9'
                       }
                     }}
@@ -3764,6 +3783,32 @@ citiesButtonContainer: {
           </>
         )}
       </div>
+      
+      {/* BOTÃO PERGUNTAS FREQUENTES - DEPOIS DE ONDE ENTREGAMOS */}
+      <Link href="/faq" legacyBehavior>
+        <a style={{
+          backgroundColor: 'white',
+          color: '#095400',
+          border: '1px solid #095400',
+          padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+          borderRadius: '20px',
+          fontSize: windowWidth > 768 ? '14px' : '12px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          textDecoration: 'none',
+          whiteSpace: 'nowrap',
+          transition: 'all 0.3s',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '5px',
+          ':hover': {
+            backgroundColor: '#095400',
+            color: 'white'
+          }
+        }}>
+          ❓ Perguntas
+        </a>
+      </Link>
     </div>
   </div>
 )}
@@ -4525,6 +4570,25 @@ citiesButtonContainer: {
       paddingTop: '15px',
       borderTop: '1px solid #e0e0e0'
     }}>
+      {/* TEXTO SEO - AGORA EM CIMA (Google lê primeiro) */}
+      <p style={{ 
+        margin: '0 0 15px 0', 
+        fontSize: '11px', 
+        color: '#999',
+        lineHeight: '1.4',
+        fontStyle: 'italic',
+        maxWidth: '800px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        padding: '0 10px'
+      }}>
+        <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
+        Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
+        Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
+        Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
+      </p>
+      
+      {/* INFORMAÇÕES DE CONTATO - AGORA EMBAIXO */}
       <p style={{ 
         margin: '8px 0', 
         fontSize: '14px',
@@ -4706,6 +4770,7 @@ citiesButtonContainer: {
   };
 
   export default ProductsPage;
+
 
 
 
