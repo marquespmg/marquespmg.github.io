@@ -2,7 +2,7 @@
 const dezembroTheme = {
   id: 'dezembro',
   nome: 'Natal PMG 2025',
-  ativo: true,
+  ativo: false,
   
   // Cores natalinas
   cores: {
@@ -54,5 +54,6 @@ const dezembroTheme = {
     tamanho: '36px'   // Tamanho do emoji
   }
 };
+
 
 export default dezembroTheme;
