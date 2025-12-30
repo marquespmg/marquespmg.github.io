@@ -1,5 +1,26 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Crawl-delay para não sobrecarregar (opcional)
+Crawl-delay: 2
+
+# Prioridade para páginas importantes
+User-agent: Googlebot
+Allow: /produtos
+Allow: /faq
+Allow: /quem-somos
+Allow: /ofertas
+
+# Bloquear páginas de desenvolvimento
+User-agent: *
+Disallow: /teste/
+Disallow: /dev/
+Disallow: /staging/
+
+# Sitemaps (mantenha os que já tem)
 Sitemap: https://www.marquesvendaspmg.shop/sitemap.xml
 Sitemap: https://www.marquesvendaspmg.shop/sitemap-produtos.xml
 Sitemap: https://www.marquesvendaspmg.shop/sitemap-imagens.xml
