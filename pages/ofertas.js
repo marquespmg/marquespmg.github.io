@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
+import useTrackUser from '../hook/useTrackUser'; // ← ADICIONE ESTA LINHA
 
 // ========== PRODUTOS EM OFERTA ========== //
 // VOCÊ SÓ PRECISA MUDAR ESTES PRODUTOS TODO DOMINGO!
@@ -153,6 +154,9 @@ const OfertasPage = () => {
   
   // Gera SEO dinâmico baseado nos produtos
   const dynamicSEO = generateDynamicSEO(featuredProducts);
+
+      // ADICIONE ESTA LINHA AQUI ↓
+  useTrackUser(); // ← HOOK PARA RASTREAR VISITANTES NA PÁGINA DE OFERTAS
   
   // Estados
   const [cart, setCart] = useState([]);
