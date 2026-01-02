@@ -4,6 +4,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { supabase } from '../../lib/supabaseClient';
 import Cart from '../Cart';
+import useTrackUser from '../../hook/useTrackUser';
+
 
 // Array de produtos (substitua pelos seus dados reais)
 const products = [
@@ -1876,6 +1878,8 @@ export default function ProductPage({ product: initialProduct }) {
   const [isMobile, setIsMobile] = useState(false);
   const [openRegions, setOpenRegions] = useState({});
 
+      useTrackUser(); // ← ADICIONE ESTA LINHA
+
   // Verificar se é mobile
   useEffect(() => {
     const checkMobile = () => {
@@ -3241,6 +3245,7 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
 
 
 
