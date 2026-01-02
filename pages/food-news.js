@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { getRelatedProducts, getFeaturedProducts } from '../utils/product-utils';
 import ShareButtons from "../components/ShareButtons";
+import useTrackUser from '../hook/useTrackUser'; // ← ADICIONADO
+
 
 // ⬇️⬇️⬇️ ESTA FUNÇÃO VAI AQUI (FORA DO COMPONENTE) ⬇️⬇️⬇️
 export async function getServerSideProps(context) {
@@ -23,6 +25,9 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
   const articlesPerPage = 1;
   const [isClient, setIsClient] = useState(false);
 
+	    // HOOK PARA RASTREAR VISITANTES - ADICIONADO AQUI
+  useTrackUser(); // ← ESTA LINHA É NOVA
+	
   // BANCO DE ARTIGOS - AGORA COM PRODUTOS DINÂMICOS
   const articles = [
 {
