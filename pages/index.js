@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
+import useTrackUser from '../hook/useTrackUser';
+
 
 export default function Home() {
-  // Dados do carrossel com versões otimizadas para desktop e mobile
+  useTrackUser(); // ← ADICIONE ESTA LINHA
   const banners = [
     { 
       id: 1,
