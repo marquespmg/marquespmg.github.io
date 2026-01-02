@@ -1,10 +1,15 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import useTrackUser from '../hook/useTrackUser'; // ← ADICIONADO
+
 
 export default function QuemSomos() {
   const [isMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
 
+      // HOOK PARA RASTREAR VISITANTES - ADICIONADO AQUI
+  useTrackUser(); // ← ESTA LINHA É NOVA
+  
   return (
     <>
       <Head>
