@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import useTrackUser from '../hook/useTrackUser'; // ← ADICIONADO
+
 
 const FAQPage = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
+
+      // HOOK PARA RASTREAR VISITANTES - ADICIONADO AQUI
+  useTrackUser(); // ← ESTA LINHA É NOVA
   
   useEffect(() => {
     const checkMobile = () => {
@@ -463,5 +468,6 @@ const FAQPage = () => {
     </>
   );
 };
+
 
 export default FAQPage;
