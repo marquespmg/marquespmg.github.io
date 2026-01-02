@@ -1,4 +1,4 @@
-// hook/useTrackUser.js - VERSÃO CORRIGIDA
+// hook/useTrackUser.js - VERSÃO CORRIGIDA (um por página)
 import { useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
@@ -59,18 +59,19 @@ export default function useTrackUser() {
         
         console.log('📊 Dados coletados:', dadosAtividade);
         
-        // 4. VERIFICA SE JÁ EXISTE REGISTRO PARA ESTA SESSÃO
-        console.log('🔎 Verificando registro existente para sessão:', visitorId);
+        // 4. VERIFICA SE JÁ EXISTE REGISTRO PARA ESTA SESSÃO NESTA PÁGINA
+        console.log('🔎 Verificando registro para sessão:', visitorId, 'na página:', window.location.pathname);
         
         const { data: registroExistente, error: checkError } = await supabase
           .from('clientes_online')
           .select('id, created_at, pagina_atual')
           .eq('sessao_id', visitorId)
+          .eq('pagina_atual', window.location.pathname)
           .single();
         
         if (checkError && checkError.code === 'PGRST116') {
-          // Nenhum registro encontrado - INSERE NOVO
-          console.log('📝 Nenhum registro encontrado - Inserindo novo...');
+          // Nenhum registro encontrado para ESTA PÁGINA - INSERE NOVO
+          console.log('📝 Nenhum registro encontrado para esta página - Inserindo novo...');
           
           const { error: insertError } = await supabase
             .from('clientes_online')
@@ -79,17 +80,17 @@ export default function useTrackUser() {
           if (insertError) {
             console.log('❌ ERRO ao inserir:', insertError.message);
           } else {
-            console.log('✅ NOVO registro inserido');
+            console.log('✅ NOVO registro para esta página');
           }
           
         } else if (checkError) {
           console.log('⚠️ Erro ao verificar registro:', checkError.message);
           
         } else {
-          // Registro encontrado - ATUALIZA EXISTENTE
-          console.log('✏️ Registro encontrado (ID:', registroExistente.id, ') - Atualizando...');
+          // Registro encontrado para ESTA PÁGINA - ATUALIZA EXISTENTE
+          console.log('✏️ Registro encontrado para esta página (ID:', registroExistente.id, ') - Atualizando...');
           
-          // Calcula tempo de conexão
+          // Calcula tempo nesta página específica
           const tempoConectado = new Date() - new Date(registroExistente.created_at);
           const segundos = Math.floor(tempoConectado / 1000);
           const minutos = Math.floor(segundos / 60);
@@ -115,12 +116,7 @@ export default function useTrackUser() {
           if (updateError) {
             console.log('❌ ERRO ao atualizar:', updateError.message);
           } else {
-            console.log('✅ Registro ATUALIZADO - Tempo:', tempoFormatado);
-            
-            // Se mudou de página, mostra no log
-            if (registroExistente.pagina_atual !== dadosAtividade.pagina_atual) {
-              console.log('📍 Usuário mudou de página:', registroExistente.pagina_atual, '→', dadosAtividade.pagina_atual);
-            }
+            console.log('✅ Registro ATUALIZADO - Tempo nesta página:', tempoFormatado);
           }
         }
         
@@ -129,12 +125,12 @@ export default function useTrackUser() {
       }
     };
     
-    // Executa imediatamente
+    // Executa imediatamente quando a página carrega
     trackActivity();
     
-    // Atualiza a cada 30 segundos (agora atualiza, não insere)
+    // Atualiza a cada 30 segundos
     const intervalId = setInterval(trackActivity, 30000);
-    console.log('⏰ Intervalo configurado: 30 segundos (atualizações)');
+    console.log('⏰ Intervalo configurado: 30 segundos');
     
     // Limpeza
     return () => {
