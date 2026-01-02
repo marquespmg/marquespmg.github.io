@@ -4,6 +4,8 @@ import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head'; // ← JÁ DEVE ESTAR AÍ
+import useTrackUser from '../hook/useTrackUser'; // ← ADICIONADO
+
 
 // ========== DADOS DAS CIDADES ========== //
 const citiesData = {
@@ -2113,6 +2115,8 @@ const ProductsPage = () => {
   const [showFreteToast, setShowFreteToast] = useState(false);
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const citiesButtonRef = useRef(null);
+
+	    useTrackUser(); // ← ADICIONE ESTA LINHA
   
   // NOVOS ESTADOS PARA O MENU DE CIDADES
   const [showCitiesMenu, setShowCitiesMenu] = useState(false);
@@ -4770,6 +4774,7 @@ citiesButtonContainer: {
   };
 
   export default ProductsPage;
+
 
 
 
