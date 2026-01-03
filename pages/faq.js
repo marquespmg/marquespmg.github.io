@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import useTrackUser from '../hook/useTrackUser'; // ← ADICIONADO
-
+import useTrackUser from '../hook/useTrackUser';
 
 const FAQPage = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
-
-      // HOOK PARA RASTREAR VISITANTES - ADICIONADO AQUI
-  useTrackUser(); // ← ESTA LINHA É NOVA
+  
+  useTrackUser();
   
   useEffect(() => {
     const checkMobile = () => {
@@ -28,7 +26,8 @@ const FAQPage = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const faqs = [
+  // Criar arrays separados para o schema (texto puro) e para o display (com JSX)
+  const faqsForSchema = [
     {
       pergunta: "Quais regiões a PMG Atacadista atende?",
       resposta: "Atendemos todo o estado de São Paulo, Sul de Minas Gerais e Sul do Rio de Janeiro, incluindo Itapecerica da Serra, Grande São Paulo e região metropolitana."
@@ -39,7 +38,7 @@ const FAQPage = () => {
     },
     {
       pergunta: "A PMG trabalha com quais tipos de produtos?",
-      resposta: "Somos especializados em atacado food service: bebidas (cervejas, refrigerantes, sucos), laticínios (queijos, manteiga), carnes bovinas e de frango, mercearia, produtos de limpeza e descartáveis."
+      resposta: "Somos especializados em atacado food service: bebidas (cervejas, refrigerantes, sucos), laticínios (queijos, manteiga), carnes bovinas e de frango, mercearia, produtos de limpeza e descartáveis. Veja nosso catálogo completo."
     },
     {
       pergunta: "Qual o valor mínimo para pedido?",
@@ -47,11 +46,11 @@ const FAQPage = () => {
     },
     {
       pergunta: "Como faço para me cadastrar e ver os preços?",
-      resposta: " Acessando nosso site e fazendo um cadastro rápido (menos de 2 minutos), fazer login com Google ou criar uma conta. Após aprovação, você terá acesso a todos os preços de atacado."
+      resposta: "Acessando nosso site e fazendo um cadastro rápido (menos de 2 minutos), fazer login com Google ou criar uma conta. Após aprovação, você terá acesso a todos os preços de atacado."
     },
     {
       pergunta: "Aceitam quais formas de pagamento?",
-      resposta: "Trabalhamos com pagamento ávista cartão de crédito/débito ou dinehiro. Pague no ato da entega, não aceitamos pagamento antecipado."
+      resposta: "Trabalhamos com pagamento á vista: cartão de crédito/débito ou dinheiro. Pague no ato da entrega, não aceitamos pagamento antecipado."
     },
     {
       pergunta: "Os produtos têm garantia?",
@@ -68,6 +67,218 @@ const FAQPage = () => {
     {
       pergunta: "Como posso entrar em contato?",
       resposta: "Você pode entrar em contato pelo WhatsApp (11) 91357-2902 ou acessar nosso catálogo online para fazer pedidos diretamente."
+    }
+  ];
+
+  // Array para display com JSX (botões, links, etc.)
+  const faqsForDisplay = [
+    {
+      pergunta: "Quais regiões a PMG Atacadista atende?",
+      resposta: "Atendemos todo o estado de São Paulo, Sul de Minas Gerais e Sul do Rio de Janeiro, incluindo Itapecerica da Serra, Grande São Paulo e região metropolitana."
+    },
+    {
+      pergunta: "Qual o prazo de entrega dos produtos?",
+      resposta: "Entregamos em até 48 horas para a Grande São Paulo e regiões próximas. Para Sul de Minas e Sul do RJ, o prazo é de 1 a 2 dias úteis."
+    },
+    {
+      pergunta: "A PMG trabalha com quais tipos de produtos?",
+      resposta: (
+        <div>
+          <p>Somos especializados em atacado food service: bebidas (cervejas, refrigerantes, sucos), laticínios (queijos, manteiga), carnes bovinas e de frango, mercearia, produtos de limpeza e descartáveis.</p>
+          <div style={{ marginTop: '15px' }}>
+            <Link href="/produtos" passHref legacyBehavior>
+              <a style={{
+                display: 'inline-block',
+                backgroundColor: '#095400',
+                color: 'white',
+                padding: '10px 20px',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#0a6b00';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.transform = 'translateY(0)';
+              }}>
+                📦 Ver todos os produtos disponíveis →
+              </a>
+            </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      pergunta: "Qual o valor mínimo para pedido?",
+      resposta: "Trabalhamos com pedidos a partir de R$ 900,00 para entrega gratuita em São Paulo, Sul de MG e Sul do RJ."
+    },
+    {
+      pergunta: "Como faço para me cadastrar e ver os preços?",
+      resposta: (
+        <div>
+          <p>Acessando nosso site e fazendo um cadastro rápido (menos de 2 minutos), fazer login com Google ou criar uma conta. Após aprovação, você terá acesso a todos os preços de atacado.</p>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '15px' }}>
+            <Link href="/produtos" passHref legacyBehavior>
+              <a style={{
+                display: 'inline-block',
+                backgroundColor: '#095400',
+                color: 'white',
+                padding: '10px 20px',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#0a6b00';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.transform = 'translateY(0)';
+              }}>
+                📝 Fazer cadastro agora →
+              </a>
+            </Link>
+            
+            <a 
+              href="https://wa.me/5511913572902?text=Olá! Gostaria de ajuda com meu cadastro na PMG Atacadista." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                backgroundColor: '#25D366',
+                color: 'white',
+                padding: '10px 20px',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#1da851';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#25D366';
+                e.target.style.transform = 'translateY(0)';
+              }}>
+              💬 Ajuda por WhatsApp
+            </a>
+          </div>
+        </div>
+      )
+    },
+    {
+      pergunta: "Aceitam quais formas de pagamento?",
+      resposta: "Trabalhamos com pagamento á vista: cartão de crédito/débito ou dinheiro. Pague no ato da entrega, não aceitamos pagamento antecipado."
+    },
+    {
+      pergunta: "Os produtos têm garantia?",
+      resposta: "Sim, todos os produtos têm garantia de qualidade e procedência. Trabalhamos apenas com marcas reconhecidas no mercado."
+    },
+    {
+      pergunta: "Fazem entregas para restaurantes e bares?",
+      resposta: "Sim! Somos especializados em atacado food service para restaurantes, bares, lanchonetes, padarias, mercados e estabelecimentos comerciais."
+    },
+    {
+      pergunta: "Quem é o responsável pela Marques Vendas PMG?",
+      resposta: (
+        <div>
+          <p>A Marques Vendas PMG é gerida por Marques Antonio, vendedor autorizado da PMG Atacadista. Trabalhamos com atendimento personalizado e entrega rápida para toda a região de São Paulo.</p>
+          <div style={{ marginTop: '15px' }}>
+            <Link href="/quem-somos" passHref legacyBehavior>
+              <a style={{
+                display: 'inline-block',
+                backgroundColor: '#095400',
+                color: 'white',
+                padding: '10px 20px',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#0a6b00';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.transform = 'translateY(0)';
+              }}>
+                👥 Conheça mais sobre nossa história →
+              </a>
+            </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      pergunta: "Como posso entrar em contato?",
+      resposta: (
+        <div>
+          <p>Você pode entrar em contato pelo WhatsApp (11) 91357-2902 ou acessar nosso catálogo online para fazer pedidos diretamente.</p>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '15px' }}>
+            <a 
+              href="https://wa.me/5511913572902" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block',
+                backgroundColor: '#25D366',
+                color: 'white',
+                padding: '10px 20px',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#1da851';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#25D366';
+                e.target.style.transform = 'translateY(0)';
+              }}>
+              💬 WhatsApp (11) 91357-2902
+            </a>
+            
+            <Link href="/produtos" passHref legacyBehavior>
+              <a style={{
+                display: 'inline-block',
+                backgroundColor: '#095400',
+                color: 'white',
+                padding: '10px 20px',
+                borderRadius: '6px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#0a6b00';
+                e.target.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.transform = 'translateY(0)';
+              }}>
+                📦 Acessar catálogo
+              </a>
+            </Link>
+          </div>
+        </div>
+      )
     }
   ];
 
@@ -91,7 +302,7 @@ const FAQPage = () => {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "mainEntity": faqs.map(faq => ({
+              "mainEntity": faqsForSchema.map(faq => ({
                 "@type": "Question",
                 "name": faq.pergunta,
                 "acceptedAnswer": {
@@ -115,7 +326,6 @@ const FAQPage = () => {
           textAlign: 'center',
           marginBottom: '40px'
         }}>
-          {/* LOGO PMG */}
           <img 
             src="https://i.imgur.com/pBH5WpZ.png" 
             alt="Logo PMG Atacadista - Atacado Food Service São Paulo" 
@@ -146,7 +356,7 @@ const FAQPage = () => {
 
         {/* Lista de FAQs com Accordion */}
         <div style={{ marginBottom: '50px' }}>
-          {faqs.map((faq, index) => (
+          {faqsForDisplay.map((faq, index) => (
             <div 
               key={index} 
               style={{ 
@@ -171,10 +381,14 @@ const FAQPage = () => {
                   transition: 'background-color 0.3s ease'
                 }}
                 onMouseOver={(e) => {
-                  e.target.style.backgroundColor = openIndex === index ? '#f0f9f0' : '#f9f9f9';
+                  if (openIndex !== index) {
+                    e.target.style.backgroundColor = '#f9f9f9';
+                  }
                 }}
                 onMouseOut={(e) => {
-                  e.target.style.backgroundColor = openIndex === index ? '#f0f9f0' : '#fff';
+                  if (openIndex !== index) {
+                    e.target.style.backgroundColor = '#fff';
+                  }
                 }}
               >
                 <span style={{ 
@@ -205,14 +419,14 @@ const FAQPage = () => {
                   borderTop: '1px solid #e0e0e0',
                   animation: 'fadeIn 0.3s ease'
                 }}>
-                  <p style={{ 
+                  <div style={{ 
                     color: '#555',
                     lineHeight: '1.6',
                     fontSize: isMobile ? '15px' : '16px',
                     margin: '0'
                   }}>
                     {faq.resposta}
-                  </p>
+                  </div>
                 </div>
               )}
             </div>
@@ -423,7 +637,7 @@ const FAQPage = () => {
               📞 Telefone: (11) 91357-2902
             </p>
             
-            {/* TEXTO SEO - EM CIMA (Google prioriza) */}
+            {/* TEXTO SEO */}
             <p style={{ 
               margin: '15px 0 0 0', 
               fontSize: '11px', 
@@ -468,6 +682,5 @@ const FAQPage = () => {
     </>
   );
 };
-
 
 export default FAQPage;
