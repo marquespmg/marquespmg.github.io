@@ -1,4 +1,4 @@
-// hook/useTrackUser.js - VERSÃO MELHORADA
+// hook/useTrackUser.js - VERSÃO COM NÚMEROS SEQUENCIAIS GLOBAIS
 import { useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
@@ -12,28 +12,64 @@ export default function useTrackUser() {
         
         // 1. Gera ou recupera visitor_id
         let visitorId = localStorage.getItem('visitor_id');
-        let visitorNumber = localStorage.getItem('visitor_number');
-        
         if (!visitorId) {
           visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
           localStorage.setItem('visitor_id', visitorId);
-          
-          // Gera número sequencial para visitantes
-          visitorNumber = parseInt(localStorage.getItem('last_visitor_number') || '0') + 1;
-          localStorage.setItem('visitor_number', visitorNumber);
-          localStorage.setItem('last_visitor_number', visitorNumber);
-          
-          console.log('🆔 Novo visitor ID criado:', visitorId, 'Número:', visitorNumber);
+          console.log('🆔 Novo visitor ID criado:', visitorId);
         } else {
-          visitorNumber = localStorage.getItem('visitor_number') || '1';
-          console.log('🆔 Visitor ID recuperado:', visitorId, 'Número:', visitorNumber);
+          console.log('🆔 Visitor ID recuperado:', visitorId);
         }
         
         // 2. Verifica se tem usuário logado
         const { data: { user } } = await supabase.auth.getUser();
         console.log('👤 Estado do usuário:', user ? 'Logado - ' + user.email : 'Não logado');
         
-        // 3. Coleta dados básicos
+        // 3. BUSCA O PRÓXIMO NÚMERO SEQUENCIAL DO SUPABASE
+        let visitorNumber = 1;
+        
+        if (!user) { // Só para visitantes anônimos
+          try {
+            // Busca o último número usado
+            const { data: lastVisitor, error } = await supabase
+              .from('contador_visitantes')
+              .select('ultimo_numero')
+              .single();
+            
+            if (error && error.code === 'PGRST116') {
+              // Tabela não existe ainda - cria
+              console.log('📊 Criando contador de visitantes...');
+              const { error: createError } = await supabase
+                .from('contador_visitantes')
+                .insert([{ ultimo_numero: 1 }]);
+              
+              if (createError) {
+                console.log('⚠️ Erro ao criar contador:', createError.message);
+                visitorNumber = 1;
+              } else {
+                visitorNumber = 1;
+              }
+            } else if (error) {
+              console.log('⚠️ Erro ao buscar contador:', error.message);
+              visitorNumber = 1;
+            } else {
+              // Incrementa o número
+              visitorNumber = lastVisitor.ultimo_numero + 1;
+              
+              // Atualiza no Supabase
+              await supabase
+                .from('contador_visitantes')
+                .update({ ultimo_numero: visitorNumber })
+                .eq('id', 1);
+              
+              console.log('🔢 Novo número sequencial:', visitorNumber);
+            }
+          } catch (counterError) {
+            console.log('⚠️ Erro no contador:', counterError.message);
+            visitorNumber = 1;
+          }
+        }
+        
+        // 4. Coleta dados básicos
         const dadosAtividade = {
           pagina_atual: window.location.pathname,
           url_completa: window.location.href,
@@ -43,10 +79,10 @@ export default function useTrackUser() {
           user_agent: navigator.userAgent,
           referrer: document.referrer || 'direto',
           tipo_visita: user ? 'logado' : 'anonimo',
-          // MELHORADO: Visitante com número sequencial
+          // Número sequencial GLOBAL
           nome_usuario: user ? (user.email?.split('@')[0] || 'Usuário') : `Visitante ${visitorNumber}`,
           email_usuario: user ? user.email : `visitante${visitorNumber}@anonimo.com`,
-          visitor_number: visitorNumber // Novo campo para ordenar
+          visitor_number: visitorNumber
         };
         
         // Se tiver usuário logado, busca mais dados
@@ -70,7 +106,7 @@ export default function useTrackUser() {
         
         console.log('📊 Dados coletados:', dadosAtividade);
         
-        // 4. VERIFICA SE JÁ EXISTE REGISTRO PARA ESTA SESSÃO NESTA PÁGINA
+        // 5. VERIFICA SE JÁ EXISTE REGISTRO PARA ESTA SESSÃO NESTA PÁGINA
         console.log('🔎 Verificando registro para sessão:', visitorId, 'na página:', window.location.pathname);
         
         const { data: registroExistente, error: checkError } = await supabase
@@ -91,7 +127,7 @@ export default function useTrackUser() {
           if (insertError) {
             console.log('❌ ERRO ao inserir:', insertError.message);
           } else {
-            console.log('✅ NOVO registro para esta página');
+            console.log('✅ NOVO registro para esta página - Visitante:', visitorNumber);
           }
           
         } else if (checkError) {
