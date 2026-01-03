@@ -3315,7 +3315,749 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
       </p>
     </section>
   `
-}
+},
+{
+  "id": 11,
+  "title": "Carne Seca Desfiada Alfama — Qualidade Premium para Seu Negócio (Preço Atacado)",
+  "description": "Carne seca desfiada Alfama premium direto do atacado. Qualidade superior, sabor único e preço especial para restaurantes e mercados. Entrega rápida!",
+  "image": "https://i.imgur.com/eLVTIJn.png",
+  "category": "Produtos",
+  "section": "carnes",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-03",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🥩 Carne Seca Desfiada Alfama — Qualidade Premium para Seu Negócio 2026</h1>
+      <p>Buscando <strong>carne seca desfiada de alta qualidade</strong> para seu restaurante, mercado ou lanchonete? A <strong>Carne Seca Alfama desfiada</strong> é a escolha perfeita para quem exige <strong>sabor autêntico e textura ideal</strong>. No atacado PMG, você compra direto da fábrica com <strong>preços especiais para revenda</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Destaque PMG:</h3>
+        <p style="margin: 0; font-weight: 600;">Carne seca Alfama desfiada <strong>pronta para uso</strong> + <strong>embalagem preserva sabor</strong> + <strong>preço atacado direto</strong> = Economia garantida!</p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/eLVTIJn.png" alt="Carne seca desfiada Alfama - Qualidade premium para restaurantes e mercados" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Carne seca desfiada Alfama - Sabor tradicional e qualidade premium</p>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Por que Escolher Carne Seca Alfama Desfiada?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Praticidade Total</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Já desfiada e pronta para uso em receitas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏆</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Qualidade Alfama</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Marca tradicional e confiável no mercado</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">💰</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Economia no Atacado</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Preço direto para revenda e estabelecimentos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APLICAÇÕES -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Como Usar na Sua Cozinha Profissional</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🥪 Lanches</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem;">
+              <li>Sanduíches de carne seca</li>
+              <li>Bauru tradicional</li>
+              <li>Crepes e panquecas</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🍝 Pratos Principais</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem;">
+              <li>Escondidinho de carne seca</li>
+              <li>Macarrão à bolonhesa</li>
+              <li>Feijoada premium</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🥗 Acompanhamentos</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem;">
+              <li>Farofa especial</li>
+              <li>Recheio para pastéis</li>
+              <li>Saladas incrementadas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO TÉCNICA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Informações Técnicas da Carne Seca Alfama</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Embalagem</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Prática e preserva qualidade</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">⚖️ Peso</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Conforme necessidade</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📅 Validade</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Longa duração</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica PMG:</strong> Ideal para estoque! Carne seca desfiada tem longa validade e não ocupa muito espaço.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINK PARA COMPRAR -->
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🚀 Compre Carne Seca Alfama no Atacado</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Preço especial para restaurantes, mercados e estabelecimentos comerciais.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem;">
+         VER PREÇO ATACADO →
+      </a>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Artigos Relacionados</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=12#artigo-12" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">🍝</div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">Receitas com Carne Seca</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Veja aplicações práticas</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=13#artigo-13" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">⚖️</div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">Carne Seca vs. Outras</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Comparativo completo</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  `
+},
+  {
+    "id": 12,
+    "title": "3 Receitas com Carne Seca Desfiada Alfama que Vendem Mais no Seu Restaurante",
+    "description": "Receitas práticas com carne seca desfiada Alfama para aumentar suas vendas. Pratos rápidos, saborosos e com alta margem de lucro.",
+    "image": "https://i.imgur.com/eLVTIJn.png",
+    "category": "Receitas",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacadista",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">👨‍🍳 3 Receitas com Carne Seca Desfiada Alfama que Vendem Mais</h1>
+        <p>Descubra como transformar <strong>carne seca desfiada Alfama</strong> em pratos que aumentam seu faturamento. Receitas <strong>rápidas, práticas e com ótimo custo-benefício</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">1️⃣ Escondidinho Premium</h3>
+        <p>Misture a carne seca com creme de leite e queijo. Cubra com purê e asse. <strong>Margem: 65%</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">2️⃣ Sanduíche Executivo</h3>
+        <p>Pão francês, carne seca, queijo e tomate. <strong>Venda rápida no almoço</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 30px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">3️⃣ Macarrão à Bolonhesa</h3>
+        <p>Substitua a carne moída por carne seca desfiada. <strong>Diferencial no cardápio</strong>.</p>
+      </section>
+
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 <strong>Dica:</strong> Compre <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400;">carne seca Alfama no atacado</a> e aumente sua margem!</p>
+      </div>
+    `
+  },
+  {
+    "id": 13,
+    "title": "Carne Seca Alfama vs. Outras Marcas — Qual Tem Melhor Custo-Benefício para Seu Negócio?",
+    "description": "Comparativo completo: carne seca desfiada Alfama vs. outras marcas. Análise de preço, qualidade e rendimento para sua escolha.",
+    "image": "https://i.imgur.com/eLVTIJn.png",
+    "category": "Comparativos",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacadista",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">⚖️ Carne Seca Alfama vs. Outras Marcas — Melhor Custo-Benefício</h1>
+        <p>Análise para você escolher a melhor <strong>carne seca desfiada</strong> para seu negócio. <strong>Preço, qualidade e rendimento</strong> comparados.</p>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">✅ Vantagens Alfama:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>Textura consistente</strong> - Desfiada uniformemente</li>
+          <li><strong>Sabor tradicional</strong> - Aceitação garantida</li>
+          <li><strong>Marca reconhecida</strong> - Qualidade comprovada</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 30px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">💰 Custo-Benefício:</h3>
+        <p>A carne seca Alfama oferece <strong>melhor relação qualidade/preço</strong> para uso profissional.</p>
+      </section>
+
+      <div style="text-align: center; padding: 20px; background: #f0f8f0; border-radius: 10px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" 
+           style="background: #095400; color: white; padding: 10px 25px; text-decoration: none; border-radius: 6px; font-weight: 600;">
+           COMPARAR PREÇOS →
+        </a>
+      </div>
+    `
+  },
+  {
+    "id": 14,
+    "title": "Como Armazenar Carne Seca Desfiada Alfama Corretamente — Dicas para Restaurantes",
+    "description": "Guia de armazenamento de carne seca desfiada Alfama. Aprenda a conservar por mais tempo e manter a qualidade do produto.",
+    "image": "https://i.imgur.com/eLVTIJn.png",
+    "category": "Dicas",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacadista",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">📦 Como Armazenar Carne Seca Desfiada Alfama Corretamente</h1>
+        <p>Armazenamento correto da <strong>carne seca desfiada</strong> mantém sabor e qualidade. <strong>Dicas práticas para restaurantes e mercados</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">✅ Armazenamento Ideal:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>Local fresco e seco</strong> - Evite umidade</li>
+          <li><strong>Embalagem fechada</strong> - Após aberta, vedar bem</li>
+          <li><strong>Temperatura ambiente</strong> - Não precisa de refrigeração</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">❌ Evitar:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li>Exposição ao sol direto</li>
+          <li>Contato com água</li>
+          <li>Embalagens abertas</li>
+        </ul>
+      </section>
+
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0; font-weight: 600;">💡 <strong>Compra Inteligente:</strong> Compre <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400;">quantidade certa</a> para não armazenar muito tempo!</p>
+      </div>
+    `
+  },
+  {
+    "id": 15,
+    "title": "Carne Seca Desfiada Alfama — Preço Atacado vs. Varejo (Economize até 40%)",
+    "description": "Economize até 40% comprando carne seca desfiada Alfama no atacado. Compare preços e veja o impacto no seu negócio.",
+    "image": "https://i.imgur.com/eLVTIJn.png",
+    "category": "Economia",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacadista",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">💰 Carne Seca Alfama — Atacado vs. Varejo (Economize 40%)</h1>
+        <p>Veja como comprar <strong>carne seca desfiada Alfama no atacado</strong> reduz custos e <strong>aumenta sua margem de lucro</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">📊 Economia Real:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>Varejo:</strong> Preço cheio + margem do supermercado</li>
+          <li><strong>Atacado PMG:</strong> Preço direto + desconto volume</li>
+          <li><strong>Economia:</strong> Até 40% na comparação</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">📈 Impacto no Negócio:</h3>
+        <p>Com <strong>preço atacado</strong>, seu custo por prato diminui e sua <strong>competitividade aumenta</strong>.</p>
+      </section>
+
+      <div style="text-align: center; padding: 20px; background: #095400; color: white; border-radius: 10px;">
+        <h3 style="margin: 0 0 10px 0;">🎯 Compre Direto e Economize!</h3>
+        <a href="https://www.marquesvendaspmg.shop/produtos" 
+           style="background: white; color: #095400; padding: 10px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; margin-top: 10px;">
+           VER PREÇO ATACADO →
+        </a>
+      </div>
+    `
+  },
+  {
+    "id": 16,
+    "title": "5 Motivos para Escolher Carne Seca Desfiada Alfama para Seu Restaurante em 2026",
+    "description": "Descubra porque a carne seca desfiada Alfama é a melhor escolha para seu restaurante. Qualidade, preço e praticidade.",
+    "image": "https://i.imgur.com/eLVTIJn.png",
+    "category": "Dicas",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacadista",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">🏆 5 Motivos para Escolher Carne Seca Alfama em 2026</h1>
+        <p>Conheça os <strong>benefícios exclusivos</strong> da carne seca desfiada Alfama para seu estabelecimento.</p>
+      </section>
+
+      <section style="margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">1. 🕒 Praticidade Total</h3>
+        <p>Já vem desfiada - economiza mão de obra na cozinha.</p>
+      </section>
+
+      <section style="margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">2. 🏭 Qualidade Garantida</h3>
+        <p>Marca tradicional com padrão de qualidade constante.</p>
+      </section>
+
+      <section style="margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">3. 💰 Custo-Benefício</h3>
+        <p>Melhor relação qualidade/preço do mercado.</p>
+      </section>
+
+      <section style="margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">4. 📦 Longa Duração</h3>
+        <p>Não perde qualidade quando armazenada corretamente.</p>
+      </section>
+
+      <section style="margin-bottom: 30px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">5. 🍽️ Versatilidade</h3>
+        <p>Usada em dezenas de pratos diferentes.</p>
+      </section>
+
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+        <p style="margin: 0 0 15px 0; font-weight: 600;">🎯 Experimente a diferença Alfama!</p>
+        <a href="https://www.marquesvendaspmg.shop/produtos" 
+           style="background: #095400; color: white; padding: 10px 25px; text-decoration: none; border-radius: 6px; font-weight: 600;">
+           COMPRAR AGORA →
+        </a>
+      </div>
+    `
+  },
+  {
+  "id": 17,
+  "title": "Costela Desfiada Alfama — Sabor Único para Seu Cardápio (Preço Atacado 2026)",
+  "description": "Costela desfiada Alfama com sabor defumado premium. Ideal para restaurantes, lanchonetes e eventos. Preço especial no atacado PMG. Entrega rápida!",
+  "image": "https://i.imgur.com/cnI1Qmj.png",
+  "category": "Produtos",
+  "section": "carnes",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-03",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🍖 Costela Desfiada Alfama — Sabor Defumado Premium para Seu Negócio 2026</h1>
+      <p>Quer impressionar clientes com <strong>costela desfiada de qualidade superior</strong>? A <strong>Costela Desfiada Alfama</strong> oferece <strong>sabor defumado autêntico</strong> e textura perfeita. No atacado PMG, você compra direto com <strong>preços especiais para estabelecimentos comerciais</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Destaque PMG:</h3>
+        <p style="margin: 0; font-weight: 600;">Costela Alfama desfiada <strong>pronta para servir</strong> + <strong>sabor defumado marcante</strong> + <strong>economia no atacado</strong> = Diferencial no seu cardápio!</p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/cnI1Qmj.png" alt="Costela desfiada Alfama - Sabor defumado premium para restaurantes" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Costela desfiada Alfama - Textura perfeita e sabor defumado característico</p>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Por que Escolher Costela Desfiada Alfama?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🔥</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Sabor Defumado</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Processo tradicional que realça o sabor</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⚡</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Praticidade Total</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Já desfiada e pronta para preparo</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">💰</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Preço Atacado</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Economia direta para seu negócio</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APLICAÇÕES -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Aplicações no Seu Cardápio</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🥪 Lanches Premium</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem;">
+              <li>Sanduíche de costela</li>
+              <li>Hot dog gourmet</li>
+              <li>Burritos especiais</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🍝 Pratos Principais</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem;">
+              <li>Costela desfiada com arroz</li>
+              <li>Macarrão à carbonara</li>
+              <li>Escondidinho gourmet</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🥗 Acompanhamentos</h4>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem;">
+              <li>Feijoada light</li>
+              <li>Recheio para pastéis</li>
+              <li>Saladas proteicas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO TÉCNICA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Especificações da Costela Desfiada Alfama</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Embalagem</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Prática e mantém qualidade</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">⚖️ Peso</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Diversas opções disponíveis</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📅 Validade</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Longa duração preservada</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica PMG:</strong> Perfeita para eventos! Rendimento alto e preparo rápido.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINK PARA COMPRAR -->
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🚀 Compre Costela Desfiada no Atacado</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Preço especial para restaurantes, churrascarias e estabelecimentos comerciais.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem;">
+         VER PREÇO ATACADO →
+      </a>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Artigos Relacionados</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=18#artigo-18" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">🍽️</div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">Receitas com Costela</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ideias para seu cardápio</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=19#artigo-19" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">⚖️</div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">Tipos de Carne</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Guia completo</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  `
+},
+
+  {
+    "id": 18,
+    "title": "4 Receitas com Costela Desfiada Alfama que Aumentam Seu Faturamento",
+    "description": "Receitas práticas e lucrativas com costela desfiada Alfama. Aprenda pratos que vendem mais e têm alta margem de lucro.",
+    "image": "https://i.imgur.com/cnI1Qmj.png",
+    "category": "Receitas",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacadista",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">👨‍🍳 4 Receitas com Costela Desfiada Alfama que Aumentam Faturamento</h1>
+        <p>Transforme <strong>costela desfiada Alfama</strong> em pratos premium que seus clientes vão amar. <strong>Margens altas e preparo rápido</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">1️⃣ Sanduíche de Costela</h3>
+        <p>Pão brioche, costela desfiada, queijo e molho barbecue. <strong>Venda: R$ 24,90</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">2️⃣ Escondidinho Gourmet</h3>
+        <p>Costela com creme de leite e queijo, coberto com purê. <strong>Margem: 68%</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">3️⃣ Macarrão à Carbonara</h3>
+        <p>Substitua o bacon por costela desfiada. <strong>Diferencial premium</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 30px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">4️⃣ Porção para Eventos</h3>
+        <p>Costela desfiada com batata frita. <strong>Rendimento alto</strong>.</p>
+      </section>
+
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 <strong>Dica:</strong> Compre <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400;">costela Alfama no atacado</a> e aumente sua lucratividade!</p>
+      </div>
+    `
+  },
+  {
+    "id": 19,
+    "title": "Costela vs. Carne Seca Desfiada — Qual Escolher para Seu Restaurante?",
+    "description": "Comparativo completo: costela desfiada vs. carne seca. Análise de sabor, aplicações e custo-benefício para seu negócio.",
+    "image": "https://i.imgur.com/cnI1Qmj.png",
+    "category": "Comparativos",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacadista",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">⚖️ Costela vs. Carne Seca Desfiada — Melhor para Seu Restaurante</h1>
+        <p>Decida entre <strong>costela desfiada Alfama</strong> ou <strong>carne seca desfiada</strong> baseado em <strong>sabor, aplicação e custo</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">✅ Costela Desfiada:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>Sabor defumado marcante</strong></li>
+          <li><strong>Textura mais suave</strong></li>
+          <li><strong>Ideal para lanches premium</strong></li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">✅ Carne Seca Desfiada:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>Sabor tradicional intenso</strong></li>
+          <li><strong>Mais versátil em receitas</strong></li>
+          <li><strong>Custo um pouco menor</strong></li>
+        </ul>
+      </section>
+
+      <div style="text-align: center; padding: 20px; background: #f0f8f0; border-radius: 10px;">
+        <p style="margin: 0 0 15px 0;">🎯 <strong>Sugestão:</strong> Tenha ambas para diversificar cardápio!</p>
+        <a href="https://www.marquesvendaspmg.shop/produtos" 
+           style="background: #095400; color: white; padding: 10px 25px; text-decoration: none; border-radius: 6px; font-weight: 600;">
+           COMPARAR PREÇOS →
+        </a>
+      </div>
+    `
+  },
+  {
+    "id": 20,
+    "title": "Como Conservar Costela Desfiada Alfama por Mais Tempo — Guia para Restaurantes",
+    "description": "Técnicas de armazenamento para costela desfiada Alfama. Mantenha qualidade, sabor e segurança alimentar no seu estabelecimento.",
+    "image": "https://i.imgur.com/cnI1Qmj.png",
+    "category": "Dicas",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacada",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">📦 Como Conservar Costela Desfiada Alfama por Mais Tempo</h1>
+        <p>Armazenamento correto mantém o <strong>sabor defumado</strong> e a <strong>qualidade da costela desfiada</strong>. <strong>Guia prático para restaurantes</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">✅ Armazenamento Correto:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>Local fresco e arejado</strong></li>
+          <li><strong>Embalagem original fechada</strong></li>
+          <li><strong>Após aberto: transferir para pote vedado</strong></li>
+          <li><strong>Evitar contato com outros alimentos</strong></li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">⏱️ Tempo de Conservação:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>Embalagem fechada:</strong> Até validade</li>
+          <li><strong>Embalagem aberta:</strong> 7-10 dias bem vedada</li>
+          <li><strong>Refrigerada:</strong> Até 15 dias</li>
+        </ul>
+      </section>
+
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0; font-weight: 600;">💡 <strong>Compra Inteligente:</strong> Compre <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400;">quantidade para 1-2 semanas</a> para sempre ter produto fresco!</p>
+      </div>
+    `
+  },
+  {
+    "id": 21,
+    "title": "Costela Desfiada Alfama — Economize até 35% Comprando no Atacado PMG",
+    "description": "Veja quanto você economiza comprando costela desfiada Alfama no atacado. Preço direto para restaurantes e estabelecimentos.",
+    "image": "https://i.imgur.com/cnI1Qmj.png",
+    "category": "Economia",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacadista",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">💰 Costela Desfiada Alfama — Economize 35% no Atacado</h1>
+        <p>Comprando <strong>costela desfiada Alfama no atacado PMG</strong>, você reduz custos e <strong>aumenta significativamente sua margem</strong>.</p>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">📊 Comparativo de Economia:</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>Supermercado (varejo):</strong> Preço cheio + impostos</li>
+          <li><strong>Distribuidor comum:</strong> Preço intermediário</li>
+          <li><strong>PMG Atacado (direto):</strong> Preço fábrica + desconto volume</li>
+          <li><strong>Economia total:</strong> Até 35%</li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom: 25px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">📈 Impacto no Seu Negócio:</h3>
+        <p>Cada <strong>10% de economia</strong> na matéria-prima significa <strong>maior competitividade</strong> e <strong>lucro mais alto</strong> por prato vendido.</p>
+      </section>
+
+      <div style="text-align: center; padding: 20px; background: #095400; color: white; border-radius: 10px;">
+        <h3 style="margin: 0 0 10px 0;">🎯 Economia Real no Atacado!</h3>
+        <a href="https://www.marquesvendaspmg.shop/produtos" 
+           style="background: white; color: #095400; padding: 10px 25px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block; margin-top: 10px;">
+           CALCULAR ECONOMIA →
+        </a>
+      </div>
+    `
+  },
+  {
+    "id": 22,
+    "title": "6 Vantagens da Costela Desfiada Alfama para Churrascarias e Restaurantes",
+    "description": "Descubra porque a costela desfiada Alfama é a escolha certa para seu estabelecimento. Qualidade, sabor e rentabilidade.",
+    "image": "https://i.imgur.com/cnI1Qmj.png",
+    "category": "Dicas",
+    "section": "carnes",
+    "readTime": "2 min de leitura",
+    "date": "2026-01-03",
+    "author": "Marques Vendas PMG Atacadista",
+    "featured": false,
+    "content": `
+      <section style="margin-bottom: 30px;">
+        <h1 style="color: #095400; font-size: 1.5rem; margin-bottom: 15px;">🏆 6 Vantagens da Costela Desfiada Alfama para Seu Negócio</h1>
+        <p>Conheça os <strong>benefícios exclusivos</strong> que fazem da costela desfiada Alfama a melhor escolha.</p>
+      </section>
+
+      <section style="margin-bottom: 15px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">1. 🔥 Sabor Defumado Autêntico</h3>
+        <p>Processo tradicional que garante sabor único e marcante.</p>
+      </section>
+
+      <section style="margin-bottom: 15px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">2. ⚡ Praticidade na Cozinha</h3>
+        <p>Já vem desfiada - elimina horas de preparo.</p>
+      </section>
+
+      <section style="margin-bottom: 15px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">3. 💰 Custo-Benefício Superior</h3>
+        <p>Melhor relação qualidade/preço do mercado.</p>
+      </section>
+
+      <section style="margin-bottom: 15px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">4. 📦 Longa Durabilidade</h3>
+        <p>Não perde qualidade quando armazenada corretamente.</p>
+      </section>
+
+      <section style="margin-bottom: 15px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">5. 🍽️ Versatilidade Total</h3>
+        <p>Usada em dezenas de pratos diferentes.</p>
+      </section>
+
+      <section style="margin-bottom: 30px;">
+        <h3 style="color: #095400; margin-bottom: 10px;">6. 🏭 Qualidade Alfama</h3>
+        <p>Marca tradicional com padrão de excelência.</p>
+      </section>
+
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+        <p style="margin: 0 0 15px 0; font-weight: 600;">🎯 Experimente a qualidade Alfama!</p>
+        <a href="https://www.marquesvendaspmg.shop/produtos" 
+           style="background: #095400; color: white; padding: 10px 25px; text-decoration: none; border-radius: 6px; font-weight: 600;">
+           COMPRAR COSTELA DESFIADA →
+        </a>
+      </div>
+    `
+  }
   ];
 	
     useEffect(() => {
