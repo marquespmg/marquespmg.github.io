@@ -1,4 +1,4 @@
-// hook/useTrackUser.js - VERSÃO CORRIGIDA (um por página)
+// hook/useTrackUser.js - VERSÃO MELHORADA
 import { useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
@@ -12,12 +12,21 @@ export default function useTrackUser() {
         
         // 1. Gera ou recupera visitor_id
         let visitorId = localStorage.getItem('visitor_id');
+        let visitorNumber = localStorage.getItem('visitor_number');
+        
         if (!visitorId) {
           visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
           localStorage.setItem('visitor_id', visitorId);
-          console.log('🆔 Novo visitor ID criado:', visitorId);
+          
+          // Gera número sequencial para visitantes
+          visitorNumber = parseInt(localStorage.getItem('last_visitor_number') || '0') + 1;
+          localStorage.setItem('visitor_number', visitorNumber);
+          localStorage.setItem('last_visitor_number', visitorNumber);
+          
+          console.log('🆔 Novo visitor ID criado:', visitorId, 'Número:', visitorNumber);
         } else {
-          console.log('🆔 Visitor ID recuperado:', visitorId);
+          visitorNumber = localStorage.getItem('visitor_number') || '1';
+          console.log('🆔 Visitor ID recuperado:', visitorId, 'Número:', visitorNumber);
         }
         
         // 2. Verifica se tem usuário logado
@@ -34,8 +43,10 @@ export default function useTrackUser() {
           user_agent: navigator.userAgent,
           referrer: document.referrer || 'direto',
           tipo_visita: user ? 'logado' : 'anonimo',
-          nome_usuario: user ? (user.email?.split('@')[0] || 'Usuário') : 'Visitante',
-          email_usuario: user ? user.email : 'anonimo@visitante.com'
+          // MELHORADO: Visitante com número sequencial
+          nome_usuario: user ? (user.email?.split('@')[0] || 'Usuário') : `Visitante ${visitorNumber}`,
+          email_usuario: user ? user.email : `visitante${visitorNumber}@anonimo.com`,
+          visitor_number: visitorNumber // Novo campo para ordenar
         };
         
         // Se tiver usuário logado, busca mais dados
