@@ -24,21 +24,21 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
   const [currentPage, setCurrentPage] = useState(initialPage); // ← USA initialPage
   const articlesPerPage = 1;
   const [isClient, setIsClient] = useState(false);
-
-	    // HOOK PARA RASTREAR VISITANTES - ADICIONADO AQUI
+  
+    // HOOK PARA RASTREAR VISITANTES - ADICIONADO AQUI
   useTrackUser(); // ← ESTA LINHA É NOVA
-	
+
   // BANCO DE ARTIGOS - AGORA COM PRODUTOS DINÂMICOS
   const articles = [
 {
   id: 1,
-  title: "Farinha para Pizza: Guia Definitivo 2025 - PMG Atacadista Revela as Melhores Opções",
+  title: "Farinha para Pizza: Guia Definitivo 2026 - PMG Atacadista Revela as Melhores Opções",
   description: "Descubra qual farinha de trigo usar para pizza segundo especialistas PMG Atacadista. Comparativo técnico entre farinhas 101, Anaconda, Buquê e Dona Benta com preços atacado.",
-  image: "https://i.imgur.com/tOcUDsC.jpeg",
+  image: "https://i.imgur.com/LsCxcEx.png",
   category: "Farináceos",
   section: "analise-produtos",
   readTime: "8 min de leitura",
-  date: "2025-10-16",
+  date: "2026-01-03",
   author: "Marques Vendas PMG Atacadista",
   featured: true,
   content: `
@@ -55,7 +55,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
     <!-- IMAGEM PRINCIPAL -->
     <section style="margin-bottom: 30px;">
-      <img src="https://i.imgur.com/tOcUDsC.jpeg" alt="Melhores farinhas para pizza - Guia PMG Atacadista 2025" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <img src="https://i.imgur.com/LsCxcEx.png" alt="Melhores farinhas para pizza - Guia PMG Atacadista 2026" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
       <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Comparativo das principais farinhas para pizza disponíveis na PMG Atacadista</p>
     </section>
 
@@ -320,13 +320,13 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 },
 {
   id: 2,
-  title: "Melhores Vodkas para Bar 2025: Guia Definitivo PMG Atacadista com Preços e Análise Técnica",
+  title: "Melhores Vodkas para Bar 2026: Guia Definitivo PMG Atacadista com Preços e Análise Técnica",
   description: "Especialista PMG revela as melhores vodkas para bar: Absolut, Smirnoff, Belvedere e mais. Comparativo técnico, preços atacado e estratégias para lucrar até 400%.",
-  image: "https://i.imgur.com/s626IF9.jpeg",
+  image: "https://i.imgur.com/snWquMz.png",
   category: "Bebidas",
   section: "analise-produtos", 
   readTime: "9 min de leitura",
-  date: "2025-10-16",
+  date: "2026-01-03",
   author: "Marques Vendas PMG Atacadista",
   featured: true,
   content: `
@@ -343,7 +343,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
     <!-- IMAGEM PRINCIPAL -->
     <section style="margin-bottom: 30px;">
-      <img src="https://i.imgur.com/s626IF9.jpeg" alt="Melhores vodkas para bar - Guia PMG Atacadista 2024" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <img src="https://i.imgur.com/snWquMz.png" alt="Melhores vodkas para bar - Guia PMG Atacadista 2024" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
       <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Seleção premium de vodkas disponíveis na PMG Atacadista para seu estabelecimento</p>
     </section>
 
@@ -684,13 +684,13 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 },
 {
   id: 3,
-  title: "Queijos para Restaurante 2025: Guia PMG Atacadista com Melhores Opções, Preços e Estratégias de Lucro",
+  title: "Queijos para Restaurante 2026: Guia PMG Atacadista com Melhores Opções, Preços e Estratégias de Lucro",
   description: "Especialista PMG revela os melhores queijos para restaurante: Muçarela Bari, Emmental, Gouda e mais. Análise técnica, preços atacado e como lucrar até 300% com cardápio de queijos.",
-  image: "https://i.imgur.com/Kkd6K09.jpeg",
+  image: "https://i.imgur.com/oZDOqEQ.png",
   category: "Derivados de Leite",
   section: "analise-produtos",
   readTime: "8 min de leitura", 
-  date: "2025-10-15",
+  date: "2026-01-03",
   author: "Marques Vendas PMG Atacadista",
   featured: true,
   content: `
@@ -707,7 +707,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
     <!-- IMAGEM PRINCIPAL -->
     <section style="margin-bottom: 30px;">
-      <img src="https://i.imgur.com/Kkd6K09.jpeg" alt="Melhores queijos para restaurante - Guia PMG Atacadista 2024" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <img src="https://i.imgur.com/oZDOqEQ.png" alt="Melhores queijos para restaurante - Guia PMG Atacadista 2024" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
       <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Seleção premium de queijos disponíveis na PMG Atacadista para seu restaurante</p>
     </section>
 
@@ -1075,13 +1075,13 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 },
 {
   id: 4,
-  title: "Cortes de Carne Bovina 2025: Guia PMG Atacadista para Churrascarias com Melhores Cortes, Preços e Estratégias de Lucro",
+  title: "Cortes de Carne Bovina 2026: Guia PMG Atacadista para Churrascarias com Melhores Cortes, Preços e Estratégias de Lucro",
   description: "Especialista PMG revela os melhores cortes bovinos para churrascaria: Picanha, Contra Filé, Alcatra e mais. Análise técnica, preços atacado e como lucrar até 400% com churrasco premium.",
-  image: "https://i.imgur.com/F2fTf4q.jpeg", 
+  image: "https://i.imgur.com/kHZ28k3.png", 
   category: "Derivados de Bovino",
   section: "dicas-negocio",
   readTime: "9 min de leitura",
-  date: "2025-10-15",
+  date: "2026-01-03",
   author: "Marques Vendas PMG Atacadista",
   featured: true,
   content: `
@@ -1098,7 +1098,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
     <!-- IMAGEM PRINCIPAL -->
     <section style="margin-bottom: 30px;">
-      <img src="https://i.imgur.com/F2fTf4q.jpeg" alt="Melhores cortes de carne bovina - Guia PMG Atacadista 2024" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <img src="https://i.imgur.com/kHZ28k3.png" alt="Melhores cortes de carne bovina - Guia PMG Atacadista 2024" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
       <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Seleção premium de cortes bovinos disponíveis na PMG Atacadista para sua churrascaria</p>
     </section>
 
@@ -1433,7 +1433,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
   "category": "Panificação",
   "section": "produto-destaque",
   "readTime": "6 min de leitura",
-  "date": "2025-10-17",
+  "date": "2026-01-03",
   "author": "Marques Vendas PMG Atacadista",
   "featured": true,
   "content": `
@@ -1663,13 +1663,13 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 },
 {
   "id": 6,
-  "title": "Preço do Leite e Produção de Muçarela: Análise 2025-2026 e Impacto nos Negócios - PMG Atacadista",
-  "description": "Entenda como a alta do preço do leite afeta a produção de muçarela. Projeções CEPEA/ESALQ 2025-2026 e por que a Muçarela Bari é a escolha inteligente.",
-  "image": "https://i.imgur.com/GFOInF9.jpeg",
+  "title": "Preço do Leite e Produção de Muçarela: Análise 2026-2026 e Impacto nos Negócios - PMG Atacadista",
+  "description": "Entenda como a alta do preço do leite afeta a produção de muçarela. Projeções CEPEA/ESALQ 2026-2026 e por que a Muçarela Bari é a escolha inteligente.",
+  "image": "https://i.imgur.com/tXMTxDw.png",
   "category": "Derivados de Leite",
   "section": "analise-mercado",
   "readTime": "7 min de leitura",
-  "date": "2025-10-18",
+  "date": "2026-01-03",
   "author": "Marques Vendas PMG Atacadista",
   "featured": true,
   "content": `
@@ -1697,7 +1697,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
         <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
           <div style="font-size: 2rem; margin-bottom: 10px;">📈</div>
-          <h4 style="color: #095400; margin: 0 0 8px 0;">+28% em 2025</h4>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">+28% em 2026</h4>
           <p style="margin: 0; font-size: 0.9rem;">Alta acumulada do leite ao produtor</p>
         </div>
         
@@ -1714,7 +1714,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
         </div>
       </div>
 
-      <p>Segundo dados do <strong>CEPEA/ESALQ (Centro de Estudos Avançados em Economia Aplicada)</strong>, o preço do leite ao produtor atingiu patamares históricos em 2025, com alta de 28% em relação a 2024.</p>
+      <p>Segundo dados do <strong>CEPEA/ESALQ (Centro de Estudos Avançados em Economia Aplicada)</strong>, o preço do leite ao produtor atingiu patamares históricos em 2026, com alta de 28% em relação a 2024.</p>
       
       <div style="background: #fff8e1; padding: 15px; border-radius: 6px; margin: 15px 0; border-left: 4px solid #ffb300;">
         <h4 style="margin: 0 0 8px 0; color: #095400;">🎯 Impacto Direto na Muçarela:</h4>
@@ -1724,12 +1724,12 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
     <!-- PROJEÇÕES FUTURAS -->
     <section style="margin-bottom: 30px;">
-      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔮 Projeções 2025-2026: O Que Esperar do Mercado</h2>
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔮 Projeções 2026-2026: O Que Esperar do Mercado</h2>
       
       <div style="background: #e8f5e8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
         <h4 style="color: #095400; margin: 0 0 10px 0;">📅 Cenário CEPEA/ESALQ para Próximos Meses:</h4>
         <ul style="margin: 0; padding-left: 20px;">
-          <li><strong>Q4 2025:</strong> Estabilidade com tendência de alta de 5-8%</li>
+          <li><strong>Q4 2026:</strong> Estabilidade com tendência de alta de 5-8%</li>
           <li><strong>Q1 2026:</strong> Pressão sazonal pode elevar preços em 10-12%</li>
           <li><strong>Q2 2026:</strong> Possível alívio com entrada da safra de milho</li>
         </ul>
@@ -1901,20 +1901,20 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 },
 {
   "id": 7,
-  "title": "Como Fazer Pizza Quatro Queijos Perfeita com Ingredientes Profissionais PMG Atacadista - Guia Completo 2025",
+  "title": "Como Fazer Pizza Quatro Queijos Perfeita com Ingredientes Profissionais PMG Atacadista - Guia Completo 2026",
   "description": "Aprenda a fazer pizza quatro queijos profissional com Molho Ekma, Muçarela Bari e Farinha Anaconda. Guia completo de custos e precificação para lucrar até 68%.",
-  "image": "https://i.imgur.com/nkTimUp.jpeg",
+  "image": "https://i.imgur.com/za7I62m.png",
   "category": "Receitas",
   "section": "receitas-profissionais",
   "readTime": "10 min de leitura",
-  "date": "2025-10-19",
+  "date": "2026-01-03",
   "author": "Marques Vendas PMG Atacadista",
   "featured": true,
   "content": `
     <!-- INTRODUÇÃO COM FOCO EM SEO -->
     <section style="margin-bottom: 30px;">
       <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Pizza Quatro Queijos Perfeita: Do Preparo à Precificação com Ingredientes PMG</h2>
-      <p>Como <strong>especialistas em food service</strong>, a PMG Atacadista revela o método profissional para fazer pizza quatro queijos que encanta clientes e <strong>gera até R$ 24,95 de lucro por pizza</strong>. Neste guia 2025, você aprenderá não só a receita, mas a precificar corretamente cada fatia.</p>
+      <p>Como <strong>especialistas em food service</strong>, a PMG Atacadista revela o método profissional para fazer pizza quatro queijos que encanta clientes e <strong>gera até R$ 24,95 de lucro por pizza</strong>. Neste guia 2026, você aprenderá não só a receita, mas a precificar corretamente cada fatia.</p>
       
       <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
         <h3 style="color: #095400; margin: 0 0 10px 0;">📈 Destaque PMG:</h3>
@@ -2337,20 +2337,20 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 },
 {
   "id": 8,
-  "title": "Os 10 Produtos Mais Lucrativos para Lanchonetes e Pizzarias em 2025 — Guia PMG Atacadista",
-  "description": "Descubra os 10 produtos com maior margem de lucro para food service em 2025. Guia PMG Atacadista com análise de custo-benefício e giro de estoque.",
-  "image": "https://i.imgur.com/cDXFbxM.png",
+  "title": "Os 10 Produtos Mais Lucrativos para Lanchonetes e Pizzarias em 2026 — Guia PMG Atacadista",
+  "description": "Descubra os 10 produtos com maior margem de lucro para food service em 2026. Guia PMG Atacadista com análise de custo-benefício e giro de estoque.",
+  "image": "https://i.imgur.com/Vf4flhh.png",
   "category": "Negócios",
   "section": "gestao-foodservice",
   "readTime": "11 min de leitura",
-  "date": "2025-10-20",
+  "date": "2026-01-03",
   "author": "Marques Vendas PMG Atacadista",
   "featured": true,
   "content": `
     <!-- INTRODUÇÃO COM FOCO EM SEO -->
     <section style="margin-bottom: 30px;">
-      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Os 10 Produtos que Estão Gerando Mais Lucro no Food Service em 2025</h2>
-      <p>Quem trabalha com <strong>lanchonetes, pizzarias e bares</strong> sabe que margem e giro são tudo. Em 2025, com os custos operacionais em alta, a escolha certa dos produtos faz diferença no caixa no final do mês. A <strong>PMG Atacadista</strong>, como <strong>distribuidora especializada em food service</strong>, revela os 10 produtos que estão rendendo mais para nossos clientes.</p>
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Os 10 Produtos que Estão Gerando Mais Lucro no Food Service em 2026</h2>
+      <p>Quem trabalha com <strong>lanchonetes, pizzarias e bares</strong> sabe que margem e giro são tudo. Em 2026, com os custos operacionais em alta, a escolha certa dos produtos faz diferença no caixa no final do mês. A <strong>PMG Atacadista</strong>, como <strong>distribuidora especializada em food service</strong>, revela os 10 produtos que estão rendendo mais para nossos clientes.</p>
       
       <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
         <h3 style="color: #095400; margin: 0 0 10px 0;">📈 Destaque PMG:</h3>
@@ -2360,8 +2360,8 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
     <!-- IMAGEM PRINCIPAL -->
     <section style="margin-bottom: 30px;">
-      <img src="https://i.imgur.com/25RC2Bb.png" alt="Produtos mais lucrativos para lanchonetes e pizzarias 2025 - PMG Atacadista" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
-      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Guia completo dos produtos com melhor custo-benefício para food service em 2025</p>
+      <img src="https://i.imgur.com/Vf4flhh.png" alt="Produtos mais lucrativos para lanchonetes e pizzarias 2026 - PMG Atacadista" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Guia completo dos produtos com melhor custo-benefício para food service em 2026</p>
     </section>
 
     <!-- 1. QUEIJOS PROFISSIONAIS -->
@@ -2654,7 +2654,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
     <!-- RESUMO FINAL -->
     <section style="background: linear-gradient(135deg, #095400, #0a6b00); color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
-      <h2 style="margin: 0 0 15px 0; font-size: 1.5rem;">🎯 Resumo: Os Campeões de Lucratividade 2025</h2>
+      <h2 style="margin: 0 0 15px 0; font-size: 1.5rem;">🎯 Resumo: Os Campeões de Lucratividade 2026</h2>
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
         <div style="text-align: center;">
@@ -2717,19 +2717,19 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 },
 {
   "id": 9,
-  "title": "Manteiga Frizzo: Onde Comprar com o Melhor Preço e Entrega Rápida — Guia PMG Atacadista 2025",
+  "title": "Manteiga Frizzo: Onde Comprar com o Melhor Preço e Entrega Rápida — Guia PMG Atacadista 2026",
   "description": "Encontre Manteiga Frizzo com melhor preço atacado e entrega rápida na Grande SP. PMG Atacadista - distribuidor autorizado Frizzo com estoque permanente.",
-  "image": "https://i.imgur.com/5kZMEbX.png",
+  "image": "https://i.imgur.com/kjJxR59.png",
   "category": "Derivados de Leite",
   "section": "onde-comprar",
   "readTime": "6 min de leitura",
-  "date": "2025-10-23",
+  "date": "2026-01-03",
   "author": "Marques Vendas PMG Atacadista",
   "featuref": true,
   "content": `
     <!-- INTRODUÇÃO COM FOCO EM SEO -->
     <section style="margin-bottom: 30px;">
-      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧈 Manteiga Frizzo: Onde Comprar com Melhor Preço e Entrega Rápida em 2025</h1>
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧈 Manteiga Frizzo: Onde Comprar com Melhor Preço e Entrega Rápida em 2026</h1>
       <p>Se você está buscando <strong>"manteiga Frizzo onde comprar"</strong> com o <strong>melhor preço atacado</strong> e <strong>entrega rápida</strong>, chegou ao lugar certo! A <strong>PMG Atacadista</strong> é distribuidor autorizado da <strong>Manteiga Frizzo</strong> na Grande São Paulo, com estoque permanente e preços competitivos para lanchonetes, padarias e restaurantes.</p>
       
       <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -3026,13 +3026,13 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
   "category": "Tutoriais",
   "section": "como-comprar",
   "readTime": "4 min de leitura",
-  "date": "2025-10-23",
+  "date": "2026-01-03",
   "author": "Marques Vendas PMG Atacadista",
   "featured": true,
   "content": `
     <!-- INTRODUÇÃO COM FOCO EM SEO -->
     <section style="margin-bottom: 30px;">
-      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">⚡ Como Comprar na PMG Atacadista em 2 Minutos — Guia Rápido 2025</h1>
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">⚡ Como Comprar na PMG Atacadista em 2 Minutos — Guia Rápido 2026</h1>
       <p>Você sabia que é possível <strong>fazer seu pedido na PMG Atacadista em menos de 2 minutos</strong>? Criamos este guia prático para mostrar como comprar no atacado pode ser <strong>rápido, simples e seguro</strong>. Perfect para quem busca <strong>agilidade no pedido online</strong> e <strong>preços direto de atacadista</strong>.</p>
       
       <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -3043,7 +3043,7 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
 
     <!-- IMAGEM PRINCIPAL -->
     <section style="margin-bottom: 30px;">
-      <img src="https://i.imgur.com/pBH5WpZ.jpeg" alt="Como comprar na PMG Atacadista - Guia rápido passo a passo 2025" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <img src="https://i.imgur.com/pBH5WpZ.jpeg" alt="Como comprar na PMG Atacadista - Guia rápido passo a passo 2026" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
       <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Comprar na PMG Atacadista é rápido, fácil e seguro - Comece agora mesmo!</p>
     </section>
 
