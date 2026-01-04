@@ -1365,7 +1365,7 @@ const OfertasPage = () => {
               </video>
             </div>
             <a
-              href="http://localhost:3000/indicacoes"
+              href="https://www.marquesvendaspmg.shop/indicacoes"
               target="_blank"
               rel="noopener noreferrer"
               style={styles.fifoPopupButton}
