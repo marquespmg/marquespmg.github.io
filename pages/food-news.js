@@ -4721,25 +4721,57 @@ img[alt="Markito"][src="https://i.imgur.com/J0BfsSj.gif"] {
   </a>
 </div>
 
-  {/* COPYRIGHT E ENDEREÇO - SUPER COMPACTO */}
-  <div>
-    <p style={{ 
-      margin: isMobile ? '2px 0' : '4px 0', 
-      fontSize: isMobile ? '0.6rem' : '0.75rem',
-      color: '#666',
-      lineHeight: '1.2'
+    {/* Informações de Contato e Copyright */}
+    <div style={{ 
+      textAlign: 'center',
+      paddingTop: '15px',
+      borderTop: '1px solid #e0e0e0'
     }}>
-      © {new Date().getFullYear()} Marques Vendas PMG
-    </p>
-    <p style={{ 
-      margin: isMobile ? '1px 0' : '3px 0', 
-      fontSize: isMobile ? '0.55rem' : '0.7rem', 
-      color: '#999',
-      lineHeight: '1.1'
-    }}>
-      Estrada Ferreira Guedes, 784 - Itapecerica da Serra - SP
-    </p>
-  </div>
+      {/* TEXTO SEO - AGORA EM CIMA (Google lê primeiro) */}
+      <p style={{ 
+        margin: '0 0 15px 0', 
+        fontSize: '11px', 
+        color: '#999',
+        lineHeight: '1.4',
+        fontStyle: 'italic',
+        maxWidth: '800px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        padding: '0 10px'
+      }}>
+        <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
+        Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
+        Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
+        Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
+      </p>
+      
+      {/* INFORMAÇÕES DE CONTATO - AGORA EMBAIXO */}
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '14px',
+        color: '#666',
+        lineHeight: '1.5'
+      }}>
+        © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+      </p>
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '12px', 
+        color: '#888',
+        lineHeight: '1.4'
+      }}>
+        Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
+        <br />
+        CEP: 06885-150 - Itapecerica da Serra - SP
+      </p>
+      <p style={{ 
+        margin: '8px 0', 
+        fontSize: '12px', 
+        color: '#888'
+      }}>
+        📞 Telefone: (11) 91357-2902
+      </p>
+    </div>
 </footer>
       </div>
     </>
