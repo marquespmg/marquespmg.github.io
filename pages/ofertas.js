@@ -7,16 +7,16 @@ import useTrackUser from '../hook/useTrackUser'; // ← ADICIONE ESTA LINHA
 // ========== PRODUTOS EM OFERTA ========== //
 // VOCÊ SÓ PRECISA MUDAR ESTES PRODUTOS TODO DOMINGO!
 const featuredProducts = [
-  { id: 1107, name: 'ARROZ BRANCO TIPO 1 SOLITO 5 KILO (FDO 6 PCT)', category: 'Ofertas', price: 108.00, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-solito-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
-  { id: 1268, name: 'FEIJÃO CARIOCA TIPO 1 SOLITO 1 KILO (FDO 10 PCT)', category: 'Ofertas', price: 69.00, image: 'https://www.marquesvendaspmg.shop/images/feijao-carioca-tipo-1-solito-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
-  { id: 1318, name: 'MARGARINA COM SAL 80 % AMÉLIA (BD 14 KILO)', category: 'Ofertas', price: 189.00, image: 'https://www.marquesvendaspmg.shop/images/margarina-com-sal-80-amelia-bd-14-kilo-pmg-atacadista.jpg' },
-  { id: 1355, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', category: 'Ofertas', price: 176.88, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao-bd-158-l-pmg-atacadista.jpg' },
-  { id: 662, name: 'LEITE CONDENSADO "INTEGRAL" ITALAC 395 G (CX 27 UN)', category: 'Ofertas', price: 215.00, image: 'https://www.marquesvendaspmg.shop/images/leite-condensado-integral-italac-395-g-cx-27-un-pmg-atacadista.jpg' },
-  { id: 1774, name: 'FERMENTO EM PÓ QUÍMICO TRADICIONAL DONA BENTA 100 G', category: 'Ofertas', price: 3.07, image: 'https://www.marquesvendaspmg.shop/images/fermento-em-po-quimico-tradicional-dona-benta-100-g-pmg-atacadista.jpg' },
-  { id: 1487, name: 'AÇÚCAR REFINADO UNIÃO 1 KILO (FDO 10 PCT)', category: 'Ofertas', price: 45.20, image: 'https://www.marquesvendaspmg.shop/images/acucar-refinado-uniao-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
-  { id: 144, name: 'DOLLY GUARANÁ PET 2 L (PCT 6 UN)', category: 'Ofertas', price: 32.99, image: 'https://www.marquesvendaspmg.shop/images/dolly-guarana-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 145, name: 'DOLLY LARANJA PET 2 L (PCT 6 UN)', category: 'Ofertas', price: 32.99, image: 'https://www.marquesvendaspmg.shop/images/dolly-laranja-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 146, name: 'DOLLY LIMÃO PET 2 L (PCT 6 UN)', category: 'Ofertas', price: 32.99, image: 'https://www.marquesvendaspmg.shop/images/dolly-limao-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 748, name: 'MUÇARELA ITALAC 4 KG', category: 'Ofertas', price: 29.06, image: 'https://www.marquesvendaspmg.shop/images/mucarela-italac-4-kg-pmg-atacadista.jpg' },
+  { id: 822, name: 'QUEIJO BRIE FORMA YEMA 1 KG', category: 'Ofertas', price: 54.70, image: 'https://www.marquesvendaspmg.shop/images/queijo-brie-forma-yema-1-kg-pmg-atacadista.jpg' },
+  { id: 614, name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS POLENGHI "2,27" KILO', category: 'Ofertas', price: 78.99, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-160-fatias-polenghi-227-kilo-pmg-atacadista.jpg' },
+  { id: 615, name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS VIGOR 2,24 KILO', category: 'Ofertas', price: 82.50, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-160-fatias-vigor-224-kilo-pmg-atacadista.jpg' },
+  { id: 628, name: ' CREAM CHEESE POLENGHI (BD 3,6 KILO)', category: 'Ofertas', price: 131.99, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-36-kilo-pmg-atacadista.jpg' },
+  { id: 626, name: 'CREAM CHEESE PHILADELPHIA 3,6 KILO', category: 'Ofertas', price: 140.88, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-36-kilo-pmg-atacadista.jpg' },
+  { id: 702, name: 'MANTEIGA SEM SAL DE PRIMEIRA FRIZZO (CX 5 KILO)', category: 'Ofertas', price: 107.00, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-de-primeira-frizzo-cx-5-kilo-pmg-atacadista.jpg' },
+  { id: 533, name: 'CARNE SECA BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Ofertas', price: 59.50, image: 'https://www.marquesvendaspmg.shop/images/carne-seca-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
+  { id: 546, name: 'COSTELA BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Ofertas', price: 59.50, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
+  { id: 1363, name: 'ÓLEO DE SOJA COCAMAR (LT 18 L)', category: 'Ofertas', price: 189.50, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-cocamar-lt-18-l-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
