@@ -2,7 +2,50 @@ import React, { useState, useEffect, useRef } from 'react';
 import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
-import useTrackUser from '../hook/useTrackUser'; // ← ADICIONE ESTA LINHA
+import useTrackUser from '../hook/useTrackUser';
+import { useRouter } from 'next/router'; // ← ADICIONE ESTA LINHA
+
+// ========== DADOS DAS CIDADES (COPIADO DA PÁGINA DE PRODUTOS) ========== //
+const citiesData = {
+  sp: {
+    title: "🏢 Estado de São Paulo",
+    regions: [
+      '🏞️ Interior',
+      '🏖️ Litoral', 
+      '🏙️ Capital',
+      '📍 Zona Sul',
+      '📍 Zona Leste',
+      '📍 Zona Norte',
+      '📍 Zona Oeste'
+    ]
+  },
+  rj: {
+    title: "🏖️ Sul do Rio de Janeiro",
+    cities: [
+      'BARRA DO PIRAÍ', 'BARRA MANSA', 'ENG. PAULO FRONTIN', 'ITATIAIA', 'MENDES',
+      'PARATY', 'PETRÓPOLIS', 'PINHEIRAL', 'PIRAÍ', 'PORTO REAL', 'QUATIS',
+      'RESENDE', 'RIO CLARO', 'VALENÇA', 'VASSOURAS', 'VOLTA REDONDA'
+    ]
+  },
+  mg: {
+    title: "⛰️ Sul de Minas Gerais", 
+    cities: [
+      'ANDRADAS', 'BAEPENDI', 'BOM REPOUSO', 'BRAZÓPOLIS', 'BUENO BRANDÃO',
+      'CABO VERDE', 'CAMANDUCAIA', 'CAMBUÍ', 'CAMBUQUIRA', 'CAPITÓLIO',
+      'CARMO DE MINAS', 'CAXAMBÚ', 'CONCEIÇÃO DO RIO VERDE', 'CONCEIÇÃO DOS OUROS',
+      'CONGONHAL', 'CONSOLAÇÃO', 'CORREGO DO BOM JESUS', 'CRISTINA', 'CRUZÍLIA',
+      'DELFIM MOREIRA', 'ELOI MENDES', 'ESTIVA', 'EXTREMA', 'FRUTAL', 'GONÇALVES',
+      'GUAPÉ', 'GUARANESIA', 'GUAXUPÉ', 'ILICÍNEA', 'ITAJUBÁ', 'ITAMONTE',
+      'ITANHANDU', 'ITAPEVA', 'JACUTINGA', 'LAMBARI', 'MARIA DA FÉ',
+      'MONTE SANTO DE MINAS', 'MONTE SIÃO', 'MONTE VERDE', 'OURO FINO',
+      'PARAISÓPOLIS', 'PASSA QUATRO', 'PIRANGUÇU', 'PIRANGUINHO', 'PLANURA',
+      'POÇOS DE CALDAS', 'POUSO ALEGRE', 'POUSO ALTO', 'SANTA RITA DO SAPUCAÍ',
+      'SÃO LOURENÇO', 'SÃO SEBASTIÃO DO PARAÍSO', 'SÃO SEBASTIÃO DO RIO VERDE',
+      'SAPUCAÍ-MIRIM', 'SOLEDADE DE MINAS', 'TOLEDO', 'TRÊS CORAÇÕES',
+      'TRÊS PONTAS', 'VARGINHA', 'VIRGÍNIA'
+    ]
+  }
+};
 
 // ========== PRODUTOS EM OFERTA ========== //
 // VOCÊ SÓ PRECISA MUDAR ESTES PRODUTOS TODO DOMINGO!
@@ -52,9 +95,7 @@ const fifoImages = [
 ];
 
 // ========== FUNÇÕES DE SEO DINÂMICAS ========== //
-// FUNÇÃO 1: Gera SEO automático baseado nos produtos atuais
 const generateDynamicSEO = (products) => {
-  // Extrai categorias e marcas dos produtos atuais
   const categories = [...new Set(products.map(p => {
     if (p.name.includes('WHISKY')) return 'whisky';
     if (p.name.includes('GIN')) return 'gin';
@@ -63,7 +104,6 @@ const generateDynamicSEO = (products) => {
     return 'produtos';
   }))];
 
-  // Extrai marcas dos produtos
   const brands = products.map(p => {
     if (p.name.includes('JOHNNIE WALKER')) return 'Johnnie Walker';
     if (p.name.includes('SALTON')) return 'Salton';
@@ -73,7 +113,6 @@ const generateDynamicSEO = (products) => {
     return null;
   }).filter(Boolean);
 
-  // Gera texto SEO dinâmico
   return {
     title: `Ofertas PMG Atacadista - ${categories.join(', ').toUpperCase()} em Promoção`,
     description: `Ofertas especiais PMG Atacadista: ${products.slice(0, 3).map(p => p.name).join(', ')}. Confira todas as ofertas da semana com os melhores preços em atacado. Entrega rápida para São Paulo e região.`,
@@ -81,7 +120,6 @@ const generateDynamicSEO = (products) => {
   };
 };
 
-// FUNÇÃO 2: Gera alt e title das imagens
 const generateImageSEO = (product) => {
   return {
     alt: `${product.name} - Oferta PMG Atacadista - Atacado Food Service`,
@@ -89,7 +127,6 @@ const generateImageSEO = (product) => {
   };
 };
 
-// FUNÇÃO 3: Gera brand automático
 const generateBrand = (productName) => {
   const brandMap = {
     'JOHNNIE WALKER': 'Johnnie Walker',
@@ -106,7 +143,6 @@ const generateBrand = (productName) => {
   return brandMap[foundBrand] || brandMap.default;
 };
 
-// FUNÇÃO 4: Gera descrição do produto
 const generateProductDescription = (product) => {
   if (product.name.includes('WHISKY')) {
     return `${product.name} em oferta especial! Whisky premium importado para seu bar ou restaurante. Melhor preço atacado com entrega garantida.`;
@@ -151,12 +187,19 @@ const useWindowSize = () => {
 const OfertasPage = () => {
   const { width: windowWidth } = useWindowSize();
   const isMobile = windowWidth <= 768;
+  const router = useRouter();
   
-  // Gera SEO dinâmico baseado nos produtos
+  useTrackUser();
+  
+  // NOVOS ESTADOS PARA O MENU DE CIDADES
+  const [showCitiesMenu, setShowCitiesMenu] = useState(false);
+  const [openRegions, setOpenRegions] = useState({
+    sp: false,
+    rj: false,
+    mg: false
+  });
+  
   const dynamicSEO = generateDynamicSEO(featuredProducts);
-
-      // ADICIONE ESTA LINHA AQUI ↓
-  useTrackUser(); // ← HOOK PARA RASTREAR VISITANTES NA PÁGINA DE OFERTAS
   
   // Estados
   const [cart, setCart] = useState([]);
@@ -177,6 +220,14 @@ const OfertasPage = () => {
   // Refs para intervalos
   const bannerIntervalRef = useRef(null);
   const toastTimeoutRef = useRef(null);
+
+  // FUNÇÃO PARA ALTERNAR AS REGIÕES
+  const toggleRegion = (regionKey) => {
+    setOpenRegions(prev => ({
+      ...prev,
+      [regionKey]: !prev[regionKey]
+    }));
+  };
 
   // Função para redirecionar para detalhes do produto
   const redirectToProductDetails = (productId) => {
@@ -279,7 +330,7 @@ const OfertasPage = () => {
         "@type": "Offer",
         "price": product.price.toString(),
         "priceCurrency": "BRL",
-        "priceValidUntil": "2024-12-31", // Atualize esta data semanalmente
+        "priceValidUntil": "2024-12-31",
         "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
@@ -290,7 +341,6 @@ const OfertasPage = () => {
       }
     }));
 
-    // Schema adicional para a página de ofertas
     const pageSchema = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
@@ -314,36 +364,6 @@ const OfertasPage = () => {
       minHeight: '100vh',
       position: 'relative',
       fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
-    },
-    userWelcomeBar: {
-      backgroundColor: '#095400',
-      color: 'white',
-      padding: isMobile ? '12px 15px' : '15px 20px',
-      borderRadius: '10px',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: '20px',
-      boxShadow: '0 2px 10px rgba(9, 84, 0, 0.2)'
-    },
-    welcomeMessage: {
-      fontSize: isMobile ? '14px' : '16px',
-      fontWeight: '600',
-      margin: 0
-    },
-    homeButton: {
-      backgroundColor: 'white',
-      color: '#095400',
-      border: 'none',
-      padding: isMobile ? '8px 16px' : '10px 20px',
-      borderRadius: '25px',
-      fontSize: isMobile ? '13px' : '14px',
-      fontWeight: '600',
-      cursor: 'pointer',
-      textDecoration: 'none',
-      whiteSpace: 'nowrap',
-      transition: 'all 0.3s ease',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
     },
     header: {
       textAlign: 'center',
@@ -380,7 +400,7 @@ const OfertasPage = () => {
       transition: 'all 0.3s ease',
       border: '1px solid #f0f0f0',
       position: 'relative',
-      height: '100%', // Garante que todos os cards tenham mesma altura
+      height: '100%',
       display: 'flex',
       flexDirection: 'column',
       ':hover': {
@@ -388,7 +408,6 @@ const OfertasPage = () => {
         boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
       }
     },
-    // IMAGEM AJUSTADA PARA NÃO CORTAR
     productImageContainer: {
       width: '100%',
       height: isMobile ? '160px' : '220px',
@@ -402,7 +421,7 @@ const OfertasPage = () => {
     productImage: {
       width: '100%',
       height: '100%',
-      objectFit: 'contain', // Mudei de 'cover' para 'contain' para não cortar
+      objectFit: 'contain',
       padding: '10px',
       transition: 'transform 0.3s ease',
       ':hover': {
@@ -462,7 +481,7 @@ const OfertasPage = () => {
       cursor: 'pointer',
       transition: 'all 0.3s ease',
       boxShadow: '0 2px 8px rgba(9, 84, 0, 0.3)',
-      marginTop: 'auto', // Empurra o botão para baixo
+      marginTop: 'auto',
       ':hover': {
         backgroundColor: '#0a6b00',
         transform: 'translateY(-2px)'
@@ -476,7 +495,6 @@ const OfertasPage = () => {
         transform: 'none'
       }
     },
-    // LUPA DE DETALHES
     productDetailsButton: {
       position: 'absolute',
       top: '8px',
@@ -603,7 +621,6 @@ const OfertasPage = () => {
       boxShadow: '0 5px 20px rgba(0,0,0,0.08)',
       border: '1px solid #e0f0e0'
     },
-    // ESTILOS DO POPUP FIFO
     fifoPopupOverlay: {
       position: 'fixed',
       top: 0,
@@ -681,25 +698,387 @@ const OfertasPage = () => {
         />
       ))}
 
-      {/* Barra de boas-vindas */}
-      <div
-        style={{
-          ...styles.userWelcomeBar,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}
-      >
-        <p style={styles.welcomeMessage}>
+      {/* ========== BARRA COM OS 3 BOTÕES - IGUAL À PÁGINA DE PRODUTOS (ALINHADA À ESQUERDA) ========== */}
+      <div style={{
+        backgroundColor: '#095400',
+        color: 'white',
+        padding: isMobile ? '12px 15px' : '15px 20px',
+        borderRadius: '8px',
+        marginBottom: isMobile ? '15px' : '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start', // ← ALTERADO: estava 'center', agora 'flex-start'
+        boxShadow: '0 2px 10px rgba(9, 84, 0, 0.2)'
+      }}>
+        {/* Linha 1: Mensagem ALINHADA À ESQUERDA */}
+        <p style={{
+          fontSize: isMobile ? '16px' : '18px',
+          fontWeight: '600',
+          margin: 0,
+          marginBottom: '10px',
+          textAlign: 'left', // ← ALTERADO: estava 'center'
+          width: '100%'
+        }}>
           🎯 OFERTAS DA SEMANA - Marques Vendas PMG
         </p>
-        <a
-          href="/"
-          style={{ ...styles.homeButton, marginTop: '8px' }}
+        
+    {/* Linha 2: Botões */}
+    <div style={{
+      display: 'flex',
+      gap: '10px',
+      alignItems: 'center',
+      flexWrap: 'wrap'
+    }}>
+      {/* BOTÃO PÁGINA INICIAL */}
+      <a href="/" style={{
+        backgroundColor: 'white',
+        color: '#095400',
+        border: '1px solid #095400',
+        padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+        borderRadius: '20px',
+        fontSize: windowWidth > 768 ? '14px' : '12px',
+        fontWeight: '600',
+        cursor: 'pointer',
+        textDecoration: 'none',
+        whiteSpace: 'nowrap',
+        transition: 'all 0.3s',
+        ':hover': {
+          backgroundColor: '#095400',
+          color: 'white'
+        }
+      }}>
+        Página Inicial
+      </a>
+      
+      {/* BOTÃO ONDE ENTREGAMOS */}
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+        <button
+          onClick={() => setShowCitiesMenu(!showCitiesMenu)}
+          style={{
+            backgroundColor: '#e53935',
+            color: 'white',
+            border: 'none',
+            padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+            borderRadius: '20px',
+            fontSize: windowWidth > 768 ? '14px' : '12px',
+            fontWeight: '600',
+            cursor: 'pointer',
+            transition: 'all 0.3s',
+            whiteSpace: 'nowrap',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
+            ':hover': {
+              backgroundColor: '#c62828',
+              transform: 'translateY(-2px)',
+              boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
+            }
+          }}
         >
-          🏠 Página Inicial
-        </a>
+          Onde Entregamos
+          <span style={{
+            transition: 'transform 0.3s',
+            fontSize: '12px',
+            transform: showCitiesMenu ? 'rotate(180deg)' : 'rotate(0deg)'
+          }}>
+            ▼
+          </span>
+        </button>
+        
+        {/* MENU DROPDOWN - CENTRALIZADO E RESPONSIVO */}
+        {showCitiesMenu && (
+          <>
+            {/* Overlay para fechar ao clicar fora */}
+            <div 
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 998,
+                backgroundColor: 'transparent'
+              }}
+              onClick={() => setShowCitiesMenu(false)}
+            />
+            
+            {/* Container do Menu - Centralizado abaixo do botão */}
+            <div 
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                zIndex: 999,
+                backgroundColor: 'white',
+                borderRadius: '8px',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
+                border: '2px solid #e53935',
+                width: windowWidth > 768 ? '350px' : '280px',
+                maxHeight: '400px',
+                overflowY: 'auto',
+                marginTop: '8px'
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Cabeçalho do Menu */}
+              <div style={{
+                padding: '12px 15px',
+                borderBottom: '1px solid #eee',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                backgroundColor: '#fff5f5'
+              }}>
+                <strong style={{ 
+                  color: '#095400', 
+                  fontSize: windowWidth > 768 ? '16px' : '14px',
+                  fontWeight: '600'
+                }}>
+                  📍 Onde Entregamos
+                </strong>
+                <button
+                  onClick={() => setShowCitiesMenu(false)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#e53935',
+                    cursor: 'pointer',
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    padding: '0',
+                    width: '24px',
+                    height: '24px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '50%',
+                    ':hover': {
+                      backgroundColor: '#f0f0f0'
+                    }
+                  }}
+                >
+                  ×
+                </button>
+              </div>
+              
+              {/* Conteúdo do Menu */}
+              <div style={{ padding: '15px' }}>
+                
+                {/* São Paulo */}
+                <div style={{ marginBottom: '15px' }}>
+                  <div 
+                    onClick={() => toggleRegion('sp')}
+                    style={{
+                      color: '#095400',
+                      fontWeight: '600',
+                      fontSize: windowWidth > 768 ? '15px' : '13px',
+                      marginBottom: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '5px',
+                      borderRadius: '4px',
+                      ':hover': {
+                        backgroundColor: '#f9f9f9'
+                      }
+                    }}
+                  >
+                    <span>🏢</span>
+                    <span>Estado de São Paulo</span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontSize: '12px',
+                      transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s'
+                    }}>
+                      ▼
+                    </span>
+                  </div>
+                  
+                  {openRegions.sp && (
+                    <div style={{
+                      marginLeft: '10px',
+                      paddingLeft: '10px',
+                      borderLeft: '2px solid #095400',
+                      maxHeight: '120px',
+                      overflowY: 'auto'
+                    }}>
+                      {citiesData.sp.regions.map((regiao, index) => (
+                        <div key={index} style={{
+                          padding: '5px 0',
+                          color: '#555',
+                          fontSize: windowWidth > 768 ? '13px' : '12px'
+                        }}>
+                          • {regiao}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
+                {/* Rio de Janeiro */}
+                <div style={{ marginBottom: '15px' }}>
+                  <div 
+                    onClick={() => toggleRegion('rj')}
+                    style={{
+                      color: '#095400',
+                      fontWeight: '600',
+                      fontSize: windowWidth > 768 ? '15px' : '13px',
+                      marginBottom: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '5px',
+                      borderRadius: '4px',
+                      ':hover': {
+                        backgroundColor: '#f9f9f9'
+                      }
+                    }}
+                  >
+                    <span>🏖️</span>
+                    <span>Sul do Rio de Janeiro</span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontSize: '12px',
+                      transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s'
+                    }}>
+                      ▼
+                    </span>
+                  </div>
+                  
+                  {openRegions.rj && (
+                    <div style={{
+                      marginLeft: '10px',
+                      paddingLeft: '10px',
+                      borderLeft: '2px solid #e53935',
+                      maxHeight: '120px',
+                      overflowY: 'auto'
+                    }}>
+                      {citiesData.rj.cities.map((city, index) => (
+                        <div key={index} style={{
+                          padding: '5px 0',
+                          color: '#555',
+                          fontSize: windowWidth > 768 ? '13px' : '12px'
+                        }}>
+                          • {city}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
+                {/* Minas Gerais */}
+                <div>
+                  <div 
+                    onClick={() => toggleRegion('mg')}
+                    style={{
+                      color: '#095400',
+                      fontWeight: '600',
+                      fontSize: windowWidth > 768 ? '15px' : '13px',
+                      marginBottom: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '5px',
+                      borderRadius: '4px',
+                      ':hover': {
+                        backgroundColor: '#f9f9f9'
+                      }
+                    }}
+                  >
+                    <span>⛰️</span>
+                    <span>Sul de Minas Gerais</span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontSize: '12px',
+                      transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s'
+                    }}>
+                      ▼
+                    </span>
+                  </div>
+                  
+                  {openRegions.mg && (
+                    <div style={{
+                      marginLeft: '10px',
+                      paddingLeft: '10px',
+                      borderLeft: '2px solid #e53935',
+                      maxHeight: '120px',
+                      overflowY: 'auto'
+                    }}>
+                      {citiesData.mg.cities.slice(0, 59).map((city, index) => (
+                        <div key={index} style={{
+                          padding: '5px 0',
+                          color: '#555',
+                          fontSize: windowWidth > 768 ? '13px' : '12px'
+                        }}>
+                          • {city}
+                        </div>
+                      ))}
+                      {citiesData.mg.cities.length > 59 && (
+                        <div style={{
+                          color: '#888',
+                          fontSize: '12px',
+                          fontStyle: 'italic',
+                          padding: '5px 0'
+                        }}>
+                          + {citiesData.mg.cities.length - 59} cidades...
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+              
+              {/* Rodapé do Menu */}
+              <div style={{
+                padding: '10px 15px',
+                borderTop: '1px solid #eee',
+                fontSize: '12px',
+                color: '#888',
+                textAlign: 'center',
+                backgroundColor: '#f9f9f9'
+              }}>
+                Clique nas regiões para expandir
+              </div>
+            </div>
+          </>
+        )}
       </div>
+      
+      {/* BOTÃO PERGUNTAS FREQUENTES - DEPOIS DE ONDE ENTREGAMOS */}
+      <Link href="/faq" legacyBehavior>
+        <a style={{
+          backgroundColor: 'white',
+          color: '#095400',
+          border: '1px solid #095400',
+          padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+          borderRadius: '20px',
+          fontSize: windowWidth > 768 ? '14px' : '12px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          textDecoration: 'none',
+          whiteSpace: 'nowrap',
+          transition: 'all 0.3s',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '5px',
+          ':hover': {
+            backgroundColor: '#095400',
+            color: 'white'
+          }
+        }}>
+          ❓ Perguntas
+        </a>
+      </Link>
+    </div>
+  </div>
 
       {/* Cabeçalho */}
       <div style={styles.header}>
@@ -956,7 +1335,7 @@ const OfertasPage = () => {
               }}
               style={{
                 ...styles.dot,
-                ...(index === currentBannerIndex && styles.activeDot)
+                ...(index === currentPage && styles.activeDot)
               }}
             />
           ))}
@@ -1039,7 +1418,7 @@ const OfertasPage = () => {
         </p>
       </div>
 
-      {/* Rodapé (mantido igual) */}
+      {/* Rodapé */}
       <footer style={{
         marginTop: '60px',
         padding: '30px 15px',
@@ -1379,57 +1758,57 @@ const OfertasPage = () => {
             </div>
           </div>
 
-    {/* Informações de Contato e Copyright */}
-    <div style={{ 
-      textAlign: 'center',
-      paddingTop: '15px',
-      borderTop: '1px solid #e0e0e0'
-    }}>
-      {/* TEXTO SEO - AGORA EM CIMA (Google lê primeiro) */}
-      <p style={{ 
-        margin: '0 0 15px 0', 
-        fontSize: '11px', 
-        color: '#999',
-        lineHeight: '1.4',
-        fontStyle: 'italic',
-        maxWidth: '800px',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        padding: '0 10px'
-      }}>
-        <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
-        Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
-        Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
-        Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
-      </p>
-      
-      {/* INFORMAÇÕES DE CONTATO - AGORA EMBAIXO */}
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '14px',
-        color: '#666',
-        lineHeight: '1.5'
-      }}>
-        © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-      </p>
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '12px', 
-        color: '#888',
-        lineHeight: '1.4'
-      }}>
-        Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
-        <br />
-        CEP: 06885-150 - Itapecerica da Serra - SP
-      </p>
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '12px', 
-        color: '#888'
-      }}>
-        📞 Telefone: (11) 91357-2902
-      </p>
-    </div>
+          {/* Informações de Contato e Copyright */}
+          <div style={{ 
+            textAlign: 'center',
+            paddingTop: '15px',
+            borderTop: '1px solid #e0e0e0'
+          }}>
+            {/* TEXTO SEO - AGORA EM CIMA (Google lê primeiro) */}
+            <p style={{ 
+              margin: '0 0 15px 0', 
+              fontSize: '11px', 
+              color: '#999',
+              lineHeight: '1.4',
+              fontStyle: 'italic',
+              maxWidth: '800px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              padding: '0 10px'
+            }}>
+              <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
+              Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
+              Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
+              Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
+            </p>
+            
+            {/* INFORMAÇÕES DE CONTATO - AGORA EMBAIXO */}
+            <p style={{ 
+              margin: '8px 0', 
+              fontSize: '14px',
+              color: '#666',
+              lineHeight: '1.5'
+            }}>
+              © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+            </p>
+            <p style={{ 
+              margin: '8px 0', 
+              fontSize: '12px', 
+              color: '#888',
+              lineHeight: '1.4'
+            }}>
+              Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
+              <br />
+              CEP: 06885-150 - Itapecerica da Serra - SP
+            </p>
+            <p style={{ 
+              margin: '8px 0', 
+              fontSize: '12px', 
+              color: '#888'
+            }}>
+              📞 Telefone: (11) 91357-2902
+            </p>
+          </div>
         </div>
       </footer>
     </div>
