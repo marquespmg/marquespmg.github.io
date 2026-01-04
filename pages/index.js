@@ -1561,24 +1561,46 @@ const avaliacoes = [
       </a>
     </div>
 
-    {/* Copyright e Endereço */}
-    <div style={{ textAlign: 'center' }}>
-      <p style={{ 
-        margin: '5px 0', 
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        color: '#666'
-      }}>
-        © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-      </p>
-      <p style={{ 
-        margin: '5px 0', 
-        fontSize: isMobile ? '0.7rem' : '0.8rem', 
-        color: '#999',
-        lineHeight: '1.4'
-      }}>
-        • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
-      </p>
-    </div>
+{/* Copyright, Texto SEO e Endereço */}
+<div style={{ textAlign: 'center' }}>
+  {/* TEXTO SEO VISÍVEL - ALINHADO COM PÁGINA PRODUTOS */}
+  <div style={{
+    maxWidth: '800px',
+    margin: '15px auto 20px auto',
+    padding: '0 15px'
+  }}>
+    <p style={{
+      color: '#666',
+      fontSize: isMobile ? '0.75rem' : '0.85rem',
+      lineHeight: '1.5',
+      textAlign: 'center',
+      fontStyle: 'italic',
+      margin: '0 0 15px 0'
+    }}>
+      <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
+      Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
+      Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
+      Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
+    </p>
+  </div>
+
+  <p style={{ 
+    margin: '5px 0', 
+    fontSize: isMobile ? '0.8rem' : '0.85rem',
+    color: '#666'
+  }}>
+    © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+  </p>
+  
+  <p style={{ 
+    margin: '5px 0', 
+    fontSize: isMobile ? '0.7rem' : '0.8rem', 
+    color: '#999',
+    lineHeight: '1.4'
+  }}>
+    • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
+  </p>
+</div>
   </div>
 </footer>
 
