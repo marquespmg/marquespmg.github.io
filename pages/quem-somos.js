@@ -31,7 +31,7 @@ export default function QuemSomos() {
         <title>Quem Somos - Marques Vendas PMG | Atacado Food Service SP</title>
         <meta 
           name="description" 
-          content="Conheça Marques Antonio, fundador da Marques Vendas PMG. Mais de 4 anos de experiência em atacado food service. Entrega em SP, Sul Minas e Sul RJ." 
+          content="Conheça Marques Antonio, fundador da Marques Vendas PMG. Mais de 5 anos de experiência em atacado food service. Entrega em SP, Sul Minas e Sul RJ." 
         />
         <meta 
           name="keywords" 
@@ -40,7 +40,7 @@ export default function QuemSomos() {
         <meta property="og:title" content="Quem Somos - Marques Vendas PMG | Atacado Food Service" />
         <meta 
           property="og:description" 
-          content="Conheça a história da Marques Vendas PMG. Mais de 4 anos entregando qualidade em atacado para SP, Sul Minas e Sul RJ." 
+          content="Conheça a história da Marques Vendas PMG. Mais de 5 anos entregando qualidade em atacado para SP, Sul Minas e Sul RJ." 
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.marquesvendaspmg.shop/quem-somos" />
@@ -58,7 +58,7 @@ export default function QuemSomos() {
               "@type": "LocalBusiness",
               "name": "Marques Vendas PMG",
               "image": ["https://i.imgur.com/jrERRsC.png", foto1, foto2],
-              "description": "Marques Vendas PMG - Atacado Food Service com mais de 4 anos de experiência. Entregamos em SP, Sul Minas e Sul RJ.",
+              "description": "Marques Vendas PMG - Atacado Food Service com mais de 5 anos de experiência. Entregamos em SP, Sul Minas e Sul RJ.",
               "founder": {
                 "@type": "Person",
                 "name": "Marques Antonio",
@@ -105,7 +105,7 @@ export default function QuemSomos() {
                 "@type": "Organization",
                 "name": "Marques Vendas PMG"
               },
-              "description": "Mais de 4 anos de experiência no mercado de atacado food service. Especialista em distribuição para restaurantes, bares e mercados.",
+              "description": "Mais de 5 anos de experiência no mercado de atacado food service. Especialista em distribuição para restaurantes, bares e mercados.",
               "knowsAbout": ["Atacado Food Service", "Distribuição", "Gestão de Fornecedores", "Logística SP"],
               "image": foto1,
               "sameAs": "https://www.marquesvendaspmg.shop/quem-somos"
@@ -154,7 +154,7 @@ export default function QuemSomos() {
             margin: '0 auto',
             lineHeight: '1.6'
           }}>
-            Mais de 4 anos entregando qualidade e confiança no atacado food service para São Paulo, Sul de Minas e Sul do Rio de Janeiro
+            Mais de 5 anos entregando qualidade e confiança no atacado food service para São Paulo, Sul de Minas e Sul do Rio de Janeiro
           </p>
         </header>
 
@@ -221,7 +221,7 @@ export default function QuemSomos() {
                   marginBottom: '15px',
                   fontSize: isMobile ? '0.95rem' : '1rem'
                 }}>
-                  Me chamo <strong>Marques Antonio</strong> e trabalho na <strong>PMG há mais de 4 anos</strong>. 
+                  Me chamo <strong>Marques Antonio</strong> e trabalho na <strong>PMG há mais de 5 anos</strong>. 
                 </p>
                 <p style={{ 
                   color: '#555', 
@@ -362,7 +362,7 @@ export default function QuemSomos() {
                 marginBottom: '10px',
                 fontWeight: '600'
               }}>
-                4+ Anos de Experiência
+                5+ Anos de Experiência
               </h3>
               <p style={{
                 fontSize: isMobile ? '0.85rem' : '0.9rem',
@@ -544,7 +544,7 @@ export default function QuemSomos() {
           <h2>História da Marques Vendas PMG Atacado Food Service</h2>
           <p>
             Marques Vendas PMG é uma distribuidora especializada em atacado food service fundada por Marques Antonio. 
-            Com mais de 4 anos de experiência no mercado, atendemos restaurantes, bares, mercados e estabelecimentos 
+            Com mais de 5 anos de experiência no mercado, atendemos restaurantes, bares, mercados e estabelecimentos 
             comerciais em São Paulo, Sul de Minas Gerais e Sul do Rio de Janeiro.
           </p>
           <p>
@@ -554,7 +554,7 @@ export default function QuemSomos() {
           </p>
           <h3>Marques Antonio - Fundador</h3>
           <p>
-            Marques Antonio é o fundador e responsável pela Marques Vendas PMG. Com mais de 4 anos atuando na área 
+            Marques Antonio é o fundador e responsável pela Marques Vendas PMG. Com mais de 5 anos atuando na área 
             de distribuição food service, ele traz conhecimento prático e entendimento profundo do mercado.
           </p>
           <h3>Área de Atuação PMG Atacadista</h3>
