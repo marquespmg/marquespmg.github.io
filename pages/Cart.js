@@ -247,7 +247,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         <button 
           onClick={toggleCart}
           style={{
-            backgroundColor: '#2ECC71',
+            backgroundColor: '#095400',
             color: 'white',
             border: 'none',
             borderRadius: '50%',
@@ -808,3 +808,4 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 };
 
 export default Cart;
+
