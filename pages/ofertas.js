@@ -86,12 +86,28 @@ const banners = [
   }
 ];
 
-// ========== IMAGENS FIFO (1080x1080) ========== //
+// ========== IMAGENS FIFO (1080x1080) COM LINKS DE PRODUTO ========== //
 const fifoImages = [
-  'https://i.imgur.com/brRMBWP.mp4',
-  'https://i.imgur.com/8mbLAdB.mp4',
-  'https://i.imgur.com/C2Ltbdt.mp4',
-  'https://i.imgur.com/OTzM2vT.mp4',
+  { 
+    video: 'https://i.imgur.com/wkqk63h.mp4',
+    productId: 1746,
+    url: 'https://www.marquesvendaspmg.shop/produto/1746'
+  },
+  { 
+    video: 'https://i.imgur.com/kmRpbcB.mp4',
+    productId: 702,
+    url: 'https://www.marquesvendaspmg.shop/produto/702'
+  },
+  { 
+    video: 'https://i.imgur.com/7HNF3cf.mp4',
+    productId: 533,
+    url: 'https://www.marquesvendaspmg.shop/produto/533'
+  },
+  { 
+    video: 'https://i.imgur.com/3OTFiIM.mp4',
+    productId: 615,
+    url: 'https://www.marquesvendaspmg.shop/produto/615'
+  },
 ];
 
 // ========== FUNÇÕES DE SEO DINÂMICAS ========== //
@@ -208,7 +224,7 @@ const OfertasPage = () => {
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [showFifoPopup, setShowFifoPopup] = useState(false);
-  const [selectedFifoImage, setSelectedFifoImage] = useState('');
+const [selectedFifoItem, setSelectedFifoItem] = useState(null);
 
   // Configuração de paginação
   const productsPerPage = 10;
@@ -266,12 +282,12 @@ const OfertasPage = () => {
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
     }, 10000);
 
-    // Popup FIFO após 1 minuto
-    const fifoTimer = setTimeout(() => {
-      const randomImage = fifoImages[Math.floor(Math.random() * fifoImages.length)];
-      setSelectedFifoImage(randomImage);
-      setShowFifoPopup(true);
-    }, 27000);
+// Popup FIFO após 1 minuto
+const fifoTimer = setTimeout(() => {
+  const randomIndex = Math.floor(Math.random() * fifoImages.length);
+  setSelectedFifoItem(fifoImages[randomIndex]);
+  setShowFifoPopup(true);
+}, 27000);
 
     return () => {
       clearInterval(bannerIntervalRef.current);
@@ -1342,39 +1358,39 @@ const OfertasPage = () => {
         </div>
       </div>
       
-      {/* Popup FIFO */}
-      {showFifoPopup && (
-        <div style={styles.fifoPopupOverlay}>
-          <div style={styles.fifoPopupContent}>
-            <button 
-              style={styles.fifoPopupClose}
-              onClick={() => setShowFifoPopup(false)}
-            >
-              X
-            </button>
-            <div style={styles.fifoPopupImageContainer}>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={styles.fifoPopupImage}
-              >
-                <source src={selectedFifoImage} type="video/mp4" />
-                Seu navegador não suporta vídeo HTML5
-              </video>
-            </div>
-            <a
-              href="https://www.marquesvendaspmg.shop/indicacoes"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.fifoPopupButton}
-            >
-              PARTICIPE
-            </a>
-          </div>
-        </div>
-      )}
+{/* Popup FIFO */}
+{showFifoPopup && selectedFifoItem && (
+  <div style={styles.fifoPopupOverlay}>
+    <div style={styles.fifoPopupContent}>
+      <button 
+        style={styles.fifoPopupClose}
+        onClick={() => setShowFifoPopup(false)}
+      >
+        X
+      </button>
+      <div style={styles.fifoPopupImageContainer}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={styles.fifoPopupImage}
+        >
+          <source src={selectedFifoItem.video} type="video/mp4" />
+          Seu navegador não suporta vídeo HTML5
+        </video>
+      </div>
+      <a
+        href={selectedFifoItem.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={styles.fifoPopupButton}
+      >
+        COMPRAR AGORA
+      </a>
+    </div>
+  </div>
+)}
 
       {/* ✅ CONTEÚDO SEO DINÂMICO E INVISÍVEL */}
       <div style={{
