@@ -8,6 +8,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [showAddedFeedback, setShowAddedFeedback] = useState(false);
   const [user, setUser] = useState(null);
+  const [isCollapsed, setIsCollapsed] = useState(true); // ✅ NOVO ESTADO PARA CONTROLE DE RECOLHIDO
 
   // ✅ 1. Verifica se usuário está logado (SIMPLEX)
   useEffect(() => {
@@ -22,7 +23,16 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 
   // ✅ 2. Verificação de mobile (SEMPRE EXECUTA)
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      
+      // ✅ NOVO: No PC (não mobile), mantém recolhido por padrão
+      if (!mobile) {
+        setIsCollapsed(true);
+      }
+    };
+    
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -62,7 +72,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     };
 
     loadCart();
-  }, [user]); // ✅ Só executa quando user mudar
+  }, [user]);
 
   // ✅ 4. Salva no Supabase APENAS se usuário logado
   useEffect(() => {
@@ -83,7 +93,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     };
 
     saveCart();
-  }, [cart, user]); // ✅ Só executa quando cart ou user mudar
+  }, [cart, user]);
 
   // ✅ 5. Feedback visual
   useEffect(() => {
@@ -93,6 +103,15 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
       return () => clearTimeout(timer);
     }
   }, [cart.length]);
+
+  // Função para alternar entre recolhido/expandido no PC
+  const toggleCart = () => {
+    if (isMobile) {
+      setIsOpen(!isOpen);
+    } else {
+      setIsCollapsed(!isCollapsed);
+    }
+  };
 
   // Funções de cálculo (mantidas iguais)
   const isBoxProduct = (productName) => {
@@ -214,19 +233,19 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     )}`;
   };
 
-  // ✅ JSX DO CARRINHO CORRIGIDO PARA MOBILE
+  // ✅ JSX MODIFICADO PARA CARRINHO RECOLHIDO NO PC
   return (
     <>
-      {/* Botão flutuante do carrinho - MELHORADO */}
+      {/* Botão flutuante do carrinho - AGORA VISÍVEL NO PC TAMBÉM */}
       <div style={{
         position: 'fixed',
         right: isMobile ? '20px' : '15px',
         bottom: isMobile ? '20px' : '15px',
         zIndex: 1001,
-        display: isMobile ? 'block' : 'none'
+        display: 'block' // ✅ AGORA SEMPRE VISÍVEL
       }}>
         <button 
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={toggleCart}
           style={{
             backgroundColor: '#2ECC71',
             color: 'white',
@@ -241,8 +260,11 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
-            transition: 'all 0.2s ease'
+            transition: 'all 0.2s ease',
+            zIndex: 1002
           }}
+          onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+          onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
         >
           🛒 
           {cart.length > 0 && (
@@ -304,14 +326,14 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         />
       )}
 
-      {/* Container principal do carrinho - CORREÇÕES DE RESPONSIVIDADE */}
+      {/* Container principal do carrinho - MODIFICADO PARA RECOLHIDO NO PC */}
       <div style={{
         position: 'fixed',
-        right: isMobile ? (isOpen ? '0' : '-100%') : '25px',
+        right: isMobile ? (isOpen ? '0' : '-100%') : (isCollapsed ? '-380px' : '25px'), // ✅ RECOLHE NO PC
         bottom: isMobile ? '0' : 'auto',
         top: isMobile ? 'auto' : '25px',
         width: isMobile ? '100%' : '380px',
-        height: isMobile ? '85vh' : 'auto', // Aumentei a altura para mobile
+        height: isMobile ? '85vh' : 'auto',
         backgroundColor: '#fff',
         borderRadius: isMobile ? '20px 20px 0 0' : '12px',
         boxShadow: '0 -5px 25px rgba(0, 0, 0, 0.15)',
@@ -321,61 +343,61 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         overflowY: 'auto',
         overflowX: 'hidden',
         fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
-        transition: isMobile ? 'transform 0.3s ease-out' : 'right 0.3s ease',
+        transition: isMobile ? 'transform 0.3s ease-out' : 'right 0.3s ease-in-out', // ✅ ANIMAÇÃO SUAVE
         boxSizing: 'border-box',
         transform: isMobile ? (isOpen ? 'translateY(0)' : 'translateY(100%)') : 'none',
-        WebkitOverflowScrolling: 'touch' // Melhor scroll no iOS
+        WebkitOverflowScrolling: 'touch',
+        opacity: isMobile ? (isOpen ? 1 : 0) : (isCollapsed ? 0 : 1), // ✅ FADE IN/OUT
+        pointerEvents: isMobile ? (isOpen ? 'auto' : 'none') : (isCollapsed ? 'none' : 'auto') // ✅ IMPEDE CLICKS QUANDO RECOLHIDO
       }}>
         
-        {/* Header do carrinho mobile - MELHORADO */}
-        {isMobile && (
-          <div style={{
-            position: 'sticky',
-            top: 0,
-            backgroundColor: '#fff',
-            paddingBottom: '15px',
-            zIndex: 1,
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderBottom: '2px solid #f0f0f0',
-            marginBottom: '15px'
+        {/* Header do carrinho mobile - AGORA TAMBÉM NO PC */}
+        <div style={{
+          position: 'sticky',
+          top: 0,
+          backgroundColor: '#fff',
+          paddingBottom: '15px',
+          zIndex: 1,
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          borderBottom: '2px solid #f0f0f0',
+          marginBottom: '15px'
+        }}>
+          <h2 style={{ 
+            fontSize: isMobile ? '20px' : '18px', 
+            fontWeight: 700, 
+            margin: 0, 
+            color: '#2C3E50',
+            paddingLeft: '5px'
           }}>
-            <h2 style={{ 
-              fontSize: '20px', 
-              fontWeight: 700, 
-              margin: 0, 
-              color: '#2C3E50',
-              paddingLeft: '5px'
-            }}>
-              🛒 Seu Carrinho
-            </h2>
-            <button 
-              onClick={() => setIsOpen(false)}
-              style={{ 
-                background: 'none', 
-                border: 'none', 
-                fontSize: '28px', 
-                cursor: 'pointer', 
-                color: '#7F8C8D', 
-                padding: '8px',
-                borderRadius: '50%',
-                width: '40px',
-                height: '40px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'background 0.2s'
-              }}
-              onMouseOver={(e) => e.target.style.background = '#f8f9fa'}
-              onMouseOut={(e) => e.target.style.background = 'none'}
-            >
-              ×
-            </button>
-          </div>
-        )}
+            🛒 Seu Carrinho ({cart.length})
+          </h2>
+          <button 
+            onClick={toggleCart}
+            style={{ 
+              background: 'none', 
+              border: 'none', 
+              fontSize: isMobile ? '28px' : '24px', 
+              cursor: 'pointer', 
+              color: '#7F8C8D', 
+              padding: '8px',
+              borderRadius: '50%',
+              width: '40px',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'background 0.2s'
+            }}
+            onMouseOver={(e) => e.target.style.background = '#f8f9fa'}
+            onMouseOut={(e) => e.target.style.background = 'none'}
+          >
+            ×
+          </button>
+        </div>
 
-        {/* Banner de frete grátis - MELHORADO */}
+        {/* Banner de frete grátis */}
         <div style={{
           backgroundColor: '#E8F5E8',
           color: '#27AE60',
@@ -422,10 +444,10 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
           </div>
         ) : (
           <>
-            {/* Lista de produtos - CORREÇÕES CRÍTICAS PARA MOBILE */}
+            {/* Lista de produtos */}
             <div style={{ 
               marginBottom: '20px', 
-              maxHeight: isMobile ? 'calc(85vh - 400px)' : 'none', 
+              maxHeight: isMobile ? 'calc(85vh - 400px)' : 'calc(85vh - 450px)', 
               overflowY: 'auto',
               paddingRight: '5px'
             }}>
@@ -442,7 +464,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       marginBottom: '8px'
                     }}
                   >
-                    {/* Layout do produto - MELHORADO PARA MOBILE */}
+                    {/* Layout do produto */}
                     <div style={{ 
                       display: 'flex', 
                       alignItems: 'flex-start', 
@@ -507,7 +529,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       </div>
                     </div>
 
-                    {/* Controles de quantidade e preço - MELHORADOS */}
+                    {/* Controles de quantidade e preço */}
                     <div style={{ 
                       display: 'flex', 
                       alignItems: 'center', 
@@ -614,7 +636,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               })}
             </div>
 
-            {/* Aviso de pagamento - MELHORADO */}
+            {/* Aviso de pagamento */}
             <div style={{ 
               backgroundColor: '#FFF3E0', 
               color: '#E65100', 
@@ -629,7 +651,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
-            {/* Resumo do pedido - MELHORADO */}
+            {/* Resumo do pedido */}
             <div style={{ 
               backgroundColor: '#F8F9FA', 
               padding: isMobile ? '20px' : '16px', 
@@ -662,7 +684,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               </div>
             </div>
 
-            {/* Seleção de pagamento - MELHORADO */}
+            {/* Seleção de pagamento */}
             <div style={{ marginBottom: '25px' }}>
               <h3 style={{ 
                 fontSize: isMobile ? '17px' : '16px', 
@@ -707,7 +729,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               </div>
             </div>
 
-            {/* Botão finalizar - MELHORADO */}
+            {/* Botão finalizar */}
             <button
               onClick={() => window.open(generateWhatsAppMessage(), '_blank')}
               disabled={!isTotalValid || !paymentMethod}
@@ -786,5 +808,3 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 };
 
 export default Cart;
-
-
