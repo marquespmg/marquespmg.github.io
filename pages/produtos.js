@@ -2705,26 +2705,45 @@ const removeFromCart = (productId) => {
     window.location.href = `/produto/${productId}`;
   };
 
-// Substitua a linha do filteredProducts por esta versão completa:
-
-const filteredProducts = products.filter(product => {
-  // Se há termo de busca, pesquisa em TODOS os produtos
-  if (searchTerm.trim() !== '') {
-    const searchLower = searchTerm.toLowerCase();
-    const productNameLower = product.name.toLowerCase();
-    const categoryLower = product.category.toLowerCase();
+// REMOVE PRODUTOS DUPLICADOS E FILTRA
+const uniqueProducts = products.filter((product, index, self) => {
+  const firstIndex = self.findIndex(p => p.id === product.id);
+  
+  if (firstIndex === index) {
+    return true;
+  } else {
+    const firstProduct = self[firstIndex];
     
-    // Busca no nome do produto
-    if (productNameLower.includes(searchLower)) return true;
-    
-    // Busca no nome da categoria (opcional, para casos como "laticínios" encontrar "Derivados de Leite")
-    if (categoryLower.includes(searchLower)) return true;
+    // Prefere manter a versão que está em "Ofertas da Semana"
+    if (product.category === '⏳ Ofertas da Semana 🚨' && 
+        firstProduct.category !== '⏳ Ofertas da Semana 🚨') {
+      self[firstIndex] = product;
+    }
     
     return false;
   }
+});
+
+// FILTRO PRINCIPAL
+const filteredProducts = uniqueProducts.filter(product => {
+  const searchTermTrimmed = searchTerm.trim();
   
-  // Se não há termo de busca, mostra apenas produtos da categoria selecionada
-  return product.category === selectedCategory;
+  // 1. SE HÁ BUSCA: pesquisa em todos os produtos
+  if (searchTermTrimmed !== '') {
+    const searchLower = searchTermTrimmed.toLowerCase();
+    const productNameLower = product.name.toLowerCase();
+    return productNameLower.includes(searchLower);
+  }
+  
+  // 2. SE NÃO HÁ BUSCA: filtra por categoria
+  const isOfertasCategory = selectedCategory === '⏳ Ofertas da Semana 🚨';
+  
+  if (isOfertasCategory) {
+    return product.category === '⏳ Ofertas da Semana 🚨';
+  } else {
+    return product.category === selectedCategory && 
+           product.category !== '⏳ Ofertas da Semana 🚨';
+  }
 });
 
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -4789,6 +4808,7 @@ citiesButtonContainer: {
   };
 
   export default ProductsPage;
+
 
 
 
