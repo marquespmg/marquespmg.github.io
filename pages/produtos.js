@@ -2705,12 +2705,27 @@ const removeFromCart = (productId) => {
     window.location.href = `/produto/${productId}`;
   };
 
-  const filteredProducts = products
-    .filter(product => product.category === selectedCategory)
-    .filter(product => 
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.category.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+// Substitua a linha do filteredProducts por esta versão completa:
+
+const filteredProducts = products.filter(product => {
+  // Se há termo de busca, pesquisa em TODOS os produtos
+  if (searchTerm.trim() !== '') {
+    const searchLower = searchTerm.toLowerCase();
+    const productNameLower = product.name.toLowerCase();
+    const categoryLower = product.category.toLowerCase();
+    
+    // Busca no nome do produto
+    if (productNameLower.includes(searchLower)) return true;
+    
+    // Busca no nome da categoria (opcional, para casos como "laticínios" encontrar "Derivados de Leite")
+    if (categoryLower.includes(searchLower)) return true;
+    
+    return false;
+  }
+  
+  // Se não há termo de busca, mostra apenas produtos da categoria selecionada
+  return product.category === selectedCategory;
+});
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -4774,6 +4789,7 @@ citiesButtonContainer: {
   };
 
   export default ProductsPage;
+
 
 
 
