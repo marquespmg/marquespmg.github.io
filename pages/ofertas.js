@@ -50,16 +50,16 @@ const citiesData = {
 // ========== PRODUTOS EM OFERTA ========== //
 // VOCÊ SÓ PRECISA MUDAR ESTES PRODUTOS TODO DOMINGO!
 const featuredProducts = [
-  { id: 748, name: 'MUÇARELA ITALAC 4 KG', category: 'Ofertas', price: 29.06, image: 'https://www.marquesvendaspmg.shop/images/mucarela-italac-4-kg-pmg-atacadista.jpg' },
-  { id: 822, name: 'QUEIJO BRIE FORMA YEMA 1 KG', category: 'Ofertas', price: 54.70, image: 'https://www.marquesvendaspmg.shop/images/queijo-brie-forma-yema-1-kg-pmg-atacadista.jpg' },
-  { id: 614, name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS POLENGHI "2,27" KILO', category: 'Ofertas', price: 78.99, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-160-fatias-polenghi-227-kilo-pmg-atacadista.jpg' },
-  { id: 615, name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS VIGOR 2,24 KILO', category: 'Ofertas', price: 82.50, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-160-fatias-vigor-224-kilo-pmg-atacadista.jpg' },
-  { id: 628, name: ' CREAM CHEESE POLENGHI (BD 3,6 KILO)', category: 'Ofertas', price: 131.99, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-36-kilo-pmg-atacadista.jpg' },
-  { id: 626, name: 'CREAM CHEESE PHILADELPHIA 3,6 KILO', category: 'Ofertas', price: 140.88, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-philadelphia-36-kilo-pmg-atacadista.jpg' },
-  { id: 702, name: 'MANTEIGA SEM SAL DE PRIMEIRA FRIZZO (CX 5 KILO)', category: 'Ofertas', price: 107.00, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-de-primeira-frizzo-cx-5-kilo-pmg-atacadista.jpg' },
-  { id: 533, name: 'CARNE SECA BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Ofertas', price: 59.50, image: 'https://www.marquesvendaspmg.shop/images/carne-seca-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
-  { id: 546, name: 'COSTELA BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Ofertas', price: 59.50, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
-  { id: 1363, name: 'ÓLEO DE SOJA COCAMAR (LT 18 L)', category: 'Ofertas', price: 189.50, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-cocamar-lt-18-l-pmg-atacadista.jpg' },
+  { id: 800, name: 'PARMESÃO RALADO GROSSO RJR 1 KG', category: 'Ofertas', price: 36.00, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-grosso-rjr-1-kg-pmg-atacadista.jpg' },
+  { id: 802, name: 'PARMESÃO RALADO MÉDIO RJR 1 KG', category: 'Ofertas', price: 36.00, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-medio-rjr-1-kg-pmg-atacadista.jpg' },
+  { id: 739, name: 'MUÇARELA FATIADA HM 4 KG', category: 'Ofertas', price: 115.99, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-hm-4-kg-pmg-atacadista.jpg' },
+  { id: 1065, name: 'PRESUNTO SEARA 3.5 KILO PÇ', category: 'Ofertas', price: 80.00, image: 'https://www.marquesvendaspmg.shop/images/presunto-seara-35-kilo-pc-pmg-atacadista.jpg' },
+  { id: 1749, name: 'FARINHA DE TRIGO PIZZA MARIA INÊS 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 67.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-maria-ines-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 917, name: 'REQUEIJÃO TIROLEZ SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 38.55, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tirolez-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 914, name: 'REQUEIJÃO SCALA SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 43.55, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scala-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 1158, name: 'AZEITONA VERDE MÉDIA 32 X 45 RAINHA (BD 2 KILO)', category: 'Ofertas', price: 43.00, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-32-x-45-rainha-bd-2-kilo-pmg-atacadista.jpg' },
+  { id: 507, name: 'PEITO DE FRANGO CONGELADO COZIDO DESFIADO ALFAMA 1 KILO (CX 6 PCT)', category: 'Ofertas', price: 196.00, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-cozido-desfiado-alfama-1-kilo-cx-6-pct-pmg-atacadista.jpg' },
+  { id: 750, name: 'MUÇARELA LA PAULINA 3.5 KG', category: 'Ofertas', price: 26.80, image: 'https://www.marquesvendaspmg.shop/images/mucarela-la-paulina-35-kg-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
