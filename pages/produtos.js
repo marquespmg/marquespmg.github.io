@@ -4148,21 +4148,168 @@ citiesButtonContainer: {
                 "unitCode": "KGM"
               }
             },
-            "seller": {
-              "@type": "LocalBusiness",
-              "priceRange": "$$",
-              "name": "Marques Vendas PMG",
-              "image": "https://i.imgur.com/jrERRsC.png",
-              "telephone": "+55-11-91357-2902",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-                "postalCode": "06885-150",
-                "addressLocality": "Itapecerica da Serra",
-                "addressRegion": "SP",
-                "addressCountry": "BR"
-              }
-            }
+"seller": {
+  "@type": "LocalBusiness",
+  "priceRange": "$$",
+  "name": "Marques Vendas PMG",
+  "image": "https://i.imgur.com/jrERRsC.png",
+  "telephone": "+55-11-91357-2902",
+  
+  // ✅ AREA SERVED NO FORMATO CORRETO
+  "areaServed": [
+    // REGIÕES DE SP (AdministrativeArea)
+    {
+      "@type": "AdministrativeArea",
+      "name": "Grande São Paulo",
+      "description": "Atacado food service Grande SP"
+    },
+    {
+      "@type": "AdministrativeArea", 
+      "name": "Interior de São Paulo",
+      "description": "Atacado interior SP"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Capital de São Paulo",
+      "description": "Atacado São Paulo capital"
+    },
+    
+    // CIDADES ESPECÍFICAS DE SP (City)
+    {
+      "@type": "City",
+      "name": "Santo Amaro - SP",
+      "description": "Atacado Santo Amaro"
+    },
+    {
+      "@type": "City",
+      "name": "Santo André - SP",
+      "description": "Atacado Santo André"
+    },
+    {
+      "@type": "City",
+      "name": "Barueri - SP", 
+      "description": "Atacado Barueri"
+    },
+    {
+      "@type": "City",
+      "name": "São Bernardo do Campo - SP",
+      "description": "Atacado São Bernardo"
+    },
+    {
+      "@type": "City",
+      "name": "Mauá - SP",
+      "description": "Atacado Mauá"
+    },
+    {
+      "@type": "City",
+      "name": "Guarulhos - SP",
+      "description": "Atacado Guarulhos"
+    },
+    {
+      "@type": "City",
+      "name": "Arujá - SP",
+      "description": "Atacado Arujá"
+    },
+    
+    // REGIÃO DE MG (AdministrativeArea)
+    {
+      "@type": "AdministrativeArea",
+      "name": "Sul de Minas Gerais",
+      "description": "Atacado Sul de Minas"
+    },
+    
+    // CIDADES ESPECÍFICAS DE MG (City)
+    {
+      "@type": "City",
+      "name": "Extrema - MG",
+      "description": "Atacado Extrema MG"
+    },
+    {
+      "@type": "City",
+      "name": "Poços de Caldas - MG",
+      "description": "Atacado Poços de Caldas"
+    },
+    {
+      "@type": "City",
+      "name": "São Lourenço - MG",
+      "description": "Atacado São Lourenço"
+    },
+    {
+      "@type": "City",
+      "name": "Itajubá - MG",
+      "description": "Atacado Itajubá"
+    },
+    {
+      "@type": "City",
+      "name": "Pouso Alegre - MG",
+      "description": "Distribuidora Pouso Alegre"
+    },
+    {
+      "@type": "City",
+      "name": "Camanducaia - MG",
+      "description": "Fornecedor Camanducaia"
+    },
+    {
+      "@type": "City",
+      "name": "Varginha - MG",
+      "description": "Atacado Varginha"
+    },
+    {
+      "@type": "City",
+      "name": "Três Pontas - MG",
+      "description": "Atacado Três Pontas"
+    },
+    {
+      "@type": "City",
+      "name": "Virgínia - MG",
+      "description": "Atacado Virgínia MG"
+    },
+    {
+      "@type": "City",
+      "name": "Santa Rita do Sapucaí - MG",
+      "description": "Atacado Santa Rita do Sapucaí"
+    },
+    
+    // REGIÃO DO RJ (AdministrativeArea)
+    {
+      "@type": "AdministrativeArea", 
+      "name": "Sul do Rio de Janeiro",
+      "description": "Atacado Sul do RJ"
+    },
+    
+    // CIDADES ESPECÍFICAS DO RJ (City)
+    {
+      "@type": "City",
+      "name": "Paraty - RJ",
+      "description": "Atacado Paraty"
+    },
+    {
+      "@type": "City",
+      "name": "Volta Redonda - RJ",
+      "description": "Atacado Volta Redonda"
+    },
+    {
+      "@type": "City", 
+      "name": "Resende - RJ",
+      "description": "Atacado Resende"
+    },
+    {
+      "@type": "City",
+      "name": "Barra Mansa - RJ",
+      "description": "Atacado Barra Mansa"
+    }
+  ],
+  
+  // ENDEREÇO FÍSICO (MANTÉM IGUAL)
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+    "postalCode": "06885-150",
+    "addressLocality": "Itapecerica da Serra",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  }
+}
           }
         };
       })
@@ -4808,6 +4955,7 @@ citiesButtonContainer: {
   };
 
   export default ProductsPage;
+
 
 
 
