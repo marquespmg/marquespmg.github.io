@@ -2166,22 +2166,168 @@ export default function ProductPage({ product: initialProduct }) {
                     "unitCode": "KGM"
                   }
                 },
-                "seller": {
-                  "@type": "LocalBusiness",
-                  "priceRange": "$$",
-                  "name": "Marques Vendas PMG ATACADISTA",
-                  "url": "https://www.marquesvendaspmg.shop",
-                  "image": "https://i.imgur.com/jrERRsC.png",
-                  "telephone": "+55-11-91357-2902",
-                  "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-                    "postalCode": "06885-150",
-                    "addressLocality": "Itapecerica da Serra",
-                    "addressRegion": "SP",
-                    "addressCountry": "BR"
-                  }
-                }
+"seller": {
+  "@type": "LocalBusiness",
+  "priceRange": "$$",
+  "name": "Marques Vendas PMG",
+  "image": "https://i.imgur.com/jrERRsC.png",
+  "telephone": "+55-11-91357-2902",
+  
+  // ✅ AREA SERVED SUPER OTIMIZADO
+  "areaServed": [
+    // REGIÕES DE SP (AdministrativeArea)
+    {
+      "@type": "AdministrativeArea",
+      "name": "Grande São Paulo",
+      "description": "Atacado Grande São Paulo, Distribuidora Grande SP, Fornecedor alimentos Grande São Paulo, Atacadista food service Grande SP"
+    },
+    {
+      "@type": "AdministrativeArea", 
+      "name": "Interior de São Paulo",
+      "description": "Atacado interior São Paulo, Distribuidora interior SP, Fornecedor interior São Paulo, Atacadista food service interior SP"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Capital de São Paulo",
+      "description": "Atacado São Paulo capital, Distribuidora São Paulo, Fornecedor alimentos São Paulo, Atacadista bebidas São Paulo, Food service São Paulo"
+    },
+    
+    // CIDADES ESPECÍFICAS DE SP (City) - SUPER OTIMIZADAS
+    {
+      "@type": "City",
+      "name": "Santo Amaro - SP",
+      "description": "Atacado Santo Amaro, Distribuidora Santo Amaro, Fornecedor alimentos Santo Amaro, Atacadista bebidas Santo Amaro, Food service Santo Amaro SP"
+    },
+    {
+      "@type": "City",
+      "name": "Santo André - SP",
+      "description": "Atacado Santo André, Distribuidora Santo André, Fornecedor Santo André, Atacadista alimentos Santo André, Food service Santo André SP"
+    },
+    {
+      "@type": "City",
+      "name": "Barueri - SP", 
+      "description": "Atacado Barueri, Distribuidora Barueri, Fornecedor alimentos Barueri, Atacadista bebidas Barueri, Food service Barueri SP"
+    },
+    {
+      "@type": "City",
+      "name": "São Bernardo do Campo - SP",
+      "description": "Atacado São Bernardo do Campo, Distribuidora São Bernardo, Fornecedor São Bernardo, Atacadista alimentos São Bernardo, Food service São Bernardo SP"
+    },
+    {
+      "@type": "City",
+      "name": "Mauá - SP",
+      "description": "Atacado Mauá, Distribuidora Mauá, Fornecedor alimentos Mauá, Atacadista bebidas Mauá, Food service Mauá SP"
+    },
+    {
+      "@type": "City",
+      "name": "Guarulhos - SP",
+      "description": "Atacado Guarulhos, Distribuidora Guarulhos, Fornecedor alimentos Guarulhos, Atacadista bebidas Guarulhos, Food service Guarulhos SP"
+    },
+    {
+      "@type": "City",
+      "name": "Arujá - SP",
+      "description": "Atacado Arujá, Distribuidora Arujá, Fornecedor alimentos Arujá, Atacadista bebidas Arujá, Food service Arujá SP"
+    },
+    
+    // REGIÃO DE MG (AdministrativeArea)
+    {
+      "@type": "AdministrativeArea",
+      "name": "Sul de Minas Gerais",
+      "description": "Atacado Sul de Minas, Distribuidora Sul de Minas, Fornecedor alimentos Sul de Minas, Atacadista bebidas Sul de Minas, Food service Sul de Minas"
+    },
+    
+    // CIDADES ESPECÍFICAS DE MG (City) - SUPER OTIMIZADAS
+    {
+      "@type": "City",
+      "name": "Extrema - MG",
+      "description": "Atacado Extrema MG, Distribuidora Extrema, Fornecedor alimentos Extrema, Atacadista bebidas Extrema, Food service Extrema, Atacado para restaurantes Extrema"
+    },
+    {
+      "@type": "City",
+      "name": "Poços de Caldas - MG",
+      "description": "Atacado Poços de Caldas, Distribuidora Poços de Caldas, Fornecedor alimentos Poços de Caldas, Atacadista bebidas Poços de Caldas, Food service Poços de Caldas MG"
+    },
+    {
+      "@type": "City",
+      "name": "São Lourenço - MG",
+      "description": "Atacado São Lourenço, Distribuidora São Lourenço, Fornecedor alimentos São Lourenço, Atacadista bebidas São Lourenço, Food service São Lourenço MG"
+    },
+    {
+      "@type": "City",
+      "name": "Itajubá - MG",
+      "description": "Atacado Itajubá, Distribuidora Itajubá, Fornecedor alimentos Itajubá, Atacadista bebidas Itajubá, Food service Itajubá, Atacado para mercados Itajubá"
+    },
+    {
+      "@type": "City",
+      "name": "Pouso Alegre - MG",
+      "description": "Atacado Pouso Alegre, Distribuidora Pouso Alegre, Fornecedor alimentos Pouso Alegre, Atacadista bebidas Pouso Alegre, Food service Pouso Alegre MG"
+    },
+    {
+      "@type": "City",
+      "name": "Camanducaia - MG",
+      "description": "Atacado Camanducaia, Distribuidora Camanducaia, Fornecedor alimentos Camanducaia, Atacadista bebidas Camanducaia, Food service Camanducaia MG"
+    },
+    {
+      "@type": "City",
+      "name": "Varginha - MG",
+      "description": "Atacado Varginha, Distribuidora Varginha, Fornecedor alimentos Varginha, Atacadista bebidas Varginha, Food service Varginha, Atacado para restaurantes Varginha"
+    },
+    {
+      "@type": "City",
+      "name": "Três Pontas - MG",
+      "description": "Atacado Três Pontas, Distribuidora Três Pontas, Fornecedor alimentos Três Pontas, Atacadista bebidas Três Pontas, Food service Três Pontas MG"
+    },
+    {
+      "@type": "City",
+      "name": "Virgínia - MG",
+      "description": "Atacado Virgínia MG, Distribuidora Virgínia, Fornecedor alimentos Virgínia, Atacadista bebidas Virgínia, Food service Virgínia MG"
+    },
+    {
+      "@type": "City",
+      "name": "Santa Rita do Sapucaí - MG",
+      "description": "Atacado Santa Rita do Sapucaí, Distribuidora Santa Rita do Sapucaí, Fornecedor alimentos Santa Rita, Atacadista bebidas Santa Rita, Food service Santa Rita do Sapucaí"
+    },
+    
+    // REGIÃO DO RJ (AdministrativeArea)
+    {
+      "@type": "AdministrativeArea", 
+      "name": "Sul do Rio de Janeiro",
+      "description": "Atacado Sul do Rio de Janeiro, Distribuidora Sul do RJ, Fornecedor alimentos Sul do Rio, Atacadista bebidas Sul do RJ, Food service Sul do Rio"
+    },
+    
+    // CIDADES ESPECÍFICAS DO RJ (City) - SUPER OTIMIZADAS
+    {
+      "@type": "City",
+      "name": "Paraty - RJ",
+      "description": "Atacado Paraty, Distribuidora Paraty, Fornecedor alimentos Paraty, Atacadista bebidas Paraty, Food service Paraty RJ"
+    },
+    {
+      "@type": "City",
+      "name": "Volta Redonda - RJ",
+      "description": "Atacado Volta Redonda, Distribuidora Volta Redonda, Fornecedor alimentos Volta Redonda, Atacadista bebidas Volta Redonda, Food service Volta Redonda RJ"
+    },
+    {
+      "@type": "City", 
+      "name": "Resende - RJ",
+      "description": "Atacado Resende, Distribuidora Resende, Fornecedor alimentos Resende, Atacadista bebidas Resende, Food service Resende RJ"
+    },
+    {
+      "@type": "City",
+      "name": "Barra Mansa - RJ",
+      "description": "Atacado Barra Mansa, Distribuidora Barra Mansa, Fornecedor alimentos Barra Mansa, Atacadista bebidas Barra Mansa, Food service Barra Mansa RJ"
+    }
+  ],
+  
+  // ENDEREÇO FÍSICO (MANTÉM IGUAL)
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+    "postalCode": "06885-150",
+    "addressLocality": "Itapecerica da Serra",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  }
+}
               }
             })
           }}
@@ -3264,6 +3410,7 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
 
 
 
