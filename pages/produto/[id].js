@@ -2172,10 +2172,7 @@ export default function ProductPage({ product: initialProduct }) {
   "name": "Marques Vendas PMG",
   "image": "https://i.imgur.com/jrERRsC.png",
   "telephone": "+55-11-91357-2902",
-  
-  // ✅ AREA SERVED SUPER OTIMIZADO
   "areaServed": [
-    // REGIÕES DE SP (AdministrativeArea)
     {
       "@type": "AdministrativeArea",
       "name": "Grande São Paulo",
@@ -2191,8 +2188,6 @@ export default function ProductPage({ product: initialProduct }) {
       "name": "Capital de São Paulo",
       "description": "Atacado São Paulo capital, Distribuidora São Paulo, Fornecedor alimentos São Paulo, Atacadista bebidas São Paulo, Food service São Paulo"
     },
-    
-    // CIDADES ESPECÍFICAS DE SP (City) - SUPER OTIMIZADAS
     {
       "@type": "City",
       "name": "Santo Amaro - SP",
@@ -2228,15 +2223,11 @@ export default function ProductPage({ product: initialProduct }) {
       "name": "Arujá - SP",
       "description": "Atacado Arujá, Distribuidora Arujá, Fornecedor alimentos Arujá, Atacadista bebidas Arujá, Food service Arujá SP"
     },
-    
-    // REGIÃO DE MG (AdministrativeArea)
     {
       "@type": "AdministrativeArea",
       "name": "Sul de Minas Gerais",
       "description": "Atacado Sul de Minas, Distribuidora Sul de Minas, Fornecedor alimentos Sul de Minas, Atacadista bebidas Sul de Minas, Food service Sul de Minas"
     },
-    
-    // CIDADES ESPECÍFICAS DE MG (City) - SUPER OTIMIZADAS
     {
       "@type": "City",
       "name": "Extrema - MG",
@@ -2287,15 +2278,11 @@ export default function ProductPage({ product: initialProduct }) {
       "name": "Santa Rita do Sapucaí - MG",
       "description": "Atacado Santa Rita do Sapucaí, Distribuidora Santa Rita do Sapucaí, Fornecedor alimentos Santa Rita, Atacadista bebidas Santa Rita, Food service Santa Rita do Sapucaí"
     },
-    
-    // REGIÃO DO RJ (AdministrativeArea)
     {
       "@type": "AdministrativeArea", 
       "name": "Sul do Rio de Janeiro",
       "description": "Atacado Sul do Rio de Janeiro, Distribuidora Sul do RJ, Fornecedor alimentos Sul do Rio, Atacadista bebidas Sul do RJ, Food service Sul do Rio"
     },
-    
-    // CIDADES ESPECÍFICAS DO RJ (City) - SUPER OTIMIZADAS
     {
       "@type": "City",
       "name": "Paraty - RJ",
@@ -2317,8 +2304,6 @@ export default function ProductPage({ product: initialProduct }) {
       "description": "Atacado Barra Mansa, Distribuidora Barra Mansa, Fornecedor alimentos Barra Mansa, Atacadista bebidas Barra Mansa, Food service Barra Mansa RJ"
     }
   ],
-  
-  // ENDEREÇO FÍSICO (MANTÉM IGUAL)
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
@@ -3410,6 +3395,7 @@ export async function getStaticPaths() {
     fallback: 'blocking' // gera páginas sob demanda quando acessadas
   };
 }
+
 
 
 
