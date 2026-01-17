@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getRelatedProducts, getFeaturedProducts } from '../utils/product-utils';
 import ShareButtons from "../components/ShareButtons";
-import useTrackUser from '../hook/useTrackUser'; // ← ADICIONADO
-
+import useTrackUser from '../hook/useTrackUser';
 
 // ⬇️⬇️⬇️ ESTA FUNÇÃO VAI AQUI (FORA DO COMPONENTE) ⬇️⬇️⬇️
 export async function getServerSideProps(context) {
@@ -19,14 +18,16 @@ export async function getServerSideProps(context) {
 }
 
 // ⬇️⬇️⬇️ AGORA O COMPONENTE ⬇️⬇️⬇️
-export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
+export default function FoodNews({ initialPage }) {
   const [isMobile, setIsMobile] = useState(false);
-  const [currentPage, setCurrentPage] = useState(initialPage); // ← USA initialPage
+  const [currentPage, setCurrentPage] = useState(initialPage);
   const articlesPerPage = 1;
   const [isClient, setIsClient] = useState(false);
+  const [showIndex, setShowIndex] = useState(false);
+  const [activeArticle, setActiveArticle] = useState(null);
   
-    // HOOK PARA RASTREAR VISITANTES - ADICIONADO AQUI
-  useTrackUser(); // ← ESTA LINHA É NOVA
+  const articleRefs = useRef([]);
+  useTrackUser();
 
   // BANCO DE ARTIGOS - AGORA COM PRODUTOS DINÂMICOS
   const articles = [
@@ -4964,15 +4965,16 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
   `
 }
   ];
-	
-    useEffect(() => {
+
+  useEffect(() => {
     setIsClient(true);
   }, []);
-	
-  // Seu useEffect do isMobile
+
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      setShowIndex(!mobile);
     };
     
     checkScreenSize();
@@ -4983,405 +4985,522 @@ export default function FoodNews({ initialPage }) { // ← RECEBE initialPage
     };
   }, []);
 
-useEffect(() => {
-  if (!isClient) return;
-
-  // Lê o parâmetro ?page= da URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const pageFromUrl = parseInt(urlParams.get('page'));
-  
-  if (pageFromUrl && pageFromUrl !== currentPage) {
-    setCurrentPage(pageFromUrl);
-    console.log('📄 Página da URL:', pageFromUrl);
-  }
-
-  // Scroll para âncora (se houver)
-  const hash = window.location.hash;
-  if (hash) {
-    setTimeout(() => {
-      const element = document.getElementById(hash.replace('#', ''));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        console.log('🎯 Scroll para:', hash);
-      }
-    }, 1000);
-  }
-}, [isClient]);
-
-{isClient ? (
-  // ✅ USA articles DIRETAMENTE (sem paginação)
-  articles.map((article) => {
-    const elementId = `artigo-${article.id}`;
-    
-    return (
-      <div key={article.id}>
-        {/* WRAPPER com ID FIXO e MUITO VISÍVEL */}
-        <section 
-          id={elementId}
-          style={{
-            border: `5px solid ${
-              article.id === 1 ? 'red' : 
-              article.id === 2 ? 'blue' : 
-              article.id === 3 ? 'green' : 
-              article.id === 4 ? 'orange' : 'purple'
-            }`,
-            padding: '20px',
-            margin: '30px 0',
-            background: '#f0f8f0',
-            borderRadius: '10px',
-            fontSize: '18px'
-          }}
-        >
-          {/* Título manual para identificar */}
-          <h1 style={{color: '#095400', fontSize: '24px'}}>
-            🎯 ARTIGO {article.id}: {article.title}
-          </h1>
-          
-          {/* Conteúdo do artigo */}
-          <div dangerouslySetInnerHTML={{ __html: article.content }} />
-        </section>
-      </div>
-    );
-  })
-) : (
-  <div style={{padding: '20px', textAlign: 'center'}}>
-    ⏳ Carregando artigos...
-  </div>
-)}
-
-  // FILTRAGEM DOS ARTIGOS
-  const filteredArticles = articles;
-
-  // PAGINAÇÃO
-  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
-  const startIndex = (currentPage - 1) * articlesPerPage;
-  const currentArticles = filteredArticles.slice(startIndex, startIndex + articlesPerPage);
+  const totalPages = articles.length;
+  const currentArticle = articles.find(article => article.id === currentPage) || articles[0];
 
   const handlePageChange = (pageNumber) => {
+    if (pageNumber < 1 || pageNumber > totalPages) return;
+    
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-// Cálculo mais preciso do artigo atual
-const currentArticle = currentArticles[0]; // Já que é 1 artigo por página
+  const goToArticle = (articleId) => {
+    handlePageChange(articleId);
+    if (isMobile) {
+      setShowIndex(false);
+    }
+  };
 
-return (
-  <>
-    {/* META TAGS DINÂMICAS COM KEY - FORÇA ATUALIZAÇÃO */}
-    <Head key={`page-${currentPage}`}>
-      <title>{currentArticle ? `${currentArticle.title} | PMG Atacadista` : 'Blog PMG Atacadista'}</title>
-      <meta name="description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
+  // COMPONENTE DE ÍNDICE
+  const ArticleIndex = () => (
+    <div style={{
+      backgroundColor: '#fff',
+      borderRadius: '10px',
+      padding: isMobile ? '15px' : '25px',
+      margin: isMobile ? '0 8px 15px 8px' : '0 0 25px 0',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+      border: '1px solid #e8e8e8',
+      position: 'sticky',
+      top: isMobile ? '5px' : '15px',
+      zIndex: 50,
+      overflow: 'hidden'
+    }}>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '12px',
+        gap: '8px'
+      }}>
+        <h2 style={{
+          color: '#095400',
+          fontSize: isMobile ? '1rem' : '1.2rem',
+          margin: 0,
+          fontWeight: '700',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px'
+        }}>
+          <span style={{ fontSize: '1.1em' }}>📚</span>
+          Índice ({articles.length})
+        </h2>
+        
+        <button
+          onClick={() => setShowIndex(!showIndex)}
+          style={{
+            backgroundColor: '#095400',
+            color: 'white',
+            border: 'none',
+            padding: isMobile ? '6px 10px' : '8px 14px',
+            borderRadius: '6px',
+            fontSize: isMobile ? '0.8rem' : '0.85rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px',
+            flexShrink: 0
+          }}
+        >
+          {showIndex ? (
+            <>
+              <span style={{ fontSize: '0.9em' }}>✕</span>
+              Fechar
+            </>
+          ) : (
+            <>
+              <span style={{ fontSize: '0.9em' }}>📖</span>
+              Abrir
+            </>
+          )}
+        </button>
+      </div>
       
-      {/* OPEN GRAPH */}
-      <meta property="og:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
-      <meta property="og:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
-      <meta property="og:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
-      <meta property="og:url" content={`https://www.marquesvendaspmg.shop/food-news?page=${currentPage}`} />
-      <meta property="og:type" content="article" />
-      <meta property="og:site_name" content="Marques Vendas PMG" />
-      
-      {/* TWITTER */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
-      <meta name="twitter:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
-      <meta name="twitter:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
-    </Head>
+      {showIndex && (
+        <div style={{
+          maxHeight: isMobile ? '350px' : '450px',
+          overflowY: 'auto',
+          paddingRight: '5px',
+          transition: 'max-height 0.3s ease'
+        }}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: isMobile ? '8px' : '10px'
+          }}>
+            {articles.map(article => (
+              <button
+                key={article.id}
+                onClick={() => goToArticle(article.id)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: isMobile ? '8px' : '10px',
+                  padding: isMobile ? '8px' : '10px',
+                  backgroundColor: activeArticle === article.id ? '#f0f8f0' : '#f8f8f8',
+                  border: activeArticle === article.id ? '2px solid #095400' : '1px solid #e0e0e0',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  textAlign: 'left',
+                  width: '100%',
+                  boxSizing: 'border-box',
+                  position: 'relative',
+                  minHeight: isMobile ? '65px' : '75px',
+                  overflow: 'visible'
+                }}
+              >
+                <div style={{
+                  position: 'absolute',
+                  top: isMobile ? '-5px' : '-7px',
+                  left: isMobile ? '-5px' : '-7px',
+                  backgroundColor: '#095400',
+                  color: 'white',
+                  width: isMobile ? '22px' : '26px',
+                  height: isMobile ? '22px' : '26px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: isMobile ? '0.7rem' : '0.8rem',
+                  fontWeight: 'bold',
+                  zIndex: 5,
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+                  border: '2px solid white',
+                  aspectRatio: '1 / 1'
+                }}>
+                  {article.id}
+                </div>
+                
+                <div style={{
+                  width: isMobile ? '40px' : '50px',
+                  height: isMobile ? '40px' : '50px',
+                  flexShrink: 0,
+                  borderRadius: '6px',
+                  overflow: 'hidden',
+                  border: '1px solid #ddd',
+                  backgroundColor: '#f0f0f0',
+                  position: 'relative',
+                  zIndex: 10
+                }}>
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    loading="lazy"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                </div>
+                
+                <div style={{ 
+                  flex: 1, 
+                  minWidth: 0,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  gap: '3px',
+                  position: 'relative',
+                  zIndex: 10
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    marginBottom: '3px',
+                    flexWrap: 'wrap'
+                  }}>
+                    <span style={{
+                      backgroundColor: '#e8f5e8',
+                      color: '#095400',
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                      fontSize: isMobile ? '0.6rem' : '0.65rem',
+                      fontWeight: '600',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      {article.category}
+                    </span>
+                    <span style={{ 
+                      color: '#666',
+                      fontSize: isMobile ? '0.6rem' : '0.65rem',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      {article.readTime}
+                    </span>
+                  </div>
+                  
+                  <h4 style={{
+                    fontSize: isMobile ? '0.75rem' : '0.85rem',
+                    margin: 0,
+                    color: '#333',
+                    fontWeight: '600',
+                    lineHeight: '1.2',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                  }}>
+                    {article.title}
+                  </h4>
+                </div>
+              </button>
+            ))}
+          </div>
+          
+          <div style={{
+            marginTop: '12px',
+            paddingTop: '10px',
+            borderTop: '1px solid #e0e0e0',
+            textAlign: 'center',
+            fontSize: isMobile ? '0.7rem' : '0.8rem',
+            color: '#666'
+          }}>
+            {articles.length} artigos disponíveis
+          </div>
+        </div>
+      )}
+    </div>
+  );
 
-      {/* ESTILOS GLOBAIS PARA MOBILE COM CORREÇÃO DAS LOGOS */}
+  // COMPONENTE DE NAVEGAÇÃO RÁPIDA
+  const QuickNavigation = () => {
+    const currentIndex = articles.findIndex(a => a.id === currentPage);
+    const prevArticle = currentIndex > 0 ? articles[currentIndex - 1] : null;
+    const nextArticle = currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null;
+
+    return (
+      <div style={{
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        justifyContent: 'space-between',
+        alignItems: 'stretch',
+        margin: isMobile ? '20px 8px 0 8px' : '30px 0 0 0',
+        padding: isMobile ? '12px' : '18px',
+        backgroundColor: '#f8f8f8',
+        borderRadius: '10px',
+        border: '1px solid #e0e0e0',
+        gap: isMobile ? '12px' : '15px'
+      }}>
+        {prevArticle && (
+          <button
+            onClick={() => goToArticle(prevArticle.id)}
+            style={{
+              flex: isMobile ? '0 0 auto' : 1,
+              display: 'flex',
+              alignItems: 'center',
+              gap: isMobile ? '8px' : '12px',
+              padding: isMobile ? '10px' : '12px',
+              backgroundColor: 'white',
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              textAlign: 'left',
+              boxSizing: 'border-box',
+              minHeight: '70px',
+              width: '100%'
+            }}
+          >
+            <div style={{ 
+              color: '#095400', 
+              fontSize: isMobile ? '1.1rem' : '1.3rem',
+              flexShrink: 0 
+            }}>
+              ←
+            </div>
+            <div style={{ 
+              flex: 1,
+              minWidth: 0
+            }}>
+              <div style={{
+                fontSize: isMobile ? '0.7rem' : '0.75rem',
+                color: '#666',
+                marginBottom: '3px',
+                fontWeight: '600'
+              }}>
+                Artigo anterior
+              </div>
+              <div style={{
+                fontSize: isMobile ? '0.8rem' : '0.85rem',
+                fontWeight: '600',
+                color: '#333',
+                lineHeight: '1.3',
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}>
+                {prevArticle.title}
+              </div>
+            </div>
+          </button>
+        )}
+
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: isMobile ? '10px' : '12px',
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          border: '1px solid #ddd',
+          minWidth: isMobile ? '100%' : 'auto',
+          order: isMobile ? -1 : 0,
+          textAlign: 'center',
+          gap: '3px'
+        }}>
+          <div style={{
+            fontSize: isMobile ? '0.75rem' : '0.8rem',
+            color: '#666',
+            fontWeight: '600'
+          }}>
+            Posição
+          </div>
+          <div style={{
+            fontSize: isMobile ? '1.2rem' : '1.3rem',
+            fontWeight: '700',
+            color: '#095400',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px'
+          }}>
+            <span style={{ fontSize: '1em' }}>📄</span>
+            {currentPage} <span style={{ color: '#999', fontWeight: '400' }}>/</span> {totalPages}
+          </div>
+          <div style={{
+            fontSize: isMobile ? '0.65rem' : '0.7rem',
+            color: '#888',
+            marginTop: '1px'
+          }}>
+            Total: {totalPages}
+          </div>
+        </div>
+
+        {nextArticle && (
+          <button
+            onClick={() => goToArticle(nextArticle.id)}
+            style={{
+              flex: isMobile ? '0 0 auto' : 1,
+              display: 'flex',
+              alignItems: 'center',
+              gap: isMobile ? '8px' : '12px',
+              padding: isMobile ? '10px' : '12px',
+              backgroundColor: 'white',
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              textAlign: 'left',
+              boxSizing: 'border-box',
+              minHeight: '70px',
+              width: '100%'
+            }}
+          >
+            <div style={{ 
+              flex: 1,
+              minWidth: 0,
+              textAlign: 'right'
+            }}>
+              <div style={{
+                fontSize: isMobile ? '0.7rem' : '0.75rem',
+                color: '#666',
+                marginBottom: '3px',
+                fontWeight: '600'
+              }}>
+                Próximo artigo
+              </div>
+              <div style={{
+                fontSize: isMobile ? '0.8rem' : '0.85rem',
+                fontWeight: '600',
+                color: '#333',
+                lineHeight: '1.3',
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                textAlign: 'right'
+              }}>
+                {nextArticle.title}
+              </div>
+            </div>
+            <div style={{ 
+              color: '#095400', 
+              fontSize: isMobile ? '1.1rem' : '1.3rem',
+              flexShrink: 0 
+            }}>
+              →
+            </div>
+          </button>
+        )}
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <Head key={`page-${currentPage}`}>
+        <title>{currentArticle ? `${currentArticle.title} | PMG Atacadista` : 'Blog PMG Atacadista'}</title>
+        <meta name="description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
+        
+        <meta property="og:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
+        <meta property="og:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
+        <meta property="og:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
+        <meta property="og:url" content={`https://www.marquesvendaspmg.shop/food-news?page=${currentPage}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Marques Vendas PMG" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
+        <meta name="twitter:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
+        <meta name="twitter:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
+      </Head>
+
+      {/* ESTILOS GLOBAIS LIMPOS */}
       <style jsx global>{`
-        /* RESET E BASE PARA RESPONSIVIDADE */
-        .article-section,
-        .article-content,
-        .product-content,
-        .table-container,
-        .cta-section,
-        .highlight-box,
-        .premium-section {
-          max-width: 100% !important;
-          overflow-x: hidden !important;
+        * {
           box-sizing: border-box !important;
         }
-
-        /* CORREÇÃO DE OVERFLOW HORIZONTAL */
+        
         body {
           overflow-x: hidden !important;
+          -webkit-text-size-adjust: 100%;
+          margin: 0;
+          padding: 0;
+          background-color: #ffffff;
         }
 
-        .article-section * {
+        /* CORREÇÃO DO BADGE */
+        .index-article-item {
+          position: relative !important;
+        }
+
+        /* IMAGENS RESPONSIVAS */
+        img {
           max-width: 100% !important;
-          box-sizing: border-box !important;
+          height: auto !important;
+        }
+
+        /* CONTAINERS RESPONSIVOS */
+        .article-content {
+          max-width: 100% !important;
+          overflow-x: hidden !important;
         }
 
         /* TABELAS RESPONSIVAS */
         .table-container {
-          width: 100% !important;
           overflow-x: auto !important;
-          margin: 15px 0 !important;
           -webkit-overflow-scrolling: touch !important;
         }
 
-        .article-table {
-          min-width: 100% !important;
-          width: auto !important;
-          border-collapse: collapse !important;
-        }
-
-        .article-table th,
-        .article-table td {
-          white-space: nowrap !important;
-          padding: 10px 8px !important;
-          font-size: 14px !important;
-        }
-
-        /* IMAGENS RESPONSIVAS - EXCETO LOGOS DO RODAPÉ */
-        .article-img,
-        .product-image,
-        .article-image,
-        img:not(.footer-logo) {
-          max-width: 100% !important;
-          height: auto !important;
-          display: block !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-        }
-
-        /* BOTÕES E CTAs RESPONSIVOS */
-        .cta-button,
-        .product-button,
-        .btn-comprar {
-          display: block !important;
-          width: 100% !important;
-          max-width: 100% !important;
-          margin: 5px 0 !important;
-          text-align: center !important;
-          box-sizing: border-box !important;
-          white-space: normal !important;
-          word-wrap: break-word !important;
-        }
-
-        .cta-buttons {
-          flex-direction: column !important;
-          gap: 10px !important;
-          width: 100% !important;
-        }
-
-        /* CORREÇÃO PARA ELEMENTOS COM LARGURA FIXA */
-        [style*="width:"],
-        [style*="min-width:"],
-        [style*="max-width:"] {
-          max-width: 100% !important;
-        }
-
-        /* CORREÇÃO PARA DISPLAY GRID NO MOBILE */
+        /* AJUSTES PARA MOBILE */
         @media (max-width: 768px) {
-          [style*="display: grid"] {
-            display: flex !important;
-            flex-direction: column !important;
-          }
-
           [style*="grid-template-columns"] {
             grid-template-columns: 1fr !important;
           }
-        }
-
-        /* TIPOGRAFIA RESPONSIVA */
-        .article-h2,
-        .article-h3,
-        .article-h4,
-        .article-p {
-          word-wrap: break-word !important;
-          overflow-wrap: break-word !important;
-          max-width: 100% !important;
-        }
-
-        .article-p {
-          line-height: 1.5 !important;
-        }
-
-        /* CONTAINERS ESPECÍFICOS */
-        .highlight-box,
-        .premium-section,
-        .cta-section {
-          padding: 20px 15px !important;
-          margin: 15px 0 !important;
-          width: 100% !important;
-          box-sizing: border-box !important;
-        }
-
-        /* MEDIA QUERIES PARA MOBILE */
-        @media (max-width: 768px) {
-          /* FORÇA RESPONSIVIDADE EM TODOS OS ELEMENTOS */
-          * {
-            max-width: 100% !important;
-            box-sizing: border-box !important;
-          }
           
-          /* CORREÇÃO ESPECÍFICA PARA TABELAS */
-          .table-container {
-            margin: 10px 0 !important;
-            padding: 0 !important;
-            width: 100% !important;
-          }
-          
-          .article-table {
-            font-size: 12px !important;
-          }
-          
-          .article-table th,
-          .article-table td {
-            padding: 8px 6px !important;
-            font-size: 12px !important;
-          }
-          
-          /* CORREÇÃO PARA ELEMENTOS COM LARGURA ESPECÍFICA */
-          [style*="width:"]:not([style*="width: 100"]):not([style*="width: auto"]) {
-            width: 100% !important;
-          }
-          
-          [style*="min-width:"] {
-            min-width: 0 !important;
-          }
-          
-          /* CORREÇÃO PARA PADDING QUE CAUSA OVERFLOW */
-          [style*="padding:"] {
-            padding-left: 15px !important;
-            padding-right: 15px !important;
-          }
-          
-          /* CORREÇÃO PARA MARGIN NEGATIVA */
-          [style*="margin:"] {
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-          }
-          
-          /* CORREÇÃO PARA FLEXBOX COM ITEMS FIXOS */
-          [style*="display: flex"] {
-            flex-wrap: wrap !important;
-          }
-          
-          /* CORREÇÃO PARA GRID COM COLUNAS FIXAS */
-          [style*="grid-template-columns"] {
-            grid-template-columns: 1fr !important;
-            gap: 10px !important;
-          }
-        }
-
-        @media (max-width: 480px) {
-          /* AJUSTES ADICIONAIS PARA CELULARES PEQUENOS */
           .article-table th,
           .article-table td {
             padding: 6px 4px !important;
-            font-size: 11px !important;
-          }
-          
-          .cta-button,
-          .product-button {
-            padding: 12px 10px !important;
-            font-size: 14px !important;
-          }
-          
-          .highlight-box,
-          .premium-section,
-          .cta-section {
-            padding: 15px 10px !important;
-            margin: 10px 0 !important;
+            font-size: 12px !important;
           }
         }
 
-        /* CORREÇÃO ESPECÍFICA PARA ELEMENTOS COM overflow: visible */
-        [style*="overflow: visible"] {
-          overflow: hidden !important;
+        /* SCROLLBAR SUAVE */
+        ::-webkit-scrollbar {
+          width: 4px;
         }
-
-        /* GARANTE QUE TODOS OS CONTAINERS TENHAM BOX-SIZING CORRETO */
-        div, section, article, header, footer, main, aside, nav {
-          box-sizing: border-box !important;
+        
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
         }
-
-        /* CORREÇÃO ESPECÍFICA PARA AS LOGOS DO RODAPÉ */
-        .footer-logo {
-          max-width: none !important;
-          width: 22px !important;
-          height: 22px !important;
-          flex-shrink: 0 !important;
+        
+        ::-webkit-scrollbar-thumb {
+          background: #095400;
+          border-radius: 2px;
         }
-
-        /* GARANTE QUE AS LOGOS DO FOOTER NÃO SEJAM AFETADAS PELOS ESTILOS GLOBAIS */
-        footer img,
-        .social-logo {
-          max-width: none !important;
-          width: auto !important;
-          height: auto !important;
-        }
-		/* NO ESTILO GLOBAL - CORREÇÃO MAIS ESPECÍFICA */
-img[alt="Markito"][src="https://i.imgur.com/J0BfsSj.gif"] {
-  width: 60px !important;
-  height: 60px !important;
-  max-width: 60px !important;
-  max-height: 60px !important;
-  border-radius: 50% !important;
-  cursor: pointer !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-}
-
-@media (max-width: 768px) {
-  img[alt="Markito"][src="https://i.imgur.com/J0BfsSj.gif"] {
-    width: 50px !important;
-    height: 50px !important;
-    max-width: 50px !important;
-    max-height: 50px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  img[alt="Markito"][src="https://i.imgur.com/J0BfsSj.gif"] {
-    width: 44px !important;
-    height: 44px !important;
-    max-width: 44px !important;
-    max-height: 44px !important;
-  }
-}
       `}</style>
 
+      {/* CONTAINER PRINCIPAL */}
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: isMobile ? '10px' : '20px',
+        padding: isMobile ? '0 8px' : '0 15px',
         minHeight: '100vh',
         backgroundColor: '#ffffff',
-        fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
+        fontFamily: "'Segoe UI', Roboto, Arial, sans-serif"
       }}>
-
-        {/* HEADER OTIMIZADO PARA MOBILE */}
+        {/* HEADER */}
         <header style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          padding: isMobile ? '15px 0' : '30px 0',
-          marginBottom: isMobile ? '15px' : '20px',
-          borderBottom: '2px solid #f0f0f0'
+          textAlign: 'center',
+          padding: isMobile ? '15px 0' : '25px 0',
+          marginBottom: isMobile ? '10px' : '15px'
         }}>
-          <div style={{
-            backgroundColor: '#095400',
-            padding: isMobile ? '6px 12px' : '10px 25px',
-            borderRadius: '30px',
-            marginBottom: isMobile ? '8px' : '15px',
-            color: 'white',
-            fontSize: isMobile ? '0.75rem' : '0.9rem',
-            fontWeight: '600',
-            boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-          }}>
-            Marques Vendas PMG
-          </div>
           
           <Link href="/">
             <img 
               src="https://i.imgur.com/pBH5WpZ.png" 
-              alt="Marques Vendas PMG - Distribuidora Food Service" 
+              alt="PMG Atacadista - Distribuidora Food Service" 
               style={{ 
-                width: isMobile ? '160px' : '220px',
-                margin: isMobile ? '8px 0' : '15px 0',
-                filter: 'drop-shadow(0 3px 5px rgba(0,0,0,0.1))',
+                width: isMobile ? '140px' : '200px',
+                margin: isMobile ? '0 0 10px 0' : '0 0 15px 0',
                 cursor: 'pointer'
               }} 
             />
@@ -5389,12 +5508,10 @@ img[alt="Markito"][src="https://i.imgur.com/J0BfsSj.gif"] {
           
           <h1 style={{ 
             color: '#095400', 
-            fontSize: isMobile ? '1.3rem' : '2rem',
-            margin: isMobile ? '5px 0 8px' : '10px 0 15px',
-            textAlign: 'center',
+            fontSize: isMobile ? '1.2rem' : '1.6rem',
+            margin: '0 0 8px 0',
             fontWeight: '700',
-            lineHeight: '1.3',
-            padding: isMobile ? '0 10px' : '0'
+            lineHeight: '1.2'
           }}>
             Blog PMG Atacadista
           </h1>
@@ -5402,513 +5519,545 @@ img[alt="Markito"][src="https://i.imgur.com/J0BfsSj.gif"] {
           <p style={{ 
             color: '#555', 
             fontSize: isMobile ? '0.85rem' : '1rem',
-            maxWidth: '600px',
-            textAlign: 'center',
-            lineHeight: '1.5',
-            marginBottom: isMobile ? '12px' : '20px',
-            padding: isMobile ? '0 15px' : '0'
+            margin: '0 0 15px 0',
+            lineHeight: '1.4'
           }}>
             Conhecimento especializado em food service para alavancar seu negócio
           </p>
 
           <nav style={{
-            marginBottom: isMobile ? '15px' : '20px',
-            fontSize: isMobile ? '0.75rem' : '0.9rem',
-            padding: isMobile ? '0 15px' : '0',
-            textAlign: 'center'
+            fontSize: isMobile ? '0.75rem' : '0.85rem',
+            color: '#666'
           }}>
             <Link href="/" style={{ 
               color: '#095400', 
               textDecoration: 'none', 
-              fontWeight: '600',
-              display: 'inline-block',
-              marginBottom: isMobile ? '5px' : '0'
+              fontWeight: '600'
             }}>
               Home
             </Link>
-            <span style={{ 
-              margin: isMobile ? '0 6px' : '0 8px', 
-              color: '#999',
-              display: isMobile ? 'none' : 'inline'
-            }}>›</span>
-            <span style={{ 
-              color: '#666',
-              display: 'inline-block'
-            }}>
-              Food News
-            </span>
+            <span style={{ margin: '0 8px', color: '#999' }}>›</span>
+            <span>Food News</span>
           </nav>
         </header>
 
         {/* CONTEÚDO PRINCIPAL */}
         <main>
-          {/* LISTA DE ARTIGOS - APENAS 1 POR PÁGINA */}
-          {currentArticles.length > 0 ? (
-            currentArticles.map(article => (
-              <ArticleCard 
-                key={article.id} 
-                article={article} 
-                isMobile={isMobile}
-              />
+          <ArticleIndex />
+          
+          {isClient ? (
+            articles.map((article, index) => (
+              <div 
+                key={article.id}
+                ref={el => articleRefs.current[index] = el}
+              >
+                <section 
+                  id={`artigo-${article.id}`}
+                  style={{
+                    display: currentPage === article.id ? 'block' : 'none',
+                    margin: isMobile ? '20px 0' : '30px 0'
+                  }}
+                >
+                  <article style={{
+                    background: '#fff',
+                    borderRadius: '10px',
+                    overflow: 'hidden',
+                    boxShadow: '0 3px 10px rgba(0,0,0,0.08)',
+                    border: '1px solid #f0f0f0'
+                  }}>
+                    
+                    <div style={{
+                      padding: isMobile ? '20px 15px' : '25px 20px'
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '15px',
+                        fontSize: isMobile ? '0.75rem' : '0.85rem',
+                        color: '#666',
+                        flexWrap: 'wrap',
+                        gap: '10px'
+                      }}>
+                        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                          <span>{new Date(article.date).toLocaleDateString('pt-BR')}</span>
+                          <span style={{ display: isMobile ? 'none' : 'inline' }}>•</span>
+                          <span>{article.readTime}</span>
+                        </div>
+                        <span style={{
+                          backgroundColor: '#e8f5e8',
+                          color: '#095400',
+                          padding: '4px 12px',
+                          borderRadius: '12px',
+                          fontWeight: '600',
+                          fontSize: isMobile ? '0.7rem' : '0.8rem'
+                        }}>
+                          {article.category}
+                        </span>
+                      </div>
+
+                      <h2 style={{
+                        color: '#095400',
+                        fontSize: isMobile ? '1.3rem' : '1.6rem',
+                        fontWeight: '700',
+                        margin: '0 0 12px 0',
+                        lineHeight: '1.3'
+                      }}>
+                        {article.title}
+                      </h2>
+                      
+                      <p style={{
+                        color: '#555',
+                        fontSize: isMobile ? '0.9rem' : '1rem',
+                        lineHeight: '1.5',
+                        margin: '0 0 20px 0'
+                      }}>
+                        {article.description}
+                      </p>
+
+                      <ShareButtons 
+                        articleTitle={article.title}
+                        articleId={article.id}
+                        articlesPerPage={1}
+                      />
+                    </div>
+
+                    <div style={{
+                      width: '100%',
+                      height: isMobile ? '220px' : '400px',
+                      overflow: 'hidden'
+                    }}>
+                      <img 
+                        src={article.image} 
+                        alt={article.title}
+                        loading="lazy"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover'
+                        }}
+                      />
+                    </div>
+
+                    <div style={{
+                      padding: isMobile ? '20px 15px' : '25px 20px'
+                    }}>
+                      <div 
+                        dangerouslySetInnerHTML={{ __html: article.content }}
+                        style={{
+                          fontSize: isMobile ? '0.9rem' : '1rem',
+                          lineHeight: '1.6',
+                          color: '#333'
+                        }}
+                      />
+                    </div>
+                  </article>
+                </section>
+              </div>
             ))
           ) : (
-            <div style={{
-              textAlign: 'center',
-              padding: isMobile ? '30px 20px' : '40px',
-              backgroundColor: '#f8f8f8',
-              borderRadius: '10px',
-              margin: isMobile ? '20px 0' : '30px 0'
-            }}>
-              <h3 style={{ 
-                color: '#666', 
-                marginBottom: '10px',
-                fontSize: isMobile ? '1.1rem' : '1.3rem'
-              }}>
-                Nenhum artigo encontrado
-              </h3>
-              <p style={{ 
-                color: '#999',
-                fontSize: isMobile ? '0.9rem' : '1rem'
-              }}>
-                Tente alterar os filtros para ver mais artigos.
-              </p>
+            <div style={{padding: '30px', textAlign: 'center'}}>
+              ⏳ Carregando...
             </div>
           )}
 
-          {/* PAGINAÇÃO SIMPLIFICADA */}
-          {totalPages > 1 && (
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: isMobile ? '8px' : '10px',
-              marginTop: isMobile ? '25px' : '30px',
-              flexWrap: 'wrap',
-              padding: isMobile ? '0 10px' : '0'
-            }}>
-              <button
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                style={{
-                  padding: isMobile ? '10px 15px' : '8px 16px',
-                  backgroundColor: currentPage === 1 ? '#f0f0f0' : '#095400',
-                  color: currentPage === 1 ? '#999' : '#fff',
-                  border: 'none',
-                  borderRadius: '6px',
-                  cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                  fontSize: isMobile ? '0.85rem' : '0.9rem',
-                  minWidth: isMobile ? '100px' : 'auto'
-                }}
-              >
-                ← Anterior
-              </button>
-
-              <span style={{
-                fontSize: isMobile ? '0.85rem' : '0.9rem',
-                color: '#666',
-                fontWeight: '600',
-                padding: isMobile ? '8px 12px' : '8px 12px'
-              }}>
-                Página {currentPage} de {totalPages}
-              </span>
-
-              <button
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                style={{
-                  padding: isMobile ? '10px 15px' : '8px 16px',
-                  backgroundColor: currentPage === totalPages ? '#f0f0f0' : '#095400',
-                  color: currentPage === totalPages ? '#999' : '#fff',
-                  border: 'none',
-                  borderRadius: '6px',
-                  cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                  fontSize: isMobile ? '0.85rem' : '0.9rem',
-                  minWidth: isMobile ? '100px' : 'auto'
-                }}
-              >
-                Próxima →
-              </button>
-            </div>
-          )}
+          <QuickNavigation />
         </main>
 
-{/* FOOTER SUPER COMPACTO PARA MOBILE */}
-<footer style={{
-  marginTop: isMobile ? '20px' : '50px',
-  padding: isMobile ? '12px 8px' : '40px 20px',
-  textAlign: 'center',
-  color: '#666',
-  fontSize: isMobile ? '0.65rem' : '0.85rem',
-  borderTop: '1px solid #f0f0f0',
-  backgroundColor: '#f9f9f9'
-}}>
-
-  {/* LINKS LEGAIS - UMA LINHA SÓ */}
-  <div style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: isMobile ? '6px' : '12px',
-    marginBottom: isMobile ? '8px' : '12px',
-    flexWrap: 'wrap'
-  }}>
-    <Link href="/politica-de-privacidade" style={{ 
-      color: '#095400', 
-      textDecoration: 'none',
-      fontWeight: '600',
-      fontSize: isMobile ? '0.6rem' : '0.75rem',
-      whiteSpace: 'nowrap'
-    }}>
-      Política
-    </Link>
-    <span style={{ color: '#095400', fontSize: isMobile ? '0.5rem' : '0.7rem' }}>•</span>
-    <Link href="/termos" style={{ 
-      color: '#095400', 
-      textDecoration: 'none',
-      fontWeight: '600',
-      fontSize: isMobile ? '0.6rem' : '0.75rem',
-      whiteSpace: 'nowrap'
-    }}>
-      Termos
-    </Link>
-    <span style={{ color: '#095400', fontSize: isMobile ? '0.5rem' : '0.7rem' }}>•</span>
-    <Link href="/quem-somos" style={{ 
-      color: '#095400', 
-      textDecoration: 'none',
-      fontWeight: '600',
-      fontSize: isMobile ? '0.6rem' : '0.75rem',
-      whiteSpace: 'nowrap'
-    }}>
-      Quem Somos
-    </Link>
-  </div>
-
-{/* REDES SOCIAIS - PEQUENINAS */}
-<div style={{
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: isMobile ? '12px' : '15px',
-  marginBottom: isMobile ? '8px' : '12px'
-}}>
-  <a href="https://www.facebook.com/MarquesVendaspmg" target="_blank" rel="noopener noreferrer">
-    <img 
-      src="https://i.imgur.com/prULUUA.png" 
-      alt="Facebook" 
-      className="footer-logo"
-      style={{ 
-        width: '22px', 
-        height: '22px'
-      }} 
-    />
-  </a>
-  <a href="https://www.instagram.com/marquesvendaspmg" target="_blank" rel="noopener noreferrer">
-    <img 
-      src="https://i.imgur.com/I0ZZLjG.png" 
-      alt="Instagram" 
-      className="footer-logo"
-      style={{ 
-        width: '22px', 
-        height: '22px'
-      }} 
-    />
-  </a>
-  <a href="https://www.youtube.com/@MarquesVendasPMG" target="_blank" rel="noopener noreferrer">
-    <img 
-      src="https://i.imgur.com/WfpZ8Gg.png" 
-      alt="YouTube" 
-      className="footer-logo"
-      style={{ 
-        width: '22px', 
-        height: '22px'
-      }} 
-    />
-  </a>
-</div>
-
-    {/* Informações de Contato e Copyright */}
-    <div style={{ 
-      textAlign: 'center',
-      paddingTop: '15px',
-      borderTop: '1px solid #e0e0e0'
-    }}>
-      {/* TEXTO SEO - AGORA EM CIMA (Google lê primeiro) */}
-      <p style={{ 
-        margin: '0 0 15px 0', 
-        fontSize: '11px', 
-        color: '#999',
-        lineHeight: '1.4',
-        fontStyle: 'italic',
-        maxWidth: '800px',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        padding: '0 10px'
-      }}>
-        <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
-        Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
-        Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
-        Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
-      </p>
-      
-      {/* INFORMAÇÕES DE CONTATO - AGORA EMBAIXO */}
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '14px',
-        color: '#666',
-        lineHeight: '1.5'
-      }}>
-        © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-      </p>
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '12px', 
-        color: '#888',
-        lineHeight: '1.4'
-      }}>
-        Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
-        <br />
-        CEP: 06885-150 - Itapecerica da Serra - SP
-      </p>
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '12px', 
-        color: '#888'
-      }}>
-        📞 Telefone: (11) 91357-2902
-      </p>
-    </div>
-</footer>
-      </div>
-    </>
-  );
-}
-
-// COMPONENTE DE CARTÃO DE ARTIGO OTIMIZADO PARA MOBILE
-function ArticleCard({ article, isMobile }) {
-  const relatedProducts = getRelatedProducts(article);
-
-  return (
-    <article style={{
-      background: '#fff',
-      borderRadius: '12px',
-      overflow: 'hidden',
-      boxShadow: '0 4px 15px rgba(0,0,0,0.1)',
-      marginBottom: isMobile ? '25px' : '30px',
-      border: '1px solid #f0f0f0',
-      transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-    }}>
-      
-      {/* CABEÇALHO DO ARTIGO OTIMIZADO */}
-      <div style={{
-        padding: isMobile ? '20px 15px' : '25px',
-        borderBottom: '1px solid #f0f0f0'
-      }}>
-        <div style={{
-          display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
-          justifyContent: 'space-between',
-          alignItems: isMobile ? 'flex-start' : 'center',
-          marginBottom: isMobile ? '12px' : '15px',
-          fontSize: isMobile ? '0.8rem' : '0.85rem',
+        {/* RODAPÉ CORRIGIDO - TOTALMENTE RESPONSIVO */}
+        <footer style={{
+          marginTop: '60px',
+          padding: isMobile ? '20px 10px' : '30px 15px',
+          textAlign: 'center',
           color: '#666',
-          gap: isMobile ? '8px' : '10px'
+          fontSize: isMobile ? '12px' : '14px',
+          borderTop: '2px solid #095400',
+          backgroundColor: '#f8f9fa',
+          borderRadius: '12px 12px 0 0',
+          boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)',
+          width: '100%',
+          boxSizing: 'border-box'
         }}>
-          <div style={{ 
-            display: 'flex', 
-            gap: isMobile ? '10px' : '15px', 
-            alignItems: 'center', 
-            flexWrap: 'wrap',
-            order: isMobile ? 2 : 1
+          
+          {/* Container Principal do Rodapé */}
+          <div style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            width: '100%'
           }}>
-            <span>{new Date(article.date).toLocaleDateString('pt-BR')}</span>
-            <span style={{ display: isMobile ? 'none' : 'inline' }}>•</span>
-            <span>{article.readTime}</span>
-            <span style={{ display: isMobile ? 'none' : 'inline' }}>•</span>
-            <span style={{
-              backgroundColor: '#e8f5e8',
-              color: '#095400',
-              padding: isMobile ? '3px 10px' : '4px 12px',
-              borderRadius: '12px',
-              fontWeight: '600',
-              fontSize: isMobile ? '0.75rem' : '0.8rem',
-              marginTop: isMobile ? '5px' : '0'
-            }}>
-              {article.category}
-            </span>
-          </div>
-          <span style={{ 
-            fontSize: isMobile ? '0.75rem' : '0.8rem',
-            order: isMobile ? 1 : 2
-          }}>
-            Por: {article.author}
-          </span>
-        </div>
-
-        <h2 style={{
-          color: '#095400',
-          fontSize: isMobile ? '1.2rem' : '1.6rem',
-          fontWeight: '700',
-          margin: '0 0 12px 0',
-          lineHeight: '1.3',
-          wordWrap: 'break-word'
-        }}>
-          {article.title}
-        </h2>
-      {/* BOTÕES DE COMPARTILHAMENTO */}
-      <ShareButtons 
-        articleTitle={article.title}
-        articleId={article.id}
-        articlesPerPage={1} // ← ADICIONE ESTA LINHA
-      />
-			   
-        <p style={{
-          color: '#555',
-          fontSize: isMobile ? '0.9rem' : '1rem',
-          lineHeight: '1.5',
-          margin: 0
-        }}>
-          {article.description}
-        </p>
-      </div>
-
-      {/* IMAGEM DO ARTIGO OTIMIZADA */}
-      <div style={{
-        width: '100%',
-        height: isMobile ? '200px' : '400px',
-        overflow: 'hidden'
-      }}>
-        <img 
-          src={article.image} 
-          alt={article.title}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center'
-          }}
-        />
-      </div>
-
-      {/* CONTEÚDO DO ARTIGO COM ESTILOS RESPONSIVOS */}
-      <div style={{
-        padding: isMobile ? '20px 15px' : '25px'
-      }}>
-        <div 
-          className="article-content"
-          dangerouslySetInnerHTML={{ __html: article.content }}
-          style={{
-            fontSize: isMobile ? '0.9rem' : '1rem',
-            lineHeight: '1.6',
-            color: '#333',
-            maxWidth: '100%',
-            overflow: 'hidden'
-          }}
-        />
-
-        {/* PRODUTOS RELACIONADOS OTIMIZADOS */}
-        {relatedProducts.length > 0 && (
-          <section style={{
-            backgroundColor: '#f8f8f8',
-            padding: isMobile ? '20px 15px' : '25px',
-            borderRadius: '10px',
-            marginTop: isMobile ? '25px' : '30px',
-            border: '1px solid #e0e0e0'
-          }}>
+            
+            {/* Título do Rodapé */}
             <h3 style={{
               color: '#095400',
-              fontSize: isMobile ? '1.1rem' : '1.3rem',
-              marginBottom: isMobile ? '15px' : '20px',
-              textAlign: 'center',
-              lineHeight: '1.3'
+              fontSize: isMobile ? '16px' : '18px',
+              marginBottom: '20px',
+              fontWeight: '600'
             }}>
-              🛒 Produtos Relacionados
+              📋 Informações Legais
             </h3>
-            
+
+            {/* Links Principais em Grid Responsivo */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: isMobile ? '15px' : '20px'
+              gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(150px, 1fr))',
+              gap: '12px',
+              marginBottom: '25px',
+              width: '100%'
             }}>
-              {relatedProducts.map(product => (
-                <ProductCard key={product.id} product={product} isMobile={isMobile} />
-              ))}
-            </div>
-          </section>
-        )}
-      </div>
-    </article>
-  );
-}
+              
+              {/* Política de Privacidade */}
+              <Link href="/politica-de-privacidade" passHref legacyBehavior>
+                <a style={{ 
+                  color: '#095400', 
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: isMobile ? '12px' : '14px',
+                  padding: isMobile ? '10px 6px' : '12px 8px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '6px',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                  minHeight: '45px'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#095400';
+                  e.target.style.color = 'white';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = 'white';
+                  e.target.style.color = '#095400';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                }}
+                title="Política de Privacidade"
+                aria-label="Leia nossa Política de Privacidade"
+              >
+                <span>🔒</span>
+                Privacidade
+              </a>
+              </Link>
 
-// COMPONENTE DE PRODUTO REUTILIZÁVEL OTIMIZADO
-function ProductCard({ product, isMobile }) {
-  return (
-    <div style={{
-      backgroundColor: '#fff',
-      padding: isMobile ? '15px' : '20px',
-      borderRadius: '8px',
-      textAlign: 'center',
-      border: '1px solid #e0e0e0',
-      transition: 'transform 0.3s ease',
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column'
-    }}>
-      <img 
-        src={product.image} 
-        alt={product.name}
-        style={{
-          width: '100%',
-          height: isMobile ? '120px' : '150px',
-          objectFit: 'contain',
-          borderRadius: '6px',
-          marginBottom: isMobile ? '12px' : '15px',
-          padding: isMobile ? '8px' : '10px',
-          backgroundColor: '#f8f8f8',
-          flexShrink: 0
-        }}
-      />
-      <h4 style={{
-        fontSize: isMobile ? '0.9rem' : '1rem',
-        margin: '0 0 8px 0',
-        color: '#333',
-        lineHeight: '1.3',
-        flex: 1,
-        wordWrap: 'break-word'
-      }}>
-        {product.name}
-      </h4>
-      <p style={{
-        fontSize: isMobile ? '1rem' : '1.2rem',
-        fontWeight: '700',
-        color: '#095400',
-        margin: '0 0 12px 0',
-        flexShrink: 0
-      }}>
-        R$ {product.price}
-      </p>
-      <a 
-        href={`https://www.marquesvendaspmg.shop/produto/${product.id}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="product-button"
-        style={{
-          display: 'inline-block',
-          padding: isMobile ? '10px 15px' : '10px 20px',
-          backgroundColor: '#095400',
-          color: '#fff',
-          textDecoration: 'none',
-          borderRadius: '6px',
-          fontSize: isMobile ? '0.85rem' : '0.9rem',
-          fontWeight: '600',
-          transition: 'all 0.3s ease',
-          width: '100%',
-          flexShrink: 0,
-          boxSizing: 'border-box'
-        }}
-      >
-        Comprar Agora
-      </a>
-    </div>
+              {/* Política de Devolução e Reembolso */}
+              <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
+                <a style={{ 
+                  color: '#095400', 
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: isMobile ? '12px' : '14px',
+                  padding: isMobile ? '10px 6px' : '12px 8px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '6px',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                  minHeight: '45px'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#095400';
+                  e.target.style.color = 'white';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = 'white';
+                  e.target.style.color = '#095400';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                }}
+                title="Política de Devolução e Reembolso"
+                aria-label="Leia nossa Política de Devolução e Reembolso"
+              >
+                <span>🔄</span>
+                Devolução
+              </a>
+              </Link>
+
+              {/* Termos de Uso */}
+              <Link href="/termos" passHref legacyBehavior>
+                <a style={{ 
+                  color: '#095400', 
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: isMobile ? '12px' : '14px',
+                  padding: isMobile ? '10px 6px' : '12px 8px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '6px',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                  minHeight: '45px'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#095400';
+                  e.target.style.color = 'white';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = 'white';
+                  e.target.style.color = '#095400';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                }}
+                title="Termos de Uso"
+                aria-label="Leia nossos Termos de Uso"
+              >
+                <span>📄</span>
+                Termos
+              </a>
+              </Link>
+
+              {/* Quem Somos */}
+              <Link href="/quem-somos" passHref legacyBehavior>
+                <a style={{ 
+                  color: '#095400', 
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: isMobile ? '12px' : '14px',
+                  padding: isMobile ? '10px 6px' : '12px 8px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '6px',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                  minHeight: '45px'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#095400';
+                  e.target.style.color = 'white';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = 'white';
+                  e.target.style.color = '#095400';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+                }}
+                title="Quem Somos"
+                aria-label="Conheça mais sobre nós"
+              >
+                <span>👥</span>
+                Sobre
+              </a>
+              </Link>
+            </div>
+
+            {/* Linha Divisa Estilizada */}
+            <div style={{
+              height: '1px',
+              background: 'linear-gradient(90deg, transparent, #095400, transparent)',
+              margin: '20px auto',
+              maxWidth: '300px',
+              width: '100%'
+            }}></div>
+
+            {/* Redes Sociais */}
+            <div style={{
+              marginBottom: '20px'
+            }}>
+              <h4 style={{
+                color: '#095400',
+                fontSize: isMobile ? '14px' : '16px',
+                marginBottom: '12px',
+                fontWeight: '600'
+              }}>
+                Siga-nos nas Redes Sociais
+              </h4>
+              
+              <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: isMobile ? '15px' : '20px',
+                alignItems: 'center',
+                flexWrap: 'wrap'
+              }}>
+                {/* Facebook */}
+                <a 
+                  href="https://www.facebook.com/MarquesVendaspmg" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '8px',
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none',
+                    backgroundColor: 'white',
+                    border: '1px solid #e0e0e0',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                  }}
+                >
+                  <img 
+                    src="https://i.imgur.com/prULUUA.png" 
+                    alt="Facebook" 
+                    style={{
+                      width: '20px',
+                      height: '20px'
+                    }}
+                  />
+                </a>
+
+                {/* Instagram */}
+                <a 
+                  href="https://www.instagram.com/marquesvendaspmg" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '8px',
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none',
+                    backgroundColor: 'white',
+                    border: '1px solid #e0e0e0',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                  }}
+                >
+                  <img 
+                    src="https://i.imgur.com/I0ZZLjG.png" 
+                    alt="Instagram" 
+                    style={{
+                      width: '20px',
+                      height: '20px'
+                    }}
+                  />
+                </a>
+
+                {/* YouTube */}
+                <a 
+                  href="https://www.youtube.com/@MarquesVendasPMG" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '8px',
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none',
+                    backgroundColor: 'white',
+                    border: '1px solid #e0e0e0',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.transform = 'scale(1.1)';
+                    e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.transform = 'scale(1)';
+                    e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                  }}
+                >
+                  <img 
+                    src="https://i.imgur.com/WfpZ8Gg.png" 
+                    alt="YouTube" 
+                    style={{
+                      width: '20px',
+                      height: '20px'
+                    }}
+                  />
+                </a>
+              </div>
+            </div>
+
+            {/* Informações de Contato e Copyright */}
+            <div style={{ 
+              textAlign: 'center',
+              paddingTop: '15px',
+              borderTop: '1px solid #e0e0e0'
+            }}>
+              {/* TEXTO SEO */}
+              <p style={{ 
+                margin: '0 0 15px 0', 
+                fontSize: isMobile ? '10px' : '11px', 
+                color: '#999',
+                lineHeight: '1.4',
+                fontStyle: 'italic',
+                maxWidth: '800px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                padding: '0 10px'
+              }}>
+                <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
+                Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
+                Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
+                Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
+              </p>
+              
+              {/* INFORMAÇÕES DE CONTATO */}
+              <p style={{ 
+                margin: '8px 0', 
+                fontSize: isMobile ? '13px' : '14px',
+                color: '#666',
+                lineHeight: '1.5'
+              }}>
+                © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+              </p>
+              <p style={{ 
+                margin: '8px 0', 
+                fontSize: isMobile ? '11px' : '12px', 
+                color: '#888',
+                lineHeight: '1.4'
+              }}>
+                Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
+                <br />
+                CEP: 06885-150 - Itapecerica da Serra - SP
+              </p>
+              <p style={{ 
+                margin: '8px 0', 
+                fontSize: isMobile ? '11px' : '12px', 
+                color: '#888'
+              }}>
+                📞 Telefone: (11) 91357-2902
+              </p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 }
