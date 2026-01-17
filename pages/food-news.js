@@ -302,7 +302,7 @@ export default function FoodNews({ initialPage }) {
       </p>
       
       <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://www.marquesvendaspmg.shop/categoria/farinaceos" 
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" 
            style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
            VER TODAS AS FARINHAS
         </a>
@@ -666,7 +666,7 @@ export default function FoodNews({ initialPage }) {
       </p>
       
       <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://www.marquesvendaspmg.shop/categoria/bebidas" 
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" 
            style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
            VER TODAS AS VODKAS
         </a>
@@ -1057,7 +1057,7 @@ export default function FoodNews({ initialPage }) {
       </p>
       
       <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://www.marquesvendaspmg.shop/categoria/derivados-de-leite" 
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20leite" 
            style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
            VER TODOS OS QUEIJOS
         </a>
@@ -1409,7 +1409,7 @@ export default function FoodNews({ initialPage }) {
       </p>
       
       <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://www.marquesvendaspmg.shop/categoria/derivados-de-bovino" 
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" 
            style="background: #095400; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
            VER TODOS OS CORTES
         </a>
@@ -2317,7 +2317,7 @@ export default function FoodNews({ initialPage }) {
            MONTAR KIT COMPLETO
         </a>
         
-        <a href="https://www.marquesvendaspmg.shop/categoria/derivados-de-leite" 
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20leite" 
            style="background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;">
            VER TODOS OS QUEIJOS
         </a>
