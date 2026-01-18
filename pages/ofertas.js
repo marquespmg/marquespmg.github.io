@@ -50,16 +50,16 @@ const citiesData = {
 // ========== PRODUTOS EM OFERTA ========== //
 // VOCÊ SÓ PRECISA MUDAR ESTES PRODUTOS TODO DOMINGO!
 const featuredProducts = [
-  { id: 800, name: 'PARMESÃO RALADO GROSSO RJR 1 KG', category: 'Ofertas', price: 36.00, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-grosso-rjr-1-kg-pmg-atacadista.jpg' },
-  { id: 802, name: 'PARMESÃO RALADO MÉDIO RJR 1 KG', category: 'Ofertas', price: 36.00, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-medio-rjr-1-kg-pmg-atacadista.jpg' },
-  { id: 739, name: 'MUÇARELA FATIADA HM 4 KG', category: 'Ofertas', price: 115.99, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-hm-4-kg-pmg-atacadista.jpg' },
-  { id: 1065, name: 'PRESUNTO SEARA 3.5 KILO PÇ', category: 'Ofertas', price: 80.00, image: 'https://www.marquesvendaspmg.shop/images/presunto-seara-35-kilo-pc-pmg-atacadista.jpg' },
-  { id: 1749, name: 'FARINHA DE TRIGO PIZZA MARIA INÊS 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 67.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-maria-ines-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 917, name: 'REQUEIJÃO TIROLEZ SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 38.55, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tirolez-sem-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 914, name: 'REQUEIJÃO SCALA SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 43.55, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scala-sem-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 1158, name: 'AZEITONA VERDE MÉDIA 32 X 45 RAINHA (BD 2 KILO)', category: 'Ofertas', price: 43.00, image: 'https://www.marquesvendaspmg.shop/images/azeitona-verde-media-32-x-45-rainha-bd-2-kilo-pmg-atacadista.jpg' },
-  { id: 507, name: 'PEITO DE FRANGO CONGELADO COZIDO DESFIADO ALFAMA 1 KILO (CX 6 PCT)', category: 'Ofertas', price: 196.00, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-cozido-desfiado-alfama-1-kilo-cx-6-pct-pmg-atacadista.jpg' },
-  { id: 750, name: 'MUÇARELA LA PAULINA 3.5 KG', category: 'Ofertas', price: 26.80, image: 'https://www.marquesvendaspmg.shop/images/mucarela-la-paulina-35-kg-pmg-atacadista.jpg' },
+  { id: 770, name: 'MUÇARELA TRÊS MARIAS RONDÔNIA "OURO PRETO" 4 KG', category: 'Ofertas', price: 27.99, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-rondonia-ouro-preto-4-kg-pmg-atacadista.jpg' },
+  { id: 719, name: 'MUÇARELA BARI 4 KG', category: 'Ofertas', price: 27.20, image: 'https://www.marquesvendaspmg.shop/images/mucarela-bari-4-kg-pmg-atacadista.jpg' },
+  { id: 747, name: 'MUÇARELA HM 4 KG', category: 'Ofertas', price: 27.20, image: 'https://www.marquesvendaspmg.shop/images/mucarela-hm-4-kg-pmg-atacadista.jpg' },
+  { id: 1105, name: 'ARROZ BRANCO TIPO 1 FOOD SERVICE CAMIL 5 KILO (FDO 6 PCT)', category: 'Ofertas', price: 123.88, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-food-service-camil-5-kilo-fdo-6-pct-pmg-atacadista.jpg' },
+  { id: 1267, name: 'FEIJÃO CARIOCA TIPO 1 FOOD SERVICE CAMIL 2 KILO (FDO 5 PCT)', category: 'Ofertas', price: 73.00, image: 'https://www.marquesvendaspmg.shop/images/feijao-carioca-tipo-1-food-service-camil-2-kilo-fdo-5-pct-pmg-atacadista.jpg' },
+  { id: 1271, name: 'FEIJÃO PRETO TIPO 1 CAMIL 1 KILO (FDO 10 PCT)', category: 'Ofertas', price: 52.88, image: 'https://www.marquesvendaspmg.shop/images/feijao-preto-tipo-1-camil-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
+  { id: 614, name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS POLENGHI "2,27" KILO', category: 'Ofertas', price: 83.00, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-160-fatias-polenghi-227-kilo-pmg-atacadista.jpg' },
+  { id: 910, name: 'REQUEIJÃO SABOR CHEDDAR SCALON 1,02 KILO', category: 'Ofertas', price: 31.55, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-scalon-102-kilo-pmg-atacadista.jpg' },
+  { id: 916, name: 'REQUEIJÃO SCALON SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 39.99, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scalon-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 17, name: 'BAÚ MOCHILA VERMELHO LAMINADO COM BOLSÃO PARA PIZZA MIL ROTAS (UN)', category: 'Ofertas', price: 180.00, image: 'https://www.marquesvendaspmg.shop/images/bau-mochila-vermelho-laminado-com-bolsao-para-pizza-mil-rotas-un-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
