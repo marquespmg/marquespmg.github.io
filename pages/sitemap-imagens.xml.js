@@ -583,7 +583,7 @@ const products = [
   { id: 629, name: 'CREAM CHEESE POLENGHI 1 KILO', category: 'Derivados de Leite', price: 36.71, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-polenghi-1-kilo-pmg-atacadista.jpg' },
   { id: 630, name: 'CREAM CHEESE SACHÊ DANÚBIO 18 G (CX 144 UN)', category: 'Derivados de Leite', price: 136.94, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-sache-danubio-18-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 631, name: 'CREAM CHEESE SACHÊ PRESIDENT 18 G (CX 120 UN)', category: 'Derivados de Leite', price: 117.86, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-sache-president-18-g-cx-120-un-pmg-atacadista.jpg' },
-  { id: 632, name: 'CREAM CHEESE SCALA 1,2 KILO', category: 'Derivados de Leite', price: 114.56, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-scala-12-kilo-pmg-atacadista.jpg' },
+  { id: 632, name: 'CREAM CHEESE SCALA 1,2 KILO', category: 'Derivados de Leite', price: 38.24, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-scala-12-kilo-pmg-atacadista.jpg' },
   { id: 633, name: 'CREAM CHEESE SCALA 3,6 KILO', category: 'Derivados de Leite', price: 114.56, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-scala-36-kilo-pmg-atacadista.jpg' },
   { id: 634, name: 'CREAM CHEESE SCALON 1,02 KILO', category: 'Derivados de Leite', price: 28.11, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-scalon-102-kilo-pmg-atacadista.jpg' },
   { id: 636, name: 'CREAM CHEESE SULMINAS 1,2 KILO', category: 'Derivados de Leite', price: 28.82, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-sulminas-12-kilo-pmg-atacadista.jpg' },
@@ -812,7 +812,7 @@ const products = [
   { id: 874, name: 'QUEIJO TIPO BURRATA DE BÚFALA DOR 180 G', category: 'Derivados de Leite', price: 21.09, image: 'https://www.marquesvendaspmg.shop/images/queijo-tipo-burrata-de-bufala-dor-180-g-pmg-atacadista.jpg' },
   { id: 875, name: 'QUEIJO TIPO BURRATA DE BÚFALA LEVITARE 150 G', category: 'Derivados de Leite', price: 22.39, image: 'https://www.marquesvendaspmg.shop/images/queijo-tipo-burrata-de-bufala-levitare-150-g-pmg-atacadista.jpg' },
   { id: 876, name: 'REQUEIJÃO AFFAMATO COM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 12.97, image: 'https://www.marquesvendaspmg.shop/images/requeijao-affamato-com-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 877, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 151.92, image: 'https://www.marquesvendaspmg.shop/images/requeijao-catupiry-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 877, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 61.75, image: 'https://www.marquesvendaspmg.shop/images/requeijao-catupiry-sem-amido-15-kilo-pmg-atacadista.jpg' },
   { id: 878, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 3,6 KILO', category: 'Derivados de Leite', price: 151.92, image: 'https://www.marquesvendaspmg.shop/images/requeijao-catupiry-sem-amido-36-kilo-pmg-atacadista.jpg' },
   { id: 879, name: 'REQUEIJÃO CLARA MILK COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 15.93, image: 'https://www.marquesvendaspmg.shop/images/requeijao-clara-milk-com-amido-18-kilo-pmg-atacadista.jpg' },
   { id: 880, name: 'REQUEIJÃO COPO CRIOULO SEM AMIDO 220 G (CX 24 UN)', category: 'Derivados de Leite', price: 290.38, image: 'https://www.marquesvendaspmg.shop/images/requeijao-copo-crioulo-sem-amido-220-g-cx-24-un-pmg-atacadista.jpg' },
@@ -848,10 +848,10 @@ const products = [
   { id: 911, name: 'REQUEIJÃO SABOR CHEDDAR SOFFICE 1,2 KILO', category: 'Derivados de Leite', price: 37.16, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-soffice-12-kilo-pmg-atacadista.jpg' },
   { id: 912, name: 'REQUEIJÃO SABOR CHEDDAR TIROLEZ 1,5 KILO', category: 'Derivados de Leite', price: 46.65, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-tirolez-15-kilo-pmg-atacadista.jpg' },
   { id: 913, name: 'REQUEIJÃO SABOR CHEDDAR VALEZA 1,003 KILO', category: 'Derivados de Leite', price: 28.83, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-valeza-1003-kilo-pmg-atacadista.jpg' },
-  { id: 914, name: 'REQUEIJÃO SCALA SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 122.03, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scala-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 914, name: 'REQUEIJÃO SCALA SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 44.14, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scala-sem-amido-15-kilo-pmg-atacadista.jpg' },
   { id: 915, name: 'REQUEIJÃO SCALA SEM AMIDO 3,6 KILO', category: 'Derivados de Leite', price: 122.03, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scala-sem-amido-36-kilo-pmg-atacadista.jpg' },
   { id: 916, name: 'REQUEIJÃO SCALON SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 39.99, image: 'https://www.marquesvendaspmg.shop/images/requeijao-scalon-sem-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 917, name: 'REQUEIJÃO TIROLEZ SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 95.71, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tirolez-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 917, name: 'REQUEIJÃO TIROLEZ SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 38.60, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tirolez-sem-amido-15-kilo-pmg-atacadista.jpg' },
   { id: 918, name: 'REQUEIJÃO TIROLEZ SEM AMIDO 3,6 KILO', category: 'Derivados de Leite', price: 95.71, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tirolez-sem-amido-36-kilo-pmg-atacadista.jpg' },
   { id: 919, name: 'REQUEIJÃO TOP MILK COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 13.88, image: 'https://www.marquesvendaspmg.shop/images/requeijao-top-milk-com-amido-18-kilo-pmg-atacadista.jpg' },
   { id: 920, name: 'REQUEIJÃO TRADICIONAL CORONATA SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 42.23, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tradicional-coronata-sem-amido-15-kilo-pmg-atacadista.jpg' },
@@ -1893,6 +1893,7 @@ export default function ImageSiteMap() {
   return null;
 
 }
+
 
 
 
