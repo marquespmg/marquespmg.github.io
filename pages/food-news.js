@@ -197,43 +197,54 @@ const localBusinessSchema = {
   }
 };
 
-// ⬇️⬇️⬇️ ESTA FUNÇÃO VAI AQUI (FORA DO COMPONENTE) ⬇️⬇️⬇️ //
-export async function getServerSideProps(context) {
-  const { query } = context;
-  const page = parseInt(query.page) || 1;
+// ========== FUNÇÃO PARA CRIAR SLUGS (URLS AMIGÁVEIS) ========== //
+function gerarSlug(texto) {
+  if (!texto) return '';
   
-  return {
-    props: {
-      initialPage: page
-    }
-  };
+  return texto
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '')
+    .substring(0, 80);
 }
 
-// ⬇️⬇️⬇️ AGORA O COMPONENTE ⬇️⬇️⬇️ //
-export default function FoodNews({ initialPage }) {
-  const [isMobile, setIsMobile] = useState(false);
-  const [currentPage, setCurrentPage] = useState(initialPage);
-  const articlesPerPage = 1;
-  const [isClient, setIsClient] = useState(false);
-  const [showIndex, setShowIndex] = useState(false);
-  const [activeArticle, setActiveArticle] = useState(null);
+// ========== FUNÇÃO PARA GERAR URL AMIGÁVEL ========== //
+function getArticleUrl(article) {
+  if (!article || !article.title) return '/food-news';
+  const slug = gerarSlug(article.title);
+  return `/food-news/${slug}`;
+}
+
+// ========== FUNÇÃO PARA PROCESSAR LINKS NO CONTEÚDO ========== //
+function processarLinksConteudo(conteudoHTML, articlesArray) {
+  if (!conteudoHTML || !articlesArray || !Array.isArray(articlesArray)) {
+    return conteudoHTML;
+  }
   
-  // Estados para o cabeçalho
-  const [showCitiesMenu, setShowCitiesMenu] = useState(false);
-  const [openRegions, setOpenRegions] = useState({
-    sp: false,
-    rj: false,
-    mg: false
+  let conteudoProcessado = conteudoHTML;
+  
+  // Procura por padrões de link antigos e substitui
+  articlesArray.forEach(artigo => {
+    // Padrão 1: /food-news?page=30
+    const padrao1 = new RegExp(`href="/food-news\\?page=${artigo.id}"`, 'gi');
+    conteudoProcessado = conteudoProcessado.replace(padrao1, `href="${getArticleUrl(artigo)}"`);
+    
+    // Padrão 2: /food-news?page=30#artigo-30
+    const padrao2 = new RegExp(`href="/food-news\\?page=${artigo.id}#artigo-${artigo.id}"`, 'gi');
+    conteudoProcessado = conteudoProcessado.replace(padrao2, `href="${getArticleUrl(artigo)}"`);
+    
+    // Padrão 3: Links sem aspa
+    const padrao3 = new RegExp(`/food-news\\?page=${artigo.id}(#artigo-${artigo.id})?`, 'g');
+    conteudoProcessado = conteudoProcessado.replace(padrao3, getArticleUrl(artigo));
   });
-  const [windowWidth, setWindowWidth] = useState(0);
   
-  // Estados do usuário (simulados - você deve integrar com seu sistema de autenticação)
-  const [user, setUser] = useState(null);
-  const [userName, setUserName] = useState("");
-  const [userAvatar, setUserAvatar] = useState("");
-  
-  const articleRefs = useRef([]);
-  useTrackUser();
+  return conteudoProcessado;
+}
 
   // BANCO DE ARTIGOS - AGORA COM PRODUTOS DINÂMICOS
   const articles = [
@@ -8252,9 +8263,65 @@ export default function FoodNews({ initialPage }) {
 }
   ];
 
+// ⬇️⬇️⬇️ ESTA FUNÇÃO VAI AQUI (FORA DO COMPONENTE) ⬇️⬇️⬇️ //
+export async function getServerSideProps(context) {
+  const { query } = context;
+  
+  let page = 1;
+  const slug = query.slug;
+  const pageId = parseInt(query.page) || 1;
+  
+  // Se tiver slug na URL, procura artigo correspondente
+  if (slug) {
+    const artigoEncontrado = articles.find(artigo => 
+      gerarSlug(artigo.title) === slug
+    );
+    
+    if (artigoEncontrado) {
+      page = artigoEncontrado.id;
+    } else {
+      page = pageId;
+    }
+  } else {
+    page = pageId;
+  }
+  
+  return {
+    props: {
+      initialPage: page
+    }
+  };
+}
+
+// ⬇️⬇️⬇️ AGORA O COMPONENTE ⬇️⬇️⬇️ //
+export default function FoodNews({ initialPage }) {
+  const [isMobile, setIsMobile] = useState(false);
+  const [currentPage, setCurrentPage] = useState(initialPage);
+  const articlesPerPage = 1;
+  const [isClient, setIsClient] = useState(false);
+  const [showIndex, setShowIndex] = useState(false);
+  const [activeArticle, setActiveArticle] = useState(null);
+  
+  // Estados para o cabeçalho
+  const [showCitiesMenu, setShowCitiesMenu] = useState(false);
+  const [openRegions, setOpenRegions] = useState({
+    sp: false,
+    rj: false,
+    mg: false
+  });
+  const [windowWidth, setWindowWidth] = useState(0);
+  
+  // Estados do usuário
+  const [user, setUser] = useState(null);
+  const [userName, setUserName] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
+  
+  const articleRefs = useRef([]);
+  useTrackUser();
+
   useEffect(() => {
     setIsClient(true);
-    // Simulação de usuário logado - ajuste conforme sua lógica
+    // Simulação de usuário logado
     setUser({ email: "cliente@exemplo.com" });
     setUserName("Cliente");
     setUserAvatar("");
@@ -8262,6 +8329,21 @@ export default function FoodNews({ initialPage }) {
     // Inicializa largura da janela
     if (typeof window !== 'undefined') {
       setWindowWidth(window.innerWidth);
+      
+      // Atualiza URL se for uma URL antiga
+      const atualizarUrlAmigavel = () => {
+        const artigoAtual = articles.find(a => a.id === currentPage);
+        if (artigoAtual) {
+          const urlAtual = window.location.pathname + window.location.search;
+          const urlNova = getArticleUrl(artigoAtual);
+          
+          // Se a URL atual não for amigável, atualiza
+          if (!urlAtual.includes(urlNova) && !urlAtual.includes('slug=')) {
+            window.history.replaceState({}, '', urlNova);
+          }
+        }
+      };
+      
       const checkScreenSize = () => {
         const mobile = window.innerWidth <= 768;
         setIsMobile(mobile);
@@ -8270,13 +8352,14 @@ export default function FoodNews({ initialPage }) {
       };
       
       checkScreenSize();
+      atualizarUrlAmigavel();
       window.addEventListener('resize', checkScreenSize);
       
       return () => {
         window.removeEventListener('resize', checkScreenSize);
       };
     }
-  }, []);
+  }, [currentPage]);
 
   const toggleRegion = (region) => {
     setOpenRegions(prev => ({
@@ -8293,6 +8376,13 @@ export default function FoodNews({ initialPage }) {
     
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Atualiza URL no navegador
+    const artigoAtual = articles.find(a => a.id === pageNumber);
+    if (artigoAtual && typeof window !== 'undefined') {
+      const novaURL = getArticleUrl(artigoAtual);
+      window.history.pushState({}, '', novaURL);
+    }
   };
 
   const goToArticle = (articleId) => {
@@ -8380,9 +8470,13 @@ export default function FoodNews({ initialPage }) {
             gap: isMobile ? '8px' : '10px'
           }}>
             {articles.map(article => (
-              <button
+              <a
                 key={article.id}
-                onClick={() => goToArticle(article.id)}
+                href={getArticleUrl(article)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  goToArticle(article.id);
+                }}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -8398,7 +8492,9 @@ export default function FoodNews({ initialPage }) {
                   boxSizing: 'border-box',
                   position: 'relative',
                   minHeight: isMobile ? '65px' : '75px',
-                  overflow: 'visible'
+                  overflow: 'visible',
+                  textDecoration: 'none',
+                  color: 'inherit'
                 }}
               >
                 <div style={{
@@ -8498,7 +8594,7 @@ export default function FoodNews({ initialPage }) {
                     {article.title}
                   </h4>
                 </div>
-              </button>
+              </a>
             ))}
           </div>
           
@@ -8537,8 +8633,12 @@ export default function FoodNews({ initialPage }) {
         gap: isMobile ? '12px' : '15px'
       }}>
         {prevArticle && (
-          <button
-            onClick={() => goToArticle(prevArticle.id)}
+          <a
+            href={getArticleUrl(prevArticle)}
+            onClick={(e) => {
+              e.preventDefault();
+              goToArticle(prevArticle.id);
+            }}
             style={{
               flex: isMobile ? '0 0 auto' : 1,
               display: 'flex',
@@ -8553,7 +8653,9 @@ export default function FoodNews({ initialPage }) {
               textAlign: 'left',
               boxSizing: 'border-box',
               minHeight: '70px',
-              width: '100%'
+              width: '100%',
+              textDecoration: 'none',
+              color: 'inherit'
             }}
           >
             <div style={{ 
@@ -8589,7 +8691,7 @@ export default function FoodNews({ initialPage }) {
                 {prevArticle.title}
               </div>
             </div>
-          </button>
+          </a>
         )}
 
         <div style={{
@@ -8634,8 +8736,12 @@ export default function FoodNews({ initialPage }) {
         </div>
 
         {nextArticle && (
-          <button
-            onClick={() => goToArticle(nextArticle.id)}
+          <a
+            href={getArticleUrl(nextArticle)}
+            onClick={(e) => {
+              e.preventDefault();
+              goToArticle(nextArticle.id);
+            }}
             style={{
               flex: isMobile ? '0 0 auto' : 1,
               display: 'flex',
@@ -8650,7 +8756,9 @@ export default function FoodNews({ initialPage }) {
               textAlign: 'left',
               boxSizing: 'border-box',
               minHeight: '70px',
-              width: '100%'
+              width: '100%',
+              textDecoration: 'none',
+              color: 'inherit'
             }}
           >
             <div style={{ 
@@ -8688,7 +8796,7 @@ export default function FoodNews({ initialPage }) {
             }}>
               →
             </div>
-          </button>
+          </a>
         )}
       </div>
     );
@@ -8703,7 +8811,7 @@ export default function FoodNews({ initialPage }) {
         <meta property="og:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
         <meta property="og:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
         <meta property="og:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
-        <meta property="og:url" content={`https://www.marquesvendaspmg.shop/food-news?page=${currentPage}`} />
+        <meta property="og:url" content={`https://www.marquesvendaspmg.shop${getArticleUrl(currentArticle)}`} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Marques Vendas PMG" />
         
@@ -8711,6 +8819,12 @@ export default function FoodNews({ initialPage }) {
         <meta name="twitter:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
         <meta name="twitter:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
         <meta name="twitter:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
+        
+        {/* URL CANÔNICA COM SLUG AMIGÁVEL */}
+        <link 
+          rel="canonical" 
+          href={`https://www.marquesvendaspmg.shop${getArticleUrl(currentArticle)}`} 
+        />
         
         {/* SCHEMA MARKUP LOCALBUSINESS */}
         <script
@@ -8813,390 +8927,60 @@ export default function FoodNews({ initialPage }) {
             />
           </Link>
           
-        {/* CABEÇALHO PERSONALIZADO - BOTÃO DE CIDADES */}
-        {user && (
-          <div style={{
-            backgroundColor: '#095400',
-            color: 'white',
-            padding: windowWidth > 768 ? '10px 15px' : '8px 10px',
-            borderRadius: '8px',
-            marginBottom: windowWidth > 768 ? '15px' : '10px',
-            width: '100%'
-          }}>
-            {/* Linha 1: Mensagem de boas-vindas COMPACTA */}
+          {/* CABEÇALHO PERSONALIZADO - BOTÃO DE CIDADES */}
+          {user && (
             <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: '8px',
-              flexWrap: 'wrap',
-              gap: '8px'
+              backgroundColor: '#095400',
+              color: 'white',
+              padding: windowWidth > 768 ? '10px 15px' : '8px 10px',
+              borderRadius: '8px',
+              marginBottom: windowWidth > 768 ? '15px' : '10px',
+              width: '100%'
             }}>
-              {userAvatar && (
-                <img 
-                  src={userAvatar} 
-                  alt="Foto do usuário"
-                  style={{
-                    width: '24px',
-                    height: '24px',
-                    borderRadius: '50%',
-                    objectFit: 'cover'
-                  }} 
-                />
-              )}
-              <p style={{
-                fontSize: windowWidth > 768 ? '14px' : '12px',
-                fontWeight: '600',
-                margin: 0,
-                textAlign: 'center'
-              }}>
-                {userName ? `Olá ${userName}, seja bem-vindo(a)!` : `Olá ${user.email}, seja bem-vindo(a)!`}
-              </p>
-            </div>
-            
-            {/* Linha 2: Botões COMPACTOS */}
-            <div style={{
-              display: 'flex',
-              gap: '8px',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexWrap: 'wrap'
-            }}>
-              {/* BOTÃO PÁGINA INICIAL */}
-              <a href="/" style={{
-                backgroundColor: 'white',
-                color: '#095400',
-                border: '1px solid #095400',
-                padding: windowWidth > 768 ? '6px 10px' : '5px 8px',
-                borderRadius: '16px',
-                fontSize: windowWidth > 768 ? '13px' : '11px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                textDecoration: 'none',
-                whiteSpace: 'nowrap',
-                transition: 'all 0.3s',
+              {/* Linha 1: Mensagem de boas-vindas COMPACTA */}
+              <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '4px',
-                ':hover': {
-                  backgroundColor: '#095400',
-                  color: 'white'
-                }
+                justifyContent: 'center',
+                marginBottom: '8px',
+                flexWrap: 'wrap',
+                gap: '8px'
               }}>
-                Página Inicial
-              </a>
-              
-              {/* BOTÃO ONDE ENTREGAMOS - CENTRALIZADO */}
-              <div style={{ 
-                position: 'relative', 
-                display: 'inline-block'
-              }}>
-                <button
-                  onClick={() => setShowCitiesMenu(!showCitiesMenu)}
-                  style={{
-                    backgroundColor: '#e53935',
-                    color: 'white',
-                    border: 'none',
-                    padding: windowWidth > 768 ? '6px 10px' : '5px 8px',
-                    borderRadius: '16px',
-                    fontSize: windowWidth > 768 ? '13px' : '11px',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s',
-                    whiteSpace: 'nowrap',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    boxShadow: '0 2px 4px rgba(229, 57, 53, 0.3)',
-                    ':hover': {
-                      backgroundColor: '#c62828',
-                      transform: 'translateY(-1px)',
-                      boxShadow: '0 3px 6px rgba(229, 57, 53, 0.4)'
-                    }
-                  }}
-                >
-                  Onde Entregamos
-                  <span style={{
-                    transition: 'transform 0.3s',
-                    fontSize: '10px',
-                    transform: showCitiesMenu ? 'rotate(180deg)' : 'rotate(0deg)'
-                  }}>
-                    ▼
-                  </span>
-                </button>
-                
-                {/* MENU DROPDOWN - DO JEITO ORIGINAL QUE VOCÊ MANDOU */}
-                {showCitiesMenu && (
-                  <>
-                    {/* Overlay para fechar ao clicar fora */}
-                    <div 
-                      style={{
-                        position: 'fixed',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        zIndex: 998,
-                        backgroundColor: 'transparent'
-                      }}
-                      onClick={() => setShowCitiesMenu(false)}
-                    />
-                    
-                    {/* Container do Menu - Centralizado abaixo do botão */}
-                    <div 
-                      style={{
-                        position: 'absolute',
-                        top: '100%',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        zIndex: 999,
-                        backgroundColor: 'white',
-                        borderRadius: '8px',
-                        boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
-                        border: '2px solid #e53935',
-                        width: windowWidth > 768 ? '350px' : '280px',
-                        maxHeight: '400px',
-                        overflowY: 'auto',
-                        marginTop: '5px'
-                      }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {/* Cabeçalho do Menu */}
-                      <div style={{
-                        padding: '10px 12px',
-                        borderBottom: '1px solid #eee',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        backgroundColor: '#fff5f5'
-                      }}>
-                        <strong style={{ 
-                          color: '#095400', 
-                          fontSize: windowWidth > 768 ? '15px' : '13px',
-                          fontWeight: '600'
-                        }}>
-                          📍 Onde Entregamos
-                        </strong>
-                        <button
-                          onClick={() => setShowCitiesMenu(false)}
-                          style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#e53935',
-                            cursor: 'pointer',
-                            fontSize: '18px',
-                            fontWeight: 'bold',
-                            padding: '0',
-                            width: '22px',
-                            height: '22px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            borderRadius: '50%',
-                            ':hover': {
-                              backgroundColor: '#f0f0f0'
-                            }
-                          }}
-                        >
-                          ×
-                        </button>
-                      </div>
-                      
-                      {/* Conteúdo do Menu */}
-                      <div style={{ padding: '12px' }}>
-                        
-                        {/* São Paulo */}
-                        <div style={{ marginBottom: '12px' }}>
-                          <div 
-                            onClick={() => toggleRegion('sp')}
-                            style={{
-                              color: '#095400',
-                              fontWeight: '600',
-                              fontSize: windowWidth > 768 ? '14px' : '12px',
-                              marginBottom: '6px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '6px',
-                              cursor: 'pointer',
-                              padding: '4px',
-                              borderRadius: '4px',
-                              ':hover': {
-                                backgroundColor: '#f9f9f9'
-                              }
-                            }}
-                          >
-                            <span>🏢</span>
-                            <span>Estado de São Paulo</span>
-                            <span style={{
-                              marginLeft: 'auto',
-                              fontSize: '10px',
-                              transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
-                              transition: 'transform 0.2s'
-                            }}>
-                              ▼
-                            </span>
-                          </div>
-                          
-                          {openRegions.sp && (
-                            <div style={{
-                              marginLeft: '8px',
-                              paddingLeft: '8px',
-                              borderLeft: '2px solid #095400',
-                              maxHeight: '100px',
-                              overflowY: 'auto'
-                            }}>
-                              {citiesData.sp.regions.map((regiao, index) => (
-                                <div key={index} style={{
-                                  padding: '3px 0',
-                                  color: '#555',
-                                  fontSize: windowWidth > 768 ? '12px' : '11px'
-                                }}>
-                                  • {regiao}
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                        
-                        {/* Rio de Janeiro */}
-                        <div style={{ marginBottom: '12px' }}>
-                          <div 
-                            onClick={() => toggleRegion('rj')}
-                            style={{
-                              color: '#095400',
-                              fontWeight: '600',
-                              fontSize: windowWidth > 768 ? '14px' : '12px',
-                              marginBottom: '6px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '6px',
-                              cursor: 'pointer',
-                              padding: '4px',
-                              borderRadius: '4px',
-                              ':hover': {
-                                backgroundColor: '#f9f9f9'
-                              }
-                            }}
-                          >
-                            <span>🏖️</span>
-                            <span>Sul do Rio de Janeiro</span>
-                            <span style={{
-                              marginLeft: 'auto',
-                              fontSize: '10px',
-                              transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
-                              transition: 'transform 0.2s'
-                            }}>
-                              ▼
-                            </span>
-                          </div>
-                          
-                          {openRegions.rj && (
-                            <div style={{
-                              marginLeft: '8px',
-                              paddingLeft: '8px',
-                              borderLeft: '2px solid #e53935',
-                              maxHeight: '100px',
-                              overflowY: 'auto'
-                            }}>
-                              {citiesData.rj.cities.map((city, index) => (
-                                <div key={index} style={{
-                                  padding: '3px 0',
-                                  color: '#555',
-                                  fontSize: windowWidth > 768 ? '12px' : '11px'
-                                }}>
-                                  • {city}
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                        
-                        {/* Minas Gerais */}
-                        <div>
-                          <div 
-                            onClick={() => toggleRegion('mg')}
-                            style={{
-                              color: '#095400',
-                              fontWeight: '600',
-                              fontSize: windowWidth > 768 ? '14px' : '12px',
-                              marginBottom: '6px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '6px',
-                              cursor: 'pointer',
-                              padding: '4px',
-                              borderRadius: '4px',
-                              ':hover': {
-                                backgroundColor: '#f9f9f9'
-                              }
-                            }}
-                          >
-                            <span>⛰️</span>
-                            <span>Sul de Minas Gerais</span>
-                            <span style={{
-                              marginLeft: 'auto',
-                              fontSize: '10px',
-                              transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
-                              transition: 'transform 0.2s'
-                            }}>
-                              ▼
-                            </span>
-                          </div>
-                          
-                          {openRegions.mg && (
-                            <div style={{
-                              marginLeft: '8px',
-                              paddingLeft: '8px',
-                              borderLeft: '2px solid #e53935',
-                              maxHeight: '100px',
-                              overflowY: 'auto'
-                            }}>
-                              {citiesData.mg.cities.slice(0, 59).map((city, index) => (
-                                <div key={index} style={{
-                                  padding: '3px 0',
-                                  color: '#555',
-                                  fontSize: windowWidth > 768 ? '12px' : '11px'
-                                }}>
-                                  • {city}
-                                </div>
-                              ))}
-                              {citiesData.mg.cities.length > 59 && (
-                                <div style={{
-                                  color: '#888',
-                                  fontSize: '11px',
-                                  fontStyle: 'italic',
-                                  padding: '3px 0'
-                                }}>
-                                  + {citiesData.mg.cities.length - 59} cidades...
-                                </div>
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      
-                      {/* Rodapé do Menu */}
-                      <div style={{
-                        padding: '8px 12px',
-                        borderTop: '1px solid #eee',
-                        fontSize: '11px',
-                        color: '#888',
-                        textAlign: 'center',
-                        backgroundColor: '#f9f9f9'
-                      }}>
-                        Clique nas regiões para expandir
-                      </div>
-                    </div>
-                  </>
+                {userAvatar && (
+                  <img 
+                    src={userAvatar} 
+                    alt="Foto do usuário"
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      borderRadius: '50%',
+                      objectFit: 'cover'
+                    }} 
+                  />
                 )}
+                <p style={{
+                  fontSize: windowWidth > 768 ? '14px' : '12px',
+                  fontWeight: '600',
+                  margin: 0,
+                  textAlign: 'center'
+                }}>
+                  {userName ? `Olá ${userName}, seja bem-vindo(a)!` : `Olá ${user.email}, seja bem-vindo(a)!`}
+                </p>
               </div>
               
-              {/* BOTÃO OFERTAS (SUBSTITUI PERGUNTAS) */}
-              <Link href="/ofertas" legacyBehavior>
-                <a style={{
-                  backgroundColor: '#ff6b35',
-                  color: 'white',
-                  border: '1px solid #ff6b35',
+              {/* Linha 2: Botões COMPACTOS */}
+              <div style={{
+                display: 'flex',
+                gap: '8px',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexWrap: 'wrap'
+              }}>
+                {/* BOTÃO PÁGINA INICIAL */}
+                <a href="/" style={{
+                  backgroundColor: 'white',
+                  color: '#095400',
+                  border: '1px solid #095400',
                   padding: windowWidth > 768 ? '6px 10px' : '5px 8px',
                   borderRadius: '16px',
                   fontSize: windowWidth > 768 ? '13px' : '11px',
@@ -9209,17 +8993,347 @@ export default function FoodNews({ initialPage }) {
                   alignItems: 'center',
                   gap: '4px',
                   ':hover': {
-                    backgroundColor: '#e55a2b',
-                    transform: 'translateY(-1px)',
-                    boxShadow: '0 3px 6px rgba(255, 107, 53, 0.3)'
+                    backgroundColor: '#095400',
+                    color: 'white'
                   }
                 }}>
-                  🔥 Ofertas
+                  Página Inicial
                 </a>
-              </Link>
+                
+                {/* BOTÃO ONDE ENTREGAMOS - CENTRALIZADO */}
+                <div style={{ 
+                  position: 'relative', 
+                  display: 'inline-block'
+                }}>
+                  <button
+                    onClick={() => setShowCitiesMenu(!showCitiesMenu)}
+                    style={{
+                      backgroundColor: '#e53935',
+                      color: 'white',
+                      border: 'none',
+                      padding: windowWidth > 768 ? '6px 10px' : '5px 8px',
+                      borderRadius: '16px',
+                      fontSize: windowWidth > 768 ? '13px' : '11px',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s',
+                      whiteSpace: 'nowrap',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                      boxShadow: '0 2px 4px rgba(229, 57, 53, 0.3)',
+                      ':hover': {
+                        backgroundColor: '#c62828',
+                        transform: 'translateY(-1px)',
+                        boxShadow: '0 3px 6px rgba(229, 57, 53, 0.4)'
+                      }
+                    }}
+                  >
+                    Onde Entregamos
+                    <span style={{
+                      transition: 'transform 0.3s',
+                      fontSize: '10px',
+                      transform: showCitiesMenu ? 'rotate(180deg)' : 'rotate(0deg)'
+                    }}>
+                      ▼
+                    </span>
+                  </button>
+                  
+                  {/* MENU DROPDOWN - DO JEITO ORIGINAL QUE VOCÊ MANDOU */}
+                  {showCitiesMenu && (
+                    <>
+                      {/* Overlay para fechar ao clicar fora */}
+                      <div 
+                        style={{
+                          position: 'fixed',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          zIndex: 998,
+                          backgroundColor: 'transparent'
+                        }}
+                        onClick={() => setShowCitiesMenu(false)}
+                      />
+                      
+                      {/* Container do Menu - Centralizado abaixo do botão */}
+                      <div 
+                        style={{
+                          position: 'absolute',
+                          top: '100%',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          zIndex: 999,
+                          backgroundColor: 'white',
+                          borderRadius: '8px',
+                          boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
+                          border: '2px solid #e53935',
+                          width: windowWidth > 768 ? '350px' : '280px',
+                          maxHeight: '400px',
+                          overflowY: 'auto',
+                          marginTop: '5px'
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {/* Cabeçalho do Menu */}
+                        <div style={{
+                          padding: '10px 12px',
+                          borderBottom: '1px solid #eee',
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                          backgroundColor: '#fff5f5'
+                        }}>
+                          <strong style={{ 
+                            color: '#095400', 
+                            fontSize: windowWidth > 768 ? '15px' : '13px',
+                            fontWeight: '600'
+                          }}>
+                            📍 Onde Entregamos
+                          </strong>
+                          <button
+                            onClick={() => setShowCitiesMenu(false)}
+                            style={{
+                              background: 'none',
+                              border: 'none',
+                              color: '#e53935',
+                              cursor: 'pointer',
+                              fontSize: '18px',
+                              fontWeight: 'bold',
+                              padding: '0',
+                              width: '22px',
+                              height: '22px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              borderRadius: '50%',
+                              ':hover': {
+                                backgroundColor: '#f0f0f0'
+                              }
+                            }}
+                          >
+                            ×
+                          </button>
+                        </div>
+                        
+                        {/* Conteúdo do Menu */}
+                        <div style={{ padding: '12px' }}>
+                          
+                          {/* São Paulo */}
+                          <div style={{ marginBottom: '12px' }}>
+                            <div 
+                              onClick={() => toggleRegion('sp')}
+                              style={{
+                                color: '#095400',
+                                fontWeight: '600',
+                                fontSize: windowWidth > 768 ? '14px' : '12px',
+                                marginBottom: '6px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                cursor: 'pointer',
+                                padding: '4px',
+                                borderRadius: '4px',
+                                ':hover': {
+                                  backgroundColor: '#f9f9f9'
+                                }
+                              }}
+                            >
+                              <span>🏢</span>
+                              <span>Estado de São Paulo</span>
+                              <span style={{
+                                marginLeft: 'auto',
+                                fontSize: '10px',
+                                transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
+                                transition: 'transform 0.2s'
+                              }}>
+                                ▼
+                              </span>
+                            </div>
+                            
+                            {openRegions.sp && (
+                              <div style={{
+                                marginLeft: '8px',
+                                paddingLeft: '8px',
+                                borderLeft: '2px solid #095400',
+                                maxHeight: '100px',
+                                overflowY: 'auto'
+                              }}>
+                                {citiesData.sp.regions.map((regiao, index) => (
+                                  <div key={index} style={{
+                                    padding: '3px 0',
+                                    color: '#555',
+                                    fontSize: windowWidth > 768 ? '12px' : '11px'
+                                  }}>
+                                    • {regiao}
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                          
+                          {/* Rio de Janeiro */}
+                          <div style={{ marginBottom: '12px' }}>
+                            <div 
+                              onClick={() => toggleRegion('rj')}
+                              style={{
+                                color: '#095400',
+                                fontWeight: '600',
+                                fontSize: windowWidth > 768 ? '14px' : '12px',
+                                marginBottom: '6px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                cursor: 'pointer',
+                                padding: '4px',
+                                borderRadius: '4px',
+                                ':hover': {
+                                  backgroundColor: '#f9f9f9'
+                                }
+                              }}
+                            >
+                              <span>🏖️</span>
+                              <span>Sul do Rio de Janeiro</span>
+                              <span style={{
+                                marginLeft: 'auto',
+                                fontSize: '10px',
+                                transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
+                                transition: 'transform 0.2s'
+                              }}>
+                                ▼
+                              </span>
+                            </div>
+                            
+                            {openRegions.rj && (
+                              <div style={{
+                                marginLeft: '8px',
+                                paddingLeft: '8px',
+                                borderLeft: '2px solid #e53935',
+                                maxHeight: '100px',
+                                overflowY: 'auto'
+                              }}>
+                                {citiesData.rj.cities.map((city, index) => (
+                                  <div key={index} style={{
+                                    padding: '3px 0',
+                                    color: '#555',
+                                    fontSize: windowWidth > 768 ? '12px' : '11px'
+                                  }}>
+                                    • {city}
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                          
+                          {/* Minas Gerais */}
+                          <div>
+                            <div 
+                              onClick={() => toggleRegion('mg')}
+                              style={{
+                                color: '#095400',
+                                fontWeight: '600',
+                                fontSize: windowWidth > 768 ? '14px' : '12px',
+                                marginBottom: '6px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                cursor: 'pointer',
+                                padding: '4px',
+                                borderRadius: '4px',
+                                ':hover': {
+                                  backgroundColor: '#f9f9f9'
+                                }
+                              }}
+                            >
+                              <span>⛰️</span>
+                              <span>Sul de Minas Gerais</span>
+                              <span style={{
+                                marginLeft: 'auto',
+                                fontSize: '10px',
+                                transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
+                                transition: 'transform 0.2s'
+                              }}>
+                                ▼
+                              </span>
+                            </div>
+                            
+                            {openRegions.mg && (
+                              <div style={{
+                                marginLeft: '8px',
+                                paddingLeft: '8px',
+                                borderLeft: '2px solid #e53935',
+                                maxHeight: '100px',
+                                overflowY: 'auto'
+                              }}>
+                                {citiesData.mg.cities.slice(0, 59).map((city, index) => (
+                                  <div key={index} style={{
+                                    padding: '3px 0',
+                                    color: '#555',
+                                    fontSize: windowWidth > 768 ? '12px' : '11px'
+                                  }}>
+                                    • {city}
+                                  </div>
+                                ))}
+                                {citiesData.mg.cities.length > 59 && (
+                                  <div style={{
+                                    color: '#888',
+                                    fontSize: '11px',
+                                    fontStyle: 'italic',
+                                    padding: '3px 0'
+                                  }}>
+                                    + {citiesData.mg.cities.length - 59} cidades...
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        
+                        {/* Rodapé do Menu */}
+                        <div style={{
+                          padding: '8px 12px',
+                          borderTop: '1px solid #eee',
+                          fontSize: '11px',
+                          color: '#888',
+                          textAlign: 'center',
+                          backgroundColor: '#f9f9f9'
+                        }}>
+                          Clique nas regiões para expandir
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+                
+                {/* BOTÃO OFERTAS (SUBSTITUI PERGUNTAS) */}
+                <Link href="/ofertas" legacyBehavior>
+                  <a style={{
+                    backgroundColor: '#ff6b35',
+                    color: 'white',
+                    border: '1px solid #ff6b35',
+                    padding: windowWidth > 768 ? '6px 10px' : '5px 8px',
+                    borderRadius: '16px',
+                    fontSize: windowWidth > 768 ? '13px' : '11px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap',
+                    transition: 'all 0.3s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    ':hover': {
+                      backgroundColor: '#e55a2b',
+                      transform: 'translateY(-1px)',
+                      boxShadow: '0 3px 6px rgba(255, 107, 53, 0.3)'
+                    }
+                  }}>
+                    🔥 Ofertas
+                  </a>
+                </Link>
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
           <h1 style={{ 
             color: '#095400', 
@@ -9358,7 +9472,9 @@ export default function FoodNews({ initialPage }) {
                       padding: isMobile ? '20px 15px' : '25px 20px'
                     }}>
                       <div 
-                        dangerouslySetInnerHTML={{ __html: article.content }}
+                        dangerouslySetInnerHTML={{ 
+                          __html: processarLinksConteudo(article.content, articles) 
+                        }}
                         style={{
                           fontSize: isMobile ? '0.9rem' : '1rem',
                           lineHeight: '1.6',
@@ -9379,7 +9495,7 @@ export default function FoodNews({ initialPage }) {
           <QuickNavigation />
         </main>
 
-        {/* RODAPÉ CORRIGIDO - TOTALMENTE RESPONSIVO */}
+        {/* RODAPÉ */}
         <footer style={{
           marginTop: '60px',
           padding: isMobile ? '20px 10px' : '30px 15px',
