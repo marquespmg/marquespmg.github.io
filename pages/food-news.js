@@ -5,7 +5,199 @@ import { getRelatedProducts, getFeaturedProducts } from '../utils/product-utils'
 import ShareButtons from "../components/ShareButtons";
 import useTrackUser from '../hook/useTrackUser';
 
-// ⬇️⬇️⬇️ ESTA FUNÇÃO VAI AQUI (FORA DO COMPONENTE) ⬇️⬇️⬇️
+// ========== DADOS DAS CIDADES ========== //
+const citiesData = {
+  sp: {
+    title: "🏢 Estado de São Paulo",
+    regions: [
+      '🏞️ Interior',
+      '🏖️ Litoral', 
+      '🏙️ Capital',
+      '📍 Zona Sul',
+      '📍 Zona Leste',
+      '📍 Zona Norte',
+      '📍 Zona Oeste'
+    ]
+  },
+  rj: {
+    title: "🏖️ Sul do Rio de Janeiro",
+    cities: [
+      'BARRA DO PIRAÍ', 'BARRA MANSA', 'ENG. PAULO FRONTIN', 'ITATIAIA', 'MENDES',
+      'PARATY', 'PETRÓPOLIS', 'PINHEIRAL', 'PIRAÍ', 'PORTO REAL', 'QUATIS',
+      'RESENDE', 'RIO CLARO', 'VALENÇA', 'VASSOURAS', 'VOLTA REDONDA'
+    ]
+  },
+  mg: {
+    title: "⛰️ Sul de Minas Gerais", 
+    cities: [
+      'ANDRADAS', 'BAEPENDI', 'BOM REPOUSO', 'BRAZÓPOLIS', 'BUENO BRANDÃO',
+      'CABO VERDE', 'CAMANDUCAIA', 'CAMBUÍ', 'CAMBUQUIRA', 'CAPITÓLIO',
+      'CARMO DE MINAS', 'CAXAMBÚ', 'CONCEIÇÃO DO RIO VERDE', 'CONCEIÇÃO DOS OUROS',
+      'CONGONHAL', 'CONSOLAÇÃO', 'CORREGO DO BOM JESUS', 'CRISTINA', 'CRUZÍLIA',
+      'DELFIM MOREIRA', 'ELOI MENDES', 'ESTIVA', 'EXTREMA', 'FRUTAL', 'GONÇALVES',
+      'GUAPÉ', 'GUARANESIA', 'GUAXUPÉ', 'ILICÍNEA', 'ITAJUBÁ', 'ITAMONTE',
+      'ITANHANDU', 'ITAPEVA', 'JACUTINGA', 'LAMBARI', 'MARIA DA FÉ',
+      'MONTE SANTO DE MINAS', 'MONTE SIÃO', 'MONTE VERDE', 'OURO FINO',
+      'PARAISÓPOLIS', 'PASSA QUATRO', 'PIRANGUÇU', 'PIRANGUINHO', 'PLANURA',
+      'POÇOS DE CALDAS', 'POUSO ALEGRE', 'POUSO ALTO', 'SANTA RITA DO SAPUCAÍ',
+      'SÃO LOURENÇO', 'SÃO SEBASTIÃO DO PARAÍSO', 'SÃO SEBASTIÃO DO RIO VERDE',
+      'SAPUCAÍ-MIRIM', 'SOLEDADE DE MINAS', 'TOLEDO', 'TRÊS CORAÇÕES',
+      'TRÊS PONTAS', 'VARGINHA', 'VIRGÍNIA'
+    ]
+  }
+};
+
+// ========== SCHEMA MARKUP LOCALBUSINESS ========== //
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "priceRange": "$$",
+  "name": "Marques Vendas PMG",
+  "image": "https://i.imgur.com/jrERRsC.png",
+  "telephone": "+55-11-91357-2902",
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Grande São Paulo",
+      "description": "Atacado Grande São Paulo, Distribuidora Grande SP, Fornecedor alimentos Grande São Paulo, Atacadista food service Grande SP"
+    },
+    {
+      "@type": "AdministrativeArea", 
+      "name": "Interior de São Paulo",
+      "description": "Atacado interior São Paulo, Distribuidora interior SP, Fornecedor interior São Paulo, Atacadista food service interior SP"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Capital de São Paulo",
+      "description": "Atacado São Paulo capital, Distribuidora São Paulo, Fornecedor alimentos São Paulo, Atacadista bebidas São Paulo, Food service São Paulo"
+    },
+    {
+      "@type": "City",
+      "name": "Santo Amaro - SP",
+      "description": "Atacado Santo Amaro, Distribuidora Santo Amaro, Fornecedor alimentos Santo Amaro, Atacadista bebidas Santo Amaro, Food service Santo Amaro SP"
+    },
+    {
+      "@type": "City",
+      "name": "Santo André - SP",
+      "description": "Atacado Santo André, Distribuidora Santo André, Fornecedor Santo André, Atacadista alimentos Santo André, Food service Santo André SP"
+    },
+    {
+      "@type": "City",
+      "name": "Barueri - SP", 
+      "description": "Atacado Barueri, Distribuidora Barueri, Fornecedor alimentos Barueri, Atacadista bebidas Barueri, Food service Barueri SP"
+    },
+    {
+      "@type": "City",
+      "name": "São Bernardo do Campo - SP",
+      "description": "Atacado São Bernardo do Campo, Distribuidora São Bernardo, Fornecedor São Bernardo, Atacadista alimentos São Bernardo, Food service São Bernardo SP"
+    },
+    {
+      "@type": "City",
+      "name": "Mauá - SP",
+      "description": "Atacado Mauá, Distribuidora Mauá, Fornecedor alimentos Mauá, Atacadista bebidas Mauá, Food service Mauá SP"
+    },
+    {
+      "@type": "City",
+      "name": "Guarulhos - SP",
+      "description": "Atacado Guarulhos, Distribuidora Guarulhos, Fornecedor alimentos Guarulhos, Atacadista bebidas Guarulhos, Food service Guarulhos SP"
+    },
+    {
+      "@type": "City",
+      "name": "Arujá - SP",
+      "description": "Atacado Arujá, Distribuidora Arujá, Fornecedor alimentos Arujá, Atacadista bebidas Arujá, Food service Arujá SP"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Sul de Minas Gerais",
+      "description": "Atacado Sul de Minas, Distribuidora Sul de Minas, Fornecedor alimentos Sul de Minas, Atacadista bebidas Sul de Minas, Food service Sul de Minas"
+    },
+    {
+      "@type": "City",
+      "name": "Extrema - MG",
+      "description": "Atacado Extrema MG, Distribuidora Extrema, Fornecedor alimentos Extrema, Atacadista bebidas Extrema, Food service Extrema, Atacado para restaurantes Extrema"
+    },
+    {
+      "@type": "City",
+      "name": "Poços de Caldas - MG",
+      "description": "Atacado Poços de Caldas, Distribuidora Poços de Caldas, Fornecedor alimentos Poços de Caldas, Atacadista bebidas Poços de Caldas, Food service Poços de Caldas MG"
+    },
+    {
+      "@type": "City",
+      "name": "São Lourenço - MG",
+      "description": "Atacado São Lourenço, Distribuidora São Lourenço, Fornecedor alimentos São Lourenço, Atacadista bebidas São Lourenço, Food service São Lourenço MG"
+    },
+    {
+      "@type": "City",
+      "name": "Itajubá - MG",
+      "description": "Atacado Itajubá, Distribuidora Itajubá, Fornecedor alimentos Itajubá, Atacadista bebidas Itajubá, Food service Itajubá, Atacado para mercados Itajubá"
+    },
+    {
+      "@type": "City",
+      "name": "Pouso Alegre - MG",
+      "description": "Atacado Pouso Alegre, Distribuidora Pouso Alegre, Fornecedor alimentos Pouso Alegre, Atacadista bebidas Pouso Alegre, Food service Pouso Alegre MG"
+    },
+    {
+      "@type": "City",
+      "name": "Camanducaia - MG",
+      "description": "Atacado Camanducaia, Distribuidora Camanducaia, Fornecedor alimentos Camanducaia, Atacadista bebidas Camanducaia, Food service Camanducaia MG"
+    },
+    {
+      "@type": "City",
+      "name": "Varginha - MG",
+      "description": "Atacado Varginha, Distribuidora Varginha, Fornecedor alimentos Varginha, Atacadista bebidas Varginha, Food service Varginha, Atacado para restaurantes Varginha"
+    },
+    {
+      "@type": "City",
+      "name": "Três Pontas - MG",
+      "description": "Atacado Três Pontas, Distribuidora Três Pontas, Fornecedor alimentos Três Pontas, Atacadista bebidas Três Pontas, Food service Três Pontas MG"
+    },
+    {
+      "@type": "City",
+      "name": "Virgínia - MG",
+      "description": "Atacado Virgínia MG, Distribuidora Virgínia, Fornecedor alimentos Virgínia, Atacadista bebidas Virgínia, Food service Virgínia MG"
+    },
+    {
+      "@type": "City",
+      "name": "Santa Rita do Sapucaí - MG",
+      "description": "Atacado Santa Rita do Sapucaí, Distribuidora Santa Rita do Sapucaí, Fornecedor alimentos Santa Rita, Atacadista bebidas Santa Rita, Food service Santa Rita do Sapucaí"
+    },
+    {
+      "@type": "AdministrativeArea", 
+      "name": "Sul do Rio de Janeiro",
+      "description": "Atacado Sul do Rio de Janeiro, Distribuidora Sul do RJ, Fornecedor alimentos Sul do Rio, Atacadista bebidas Sul do RJ, Food service Sul do Rio"
+    },
+    {
+      "@type": "City",
+      "name": "Paraty - RJ",
+      "description": "Atacado Paraty, Distribuidora Paraty, Fornecedor alimentos Paraty, Atacadista bebidas Paraty, Food service Paraty RJ"
+    },
+    {
+      "@type": "City",
+      "name": "Volta Redonda - RJ",
+      "description": "Atacado Volta Redonda, Distribuidora Volta Redonda, Fornecedor alimentos Volta Redonda, Atacadista bebidas Volta Redonda, Food service Volta Redonda RJ"
+    },
+    {
+      "@type": "City", 
+      "name": "Resende - RJ",
+      "description": "Atacado Resende, Distribuidora Resende, Fornecedor alimentos Resende, Atacadista bebidas Resende, Food service Resende RJ"
+    },
+    {
+      "@type": "City",
+      "name": "Barra Mansa - RJ",
+      "description": "Atacado Barra Mansa, Distribuidora Barra Mansa, Fornecedor alimentos Barra Mansa, Atacadista bebidas Barra Mansa, Food service Barra Mansa RJ"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+    "postalCode": "06885-150",
+    "addressLocality": "Itapecerica da Serra",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  }
+};
+
+// ⬇️⬇️⬇️ ESTA FUNÇÃO VAI AQUI (FORA DO COMPONENTE) ⬇️⬇️⬇️ //
 export async function getServerSideProps(context) {
   const { query } = context;
   const page = parseInt(query.page) || 1;
@@ -17,7 +209,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-// ⬇️⬇️⬇️ AGORA O COMPONENTE ⬇️⬇️⬇️
+// ⬇️⬇️⬇️ AGORA O COMPONENTE ⬇️⬇️⬇️ //
 export default function FoodNews({ initialPage }) {
   const [isMobile, setIsMobile] = useState(false);
   const [currentPage, setCurrentPage] = useState(initialPage);
@@ -25,6 +217,20 @@ export default function FoodNews({ initialPage }) {
   const [isClient, setIsClient] = useState(false);
   const [showIndex, setShowIndex] = useState(false);
   const [activeArticle, setActiveArticle] = useState(null);
+  
+  // Estados para o cabeçalho
+  const [showCitiesMenu, setShowCitiesMenu] = useState(false);
+  const [openRegions, setOpenRegions] = useState({
+    sp: false,
+    rj: false,
+    mg: false
+  });
+  const [windowWidth, setWindowWidth] = useState(0);
+  
+  // Estados do usuário (simulados - você deve integrar com seu sistema de autenticação)
+  const [user, setUser] = useState(null);
+  const [userName, setUserName] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
   
   const articleRefs = useRef([]);
   useTrackUser();
@@ -4963,27 +5169,3121 @@ export default function FoodNews({ initialPage }) {
       </div>
     </section>
   `
+},
+{
+  "id": 29,
+  "title": "Atacado Sul de Minas Gerais | Distribuidora de Alimentos PMG ATACADISTA para Restaurantes e Mercados",
+  "description": "Sou representante da PMG ATACADISTA no Sul de Minas: atacado direto de alimentos, bebidas e food service para restaurantes, mercados e estabelecimentos comerciais. Preço especial!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "sul-de-minas",
+  "readTime": "4 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado Sul de Minas Gerais | Distribuidora PMG para Seu Negócio Crescer</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou qualquer estabelecimento comercial no Sul de Minas</strong>, precisa de um <strong>fornecedor atacadista confiável</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na região, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em toda a região sul mineira.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA no Sul de Minas?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em toda região</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado Sul de Minas Gerais - Distribuidora PMG para restaurantes e mercados" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição no Sul de Minas Gerais</p>
+    </section>
+
+    <!-- CIDADES QUE ATENDO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Cidades que Atendemos no Sul de Minas</h2>
+      <p>Como representante regional, atendo pessoalmente estas cidades com <strong>entrega direta e atendimento local</strong>:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🌆 Extrema</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=30#artigo-30" style="color: #095400; font-weight: 600;">Ver atacado em Extrema →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🌆 Poços de Caldas</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=31#artigo-31" style="color: #095400; font-weight: 600;">Ver atacado em Poços →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🌆 São Lourenço</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=32#artigo-32" style="color: #095400; font-weight: 600;">Ver atacado em São Lourenço →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🌆 Itajubá</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=33#artigo-33" style="color: #095400; font-weight: 600;">Ver atacado em Itajubá →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🌆 Pouso Alegre</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=34#artigo-34" style="color: #095400; font-weight: 600;">Ver atacado em Pouso Alegre →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🌆 Varginha</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=35#artigo-35" style="color: #095400; font-weight: 600;">Ver atacado em Varginha →</a></p>
+        </div>
+      </div>
+      
+      <p style="margin-top: 15px;"><strong>Mais cidades:</strong> Também atendemos <a href="/food-news?page=36#artigo-36" style="color: #095400; font-weight: 600;">Camanducaia</a>, <a href="/food-news?page=37#artigo-37" style="color: #095400; font-weight: 600;">Três Pontas</a>, <a href="/food-news?page=38#artigo-38" style="color: #095400; font-weight: 600;">Virgínia</a> e <a href="/food-news?page=39#artigo-39" style="color: #095400; font-weight: 600;">Santa Rita do Sapucaí</a>.</p>
+    </section>
+
+    <!-- CATEGORIAS DE PRODUTOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 O que Oferecemos como Atacadista no Sul de Minas</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Carne seca, linguiças, frango, hambúrgueres premium</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas, molhos, conservas, temperos, grãos</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Refrigerantes, sucos, águas, cervejas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produtos profissionais para restaurantes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Comprar na PMG ATACADISTA</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço direto de atacado, sem intermediários</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Entrega Garantida</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entregamos em toda região Sul de Minas</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Pague no ato da entrega</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Tudo que seu negócio precisa em um só lugar</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Representante:</strong> Comprar no atacado reduz seu custo em até 40% comparado ao varejo tradicional.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é Nosso Atacado no Sul de Minas?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🛒</div>
+          <p style="margin: 0; font-weight: 600;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🥐</div>
+          <p style="margin: 0; font-weight: 600;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏨</div>
+          <p style="margin: 0; font-weight: 600;">Hotéis</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏫</div>
+          <p style="margin: 0; font-weight: 600;">Escolas</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏢</div>
+          <p style="margin: 0; font-weight: 600;">Empresas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Atendimento Personalizado no Sul de Minas</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, da PMG ATACADISTA</strong> na região. Atendo pessoalmente cada cliente com solução específica para seu negócio.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto do Representante:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- LINK PARA PRODUTOS -->
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">📋 Catálogo Completo PMG 2026</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para revenda.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem;">
+         VER CATÁLOGO COMPLETO →
+      </a>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Destaques da PMG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=11#artigo-11" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">🥩</div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">Carne Seca Alfama</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Qualidade premium para seu negócio</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=30#artigo-30" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">📍</div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">Atacado em Extrema</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Distribuidora local na sua cidade</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave relacionadas:</strong> atacado sul de minas, distribuidora alimentos sul de minas, fornecedor restaurantes sul de minas, atacadista bebidas sul de minas, food service sul de minas, representante PMG sul de minas, compra atacado restaurante, distribuição alimentos região.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 30,
+  "title": "Atacado em Extrema MG | Distribuidora de Alimentos PMG ATACADISTA | Preço Direto",
+  "description": "Representante da PMG ATACADISTA em Extrema MG: atacado direto de alimentos, bebidas e food service para restaurantes, mercados e estabelecimentos. Frete grátis!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "extrema-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Extrema MG | Distribuidora PMG ATACADISTA para Seu Negócio Local</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou qualquer comércio em Extrema MG</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> em Extrema, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida e frete grátis</strong> na cidade e região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em Extrema?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Frete grátis</strong> • <strong>Atendimento local personalizado</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Extrema MG - Distribuidora PMG ATACADISTA para restaurantes e mercados locais" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em Extrema MG</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de Extrema, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Mais Vendidos para Negócios em Extrema MG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Carne Seca Alfama</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Premium para restaurantes e lanchonetes</p>
+          <a href="/food-news?page=11#artigo-11" style="color: #095400; font-weight: 600; font-size: 0.9rem; text-decoration: underline;">Ver detalhes →</a>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍝</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Massas e Molhos</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para restaurantes e cantinas escolares</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Refrigerantes, sucos e águas para mercados</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Sabia que em Extrema temos clientes satisfeitos?</strong> Restaurantes do Centro, mercados do Jardim das Oliveiras e padarias da Vila Rica já economizam comprando no atacado comigo.</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM EXTREMA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Estabelecimentos em Extrema MG</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">✅</span>
+          <strong>Restaurantes e Lanchonetes</strong> - Carnes, frios, molhos, temperos
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">✅</span>
+          <strong>Mercados e Mercearias</strong> - Bebidas, enlatados, produtos básicos
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">✅</span>
+          <strong>Padarias e Confeitarias</strong> - Farinhas, fermentos, coberturas
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">✅</span>
+          <strong>Hotéis e Pousadas</strong> - Café da manhã, minibar, serviços
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">✅</span>
+          <strong>Escolas e Empresas</strong> - Cantinas e refeitórios
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">✅</span>
+          <strong>Bares e Botecos</strong> - Bebidas, salgados, aperitivos
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado Local em Extrema</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">1</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frete Grátis</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entregamos em Extrema sem custo de frete</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">2</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">💰 Preço Direto PMG</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Sem intermediários, economia real</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">3</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📞 Suporte Local</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Representante disponível na região</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">4</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Pedido Flexível</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Adequamos ao tamanho do seu negócio</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Marques Antonio:</strong> Restaurantes em Extrema que compram no atacado comigo economizam em média R$ 1.500,00 por mês em insumos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em Extrema MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA em Extrema</strong>. Atendo restaurantes, mercados e comércios locais com preço especial e frete grátis.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto do Representante:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ Diga que viu no site e ganhe <strong>5% de desconto</strong> na primeira compra!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Áreas de Entrega em Extrema e Região</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em todos estes bairros de Extrema:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim das Oliveiras</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Rica</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Portal das Flores</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim Pinheiros</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Esperança</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>📍 Também atendemos cidades próximas:</strong> Camanducaia, Itapeva, e todos os bairros rurais de Extrema. <strong>Frete grátis</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona o Atacado PMG em Extrema</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">1</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Você me chama</h4>
+            <p style="margin: 0; font-size: 0.9rem;">WhatsApp (11) 91357-2902 ou site</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">2</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Fazemos seu pedido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Catálogo com +2000 itens</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">3</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entregamos rápido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Frete grátis em Extrema</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">4</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Você paga na entrega</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Sem complicação, direto no local</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Também Atendemos Nestas Cidades</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=31#artigo-31" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Poços de Caldas</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=32#artigo-32" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">São Lourenço</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=33#artigo-33" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Itajubá</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo PMG ATACADISTA 2026</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para seu negócio em Extrema.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 VER CATÁLOGO COMPLETO
+      </a>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para Extrema MG:</strong> atacado em Extrema MG, distribuidora Extrema, fornecedor alimentos Extrema, atacadista bebidas Extrema, food service Extrema, atacado para restaurantes Extrema, representante PMG Extrema, compra atacado Extrema, distribuidora alimentos atacado Extrema MG, PMG ATACADISTA Extrema, atacado frete grátis Extrema, fornecedor mercado Extrema, atacado para padarias Extrema.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 31,
+  "title": "Atacado em Poços de Caldas MG | Distribuidora PMG ATACADISTA | Preço Direto 2026",
+  "description": "Representante da PMG ATACADISTA em Poços de Caldas MG: atacado direto de alimentos, bebidas e food service para restaurantes, hotéis e comércios. Pedido mínimo R$ 900.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "pocos-de-caldas-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Poços de Caldas MG | Distribuidora PMG ATACADISTA para Hotéis e Restaurantes</h1>
+      <p>Se você tem <strong>hotel, restaurante, mercado ou qualquer estabelecimento comercial em Poços de Caldas MG</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> em Poços de Caldas, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida para toda a cidade turística</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em Poços de Caldas?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Atendimento para hotéis</strong> • <strong>Especialista em food service</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Poços de Caldas MG - Distribuidora PMG ATACADISTA para hotéis e restaurantes" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em Poços de Caldas MG</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de Poços de Caldas, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE PARA POÇOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Mais Vendidos para Negócios em Poços de Caldas MG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏨</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Kits Hotelaria</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Café da manhã, minibar, amenities</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍽️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Food Service Premium</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para restaurantes turísticos</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Refrigerantes, águas, cervejas artesanais</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Especialista em turismo:</strong> Em Poços de Caldas atendemos hotéis da Rua Assis Figueiredo, restaurantes do Centro e comércios próximos às termas. Conhecemos as necessidades da cidade turística!</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM POÇOS DE CALDAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Estabelecimentos em Poços de Caldas MG</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏨</span>
+          <strong>Hotéis, Pousadas e Spas</strong> - Kits café, amenities, minibar
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🍽️</span>
+          <strong>Restaurantes e Bares</strong> - Food service premium, bebidas
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🛒</span>
+          <strong>Mercados e Mercearias</strong> - Abastecimento para turistas e locais
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🎪</span>
+          <strong>Eventos e Convenções</strong> - Fornecimento para centros de eventos
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏊</span>
+          <strong>Clubes e Termas</strong> - Cantinas e lanchonetes
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏢</span>
+          <strong>Comércio em Geral</strong> - Todos os estabelecimentos da cidade
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado Local em Poços de Caldas</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Preço Competitivo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Atacado direto para economia real</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">📦</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Pedido Mínimo R$ 900</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Valor acessível para qualquer negócio</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🚚</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entrega Rápida</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Atendemos toda Poços de Caldas</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">👨‍💼</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Conheço a Cidade</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Atendimento personalizado local</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Importante:</strong> Nosso pedido mínimo é de <strong>R$ 900,00</strong> – valor que facilita o acesso ao atacado para hotéis, restaurantes e comerciantes de Poços de Caldas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em Poços de Caldas MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA em Poços de Caldas</strong>. Especialista em atender hotéis, restaurantes e comércios da cidade turística.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto do Representante:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ Para hotéis e restaurantes: <strong>condições especiais</strong> para pedidos frequentes!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Áreas de Entrega em Poços de Caldas</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em todos estes bairros de Poços de Caldas:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim dos Estados</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Cruz</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São João</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Isa</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Recanto do Sol</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Olímpica</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim Itália</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Santo André</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Nossa Senhora de Fátima</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>🏨 Áreas turísticas:</strong> Atendemos especialmente hotéis e restaurantes próximos às Termas, Parque José Affonso Junqueira e cassino. <strong>Pedido mínimo: R$ 900,00</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona o Atacado PMG em Poços de Caldas</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">1</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Contato Inicial</h4>
+            <p style="margin: 0; font-size: 0.9rem;">WhatsApp (11) 91357-2902</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">2</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Orçamento</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Catálogo +2000 itens, mínimo R$ 900</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">3</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Confirmação</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Ajustamos sua necessidade</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">4</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entrega</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Rápida em toda Poços de Caldas</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #666;">
+            <strong>Prazo de entrega:</strong> 24-48h úteis após confirmação do pedido.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Também Atendemos Nestas Cidades</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=30#artigo-30" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Extrema</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=32#artigo-32" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">São Lourenço</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=33#artigo-33" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Itajubá</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo Especial para Poços de Caldas</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para hotéis, restaurantes e comércios.
+      </p>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <p style="margin: 0; color: white; font-size: 0.95rem;">
+          <strong>🏨 Para hotéis:</strong> Kits café da manhã, amenities, minibar<br>
+          <strong>🍽️ Para restaurantes:</strong> Food service premium, bebidas especiais
+        </p>
+      </div>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 SOLICITAR CATÁLOGO COMPLETO
+      </a>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para Poços de Caldas MG:</strong> atacado em Poços de Caldas, distribuidora Poços de Caldas, fornecedor alimentos Poços de Caldas, atacadista bebidas Poços de Caldas, food service Poços de Caldas MG, atacado para hotéis Poços de Caldas, representante PMG Poços de Caldas, fornecedor para restaurantes Poços de Caldas, atacado turístico Poços de Caldas, PMG ATACADISTA Poços de Caldas, pedido mínimo R$ 900 Poços, distribuidora alimentos atacado Poços de Caldas MG.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 32,
+  "title": "Atacado em São Lourenço MG | Distribuidora PMG ATACADISTA | Alimentos e Bebidas",
+  "description": "Representante da PMG ATACADISTA em São Lourenço MG: atacado direto de alimentos, bebidas e food service para hotéis, restaurantes e comércios da cidade das águas.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "sao-lourenco-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em São Lourenço MG | Distribuidora PMG ATACADISTA para Estabelecimentos Turísticos</h1>
+      <p>Se você tem <strong>hotel, restaurante, mercado ou qualquer comércio em São Lourenço MG</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> em São Lourenço, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida na cidade das águas</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em São Lourenço?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Conheço o mercado local</strong> • <strong>Atendimento para turismo</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em São Lourenço MG - Distribuidora PMG ATACADISTA para hotéis e restaurantes" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em São Lourenço MG</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de São Lourenço, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE PARA SÃO LOURENÇO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Mais Procurados em São Lourenço MG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">💧</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Kits para Hotéis</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Café da manhã e amenities para hóspedes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍽️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para restaurantes e lanchonetes locais</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🛒</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Mercearia Completa</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para mercados e mercearias da cidade</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Conheço São Lourenço:</strong> Atendo estabelecimentos próximos ao Parque das Águas, hotéis da Avenida Dom Pedro II e comércios do Centro. Entendo as necessidades da cidade turística!</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM SÃO LOURENÇO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Todos os Tipos de Estabelecimentos em São Lourenço</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏨</span>
+          <strong>Hotéis, Pousadas e Spas</strong> - Kits para hóspedes, café da manhã
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🍽️</span>
+          <strong>Restaurantes e Bares</strong> - Ingredientes premium, bebidas
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🛒</span>
+          <strong>Mercados e Mercearias</strong> - Abastecimento completo
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🥐</span>
+          <strong>Padarias e Cafeterias</strong> - Insumos de qualidade
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏪</span>
+          <strong>Lojas de Conveniência</strong> - Produtos para turistas
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏢</span>
+          <strong>Demais Comércios</strong> - Atendimento personalizado
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Ter um Atacadista Local em São Lourenço</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Economia Garantida</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço direto de atacado, sem intermediários</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🚚</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entrega Ágil</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Rápida entrega em toda São Lourenço</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">📞</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Atendimento Local</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Representante que conhece a cidade</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">📦</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Tudo que seu negócio precisa em um só lugar</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Marques Antonio:</strong> Estabelecimentos turísticos em São Lourenço que compram no atacado conseguem oferecer melhor custo-benefício aos seus clientes, aumentando a competitividade.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em São Lourenço MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA em São Lourenço</strong>. Especialista em atender o comércio local e estabelecimentos turísticos da cidade das águas.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto do Representante:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ <strong>Atendimento personalizado:</strong> Analiso suas necessidades e indico os melhores produtos!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Atendemos Todas as Áreas de São Lourenço</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em todos estes bairros de São Lourenço:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila São José</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim Primavera</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Dimas</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Santo Antônio</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim das Oliveiras</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Alto dos Passos</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Operária</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Vicente</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Boa Vista</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>🏨 Zonas turísticas:</strong> Atendemos especialmente hotéis e restaurantes próximos ao Parque das Águas, Complexo Turístico e centro histórico. <strong>Entrega rápida para não prejudicar seu fluxo de negócios!</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona Nosso Atendimento em São Lourenço</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">1</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Você me Contata</h4>
+            <p style="margin: 0; font-size: 0.9rem;">WhatsApp, telefone ou site</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">2</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Analisamos Suas Necessidades</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Catálogo +2000 itens disponíveis</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">3</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Montamos seu Pedido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Sugestões baseadas no seu negócio</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">4</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entregamos Rápido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Agilidade para não faltar produtos</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #095400; font-weight: 600;">
+            ⏱️ <strong>Nosso compromisso:</strong> Resposta rápida e entrega eficiente para seu negócio não parar!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Também Atendemos Nestas Cidades Próximas</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=30#artigo-30" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Extrema</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=31#artigo-31" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Poços de Caldas</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=33#artigo-33" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Itajubá</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo Especial para São Lourenço MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para hotéis, restaurantes e comércios da cidade turística.
+      </p>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <p style="margin: 0; color: white; font-size: 0.95rem;">
+          <strong>💧 Para estabelecimentos turísticos:</strong> Kits especiais, produtos premium<br>
+          <strong>🏪 Para comércio local:</strong> Mix completo com melhor custo-benefício
+        </p>
+      </div>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para São Lourenço MG:</strong> atacado em São Lourenço, distribuidora São Lourenço, fornecedor alimentos São Lourenço, atacadista bebidas São Lourenço, food service São Lourenço MG, atacado para hotéis São Lourenço, representante PMG São Lourenço, fornecedor para restaurantes São Lourenço, atacado turístico São Lourenço, PMG ATACADISTA São Lourenço, distribuidora alimentos atacado São Lourenço MG, fornecedor mercados São Lourenço.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 33,
+  "title": "Atacado em Itajubá MG | Distribuidora PMG ATACADISTA | Para Universidades e Indústrias",
+  "description": "Representante da PMG ATACADISTA em Itajubá MG: atacado direto de alimentos, bebidas e food service para restaurantes, mercados, cantinas universitárias e empresas.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "itajuba-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Itajubá MG | Distribuidora PMG ATACADISTA para Universidades e Empresas</h1>
+      <p>Se você tem <strong>restaurante, mercado, cantina universitária ou qualquer estabelecimento comercial em Itajubá MG</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> em Itajubá, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida na cidade universitária</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em Itajubá?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entendemos o mercado local</strong> • <strong>Atendimento para empresas</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Itajubá MG - Distribuidora PMG ATACADISTA para universidades e empresas" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em Itajubá MG</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de Itajubá, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE PARA ITAJUBÁ -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Mais Procurados em Itajubá MG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Cantinas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Lanches rápidos, bebidas, snacks</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏭</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Empresas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Kits café, refeições coletivas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍽️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para restaurantes e lanchonetes</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Conheço Itajubá:</strong> Atendo estabelecimentos próximos à UNIFEI, cantinas universitárias, restaurantes do Centro e empresas do Distrito Industrial. Entendo as necessidades da cidade acadêmica e industrial!</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM ITAJUBÁ -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Todos os Segmentos em Itajubá</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏫</span>
+          <strong>Cantinas Universitárias</strong> - UNIFEI, escolas técnicas, colégios
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏭</span>
+          <strong>Empresas e Indústrias</strong> - Refeitórios e cantinas corporativas
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🍽️</span>
+          <strong>Restaurantes e Lanchonetes</strong> - Para estudantes e trabalhadores
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🛒</span>
+          <strong>Mercados e Mercearias</strong> - Abastecimento para famílias
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏨</span>
+          <strong>Hotéis e Pousadas</strong> - Para visitantes e eventos acadêmicos
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏢</span>
+          <strong>Demais Comércios</strong> - Atendimento personalizado
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Ter um Atacadista em Itajubá</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">📚</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Para Universidades</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preços especiais para cantinas</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🏭</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Para Empresas</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Condições para compras corporativas</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🚚</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entrega Rápida</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Em toda Itajubá e região</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Economia Garantida</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço direto de atacado</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Marques Antonio:</strong> Cantinas universitárias em Itajubá que compram no atacado conseguem oferecer preços mais acessíveis aos estudantes, aumentando o fluxo de clientes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em Itajubá MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA em Itajubá</strong>. Especialista em atender cantinas universitárias, empresas e comércios da cidade.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto do Representante:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ <strong>Para cantinas e empresas:</strong> Condições especiais para pedidos recorrentes!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Atendemos Todas as Áreas de Itajubá</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em todos estes bairros de Itajubá:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Varginha</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Vicente</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Medicina</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Pinheirinho</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Boa Vista</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Cidade Nova</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Distrito Industrial</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Cruzeiro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Santa Rita</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>🏫 Áreas universitárias e industriais:</strong> Atendemos especialmente cantinas da UNIFEI, empresas do Distrito Industrial e comércios ao redor. <strong>Entendemos o ritmo acelerado da cidade!</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA PARA EMPRESAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona para Empresas e Cantinas</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">📋</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Análise de Necessidades</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entendemos seu fluxo e demanda</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Proposta Personalizada</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Melhores produtos e preços</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">📅</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Programação de Entregas</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Agendamos conforme sua rotina</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">✅</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Suporte Contínuo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Acompanhamos sua satisfação</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #095400; font-weight: 600;">
+            🏭 <strong>Para empresas:</strong> Oferecemos condições especiais e programação de entregas que se adaptam à sua operação!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Também Atendemos Nestas Cidades</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=30#artigo-30" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Extrema</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=31#artigo-31" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Poços de Caldas</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=32#artigo-32" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">São Lourenço</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo Especial para Itajubá MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para cantinas, empresas e comércios da cidade universitária.
+      </p>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <p style="margin: 0; color: white; font-size: 0.95rem;">
+          <strong>🏫 Para cantinas universitárias:</strong> Produtos práticos e econômicos<br>
+          <strong>🏭 Para empresas:</strong> Kits corporativos com melhor custo-benefício
+        </p>
+      </div>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 CONHEÇA NOSSO CATÁLAGO
+      </a>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para Itajubá MG:</strong> atacado em Itajubá, distribuidora Itajubá, fornecedor alimentos Itajubá, atacadista bebidas Itajubá, food service Itajubá, atacado para mercados Itajubá, representante PMG Itajubá, fornecedor para cantinas Itajubá, atacado universitário Itajubá, PMG ATACADISTA Itajubá, distribuidora alimentos atacado Itajubá MG, fornecedor empresas Itajubá, atacado para UNIFEI.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 34,
+  "title": "Atacado em Pouso Alegre MG | Distribuidora PMG ATACADISTA | Polo Comercial do Sul de Minas",
+  "description": "Representante da PMG ATACADISTA em Pouso Alegre MG: atacado direto de alimentos, bebidas e food service para restaurantes, mercados e comércios do principal polo da região.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "pouso-alegre-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Pouso Alegre MG | Distribuidora PMG ATACADISTA para o Polo Comercial do Sul de Minas</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou qualquer comércio em Pouso Alegre MG</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> em Pouso Alegre, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida no principal polo comercial da região</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em Pouso Alegre?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entendemos o mercado local</strong> • <strong>Atendimento para todos os segmentos</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Pouso Alegre MG - Distribuidora PMG ATACADISTA para o polo comercial" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em Pouso Alegre MG</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de Pouso Alegre, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE PARA POUSO ALEGRE -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Mais Procurados em Pouso Alegre MG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🛒</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Mercados</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Bebidas, mercearia, produtos básicos</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍽️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para restaurantes e lanchonetes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏢</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Empresas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Kits café, refeições coletivas</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Conheço Pouso Alegre:</strong> Atendo estabelecimentos do Centro, mercados do São Lucas, restaurantes da Avenida Doutor Lisboa e empresas de todos os portes. Entendo as necessidades do polo comercial!</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM POUSO ALEGRE -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Todos os Segmentos em Pouso Alegre</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🛒</span>
+          <strong>Mercados e Supermercados</strong> - Abastecimento completo
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🍽️</span>
+          <strong>Restaurantes e Bares</strong> - Food service de qualidade
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏢</span>
+          <strong>Empresas e Indústrias</strong> - Refeitórios e cantinas
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🥐</span>
+          <strong>Padarias e Confeitarias</strong> - Insumos frescos
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏨</span>
+          <strong>Hotéis e Pousadas</strong> - Para hóspedes e eventos
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏪</span>
+          <strong>Demais Comércios</strong> - Atendimento personalizado
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Ter um Atacadista em Pouso Alegre</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Economia Comprovada</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🚚</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entrega Ágil</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Rápida em toda Pouso Alegre</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">📦</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Tudo em um só fornecedor</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">👨‍💼</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Conheço o Polo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Atendimento que entende sua realidade</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Marques Antonio:</strong> Comerciantes de Pouso Alegre que compram no atacado têm maior competitividade no principal polo comercial do Sul de Minas!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em Pouso Alegre MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA em Pouso Alegre</strong>. Atendo o comércio local com preços competitivos e entrega eficiente.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp para Dúvidas:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ Para orçamentos personalizados e condições especiais!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Atendemos Todas as Áreas de Pouso Alegre</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em todos estes bairros de Pouso Alegre:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Lucas</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Fátima</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Santana</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Carlos</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Santa Clara</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Bom Jesus</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim América</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Cristóvão</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Industrial</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>🏢 Polo comercial:</strong> Atendemos especialmente estabelecimentos do Centro comercial, mercados dos principais bairros e empresas de todos os portes. <strong>Entregamos onde seu negócio está!</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona Nosso Atendimento em Pouso Alegre</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">1</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Acesse o Catálogo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Veja +2000 produtos no site</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">2</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Monte seu Pedido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Selecione os produtos que precisa</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">3</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Feche o Pedido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Direto pelo site ou WhatsApp</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">4</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Receba Rápido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entrega ágil em Pouso Alegre</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #095400; font-weight: 600;">
+            ⚡ <strong>Processo simplificado:</strong> Facilidade para você focar no que realmente importa: seu negócio!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Também Atendemos Nestas Cidades</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=30#artigo-30" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Extrema</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=31#artigo-31" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Poços de Caldas</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=33#artigo-33" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Itajubá</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL - CTA CORRIGIDA PARA O SITE -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo Completo PMG ATACADISTA</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para seu negócio em Pouso Alegre.
+      </p>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <p style="margin: 0; color: white; font-size: 0.95rem;">
+          <strong>📍 Tudo em um só lugar:</strong> Bebidas, alimentos, food service, mercearia<br>
+          <strong>💰 Preço direto:</strong> Economia real para seu estabelecimento
+        </p>
+      </div>
+      
+      <!-- CTA PRINCIPAL DIRECIONANDO PARA O SITE DE PRODUTOS -->
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 VER CATÁLOGO COMPLETO E FAZER PEDIDO
+      </a>
+      
+      <p style="margin: 15px 0 0 0; color: #e0f7e0; font-size: 0.9rem;">
+        Acesse, veja todos os produtos e feche seu pedido diretamente pelo site!
+      </p>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para Pouso Alegre MG:</strong> atacado em Pouso Alegre, distribuidora Pouso Alegre, fornecedor alimentos Pouso Alegre, atacadista bebidas Pouso Alegre, food service Pouso Alegre MG, atacado para mercados Pouso Alegre, representante PMG Pouso Alegre, fornecedor para restaurantes Pouso Alegre, atacado polo comercial Pouso Alegre, PMG ATACADISTA Pouso Alegre, distribuidora alimentos atacado Pouso Alegre MG, fornecedor empresas Pouso Alegre.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 35,
+  "title": "Atacado em Varginha MG | Distribuidora PMG ATACADISTA | Capital do Café no Sul de Minas",
+  "description": "Representante da PMG ATACADISTA em Varginha MG: atacado direto de alimentos, bebidas, café e food service para restaurantes, mercados e comércios da capital do café.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "varginha-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Varginha MG | Distribuidora PMG ATACADISTA para a Capital do Café</h1>
+      <p>Se você tem <strong>restaurante, mercado, cafeteria ou qualquer comércio em Varginha MG</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> em Varginha, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida na capital do café do Sul de Minas</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em Varginha?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Especialista em café</strong> • <strong>Conheço o mercado local</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Varginha MG - Distribuidora PMG ATACADISTA para a capital do café" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em Varginha MG</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de Varginha, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE PARA VARGINHA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Mais Procurados em Varginha MG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">☕</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Cafés Especiais</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para cafeterias e restaurantes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🛒</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Mercearia Completa</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para mercados e supermercados</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍽️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para restaurantes e lanchonetes</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Conheço Varginha:</strong> Atendo estabelecimentos do Centro, cafeterias da Avenida Rio Branco, mercados do Catanduvas e empresas de todos os portes. Entendo as necessidades da capital do café!</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM VARGINHA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Todos os Segmentos em Varginha</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">☕</span>
+          <strong>Cafeterias e Bares</strong> - Cafés especiais e insumos
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🛒</span>
+          <strong>Mercados e Supermercados</strong> - Abastecimento completo
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🍽️</span>
+          <strong>Restaurantes e Lanchonetes</strong> - Food service de qualidade
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏢</span>
+          <strong>Empresas e Cooperativas</strong> - Refeitórios e cantinas
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏨</span>
+          <strong>Hotéis e Pousadas</strong> - Para hóspedes e eventos
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏪</span>
+          <strong>Demais Comércios</strong> - Atendimento personalizado
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Ter um Atacadista em Varginha</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">☕</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Especialista em Café</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Produtos para a capital do café</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Economia Garantida</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🚚</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entrega Rápida</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Em toda Varginha e região</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">📦</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Tudo em um só fornecedor</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Marques Antonio:</strong> Cafeterias e restaurantes em Varginha que compram no atacado conseguem oferecer melhor qualidade pelo melhor preço, atraindo mais clientes!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em Varginha MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA em Varginha</strong>. Especialista em atender o comércio local com foco em cafés e food service.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp para Dúvidas:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ Para cafeterias: condições especiais em cafés e insumos!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Atendemos Todas as Áreas de Varginha</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em todos estes bairros de Varginha:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Catanduvas</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Sebastião</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Bueno</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim Áurea</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Novo Tempo</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Lucas</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Santa Terezinha</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Distrito Industrial</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Parque Rinaldo</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>☕ Capital do café:</strong> Atendemos especialmente cafeterias, mercados do Centro e Catanduvas, e empresas do Distrito Industrial. <strong>Entregamos onde o café é tradição!</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona Nosso Atendimento em Varginha</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">1</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Acesse o Catálogo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">+2000 produtos no nosso site</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">2</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Escolha os Produtos</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Cafés, alimentos, bebidas, etc.</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">3</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Feche seu Pedido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Direto pelo site ou WhatsApp</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">4</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Receba em Casa</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entrega rápida em Varginha</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #095400; font-weight: 600;">
+            ⚡ <strong>Simplicidade:</strong> Você foca no seu negócio, a gente cuida do seu abastecimento!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Também Atendemos Nestas Cidades</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=30#artigo-30" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Extrema</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=31#artigo-31" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Poços de Caldas</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=34#artigo-34" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Pouso Alegre</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL - CTA CORRIGIDA PARA O SITE -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo Completo PMG ATACADISTA</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para seu negócio em Varginha.
+      </p>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <p style="margin: 0; color: white; font-size: 0.95rem;">
+          <strong>☕ Especial para Varginha:</strong> Cafés, alimentos, bebidas, food service<br>
+          <strong>💰 Economia real:</strong> Preço direto de atacado para seu estabelecimento
+        </p>
+      </div>
+      
+      <!-- CTA PRINCIPAL DIRECIONANDO PARA O SITE DE PRODUTOS -->
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 ACESSAR CATÁLOGO E FAZER PEDIDO
+      </a>
+      
+      <p style="margin: 15px 0 0 0; color: #e0f7e0; font-size: 0.9rem;">
+        Acesse agora, veja todos os produtos e faça seu pedido diretamente pelo site!
+      </p>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para Varginha MG:</strong> atacado em Varginha, distribuidora Varginha, fornecedor alimentos Varginha, atacadista bebidas Varginha, food service Varginha, atacado para restaurantes Varginha, representante PMG Varginha, fornecedor para cafeterias Varginha, atacado capital do café Varginha, PMG ATACADISTA Varginha, distribuidora alimentos atacado Varginha MG, fornecedor mercados Varginha, café atacado Varginha.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 36,
+  "title": "Atacado em Camanducaia MG | Distribuidora PMG ATACADISTA | Monte Verde e Serra da Mantiqueira",
+  "description": "Representante da PMG ATACADISTA em Camanducaia MG: atacado direto de alimentos, bebidas e food service para pousadas, restaurantes e comércios de Monte Verde e região.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "camanducaia-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Camanducaia MG | Distribuidora PMG ATACADISTA para Monte Verde e Região</h1>
+      <p>Se você tem <strong>pousada, restaurante, mercado ou qualquer comércio em Camanducaia MG ou Monte Verde</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> na região, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida na Serra da Mantiqueira</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em Camanducaia?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Especialista em turismo</strong> • <strong>Conheço Monte Verde</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Camanducaia MG - Distribuidora PMG ATACADISTA para Monte Verde" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em Camanducaia e Monte Verde</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de Camanducaia, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE PARA CAMANDUCAIA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Mais Procurados em Camanducaia e Monte Verde</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏔️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Pousadas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Kits café da manhã, amenities</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍽️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Restaurantes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Food service para turistas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🛒</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Mercados</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Abastecimento local e turístico</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Conheço a região:</strong> Atendo pousadas de Monte Verde, restaurantes da vila, mercados de Camanducaia e comércios locais. Entendo as necessidades do turismo na Serra da Mantiqueira!</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM CAMANDUCAIA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Todos os Segmentos em Camanducaia e Monte Verde</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏔️</span>
+          <strong>Pousadas e Chalés</strong> - Kits para hóspedes, café da manhã
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🍽️</span>
+          <strong>Restaurantes e Bares</strong> - Comida para turistas e locais
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🛒</span>
+          <strong>Mercados e Mercearias</strong> - Abastecimento para a comunidade
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">☕</span>
+          <strong>Cafeterias e Confeitarias</strong> - Para dias frios na montanha
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏪</span>
+          <strong>Lojas de Conveniência</strong> - Produtos para turistas
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏡</span>
+          <strong>Demais Comércios</strong> - Atendimento personalizado
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Ter um Atacadista na Serra da Mantiqueira</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🏔️</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Especialista em Turismo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Produtos para pousadas e restaurantes</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Economia na Montanha</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço direto mesmo em áreas turísticas</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🚚</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entrega na Serra</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Até Monte Verde e áreas rurais</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">📦</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Tudo que seu negócio turístico precisa</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Marques Antonio:</strong> Pousadas em Monte Verde que compram no atacado conseguem oferecer melhor café da manhã e amenities, aumentando a satisfação dos hóspedes!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em Camanducaia MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA na região de Camanducaia e Monte Verde</strong>. Especialista em atender o comércio turístico da Serra da Mantiqueira.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp para Dúvidas:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ Para pousadas: condições especiais em kits café da manhã!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Atendemos Todas as Áreas de Camanducaia</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em Camanducaia e toda a região:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Monte Verde</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Pedro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Bairro Novo</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Santa Cruz</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim Primavera</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Esperança</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Zona Rural</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Distritos</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Áreas de Pousadas</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>🏔️ Serra da Mantiqueira:</strong> Atendemos especialmente pousadas e restaurantes de Monte Verde, comércios do Centro de Camanducaia e áreas rurais. <strong>Entregamos onde o turismo acontece!</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA PARA TURISMO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona para Estabelecimentos Turísticos</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">1</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Acesse o Catálogo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">+2000 produtos no nosso site</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">2</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Escolha para seu Negócio</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Kits pousada, food service, etc.</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">3</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Feche seu Pedido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Direto pelo site ou WhatsApp</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">4</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Receba na Montanha</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entrega em Camanducaia/Monte Verde</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #095400; font-weight: 600;">
+            ⛰️ <strong>Especial para turismo:</strong> Entendemos a sazonalidade e ajudamos você a se preparar para alta temporada!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Também Atendemos Nestas Cidades</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=30#artigo-30" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Extrema</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=34#artigo-34" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Pouso Alegre</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=31#artigo-31" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Poços de Caldas</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL - CTA CORRIGIDA PARA O SITE -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo Completo PMG ATACADISTA</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para seu negócio em Camanducaia e Monte Verde.
+      </p>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <p style="margin: 0; color: white; font-size: 0.95rem;">
+          <strong>🏔️ Especial para a serra:</strong> Kits pousada, food service, bebidas, mercearia<br>
+          <strong>💰 Preço competitivo:</strong> Economia mesmo em área turística
+        </p>
+      </div>
+      
+      <!-- CTA PRINCIPAL DIRECIONANDO PARA O SITE DE PRODUTOS -->
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 VER CATÁLOGO E FAZER PEDIDO
+      </a>
+      
+      <p style="margin: 15px 0 0 0; color: #e0f7e0; font-size: 0.9rem;">
+        Acesse agora, veja todos os produtos e faça seu pedido diretamente pelo site!
+      </p>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para Camanducaia MG:</strong> atacado em Camanducaia, distribuidora Camanducaia, fornecedor alimentos Camanducaia, atacadista bebidas Camanducaia, food service Camanducaia MG, atacado para Monte Verde, representante PMG Camanducaia, fornecedor para pousadas Monte Verde, atacado Serra da Mantiqueira, PMG ATACADISTA Camanducaia, distribuidora alimentos atacado Camanducaia MG, fornecedor restaurantes Monte Verde, atacado turístico Camanducaia.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 37,
+  "title": "Atacado em Três Pontas MG | Distribuidora PMG ATACADISTA | Terra do Café no Sul de Minas",
+  "description": "Representante da PMG ATACADISTA em Três Pontas MG: atacado direto de alimentos, bebidas, café e food service para restaurantes, mercados e cooperativas da terra do café.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "tres-pontas-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Três Pontas MG | Distribuidora PMG ATACADISTA para a Terra do Café</h1>
+      <p>Se você tem <strong>restaurante, mercado, cooperativa ou qualquer comércio em Três Pontas MG</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> em Três Pontas, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida na cidade que respira café</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em Três Pontas?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Especialista em café</strong> • <strong>Conheço a tradição local</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Três Pontas MG - Distribuidora PMG ATACADISTA para a terra do café" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em Três Pontas MG</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de Três Pontas, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE PARA TRÊS PONTAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Mais Procurados em Três Pontas MG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🌱</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Cafés Especiais</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para cafeterias, restaurantes e comércio</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏭</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Cooperativas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Abastecimento para associados</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🛒</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Mercearia Completa</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para mercados e supermercados</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Conheço Três Pontas:</strong> Atendo estabelecimentos do Centro, cafeterias da Avenida Governador Valadares, mercados tradicionais e cooperativas da região. Entendo a tradição cafeeira da cidade!</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM TRÊS PONTAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Todos os Segmentos em Três Pontas</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🌱</span>
+          <strong>Cafeterias e Bares</strong> - Cafés especiais e insumos
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🤝</span>
+          <strong>Cooperativas e Associações</strong> - Abastecimento coletivo
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🛒</span>
+          <strong>Mercados e Mercearias</strong> - Produtos para famílias
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🍽️</span>
+          <strong>Restaurantes e Lanchonetes</strong> - Food service local
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏢</span>
+          <strong>Empresas e Indústrias</strong> - Refeitórios e cantinas
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏪</span>
+          <strong>Demais Comércios</strong> - Atendimento personalizado
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Ter um Atacadista na Terra do Café</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🌱</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Especialista em Café</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Conheço a tradição cafeeira local</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🤝</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Para Cooperativas</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Condições especiais para grupos</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Economia Rural</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço justo para o campo e cidade</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🚚</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entrega Rural</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Até propriedades e zona rural</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Marques Antonio:</strong> Cooperativas e associações em Três Pontas que compram no atacado conseguem melhor preço para seus associados, fortalecendo a comunidade!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em Três Pontas MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA em Três Pontas</strong>. Especialista em atender o comércio local, cooperativas e estabelecimentos da terra do café.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp para Dúvidas:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ Para cooperativas: condições especiais para compras coletivas!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Atendemos Todas as Áreas de Três Pontas</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em Três Pontas e toda a região:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Sebastião</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Santa Cruz</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim Bandeirantes</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Rica</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Francisco</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Boa Esperança</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Zona Rural</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Fazendas</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Distritos</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>🌱 Terra do café:</strong> Atendemos especialmente cafeterias, cooperativas, mercados do Centro e propriedades rurais. <strong>Entregamos onde o café é tradição!</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA PARA COOPERATIVAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona para Cooperativas e Grupos</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">1</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Acesse o Catálogo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">+2000 produtos no nosso site</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">2</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Consulte para seu Grupo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">WhatsApp para condições especiais</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">3</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Monte o Pedido Coletivo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Maior economia para todos</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">4</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Receba na Comunidade</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entrega para todo o grupo</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #095400; font-weight: 600;">
+            🤝 <strong>Força coletiva:</strong> Cooperativas e grupos conseguem os melhores preços comprando juntos no atacado!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Também Atendemos Nestas Cidades</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=35#artigo-35" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Varginha</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=34#artigo-34" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Pouso Alegre</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=36#artigo-36" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Camanducaia</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL - CTA CORRIGIDA PARA O SITE -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo Completo PMG ATACADISTA</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para seu negócio em Três Pontas.
+      </p>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <p style="margin: 0; color: white; font-size: 0.95rem;">
+          <strong>🌱 Especial para a terra do café:</strong> Cafés, alimentos, bebidas, insumos<br>
+          <strong>🤝 Para cooperativas:</strong> Condições especiais para compras coletivas
+        </p>
+      </div>
+      
+      <!-- CTA PRINCIPAL DIRECIONANDO PARA O SITE DE PRODUTOS -->
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 ACESSAR CATÁLOGO E FAZER PEDIDO
+      </a>
+      
+      <p style="margin: 15px 0 0 0; color: #e0f7e0; font-size: 0.9rem;">
+        Acesse agora, veja todos os produtos e faça seu pedido diretamente pelo site!
+      </p>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para Três Pontas MG:</strong> atacado em Três Pontas, distribuidora Três Pontas, fornecedor alimentos Três Pontas, atacadista bebidas Três Pontas, food service Três Pontas MG, atacado para cooperativas Três Pontas, representante PMG Três Pontas, fornecedor para cafeterias Três Pontas, atacado terra do café Três Pontas, PMG ATACADISTA Três Pontas, distribuidora alimentos atacado Três Pontas MG, fornecedor mercados Três Pontas, café atacado Três Pontas.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 38,
+  "title": "Atacado em Virgínia MG | Distribuidora PMG ATACADISTA | Serra da Mantiqueira Mineira",
+  "description": "Representante da PMG ATACADISTA em Virgínia MG: atacado direto de alimentos, bebidas e food service para pousadas, restaurantes e comércios da serra mineira.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "virginia-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Virgínia MG | Distribuidora PMG ATACADISTA para a Serra da Mantiqueira</h1>
+      <p>Se você tem <strong>pousada, restaurante, mercado ou qualquer comércio em Virgínia MG</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> em Virgínia, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida no coração da Serra da Mantiqueira</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em Virgínia?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Conheço o turismo local</strong> • <strong>Atendimento personalizado</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Virgínia MG - Distribuidora PMG ATACADISTA para a Serra da Mantiqueira" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em Virgínia MG</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de Virgínia, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE PARA VIRGÍNIA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Mais Procurados em Virgínia MG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⛰️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Pousadas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Kits café da manhã rústico</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍲</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Comida Caseira</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Ingredientes para restaurantes locais</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🛒</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Mercearia Simples</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para mercados e vendinhas</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Conheço Virgínia:</strong> Atendo pousadas familiares, restaurantes com comida caseira, mercados do Centro e comércios acolhedores. Entendo o ritmo tranquilo da serra!</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM VIRGÍNIA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Todos os Segmentos em Virgínia</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">⛰️</span>
+          <strong>Pousadas e Chalés</strong> - Para turistas que buscam tranquilidade
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🍲</span>
+          <strong>Restaurantes Familiares</strong> - Comida caseira e acolhedora
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🛒</span>
+          <strong>Mercados e Mercearias</strong> - Abastecimento para a comunidade
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">☕</span>
+          <strong>Cafés e Lanchonetes</strong> - Para encontros descontraídos
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏡</span>
+          <strong>Comércio Local</strong> - Pequenos negócios da cidade
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🌄</span>
+          <strong>Propriedades Rurais</strong> - Atendimento na zona rural
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Ter um Atacadista na Serra</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">⛰️</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Para o Turismo Serrano</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Produtos que combinam com a serra</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Economia Acessível</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço justo para pequenos negócios</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🚚</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Entrega na Montanha</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Até propriedades mais afastadas</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🤝</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Atendimento Próximo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Conheço cada negócio da cidade</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Marques Antonio:</strong> Pousadas em Virgínia que oferecem café da manhã com produtos de qualidade têm maior taxa de fidelização dos hóspedes!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em Virgínia MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA em Virgínia</strong>. Atendo o comércio local com a mesma tranquilidade e acolhimento da serra.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp para Dúvidas:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ Para pousadas familiares: condições que respeitam seu ritmo!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Atendemos Todas as Áreas de Virgínia</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em Virgínia e toda a região serrana:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Sebastião</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Santa Cruz</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim Primavera</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila Operária</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Bairro Novo</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Zona Rural</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Sítios</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Chácaras</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Áreas de Pousada</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>⛰️ Serra acolhedora:</strong> Atendemos especialmente pousadas familiares, restaurantes do Centro, mercados locais e propriedades rurais. <strong>Entregamos onde a serra abraça!</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA PARA PEQUENOS NEGÓCIOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona para Pequenos Negócios da Serra</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">1</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Acesse o Catálogo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">+2000 produtos no nosso site</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">2</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Escolha sem Pressa</h4>
+            <p style="margin: 0; font-size: 0.9rem;">No ritmo da serra, sem complicação</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">3</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Feche seu Pedido</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Direto pelo site ou WhatsApp</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">4</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Receba na Sua Porta</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entrega tranquila em Virgínia</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #095400; font-weight: 600;">
+            🌄 <strong>Simplicidade serrana:</strong> Você cuida do seu negócio com tranquilidade, a gente cuida do seu abastecimento!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Também Atendemos Nestas Cidades da Serra</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=36#artigo-36" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Camanducaia</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=31#artigo-31" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Poços de Caldas</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=32#artigo-32" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">São Lourenço</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL - CTA CORRIGIDA PARA O SITE -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo Completo PMG ATACADISTA</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para seu negócio em Virgínia.
+      </p>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <p style="margin: 0; color: white; font-size: 0.95rem;">
+          <strong>⛰️ Especial para a serra:</strong> Produtos para pousadas, comida caseira, mercearia<br>
+          <strong>💰 Preço justo:</strong> Economia para pequenos negócios serranos
+        </p>
+      </div>
+      
+      <!-- CTA PRINCIPAL DIRECIONANDO PARA O SITE DE PRODUTOS -->
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 VER CATÁLOGO E FAZER PEDIDO
+      </a>
+      
+      <p style="margin: 15px 0 0 0; color: #e0f7e0; font-size: 0.9rem;">
+        Acesse agora, veja todos os produtos e faça seu pedido diretamente pelo site!
+      </p>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para Virgínia MG:</strong> atacado em Virgínia MG, distribuidora Virgínia, fornecedor alimentos Virgínia, atacadista bebidas Virgínia, food service Virgínia MG, atacado para pousadas Virgínia, representante PMG Virgínia, fornecedor para restaurantes Virgínia, atacado Serra da Mantiqueira Virgínia, PMG ATACADISTA Virgínia MG, distribuidora alimentos atacado Virgínia MG, fornecedor mercados Virgínia, atacado turístico Virgínia.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 39,
+  "title": "Atacado em Santa Rita do Sapucaí MG | Distribuidora PMG ATACADISTA | Vale da Eletrônica",
+  "description": "Representante da PMG ATACADISTA em Santa Rita do Sapucaí MG: atacado direto de alimentos, bebidas e food service para empresas, restaurantes e comércios do polo tecnológico.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "santa-rita-sapucai-mg",
+  "readTime": "3 min de leitura",
+  "date": "2026-01-18",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Santa Rita do Sapucaí MG | Distribuidora PMG ATACADISTA para o Vale da Eletrônica</h1>
+      <p>Se você tem <strong>empresa, restaurante, mercado ou qualquer comércio em Santa Rita do Sapucaí MG</strong>, encontrou seu <strong>fornecedor atacadista local</strong>. Como <strong>representante oficial da PMG ATACADISTA</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com <strong>entrega rápida no coração do Vale da Eletrônica</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar com a PMG ATACADISTA em Santa Rita do Sapucaí?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos no catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Especialista em empresas</strong> • <strong>Conheço o polo tecnológico</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Santa Rita do Sapucaí MG - Distribuidora PMG ATACADISTA para o Vale da Eletrônica" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG ATACADISTA - Atacado e distribuição em Santa Rita do Sapucaí MG</p>
+    </section>
+
+    <!-- LINK PARA ARTIGO PILAR -->
+    <section style="margin-bottom: 30px;">
+      <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; border-left: 4px solid #095400;">
+        <p style="margin: 0; font-weight: 600;">📍 <strong>Atendo toda a região Sul de Minas!</strong> Além de Santa Rita do Sapucaí, sou representante PMG ATACADISTA em mais 9 cidades. <a href="/food-news?page=29#artigo-29" style="color: #095400; text-decoration: underline;">Conheça nosso atacado regional →</a></p>
+      </div>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE PARA SANTA RITA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Mais Procurados em Santa Rita do Sapucaí</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏢</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Empresas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Kits café, refeições coletivas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🎓</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Para Cantinas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">INATEL, escolas, faculdades</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🍽️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Food Service Moderno</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Para restaurantes e lanchonetes</p>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px dashed #095400; border-radius: 8px; padding: 15px; margin-top: 15px;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong>💡 Conheço Santa Rita:</strong> Atendo empresas do Vale da Eletrônica, cantinas do INATEL, restaurantes modernos e comércios inovadores. Entendo o dinamismo da cidade tecnológica!</p>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É EM SANTA RITA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Atendo Todos os Segmentos em Santa Rita do Sapucaí</h2>
+      
+      <ul style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin: 0; list-style: none;">
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏢</span>
+          <strong>Empresas de Tecnologia</strong> - Refeitórios e cantinas corporativas
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🎓</span>
+          <strong>Instituições de Ensino</strong> - INATEL, escolas, faculdades
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🍽️</span>
+          <strong>Restaurantes e Cafés</strong> - Para profissionais e estudantes
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🛒</span>
+          <strong>Mercados e Mercearias</strong> - Abastecimento para famílias
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">🏨</span>
+          <strong>Hotéis e Pousadas</strong> - Para visitantes de negócios
+        </li>
+        <li style="padding-left: 25px; position: relative;">
+          <span style="position: absolute; left: 0; color: #095400;">💡</span>
+          <strong>Startups e Inovações</strong> - Atendimento ágil e moderno
+        </li>
+      </ul>
+    </section>
+
+    <!-- VANTAGENS LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Ter um Atacadista no Vale da Eletrônica</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">🏢</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Para Empresas Tech</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Condições para corporações</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">⚡</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Agilidade Tech</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Processos rápidos e eficientes</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">💰</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Economia Inteligente</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço competitivo para empresas</p>
+          </div>
+          
+          <div>
+            <div style="background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-weight: bold;">📦</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Solução Completa</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Tudo que sua empresa precisa</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Marques Antonio:</strong> Empresas do Vale da Eletrônica que otimizam seus custos com alimentação têm mais recursos para investir em inovação!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO LOCAL -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Representante PMG ATACADISTA em Santa Rita do Sapucaí MG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante da PMG ATACADISTA no Vale da Eletrônica</strong>. Especialista em atender empresas, instituições de ensino e comércios inovadores.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp para Empresas:
+        </p>
+        <p style="margin: 10px 0; color: #095400; font-weight: 700; font-size: 1.6rem;">
+          (11) 91357-2902
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem; background: #f8f8f8; padding: 8px; border-radius: 4px;">
+          ⭐ Para empresas: condições corporativas e programação de entregas!
+        </p>
+      </div>
+    </section>
+
+    <!-- ÁREAS DE ENTREGA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Atendemos Todas as Áreas de Santa Rita do Sapucaí</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p><strong>🚚 Entregamos em Santa Rita e todo o Vale da Eletrônica:</strong></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 15px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Centro</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Sebastião</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Jardim das Flores</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Vila São José</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Santa Terezinha</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">São Dimas</span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0;">
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Área do INATEL</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Polo Industrial</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Zona de Empresas</span>
+          <span style="background: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: 500;">Distritos</span>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-size: 0.95rem;"><strong>💻 Vale da Eletrônica:</strong> Atendemos especialmente empresas de tecnologia, cantinas do INATEL, restaurantes modernos e comércios inovadores. <strong>Entregamos onde a inovação acontece!</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA PARA EMPRESAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔄 Como Funciona para Empresas e Instituições</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">📊</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Análise de Necessidades</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entendemos seu fluxo corporativo</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">💼</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Proposta Corporativa</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Condições especiais para empresas</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">📅</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Programação de Entregas</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Agendamos conforme sua operação</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="background: #095400; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; font-size: 1.2rem;">📈</div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">Otimização Contínua</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Ajustamos para melhor eficiência</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="margin: 0; font-size: 0.9rem; color: #095400; font-weight: 600;">
+            🏢 <strong>Para corporações:</strong> Oferecemos soluções que se integram à sua operação, com relatórios e controle total!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELACIONADOS - ÚLTIMO ARTIGO, LINK PARA TODOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Conheça Nosso Atendimento em Todo o Sul de Minas</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=33#artigo-33" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Itajubá</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=34#artigo-34" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Pouso Alegre</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=37#artigo-37" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="color: #095400; margin: 0 0 5px 0; font-size: 0.9rem;">Três Pontas</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Ver atacado →</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=29#artigo-29" style="text-decoration: none; color: inherit;">
+          <div style="background: #095400; color: white; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;">
+            <h4 style="margin: 0 0 5px 0; font-size: 0.9rem;">Ver Todas 10 Cidades</h4>
+            <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">Sul de Minas →</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- CATÁLOGO FINAL - CTA CORRIGIDA PARA O SITE -->
+    <section style="text-align: center; padding: 30px; background: linear-gradient(135deg, #095400, #0a6b00); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📋 Catálogo Completo PMG ATACADISTA</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para empresas, instituições e comércios de Santa Rita do Sapucaí.
+      </p>
+      
+      <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <p style="margin: 0; color: white; font-size: 0.95rem;">
+          <strong>💻 Especial para o Vale:</strong> Soluções corporativas, food service moderno, cantinas<br>
+          <strong>🏢 Para empresas:</strong> Condições especiais e programação flexível
+        </p>
+      </div>
+      
+      <!-- CTA PRINCIPAL DIRECIONANDO PARA O SITE DE PRODUTOS -->
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1rem; display: inline-block;">
+         👉 ACESSAR CATÁLOGO E SOLICITAR PROPOSTA
+      </a>
+      
+      <p style="margin: 15px 0 0 0; color: #e0f7e0; font-size: 0.9rem;">
+        Acesse agora, veja todos os produtos e faça seu pedido diretamente pelo site!
+      </p>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px; border-left: 4px solid #095400;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>🔍 Palavras-chave para Santa Rita do Sapucaí MG:</strong> atacado em Santa Rita do Sapucaí, distribuidora Santa Rita do Sapucaí, fornecedor alimentos Santa Rita, atacadista bebidas Santa Rita, food service Santa Rita do Sapucaí, atacado para empresas Santa Rita, representante PMG Santa Rita, fornecedor para INATEL, atacado Vale da Eletrônica, PMG ATACADISTA Santa Rita, distribuidora alimentos atacado Santa Rita do Sapucaí MG, fornecedor cantinas Santa Rita, atacado corporativo Santa Rita.
+      </p>
+    </div>
+  `
 }
   ];
 
   useEffect(() => {
     setIsClient(true);
+    // Simulação de usuário logado - ajuste conforme sua lógica
+    setUser({ email: "cliente@exemplo.com" });
+    setUserName("Cliente");
+    setUserAvatar("");
+    
+    // Inicializa largura da janela
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth);
+      const checkScreenSize = () => {
+        const mobile = window.innerWidth <= 768;
+        setIsMobile(mobile);
+        setShowIndex(!mobile);
+        setWindowWidth(window.innerWidth);
+      };
+      
+      checkScreenSize();
+      window.addEventListener('resize', checkScreenSize);
+      
+      return () => {
+        window.removeEventListener('resize', checkScreenSize);
+      };
+    }
   }, []);
 
-  useEffect(() => {
-    const checkScreenSize = () => {
-      const mobile = window.innerWidth <= 768;
-      setIsMobile(mobile);
-      setShowIndex(!mobile);
-    };
-    
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    
-    return () => {
-      window.removeEventListener('resize', checkScreenSize);
-    };
-  }, []);
+  const toggleRegion = (region) => {
+    setOpenRegions(prev => ({
+      ...prev,
+      [region]: !prev[region]
+    }));
+  };
 
   const totalPages = articles.length;
   const currentArticle = articles.find(article => article.id === currentPage) || articles[0];
@@ -5411,6 +8711,12 @@ export default function FoodNews({ initialPage }) {
         <meta name="twitter:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
         <meta name="twitter:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
         <meta name="twitter:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
+        
+        {/* SCHEMA MARKUP LOCALBUSINESS */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
       </Head>
 
       {/* ESTILOS GLOBAIS LIMPOS */}
@@ -5487,7 +8793,8 @@ export default function FoodNews({ initialPage }) {
         backgroundColor: '#ffffff',
         fontFamily: "'Segoe UI', Roboto, Arial, sans-serif"
       }}>
-        {/* HEADER */}
+        
+        {/* HEADER COM CABEÇALHO PERSONALIZADO */}
         <header style={{
           textAlign: 'center',
           padding: isMobile ? '15px 0' : '25px 0',
@@ -5506,6 +8813,414 @@ export default function FoodNews({ initialPage }) {
             />
           </Link>
           
+        {/* CABEÇALHO PERSONALIZADO - BOTÃO DE CIDADES */}
+        {user && (
+          <div style={{
+            backgroundColor: '#095400',
+            color: 'white',
+            padding: windowWidth > 768 ? '10px 15px' : '8px 10px',
+            borderRadius: '8px',
+            marginBottom: windowWidth > 768 ? '15px' : '10px',
+            width: '100%'
+          }}>
+            {/* Linha 1: Mensagem de boas-vindas COMPACTA */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginBottom: '8px',
+              flexWrap: 'wrap',
+              gap: '8px'
+            }}>
+              {userAvatar && (
+                <img 
+                  src={userAvatar} 
+                  alt="Foto do usuário"
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    objectFit: 'cover'
+                  }} 
+                />
+              )}
+              <p style={{
+                fontSize: windowWidth > 768 ? '14px' : '12px',
+                fontWeight: '600',
+                margin: 0,
+                textAlign: 'center'
+              }}>
+                {userName ? `Olá ${userName}, seja bem-vindo(a)!` : `Olá ${user.email}, seja bem-vindo(a)!`}
+              </p>
+            </div>
+            
+            {/* Linha 2: Botões COMPACTOS */}
+            <div style={{
+              display: 'flex',
+              gap: '8px',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexWrap: 'wrap'
+            }}>
+              {/* BOTÃO PÁGINA INICIAL */}
+              <a href="/" style={{
+                backgroundColor: 'white',
+                color: '#095400',
+                border: '1px solid #095400',
+                padding: windowWidth > 768 ? '6px 10px' : '5px 8px',
+                borderRadius: '16px',
+                fontSize: windowWidth > 768 ? '13px' : '11px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                transition: 'all 0.3s',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+                ':hover': {
+                  backgroundColor: '#095400',
+                  color: 'white'
+                }
+              }}>
+                Página Inicial
+              </a>
+              
+              {/* BOTÃO ONDE ENTREGAMOS - CENTRALIZADO */}
+              <div style={{ 
+                position: 'relative', 
+                display: 'inline-block'
+              }}>
+                <button
+                  onClick={() => setShowCitiesMenu(!showCitiesMenu)}
+                  style={{
+                    backgroundColor: '#e53935',
+                    color: 'white',
+                    border: 'none',
+                    padding: windowWidth > 768 ? '6px 10px' : '5px 8px',
+                    borderRadius: '16px',
+                    fontSize: windowWidth > 768 ? '13px' : '11px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s',
+                    whiteSpace: 'nowrap',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    boxShadow: '0 2px 4px rgba(229, 57, 53, 0.3)',
+                    ':hover': {
+                      backgroundColor: '#c62828',
+                      transform: 'translateY(-1px)',
+                      boxShadow: '0 3px 6px rgba(229, 57, 53, 0.4)'
+                    }
+                  }}
+                >
+                  Onde Entregamos
+                  <span style={{
+                    transition: 'transform 0.3s',
+                    fontSize: '10px',
+                    transform: showCitiesMenu ? 'rotate(180deg)' : 'rotate(0deg)'
+                  }}>
+                    ▼
+                  </span>
+                </button>
+                
+                {/* MENU DROPDOWN - DO JEITO ORIGINAL QUE VOCÊ MANDOU */}
+                {showCitiesMenu && (
+                  <>
+                    {/* Overlay para fechar ao clicar fora */}
+                    <div 
+                      style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        zIndex: 998,
+                        backgroundColor: 'transparent'
+                      }}
+                      onClick={() => setShowCitiesMenu(false)}
+                    />
+                    
+                    {/* Container do Menu - Centralizado abaixo do botão */}
+                    <div 
+                      style={{
+                        position: 'absolute',
+                        top: '100%',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        zIndex: 999,
+                        backgroundColor: 'white',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
+                        border: '2px solid #e53935',
+                        width: windowWidth > 768 ? '350px' : '280px',
+                        maxHeight: '400px',
+                        overflowY: 'auto',
+                        marginTop: '5px'
+                      }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {/* Cabeçalho do Menu */}
+                      <div style={{
+                        padding: '10px 12px',
+                        borderBottom: '1px solid #eee',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        backgroundColor: '#fff5f5'
+                      }}>
+                        <strong style={{ 
+                          color: '#095400', 
+                          fontSize: windowWidth > 768 ? '15px' : '13px',
+                          fontWeight: '600'
+                        }}>
+                          📍 Onde Entregamos
+                        </strong>
+                        <button
+                          onClick={() => setShowCitiesMenu(false)}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            color: '#e53935',
+                            cursor: 'pointer',
+                            fontSize: '18px',
+                            fontWeight: 'bold',
+                            padding: '0',
+                            width: '22px',
+                            height: '22px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            borderRadius: '50%',
+                            ':hover': {
+                              backgroundColor: '#f0f0f0'
+                            }
+                          }}
+                        >
+                          ×
+                        </button>
+                      </div>
+                      
+                      {/* Conteúdo do Menu */}
+                      <div style={{ padding: '12px' }}>
+                        
+                        {/* São Paulo */}
+                        <div style={{ marginBottom: '12px' }}>
+                          <div 
+                            onClick={() => toggleRegion('sp')}
+                            style={{
+                              color: '#095400',
+                              fontWeight: '600',
+                              fontSize: windowWidth > 768 ? '14px' : '12px',
+                              marginBottom: '6px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              cursor: 'pointer',
+                              padding: '4px',
+                              borderRadius: '4px',
+                              ':hover': {
+                                backgroundColor: '#f9f9f9'
+                              }
+                            }}
+                          >
+                            <span>🏢</span>
+                            <span>Estado de São Paulo</span>
+                            <span style={{
+                              marginLeft: 'auto',
+                              fontSize: '10px',
+                              transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
+                              transition: 'transform 0.2s'
+                            }}>
+                              ▼
+                            </span>
+                          </div>
+                          
+                          {openRegions.sp && (
+                            <div style={{
+                              marginLeft: '8px',
+                              paddingLeft: '8px',
+                              borderLeft: '2px solid #095400',
+                              maxHeight: '100px',
+                              overflowY: 'auto'
+                            }}>
+                              {citiesData.sp.regions.map((regiao, index) => (
+                                <div key={index} style={{
+                                  padding: '3px 0',
+                                  color: '#555',
+                                  fontSize: windowWidth > 768 ? '12px' : '11px'
+                                }}>
+                                  • {regiao}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        
+                        {/* Rio de Janeiro */}
+                        <div style={{ marginBottom: '12px' }}>
+                          <div 
+                            onClick={() => toggleRegion('rj')}
+                            style={{
+                              color: '#095400',
+                              fontWeight: '600',
+                              fontSize: windowWidth > 768 ? '14px' : '12px',
+                              marginBottom: '6px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              cursor: 'pointer',
+                              padding: '4px',
+                              borderRadius: '4px',
+                              ':hover': {
+                                backgroundColor: '#f9f9f9'
+                              }
+                            }}
+                          >
+                            <span>🏖️</span>
+                            <span>Sul do Rio de Janeiro</span>
+                            <span style={{
+                              marginLeft: 'auto',
+                              fontSize: '10px',
+                              transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
+                              transition: 'transform 0.2s'
+                            }}>
+                              ▼
+                            </span>
+                          </div>
+                          
+                          {openRegions.rj && (
+                            <div style={{
+                              marginLeft: '8px',
+                              paddingLeft: '8px',
+                              borderLeft: '2px solid #e53935',
+                              maxHeight: '100px',
+                              overflowY: 'auto'
+                            }}>
+                              {citiesData.rj.cities.map((city, index) => (
+                                <div key={index} style={{
+                                  padding: '3px 0',
+                                  color: '#555',
+                                  fontSize: windowWidth > 768 ? '12px' : '11px'
+                                }}>
+                                  • {city}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        
+                        {/* Minas Gerais */}
+                        <div>
+                          <div 
+                            onClick={() => toggleRegion('mg')}
+                            style={{
+                              color: '#095400',
+                              fontWeight: '600',
+                              fontSize: windowWidth > 768 ? '14px' : '12px',
+                              marginBottom: '6px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '6px',
+                              cursor: 'pointer',
+                              padding: '4px',
+                              borderRadius: '4px',
+                              ':hover': {
+                                backgroundColor: '#f9f9f9'
+                              }
+                            }}
+                          >
+                            <span>⛰️</span>
+                            <span>Sul de Minas Gerais</span>
+                            <span style={{
+                              marginLeft: 'auto',
+                              fontSize: '10px',
+                              transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
+                              transition: 'transform 0.2s'
+                            }}>
+                              ▼
+                            </span>
+                          </div>
+                          
+                          {openRegions.mg && (
+                            <div style={{
+                              marginLeft: '8px',
+                              paddingLeft: '8px',
+                              borderLeft: '2px solid #e53935',
+                              maxHeight: '100px',
+                              overflowY: 'auto'
+                            }}>
+                              {citiesData.mg.cities.slice(0, 59).map((city, index) => (
+                                <div key={index} style={{
+                                  padding: '3px 0',
+                                  color: '#555',
+                                  fontSize: windowWidth > 768 ? '12px' : '11px'
+                                }}>
+                                  • {city}
+                                </div>
+                              ))}
+                              {citiesData.mg.cities.length > 59 && (
+                                <div style={{
+                                  color: '#888',
+                                  fontSize: '11px',
+                                  fontStyle: 'italic',
+                                  padding: '3px 0'
+                                }}>
+                                  + {citiesData.mg.cities.length - 59} cidades...
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      
+                      {/* Rodapé do Menu */}
+                      <div style={{
+                        padding: '8px 12px',
+                        borderTop: '1px solid #eee',
+                        fontSize: '11px',
+                        color: '#888',
+                        textAlign: 'center',
+                        backgroundColor: '#f9f9f9'
+                      }}>
+                        Clique nas regiões para expandir
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+              
+              {/* BOTÃO OFERTAS (SUBSTITUI PERGUNTAS) */}
+              <Link href="/ofertas" legacyBehavior>
+                <a style={{
+                  backgroundColor: '#ff6b35',
+                  color: 'white',
+                  border: '1px solid #ff6b35',
+                  padding: windowWidth > 768 ? '6px 10px' : '5px 8px',
+                  borderRadius: '16px',
+                  fontSize: windowWidth > 768 ? '13px' : '11px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                  transition: 'all 0.3s',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  ':hover': {
+                    backgroundColor: '#e55a2b',
+                    transform: 'translateY(-1px)',
+                    boxShadow: '0 3px 6px rgba(255, 107, 53, 0.3)'
+                  }
+                }}>
+                  🔥 Ofertas
+                </a>
+              </Link>
+            </div>
+          </div>
+        )}
+
           <h1 style={{ 
             color: '#095400', 
             fontSize: isMobile ? '1.2rem' : '1.6rem',
