@@ -228,19 +228,26 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
   
   let conteudoProcessado = conteudoHTML;
   
-  // Procura por padrões de link antigos e substitui
+  // Primeiro, cria um mapa de IDs para artigos para busca rápida
+  const artigoPorId = {};
   articlesArray.forEach(artigo => {
-    // Padrão 1: /food-news?page=30
-    const padrao1 = new RegExp(`href="/food-news\\?page=${artigo.id}"`, 'gi');
-    conteudoProcessado = conteudoProcessado.replace(padrao1, `href="${getArticleUrl(artigo)}"`);
+    artigoPorId[artigo.id] = artigo;
+  });
+  
+  // Encontra TODOS os links no conteúdo
+  const regexLinks = /href="\/food-news\?page=(\d+)(?:#artigo-\d+)?"/gi;
+  const matches = [...conteudoHTML.matchAll(regexLinks)];
+  
+  // Para cada link encontrado, substitui
+  matches.forEach(match => {
+    const idArtigo = parseInt(match[1]);
+    const linkCompleto = match[0];
     
-    // Padrão 2: /food-news?page=30#artigo-30
-    const padrao2 = new RegExp(`href="/food-news\\?page=${artigo.id}#artigo-${artigo.id}"`, 'gi');
-    conteudoProcessado = conteudoProcessado.replace(padrao2, `href="${getArticleUrl(artigo)}"`);
-    
-    // Padrão 3: Links sem aspa
-    const padrao3 = new RegExp(`/food-news\\?page=${artigo.id}(#artigo-${artigo.id})?`, 'g');
-    conteudoProcessado = conteudoProcessado.replace(padrao3, getArticleUrl(artigo));
+    if (artigoPorId[idArtigo]) {
+      const urlAmigavel = getArticleUrl(artigoPorId[idArtigo]);
+      const novoLink = `href="${urlAmigavel}"`;
+      conteudoProcessado = conteudoProcessado.replace(linkCompleto, novoLink);
+    }
   });
   
   return conteudoProcessado;
