@@ -8267,6 +8267,267 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
       </p>
     </div>
   `
+},
+{
+  "id": 40,
+  "title": "PMG ATACADISTA | Distribuidora de Alimentos e Bebidas em São Paulo desde 1995",
+  "description": "Conheça a história da PMG ATACADISTA, líder em distribuição food service em SP. Fale com o representante Marques Vendas PMG para preço especial e catálogo com +2000 itens.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "pmg-atacadista",
+  "readTime": "5 min de leitura",
+  "date": "2026-01-21",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO - PMG ATACADISTA -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 PMG ATACADISTA: Sua Distribuidora de Alimentos e Bebidas em São Paulo desde 1995</h1>
+      <p>Se você busca um <strong>atacadista de alimentos e bebidas confiável em São Paulo</strong>, conheça a história da <strong>PMG ATACADISTA</strong>. Com quase 30 anos de mercado, somos referência em food service para pizzarias, restaurantes, mercados e mais. Como <strong>representante oficial Marques Vendas PMG</strong>, trago até você a qualidade e a estrutura da maior, com <strong>preços diretos e atendimento personalizado</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que a PMG ATACADISTA é a Melhor Escolha?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+30 anos de mercado</strong> • <strong>+2000 itens no catálogo</strong> • <strong>+280 veículos refrigerados</strong> • <strong>Atendimento em SP, Sul de Minas e Sul do RJ</strong> • <strong>Representante dedicado</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG ATACADISTA - Distribuidora líder em alimentos e bebidas para São Paulo" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Distribuição PMG ATACADISTA - Qualidade e confiança desde 1995</p>
+    </section>
+
+    <!-- A HISTÓRIA DA PMG -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📜 A História da PMG ATACADISTA: De Uma Kombi a Líder do Mercado</h2>
+      <p>A <strong>PMG ATACADISTA</strong> começou em março de 1995 como <strong>PMG Frios e Laticínios</strong>, com uma missão simples: distribuir produtos perecíveis para pizzarias da Zona Sul de São Paulo. Com apenas uma Kombi e muita determinação dos fundadores, a empresa deu seus primeiros passos em Santo Amaro.</p>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h4 style="color: #095400; margin: 0 0 10px 0;">🚀 Crescimento e Expansão: Uma Trajetória de Sucesso</h4>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li><strong>1995 - Santo Amaro:</strong> Fundação no bairro de Santo Amaro, SP.</li>
+          <li><strong>Expansão - Taboão da Serra:</strong> Em 2012, mudou para uma planta de 4.800m².</li>
+          <li><strong>2019 - Itapecerica da Serra:</strong> Atual sede com 11.000m², tornando-se líder em distribuição.</li>
+        </ul>
+      </div>
+      
+      <p>Hoje, a <strong>PMG ATACADISTA</strong> atende mais de <strong>20.000 estabelecimentos</strong> em São Paulo, litoral e interior, com uma frota própria de <strong>280 veículos refrigerados</strong> e mais de <strong>400 representantes</strong>. Toda essa estrutura está à sua disposição.</p>
+    </section>
+
+    <!-- O REPRESENTANTE MARQUES VENDAS PMG -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🤝 Seu Representante PMG: Atendimento Direto e Personalizado</h2>
+      <p>Me chamo <strong>Marques Antonio</strong> e sou fundador da <strong>Marques Vendas PMG</strong>. Trabalho há mais de <strong>5 anos</strong> como representante da PMG, levando a qualidade e a confiança da marca diretamente para o seu negócio.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⭐</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">5+ Anos de Experiência</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Conhecimento profundo do mercado food service</p>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📍</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Atendimento Regional</h4>
+          <p style="margin: 0; font-size: 0.9rem;">SP, Sul de Minas e Sul do RJ</p>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🤝</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Atendimento Pessoal</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Soluções focadas no seu negócio</p>
+        </div>
+      </div>
+      
+      <p><strong>Minha missão</strong> é garantir que você tenha acesso aos <strong>melhores produtos da PMG</strong> com o <strong>melhor preço e suporte</strong>. Trabalhamos com transparência e ética para ser seu parceiro de confiança.</p>
+    </section>
+
+    <!-- CATEGORIAS DE PRODUTOS - COM LINKS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Conheça as Categorias da PMG ATACADISTA</h2>
+      <p>A PMG oferece uma variedade impressionante de <strong>mais de 2.000 itens</strong> das melhores marcas. Navegue pelas principais categorias disponíveis no catálogo oficial:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Farináceos</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Farinhas, féculas e misturas</p>
+          </div>
+        </a>
+        
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Refrigerantes, sucos, águas, cervejas</p>
+          </div>
+        </a>
+        
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Derivados de Bovino</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Carnes, hambúrgueres, preparados</p>
+          </div>
+        </a>
+        
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Panifica%C3%A7%C3%A3o" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥐</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Panificação</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Produtos para padaria e confeitaria</p>
+          </div>
+        </a>
+      </div>
+      
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>E muito mais:</strong> <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Ave" style="color: #095400; font-weight: 600;">Derivados de Ave</a>, 
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Su%C3%ADno" style="color: #095400; font-weight: 600;">Derivados de Suíno</a>, 
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Conservas%2FEnlatados" style="color: #095400; font-weight: 600;">Conservas</a>, 
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Orientais" style="color: #095400; font-weight: 600;">Orientais</a>, 
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=%E2%8F%93%20Ofertas%20da%20Semana%20%F0%9F%9A%A8" style="color: #e53935; font-weight: 600;">Ofertas da Semana</a>.
+      </p>
+    </section>
+
+    <!-- VANTAGENS DE COMPRAR NA PMG -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens Exclusivas da PMG ATACADISTA</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+            <p style="margin: 0; font-size: 0.9rem;">280 veículos garantem qualidade do produto até você</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🏭 Parcerias com Grandes Marcas</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Trabalhamos com as principais indústrias do país</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📈 Estrutura de 11.000m²</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Alta capacidade de estoque e disponibilidade</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Atendimento Especializado</h4>
+            <p style="margin: 0; font-size: 0.9rem;">+450 profissionais para cuidar do seu negócio</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Como Representante, Garanto:</strong> Preços competitivos, condições especiais e um atendimento que entende as necessidades do seu estabelecimento.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É A PMG -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 A PMG ATACADISTA Atende Diferentes Segmentos</h2>
+      <p>Seja qual for o seu negócio, a PMG tem a solução ideal em alimentos e bebidas:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 20px;">
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🍕</div>
+          <p style="margin: 0; font-weight: 600;">Pizzarias</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🛒</div>
+          <p style="margin: 0; font-weight: 600;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🥐</div>
+          <p style="margin: 0; font-weight: 600;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🍖</div>
+          <p style="margin: 0; font-weight: 600;">Churrascarias</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏥</div>
+          <p style="margin: 0; font-weight: 600;">Hospitais</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;"><strong>E também:</strong> Bares, lanchonetes, cozinhas industriais, esfiharias, fast food e similares.</p>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO DIRETO -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale Direto com o Representante PMG</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, representante oficial da PMG ATACADISTA</strong>. Te ajudo a escolher os melhores produtos, com condições especiais e entrega garantida.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto (Representante):<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 10px 0 0 0; color: #666; font-size: 0.9rem;">Atendimento rápido e personalizado</p>
+      </div>
+    </section>
+
+    <!-- CTA PRINCIPAL - ACESSO AO CATÁLOGO COMPLETO -->
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse o Catálogo Completo da PMG ATACADISTA</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        <strong>Cadastro rápido em menos de 2 minutos!</strong> Veja preços, disponibilidade e faça seu pedido online. +2000 produtos com preço de atacado direto.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO AGORA
+      </a>
+      <p style="color: #666; font-size: 0.9rem; margin: 10px 0 0 0;">
+        Cadastre-se e visualize todos os produtos e preços disponíveis.
+      </p>
+    </section>
+
+    <!-- MISSÃO, VISÃO E VALORES -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🎯 Compromisso PMG: Missão, Visão e Valores</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🎯 Missão</h4>
+          <p style="margin: 0; font-size: 0.95rem;">Proporcionar aos nossos clientes um atendimento pautado pelo profissionalismo, dedicação e excelência operacional, entregando soluções eficientes e de alto valor.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">👁️ Visão</h4>
+          <p style="margin: 0; font-size: 0.95rem;">Consolidar-se entre os principais atacadistas do país, sendo reconhecida como referência em excelência comercial e qualidade no atendimento.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">❤️ Valores</h4>
+          <ul style="margin: 0; padding-left: 20px; font-size: 0.95rem;">
+            <li><strong>Responsabilidade</strong> em cada decisão</li>
+            <li><strong>Comprometimento</strong> com o cliente</li>
+            <li><strong>Credibilidade</strong> com ética e transparência</li>
+            <li><strong>Crescimento</strong> contínuo e inovação</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave para SEO PMG ATACADISTA:</strong> pmg atacadista, distribuidora pmg, representante pmg, atacado de alimentos sp, atacado food service, distribuidora de bebidas atacado, fornecedor para pizzaria, atacadista em itapecerica da serra, pmg alimentos, pmg atacado, marques vendas pmg, preço atacado alimentos, atacado para restaurante, atacadista em são paulo.
+      </p>
+    </div>
+  `
 }
   ];
 
