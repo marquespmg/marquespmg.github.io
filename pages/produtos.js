@@ -3,9 +3,8 @@ import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Head from 'next/head'; // ← JÁ DEVE ESTAR AÍ
-import useTrackUser from '../hook/useTrackUser'; // ← ADICIONADO
-
+import Head from 'next/head';
+import useTrackUser from '../hook/useTrackUser';
 
 // ========== DADOS DAS CIDADES ========== //
 const citiesData = {
@@ -2094,8 +2093,30 @@ const ProductsPage = () => {
   const { width: windowWidth } = useWindowSize();
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // ========== CORREÇÃO DO CARRINHO ========== //
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  
+  // Carrega o carrinho do localStorage quando a página monta
+  useEffect(() => {
+    const loadCartFromStorage = () => {
+      try {
+        const savedCart = localStorage.getItem('cart_data');
+        if (savedCart) {
+          const parsedCart = JSON.parse(savedCart);
+          setCart(parsedCart);
+          setTotal(parsedCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
+        }
+      } catch (error) {
+        console.error('Erro ao carregar carrinho do localStorage:', error);
+      }
+    };
+
+    loadCartFromStorage();
+  }, []); // Executa apenas uma vez quando o componente monta
+  // ========== FIM DA CORREÇÃO ========== //
+  
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState('');
   const [userAvatar, setUserAvatar] = useState('');
@@ -2115,9 +2136,9 @@ const ProductsPage = () => {
   const [showFreteToast, setShowFreteToast] = useState(false);
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const citiesButtonRef = useRef(null);
-
-	    useTrackUser(); // ← ADICIONE ESTA LINHA
   
+  useTrackUser(); // ← ADICIONE ESTA LINHA
+
   // NOVOS ESTADOS PARA O MENU DE CIDADES
   const [showCitiesMenu, setShowCitiesMenu] = useState(false);
   const [openRegions, setOpenRegions] = useState({
@@ -2141,37 +2162,37 @@ const ProductsPage = () => {
     }));
   };
 
-// SUBSTITUA O USEEFFECT EXISTENTE POR ESTE:
-useEffect(() => {
-  const checkAndRedirectAfterLogin = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    
-    if (user) {
-      // Verifica se há parâmetro de redirecionamento na URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const returnTo = urlParams.get('returnTo');
+  // SUBSTITUA O USEEFFECT EXISTENTE POR ESTE:
+  useEffect(() => {
+    const checkAndRedirectAfterLogin = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
       
-      if (returnTo) {
-        // Decodifica a URL
-        const decodedUrl = decodeURIComponent(returnTo);
+      if (user) {
+        // Verifica se há parâmetro de redirecionamento na URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const returnTo = urlParams.get('returnTo');
         
-        // Verifica se é uma URL válida (produto ou outra página)
-        if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
-          // Mostra mensagem centralizada
-          setRedirectDestination(decodedUrl);
-          setShowRedirectMessage(true);
+        if (returnTo) {
+          // Decodifica a URL
+          const decodedUrl = decodeURIComponent(returnTo);
           
-          // Redireciona após 2 segundos (tempo para usuário ver a mensagem)
-          setTimeout(() => {
-            router.push(decodedUrl);
-          }, 2000);
+          // Verifica se é uma URL válida (produto ou outra página)
+          if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
+            // Mostra mensagem centralizada
+            setRedirectDestination(decodedUrl);
+            setShowRedirectMessage(true);
+            
+            // Redireciona após 2 segundos (tempo para usuário ver a mensagem)
+            setTimeout(() => {
+              router.push(decodedUrl);
+            }, 2000);
+          }
         }
       }
-    }
-  };
+    };
 
-  checkAndRedirectAfterLogin();
-}, [router]);
+    checkAndRedirectAfterLogin();
+  }, [router]);
 
   // Efeito para o carrossel automático
   useEffect(() => {
@@ -2229,205 +2250,205 @@ useEffect(() => {
     };
   }, [showCitiesMenu]);
 
-// ADICIONAR ESTE USEEFFECT APÓS OS EXISTENTES
-useEffect(() => {
-  const applyCategoryFilterFromURL = () => {
-    // Verificar se estamos no navegador
-    if (typeof window === 'undefined') return;
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const categoriaFromURL = urlParams.get('categoria');
-    
-    if (categoriaFromURL) {
-      // Encontrar a categoria correspondente (case insensitive)
-      const categoriaEncontrada = categories.find(cat => 
-        cat.toLowerCase() === categoriaFromURL.toLowerCase()
-      );
+  // ADICIONAR ESTE USEEFFECT APÓS OS EXISTENTES
+  useEffect(() => {
+    const applyCategoryFilterFromURL = () => {
+      // Verificar se estamos no navegador
+      if (typeof window === 'undefined') return;
       
-      if (categoriaEncontrada) {
-        setSelectedCategory(categoriaEncontrada);
-        setCurrentPage(1);
+      const urlParams = new URLSearchParams(window.location.search);
+      const categoriaFromURL = urlParams.get('categoria');
+      
+      if (categoriaFromURL) {
+        // Encontrar a categoria correspondente (case insensitive)
+        const categoriaEncontrada = categories.find(cat => 
+          cat.toLowerCase() === categoriaFromURL.toLowerCase()
+        );
         
-        // Rolagem suave para a seção de produtos
-        setTimeout(() => {
-          const productsSection = document.querySelector('.products-grid');
-          if (productsSection) {
-            productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 300);
-      }
-    }
-  };
-
-  applyCategoryFilterFromURL();
-}, []); // Executa apenas uma vez ao carregar a página
-
-// SUBSTITUA O USEEFFECT PROBLEMÁTICO POR ESTE:
-useEffect(() => {
-  const updateSEOMetaTags = () => {
-    // Só executa no cliente
-    if (typeof window === 'undefined') return;
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const categoriaFromURL = urlParams.get('categoria');
-    
-    console.log('🔍 DEBUG SEO - Categoria detectada:', categoriaFromURL);
-    
-    let pageTitle = '';
-    let metaDescription = '';
-
-    if (categoriaFromURL) {
-      // MAPEAMENTO COMPLETO DE SEO
-      const seoMap = {
-        'acessórios': {
-          title: 'Acessórios para Restaurantes e Bares - Utensílios Profissionais | PMG Atacadista',
-          description: 'Acessórios e utensílios profissionais para restaurantes, bares e food service. Melhor preço atacado com entrega grátis SP.'
-        },
-        'bebidas': {
-          title: 'Bebidas para Atacado - Cervejas, Refris, Sucos, Águas | PMG Atacadista',
-          description: 'Melhor preço em bebidas para seu negócio! Cervejas Skol, Brahma, Heineken. Refrigerantes, sucos, águas, energéticos. Atacado food service com entrega grátis.'
-        },
-        'conservas/enlatados': {
-          title: 'Conservas e Enlatados para Atacado - Milho, Ervilha, Seleta | PMG Atacadista',
-          description: 'Conservas, enlatados e produtos em lata para seu restaurante. Milho, ervilha, seleta, palmito, azeitonas. Atacado food service SP.'
-        },
-        'derivados de ave': {
-          title: 'Produtos de Frango para Atacado - Frango Inteiro, Cortes, Embutidos | PMG',
-          description: 'Derivados de frango e ave para food service. Frango inteiro, cortes, filé, coxa, sobrecoxa, linguiça de frango. Melhor preço atacado.'
-        },
-        'derivados de bovino': {
-          title: 'Carnes Bovinas para Atacado - Picanha, Alcatra, Contrafilé | PMG Atacadista',
-          description: 'Carnes bovinas premium para churrascos e restaurantes. Picanha, alcatra, contrafilé, maminha. Melhor preço atacado com entrega rápida.'
-        },
-        'derivados de leite': {
-          title: 'Laticínios para Atacado - Queijos, Manteiga, Iogurte, Requeijão | PMG',
-          description: 'Laticínios e derivados de leite para seu negócio. Queijos, manteiga, iogurte, requeijão, cream cheese. Atacado food service SP.'
-        },
-        'derivados de suíno': {
-          title: 'Produtos Suínos para Atacado - Linguiça, Bacon, Pernil, Carne de Porco | PMG',
-          description: 'Derivados de suínos e carne de porco para restaurantes. Linguiça toscana, bacon, pernil, costela, lombo. Melhor preço atacado.'
-        },
-        'derivados de vegetal': {
-          title: 'Produtos Vegetais para Atacado - Hortifruti, Legumes, Verduras | PMG Atacadista',
-          description: 'Derivados vegetais e hortifruti para food service. Legumes, verduras, produtos congelados, polpas. Atacado com entrega grátis SP.'
-        },
-        'derivados do mar': {
-          title: 'Frutos do Mar e Pescados para Atacado - Peixes, Camarão, Polvo | PMG',
-          description: 'Frutos do mar e pescados frescos e congelados. Peixes, camarão, polvo, lula, mariscos. Melhor preço atacado para restaurantes.'
-        },
-        'doces/frutas': {
-          title: 'Doces e Frutas para Atacado - Sobremesas, Geleias, Frutas Frescas | PMG',
-          description: 'Doces, sobremesas e frutas para seu estabelecimento. Geleias, compotas, frutas frescas e secas. Atacado food service SP.'
-        },
-        'farináceos': {
-          title: 'Farináceos para Atacado - Arroz, Feijão, Macarrão, Farinha | PMG Atacadista',
-          description: 'Farináceos e mantimentos para seu comércio. Arroz, feijão, macarrão, farinha de trigo, óleo, açúcar. Melhor preço atacado região SP.'
-        },
-        'higiene': {
-          title: 'Produtos de Higiene e Limpeza para Atacado - Sabão, Detergente, Álcool | PMG',
-          description: 'Produtos de higiene e limpeza profissional para restaurantes e mercados. Sabão, detergente, álcool, desinfetante. Atacado SP.'
-        },
-        'orientais': {
-          title: 'Produtos Orientais para Atacado - Temperos, Molhos, Massas Asiáticas | PMG',
-          description: 'Produtos orientais e asiáticos para food service. Shoyu, temperos, molhos, massas, ingredientes. Melhor preço atacado SP.'
-        },
-        'panificação': {
-          title: 'Produtos de Panificação para Atacado - Pães, Bolos, Farinhas | PMG Atacadista',
-          description: 'Produtos para panificação e confeitaria. Farinhas, fermentos, pães, bolos, ingredientes. Atacado para padarias e restaurantes.'
-        },
-        'salgados': {
-          title: 'Salgados e Congelados para Atacado - Coxinhas, Empadas, Pizzas | PMG',
-          description: 'Salgados, congelados e pratos prontos para seu negócio. Coxinhas, empadas, pizzas, esfihas. Melhor preço atacado food service.'
-        },
-        '⏳ ofertas da semana 🚨': {
-          title: '🔥 Ofertas da Semana - Promoções Imperdíveis em Atacado | PMG Atacadista',
-          description: 'Promoções da semana com até 50% off! Ofertas especiais em bebidas, carnes, laticínios, mercearia. Corre que é por tempo limitado!'
+        if (categoriaEncontrada) {
+          setSelectedCategory(categoriaEncontrada);
+          setCurrentPage(1);
+          
+          // Rolagem suave para a seção de produtos
+          setTimeout(() => {
+            const productsSection = document.querySelector('.products-grid');
+            if (productsSection) {
+              productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 300);
         }
-      };
-
-      const categoriaLower = categoriaFromURL.toLowerCase();
-      const seoData = seoMap[categoriaLower];
-
-      if (seoData) {
-        pageTitle = seoData.title;
-        metaDescription = seoData.description;
-      } else {
-        pageTitle = `${categoriaFromURL} - PMG Atacadista | Melhor Preço em Atacado`;
-        metaDescription = `Compre ${categoriaFromURL} com melhor preço atacado. PMG Atacadista - food service com entrega grátis SP e região.`;
-      }
-    } else {
-      pageTitle = 'Catálogo Completo - PMG Atacadista | Atacado Food Service SP';
-      metaDescription = 'Catálogo completo de produtos atacado. Bebidas, carnes, laticínios, mercearia, limpeza. Melhor preço com entrega grátis SP.';
-    }
-
-    console.log('🔄 Atualizando título para:', pageTitle);
-    
-    // Força a atualização do título
-    document.title = pageTitle;
-    
-    // Atualiza meta description
-    let metaDescTag = document.querySelector('meta[name="description"]');
-    if (!metaDescTag) {
-      metaDescTag = document.createElement('meta');
-      metaDescTag.name = 'description';
-      document.head.appendChild(metaDescTag);
-    }
-    metaDescTag.content = metaDescription;
-
-    // Múltiplas tentativas para garantir
-    const forceTitleUpdate = () => {
-      if (document.title !== pageTitle) {
-        console.log('🔄 Forçando atualização do título...');
-        document.title = pageTitle;
       }
     };
 
-    // Executa várias vezes para garantir
-    forceTitleUpdate();
-    setTimeout(forceTitleUpdate, 100);
-    setTimeout(forceTitleUpdate, 500);
-    setTimeout(forceTitleUpdate, 1000);
-  };
+    applyCategoryFilterFromURL();
+  }, []); // Executa apenas uma vez ao carregar a página
 
-  // Executa imediatamente
-  updateSEOMetaTags();
-  
-  // Re-executa após o componente montar completamente
-  const timer = setTimeout(updateSEOMetaTags, 300);
-  
-  return () => clearTimeout(timer);
-}, [selectedCategory]); // REMOVI window.location.search da dependência
+  // SUBSTITUA O USEEFFECT PROBLEMÁTICO POR ESTE:
+  useEffect(() => {
+    const updateSEOMetaTags = () => {
+      // Só executa no cliente
+      if (typeof window === 'undefined') return;
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const categoriaFromURL = urlParams.get('categoria');
+      
+      console.log('🔍 DEBUG SEO - Categoria detectada:', categoriaFromURL);
+      
+      let pageTitle = '';
+      let metaDescription = '';
+
+      if (categoriaFromURL) {
+        // MAPEAMENTO COMPLETO DE SEO
+        const seoMap = {
+          'acessórios': {
+            title: 'Acessórios para Restaurantes e Bares - Utensílios Profissionais | PMG Atacadista',
+            description: 'Acessórios e utensílios profissionais para restaurantes, bares e food service. Melhor preço atacado com entrega grátis SP.'
+          },
+          'bebidas': {
+            title: 'Bebidas para Atacado - Cervejas, Refris, Sucos, Águas | PMG Atacadista',
+            description: 'Melhor preço em bebidas para seu negócio! Cervejas Skol, Brahma, Heineken. Refrigerantes, sucos, águas, energéticos. Atacado food service com entrega grátis.'
+          },
+          'conservas/enlatados': {
+            title: 'Conservas e Enlatados para Atacado - Milho, Ervilha, Seleta | PMG Atacadista',
+            description: 'Conservas, enlatados e produtos em lata para seu restaurante. Milho, ervilha, seleta, palmito, azeitonas. Atacado food service SP.'
+          },
+          'derivados de ave': {
+            title: 'Produtos de Frango para Atacado - Frango Inteiro, Cortes, Embutidos | PMG',
+            description: 'Derivados de frango e ave para food service. Frango inteiro, cortes, filé, coxa, sobrecoxa, linguiça de frango. Melhor preço atacado.'
+          },
+          'derivados de bovino': {
+            title: 'Carnes Bovinas para Atacado - Picanha, Alcatra, Contrafilé | PMG Atacadista',
+            description: 'Carnes bovinas premium para churrascos e restaurantes. Picanha, alcatra, contrafilé, maminha. Melhor preço atacado com entrega rápida.'
+          },
+          'derivados de leite': {
+            title: 'Laticínios para Atacado - Queijos, Manteiga, Iogurte, Requeijão | PMG',
+            description: 'Laticínios e derivados de leite para seu negócio. Queijos, manteiga, iogurte, requeijão, cream cheese. Atacado food service SP.'
+          },
+          'derivados de suíno': {
+            title: 'Produtos Suínos para Atacado - Linguiça, Bacon, Pernil, Carne de Porco | PMG',
+            description: 'Derivados de suínos e carne de porco para restaurantes. Linguiça toscana, bacon, pernil, costela, lombo. Melhor preço atacado.'
+          },
+          'derivados de vegetal': {
+            title: 'Produtos Vegetais para Atacado - Hortifruti, Legumes, Verduras | PMG Atacadista',
+            description: 'Derivados vegetais e hortifruti para food service. Legumes, verduras, produtos congelados, polpas. Atacado com entrega grátis SP.'
+          },
+          'derivados do mar': {
+            title: 'Frutos do Mar e Pescados para Atacado - Peixes, Camarão, Polvo | PMG',
+            description: 'Frutos do mar e pescados frescos e congelados. Peixes, camarão, polvo, lula, mariscos. Melhor preço atacado para restaurantes.'
+          },
+          'doces/frutas': {
+            title: 'Doces e Frutas para Atacado - Sobremesas, Geleias, Frutas Frescas | PMG',
+            description: 'Doces, sobremesas e frutas para seu estabelecimento. Geleias, compotas, frutas frescas e secas. Atacado food service SP.'
+          },
+          'farináceos': {
+            title: 'Farináceos para Atacado - Arroz, Feijão, Macarrão, Farinha | PMG Atacadista',
+            description: 'Farináceos e mantimentos para seu comércio. Arroz, feijão, macarrão, farinha de trigo, óleo, açúcar. Melhor preço atacado região SP.'
+          },
+          'higiene': {
+            title: 'Produtos de Higiene e Limpeza para Atacado - Sabão, Detergente, Álcool | PMG',
+            description: 'Produtos de higiene e limpeza profissional para restaurantes e mercados. Sabão, detergente, álcool, desinfetante. Atacado SP.'
+          },
+          'orientais': {
+            title: 'Produtos Orientais para Atacado - Temperos, Molhos, Massas Asiáticas | PMG',
+            description: 'Produtos orientais e asiáticos para food service. Shoyu, temperos, molhos, massas, ingredientes. Melhor preço atacado SP.'
+          },
+          'panificação': {
+            title: 'Produtos de Panificação para Atacado - Pães, Bolos, Farinhas | PMG Atacadista',
+            description: 'Produtos para panificação e confeitaria. Farinhas, fermentos, pães, bolos, ingredientes. Atacado para padarias e restaurantes.'
+          },
+          'salgados': {
+            title: 'Salgados e Congelados para Atacado - Coxinhas, Empadas, Pizzas | PMG',
+            description: 'Salgados, congelados e pratos prontos para seu negócio. Coxinhas, empadas, pizzas, esfihas. Melhor preço atacado food service.'
+          },
+          '⏳ ofertas da semana 🚨': {
+            title: '🔥 Ofertas da Semana - Promoções Imperdíveis em Atacado | PMG Atacadista',
+            description: 'Promoções da semana com até 50% off! Ofertas especiais em bebidas, carnes, laticínios, mercearia. Corre que é por tempo limitado!'
+          }
+        };
+
+        const categoriaLower = categoriaFromURL.toLowerCase();
+        const seoData = seoMap[categoriaLower];
+
+        if (seoData) {
+          pageTitle = seoData.title;
+          metaDescription = seoData.description;
+        } else {
+          pageTitle = `${categoriaFromURL} - PMG Atacadista | Melhor Preço em Atacado`;
+          metaDescription = `Compre ${categoriaFromURL} com melhor preço atacado. PMG Atacadista - food service com entrega grátis SP e região.`;
+        }
+      } else {
+        pageTitle = 'Catálogo Completo - PMG Atacadista | Atacado Food Service SP';
+        metaDescription = 'Catálogo completo de produtos atacado. Bebidas, carnes, laticínios, mercearia, limpeza. Melhor preço com entrega grátis SP.';
+      }
+
+      console.log('🔄 Atualizando título para:', pageTitle);
+      
+      // Força a atualização do título
+      document.title = pageTitle;
+      
+      // Atualiza meta description
+      let metaDescTag = document.querySelector('meta[name="description"]');
+      if (!metaDescTag) {
+        metaDescTag = document.createElement('meta');
+        metaDescTag.name = 'description';
+        document.head.appendChild(metaDescTag);
+      }
+      metaDescTag.content = metaDescription;
+
+      // Múltiplas tentativas para garantir
+      const forceTitleUpdate = () => {
+        if (document.title !== pageTitle) {
+          console.log('🔄 Forçando atualização do título...');
+          document.title = pageTitle;
+        }
+      };
+
+      // Executa várias vezes para garantir
+      forceTitleUpdate();
+      setTimeout(forceTitleUpdate, 100);
+      setTimeout(forceTitleUpdate, 500);
+      setTimeout(forceTitleUpdate, 1000);
+    };
+
+    // Executa imediatamente
+    updateSEOMetaTags();
+    
+    // Re-executa após o componente montar completamente
+    const timer = setTimeout(updateSEOMetaTags, 300);
+    
+    return () => clearTimeout(timer);
+  }, [selectedCategory]); // REMOVI window.location.search da dependência
 
   // Função para login com Google
-const handleGoogleLogin = async () => {
-  setLoading(true);
-  try {
-    // Captura o parâmetro returnTo da URL atual
-    const urlParams = new URLSearchParams(window.location.search);
-    const returnTo = urlParams.get('returnTo');
-    
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: returnTo 
-          ? `https://www.marquesvendaspmg.shop/produtos?returnTo=${encodeURIComponent(returnTo)}`
-          : 'https://www.marquesvendaspmg.shop/produtos',
-        queryParams: {
-          access_type: 'offline',
-          prompt: 'consent',
+  const handleGoogleLogin = async () => {
+    setLoading(true);
+    try {
+      // Captura o parâmetro returnTo da URL atual
+      const urlParams = new URLSearchParams(window.location.search);
+      const returnTo = urlParams.get('returnTo');
+      
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: returnTo 
+            ? `https://www.marquesvendaspmg.shop/produtos?returnTo=${encodeURIComponent(returnTo)}`
+            : 'https://www.marquesvendaspmg.shop/produtos',
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          },
         },
-      },
-    });
+      });
 
-    if (error) throw error;
-    
-    // O redirecionamento será tratado pelo useEffect quando o usuário voltar
-  } catch (error) {
-    setAuthError(error.message);
-  } finally {
-    setLoading(false);
-  }
-};
+      if (error) throw error;
+      
+      // O redirecionamento será tratado pelo useEffect quando o usuário voltar
+    } catch (error) {
+      setAuthError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const goToNextBanner = () => {
     setCurrentBannerIndex(prev => (prev + 1) % banners.length);
@@ -2448,7 +2469,7 @@ const handleGoogleLogin = async () => {
     }, 10000);
   };
 
-  // Carrega o usuário, nome, avatar e carrinho ao iniciar
+  // Carrega o usuário, nome, avatar ao iniciar
   useEffect(() => {
     const checkUserAndCart = async () => {
       const { data: { user } } = await supabase.auth.getUser();
@@ -2493,8 +2514,6 @@ const handleGoogleLogin = async () => {
               .eq('id', user.id);
           }
         }
-        
-        await loadCartFromSupabase(user.id);
       }
     };
     
@@ -2517,103 +2536,56 @@ const handleGoogleLogin = async () => {
     };
   }, []);
 
-  // Função para carregar o carrinho do Supabase
-  const loadCartFromSupabase = async (userId) => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     setLoading(true);
-    const { data, error } = await supabase
-      .from('user_carts')
-      .select('cart_items')
-      .eq('user_id', userId)
-      .single();
-
-    if (error) {
-      if (error.code === 'PGRST116') {
-        await supabase
-          .from('user_carts')
-          .insert({ user_id: userId, cart_items: [] });
-        setCart([]);
-        setTotal(0);
-      } else {
-        console.error('Erro ao carregar carrinho:', error);
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+      if (error) throw error;
+      
+      setUser(data.user);
+      
+      // Busca o nome do usuário após login
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('full_name')
+        .eq('id', data.user.id)
+        .single();
+      
+      if (profileData) {
+        setUserName(profileData.full_name || '');
       }
-    } else {
-      const cartItems = data.cart_items || [];
-      setCart(cartItems);
-      setTotal(cartItems.reduce((sum, item) => sum + item.price, 0));
-    }
-    setLoading(false);
-  };
-
-  // Função para atualizar o carrinho no Supabase
-  const updateCartInSupabase = async (updatedCart) => {
-    if (!user) return;
-    const { error } = await supabase
-      .from('user_carts')
-      .upsert({ user_id: user.id, cart_items: updatedCart, updated_at: new Date().toISOString() });
-
-    if (error) {
-      console.error('Erro ao atualizar carrinho:', error);
-    }
-  };
-
-  // Sincroniza o carrinho no Supabase quando ele muda
-  useEffect(() => {
-    if (user && cart.length >= 0) {
-      updateCartInSupabase(cart);
-    }
-  }, [cart, user]);
-
-const handleLogin = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  try {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
-    if (error) throw error;
-    
-    setUser(data.user);
-    
-    // Busca o nome do usuário após login
-    const { data: profileData } = await supabase
-      .from('profiles')
-      .select('full_name')
-      .eq('id', data.user.id)
-      .single();
-    
-    if (profileData) {
-      setUserName(profileData.full_name || '');
-    }
-    
-    setShowAuthModal(false);
-    setPageBlocked(false);
-    await loadCartFromSupabase(data.user.id);
-    
-    // VERIFICA E PREPARA REDIRECIONAMENTO APÓS LOGIN
-    const urlParams = new URLSearchParams(window.location.search);
-    const returnTo = urlParams.get('returnTo');
-    
-    if (returnTo) {
-      const decodedUrl = decodeURIComponent(returnTo);
-      if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
-        // Mostra mensagem centralizada
-        setRedirectDestination(decodedUrl);
-        setShowRedirectMessage(true);
-        
-        // Redireciona após 2 segundos
-        setTimeout(() => {
-          router.push(decodedUrl);
-        }, 2000);
+      
+      setShowAuthModal(false);
+      setPageBlocked(false);
+      
+      // VERIFICA E PREPARA REDIRECIONAMENTO APÓS LOGIN
+      const urlParams = new URLSearchParams(window.location.search);
+      const returnTo = urlParams.get('returnTo');
+      
+      if (returnTo) {
+        const decodedUrl = decodeURIComponent(returnTo);
+        if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
+          // Mostra mensagem centralizada
+          setRedirectDestination(decodedUrl);
+          setShowRedirectMessage(true);
+          
+          // Redireciona após 2 segundos
+          setTimeout(() => {
+            router.push(decodedUrl);
+          }, 2000);
+        }
       }
+      
+    } catch (error) {
+      setAuthError(error.message);
+    } finally {
+      setLoading(false);
     }
-    
-  } catch (error) {
-    setAuthError(error.message);
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -2664,34 +2636,53 @@ const handleLogin = async (e) => {
     setPageBlocked(true);
     setCart([]);
     setTotal(0);
+    localStorage.removeItem('cart_data');
   };
 
-// Na função que adiciona produtos (provavelmente em outro componente)
-const addToCart = (product) => {
-  setCart(prevCart => {
-    // Verifica se o produto já está no carrinho
-    const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
-    
-    if (existingProductIndex !== -1) {
-      // Incrementa a quantidade se já existir
-      const updatedCart = [...prevCart];
-      updatedCart[existingProductIndex] = {
-        ...updatedCart[existingProductIndex],
-        quantity: (updatedCart[existingProductIndex].quantity || 1) + 1
-      };
-      return updatedCart;
-    } else {
-      // Adiciona novo produto com quantidade 1
-      return [...prevCart, { ...product, quantity: 1 }];
-    }
-  });
-};
+  // ========== FUNÇÃO addToCart CORRIGIDA ========== //
+  const addToCart = (product) => {
+    setCart(prevCart => {
+      // Verifica se o produto já está no carrinho
+      const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
+      
+      let newCart;
+      
+      if (existingProductIndex !== -1) {
+        // Incrementa a quantidade se já existir
+        newCart = [...prevCart];
+        newCart[existingProductIndex] = {
+          ...newCart[existingProductIndex],
+          quantity: (newCart[existingProductIndex].quantity || 1) + 1
+        };
+      } else {
+        // Adiciona novo produto com quantidade 1
+        newCart = [...prevCart, { ...product, quantity: 1 }];
+      }
+      
+      // Atualiza o total
+      setTotal(newCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
+      
+      // SALVA NO LOCALSTORAGE IMEDIATAMENTE
+      localStorage.setItem('cart_data', JSON.stringify(newCart));
+      
+      return newCart;
+    });
+  };
 
-// Função para remover produto completamente
-const removeFromCart = (productId) => {
-  const newCart = cart.filter(item => item.id !== productId);
-  setCart(newCart);
-};
+  // ========== FUNÇÃO removeFromCart CORRIGIDA ========== //
+  const removeFromCart = (productId) => {
+    setCart(prevCart => {
+      const newCart = prevCart.filter(item => item.id !== productId);
+      
+      // Atualiza o total
+      setTotal(newCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
+      
+      // SALVA NO LOCALSTORAGE IMEDIATAMENTE
+      localStorage.setItem('cart_data', JSON.stringify(newCart));
+      
+      return newCart;
+    });
+  };
 
   const toggleDescription = (productId) => {
     setExpandedDescriptions(prev => ({
@@ -2700,51 +2691,88 @@ const removeFromCart = (productId) => {
     }));
   };
 
+// ✅ Função para carregar carrinho do Supabase quando usuário logar
+const loadCartFromSupabase = async (userId) => {
+  try {
+    const { data, error } = await supabase
+      .from('user_carts')
+      .select('cart_items')
+      .eq('user_id', userId)
+      .single();
+    
+    if (error) {
+      if (error.code === 'PGRST116') {
+        // Não tem carrinho no Supabase, mantém o do localStorage
+        console.log('Nenhum carrinho encontrado no Supabase');
+        return;
+      }
+      throw error;
+    }
+    
+    if (data && data.cart_items) {
+      // Mescla carrinho do Supabase com localStorage
+      const localStorageCart = JSON.parse(localStorage.getItem('cart_data') || '[]');
+      const supabaseCart = data.cart_items;
+      
+      // Lógica de merge: pode priorizar Supabase ou fazer merge
+      const mergedCart = [...supabaseCart];
+      
+      // Ou se quiser priorizar localStorage:
+      // const mergedCart = localStorageCart.length > 0 ? localStorageCart : supabaseCart;
+      
+      setCart(mergedCart);
+      localStorage.setItem('cart_data', JSON.stringify(mergedCart));
+    }
+  } catch (error) {
+    console.error('Erro ao carregar carrinho do Supabase:', error);
+  }
+};
+
   // Função para redirecionar para a página de detalhes do produto
   const redirectToProductDetails = (productId) => {
     window.location.href = `/produto/${productId}`;
   };
 
-// REMOVE PRODUTOS DUPLICADOS E FILTRA
-const uniqueProducts = products.filter((product, index, self) => {
-  const firstIndex = self.findIndex(p => p.id === product.id);
-  
-  if (firstIndex === index) {
-    return true;
-  } else {
-    const firstProduct = self[firstIndex];
+  // REMOVE PRODUTOS DUPLICADOS E FILTRA
+  const uniqueProducts = products.filter((product, index, self) => {
+    const firstIndex = self.findIndex(p => p.id === product.id);
     
-    // Prefere manter a versão que está em "Ofertas da Semana"
-    if (product.category === '⏳ Ofertas da Semana 🚨' && 
-        firstProduct.category !== '⏳ Ofertas da Semana 🚨') {
-      self[firstIndex] = product;
+    if (firstIndex === index) {
+      return true;
+    } else {
+      const firstProduct = self[firstIndex];
+      
+      // Prefere manter a versão que está em "Ofertas da Semana"
+      if (product.category === '⏳ Ofertas da Semana 🚨' && 
+          firstProduct.category !== '⏳ Ofertas da Semana 🚨') {
+        self[firstIndex] = product;
+      }
+      
+      return false;
+    }
+  });
+
+  // FILTRO PRINCIPAL
+  const filteredProducts = uniqueProducts.filter(product => {
+    const searchTermTrimmed = searchTerm.trim();
+    
+    // 1. SE HÁ BUSCA: pesquisa em todos os produtos
+    if (searchTermTrimmed !== '') {
+      const searchLower = searchTermTrimmed.toLowerCase();
+      const productNameLower = product.name.toLowerCase();
+      return productNameLower.includes(searchLower);
     }
     
-    return false;
-  }
-});
-
-// FILTRO PRINCIPAL
-const filteredProducts = uniqueProducts.filter(product => {
-  const searchTermTrimmed = searchTerm.trim();
-  
-  // 1. SE HÁ BUSCA: pesquisa em todos os produtos
-  if (searchTermTrimmed !== '') {
-    const searchLower = searchTermTrimmed.toLowerCase();
-    const productNameLower = product.name.toLowerCase();
-    return productNameLower.includes(searchLower);
-  }
-  
-  // 2. SE NÃO HÁ BUSCA: filtra por categoria
-  const isOfertasCategory = selectedCategory === '⏳ Ofertas da Semana 🚨';
-  
-  if (isOfertasCategory) {
-    return product.category === '⏳ Ofertas da Semana 🚨';
-  } else {
-    return product.category === selectedCategory && 
-           product.category !== '⏳ Ofertas da Semana 🚨';
-  }
-});
+    // 2. SE NÃO HÁ BUSCA: filtra por categoria
+    const isOfertasCategory = selectedCategory === '⏳ Ofertas da Semana 🚨';
+    
+    if (isOfertasCategory) {
+      return product.category === '⏳ Ofertas da Semana 🚨';
+    } else {
+      return product.category === selectedCategory && 
+             product.category !== '⏳ Ofertas da Semana 🚨';
+    }
+  });
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -2769,51 +2797,47 @@ const filteredProducts = uniqueProducts.filter(product => {
       borderRadius: '10px',
       boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
     },
-userWelcomeContainer: {
-  backgroundColor: '#095400',
-  color: 'white',
-  padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
-  borderRadius: '8px',
-  marginBottom: windowWidth > 768 ? '20px' : '15px'
-},
-
-welcomeRow: {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '10px',
-  marginBottom: '10px'
-},
-
-welcomeMessage: {
-  fontSize: windowWidth > 768 ? '16px' : '14px',
-  fontWeight: '600',
-  margin: 0
-},
-
-buttonsRow: {
-  display: 'flex',
-  gap: '10px',
-  alignItems: 'center',
-  flexWrap: 'wrap'
-},
-
-homeButton: {
-  backgroundColor: 'white',
-  color: '#095400',
-  border: '1px solid #095400',
-  padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-  borderRadius: '20px',
-  fontSize: windowWidth > 768 ? '14px' : '12px',
-  fontWeight: '600',
-  cursor: 'pointer',
-  textDecoration: 'none',
-  whiteSpace: 'nowrap',
-  transition: 'all 0.3s',
-  '&:hover': {
-    backgroundColor: '#095400',
-    color: 'white'
-  }
-},
+    userWelcomeContainer: {
+      backgroundColor: '#095400',
+      color: 'white',
+      padding: windowWidth > 768 ? '12px 20px' : '10px 15px',
+      borderRadius: '8px',
+      marginBottom: windowWidth > 768 ? '20px' : '15px'
+    },
+    welcomeRow: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+      marginBottom: '10px'
+    },
+    welcomeMessage: {
+      fontSize: windowWidth > 768 ? '16px' : '14px',
+      fontWeight: '600',
+      margin: 0
+    },
+    buttonsRow: {
+      display: 'flex',
+      gap: '10px',
+      alignItems: 'center',
+      flexWrap: 'wrap'
+    },
+    homeButton: {
+      backgroundColor: 'white',
+      color: '#095400',
+      border: '1px solid #095400',
+      padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+      borderRadius: '20px',
+      fontSize: windowWidth > 768 ? '14px' : '12px',
+      fontWeight: '600',
+      cursor: 'pointer',
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
+      transition: 'all 0.3s',
+      '&:hover': {
+        backgroundColor: '#095400',
+        color: 'white'
+      }
+    },
     topHeaderContainer: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -3187,12 +3211,12 @@ homeButton: {
       width: '20px',
       height: '20px'
     },
-userAvatar: {
-  width: '32px',
-  height: '32px',
-  borderRadius: '50%',
-  objectFit: 'cover'
-},
+    userAvatar: {
+      width: '32px',
+      height: '32px',
+      borderRadius: '50%',
+      objectFit: 'cover'
+    },
     userInfoContainer: {
       display: 'flex',
       alignItems: 'center',
@@ -3225,57 +3249,57 @@ userAvatar: {
     },
     
     // ========== NOVOS ESTILOS PARA O BOTÃO DE CIDADES ========== //
-citiesButton: {
-  backgroundColor: '#e53935',
-  color: 'white',
-  border: 'none',
-  padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-  borderRadius: '20px',
-  fontSize: windowWidth > 768 ? '14px' : '12px',
-  fontWeight: '600',
-  cursor: 'pointer',
-  transition: 'all 0.3s',
-  whiteSpace: 'nowrap',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '5px',
-  boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
-  position: 'relative',
-  '&:hover': {
-    backgroundColor: '#c62828',
-    transform: 'translateY(-2px)',
-    boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
-  }
-},
+    citiesButton: {
+      backgroundColor: '#e53935',
+      color: 'white',
+      border: 'none',
+      padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+      borderRadius: '20px',
+      fontSize: windowWidth > 768 ? '14px' : '12px',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'all 0.3s',
+      whiteSpace: 'nowrap',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '5px',
+      boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
+      position: 'relative',
+      '&:hover': {
+        backgroundColor: '#c62828',
+        transform: 'translateY(-2px)',
+        boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
+      }
+    },
 
-// ========== MENU DROPDOWN CENTRALIZADO ========== //
-citiesMenuDropdown: {
-  position: 'absolute',
-  top: '100%',
-  left: '50%',
-  transform: 'translateX(-50%)',
-  backgroundColor: 'white',
-  borderRadius: '10px',
-  boxShadow: '0 5px 20px rgba(0,0,0,0.2)',
-  zIndex: 1000,
-  marginTop: '10px',
-  width: windowWidth > 768 ? '350px' : '280px',
-  maxHeight: '60vh',
-  overflowY: 'auto',
-  padding: '15px',
-  border: '2px solid #095400',
-  // Responsividade para celular
-  ...(windowWidth <= 768 && {
-    width: '90vw',
-    maxWidth: '95vw'
-  })
-},
+    // ========== MENU DROPDOWN CENTRALIZADO ========== //
+    citiesMenuDropdown: {
+      position: 'absolute',
+      top: '100%',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      backgroundColor: 'white',
+      borderRadius: '10px',
+      boxShadow: '0 5px 20px rgba(0,0,0,0.2)',
+      zIndex: 1000,
+      marginTop: '10px',
+      width: windowWidth > 768 ? '350px' : '280px',
+      maxHeight: '60vh',
+      overflowY: 'auto',
+      padding: '15px',
+      border: '2px solid #095400',
+      // Responsividade para celular
+      ...(windowWidth <= 768 && {
+        width: '90vw',
+        maxWidth: '95vw'
+      })
+    },
 
-// Container para posicionamento relativo
-citiesButtonContainer: {
-  position: 'relative',
-  display: 'inline-block'
-},
+    // Container para posicionamento relativo
+    citiesButtonContainer: {
+      position: 'relative',
+      display: 'inline-block'
+    },
     
     // Container para os botões do topo
     topButtonsContainer: {
@@ -3303,7 +3327,7 @@ citiesButtonContainer: {
         <link rel="canonical" href="https://www.marquesvendaspmg.shop/produtos" />
       </Head>
       {/* ========== FIM DO HEAD ========== */}
-	
+	  
       {loading && (
         <div style={{
           position: 'fixed',
@@ -4638,7 +4662,7 @@ citiesButtonContainer: {
             backgroundColor: 'white',
             border: '1px solid #e0e0e0',
             boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-          }}
+        }}
           onMouseOver={(e) => {
             e.target.style.transform = 'scale(1.1)';
             e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
@@ -4940,19 +4964,3 @@ citiesButtonContainer: {
   };
 
   export default ProductsPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
