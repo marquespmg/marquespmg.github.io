@@ -1842,18 +1842,16 @@ const citiesData = {
   }
 };
 
-// Função para gerar URL amigável
 const generateSlug = (name) => {
   return name
     .toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove acentos
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)+/g, '')
-    .substring(0, 60); // Limita o tamanho para SEO
+    .substring(0, 60);
 };
 
 export async function getStaticProps({ params }) {
-  // Extrai o ID da URL (pega apenas os números antes do primeiro hífen)
   const id = parseInt(params.id.split('-')[0]);
   const product = products.find(p => p.id === id);
 
@@ -1869,7 +1867,6 @@ export async function getStaticProps({ params }) {
 
 export default function ProductPage({ 
   product: initialProduct,
-  // ✅ RECEBE AS PROPS DO _app.js
   cart = [],
   addToCart = () => {},
   removeFromCart = () => {},
@@ -1884,13 +1881,11 @@ export default function ProductPage({
   const [loading, setLoading] = useState(!initialProduct);
   const [isMobile, setIsMobile] = useState(false);
   const [openRegions, setOpenRegions] = useState({});
-  const [showAddedFeedback, setShowAddedFeedback] = useState(false); // ✅ ADICIONE ESTE ESTADO
-  const [userAvatar, setUserAvatar] = useState('');
+  const [showAddedFeedback, setShowAddedFeedback] = useState(false);
   const [userName, setUserName] = useState('');
   
-  useTrackUser(); // ← ADICIONE ESTA LINHA
+  useTrackUser();
 
-  // Verificar se é mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -1902,16 +1897,13 @@ export default function ProductPage({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Verificar usuário logado
   useEffect(() => {
     const checkUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         setUser(user);
         const fullName = user.user_metadata?.full_name || '';
-        const avatarUrl = user.user_metadata?.avatar_url || '';
         setUserName(fullName);
-        setUserAvatar(avatarUrl);
       }
     };
     
@@ -1921,20 +1913,16 @@ export default function ProductPage({
       if (session?.user) {
         setUser(session.user);
         const fullName = session.user.user_metadata?.full_name || '';
-        const avatarUrl = session.user.user_metadata?.avatar_url || '';
         setUserName(fullName);
-        setUserAvatar(avatarUrl);
       } else {
         setUser(null);
         setUserName('');
-        setUserAvatar('');
       }
     });
     
     return () => subscription.unsubscribe();
   }, []);
 
-  // Buscar produto se não veio do getStaticProps
   useEffect(() => {
     if (!initialProduct && id) {
       const productId = parseInt(id.split('-')[0]);
@@ -1944,7 +1932,6 @@ export default function ProductPage({
     }
   }, [id, initialProduct]);
 
-  // Função para alternar menu de regiões
   const toggleRegion = (region) => {
     setOpenRegions(prev => ({
       ...prev,
@@ -1952,29 +1939,21 @@ export default function ProductPage({
     }));
   };
 
-  // ✅ FUNÇÃO ATUALIZADA: Adicionar ao carrinho (usa a função do _app.js)
   const handleAddToCart = () => {
-    if (!product || !user) return;
+    if (!product) return;
     
-    // Usa a função addToCart que veio do _app.js
     addToCart(product);
     
-    // Mostra feedback
     setShowAddedFeedback(true);
     setTimeout(() => setShowAddedFeedback(false), 2000);
   };
 
-  // ✅ FUNÇÃO ATUALIZADA: Verifica se produto já está no carrinho
   const isProductInCart = product && cart.some(item => item.id === product.id);
 
   const handleBuyNow = () => {
     if (user) {
-      // Lógica para usuário logado
       handleAddToCart();
-      // Opcional: Redirecionar para o carrinho
-      // router.push('/#cart');
     } else {
-      // Redireciona para produtos COM parâmetro de retorno
       const returnUrl = encodeURIComponent(router.asPath);
       router.push(`/produtos?returnTo=${returnUrl}`);
     }
@@ -2019,331 +1998,32 @@ export default function ProductPage({
           }}
           onClick={() => router.push('/')}
         >
-          Mais produtos
+          Voltar para produtos
         </button>
       </div>
     );
   }
 
-  // Gera URL canônica perfeita para SEO
   const canonicalUrl = `https://www.marquesvendaspmg.shop/produto/${product.id}-${generateSlug(product.name)}`;
 
   return (
     <>
       <Head>
-        {/* Título otimizado para PMG ATACADISTA */}
         <title>{product.name} | PMG ATACADISTA | {product.category} | Marques Vendas PMG</title>
-        
-        {/* Meta Description otimizada para conversão */}
         <meta 
           name="description" 
           content={`${product.name} PMG ATACADISTA - Compre no atacado por R$ ${product.price.toFixed(2)}. Melhores preços em ${product.category} para food service. Entrega rápida SP, MG, RJ.`} 
         />
-        
-        {/* Keywords otimizadas para PMG */}
-        <meta 
-          name="keywords" 
-          content={`pmg atacadista, pmg atacado, ${product.name} pmg, ${product.category}, atacado food service, marques vendas pmg, comprar ${product.category.toLowerCase()} atacado, preço ${product.name.toLowerCase()}, distribuidora atacadista sp`} 
-        />
-        
-        {/* Canonical URL */}
         <link rel="canonical" href={canonicalUrl} />
-        
-        {/* Open Graph Tags para redes sociais */}
         <meta property="og:title" content={`${product.name} | PMG ATACADISTA`} />
         <meta property="og:description" content={`Compre ${product.name} no atacado por R$ ${product.price.toFixed(2)}. PMG Atacadista - Melhores preços para food service.`} />
         <meta property="og:image" content={product.image} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:type" content="product" />
         <meta property="og:site_name" content="Marques Vendas PMG Atacadista" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${product.name} | PMG ATACADISTA`} />
-        <meta name="twitter:description" content={`Compre ${product.name} no atacado por R$ ${product.price.toFixed(2)}. PMG - Atacado para food service.`} />
-        <meta name="twitter:image" content={product.image} />
-
-        {/* Schema.org Structured Data - COMPLETO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Product",
-              "productID": `pmg-${product.id}`,
-              "name": `${product.name} | PMG ATACADISTA`,
-              "description": `${product.name} PMG ATACADISTA - Produto de alta qualidade para food service no atacado. Entrega rápida para São Paulo, Minas Gerais e Rio de Janeiro.`,
-              "category": product.category,
-              "image": product.image,
-              "brand": {
-                "@type": "Brand",
-                "name": "PMG ATACADISTA"
-              },
-              "sku": `PMG-${product.id}`,
-              "mpn": `PMG-${product.id}`,
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "37"
-              },
-              "review": [
-                {
-                  "@type": "Review",
-                  "author": { 
-                    "@type": "Person", 
-                    "name": "Carlos, pizzaria cliente da PMG" 
-                  },
-                  "datePublished": "2025-09-28",
-                  "reviewBody": "Produto de excelente qualidade e o site da Marques Vendas PMG é rápido e confiável.",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    "worstRating": "1"
-                  }
-                },
-                {
-                  "@type": "Review",
-                  "author": { 
-                    "@type": "Person", 
-                    "name": "Fernanda, restaurante parceiro" 
-                  },
-                  "datePublished": "2025-08-11",
-                  "reviewBody": "A muçarela Bari chegou no prazo e com ótimo custo-benefício. Atendimento excelente!",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5",
-                    worstRating: "1"
-                  }
-                }
-              ],
-              "offers": {
-                "@type": "Offer",
-                "url": canonicalUrl,
-                "price": product.price.toString(),
-                "priceCurrency": "BRL",
-                "availability": "https://schema.org/InStock",
-                "priceValidUntil": "2026-12-31",
-                "itemCondition": "https://schema.org/NewCondition",
-                "shippingDetails": {
-                  "@type": "OfferShippingDetails",
-                  "shippingRate": {
-                    "@type": "MonetaryAmount",
-                    "value": "0.00",
-                    "currency": "BRL"
-                  },
-                  "deliveryTime": {
-                    "@type": "ShippingDeliveryTime",
-                    "handlingTime": { 
-                      "@type": "QuantitativeValue", 
-                      "minValue": 0, 
-                      "maxValue": 1, 
-                      "unitCode": "d" 
-                    },
-                    "transitTime": { 
-                      "@type": "QuantitativeValue", 
-                      "minValue": 1, 
-                      "maxValue": 2, 
-                      "unitCode": "d" 
-                    }
-                  },
-                  "shippingDestination": [
-                    { 
-                      "@type": "DefinedRegion", 
-                      "addressCountry": "BR", 
-                      "addressRegion": "SP" 
-                    },
-                    { 
-                      "@type": "DefinedRegion", 
-                      "addressCountry": "BR", 
-                      "addressRegion": "MG", 
-                      "name": "Sul de Minas" 
-                    },
-                    { 
-                      "@type": "DefinedRegion", 
-                      "addressCountry": "BR", 
-                      "addressRegion": "RJ", 
-                      "name": "Sul do Rio de Janeiro" 
-                    }
-                  ]
-                },
-                "hasMerchantReturnPolicy": {
-                  "@type": "MerchantReturnPolicy",
-                  "applicableCountry": "BR",
-                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                  "merchantReturnDays": 0,
-                  "returnMethod": "https://schema.org/ReturnByMail",
-                  "returnFees": "https://schema.org/FreeReturn",
-                  "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
-                },
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": product.price.toString(),
-                  "priceCurrency": "BRL",
-                  "referenceQuantity": {
-                    "@type": "QuantitativeValue",
-                    "value": "1",
-                    "unitCode": "KGM"
-                  }
-                },
-                "seller": {
-                  "@type": "LocalBusiness",
-                  "priceRange": "$$",
-                  "name": "Marques Vendas PMG",
-                  "image": "https://i.imgur.com/jrERRsC.png",
-                  "telephone": "+55-11-91357-2902",
-                  "areaServed": [
-                    {
-                      "@type": "AdministrativeArea",
-                      "name": "Grande São Paulo",
-                      "description": "Atacado Grande São Paulo, Distribuidora Grande SP, Fornecedor alimentos Grande São Paulo, Atacadista food service Grande SP"
-                    },
-                    {
-                      "@type": "AdministrativeArea", 
-                      "name": "Interior de São Paulo",
-                      "description": "Atacado interior São Paulo, Distribuidora interior SP, Fornecedor interior São Paulo, Atacadista food service interior SP"
-                    },
-                    {
-                      "@type": "AdministrativeArea",
-                      "name": "Capital de São Paulo",
-                      "description": "Atacado São Paulo capital, Distribuidora São Paulo, Fornecedor alimentos São Paulo, Atacadista bebidas São Paulo, Food service São Paulo"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Santo Amaro - SP",
-                      "description": "Atacado Santo Amaro, Distribuidora Santo Amaro, Fornecedor alimentos Santo Amaro, Atacadista bebidas Santo Amaro, Food service Santo Amaro SP"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Santo André - SP",
-                      "description": "Atacado Santo André, Distribuidora Santo André, Fornecedor Santo André, Atacadista alimentos Santo André, Food service Santo André SP"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Barueri - SP", 
-                      "description": "Atacado Barueri, Distribuidora Barueri, Fornecedor alimentos Barueri, Atacadista bebidas Barueri, Food service Barueri SP"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "São Bernardo do Campo - SP",
-                      "description": "Atacado São Bernardo do Campo, Distribuidora São Bernardo, Fornecedor São Bernardo, Atacadista alimentos São Bernardo, Food service São Bernardo SP"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Mauá - SP",
-                      "description": "Atacado Mauá, Distribuidora Mauá, Fornecedor alimentos Mauá, Atacadista bebidas Mauá, Food service Mauá SP"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Guarulhos - SP",
-                      "description": "Atacado Guarulhos, Distribuidora Guarulhos, Fornecedor alimentos Guarulhos, Atacadista bebidas Guarulhos, Food service Guarulhos SP"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Arujá - SP",
-                      "description": "Atacado Arujá, Distribuidora Arujá, Fornecedor alimentos Arujá, Atacadista bebidas Arujá, Food service Arujá SP"
-                    },
-                    {
-                      "@type": "AdministrativeArea",
-                      "name": "Sul de Minas Gerais",
-                      "description": "Atacado Sul de Minas, Distribuidora Sul de Minas, Fornecedor alimentos Sul de Minas, Atacadista bebidas Sul de Minas, Food service Sul de Minas"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Extrema - MG",
-                      "description": "Atacado Extrema MG, Distribuidora Extrema, Fornecedor alimentos Extrema, Atacadista bebidas Extrema, Food service Extrema, Atacado para restaurantes Extrema"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Poços de Caldas - MG",
-                      "description": "Atacado Poços de Caldas, Distribuidora Poços de Caldas, Fornecedor alimentos Poços de Caldas, Atacadista bebidas Poços de Caldas, Food service Poços de Caldas MG"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "São Lourenço - MG",
-                      "description": "Atacado São Lourenço, Distribuidora São Lourenço, Fornecedor alimentos São Lourenço, Atacadista bebidas São Lourenço, Food service São Lourenço MG"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Itajubá - MG",
-                      "description": "Atacado Itajubá, Distribuidora Itajubá, Fornecedor alimentos Itajubá, Atacadista bebidas Itajubá, Food service Itajubá, Atacado para mercados Itajubá"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Pouso Alegre - MG",
-                      "description": "Atacado Pouso Alegre, Distribuidora Pouso Alegre, Fornecedor alimentos Pouso Alegre, Atacadista bebidas Pouso Alegre, Food service Pouso Alegre MG"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Camanducaia - MG",
-                      "description": "Atacado Camanducaia, Distribuidora Camanducaia, Fornecedor alimentos Camanducaia, Atacadista bebidas Camanducaia, Food service Camanducaia MG"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Varginha - MG",
-                      "description": "Atacado Varginha, Distribuidora Varginha, Fornecedor alimentos Varginha, Atacadista bebidas Varginha, Food service Varginha, Atacado para restaurantes Varginha"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Três Pontas - MG",
-                      "description": "Atacado Três Pontas, Distribuidora Três Pontas, Fornecedor alimentos Três Pontas, Atacadista bebidas Três Pontas, Food service Três Pontas MG"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Virgínia - MG",
-                      "description": "Atacado Virgínia MG, Distribuidora Virgínia, Fornecedor alimentos Virgínia, Atacadista bebidas Virgínia, Food service Virgínia MG"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Santa Rita do Sapucaí - MG",
-                      "description": "Atacado Santa Rita do Sapucaí, Distribuidora Santa Rita do Sapucaí, Fornecedor alimentos Santa Rita, Atacadista bebidas Santa Rita, Food service Santa Rita do Sapucaí"
-                    },
-                    {
-                      "@type": "AdministrativeArea", 
-                      "name": "Sul do Rio de Janeiro",
-                      "description": "Atacado Sul do Rio de Janeiro, Distribuidora Sul do RJ, Fornecedor alimentos Sul do Rio, Atacadista bebidas Sul do RJ, Food service Sul do Rio"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Paraty - RJ",
-                      "description": "Atacado Paraty, Distribuidora Paraty, Fornecedor alimentos Paraty, Atacadista bebidas Paraty, Food service Paraty RJ"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Volta Redonda - RJ",
-                      "description": "Atacado Volta Redonda, Distribuidora Volta Redonda, Fornecedor alimentos Volta Redonda, Atacadista bebidas Volta Redonda, Food service Volta Redonda RJ"
-                    },
-                    {
-                      "@type": "City", 
-                      "name": "Resende - RJ",
-                      "description": "Atacado Resende, Distribuidora Resende, Fornecedor alimentos Resende, Atacadista bebidas Resende, Food service Resende RJ"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Barra Mansa - RJ",
-                      "description": "Atacado Barra Mansa, Distribuidora Barra Mansa, Fornecedor alimentos Barra Mansa, Atacadista bebidas Barra Mansa, Food service Barra Mansa RJ"
-                    }
-                  ],
-                  "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-                    "postalCode": "06885-150",
-                    "addressLocality": "Itapecerica da Serra",
-                    "addressRegion": "SP",
-                    "addressCountry": "BR"
-                  }
-                }
-              }
-            })
-          }}
-        />
-
-        {/* Viewport para mobile */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      {/* ✅ FEEDBACK DE ITEM ADICIONADO */}
       {showAddedFeedback && (
         <div style={{
           position: 'fixed',
@@ -2362,105 +2042,23 @@ export default function ProductPage({
         </div>
       )}
 
-      {/* Container Principal */}
       <div style={styles.container}>
         
-        {/* ✅ HEADER COM INFORMAÇÕES DO USUÁRIO */}
-        {user && (
-          <div style={{
-            backgroundColor: '#095400',
-            color: 'white',
-            padding: isMobile ? '12px 15px' : '12px 20px',
-            borderRadius: '8px',
-            marginBottom: '20px'
-          }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              marginBottom: '10px'
-            }}>
-              {userAvatar && (
-                <img 
-                  src={userAvatar} 
-                  alt="Foto do usuário"
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '50%',
-                    objectFit: 'cover'
-                  }} 
-                />
-              )}
-              <p style={{
-                fontSize: isMobile ? '14px' : '16px',
-                fontWeight: '600',
-                margin: 0
-              }}>
-                {userName ? `Olá ${userName}, seja bem-vindo(a)!` : `Olá ${user.email}, seja bem-vindo(a)!`}
-              </p>
-            </div>
-            
-            <div style={{
-              display: 'flex',
-              gap: '10px',
-              alignItems: 'center',
-              flexWrap: 'wrap'
-            }}>
-              <a href="/" style={{
-                backgroundColor: 'white',
-                color: '#095400',
-                border: '1px solid #095400',
-                padding: isMobile ? '6px 10px' : '8px 12px',
-                borderRadius: '20px',
-                fontSize: isMobile ? '12px' : '14px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                textDecoration: 'none',
-                whiteSpace: 'nowrap',
-                transition: 'all 0.3s',
-                ':hover': {
-                  backgroundColor: '#095400',
-                  color: 'white'
-                }
-              }}>
-                Página Inicial
-              </a>
-              
-              <button 
-                style={{
-                  backgroundColor: '#e53935',
-                  color: 'white',
-                  border: 'none',
-                  padding: isMobile ? '6px 10px' : '8px 12px',
-                  borderRadius: '20px',
-                  fontSize: isMobile ? '12px' : '14px',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s',
-                  whiteSpace: 'nowrap',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px'
-                }}
-                onClick={() => router.push('/produtos')}
-              >
-                Mais produtos
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Header Atualizado - Título e botões organizados */}
+        {/* CABEÇALHO ÚNICO E SIMPLES */}
         <div style={styles.header}>
-          <div style={{ width: '80px' }}></div> {/* Espaçador para alinhamento */}
-          
-          <div style={styles.titleContainer}>
-            {/* TÍTULO PMG ATACADISTA */}
+          <div style={styles.headerContent}>
+            {/* TÍTULO PRINCIPAL */}
             <h1 style={styles.title}>PMG ATACADISTA</h1>
             
-            {/* LINHA DE BOTÕES - ABAIXO DO TÍTULO */}
-            <div style={styles.buttonsRow}>
+            {/* MENSAGEM DE BOAS-VINDAS SE ESTIVER LOGADO */}
+            {user && (
+              <div style={styles.welcomeMessage}>
+                Olá {userName || 'Cliente'}, seja bem-vindo(a)!
+              </div>
+            )}
+            
+            {/* BOTÕES DE NAVEGAÇÃO */}
+            <div style={styles.navButtons}>
               <button 
                 style={styles.navButton}
                 onClick={() => router.push('/')}
@@ -2481,14 +2079,12 @@ export default function ProductPage({
               </button>
             </div>
           </div>
-          
-          <div style={{ width: '80px' }}></div> {/* Espaçador para alinhamento */}
         </div>
 
-        {/* Produto */}
+        {/* PRODUTO */}
         <div style={styles.productContainer}>
           
-          {/* Imagem do Produto */}
+          {/* IMAGEM DO PRODUTO */}
           <div style={styles.imageContainer}>
             <img 
               src={product.image} 
@@ -2500,9 +2096,8 @@ export default function ProductPage({
             />
           </div>
 
-          {/* Informações do Produto */}
+          {/* INFORMAÇÕES DO PRODUTO */}
           <div style={styles.productInfo}>
-            {/* NOME DO PRODUTO COM QUEBRA DE TEXTO CORRIGIDA */}
             <div style={styles.productNameContainer}>
               <h1 style={styles.productName}>
                 {product.name}
@@ -2516,27 +2111,18 @@ export default function ProductPage({
               {product.category}
             </div>
 
-            {/* Preço */}
-            {user ? (
-              <div style={styles.productPrice}>
-                R$ {product.price.toFixed(2)}
-              </div>
-            ) : (
-              <div style={styles.loginPriceWarning}>
-                ⚠️ Faça login para ver o preço
-              </div>
-            )}
+            {/* PREÇO - VISÍVEL PARA TODOS */}
+            <div style={styles.productPrice}>
+              R$ {product.price.toFixed(2)}
+            </div>
 
-            {/* ✅ BOTÕES DE AÇÃO ATUALIZADOS */}
+            {/* BOTÕES DE AÇÃO */}
             <div style={styles.actionButtons}>
               <button
                 onClick={handleAddToCart}
-                disabled={!user || !product.price || product.price === 0}
                 style={{
                   ...styles.addToCartButton,
-                  backgroundColor: isProductInCart ? '#27AE60' : '#ff0000',
-                  opacity: (!user || !product.price || product.price === 0) ? 0.6 : 1,
-                  cursor: (!user || !product.price || product.price === 0) ? 'not-allowed' : 'pointer'
+                  backgroundColor: isProductInCart ? '#27AE60' : '#ff0000'
                 }}
               >
                 <span style={styles.buttonIcon}>🛒</span>
@@ -2545,12 +2131,9 @@ export default function ProductPage({
               
               <button
                 onClick={handleBuyNow}
-                style={{
-                  ...styles.buyNowButton,
-                  ...(!user && styles.disabledButton)
-                }}
+                style={styles.buyNowButton}
               >
-                {user ? 'Comprar Agora' : 'Fazer Login'}
+                {user ? 'Comprar Agora' : 'Fazer Login para Comprar'}
               </button>
             </div>
 
@@ -2560,7 +2143,7 @@ export default function ProductPage({
               </div>
             )}
 
-            {/* Descrição do produto */}
+            {/* DESCRIÇÃO */}
             <div style={styles.descriptionSection}>
               <h2 style={styles.sectionTitle}>Descrição do Produto</h2>
               <p style={styles.descriptionText}>
@@ -2570,11 +2153,10 @@ export default function ProductPage({
               </p>
             </div>
 
-            {/* NOVA SEÇÃO: Cidades Atendidas com Menu Colapsível */}
+            {/* CIDADES COM ENTREGA */}
             <div style={styles.deliveryInfo}>
               <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
               
-              {/* Menu de Regiões */}
               <div style={styles.regionsContainer}>
                 {Object.entries(citiesData).map(([key, region]) => (
                   <div key={key} style={styles.regionSection}>
@@ -2595,14 +2177,12 @@ export default function ProductPage({
                     
                     {openRegions[key] && (
                       <div style={styles.citiesList}>
-                        {/* PARA SP: Mostrar regiões */}
                         {key === 'sp' && region.regions.map((regiao, index) => (
                           <div key={index} style={styles.regionItem}>
                             {regiao}
                           </div>
                         ))}
                         
-                        {/* PARA RJ E MG: Mostrar cidades */}
                         {(key === 'rj' || key === 'mg') && region.cities.map((city, index) => (
                           <div key={index} style={styles.cityItem}>
                             📍 {city}
@@ -2630,7 +2210,7 @@ export default function ProductPage({
               </div>
             </div>
 
-            {/* Vantagens PMG */}
+            {/* VANTAGENS */}
             <div style={styles.advantagesSection}>
               <h3 style={styles.sectionTitle}>🌟 Por que comprar na PMG ATACADISTA?</h3>
               <div style={styles.advantagesList}>
@@ -2656,7 +2236,7 @@ export default function ProductPage({
         </div>
       </div>
 
-      {/* Componente Cart Original - Como estava */}
+      {/* CARRINHO */}
       <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
 
 {/* Rodapé Corrigido - Totalmente Responsivo */}
@@ -3053,50 +2633,15 @@ export default function ProductPage({
   </div>
 </footer>
 
-      {/* CSS Styles Atualizados */}
       <style jsx>{`
-        /* Estilos responsivos */
+        @keyframes fadeInOut {
+          0%, 100% { opacity: 0; transform: translateY(-10px); }
+          10%, 90% { opacity: 1; transform: translateY(0); }
+        }
+        
         @media (max-width: 768px) {
-          .container {
-            padding: 10px;
-          }
-          
-          .header {
-            padding: 15px 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          .title {
-            font-size: 20px;
-            margin-bottom: 15px;
-            text-align: center;
-          }
-          
-          /* BOTÕES EM LINHA MAS RESPONSIVOS */
-          .buttonsRow {
-            display: flex;
-            flex-direction: row;
-            gap: 8px;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 100%;
-            flex-wrap: wrap;
-          }
-          
-          .navButton, .ofertasButton {
-            font-size: 12px;
-            padding: 8px 12px;
-            min-width: 0;
-            flex: 1;
-            max-width: 120px;
-          }
-          
           .productContainer {
             flex-direction: column;
-            gap: 20px;
           }
           
           .productImage {
@@ -3104,89 +2649,29 @@ export default function ProductPage({
             height: 250px;
           }
           
-          .productName {
-            font-size: 18px;
-            line-height: 1.3;
+          .navButtons {
+            flex-direction: column;
+            gap: 10px;
+          }
+          
+          .navButton, .ofertasButton {
+            width: 100%;
           }
           
           .actionButtons {
             flex-direction: column;
           }
           
-          .addToCartButton,
-          .buyNowButton {
+          .addToCartButton, .buyNowButton {
             width: 100%;
           }
-        }
-        
-        @media (max-width: 480px) {
-          .title {
-            font-size: 18px;
-            margin-bottom: 12px;
-          }
-          
-          .buttonsRow {
-            gap: 6px;
-          }
-          
-          .navButton, .ofertasButton {
-            font-size: 11px;
-            padding: 6px 8px;
-            max-width: 110px;
-          }
-          
-          .productName {
-            font-size: 16px;
-          }
-          
-          .productPrice {
-            font-size: 22px;
-          }
-          
-          .sectionTitle {
-            font-size: 16px;
-          }
-        }
-
-        /* PARA CELULARES MUITO PEQUENOS */
-        @media (max-width: 360px) {
-          .navButton, .ofertasButton {
-            font-size: 10px;
-            padding: 5px 6px;
-            max-width: 100px;
-          }
-          
-          .title {
-            font-size: 16px;
-          }
-        }
-
-        /* DESKTOP */
-        @media (min-width: 769px) {
-          .buttonsRow {
-            display: flex;
-            gap: 15px;
-          }
-          
-          .navButton, .ofertasButton {
-            min-width: 150px;
-            font-size: 14px;
-            padding: 10px 16px;
-            max-width: none;
-          }
-        }
-        
-        /* Estilos gerais */
-        .productName {
-          word-break: break-word;
-          overflow-wrap: break-word;
         }
       `}</style>
     </>
   );
 }
 
-// Estilos otimizados
+// ESTILOS SIMPLIFICADOS
 const styles = {
   container: {
     maxWidth: '1200px',
@@ -3196,26 +2681,23 @@ const styles = {
     minHeight: '100vh'
   },
   
+  // CABEÇALHO
   header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '20px',
-    padding: '20px 15px',
     backgroundColor: '#fff',
     borderRadius: '10px',
     boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+    marginBottom: '20px',
+    padding: '15px',
     position: 'sticky',
     top: '0',
     zIndex: '100'
   },
   
-  titleContainer: {
+  headerContent: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '15px',
-    flex: 1
+    gap: '10px'
   },
   
   title: {
@@ -3226,43 +2708,50 @@ const styles = {
     textAlign: 'center'
   },
   
-  buttonsRow: {
+  welcomeMessage: {
+    backgroundColor: '#f8f9fa',
+    padding: '8px 15px',
+    borderRadius: '20px',
+    fontSize: '14px',
+    color: '#333',
+    fontWeight: '600'
+  },
+  
+  navButtons: {
     display: 'flex',
     gap: '10px',
     justifyContent: 'center',
-    alignItems: 'center',
     width: '100%',
-    maxWidth: '600px'
+    flexWrap: 'wrap'
   },
   
   navButton: {
     backgroundColor: '#095400',
     color: 'white',
     border: 'none',
-    padding: '10px 16px',
-    borderRadius: '6px',
+    padding: '8px 16px',
+    borderRadius: '5px',
     cursor: 'pointer',
     fontSize: '14px',
     fontWeight: 'bold',
     transition: 'all 0.3s ease',
-    textAlign: 'center',
-    flex: 1
+    minWidth: '120px'
   },
   
   ofertasButton: {
     backgroundColor: '#ff0000',
     color: 'white',
     border: 'none',
-    padding: '10px 16px',
-    borderRadius: '6px',
+    padding: '8px 16px',
+    borderRadius: '5px',
     cursor: 'pointer',
     fontSize: '14px',
     fontWeight: 'bold',
     transition: 'all 0.3s ease',
-    textAlign: 'center',
-    flex: 1
+    minWidth: '120px'
   },
   
+  // PRODUTO
   productContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -3281,14 +2770,14 @@ const styles = {
     maxWidth: '500px',
     height: '300px',
     objectFit: 'cover',
-    borderRadius: '15px',
+    borderRadius: '10px',
     boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
   },
   
   productInfo: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '20px'
+    gap: '15px'
   },
   
   productNameContainer: {
@@ -3298,14 +2787,11 @@ const styles = {
   },
   
   productName: {
-    fontSize: '24px',
+    fontSize: '22px',
     color: '#333',
     fontWeight: 'bold',
     margin: '0',
-    lineHeight: '1.3',
-    wordBreak: 'break-word',
-    overflowWrap: 'break-word',
-    hyphens: 'auto'
+    lineHeight: '1.3'
   },
   
   pmgBrand: {
@@ -3315,25 +2801,25 @@ const styles = {
   pmgBadge: {
     backgroundColor: '#095400',
     color: 'white',
-    padding: '8px 15px',
-    borderRadius: '6px',
-    fontSize: '16px',
+    padding: '6px 12px',
+    borderRadius: '5px',
+    fontSize: '14px',
     fontWeight: 'bold',
     display: 'inline-block'
   },
   
   productCategory: {
-    fontSize: '16px',
+    fontSize: '14px',
     color: '#666',
     backgroundColor: '#f0f0f0',
-    padding: '8px 15px',
-    borderRadius: '20px',
+    padding: '6px 12px',
+    borderRadius: '15px',
     display: 'inline-block',
     alignSelf: 'flex-start'
   },
   
   productPrice: {
-    fontSize: '28px',
+    fontSize: '26px',
     color: '#095400',
     fontWeight: 'bold',
     margin: '0'
@@ -3349,8 +2835,8 @@ const styles = {
     backgroundColor: '#ff0000',
     color: 'white',
     border: 'none',
-    padding: '15px 20px',
-    borderRadius: '8px',
+    padding: '12px 20px',
+    borderRadius: '6px',
     cursor: 'pointer',
     fontSize: '16px',
     fontWeight: 'bold',
@@ -3366,18 +2852,13 @@ const styles = {
     backgroundColor: '#095400',
     color: 'white',
     border: 'none',
-    padding: '15px 20px',
-    borderRadius: '8px',
+    padding: '12px 20px',
+    borderRadius: '6px',
     cursor: 'pointer',
     fontSize: '16px',
     fontWeight: 'bold',
     flex: '1',
     minWidth: '200px'
-  },
-  
-  disabledButton: {
-    backgroundColor: '#ccc',
-    cursor: 'not-allowed'
   },
   
   buttonIcon: {
@@ -3388,8 +2869,8 @@ const styles = {
     backgroundColor: '#fff3cd',
     border: '1px solid #ffeaa7',
     color: '#856404',
-    padding: '12px',
-    borderRadius: '8px',
+    padding: '10px',
+    borderRadius: '6px',
     fontSize: '14px',
     textAlign: 'center'
   },
@@ -3400,35 +2881,35 @@ const styles = {
   
   sectionTitle: {
     color: '#095400',
-    fontSize: '20px',
+    fontSize: '18px',
     fontWeight: 'bold',
-    marginBottom: '15px'
+    marginBottom: '10px'
   },
   
   descriptionText: {
     color: '#666',
     lineHeight: '1.6',
-    fontSize: '15px',
+    fontSize: '14px',
     margin: '0'
   },
   
   deliveryInfo: {
     backgroundColor: '#f8f9fa',
-    padding: '20px',
-    borderRadius: '10px',
+    padding: '15px',
+    borderRadius: '8px',
     border: '1px solid #e9ecef'
   },
 
   regionsContainer: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '15px',
-    marginBottom: '20px'
+    gap: '10px',
+    marginBottom: '15px'
   },
 
   regionSection: {
     border: '1px solid #e0e0e0',
-    borderRadius: '8px',
+    borderRadius: '6px',
     overflow: 'hidden'
   },
 
@@ -3437,62 +2918,59 @@ const styles = {
     backgroundColor: '#095400',
     color: 'white',
     border: 'none',
-    padding: '15px 20px',
+    padding: '12px 15px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     cursor: 'pointer',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    transition: 'all 0.3s ease'
+    fontSize: '14px',
+    fontWeight: 'bold'
   },
 
   regionTitle: {
-    fontSize: '16px',
+    fontSize: '14px',
     fontWeight: 'bold'
   },
 
   arrow: {
     transition: 'transform 0.3s ease',
-    fontSize: '12px'
+    fontSize: '10px'
   },
 
   citiesList: {
     backgroundColor: 'white',
-    padding: '15px',
+    padding: '12px',
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-    gap: '8px',
-    maxHeight: '300px',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+    gap: '6px',
+    maxHeight: '250px',
     overflowY: 'auto'
   },
 
   cityItem: {
-    fontSize: '13px',
+    fontSize: '12px',
     color: '#555',
-    padding: '5px 0',
-    borderBottom: '1px solid #f0f0f0'
+    padding: '4px 0'
   },
 
   regionItem: {
-    fontSize: '14px',
+    fontSize: '13px',
     color: '#095400',
-    padding: '8px 0',
-    borderBottom: '1px solid #f0f0f0',
+    padding: '6px 0',
     fontWeight: '600'
   },
   
   deliveryList: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '10px'
+    gap: '8px'
   },
   
   deliveryItem: {
     display: 'flex',
     alignItems: 'center',
-    gap: '10px',
-    fontSize: '14px',
+    gap: '8px',
+    fontSize: '13px',
     color: '#555'
   },
   
@@ -3503,34 +2981,104 @@ const styles = {
   
   advantagesSection: {
     backgroundColor: '#e8f5e8',
-    padding: '20px',
-    borderRadius: '10px',
+    padding: '15px',
+    borderRadius: '8px',
     border: '1px solid #095400'
   },
   
   advantagesList: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '15px'
+    gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+    gap: '10px'
   },
   
   advantageItem: {
     display: 'flex',
     alignItems: 'center',
-    gap: '10px',
-    fontSize: '14px',
+    gap: '8px',
+    fontSize: '13px',
     color: '#333'
   },
   
   advantageIcon: {
-    fontSize: '18px'
+    fontSize: '16px'
+  },
+  
+  // RODAPÉ
+  footer: {
+    marginTop: '40px',
+    padding: '20px 15px',
+    textAlign: 'center',
+    color: '#666',
+    fontSize: '13px',
+    borderTop: '2px solid #095400',
+    backgroundColor: '#f8f9fa'
+  },
+  
+  footerContent: {
+    maxWidth: '800px',
+    margin: '0 auto'
+  },
+  
+  footerTitle: {
+    color: '#095400',
+    fontSize: '16px',
+    marginBottom: '15px'
+  },
+  
+  footerLinks: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '15px',
+    flexWrap: 'wrap',
+    marginBottom: '20px'
+  },
+  
+  footerLink: {
+    color: '#095400',
+    textDecoration: 'none',
+    fontWeight: '600',
+    fontSize: '13px',
+    padding: '8px 12px',
+    borderRadius: '5px',
+    backgroundColor: 'white',
+    border: '1px solid #e0e0e0'
+  },
+  
+  footerDivider: {
+    height: '1px',
+    background: 'linear-gradient(90deg, transparent, #095400, transparent)',
+    margin: '15px auto',
+    maxWidth: '200px'
+  },
+  
+  socialMedia: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '15px',
+    marginBottom: '20px'
+  },
+  
+  socialIcon: {
+    width: '30px',
+    height: '30px',
+    borderRadius: '5px',
+    backgroundColor: 'white',
+    padding: '5px',
+    border: '1px solid #e0e0e0'
+  },
+  
+  footerInfo: {
+    textAlign: 'center',
+    fontSize: '12px',
+    color: '#666',
+    lineHeight: '1.5'
   }
 };
 
-// Geração de paths estáticos para melhor SEO
 export async function getStaticPaths() {
   return {
-    paths: [], // não pré-gerar nenhum produto
-    fallback: 'blocking' // gera páginas sob demanda quando acessadas
+    paths: [],
+    fallback: 'blocking'
   };
 }
