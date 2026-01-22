@@ -3,7 +3,7 @@ import Cart from './Cart';
 import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 import useTrackUser from '../hook/useTrackUser';
-import { useRouter } from 'next/router'; // ← ADICIONE ESTA LINHA
+import { useRouter } from 'next/router';
 
 // ========== DADOS DAS CIDADES (COPIADO DA PÁGINA DE PRODUTOS) ========== //
 const citiesData = {
@@ -48,7 +48,6 @@ const citiesData = {
 };
 
 // ========== PRODUTOS EM OFERTA ========== //
-// VOCÊ SÓ PRECISA MUDAR ESTES PRODUTOS TODO DOMINGO!
 const featuredProducts = [
   { id: 770, name: 'MUÇARELA TRÊS MARIAS RONDÔNIA "OURO PRETO" 4 KG', category: 'Ofertas', price: 27.99, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-rondonia-ouro-preto-4-kg-pmg-atacadista.jpg' },
   { id: 719, name: 'MUÇARELA BARI 4 KG', category: 'Ofertas', price: 27.20, image: 'https://www.marquesvendaspmg.shop/images/mucarela-bari-4-kg-pmg-atacadista.jpg' },
@@ -91,22 +90,22 @@ const fifoImages = [
   { 
     video: 'https://i.imgur.com/wkqk63h.mp4',
     productId: 1746,
-    url: 'https://www.marquesvendaspmg.shop/produto/1746'
+    url: 'http://localhost:3000/produto/1746'
   },
   { 
     video: 'https://i.imgur.com/kmRpbcB.mp4',
     productId: 702,
-    url: 'https://www.marquesvendaspmg.shop/produto/702'
+    url: 'http://localhost:3000/produto/702'
   },
   { 
     video: 'https://i.imgur.com/7HNF3cf.mp4',
     productId: 533,
-    url: 'https://www.marquesvendaspmg.shop/produto/533'
+    url: 'http://localhost:3000/produto/533'
   },
   { 
     video: 'https://i.imgur.com/3OTFiIM.mp4',
     productId: 615,
-    url: 'https://www.marquesvendaspmg.shop/produto/615'
+    url: 'http://localhost:3000/produto/615'
   },
 ];
 
@@ -200,12 +199,26 @@ const useWindowSize = () => {
 };
 
 // ========== COMPONENTE PRINCIPAL ========== //
-const OfertasPage = () => {
+const OfertasPage = ({
+  // ✅ RECEBE AS PROPS DO _app.js - MESMO CARRINHO GLOBAL
+  cart = [],
+  total = 0,
+  addToCart = () => {},
+  removeFromCart = () => {},
+  setCart = () => {},
+  adjustQuantity = () => {},
+  clearCart = () => {}
+}) => {
   const { width: windowWidth } = useWindowSize();
   const isMobile = windowWidth <= 768;
   const router = useRouter();
   
   useTrackUser();
+  
+  // ✅ ESTADOS DO USUÁRIO - APENAS PARA MENSAGEM DE BOAS-VINDAS
+  const [user, setUser] = useState(null);
+  const [userName, setUserName] = useState('');
+  const [userAvatar, setUserAvatar] = useState('');
   
   // NOVOS ESTADOS PARA O MENU DE CIDADES
   const [showCitiesMenu, setShowCitiesMenu] = useState(false);
@@ -217,14 +230,63 @@ const OfertasPage = () => {
   
   const dynamicSEO = generateDynamicSEO(featuredProducts);
   
-  // Estados
-  const [cart, setCart] = useState([]);
-  const [total, setTotal] = useState(0);
+  // Estados LOCAIS apenas para controle da página (não do carrinho)
   const [currentPage, setCurrentPage] = useState(1);
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [expandedDescriptions, setExpandedDescriptions] = useState({});
   const [showFifoPopup, setShowFifoPopup] = useState(false);
-const [selectedFifoItem, setSelectedFifoItem] = useState(null);
+  const [selectedFifoItem, setSelectedFifoItem] = useState(null);
+  const [showAddedFeedback, setShowAddedFeedback] = useState(false);
+
+  // ✅ Estado para feedback visual ao adicionar produto
+  useEffect(() => {
+    if (showAddedFeedback) {
+      const timer = setTimeout(() => {
+        setShowAddedFeedback(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showAddedFeedback]);
+
+  // ✅ EFETO PARA VERIFICAR USUÁRIO LOGADO - APENAS PARA MENSAGEM DE BOAS-VINDAS
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setUser(user);
+        
+        // Pegar os dados do usuário
+        const fullName = user.user_metadata?.full_name || '';
+        const avatarUrl = user.user_metadata?.avatar_url || '';
+        
+        setUserName(fullName);
+        setUserAvatar(avatarUrl);
+      }
+    };
+    
+    // Adicionar listener para mudanças de autenticação
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
+        if (session?.user) {
+          setUser(session.user);
+          const fullName = session.user.user_metadata?.full_name || '';
+          const avatarUrl = session.user.user_metadata?.avatar_url || '';
+          setUserName(fullName);
+          setUserAvatar(avatarUrl);
+        }
+      } else if (event === 'SIGNED_OUT') {
+        setUser(null);
+        setUserName('');
+        setUserAvatar('');
+      }
+    });
+    
+    checkUser();
+    
+    return () => {
+      if (subscription) subscription.unsubscribe();
+    };
+  }, []);
 
   // Configuração de paginação
   const productsPerPage = 10;
@@ -235,7 +297,6 @@ const [selectedFifoItem, setSelectedFifoItem] = useState(null);
 
   // Refs para intervalos
   const bannerIntervalRef = useRef(null);
-  const toastTimeoutRef = useRef(null);
 
   // FUNÇÃO PARA ALTERNAR AS REGIÕES
   const toggleRegion = (regionKey) => {
@@ -263,6 +324,17 @@ const [selectedFifoItem, setSelectedFifoItem] = useState(null);
     }));
   };
 
+  // ✅ Função handleAddToCart com feedback visual
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setShowAddedFeedback(true);
+  };
+
+  // ✅ Verifica se produto já está no carrinho
+  const isProductInCart = (productId) => {
+    return cart.some(item => item.id === productId);
+  };
+
   // Efeitos
   useEffect(() => {
     // Atualiza título da página dinamicamente
@@ -282,34 +354,18 @@ const [selectedFifoItem, setSelectedFifoItem] = useState(null);
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
     }, 10000);
 
-// Popup FIFO após 1 minuto
-const fifoTimer = setTimeout(() => {
-  const randomIndex = Math.floor(Math.random() * fifoImages.length);
-  setSelectedFifoItem(fifoImages[randomIndex]);
-  setShowFifoPopup(true);
-}, 27000);
+    // Popup FIFO após 27 segundos
+    const fifoTimer = setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * fifoImages.length);
+      setSelectedFifoItem(fifoImages[randomIndex]);
+      setShowFifoPopup(true);
+    }, 27000);
 
     return () => {
       clearInterval(bannerIntervalRef.current);
-      clearTimeout(toastTimeoutRef.current);
       clearTimeout(fifoTimer);
     };
   }, []);
-
-  // Funções do carrinho
-  const addToCart = (product) => {
-    if (product.price > 0) {
-      setCart([...cart, product]);
-      setTotal(total + product.price);
-    }
-  };
-
-  const removeFromCart = (productId) => {
-    const updatedCart = cart.filter(item => item.id !== productId);
-    const removedItem = cart.find(item => item.id === productId);
-    setCart(updatedCart);
-    setTotal(total - (removedItem?.price || 0));
-  };
 
   // Funções do banner
   const goToNextBanner = () => {
@@ -501,6 +557,14 @@ const fifoTimer = setTimeout(() => {
       ':hover': {
         backgroundColor: '#0a6b00',
         transform: 'translateY(-2px)'
+      }
+    },
+    addedButton: {
+      backgroundColor: '#27AE60',
+      cursor: 'default',
+      ':hover': {
+        backgroundColor: '#27AE60',
+        transform: 'none'
       }
     },
     disabledButton: {
@@ -700,11 +764,46 @@ const fifoTimer = setTimeout(() => {
       cursor: 'pointer',
       textDecoration: 'none',
     },
+    feedbackToast: {
+      position: 'fixed',
+      top: '20px',
+      right: '20px',
+      backgroundColor: '#27AE60',
+      color: 'white',
+      padding: '12px 20px',
+      borderRadius: '8px',
+      zIndex: 9999,
+      animation: 'fadeInOut 2s ease-in-out',
+      fontWeight: 'bold',
+      boxShadow: '0 4px 12px rgba(39, 174, 96, 0.3)',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px'
+    },
+    // ✅ ESTILO PARA MENSAGEM DE BOAS-VINDAS (igual ao [id].js)
+    welcomeMessage: {
+      backgroundColor: '#f8f9fa',
+      padding: '10px 15px',
+      borderRadius: '8px',
+      fontSize: '14px',
+      color: '#333',
+      fontWeight: '600',
+      textAlign: 'center',
+      marginBottom: '15px',
+      border: '1px solid #e0e0e0'
+    }
   };
 
   // ========== RENDERIZAÇÃO ========== //
   return (
     <div style={styles.container}>
+      {/* ✅ FEEDBACK VISUAL AO ADICIONAR PRODUTO */}
+      {showAddedFeedback && (
+        <div style={styles.feedbackToast}>
+          ✅ Produto adicionado ao carrinho!
+        </div>
+      )}
+
       {/* ✅ SCHEMA.ORG DINÂMICO */}
       {generateSchemaOrg().map((schema, index) => (
         <script
@@ -714,7 +813,14 @@ const fifoTimer = setTimeout(() => {
         />
       ))}
 
-      {/* ========== BARRA COM OS 3 BOTÕES - IGUAL À PÁGINA DE PRODUTOS (ALINHADA À ESQUERDA) ========== */}
+      {/* ✅ MENSAGEM DE BOAS-VINDAS SE USUÁRIO ESTIVER LOGADO (IGUAL AO [id].js) */}
+      {user && (
+        <div style={styles.welcomeMessage}>
+          Olá {userName || 'Cliente'}, seja bem-vindo(a)!
+        </div>
+      )}
+
+      {/* ========== BARRA COM OS 3 BOTÕES - SEMPRE VISÍVEL ========== */}
       <div style={{
         backgroundColor: '#095400',
         color: 'white',
@@ -723,378 +829,377 @@ const fifoTimer = setTimeout(() => {
         marginBottom: isMobile ? '15px' : '20px',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'flex-start', // ← ALTERADO: estava 'center', agora 'flex-start'
+        alignItems: 'flex-start',
         boxShadow: '0 2px 10px rgba(9, 84, 0, 0.2)'
       }}>
-        {/* Linha 1: Mensagem ALINHADA À ESQUERDA */}
+        {/* Linha 1: Mensagem */}
         <p style={{
           fontSize: isMobile ? '16px' : '18px',
           fontWeight: '600',
           margin: 0,
           marginBottom: '10px',
-          textAlign: 'left', // ← ALTERADO: estava 'center'
+          textAlign: 'left',
           width: '100%'
         }}>
           🎯 OFERTAS DA SEMANA - Marques Vendas PMG
         </p>
         
-    {/* Linha 2: Botões */}
-    <div style={{
-      display: 'flex',
-      gap: '10px',
-      alignItems: 'center',
-      flexWrap: 'wrap'
-    }}>
-      {/* BOTÃO PÁGINA INICIAL */}
-      <a href="/" style={{
-        backgroundColor: 'white',
-        color: '#095400',
-        border: '1px solid #095400',
-        padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-        borderRadius: '20px',
-        fontSize: windowWidth > 768 ? '14px' : '12px',
-        fontWeight: '600',
-        cursor: 'pointer',
-        textDecoration: 'none',
-        whiteSpace: 'nowrap',
-        transition: 'all 0.3s',
-        ':hover': {
-          backgroundColor: '#095400',
-          color: 'white'
-        }
-      }}>
-        Página Inicial
-      </a>
-      
-      {/* BOTÃO ONDE ENTREGAMOS */}
-      <div style={{ position: 'relative', display: 'inline-block' }}>
-        <button
-          onClick={() => setShowCitiesMenu(!showCitiesMenu)}
-          style={{
-            backgroundColor: '#e53935',
-            color: 'white',
-            border: 'none',
+        {/* Linha 2: Botões */}
+        <div style={{
+          display: 'flex',
+          gap: '10px',
+          alignItems: 'center',
+          flexWrap: 'wrap'
+        }}>
+          {/* BOTÃO PÁGINA INICIAL */}
+          <a href="/" style={{
+            backgroundColor: 'white',
+            color: '#095400',
+            border: '1px solid #095400',
             padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
             borderRadius: '20px',
             fontSize: windowWidth > 768 ? '14px' : '12px',
             fontWeight: '600',
             cursor: 'pointer',
-            transition: 'all 0.3s',
+            textDecoration: 'none',
             whiteSpace: 'nowrap',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '5px',
-            boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
+            transition: 'all 0.3s',
             ':hover': {
-              backgroundColor: '#c62828',
-              transform: 'translateY(-2px)',
-              boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
+              backgroundColor: '#095400',
+              color: 'white'
             }
-          }}
-        >
-          Onde Entregamos
-          <span style={{
-            transition: 'transform 0.3s',
-            fontSize: '12px',
-            transform: showCitiesMenu ? 'rotate(180deg)' : 'rotate(0deg)'
           }}>
-            ▼
-          </span>
-        </button>
-        
-        {/* MENU DROPDOWN - CENTRALIZADO E RESPONSIVO */}
-        {showCitiesMenu && (
-          <>
-            {/* Overlay para fechar ao clicar fora */}
-            <div 
+            Página Inicial
+          </a>
+          
+          {/* BOTÃO ONDE ENTREGAMOS */}
+          <div style={{ position: 'relative', display: 'inline-block' }}>
+            <button
+              onClick={() => setShowCitiesMenu(!showCitiesMenu)}
               style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                zIndex: 998,
-                backgroundColor: 'transparent'
-              }}
-              onClick={() => setShowCitiesMenu(false)}
-            />
-            
-            {/* Container do Menu - Centralizado abaixo do botão */}
-            <div 
-              style={{
-                position: 'absolute',
-                top: '100%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                zIndex: 999,
-                backgroundColor: 'white',
-                borderRadius: '8px',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
-                border: '2px solid #e53935',
-                width: windowWidth > 768 ? '350px' : '280px',
-                maxHeight: '400px',
-                overflowY: 'auto',
-                marginTop: '8px'
-              }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Cabeçalho do Menu */}
-              <div style={{
-                padding: '12px 15px',
-                borderBottom: '1px solid #eee',
+                backgroundColor: '#e53935',
+                color: 'white',
+                border: 'none',
+                padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+                borderRadius: '20px',
+                fontSize: windowWidth > 768 ? '14px' : '12px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.3s',
+                whiteSpace: 'nowrap',
                 display: 'flex',
-                justifyContent: 'space-between',
                 alignItems: 'center',
-                backgroundColor: '#fff5f5'
+                gap: '5px',
+                boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
+                ':hover': {
+                  backgroundColor: '#c62828',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
+                }
+              }}
+            >
+              Onde Entregamos
+              <span style={{
+                transition: 'transform 0.3s',
+                fontSize: '12px',
+                transform: showCitiesMenu ? 'rotate(180deg)' : 'rotate(0deg)'
               }}>
-                <strong style={{ 
-                  color: '#095400', 
-                  fontSize: windowWidth > 768 ? '16px' : '14px',
-                  fontWeight: '600'
-                }}>
-                  📍 Onde Entregamos
-                </strong>
-                <button
-                  onClick={() => setShowCitiesMenu(false)}
+                ▼
+              </span>
+            </button>
+            
+            {/* MENU DROPDOWN */}
+            {showCitiesMenu && (
+              <>
+                {/* Overlay para fechar ao clicar fora */}
+                <div 
                   style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#e53935',
-                    cursor: 'pointer',
-                    fontSize: '20px',
-                    fontWeight: 'bold',
-                    padding: '0',
-                    width: '24px',
-                    height: '24px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '50%',
-                    ':hover': {
-                      backgroundColor: '#f0f0f0'
-                    }
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    zIndex: 998,
+                    backgroundColor: 'transparent'
                   }}
+                  onClick={() => setShowCitiesMenu(false)}
+                />
+                
+                {/* Container do Menu */}
+                <div 
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    zIndex: 999,
+                    backgroundColor: 'white',
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
+                    border: '2px solid #e53935',
+                    width: windowWidth > 768 ? '350px' : '280px',
+                    maxHeight: '400px',
+                    overflowY: 'auto',
+                    marginTop: '8px'
+                  }}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  ×
-                </button>
-              </div>
-              
-              {/* Conteúdo do Menu */}
-              <div style={{ padding: '15px' }}>
-                
-                {/* São Paulo */}
-                <div style={{ marginBottom: '15px' }}>
-                  <div 
-                    onClick={() => toggleRegion('sp')}
-                    style={{
-                      color: '#095400',
-                      fontWeight: '600',
-                      fontSize: windowWidth > 768 ? '15px' : '13px',
-                      marginBottom: '8px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      cursor: 'pointer',
-                      padding: '5px',
-                      borderRadius: '4px',
-                      ':hover': {
-                        backgroundColor: '#f9f9f9'
-                      }
-                    }}
-                  >
-                    <span>🏢</span>
-                    <span>Estado de São Paulo</span>
-                    <span style={{
-                      marginLeft: 'auto',
-                      fontSize: '12px',
-                      transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.2s'
+                  {/* Cabeçalho do Menu */}
+                  <div style={{
+                    padding: '12px 15px',
+                    borderBottom: '1px solid #eee',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    backgroundColor: '#fff5f5'
+                  }}>
+                    <strong style={{ 
+                      color: '#095400', 
+                      fontSize: windowWidth > 768 ? '16px' : '14px',
+                      fontWeight: '600'
                     }}>
-                      ▼
-                    </span>
+                      📍 Onde Entregamos
+                    </strong>
+                    <button
+                      onClick={() => setShowCitiesMenu(false)}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        color: '#e53935',
+                        cursor: 'pointer',
+                        fontSize: '20px',
+                        fontWeight: 'bold',
+                        padding: '0',
+                        width: '24px',
+                        height: '24px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: '50%',
+                        ':hover': {
+                          backgroundColor: '#f0f0f0'
+                        }
+                      }}
+                    >
+                      ×
+                    </button>
                   </div>
                   
-                  {openRegions.sp && (
-                    <div style={{
-                      marginLeft: '10px',
-                      paddingLeft: '10px',
-                      borderLeft: '2px solid #095400',
-                      maxHeight: '120px',
-                      overflowY: 'auto'
-                    }}>
-                      {citiesData.sp.regions.map((regiao, index) => (
-                        <div key={index} style={{
-                          padding: '5px 0',
-                          color: '#555',
-                          fontSize: windowWidth > 768 ? '13px' : '12px'
-                        }}>
-                          • {regiao}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                
-                {/* Rio de Janeiro */}
-                <div style={{ marginBottom: '15px' }}>
-                  <div 
-                    onClick={() => toggleRegion('rj')}
-                    style={{
-                      color: '#095400',
-                      fontWeight: '600',
-                      fontSize: windowWidth > 768 ? '15px' : '13px',
-                      marginBottom: '8px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      cursor: 'pointer',
-                      padding: '5px',
-                      borderRadius: '4px',
-                      ':hover': {
-                        backgroundColor: '#f9f9f9'
-                      }
-                    }}
-                  >
-                    <span>🏖️</span>
-                    <span>Sul do Rio de Janeiro</span>
-                    <span style={{
-                      marginLeft: 'auto',
-                      fontSize: '12px',
-                      transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.2s'
-                    }}>
-                      ▼
-                    </span>
-                  </div>
-                  
-                  {openRegions.rj && (
-                    <div style={{
-                      marginLeft: '10px',
-                      paddingLeft: '10px',
-                      borderLeft: '2px solid #e53935',
-                      maxHeight: '120px',
-                      overflowY: 'auto'
-                    }}>
-                      {citiesData.rj.cities.map((city, index) => (
-                        <div key={index} style={{
-                          padding: '5px 0',
-                          color: '#555',
-                          fontSize: windowWidth > 768 ? '13px' : '12px'
-                        }}>
-                          • {city}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                
-                {/* Minas Gerais */}
-                <div>
-                  <div 
-                    onClick={() => toggleRegion('mg')}
-                    style={{
-                      color: '#095400',
-                      fontWeight: '600',
-                      fontSize: windowWidth > 768 ? '15px' : '13px',
-                      marginBottom: '8px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      cursor: 'pointer',
-                      padding: '5px',
-                      borderRadius: '4px',
-                      ':hover': {
-                        backgroundColor: '#f9f9f9'
-                      }
-                    }}
-                  >
-                    <span>⛰️</span>
-                    <span>Sul de Minas Gerais</span>
-                    <span style={{
-                      marginLeft: 'auto',
-                      fontSize: '12px',
-                      transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.2s'
-                    }}>
-                      ▼
-                    </span>
-                  </div>
-                  
-                  {openRegions.mg && (
-                    <div style={{
-                      marginLeft: '10px',
-                      paddingLeft: '10px',
-                      borderLeft: '2px solid #e53935',
-                      maxHeight: '120px',
-                      overflowY: 'auto'
-                    }}>
-                      {citiesData.mg.cities.slice(0, 59).map((city, index) => (
-                        <div key={index} style={{
-                          padding: '5px 0',
-                          color: '#555',
-                          fontSize: windowWidth > 768 ? '13px' : '12px'
-                        }}>
-                          • {city}
-                        </div>
-                      ))}
-                      {citiesData.mg.cities.length > 59 && (
-                        <div style={{
-                          color: '#888',
+                  {/* Conteúdo do Menu */}
+                  <div style={{ padding: '15px' }}>
+                    {/* São Paulo */}
+                    <div style={{ marginBottom: '15px' }}>
+                      <div 
+                        onClick={() => toggleRegion('sp')}
+                        style={{
+                          color: '#095400',
+                          fontWeight: '600',
+                          fontSize: windowWidth > 768 ? '15px' : '13px',
+                          marginBottom: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          cursor: 'pointer',
+                          padding: '5px',
+                          borderRadius: '4px',
+                          ':hover': {
+                            backgroundColor: '#f9f9f9'
+                          }
+                        }}
+                      >
+                        <span>🏢</span>
+                        <span>Estado de São Paulo</span>
+                        <span style={{
+                          marginLeft: 'auto',
                           fontSize: '12px',
-                          fontStyle: 'italic',
-                          padding: '5px 0'
+                          transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.2s'
                         }}>
-                          + {citiesData.mg.cities.length - 59} cidades...
+                          ▼
+                        </span>
+                      </div>
+                      
+                      {openRegions.sp && (
+                        <div style={{
+                          marginLeft: '10px',
+                          paddingLeft: '10px',
+                          borderLeft: '2px solid #095400',
+                          maxHeight: '120px',
+                          overflowY: 'auto'
+                        }}>
+                          {citiesData.sp.regions.map((regiao, index) => (
+                            <div key={index} style={{
+                              padding: '5px 0',
+                              color: '#555',
+                              fontSize: windowWidth > 768 ? '13px' : '12px'
+                            }}>
+                              • {regiao}
+                            </div>
+                          ))}
                         </div>
                       )}
                     </div>
-                  )}
+                    
+                    {/* Rio de Janeiro */}
+                    <div style={{ marginBottom: '15px' }}>
+                      <div 
+                        onClick={() => toggleRegion('rj')}
+                        style={{
+                          color: '#095400',
+                          fontWeight: '600',
+                          fontSize: windowWidth > 768 ? '15px' : '13px',
+                          marginBottom: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          cursor: 'pointer',
+                          padding: '5px',
+                          borderRadius: '4px',
+                          ':hover': {
+                            backgroundColor: '#f9f9f9'
+                          }
+                        }}
+                      >
+                        <span>🏖️</span>
+                        <span>Sul do Rio de Janeiro</span>
+                        <span style={{
+                          marginLeft: 'auto',
+                          fontSize: '12px',
+                          transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.2s'
+                        }}>
+                          ▼
+                        </span>
+                      </div>
+                      
+                      {openRegions.rj && (
+                        <div style={{
+                          marginLeft: '10px',
+                          paddingLeft: '10px',
+                          borderLeft: '2px solid #e53935',
+                          maxHeight: '120px',
+                          overflowY: 'auto'
+                        }}>
+                          {citiesData.rj.cities.map((city, index) => (
+                            <div key={index} style={{
+                              padding: '5px 0',
+                              color: '#555',
+                              fontSize: windowWidth > 768 ? '13px' : '12px'
+                            }}>
+                              • {city}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Minas Gerais */}
+                    <div>
+                      <div 
+                        onClick={() => toggleRegion('mg')}
+                        style={{
+                          color: '#095400',
+                          fontWeight: '600',
+                          fontSize: windowWidth > 768 ? '15px' : '13px',
+                          marginBottom: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          cursor: 'pointer',
+                          padding: '5px',
+                          borderRadius: '4px',
+                          ':hover': {
+                            backgroundColor: '#f9f9f9'
+                          }
+                        }}
+                      >
+                        <span>⛰️</span>
+                        <span>Sul de Minas Gerais</span>
+                        <span style={{
+                          marginLeft: 'auto',
+                          fontSize: '12px',
+                          transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.2s'
+                        }}>
+                          ▼
+                        </span>
+                      </div>
+                      
+                      {openRegions.mg && (
+                        <div style={{
+                          marginLeft: '10px',
+                          paddingLeft: '10px',
+                          borderLeft: '2px solid #e53935',
+                          maxHeight: '120px',
+                          overflowY: 'auto'
+                        }}>
+                          {citiesData.mg.cities.slice(0, 59).map((city, index) => (
+                            <div key={index} style={{
+                              padding: '5px 0',
+                              color: '#555',
+                              fontSize: windowWidth > 768 ? '13px' : '12px'
+                            }}>
+                              • {city}
+                            </div>
+                          ))}
+                          {citiesData.mg.cities.length > 59 && (
+                            <div style={{
+                              color: '#888',
+                              fontSize: '12px',
+                              fontStyle: 'italic',
+                              padding: '5px 0'
+                            }}>
+                              + {citiesData.mg.cities.length - 59} cidades...
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Rodapé do Menu */}
+                  <div style={{
+                    padding: '10px 15px',
+                    borderTop: '1px solid #eee',
+                    fontSize: '12px',
+                    color: '#888',
+                    textAlign: 'center',
+                    backgroundColor: '#f9f9f9'
+                  }}>
+                    Clique nas regiões para expandir
+                  </div>
                 </div>
-              </div>
-              
-              {/* Rodapé do Menu */}
-              <div style={{
-                padding: '10px 15px',
-                borderTop: '1px solid #eee',
-                fontSize: '12px',
-                color: '#888',
-                textAlign: 'center',
-                backgroundColor: '#f9f9f9'
-              }}>
-                Clique nas regiões para expandir
-              </div>
-            </div>
-          </>
-        )}
+              </>
+            )}
+          </div>
+          
+          {/* BOTÃO PERGUNTAS FREQUENTES */}
+          <Link href="/faq" legacyBehavior>
+            <a style={{
+              backgroundColor: 'white',
+              color: '#095400',
+              border: '1px solid #095400',
+              padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+              borderRadius: '20px',
+              fontSize: windowWidth > 768 ? '14px' : '12px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+              transition: 'all 0.3s',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '5px',
+              ':hover': {
+                backgroundColor: '#095400',
+                color: 'white'
+              }
+            }}>
+              ❓ Perguntas
+            </a>
+          </Link>
+        </div>
       </div>
-      
-      {/* BOTÃO PERGUNTAS FREQUENTES - DEPOIS DE ONDE ENTREGAMOS */}
-      <Link href="/faq" legacyBehavior>
-        <a style={{
-          backgroundColor: 'white',
-          color: '#095400',
-          border: '1px solid #095400',
-          padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-          borderRadius: '20px',
-          fontSize: windowWidth > 768 ? '14px' : '12px',
-          fontWeight: '600',
-          cursor: 'pointer',
-          textDecoration: 'none',
-          whiteSpace: 'nowrap',
-          transition: 'all 0.3s',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '5px',
-          ':hover': {
-            backgroundColor: '#095400',
-            color: 'white'
-          }
-        }}>
-          ❓ Perguntas
-        </a>
-      </Link>
-    </div>
-  </div>
 
       {/* Cabeçalho */}
       <div style={styles.header}>
@@ -1108,10 +1213,8 @@ const fifoTimer = setTimeout(() => {
           }}
         />
         
-        {/* ✅ H1 DINÂMICO */}
         <h1 style={styles.title}>🔥 Ofertas PMG Atacadista</h1>
         
-        {/* ✅ H2 DINÂMICO */}
         <h2 style={{ 
           color: '#e53935', 
           fontSize: isMobile ? '18px' : '24px',
@@ -1162,7 +1265,6 @@ const fifoTimer = setTimeout(() => {
         Mostrando {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, featuredProducts.length)} de {featuredProducts.length} produtos em oferta
       </div>
 
-      {/* ✅ H3 DINÂMICO */}
       <h3 style={{ 
         color: '#333', 
         fontSize: isMobile ? '18px' : '22px',
@@ -1173,10 +1275,11 @@ const fifoTimer = setTimeout(() => {
         🛒 Produtos em Destaque - Clique na Lupa para Detalhes
       </h3>
 
-      {/* Grade de produtos COM IMAGENS AJUSTADAS */}
+      {/* Grade de produtos */}
       <div style={styles.productsGrid}>
         {currentProducts.map(product => {
           const seo = generateImageSEO(product);
+          const inCart = isProductInCart(product.id);
           
           return (
             <div key={product.id} style={styles.productCard}>
@@ -1189,7 +1292,7 @@ const fifoTimer = setTimeout(() => {
                 🔍
               </button>
               
-              {/* CONTAINER DA IMAGEM - AJUSTADO */}
+              {/* CONTAINER DA IMAGEM */}
               <div style={styles.productImageContainer}>
                 <img 
                   src={product.image} 
@@ -1220,19 +1323,23 @@ const fifoTimer = setTimeout(() => {
                   )}
                 </div>
                 
+                {/* ✅ TODOS PODEM VER PREÇOS (sem bloqueio) */}
                 <p style={product.price > 0 ? styles.productPrice : { ...styles.productPrice, color: '#999', textDecoration: 'line-through' }}>
                   {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
                 </p>
 
                 <button
-                  onClick={() => addToCart(product)}
+                  onClick={() => handleAddToCart(product)}
                   disabled={product.price === 0}
                   style={{
                     ...styles.addButton,
+                    ...(inCart && styles.addedButton),
                     ...(product.price === 0 && styles.disabledButton)
                   }}
                 >
-                  {product.price > 0 ? '🛒 Adicionar ao Carrinho' : '❌ Indisponível'}
+                  {product.price > 0 ? 
+                    (inCart ? '✓ Adicionado' : '🛒 Adicionar ao Carrinho') : 
+                    '❌ Indisponível'}
                 </button>
               </div>
             </div>
@@ -1278,8 +1385,14 @@ const fifoTimer = setTimeout(() => {
         </button>
       </div>
 
-      {/* Carrinho */}
-      <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} total={total} />
+      {/* ✅ CARRINHO GLOBAL - usa as mesmas props */}
+      <Cart 
+        cart={cart} 
+        setCart={setCart} 
+        removeFromCart={removeFromCart} 
+        adjustQuantity={adjustQuantity}
+        total={total} 
+      />
 
       {/* CTA */}
       <div style={styles.ctaSection}>
@@ -1358,39 +1471,39 @@ const fifoTimer = setTimeout(() => {
         </div>
       </div>
       
-{/* Popup FIFO */}
-{showFifoPopup && selectedFifoItem && (
-  <div style={styles.fifoPopupOverlay}>
-    <div style={styles.fifoPopupContent}>
-      <button 
-        style={styles.fifoPopupClose}
-        onClick={() => setShowFifoPopup(false)}
-      >
-        X
-      </button>
-      <div style={styles.fifoPopupImageContainer}>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={styles.fifoPopupImage}
-        >
-          <source src={selectedFifoItem.video} type="video/mp4" />
-          Seu navegador não suporta vídeo HTML5
-        </video>
-      </div>
-      <a
-        href={selectedFifoItem.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={styles.fifoPopupButton}
-      >
-        COMPRAR AGORA
-      </a>
-    </div>
-  </div>
-)}
+      {/* Popup FIFO */}
+      {showFifoPopup && selectedFifoItem && (
+        <div style={styles.fifoPopupOverlay}>
+          <div style={styles.fifoPopupContent}>
+            <button 
+              style={styles.fifoPopupClose}
+              onClick={() => setShowFifoPopup(false)}
+            >
+              X
+            </button>
+            <div style={styles.fifoPopupImageContainer}>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={styles.fifoPopupImage}
+              >
+                <source src={selectedFifoItem.video} type="video/mp4" />
+                Seu navegador não suporta vídeo HTML5
+              </video>
+            </div>
+            <a
+              href={selectedFifoItem.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.fifoPopupButton}
+            >
+              COMPRAR AGORA
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* ✅ CONTEÚDO SEO DINÂMICO E INVISÍVEL */}
       <div style={{
@@ -1827,6 +1940,14 @@ const fifoTimer = setTimeout(() => {
           </div>
         </div>
       </footer>
+
+      {/* ✅ ESTILOS CSS ADICIONAIS */}
+      <style jsx>{`
+        @keyframes fadeInOut {
+          0%, 100% { opacity: 0; transform: translateY(-10px); }
+          10%, 90% { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 };
