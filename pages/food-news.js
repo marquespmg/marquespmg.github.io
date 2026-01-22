@@ -8386,7 +8386,7 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
         <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Su%C3%ADno" style="color: #095400; font-weight: 600;">Derivados de Suíno</a>, 
         <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Conservas%2FEnlatados" style="color: #095400; font-weight: 600;">Conservas</a>, 
         <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Orientais" style="color: #095400; font-weight: 600;">Orientais</a>, 
-        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=%E2%8F%93%20Ofertas%20da%20Semana%20%F0%9F%9A%A8" style="color: #e53935; font-weight: 600;">Ofertas da Semana</a>.
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=⏳%20Ofertas%20da%20Semana%20🚨" style="color: #e53935; font-weight: 600;">Ofertas da Semana</a>.
       </p>
     </section>
 
