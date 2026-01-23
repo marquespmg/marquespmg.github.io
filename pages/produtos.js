@@ -1415,7 +1415,7 @@ const products = [
   { id: 1305, name: 'MAIONESE SACHÊ LANCHERO 7 G (CX 150 UN)', category: 'Derivados de Vegetal', price: 9.11, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-lanchero-7-g-cx-150-un-pmg-atacadista.jpg' },
   { id: 1306, name: 'MAIONESE SACHÊ PREDILECTA 7 G (CX 144 UN)', category: 'Derivados de Vegetal', price: 14.36, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-predilecta-7-g-cx-144-un-pmg-atacadista.jpg' },
   { id: 1307, name: 'MAIONESE TEMPERADA JUNIOR 1,01 KILO', category: 'Derivados de Vegetal', price: 34.45, image: 'https://www.marquesvendaspmg.shop/images/maionese-temperada-junior-101-kilo-pmg-atacadista.jpg' },
-  { id: 1308, name: 'MAIONESE TEMPERADA ZAFRÁN 1,05 KILO', category: 'Derivados de Vegetal', price: 26.43, image: 'https://www.marquesvendaspmg.shop/images/maionese-temperada-zafran-105-kilo-pmg-atacadista.jpg' },
+  { id: 1308, name: 'MAIONESE TEMPERADA ZAFRÁN 1,05 KILO', category: 'Derivados de Vegetal', price: 28.16, image: 'https://www.marquesvendaspmg.shop/images/maionese-temperada-zafran-105-kilo-pmg-atacadista.jpg' },
   { id: 1309, name: 'MAIONESE VIGOR 2,8 KILO', category: 'Derivados de Vegetal', price: 30.92, image: 'https://www.marquesvendaspmg.shop/images/maionese-vigor-28-kilo-pmg-atacadista.jpg' },
   { id: 1310, name: 'MANDIOCA TOLETE CONGELADA E COZIDA ARRICO 1 KILO (CX 12 PCT)', category: 'Derivados de Vegetal', price: 131.06, image: 'https://www.marquesvendaspmg.shop/images/mandioca-tolete-congelada-e-cozida-arrico-1-kilo-cx-12-pct-pmg-atacadista.jpg' },
   { id: 1311, name: 'MANDIOCA TOLETE CONGELADA E COZIDA CONCEIÇÃO 2,5 KILO (CX 4 PCT)', category: 'Derivados de Vegetal', price: 118.94, image: 'https://www.marquesvendaspmg.shop/images/mandioca-tolete-congelada-e-cozida-conceicao-25-kilo-cx-4-pct-pmg-atacadista.jpg' },
@@ -4964,3 +4964,4 @@ const loadCartFromSupabase = async (userId) => {
   };
 
   export default ProductsPage;
+
