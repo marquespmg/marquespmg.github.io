@@ -485,7 +485,7 @@ const products = [
   { id: 375, name: 'ERVILHA PEQUENA DA TERRINHA 500 G', category: 'Conservas/Enlatados', price: 6.51, image: 'https://www.marquesvendaspmg.shop/images/ervilha-pequena-da-terrinha-500-g-pmg-atacadista.jpg' },
   { id: 376, name: 'ERVILHA QUERO 170 G (CX 24 LT)', category: 'Conservas/Enlatados', price: 100.05, image: 'https://www.marquesvendaspmg.shop/images/ervilha-quero-170-g-cx-24-lt-pmg-atacadista.jpg' },
   { id: 377, name: 'EXTRATO DE TOMATE AJINOMOTO 2 KILO', category: 'Conservas/Enlatados', price: 29.82, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-ajinomoto-2-kilo-pmg-atacadista.jpg' },
-  { id: 378, name: 'EXTRATO DE TOMATE BONARE GOIÁS VERDE 1,7 KILO', category: 'Conservas/Enlatados', price: 35.19, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-bonare-goias-verde-17-kilo-pmg-atacadista.jpg' },
+  { id: 378, name: 'EXTRATO DE TOMATE BONARE GOIÁS VERDE 1,7 KILO', category: 'Conservas/Enlatados', price: 13.40, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-bonare-goias-verde-17-kilo-pmg-atacadista.jpg' },
   { id: 379, name: 'EXTRATO DE TOMATE BONARE GOIÁS VERDE 4 KILO', category: 'Conservas/Enlatados', price: 35.19, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-bonare-goias-verde-4-kilo-pmg-atacadista.jpg' },
   { id: 380, name: 'EXTRATO DE TOMATE BONARE GOURMET SUPER CONCENTRADO GOIÁS VERDE 4 KILO', category: 'Conservas/Enlatados', price: 43.77, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-bonare-gourmet-super-concentrado-goias-verde-4-kilo-pmg-atacadista.jpg' },
   { id: 381, name: 'EXTRATO DE TOMATE EKMA 1,7 KILO', category: 'Conservas/Enlatados', price: 16.83, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-ekma-17-kilo-pmg-atacadista.jpg' },
@@ -4964,4 +4964,5 @@ const loadCartFromSupabase = async (userId) => {
   };
 
   export default ProductsPage;
+
 
