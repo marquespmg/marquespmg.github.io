@@ -4028,7 +4028,7 @@ const loadCartFromSupabase = async (userId) => {
   dangerouslySetInnerHTML={{
     __html: JSON.stringify({
       "@context": "https://schema.org",
-      "@graph": products.map(product => {
+      "@graph": currentProducts.map(product => {
         
         // Gera descrição automática baseada no nome e categoria
         const generateDescription = (product) => {
@@ -4964,6 +4964,7 @@ const loadCartFromSupabase = async (userId) => {
   };
 
   export default ProductsPage;
+
 
 
 
