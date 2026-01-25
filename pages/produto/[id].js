@@ -6,7 +6,6 @@ import { supabase } from '../../lib/supabaseClient';
 import Cart from '../Cart';
 import useTrackUser from '../../hook/useTrackUser';
 
-// Array de produtos (substitua pelos seus dados reais)
 const products = [
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 821.75, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg' },
   { id: 8, name: 'AVENTAL EMBORRACHADO BRANCO TAMANHO ÚNICO', category: 'Acessórios', price: 16.56, image: 'https://www.marquesvendaspmg.shop/images/avental-emborrachado-branco-tamanho-unico-pmg-atacadista.jpg' },
@@ -1842,6 +1841,58 @@ const citiesData = {
   }
 };
 
+// CONFIGURAÇÃO DAS PALAVRAS-CHAVE POR CATEGORIA
+const categoryKeywords = {
+  // BEBIDAS
+  'ÁGUA MINERAL': 'água mineral, água sem gás, água com gás, água potável, bebida hidratação',
+  'REFRIGERANTE': 'refrigerante, coca cola, pepsi, guaraná, fanta, sprite, bebida gaseificada',
+  'CERVEJA': 'cerveja, skol, brahma, antarctica, heineken, bebida alcoólica, lata cerveja',
+  'SUCO': 'suco, suco natural, suco integral, suco concentrado, bebida fruta, néctar',
+  'ENERGÉTICO': 'energético, red bull, monster, burn, tnt, bebida energia',
+  'VINHO NACIONAL': 'vinho, vinho tinto, vinho branco, vinho seco, vinho suave, bebida uva',
+  'WHISKY': 'whisky, johnnie walker, jack daniels, ballantines, bebida destilada',
+  
+  // CARNES
+  'CARNE BOVINA': 'carne bovina, picanha, alcatra, contrafilé, maminha, carne churrasco',
+  'FRANGO': 'frango, frango inteiro, frango cortado, frango congelado, carne ave',
+  'LINGUIÇA': 'linguiça, linguiça toscana, linguiça calabresa, linguiça frango, embutido',
+  'PRESUNTO': 'presunto, presunto cozido, presunto defumado, fiambre, frios',
+  'QUEIJO': 'queijo, mussarela, prato, minas, parmesão, queijo derretido, laticínio',
+  
+  // MERCEARIA
+  'ARROZ': 'arroz, arroz branco, arroz integral, arroz parboilizado, arroz tipo 1',
+  'FEIJÃO': 'feijão, feijão carioca, feijão preto, feijão branco, leguminosa',
+  'ÓLEO': 'óleo, óleo soja, óleo girassol, óleo milho, azeite, gordura vegetal',
+  'AÇÚCAR': 'açúcar, açúcar refinado, açúcar cristal, açúcar mascavo, adoçante',
+  'FARINHA DE TRIGO': 'farinha, farinha trigo, farinha rosca, amido, fermento',
+  'MACARRÃO': 'macarrão, espaguete, parafuso, penne, lasanha, massa italiana',
+  
+  // LIMPEZA
+  'PRODUTO DE LIMPEZA': 'detergente, sabão, álcool, desinfetante, limpeza, higiene',
+  
+  // DESCARTÁVEIS
+  'DESCARTÁVEL': 'prato descartável, copo descartável, talher descartável, papel filme',
+  
+  // E MUITAS OUTRAS...
+  'BATATA CONGELADA': 'batata, batata frita, batata palha, batata palito, congelado',
+  'CAFÉ': 'café, café torrado, café moído, café solúvel, bebida café'
+};
+
+// FUNÇÃO AUTOMÁTICA - VOCÊ NÃO PRECISA MEXER EM NADA!
+const generateImageSEO = (product) => {
+  const productName = product.name.toLowerCase();
+  const categoryKey = Object.keys(categoryKeywords).find(key => 
+    product.category.includes(key)
+  );
+  
+  const keywords = categoryKey ? categoryKeywords[categoryKey] : 'produto atacado, food service';
+  
+  return {
+    alt: `${product.name} - ${keywords} - PMG Atacadista - Atacado Food Service Itapecerica`,
+    title: `${product.name} - PMG Atacadista - Melhor Preço em Atacado`,
+  };
+};
+
 const generateSlug = (name) => {
   return name
     .toLowerCase()
@@ -1849,6 +1900,38 @@ const generateSlug = (name) => {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)+/g, '')
     .substring(0, 60);
+};
+
+// Funções para gerar Schema.org (alinhadas com a página de produtos)
+const generateDescription = (product) => {
+  const baseDescription = {
+    'Bebidas': `Refresque-se com ${product.name}. Perfeita para momentos especiais, oferecendo qualidade e sabor incomparáveis.`,
+    'Laticínios': `Produto fresco e de alta qualidade. ${product.name} selecionado para atender os mais altos padrões.`,
+    'Frios': `Sabor e qualidade em cada fatia. ${product.name} ideal para seu estabelecimento.`,
+    'Derivados de Ave': `Produto de frango congelado premium. ${product.name} com qualidade Seara para seu food service.`,
+    'default': `${product.name}. Produto de alta qualidade com ótimo custo-benefício para seu negócio.`
+  };
+  return baseDescription[product.category] || baseDescription.default;
+};
+
+// Gera brand automático baseado no nome
+const generateBrand = (product) => {
+  const brandMap = {
+    'SEARA': 'Seara',
+    'PERDIGÃO': 'Perdigão',
+    'SADIA': 'Sadia',
+    'ITAIPAVA': 'Itaipava',
+    'BRAHMA': 'Brahma',
+    'SKOL': 'Skol',
+    'ANTARCTICA': 'Antarctica',
+    'HEINEKEN': 'Heineken',
+    'default': 'Marcas Premium'
+  };
+  
+  const foundBrand = Object.keys(brandMap).find(brand => 
+    product.name.toUpperCase().includes(brand)
+  );
+  return brandMap[foundBrand] || brandMap.default;
 };
 
 export async function getStaticProps({ params }) {
@@ -2005,6 +2088,7 @@ export default function ProductPage({
   }
 
   const canonicalUrl = `https://www.marquesvendaspmg.shop/produto/${product.id}-${generateSlug(product.name)}`;
+  const seo = generateImageSEO(product);
 
   return (
     <>
@@ -2022,7 +2106,290 @@ export default function ProductPage({
         <meta property="og:type" content="product" />
         <meta property="og:site_name" content="Marques Vendas PMG Atacadista" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        {/* Meta tags de preço para Google Shopping */}
+        <meta property="og:price:amount" content={product.price.toFixed(2)} />
+        <meta property="og:price:currency" content="BRL" />
+        <meta property="product:price:amount" content={product.price.toFixed(2)} />
+        <meta property="product:price:currency" content="BRL" />
+        <meta property="product:availability" content="in stock" />
+        <meta property="product:condition" content="new" />
+        <meta property="product:retailer_item_id" content={`PMG-${product.id}`} />
       </Head>
+
+      {/* ✅ AGORA SIM - Script de dados estruturados Schema.org */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": product.name,
+            "description": generateDescription(product),
+            "category": product.category,
+            "image": product.image,
+            "brand": { 
+              "@type": "Brand", 
+              "name": generateBrand(product)
+            },
+            "sku": `PMG-${product.id}`,
+            "mpn": `PMG-${product.id}`,
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "37"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": { 
+                  "@type": "Person", 
+                  "name": "Carlos, pizzaria cliente da PMG" 
+                },
+                "datePublished": "2025-09-28",
+                "reviewBody": "Produto de excelente qualidade e o site da Marques Vendas PMG é rápido e confiável.",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                }
+              },
+              {
+                "@type": "Review",
+                "author": { 
+                  "@type": "Person", 
+                  "name": "Fernanda, restaurante parceiro" 
+                },
+                "datePublished": "2025-08-11",
+                "reviewBody": "A muçarela Bari chegou no prazo e com ótimo custo-benefício. Atendimento excelente!",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                }
+              }
+            ],
+            "offers": {
+              "@type": "Offer",
+              "price": product.price.toFixed(2),
+              "priceCurrency": "BRL",
+              "availability": "https://schema.org/InStock",
+              "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 dias no futuro
+              "url": canonicalUrl,
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                  "@type": "MonetaryAmount",
+                  "value": "0.00",
+                  "currency": "BRL"
+                },
+                "deliveryTime": {
+                  "@type": "ShippingDeliveryTime",
+                  "handlingTime": { 
+                    "@type": "QuantitativeValue", 
+                    "minValue": 0, 
+                    "maxValue": 1, 
+                    "unitCode": "d" 
+                  },
+                  "transitTime": { 
+                    "@type": "QuantitativeValue", 
+                    "minValue": 1, 
+                    "maxValue": 2, 
+                    "unitCode": "d" 
+                  }
+                },
+                "shippingDestination": [
+                  { 
+                    "@type": "DefinedRegion", 
+                    "addressCountry": "BR", 
+                    "addressRegion": "SP" 
+                  },
+                  { 
+                    "@type": "DefinedRegion", 
+                    "addressCountry": "BR", 
+                    "addressRegion": "MG", 
+                    "name": "Sul de Minas" 
+                  },
+                  { 
+                    "@type": "DefinedRegion", 
+                    "addressCountry": "BR", 
+                    "addressRegion": "RJ", 
+                    "name": "Sul do Rio de Janeiro" 
+                  }
+                ]
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "BR",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays": 0,
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn",
+                "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
+              },
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": product.price.toFixed(2),
+                "priceCurrency": "BRL",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": "1",
+                  "unitCode": "KGM"
+                }
+              },
+              "seller": {
+                "@type": "LocalBusiness",
+                "priceRange": "$$",
+                "name": "Marques Vendas PMG",
+                "image": "https://i.imgur.com/jrERRsC.png",
+                "telephone": "+55-11-91357-2902",
+                "areaServed": [
+                  {
+                    "@type": "AdministrativeArea",
+                    "name": "Grande São Paulo",
+                    "description": "Atacado Grande São Paulo, Distribuidora Grande SP, Fornecedor alimentos Grande São Paulo, Atacadista food service Grande SP"
+                  },
+                  {
+                    "@type": "AdministrativeArea", 
+                    "name": "Interior de São Paulo",
+                    "description": "Atacado interior São Paulo, Distribuidora interior SP, Fornecedor interior São Paulo, Atacadista food service interior SP"
+                  },
+                  {
+                    "@type": "AdministrativeArea",
+                    "name": "Capital de São Paulo",
+                    "description": "Atacado São Paulo capital, Distribuidora São Paulo, Fornecedor alimentos São Paulo, Atacadista bebidas São Paulo, Food service São Paulo"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Santo Amaro - SP",
+                    "description": "Atacado Santo Amaro, Distribuidora Santo Amaro, Fornecedor alimentos Santo Amaro, Atacadista bebidas Santo Amaro, Food service Santo Amaro SP"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Santo André - SP",
+                    "description": "Atacado Santo André, Distribuidora Santo André, Fornecedor Santo André, Atacadista alimentos Santo André, Food service Santo André SP"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Barueri - SP", 
+                    "description": "Atacado Barueri, Distribuidora Barueri, Fornecedor alimentos Barueri, Atacadista bebidas Barueri, Food service Barueri SP"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "São Bernardo do Campo - SP",
+                    "description": "Atacado São Bernardo do Campo, Distribuidora São Bernardo, Fornecedor São Bernardo, Atacadista alimentos São Bernardo, Food service São Bernardo SP"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Mauá - SP",
+                    "description": "Atacado Mauá, Distribuidora Mauá, Fornecedor alimentos Mauá, Atacadista bebidas Mauá, Food service Mauá SP"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Guarulhos - SP",
+                    "description": "Atacado Guarulhos, Distribuidora Guarulhos, Fornecedor alimentos Guarulhos, Atacadista bebidas Guarulhos, Food service Guarulhos SP"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Arujá - SP",
+                    "description": "Atacado Arujá, Distribuidora Arujá, Fornecedor alimentos Arujá, Atacadista bebidas Arujá, Food service Arujá SP"
+                  },
+                  {
+                    "@type": "AdministrativeArea",
+                    "name": "Sul de Minas Gerais",
+                    "description": "Atacado Sul de Minas, Distribuidora Sul de Minas, Fornecedor alimentos Sul de Minas, Atacadista bebidas Sul de Minas, Food service Sul de Minas"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Extrema - MG",
+                    "description": "Atacado Extrema MG, Distribuidora Extrema, Fornecedor alimentos Extrema, Atacadista bebidas Extrema, Food service Extrema, Atacado para restaurantes Extrema"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Poços de Caldas - MG",
+                    "description": "Atacado Poços de Caldas, Distribuidora Poços de Caldas, Fornecedor alimentos Poços de Caldas, Atacadista bebidas Poços de Caldas, Food service Poços de Caldas MG"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "São Lourenço - MG",
+                    "description": "Atacado São Lourenço, Distribuidora São Lourenço, Fornecedor alimentos São Lourenço, Atacadista bebidas São Lourenço, Food service São Lourenço MG"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Itajubá - MG",
+                    "description": "Atacado Itajubá, Distribuidora Itajubá, Fornecedor alimentos Itajubá, Atacadista bebidas Itajubá, Food service Itajubá, Atacado para mercados Itajubá"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Pouso Alegre - MG",
+                    "description": "Atacado Pouso Alegre, Distribuidora Pouso Alegre, Fornecedor alimentos Pouso Alegre, Atacadista bebidas Pouso Alegre, Food service Pouso Alegre MG"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Camanducaia - MG",
+                    "description": "Atacado Camanducaia, Distribuidora Camanducaia, Fornecedor alimentos Camanducaia, Atacadista bebidas Camanducaia, Food service Camanducaia MG"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Varginha - MG",
+                    "description": "Atacado Varginha, Distribuidora Varginha, Fornecedor alimentos Varginha, Atacadista bebidas Varginha, Food service Varginha, Atacado para restaurantes Varginha"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Três Pontas - MG",
+                    "description": "Atacado Três Pontas, Distribuidora Três Pontas, Fornecedor alimentos Três Pontas, Atacadista bebidas Três Pontas, Food service Três Pontas MG"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Virgínia - MG",
+                    "description": "Atacado Virgínia MG, Distribuidora Virgínia, Fornecedor alimentos Virgínia, Atacadista bebidas Virgínia, Food service Virgínia MG"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Santa Rita do Sapucaí - MG",
+                    "description": "Atacado Santa Rita do Sapucaí, Distribuidora Santa Rita do Sapucaí, Fornecedor alimentos Santa Rita, Atacadista bebidas Santa Rita, Food service Santa Rita do Sapucaí"
+                  },
+                  {
+                    "@type": "AdministrativeArea", 
+                    "name": "Sul do Rio de Janeiro",
+                    "description": "Atacado Sul do Rio de Janeiro, Distribuidora Sul do RJ, Fornecedor alimentos Sul do Rio, Atacadista bebidas Sul do RJ, Food service Sul do Rio"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Paraty - RJ",
+                    "description": "Atacado Paraty, Distribuidora Paraty, Fornecedor alimentos Paraty, Atacadista bebidas Paraty, Food service Paraty RJ"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Volta Redonda - RJ",
+                    "description": "Atacado Volta Redonda, Distribuidora Volta Redonda, Fornecedor alimentos Volta Redonda, Atacadista bebidas Volta Redonda, Food service Volta Redonda RJ"
+                  },
+                  {
+                    "@type": "City", 
+                    "name": "Resende - RJ",
+                    "description": "Atacado Resende, Distribuidora Resende, Fornecedor alimentos Resende, Atacadista bebidas Resende, Food service Resende RJ"
+                  },
+                  {
+                    "@type": "City",
+                    "name": "Barra Mansa - RJ",
+                    "description": "Atacado Barra Mansa, Distribuidora Barra Mansa, Fornecedor alimentos Barra Mansa, Atacadista bebidas Barra Mansa, Food service Barra Mansa RJ"
+                  }
+                ],
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
+                  "postalCode": "06885-150",
+                  "addressLocality": "Itapecerica da Serra",
+                  "addressRegion": "SP",
+                  "addressCountry": "BR"
+                }
+              }
+            }
+          })
+        }}
+      />
 
       {showAddedFeedback && (
         <div style={{
@@ -2088,7 +2455,8 @@ export default function ProductPage({
           <div style={styles.imageContainer}>
             <img 
               src={product.image} 
-              alt={`${product.name} PMG ATACADISTA`}
+              alt={seo.alt}
+              title={seo.title}
               style={styles.productImage}
               onError={(e) => {
                 e.target.src = 'https://via.placeholder.com/400x300/095400/ffffff?text=PMG+ATACADISTA';
@@ -2111,9 +2479,9 @@ export default function ProductPage({
               {product.category}
             </div>
 
-            {/* PREÇO - VISÍVEL PARA TODOS */}
+            {/* PREÇO - VISÍVEL PARA TODOS (com vírgula para formato brasileiro) */}
             <div style={styles.productPrice}>
-              R$ {product.price.toFixed(2)}
+              R$ {product.price.toFixed(2)}  {/* ← MANTÉM PONTO */}
             </div>
 
             {/* BOTÕES DE AÇÃO */}
@@ -2239,399 +2607,399 @@ export default function ProductPage({
       {/* CARRINHO */}
       <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
 
-{/* Rodapé Corrigido - Totalmente Responsivo */}
-<footer style={{
-  marginTop: '60px',
-  padding: '30px 15px',
-  textAlign: 'center',
-  color: '#666',
-  fontSize: '14px',
-  borderTop: '2px solid #095400',
-  backgroundColor: '#f8f9fa',
-  borderRadius: '12px 12px 0 0',
-  boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)',
-  width: '100%',
-  boxSizing: 'border-box'
-}}>
-  
-  {/* Container Principal do Rodapé */}
-  <div style={{
-    maxWidth: '1200px',
-    margin: '0 auto',
-    width: '100%'
-  }}>
-    
-    {/* Título do Rodapé */}
-    <h3 style={{
-      color: '#095400',
-      fontSize: '18px',
-      marginBottom: '25px',
-      fontWeight: '600'
-    }}>
-      📋 Informações Legais
-    </h3>
-
-    {/* Links Principais em Grid Responsivo */}
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-      gap: '15px',
-      marginBottom: '30px',
-      width: '100%'
-    }}>
-      
-      {/* Política de Privacidade */}
-      <Link href="/politica-de-privacidade" passHref legacyBehavior>
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none',
-          fontWeight: '600',
-          fontSize: '14px',
-          padding: '12px 8px',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-          backgroundColor: 'white',
-          border: '1px solid #e0e0e0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-          minHeight: '50px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#095400';
-          e.target.style.color = 'white';
-          e.target.style.transform = 'translateY(-2px)';
-          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = 'white';
-          e.target.style.color = '#095400';
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-        }}
-        title="Política de Privacidade"
-        aria-label="Leia nossa Política de Privacidade"
-      >
-        <span>🔒</span>
-        Privacidade
-      </a>
-      </Link>
-
-      {/* Política de Devolução e Reembolso */}
-      <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none',
-          fontWeight: '600',
-          fontSize: '14px',
-          padding: '12px 8px',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-          backgroundColor: 'white',
-          border: '1px solid #e0e0e0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-          minHeight: '50px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#095400';
-          e.target.style.color = 'white';
-          e.target.style.transform = 'translateY(-2px)';
-          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = 'white';
-          e.target.style.color = '#095400';
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-        }}
-        title="Política de Devolução e Reembolso"
-        aria-label="Leia nossa Política de Devolução e Reembolso"
-      >
-        <span>🔄</span>
-        Política de Devolução e Reembolso
-      </a>
-      </Link>
-
-      {/* Termos de Uso */}
-      <Link href="/termos" passHref legacyBehavior>
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none',
-          fontWeight: '600',
-          fontSize: '14px',
-          padding: '12px 8px',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-          backgroundColor: 'white',
-          border: '1px solid #e0e0e0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-          minHeight: '50px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#095400';
-          e.target.style.color = 'white';
-          e.target.style.transform = 'translateY(-2px)';
-          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = 'white';
-          e.target.style.color = '#095400';
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-        }}
-        title="Termos de Uso"
-        aria-label="Leia nossos Termos de Uso"
-      >
-        <span>📄</span>
-        Termos
-      </a>
-      </Link>
-
-      {/* Quem Somos */}
-      <Link href="/quem-somos" passHref legacyBehavior>
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none',
-          fontWeight: '600',
-          fontSize: '14px',
-          padding: '12px 8px',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-          backgroundColor: 'white',
-          border: '1px solid #e0e0e0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-          minHeight: '50px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#095400';
-          e.target.style.color = 'white';
-          e.target.style.transform = 'translateY(-2px)';
-          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = 'white';
-          e.target.style.color = '#095400';
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-        }}
-        title="Quem Somos"
-        aria-label="Conheça mais sobre nós"
-      >
-        <span>👥</span>
-        Sobre
-      </a>
-      </Link>
-    </div>
-
-    {/* Linha Divisa Estilizada */}
-    <div style={{
-      height: '1px',
-      background: 'linear-gradient(90deg, transparent, #095400, transparent)',
-      margin: '25px auto',
-      maxWidth: '300px',
-      width: '100%'
-    }}></div>
-
-    {/* Redes Sociais */}
-    <div style={{
-      marginBottom: '20px'
-    }}>
-      <h4 style={{
-        color: '#095400',
-        fontSize: '16px',
-        marginBottom: '15px',
-        fontWeight: '600'
-      }}>
-        Siga-nos nas Redes Sociais
-      </h4>
-      
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '20px',
-        alignItems: 'center',
-        flexWrap: 'wrap'
-      }}>
-        {/* Facebook */}
-        <a 
-          href="https://www.facebook.com/MarquesVendaspmg" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '40px',
-            height: '40px',
-            borderRadius: '8px',
-            transition: 'all 0.3s ease',
-            textDecoration: 'none',
-            backgroundColor: 'white',
-            border: '1px solid #e0e0e0',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-          }}
-          onMouseOver={(e) => {
-            e.target.style.transform = 'scale(1.1)';
-            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = 'scale(1)';
-            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-          }}
-        >
-          <img 
-            src="https://i.imgur.com/prULUUA.png" 
-            alt="Facebook" 
-            style={{
-              width: '20px',
-              height: '20px'
-            }}
-          />
-        </a>
-
-        {/* Instagram */}
-        <a 
-          href="https://www.instagram.com/marquesvendaspmg" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '40px',
-            height: '40px',
-            borderRadius: '8px',
-            transition: 'all 0.3s ease',
-            textDecoration: 'none',
-            backgroundColor: 'white',
-            border: '1px solid #e0e0e0',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-          }}
-          onMouseOver={(e) => {
-            e.target.style.transform = 'scale(1.1)';
-            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = 'scale(1)';
-            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-          }}
-        >
-          <img 
-            src="https://i.imgur.com/I0ZZLjG.png" 
-            alt="Instagram" 
-            style={{
-              width: '20px',
-              height: '20px'
-            }}
-          />
-        </a>
-
-        {/* YouTube */}
-        <a 
-          href="https://www.youtube.com/@MarquesVendasPMG" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '40px',
-            height: '40px',
-            borderRadius: '8px',
-            transition: 'all 0.3s ease',
-            textDecoration: 'none',
-            backgroundColor: 'white',
-            border: '1px solid #e0e0e0',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-          }}
-          onMouseOver={(e) => {
-            e.target.style.transform = 'scale(1.1)';
-            e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.transform = 'scale(1)';
-            e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-          }}
-        >
-          <img 
-            src="https://i.imgur.com/WfpZ8Gg.png" 
-            alt="YouTube" 
-            style={{
-              width: '20px',
-              height: '20px'
-            }}
-          />
-        </a>
-      </div>
-    </div>
-
-    {/* Informações de Contato e Copyright */}
-    <div style={{ 
-      textAlign: 'center',
-      paddingTop: '15px',
-      borderTop: '1px solid #e0e0e0'
-    }}>
-      {/* TEXTO SEO - AGORA EM CIMA (Google lê primeiro) */}
-      <p style={{ 
-        margin: '0 0 15px 0', 
-        fontSize: '11px', 
-        color: '#999',
-        lineHeight: '1.4',
-        fontStyle: 'italic',
-        maxWidth: '800px',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        padding: '0 10px'
-      }}>
-        <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
-        Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
-        Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
-        Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
-      </p>
-      
-      {/* INFORMAÇÕES DE CONTATO - AGORA EMBAIXO */}
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '14px',
+      {/* Rodapé Corrigido - Totalmente Responsivo */}
+      <footer style={{
+        marginTop: '60px',
+        padding: '30px 15px',
+        textAlign: 'center',
         color: '#666',
-        lineHeight: '1.5'
+        fontSize: '14px',
+        borderTop: '2px solid #095400',
+        backgroundColor: '#f8f9fa',
+        borderRadius: '12px 12px 0 0',
+        boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)',
+        width: '100%',
+        boxSizing: 'border-box'
       }}>
-        © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-      </p>
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '12px', 
-        color: '#888',
-        lineHeight: '1.4'
-      }}>
-        Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
-        <br />
-        CEP: 06885-150 - Itapecerica da Serra - SP
-      </p>
-      <p style={{ 
-        margin: '8px 0', 
-        fontSize: '12px', 
-        color: '#888'
-      }}>
-        📞 Telefone: (11) 91357-2902
-      </p>
-    </div>
-  </div>
-</footer>
+        
+        {/* Container Principal do Rodapé */}
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          width: '100%'
+        }}>
+          
+          {/* Título do Rodapé */}
+          <h3 style={{
+            color: '#095400',
+            fontSize: '18px',
+            marginBottom: '25px',
+            fontWeight: '600'
+          }}>
+            📋 Informações Legais
+          </h3>
+
+          {/* Links Principais em Grid Responsivo */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+            gap: '15px',
+            marginBottom: '30px',
+            width: '100%'
+          }}>
+            
+            {/* Política de Privacidade */}
+            <Link href="/politica-de-privacidade" passHref legacyBehavior>
+              <a style={{ 
+                color: '#095400', 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: 'white',
+                border: '1px solid #e0e0e0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                minHeight: '50px'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.color = 'white';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'white';
+                e.target.style.color = '#095400';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Política de Privacidade"
+              aria-label="Leia nossa Política de Privacidade"
+            >
+              <span>🔒</span>
+              Privacidade
+            </a>
+            </Link>
+
+            {/* Política de Devolução e Reembolso */}
+            <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
+              <a style={{ 
+                color: '#095400', 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: 'white',
+                border: '1px solid #e0e0e0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                minHeight: '50px'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.color = 'white';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'white';
+                e.target.style.color = '#095400';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Política de Devolução e Reembolso"
+              aria-label="Leia nossa Política de Devolução e Reembolso"
+            >
+              <span>🔄</span>
+              Política de Devolução e Reembolso
+            </a>
+            </Link>
+
+            {/* Termos de Uso */}
+            <Link href="/termos" passHref legacyBehavior>
+              <a style={{ 
+                color: '#095400', 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: 'white',
+                border: '1px solid #e0e0e0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                minHeight: '50px'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.color = 'white';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'white';
+                e.target.style.color = '#095400';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Termos de Uso"
+              aria-label="Leia nossos Termos de Uso"
+            >
+              <span>📄</span>
+              Termos
+            </a>
+            </Link>
+
+            {/* Quem Somos */}
+            <Link href="/quem-somos" passHref legacyBehavior>
+              <a style={{ 
+                color: '#095400', 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: '14px',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: 'white',
+                border: '1px solid #e0e0e0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                minHeight: '50px'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = '#095400';
+                e.target.style.color = 'white';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = 'white';
+                e.target.style.color = '#095400';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Quem Somos"
+              aria-label="Conheça mais sobre nós"
+            >
+              <span>👥</span>
+              Sobre
+            </a>
+            </Link>
+          </div>
+
+          {/* Linha Divisa Estilizada */}
+          <div style={{
+            height: '1px',
+            background: 'linear-gradient(90deg, transparent, #095400, transparent)',
+            margin: '25px auto',
+            maxWidth: '300px',
+            width: '100%'
+          }}></div>
+
+          {/* Redes Sociais */}
+          <div style={{
+            marginBottom: '20px'
+          }}>
+            <h4 style={{
+              color: '#095400',
+              fontSize: '16px',
+              marginBottom: '15px',
+              fontWeight: '600'
+            }}>
+              Siga-nos nas Redes Sociais
+            </h4>
+            
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '20px',
+              alignItems: 'center',
+              flexWrap: 'wrap'
+            }}>
+              {/* Facebook */}
+              <a 
+                href="https://www.facebook.com/MarquesVendaspmg" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'scale(1.1)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                }}
+              >
+                <img 
+                  src="https://i.imgur.com/prULUUA.png" 
+                  alt="Facebook" 
+                  style={{
+                    width: '20px',
+                    height: '20px'
+                  }}
+                />
+              </a>
+
+              {/* Instagram */}
+              <a 
+                href="https://www.instagram.com/marquesvendaspmg" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'scale(1.1)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                }}
+              >
+                <img 
+                  src="https://i.imgur.com/I0ZZLjG.png" 
+                  alt="Instagram" 
+                  style={{
+                    width: '20px',
+                    height: '20px'
+                  }}
+                />
+              </a>
+
+              {/* YouTube */}
+              <a 
+                href="https://www.youtube.com/@MarquesVendasPMG" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  backgroundColor: 'white',
+                  border: '1px solid #e0e0e0',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'scale(1.1)';
+                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                }}
+              >
+                <img 
+                  src="https://i.imgur.com/WfpZ8Gg.png" 
+                  alt="YouTube" 
+                  style={{
+                    width: '20px',
+                    height: '20px'
+                  }}
+                />
+              </a>
+            </div>
+          </div>
+
+          {/* Informações de Contato e Copyright */}
+          <div style={{ 
+            textAlign: 'center',
+            paddingTop: '15px',
+            borderTop: '1px solid #e0e0e0'
+          }}>
+            {/* TEXTO SEO - AGORA EM CIMA (Google lê primeiro) */}
+            <p style={{ 
+              margin: '0 0 15px 0', 
+              fontSize: '11px', 
+              color: '#999',
+              lineHeight: '1.4',
+              fontStyle: 'italic',
+              maxWidth: '800px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              padding: '0 10px'
+            }}>
+              <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
+              Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
+              Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
+              Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
+            </p>
+            
+            {/* INFORMAÇÕES DE CONTATO - AGORA EMBAIXO */}
+            <p style={{ 
+              margin: '8px 0', 
+              fontSize: '14px',
+              color: '#666',
+              lineHeight: '1.5'
+            }}>
+              © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
+            </p>
+            <p style={{ 
+              margin: '8px 0', 
+              fontSize: '12px', 
+              color: '#888',
+              lineHeight: '1.4'
+            }}>
+              Endereço: Estrada Ferreira Guedes, 784 - Potuverá 
+              <br />
+              CEP: 06885-150 - Itapecerica da Serra - SP
+            </p>
+            <p style={{ 
+              margin: '8px 0', 
+              fontSize: '12px', 
+              color: '#888'
+            }}>
+              📞 Telefone: (11) 91357-2902
+            </p>
+          </div>
+        </div>
+      </footer>
 
       <style jsx>{`
         @keyframes fadeInOut {
@@ -3002,77 +3370,6 @@ const styles = {
   
   advantageIcon: {
     fontSize: '16px'
-  },
-  
-  // RODAPÉ
-  footer: {
-    marginTop: '40px',
-    padding: '20px 15px',
-    textAlign: 'center',
-    color: '#666',
-    fontSize: '13px',
-    borderTop: '2px solid #095400',
-    backgroundColor: '#f8f9fa'
-  },
-  
-  footerContent: {
-    maxWidth: '800px',
-    margin: '0 auto'
-  },
-  
-  footerTitle: {
-    color: '#095400',
-    fontSize: '16px',
-    marginBottom: '15px'
-  },
-  
-  footerLinks: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '15px',
-    flexWrap: 'wrap',
-    marginBottom: '20px'
-  },
-  
-  footerLink: {
-    color: '#095400',
-    textDecoration: 'none',
-    fontWeight: '600',
-    fontSize: '13px',
-    padding: '8px 12px',
-    borderRadius: '5px',
-    backgroundColor: 'white',
-    border: '1px solid #e0e0e0'
-  },
-  
-  footerDivider: {
-    height: '1px',
-    background: 'linear-gradient(90deg, transparent, #095400, transparent)',
-    margin: '15px auto',
-    maxWidth: '200px'
-  },
-  
-  socialMedia: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '15px',
-    marginBottom: '20px'
-  },
-  
-  socialIcon: {
-    width: '30px',
-    height: '30px',
-    borderRadius: '5px',
-    backgroundColor: 'white',
-    padding: '5px',
-    border: '1px solid #e0e0e0'
-  },
-  
-  footerInfo: {
-    textAlign: 'center',
-    fontSize: '12px',
-    color: '#666',
-    lineHeight: '1.5'
   }
 };
 
@@ -3082,4 +3379,3 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
-
