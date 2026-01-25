@@ -90,22 +90,22 @@ const fifoImages = [
   { 
     video: 'https://i.imgur.com/wkqk63h.mp4',
     productId: 1746,
-    url: 'http://localhost:3000/produto/1746'
+    url: 'https://www.marquesvendaspmg.shop/produto/1746'
   },
   { 
     video: 'https://i.imgur.com/kmRpbcB.mp4',
     productId: 702,
-    url: 'http://localhost:3000/produto/702'
+    url: 'https://www.marquesvendaspmg.shop/produto/702'
   },
   { 
     video: 'https://i.imgur.com/7HNF3cf.mp4',
     productId: 533,
-    url: 'http://localhost:3000/produto/533'
+    url: 'https://www.marquesvendaspmg.shop/produto/533'
   },
   { 
     video: 'https://i.imgur.com/3OTFiIM.mp4',
     productId: 615,
-    url: 'http://localhost:3000/produto/615'
+    url: 'https://www.marquesvendaspmg.shop/produto/615'
   },
 ];
 
