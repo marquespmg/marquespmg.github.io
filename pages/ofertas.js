@@ -5,7 +5,7 @@ import Link from 'next/link';
 import useTrackUser from '../hook/useTrackUser';
 import { useRouter } from 'next/router';
 
-// ========== DADOS DAS CIDADES (COPIADO DA PÁGINA DE PRODUTOS) ========== //
+// ========== DADOS DAS CIDADES ========== //
 const citiesData = {
   sp: {
     title: "🏢 Estado de São Paulo",
@@ -22,27 +22,18 @@ const citiesData = {
   rj: {
     title: "🏖️ Sul do Rio de Janeiro",
     cities: [
-      'BARRA DO PIRAÍ', 'BARRA MANSA', 'ENG. PAULO FRONTIN', 'ITATIAIA', 'MENDES',
-      'PARATY', 'PETRÓPOLIS', 'PINHEIRAL', 'PIRAÍ', 'PORTO REAL', 'QUATIS',
-      'RESENDE', 'RIO CLARO', 'VALENÇA', 'VASSOURAS', 'VOLTA REDONDA'
+      'BARRA DO PIRAÍ', 'BARRA MANSA', 'ITATIAIA', 'PARATY', 'PIRAÍ', 
+	  'PORTO REAL', 'RESENDE','VALENÇA', 'VASSOURAS', 'VOLTA REDONDA'
     ]
   },
   mg: {
     title: "⛰️ Sul de Minas Gerais", 
     cities: [
-      'ANDRADAS', 'BAEPENDI', 'BOM REPOUSO', 'BRAZÓPOLIS', 'BUENO BRANDÃO',
-      'CABO VERDE', 'CAMANDUCAIA', 'CAMBUÍ', 'CAMBUQUIRA', 'CAPITÓLIO',
-      'CARMO DE MINAS', 'CAXAMBÚ', 'CONCEIÇÃO DO RIO VERDE', 'CONCEIÇÃO DOS OUROS',
-      'CONGONHAL', 'CONSOLAÇÃO', 'CORREGO DO BOM JESUS', 'CRISTINA', 'CRUZÍLIA',
-      'DELFIM MOREIRA', 'ELOI MENDES', 'ESTIVA', 'EXTREMA', 'FRUTAL', 'GONÇALVES',
-      'GUAPÉ', 'GUARANESIA', 'GUAXUPÉ', 'ILICÍNEA', 'ITAJUBÁ', 'ITAMONTE',
-      'ITANHANDU', 'ITAPEVA', 'JACUTINGA', 'LAMBARI', 'MARIA DA FÉ',
-      'MONTE SANTO DE MINAS', 'MONTE SIÃO', 'MONTE VERDE', 'OURO FINO',
-      'PARAISÓPOLIS', 'PASSA QUATRO', 'PIRANGUÇU', 'PIRANGUINHO', 'PLANURA',
-      'POÇOS DE CALDAS', 'POUSO ALEGRE', 'POUSO ALTO', 'SANTA RITA DO SAPUCAÍ',
-      'SÃO LOURENÇO', 'SÃO SEBASTIÃO DO PARAÍSO', 'SÃO SEBASTIÃO DO RIO VERDE',
-      'SAPUCAÍ-MIRIM', 'SOLEDADE DE MINAS', 'TOLEDO', 'TRÊS CORAÇÕES',
-      'TRÊS PONTAS', 'VARGINHA', 'VIRGÍNIA'
+      'CAMANDUCAIA', 'CAMBUÍ', 'CONCEIÇÃO DOS OUROS', 'CONGONHAL',
+      'DELFIM MOREIRA','ESTIVA', 'EXTREMA', 'ITAJUBÁ', 'ITAMONTE',
+      'ITANHANDU', 'ITAPEVA', 'MARIA DA FÉ', 'MONTE VERDE', 'OURO FINO',
+      'PARAISÓPOLIS', 'PASSA QUATRO', 'PIRANGUINHO', 'POÇOS DE CALDAS', 'POUSO ALEGRE', 'SANTA RITA DO SAPUCAÍ',
+      'SÃO LOURENÇO', 'SÃO SEBASTIÃO DO PARAÍSO', 'TRÊS PONTAS', 'VARGINHA', 'VIRGÍNIA'
     ]
   }
 };
