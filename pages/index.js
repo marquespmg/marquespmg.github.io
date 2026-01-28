@@ -1,140 +1,151 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
-import useTrackUser from '../hook/useTrackUser';
-
 
 export default function Home() {
-  useTrackUser(); // ← ADICIONE ESTA LINHA
+  // ========== BANNERS ========== //
   const banners = [
     { 
       id: 1,
-      desktop: 'https://i.imgur.com/MiXi0pu.png',
-      mobile: 'https://i.imgur.com/MiXi0pu.png'
+      desktop: '/images/banner-churrasco-pagina-inicial-1.png',
+      mobile: '/images/banner-churrasco-pagina-inicial-1.png',
     },
     { 
       id: 2,
-      desktop: 'https://i.imgur.com/ivorfK2.png',
-      mobile: 'https://i.imgur.com/ivorfK2.png'
+      desktop: '/images/banner-churrasco-pagina-inicial-2.png',
+      mobile: '/images/banner-churrasco-pagina-inicial-2.png',
     },
     { 
       id: 3,
-      desktop: 'https://i.imgur.com/ennvys5.png',
-      mobile: 'https://i.imgur.com/ennvys5.png'
-    },
-    { 
-      id: 4,
-      desktop: 'https://i.imgur.com/8toaBek.png',
-      mobile: 'https://i.imgur.com/8toaBek.png'
-    },
-    { 
-      id: 5,
-      desktop: 'https://i.imgur.com/fRuEjY3.png',
-      mobile: 'https://i.imgur.com/fRuEjY3.png'
-    },
-    { 
-      id: 6,
-      desktop: 'https://i.imgur.com/JD4UqWo.png',
-      mobile: 'https://i.imgur.com/JD4UqWo.png'
+      desktop: '/images/banner-churrasco-pagina-inicial-3.png',
+      mobile: '/images/banner-churrasco-pagina-inicial-3.png',
     }
   ];
 
-  // Dados das avaliações
-const avaliacoes = [
-  // Femininas (8 avaliações)
-  { 
-    foto: "https://i.imgur.com/R4MCf34.png", 
-    nome: "Ana", 
-    texto: "Apesar de um pequeno atraso, o produto chegou perfeito e o preço compensou!", 
-    estrelas: 4 
-  },
-  { 
-    foto: "https://i.imgur.com/R4MCf34.png", 
-    nome: "Claudia", 
-    texto: "Site super fácil de usar e o atendimento foi super atencioso. Recomendo!", 
-    estrelas: 5 
-  },
-  { 
-    foto: "https://i.imgur.com/R4MCf34.png", 
-    nome: "Fernanda", 
-    texto: "Produto com qualidade acima do esperado pelo preço que paguei. Adorei!", 
-    estrelas: 5 
-  },
-  { 
-    foto: "https://i.imgur.com/R4MCf34.png", 
-    nome: "Juliana", 
-    texto: "Tive um problema com o pedido mas resolveram rapidinho. Ótimo serviço!", 
-    estrelas: 4 
-  },
-  { 
-    foto: "https://i.imgur.com/R4MCf34.png", 
-    nome: "Patrícia", 
-    texto: "Já é minha terceira compra e nunca me decepcionou. Entrega rápida!", 
-    estrelas: 5 
-  },
-  { 
-    foto: "https://i.imgur.com/R4MCf34.png", 
-    nome: "Camila", 
-    texto: "Produto exatamente como na descrição. Veio bem embalado e sem amassados.", 
-    estrelas: 5 
-  },
-  { 
-    foto: "https://i.imgur.com/R4MCf34.png", 
-    nome: "Luana", 
-    texto: "Adorei a variedade! Encontrar tudo num só lugar facilitou muito.", 
-    estrelas: 5 
-  },
-  { 
-    foto: "https://i.imgur.com/R4MCf34.png", 
-    nome: "Mariana", 
-    texto: "Preço justo e produto de qualidade. Virei cliente fiel!", 
-    estrelas: 5 
-  },
+  // ========== CONFIGURAÇÃO CHURRASCO ========== //
+  const localConfig = {
+    businessName: "MP na Brasa",
+    slogan: "Você chama a galera, a gente resolve o churrasco.",
+    businessType: "Kits de Churrasco Gourmet",
+    city: "Joanópolis",
+    state: "SP",
+    address: "Rua Capitão Antonio Mathias , 720 - Centro",
+    cep: "12980-000",
+    phone: "(11) 91357-2902",
+    whatsapp: "5511913572902",
+    deliveryArea: "Joanópolis e região",
+    openingHours: "Funcionamento: quinta a domingo | Pedidos até 10h | Entrega em até 1h após confirmação"
+  };
 
-  // Masculinas (7 avaliações)
-  { 
-    foto: "https://i.imgur.com/CL3oucA.png", 
-    nome: "Carlos", 
-    texto: "Atendimento foi excelente! Tirou todas minhas dúvidas antes de eu comprar.", 
-    estrelas: 5 
-  },
-  { 
-    foto: "https://i.imgur.com/CL3oucA.png", 
-    nome: "Ricardo", 
-    texto: "Demorou um pouco mais que o previsto, mas o produto é top. Valeu a pena!", 
-    estrelas: 4 
-  },
-  { 
-    foto: "https://i.imgur.com/CL3oucA.png", 
-    nome: "Bruno", 
-    texto: "Produto chegou antes do prazo! Muito bem embalado e sem defeitos.", 
-    estrelas: 5 
-  },
-  { 
-    foto: "https://i.imgur.com/CL3oucA.png", 
-    nome: "Lucas", 
-    texto: "Não conhecia mas arrisquei e gostei bastante. Site organizado e fácil.", 
-    estrelas: 4 
-  },
-  { 
-    foto: "https://i.imgur.com/CL3oucA.png", 
-    nome: "Marcos", 
-    texto: "Preço imbatível! Consegui um ótimo negócio para meu comércio.", 
-    estrelas: 5 
-  },
-  { 
-    foto: "https://i.imgur.com/CL3oucA.png", 
-    nome: "Gustavo", 
-    texto: "Ótimo custo-benefício. Já indiquei para vários amigos!", 
-    estrelas: 5 
-  },
-  { 
-    foto: "https://i.imgur.com/CL3oucA.png", 
-    nome: "Rodrigo", 
-    texto: "Comprei com receio mas fui surpreendido pela qualidade. Recomendo!", 
-    estrelas: 5 
-  }
-];
+  // ========== PALETA DE CORES GOURMET ========== //
+  const colorPalette = {
+    primary: '#8B0000', // Vermelho vinho
+    secondary: '#2C2C2C', // Preto/cinza escuro
+    accent: '#B22222', // Vermelho firebrick
+    light: '#F8F8F8', // Cinza muito claro
+    dark: '#1A1A1A', // Preto quase puro
+    white: '#FFFFFF',
+    success: '#228B22',
+    text: '#333333',
+    warning: '#FF8C00' // Laranja para destaques
+  };
+
+  // ========== AVALIAÇÕES CHURRASCO ========== //
+  const avaliacoes = [
+    // Femininas (8 avaliações)
+    { 
+      foto: "https://i.imgur.com/R4MCf34.png", 
+      nome: "Ana", 
+      texto: "O kit familiar foi perfeito para nosso churrasco em família! Carnes de ótima qualidade e tudo muito bem embalado.", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/R4MCf34.png", 
+      nome: "Claudia", 
+      texto: "Picanha Angus de qualidade premium! Nunca comi uma carne tão saborosa. Recomendo muito!", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/R4MCf34.png", 
+      nome: "Fernanda", 
+      texto: "Kit completo com tudo que precisávamos. Fizemos um churrasco para 10 pessoas e sobrou elogios!", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/R4MCf34.png", 
+      nome: "Juliana", 
+      texto: "Farofa especial e vinagrete premium são incríveis! Diferenciais que fazem toda a diferença no churrasco.", 
+      estrelas: 4 
+    },
+    { 
+      foto: "https://i.imgur.com/R4MCf34.png", 
+      nome: "Patrícia", 
+      texto: "Já é minha terceira compra. Sempre que tem visita em casa, encomendo os kits. Qualidade constante!", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/R4MCf34.png", 
+      nome: "Camila", 
+      texto: "Linguicinha toscana maravilhosa! Sabor autêntico que lembrou as linguiças da serra.", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/R4MCf34.png", 
+      nome: "Luana", 
+      texto: "Churrasqueira portátil salvou nosso fim de semana! Prática e de ótima qualidade.", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/R4MCf34.png", 
+      nome: "Mariana", 
+      texto: "Atendimento excelente! Me ajudaram a montar o kit perfeito para 15 pessoas. Tudo perfeito!", 
+      estrelas: 5 
+    },
+
+    // Masculinas (7 avaliações)
+    { 
+      foto: "https://i.imgur.com/CL3oucA.png", 
+      nome: "Carlos", 
+      texto: "Costela bovina sensacional! Ficou macia e saborosa. Meus amigos elogiaram muito.", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/CL3oucA.png", 
+      nome: "Ricardo", 
+      texto: "Coração de frango no ponto perfeito! Produto de qualidade premium. Recomendo!", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/CL3oucA.png", 
+      nome: "Bruno", 
+      texto: "Kit facas profissional mudou meu churrasco! Facas afiadas e com ótimo acabamento.", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/CL3oucA.png", 
+      nome: "Lucas", 
+      texto: "Pão de alho recheado é divino! Melhor que muitos restaurantes. Pedirei sempre!", 
+      estrelas: 4 
+    },
+    { 
+      foto: "https://i.imgur.com/CL3oucA.png", 
+      nome: "Marcos", 
+      texto: "Combo família completo tem tudo! Não precisei me preocupar com nada, só acender a churrasqueira.", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/CL3oucA.png", 
+      nome: "Gustavo", 
+      texto: "Carvão premium rende muito! Queima uniforme e deixa a carne com sabor especial.", 
+      estrelas: 5 
+    },
+    { 
+      foto: "https://i.imgur.com/CL3oucA.png", 
+      nome: "Rodrigo", 
+      texto: "Entrega pontual e tudo muito bem embalado. Carnes chegaram geladas e frescas.", 
+      estrelas: 5 
+    }
+  ];
 
   // Estado do carrossel
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -157,7 +168,7 @@ const avaliacoes = [
       
       if (carouselRef.current) {
         const width = carouselRef.current.offsetWidth;
-        const height = mobile ? width / 2 : Math.min(width / 3, 400);
+        const height = mobile ? width / 2.5 : Math.min(width / 3, 400);
         setDimensions({ width, height });
       }
     };
@@ -195,7 +206,7 @@ const avaliacoes = [
   const startInterval = () => {
     slideInterval.current = setInterval(() => {
       goToNextSlide();
-    }, 5000);
+    }, 6000); // 6 segundos para cada banner
   };
 
   // Configuração das notificações
@@ -234,6 +245,7 @@ const avaliacoes = [
     }, 24000);
 
     toastTimers.current.push(freteTimer, whatsappTimer);
+    startInterval();
 
     return () => {
       clearInterval(slideInterval.current);
@@ -243,476 +255,93 @@ const avaliacoes = [
 
   return (
     <>
-<Head>
-  {/* Título Otimizado */}
-  <title>Marques Vendas PMG - Distribuidora Food Service | Atacadista em Itapecerica da Serra</title>
-  
-  {/* Meta Description Otimizada */}
-  <meta name="description" content="Distribuidora autorizada Marques Vendas PMG - Atacadista food service com produtos de qualidade para restaurantes, bares e mercados. Entrega rápida na região. Atendimento especializado." />
-  
-  {/* Viewport */}
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  
-  {/* Charset */}
-  <meta charSet="utf-8" />
-  
-  {/* Google Verification */}
-  <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
-  
-  {/* ========== OPEN GRAPH (Facebook/WhatsApp) ========== */}
-  <meta property="og:title" content="Marques Vendas PMG - Distribuidora Food Service | Atacadista Autorizado" />
-  <meta property="og:description" content="Distribuidora autorizada com produtos de qualidade para seu negócio. Entrega rápida e atendimento especializado." />
-  <meta property="og:image" content="https://i.imgur.com/pBH5WpZ.png" />
-  <meta property="og:url" content="https://www.marquesvendaspmg.shop" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Marques Vendas PMG" />
-  <meta property="og:locale" content="pt_BR" />
-  
-  {/* Open Graph para o Vídeo */}
-  <meta property="og:video" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
-  <meta property="og:video:type" content="text/html" />
-  <meta property="og:video:width" content="1280" />
-  <meta property="og:video:height" content="720" />
-  <meta property="og:video:secure_url" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
-  
-  {/* ========== TWITTER CARD ========== */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Marques Vendas PMG - Distribuidora Food Service" />
-  <meta name="twitter:description" content="Distribuidora autorizada com produtos de qualidade para restaurantes, bares e mercados." />
-  <meta name="twitter:image" content="https://i.imgur.com/pBH5WpZ.png" />
-  <meta name="twitter:site" content="@marquesvendaspmg" />
-  
-  {/* ========== SCHEMA.ORG (Google Rich Results) ========== */}
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Marques Vendas PMG",
-	  "image": "https://i.imgur.com/jrERRsC.png",
-      "description": "Distribuidora autorizada food service com produtos de qualidade para restaurantes, bares e mercados",
-      "url": "https://www.marquesvendaspmg.shop",
-      "telephone": "+55-11-91357-2902",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-        "addressLocality": "Itapecerica da Serra",
-        "addressRegion": "SP",
-        "postalCode": "06885-150",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-23.7167",
-        "longitude": "-46.8492"
-      },
-      "openingHours": "Mo-Fr 08:00-18:00, Sa 08:00-12:00",
-      "priceRange": "$$",
-      "areaServed": "Grande São Paulo",
-      "sameAs": [
-        "https://www.facebook.com/MarquesVendaspmg",
-        "https://www.instagram.com/marquesvendaspmg",
-        "https://www.youtube.com/@MarquesVendasPMG"
-      ]
-    })}
-  </script>
-  
-{/* Schema para Vídeo - VERSÃO CORRIGIDA COM DADOS REAIS */}
-<script type="application/ld+json">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados",
-    "description": "Há 30 anos a PMG Atacadista conecta negócios com confiança e resultados sólidos. Distribuidora food service em Itapecerica da Serra.",
-    "thumbnailUrl": "https://img.youtube.com/vi/xOPT4YXLV2E/maxresdefault.jpg",
-    "uploadDate": "2025-10-08T19:10:00-03:00", // 8 de outubro de 2025, 10:00 AM
-    "duration": "PT3M20S", // 3 minutos e 20 segundos EXATOS
-    "contentUrl": "https://www.youtube.com/watch?v=xOPT4YXLV2E",
-    "embedUrl": "https://www.youtube.com/embed/xOPT4YXLV2E",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Marques Vendas PMG",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://i.imgur.com/pBH5WpZ.png"
-      }
-    }
-  })}
-</script>
-
-{/* SCHEMA - Products (completo e otimizado para SEO) */}
-<script type="application/ld+json">
-{JSON.stringify({
-  "@context": "https://schema.org",
-  "@graph": [
-    // PRODUTO 1
-    {
-      "@type": "Product",
-      "name": "MUÇARELA BARI 4 KG",
-      "description": "Queijo Muçarela Bari 4kg - Produto de alta qualidade para restaurantes, bares e mercados.",
-      "category": "Derivados de Leite",
-      "image": "https://i.imgur.com/J3OqbkZ.png",
-      "brand": {
-        "@type": "Brand",
-        "name": "Bari"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "37"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Carlos, pizzaria cliente da PMG" },
-          "datePublished": "2025-09-28",
-          "reviewBody": "Produto de excelente qualidade e o site da Marques Vendas PMG é rápido e confiável.",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
-        },
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Fernanda, restaurante parceiro" },
-          "datePublished": "2025-08-11",
-          "reviewBody": "A muçarela Bari chegou no prazo e com ótimo custo-benefício. Atendimento excelente!",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
-        }
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "27.63",
-        "priceCurrency": "BRL",
-        "availability": "https://schema.org/InStock",
-        "priceValidUntil": "2026-01-25",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "0.00",
-            "currency": "BRL"
-          },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "d" },
-            "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" }
-          },
-          "shippingDestination": [
-            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "SP" },
-            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "MG", "name": "Sul de Minas" },
-            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "RJ", "name": "Sul do Rio de Janeiro" }
-          ]
-        },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "BR",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 0,
-          "returnMethod": "https://schema.org/ReturnByMail",
-          "returnFees": "https://schema.org/FreeReturn",
-          "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
-        },
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": "27.63",
-          "priceCurrency": "BRL",
-          "referenceQuantity": {
-            "@type": "QuantitativeValue",
-            "value": "1",
-            "unitCode": "KGM"
-          }
-        },
-        "seller": {
-          "@type": "LocalBusiness",
-          "priceRange": "$$",
-          "name": "Marques Vendas PMG",
-          "image": "https://i.imgur.com/jrERRsC.png",
-          "telephone": "+55-11-91357-2902",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-            "postalCode": "06885-150",
-            "addressLocality": "Itapecerica da Serra",
-            "addressRegion": "SP",
-            "addressCountry": "BR"
-          }
-        }
-      }
-    },
-
-    // PRODUTO 2
-    {
-      "@type": "Product",
-      "name": "MUÇARELA TRÊS MARIAS RONDÔNIA OURO PRETO 4 KG",
-      "description": "Queijo Muçarela Três Marias Rondônia Ouro Preto 4kg - Qualidade premium para food service.",
-      "category": "Derivados de Leite",
-      "image": "https://i.imgur.com/6I3X8vV.png",
-      "brand": {
-        "@type": "Brand",
-        "name": "Três Marias"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "25"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Luciana, confeitaria parceira" },
-          "datePublished": "2025-09-05",
-          "reviewBody": "A muçarela Três Marias tem sabor incrível e chegou em perfeito estado. Recomendo o site da Marques Vendas PMG!",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
-        },
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Rogério, pizzaiolo de São Paulo" },
-          "datePublished": "2025-08-17",
-          "reviewBody": "Entrega rápida e qualidade impecável. A PMG sempre cumpre o prazo!",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
-        }
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "35.28",
-        "priceCurrency": "BRL",
-        "availability": "https://schema.org/InStock",
-        "priceValidUntil": "2026-01-25",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "0.00",
-            "currency": "BRL"
-          },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "d" },
-            "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" }
-          },
-          "shippingDestination": [
-            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "SP" },
-            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "MG", "name": "Sul de Minas" },
-            { "@type": "DefinedRegion", "addressCountry": "BR", "addressRegion": "RJ", "name": "Sul do Rio de Janeiro" }
-          ]
-        },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "BR",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 0,
-          "returnMethod": "https://schema.org/ReturnByMail",
-          "returnFees": "https://schema.org/FreeReturn",
-          "returnPolicySeasonalOverride": "Devolução apenas no ato da entrega, antes da assinatura da nota fiscal."
-        },
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": "35.28",
-          "priceCurrency": "BRL",
-          "referenceQuantity": {
-            "@type": "QuantitativeValue",
-            "value": "1",
-            "unitCode": "KGM"
-          }
-        },
-"seller": {
-  "@type": "LocalBusiness",
-  "priceRange": "$$",
-  "name": "Marques Vendas PMG",
-  "image": "https://i.imgur.com/jrERRsC.png",
-  "telephone": "+55-11-91357-2902",
-  "areaServed": [
-    {
-      "@type": "AdministrativeArea",
-      "name": "Grande São Paulo",
-      "description": "Atacado Grande São Paulo, Distribuidora Grande SP, Fornecedor alimentos Grande São Paulo, Atacadista food service Grande SP"
-    },
-    {
-      "@type": "AdministrativeArea", 
-      "name": "Interior de São Paulo",
-      "description": "Atacado interior São Paulo, Distribuidora interior SP, Fornecedor interior São Paulo, Atacadista food service interior SP"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Capital de São Paulo",
-      "description": "Atacado São Paulo capital, Distribuidora São Paulo, Fornecedor alimentos São Paulo, Atacadista bebidas São Paulo, Food service São Paulo"
-    },
-    {
-      "@type": "City",
-      "name": "Santo Amaro - SP",
-      "description": "Atacado Santo Amaro, Distribuidora Santo Amaro, Fornecedor alimentos Santo Amaro, Atacadista bebidas Santo Amaro, Food service Santo Amaro SP"
-    },
-    {
-      "@type": "City",
-      "name": "Santo André - SP",
-      "description": "Atacado Santo André, Distribuidora Santo André, Fornecedor Santo André, Atacadista alimentos Santo André, Food service Santo André SP"
-    },
-    {
-      "@type": "City",
-      "name": "Barueri - SP", 
-      "description": "Atacado Barueri, Distribuidora Barueri, Fornecedor alimentos Barueri, Atacadista bebidas Barueri, Food service Barueri SP"
-    },
-    {
-      "@type": "City",
-      "name": "São Bernardo do Campo - SP",
-      "description": "Atacado São Bernardo do Campo, Distribuidora São Bernardo, Fornecedor São Bernardo, Atacadista alimentos São Bernardo, Food service São Bernardo SP"
-    },
-    {
-      "@type": "City",
-      "name": "Mauá - SP",
-      "description": "Atacado Mauá, Distribuidora Mauá, Fornecedor alimentos Mauá, Atacadista bebidas Mauá, Food service Mauá SP"
-    },
-    {
-      "@type": "City",
-      "name": "Guarulhos - SP",
-      "description": "Atacado Guarulhos, Distribuidora Guarulhos, Fornecedor alimentos Guarulhos, Atacadista bebidas Guarulhos, Food service Guarulhos SP"
-    },
-    {
-      "@type": "City",
-      "name": "Arujá - SP",
-      "description": "Atacado Arujá, Distribuidora Arujá, Fornecedor alimentos Arujá, Atacadista bebidas Arujá, Food service Arujá SP"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Sul de Minas Gerais",
-      "description": "Atacado Sul de Minas, Distribuidora Sul de Minas, Fornecedor alimentos Sul de Minas, Atacadista bebidas Sul de Minas, Food service Sul de Minas"
-    },
-    {
-      "@type": "City",
-      "name": "Extrema - MG",
-      "description": "Atacado Extrema MG, Distribuidora Extrema, Fornecedor alimentos Extrema, Atacadista bebidas Extrema, Food service Extrema, Atacado para restaurantes Extrema"
-    },
-    {
-      "@type": "City",
-      "name": "Poços de Caldas - MG",
-      "description": "Atacado Poços de Caldas, Distribuidora Poços de Caldas, Fornecedor alimentos Poços de Caldas, Atacadista bebidas Poços de Caldas, Food service Poços de Caldas MG"
-    },
-    {
-      "@type": "City",
-      "name": "São Lourenço - MG",
-      "description": "Atacado São Lourenço, Distribuidora São Lourenço, Fornecedor alimentos São Lourenço, Atacadista bebidas São Lourenço, Food service São Lourenço MG"
-    },
-    {
-      "@type": "City",
-      "name": "Itajubá - MG",
-      "description": "Atacado Itajubá, Distribuidora Itajubá, Fornecedor alimentos Itajubá, Atacadista bebidas Itajubá, Food service Itajubá, Atacado para mercados Itajubá"
-    },
-    {
-      "@type": "City",
-      "name": "Pouso Alegre - MG",
-      "description": "Atacado Pouso Alegre, Distribuidora Pouso Alegre, Fornecedor alimentos Pouso Alegre, Atacadista bebidas Pouso Alegre, Food service Pouso Alegre MG"
-    },
-    {
-      "@type": "City",
-      "name": "Camanducaia - MG",
-      "description": "Atacado Camanducaia, Distribuidora Camanducaia, Fornecedor alimentos Camanducaia, Atacadista bebidas Camanducaia, Food service Camanducaia MG"
-    },
-    {
-      "@type": "City",
-      "name": "Varginha - MG",
-      "description": "Atacado Varginha, Distribuidora Varginha, Fornecedor alimentos Varginha, Atacadista bebidas Varginha, Food service Varginha, Atacado para restaurantes Varginha"
-    },
-    {
-      "@type": "City",
-      "name": "Três Pontas - MG",
-      "description": "Atacado Três Pontas, Distribuidora Três Pontas, Fornecedor alimentos Três Pontas, Atacadista bebidas Três Pontas, Food service Três Pontas MG"
-    },
-    {
-      "@type": "City",
-      "name": "Virgínia - MG",
-      "description": "Atacado Virgínia MG, Distribuidora Virgínia, Fornecedor alimentos Virgínia, Atacadista bebidas Virgínia, Food service Virgínia MG"
-    },
-    {
-      "@type": "City",
-      "name": "Santa Rita do Sapucaí - MG",
-      "description": "Atacado Santa Rita do Sapucaí, Distribuidora Santa Rita do Sapucaí, Fornecedor alimentos Santa Rita, Atacadista bebidas Santa Rita, Food service Santa Rita do Sapucaí"
-    },
-    {
-      "@type": "AdministrativeArea", 
-      "name": "Sul do Rio de Janeiro",
-      "description": "Atacado Sul do Rio de Janeiro, Distribuidora Sul do RJ, Fornecedor alimentos Sul do Rio, Atacadista bebidas Sul do RJ, Food service Sul do Rio"
-    },
-    {
-      "@type": "City",
-      "name": "Paraty - RJ",
-      "description": "Atacado Paraty, Distribuidora Paraty, Fornecedor alimentos Paraty, Atacadista bebidas Paraty, Food service Paraty RJ"
-    },
-    {
-      "@type": "City",
-      "name": "Volta Redonda - RJ",
-      "description": "Atacado Volta Redonda, Distribuidora Volta Redonda, Fornecedor alimentos Volta Redonda, Atacadista bebidas Volta Redonda, Food service Volta Redonda RJ"
-    },
-    {
-      "@type": "City", 
-      "name": "Resende - RJ",
-      "description": "Atacado Resende, Distribuidora Resende, Fornecedor alimentos Resende, Atacadista bebidas Resende, Food service Resende RJ"
-    },
-    {
-      "@type": "City",
-      "name": "Barra Mansa - RJ",
-      "description": "Atacado Barra Mansa, Distribuidora Barra Mansa, Fornecedor alimentos Barra Mansa, Atacadista bebidas Barra Mansa, Food service Barra Mansa RJ"
-    }
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-    "postalCode": "06885-150",
-    "addressLocality": "Itapecerica da Serra",
-    "addressRegion": "SP",
-    "addressCountry": "BR"
-  }
-}
-      }
-    }
-  ]
-})}
-</script>
-  
-  {/* ========== KEYWORDS E OTIMIZAÇÕES EXTRAS ========== */}
-  <meta name="keywords" content="distribuidora food service, atacadista itapecerica, produtos para restaurante, atacado bebidas, alimentos atacado, marques vendas pmg, distribuidora autorizada, atacadista grande sp" />
-  <meta name="author" content="Marques Vendas PMG" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  
-  {/* Canonical URL */}
-  <link rel="canonical" href="https://www.marquesvendaspmg.shop" />
-  
-  {/* Sitemap */}
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  
-  {/* Favicon */}
-  <link rel="icon" href="https://i.imgur.com/pBH5WpZ.png" />
-  
-  {/* Theme Color para Mobile */}
-  <meta name="theme-color" content="#095400" />
-  <meta name="msapplication-TileColor" content="#095400" />
-  
-  {/* Apple Touch Icon */}
-  <link rel="apple-touch-icon" href="https://i.imgur.com/pBH5WpZ.png" />
-</Head>
+      <Head>
+        {/* Título Otimizado */}
+        <title>MP na Brasa - Kits de Churrasco Premium | Joanópolis-SP</title>
+        
+        {/* Meta Description Otimizada */}
+        <meta name="description" content={localConfig.description} />
+        
+        {/* Viewport */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        {/* Charset */}
+        <meta charSet="utf-8" />
+        
+        {/* ========== OPEN GRAPH (Facebook/WhatsApp) ========== */}
+        <meta property="og:title" content="MP na Brasa - Kits de Churrasco Premium" />
+        <meta property="og:description" content={localConfig.slogan} />
+        <meta property="og:image" content="/Logo MP cafe.png" />
+        <meta property="og:url" content="https://www.mpnabrasa.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="MP na Brasa" />
+        <meta property="og:locale" content="pt_BR" />
+        
+        {/* ========== TWITTER CARD ========== */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MP na Brasa - Churrasco Premium" />
+        <meta name="twitter:description" content="Kits completos para um churrasco perfeito" />
+        <meta name="twitter:image" content="/Logo MP cafe.png" />
+        
+        {/* ========== SCHEMA.ORG (Google Rich Results) ========== */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FoodEstablishment",
+            "name": localConfig.businessName,
+            "image": "/Logo MP cafe.png",
+            "description": localConfig.description,
+            "url": "https://www.mpnabrasa.com",
+            "telephone": localConfig.phone,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": localConfig.address,
+              "addressLocality": localConfig.city,
+              "addressRegion": localConfig.state,
+              "postalCode": localConfig.cep,
+              "addressCountry": "BR"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "-22.9311",
+              "longitude": "-46.2756"
+            },
+            "openingHours": "Mo-Su 08:00-20:00",
+            "priceRange": "$$$",
+            "areaServed": localConfig.deliveryArea,
+            "servesCuisine": "Brazilian Barbecue",
+            "sameAs": [
+              "https://www.facebook.com",
+              "https://www.instagram.com"
+            ]
+          })}
+        </script>
+        
+        {/* ========== KEYWORDS E OTIMIZAÇÕES EXTRAS ========== */}
+        <meta name="keywords" content="churrasco, kit churrasco, picanha, costela, carne premium, barbecue, churrasqueira, MP na Brasa, Joanópolis" />
+        <meta name="author" content="MP na Brasa" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.mpnabrasa.com" />
+        
+        {/* Favicon */}
+        <link rel="icon" href="/Logo MP cafe.png" />
+        
+        {/* Theme Color para Mobile */}
+        <meta name="theme-color" content="#8B0000" />
+        <meta name="msapplication-TileColor" content="#8B0000" />
+        
+        {/* Apple Touch Icon */}
+        <link rel="apple-touch-icon" href="/Logo MP cafe.png" />
+      </Head>
 
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
         padding: isMobile ? '10px' : '20px',
         minHeight: '100vh',
-        backgroundColor: '#ffffff',
+        backgroundColor: colorPalette.light,
         fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
         position: 'relative'
       }}>
@@ -725,30 +354,34 @@ const avaliacoes = [
           marginBottom: isMobile ? '5px' : '10px'
         }}>
           <div style={{
-            backgroundColor: '#095400',
+            backgroundColor: colorPalette.primary,
             padding: isMobile ? '8px 15px' : '10px 25px',
             borderRadius: '30px',
             marginBottom: isMobile ? '10px' : '15px',
             color: 'white',
             fontSize: isMobile ? '0.8rem' : '0.9rem',
             fontWeight: '600',
-            boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
+            boxShadow: '0 2px 5px rgba(139, 0, 0, 0.2)'
           }}>
-            Marques Vendas PMG
+            {localConfig.businessName}
           </div>
           
           <img 
-            src="https://i.imgur.com/pBH5WpZ.png" 
-            alt="Marques Vendas PMG" 
+            src="/Logo MP cafe.png" 
+            alt={localConfig.businessName} 
             style={{ 
               width: isMobile ? '180px' : '220px',
               margin: isMobile ? '10px 0' : '15px 0',
-              filter: 'drop-shadow(0 3px 5px rgba(0,0,0,0.1))'
+              filter: 'drop-shadow(0 3px 5px rgba(0,0,0,0.1))',
+              borderRadius: '10px',
+              border: `3px solid ${colorPalette.warning}`,
+              backgroundColor: colorPalette.white,
+              padding: '5px'
             }} 
           />
           
           <h1 style={{ 
-            color: '#095400', 
+            color: colorPalette.primary, 
             fontSize: isMobile ? '1.5rem' : '2rem',
             margin: isMobile ? '5px 0 10px' : '10px 0 15px',
             textAlign: 'center',
@@ -756,70 +389,22 @@ const avaliacoes = [
             lineHeight: '1.3',
             padding: isMobile ? '0 10px' : '0'
           }}>
-            Marques Vendas PMG Distribuidora <span style={{whiteSpace: 'nowrap'}}>Food Service</span>
+            {localConfig.slogan}
           </h1>
           
           <p style={{ 
-  color: '#555', 
-  fontSize: isMobile ? '0.9rem' : '1rem',
-  maxWidth: '600px',
-  textAlign: 'center',
-  lineHeight: '1.6',
-  marginBottom: isMobile ? '15px' : '20px',
-  padding: isMobile ? '0 15px' : '0'
-}}>
-  Produtos de qualidade com garantia e procedência. Atendimento personalizado para revendedores e estabelecimentos comerciais.
-</p>
-
-{/* BOTÃO DE OFERTAS */}
-<Link href="/ofertas" passHref legacyBehavior>
-  <a style={{
-    display: 'inline-block',
-    padding: isMobile ? '12px 24px' : '12px 25px',
-    backgroundColor: '#e74c3c',
-    color: '#fff',
-    textDecoration: 'none',
-    borderRadius: '30px',
-    fontSize: isMobile ? '0.95rem' : '1rem',
-    fontWeight: '600',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 3px 10px rgba(231, 76, 60, 0.3)',
-    margin: isMobile ? '0 auto 10px' : '0 auto 10px',
-    width: isMobile ? '90%' : 'auto',
-    maxWidth: '400px',
-    textAlign: 'center',
-  }}>
-    🔥 {isMobile ? 'OFERTAS DA SEMANA' : 'CONFIRA NOSSAS OFERTAS DA SEMANA!'}
-  </a>
-</Link>
-
-{/* NOVO BOTÃO FOOD NEWS - ADICIONE AQUI */}
-<Link href="/food-news" passHref legacyBehavior>
-  <a style={{
-    display: 'inline-block',
-    padding: isMobile ? '12px 24px' : '12px 25px',
-    backgroundColor: '#095400',
-    color: '#fff',
-    textDecoration: 'none',
-    borderRadius: '30px',
-    fontSize: isMobile ? '0.95rem' : '1rem',
-    fontWeight: '600',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 3px 10px rgba(9, 84, 0, 0.3)',
-    margin: isMobile ? '0 auto 20px' : '0 auto 15px',
-    width: isMobile ? '90%' : 'auto',
-    maxWidth: '400px',
-    textAlign: 'center',
-    ':hover': {
-      backgroundColor: '#074000',
-      transform: isMobile ? 'none' : 'translateY(-2px)',
-      boxShadow: '0 5px 15px rgba(7, 64, 0, 0.4)'
-    }
-  }}>
-    📰 {isMobile ? 'FOOD NEWS' : 'ACESSE O FOOD NEWS - BLOG'}
-  </a>
-</Link>
-</header>
+            color: colorPalette.dark, 
+            fontSize: isMobile ? '0.9rem' : '1rem',
+            maxWidth: '600px',
+            textAlign: 'center',
+            lineHeight: '1.6',
+            marginBottom: isMobile ? '15px' : '20px',
+            padding: isMobile ? '0 15px' : '0'
+          }}>
+            Kits completos de churrasco gourmet com carnes premium, acompanhamentos selecionados e 
+            utensílios de qualidade para seu churrasco perfeito em {localConfig.city}-{localConfig.state}.
+          </p>
+        </header>
 
         {/* Destaques de Credibilidade - Adaptado para mobile */}
         <div style={{
@@ -831,76 +416,79 @@ const avaliacoes = [
           padding: isMobile ? '0 10px' : '0'
         }}>
           <div style={{
-            backgroundColor: '#f8f8f8',
+            backgroundColor: colorPalette.white,
             padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
             minWidth: isMobile ? 'unset' : '200px',
             flex: isMobile ? '1 1 120px' : '0 0 auto',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+            boxShadow: '0 2px 8px rgba(139, 0, 0, 0.05)',
+            border: `1px solid ${colorPalette.secondary}`
+          }}>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🥩</span>
+            <div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Carnes Premium</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Selecionadas</div>
+            </div>
+          </div>
+          
+          <div style={{
+            backgroundColor: colorPalette.white,
+            padding: isMobile ? '10px 15px' : '15px 20px',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
+            boxShadow: '0 2px 8px rgba(139, 0, 0, 0.05)',
+            border: `1px solid ${colorPalette.secondary}`
           }}>
             <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🚚</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Entrega Rápida</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Entrega Agendada</div>
               <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Para toda região</div>
             </div>
           </div>
           
           <div style={{
-            backgroundColor: '#f8f8f8',
+            backgroundColor: colorPalette.white,
             padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
             minWidth: isMobile ? 'unset' : '200px',
             flex: isMobile ? '1 1 120px' : '0 0 auto',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+            boxShadow: '0 2px 8px rgba(139, 0, 0, 0.05)',
+            border: `1px solid ${colorPalette.secondary}`
           }}>
             <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🏷️</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Preço Competitivo</div>
-              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Melhores condições</div>
-            </div>
-          </div>
-          
-          <div style={{
-            backgroundColor: '#f8f8f8',
-            padding: isMobile ? '10px 15px' : '15px 20px',
-            borderRadius: '8px',
-            display: 'flex',
-            alignItems: 'center',
-            minWidth: isMobile ? 'unset' : '200px',
-            flex: isMobile ? '1 1 120px' : '0 0 auto',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
-          }}>
-            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🛡️</span>
-            <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Garantia</div>
-              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Produtos certificados</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Kits Completos</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Tudo que precisa</div>
             </div>
           </div>
 
-          {/* NOVO DESTAQUE - Atendimento Personalizado */}
           <div style={{
-            backgroundColor: '#f8f8f8',
+            backgroundColor: colorPalette.white,
             padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
             minWidth: isMobile ? 'unset' : '200px',
             flex: isMobile ? '1 1 120px' : '0 0 auto',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+            boxShadow: '0 2px 8px rgba(139, 0, 0, 0.05)',
+            border: `1px solid ${colorPalette.secondary}`
           }}>
-            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>👨‍💼</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🔥</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Atendimento Personalizado</div>
-              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Especializado no seu negócio</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Qualidade Garantida</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Sabor inigualável</div>
             </div>
           </div>
         </div>
 
-        {/* Carrossel Otimizado - Melhorias para mobile */}
+        {/* Carrossel Otimizado */}
         <div 
           ref={carouselRef}
           style={{
@@ -910,9 +498,10 @@ const avaliacoes = [
             margin: isMobile ? '20px auto' : '40px auto',
             overflow: 'hidden',
             borderRadius: '10px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+            boxShadow: '0 4px 12px rgba(139, 0, 0, 0.1)',
             height: `${dimensions.height}px`,
-            backgroundColor: '#f8f8f8'
+            backgroundColor: colorPalette.white,
+            border: `2px solid ${colorPalette.primary}`
           }}
         >
           <div style={{
@@ -930,12 +519,13 @@ const avaliacoes = [
                   height: '100%',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  position: 'relative'
                 }}
               >
                 <img 
                   src={isMobile ? banner.mobile : banner.desktop}
-                  alt={`Banner ${banner.id}`}
+                  alt={`Banner ${banner.title}`}
                   style={{
                     width: 'auto',
                     height: 'auto',
@@ -945,12 +535,15 @@ const avaliacoes = [
                     display: 'block'
                   }}
                   loading="lazy"
+                  onError={(e) => {
+                    e.target.src = '/Logo MP cafe.png';
+                  }}
                 />
               </div>
             ))}
           </div>
           
-          {/* Botões de navegação - Melhorados para mobile */}
+          {/* Botões de navegação */}
           <button 
             onClick={goToPrevSlide}
             style={{
@@ -968,11 +561,11 @@ const avaliacoes = [
               justifyContent: 'center',
               cursor: 'pointer',
               zIndex: 10,
-              boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+              boxShadow: '0 2px 5px rgba(139, 0, 0, 0.2)'
             }}
             aria-label="Slide anterior"
           >
-            <span style={{ fontSize: isMobile ? '16px' : '20px', color: '#095400' }}>❮</span>
+            <span style={{ fontSize: isMobile ? '16px' : '20px', color: colorPalette.primary }}>❮</span>
           </button>
           
           <button 
@@ -992,14 +585,14 @@ const avaliacoes = [
               justifyContent: 'center',
               cursor: 'pointer',
               zIndex: 10,
-              boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+              boxShadow: '0 2px 5px rgba(139, 0, 0, 0.2)'
             }}
             aria-label="Próximo slide"
           >
-            <span style={{ fontSize: isMobile ? '16px' : '20px', color: '#095400' }}>❯</span>
+            <span style={{ fontSize: isMobile ? '16px' : '20px', color: colorPalette.primary }}>❯</span>
           </button>
           
-          {/* Indicadores de slide - Melhorados para mobile */}
+          {/* Indicadores de slide */}
           <div style={{
             position: 'absolute',
             bottom: isMobile ? '10px' : '15px',
@@ -1020,7 +613,7 @@ const avaliacoes = [
                   border: 'none',
                   padding: 0,
                   cursor: 'pointer',
-                  backgroundColor: currentSlide === index ? '#095400' : 'rgba(255,255,255,0.5)',
+                  backgroundColor: currentSlide === index ? colorPalette.primary : 'rgba(255,255,255,0.5)',
                   transition: 'background-color 0.3s'
                 }}
                 aria-label={`Ir para slide ${index + 1}`}
@@ -1029,720 +622,675 @@ const avaliacoes = [
           </div>
         </div>
 
-{/* Seção "Conheça Nossa Operação" */}
-<section style={{
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  margin: isMobile ? '30px 0' : '60px 0',
-  padding: isMobile ? '0 10px' : '0 20px'
-}}>
-  <h2 style={{
-    color: '#333',
-    fontSize: isMobile ? '1.2rem' : '1.8rem',
-    fontWeight: '600',
-    marginBottom: isMobile ? '15px' : '30px',
-    textAlign: 'center',
-    padding: isMobile ? '0 10px' : '0'
-  }}>
-    Conheça Nossa Operação
-  </h2>
-  
-  {/* Vídeo do YouTube */}
-  <div style={{
-    width: '100%',
-    maxWidth: isMobile ? '100%' : '900px',
-    borderRadius: '10px',
-    overflow: 'hidden',
-    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
-    marginBottom: isMobile ? '15px' : '30px',
-    aspectRatio: '16/9'
-  }}>
-    <iframe
-      width="100%"
-      height="100%"
-      src="https://www.youtube.com/embed/xOPT4YXLV2E?autoplay=0&mute=0&rel=0&modestbranding=1&playsinline=1"
-      title="PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowFullScreen
-      style={{
-        display: 'block',
-        border: 'none'
-      }}
-    />
-  </div>
+        {/* Seção de Apresentação */}
+        <section style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          margin: isMobile ? '30px 0' : '60px 0',
+          padding: isMobile ? '0 10px' : '0 20px'
+        }}>
+          <h2 style={{
+            color: colorPalette.dark,
+            fontSize: isMobile ? '1.2rem' : '1.8rem',
+            fontWeight: '600',
+            marginBottom: isMobile ? '15px' : '30px',
+            textAlign: 'center',
+            padding: isMobile ? '0 10px' : '0'
+          }}>
+            Experiência Premium em Cada Churrasco
+          </h2>
+          
+          <p style={{
+            color: colorPalette.text,
+            fontSize: isMobile ? '0.9rem' : '1.05rem',
+            maxWidth: '800px',
+            textAlign: 'center',
+            lineHeight: '1.6',
+            marginBottom: isMobile ? '20px' : '30px',
+            padding: isMobile ? '0 15px' : '0'
+          }}>
+            No MP na Brasa, selecionamos as melhores carnes, desenvolvemos acompanhamentos especiais e oferecemos 
+            utensílios de qualidade para transformar seu churrasco em uma experiência gourmet. Cada kit é pensado 
+            para proporcionar praticidade, sabor e momentos inesquecíveis.
+          </p>
+          
+          <p style={{
+            color: colorPalette.accent,
+            fontSize: isMobile ? '0.85rem' : '1rem',
+            maxWidth: '600px',
+            textAlign: 'center',
+            lineHeight: '1.6',
+            padding: isMobile ? '0 15px' : '0',
+            fontWeight: '600',
+            backgroundColor: colorPalette.light,
+            padding: '10px 20px',
+            borderRadius: '8px',
+            border: `1px solid ${colorPalette.secondary}`
+          }}>
+            🥩 Você se preocupa em reunir os amigos, nós cuidamos de todo o resto!
+          </p>
+        </section>
 
-{/* Texto descritivo para SEO - ESCONDIDO visualmente mas o Google lê */}
-<div style={{ 
-  maxWidth: '800px',
-  marginTop: '20px',
-  opacity: '0',
-  height: '0',
-  overflow: 'hidden',
-  position: 'absolute'
-}}>
-  <h3>PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados</h3>
-  <p>Há 30 anos a PMG Atacadista conecta negócios com confiança e resultados sólidos. Distribuidora food service especializada em atacado para restaurantes, bares, mercados e estabelecimentos comerciais. Localizada em Itapecerica da Serra, atendemos toda a Grande São Paulo com entrega rápida e condições especiais para compras em atacado.</p>
-  <p>Trabalhamos com laticínios, queijos, embutidos, massas, bebidas, congelados e produtos alimentícios em geral. Estrutura moderna com controle de qualidade e temperatura para garantir a procedência e frescor dos produtos. Atendimento personalizado para revendedores e comerciantes com mais de 30 anos de experiência no mercado.</p>
-  <p>Produtos das melhores marcas do mercado com garantia de qualidade e procedência. Conheça nossa operação completa através do vídeo e veja porque somos referência em distribuição food service na região.</p>
-</div>
-  
-  <p style={{
-    color: '#666',
-    fontSize: isMobile ? '0.85rem' : '1rem',
-    maxWidth: '600px',
-    textAlign: 'center',
-    lineHeight: '1.6',
-    padding: isMobile ? '0 15px' : '0'
-  }}>
-    Nossa estrutura preparada para atender sua demanda com agilidade e qualidade.
-  </p>
-</section>
-
-{/* Conteúdo SEO PMG Atacadista - VISÍVEL APENAS PARA O GOOGLE */}
-<div style={{
-  opacity: '0',
-  height: '0',
-  overflow: 'hidden',
-  position: 'absolute',
-  pointerEvents: 'none'
-}}>
-  <h1>PMG Atacadista - Distribuidora e Atacadista em Itapecerica da Serra</h1>
-  
-  <h2>PMG Atacadista - 30 Anos no Mercado</h2>
-  <p>A PMG Atacadista é uma distribuidora e atacadista localizada em Itapecerica da Serra, atendendo toda a Grande São Paulo. Com mais de 30 anos de experiência, a PMG Atacadista oferece produtos de qualidade para restaurantes, bares, mercados e estabelecimentos comerciais.</p>
-  
-  <h3>PMG Atacadista Telefone e Contato</h3>
-  <p>Telefone da PMG Atacadista: (11) 91357-2902. Endereço da PMG Atacadista: Estrada Ferreira Guedes, 784 - Potuverá, Itapecerica da Serra - SP, CEP 06885-150.</p>
-  
-  <h3>PMG Atacadista Produtos e Serviços</h3>
-  <p>PMG Atacadista trabalha com laticínios, queijos, embutidos, massas, bebidas, congelados e diversos produtos alimentícios. PMG Atacadista app para facilitar pedidos. PMG Atacadista entrega rápida.</p>
-  
-  <h3>PMG Atacadista Redes Sociais</h3>
-  <p>PMG Atacadista Facebook: facebook.com/MarquesVendaspmg. PMG Atacadista Instagram: instagram.com/marquesvendaspmg. PMG Atacadista YouTube: youtube.com/@MarquesVendasPMG.</p>
-  
-  <h3>PMG Atacadista Santo Amaro e Região</h3>
-  <p>PMG Atacadista atende Santo Amaro e toda região da Grande São Paulo. PMG Atacadista distribuidora autorizada. PMG Atacadista preços competitivos.</p>
-  
-  <h3>PNG Atacadista</h3>
-  <p>Também conhecida como PNG Atacadista, a PMG Atacadista é referência em distribuição food service. PMG Atacadista confiança e resultados.</p>
-  
-  <h3>PMG Atacadista Itapecerica da Serra</h3>
-  <p>PMG Atacadista Itapecerica da Serra - distribuidora local com entrega para toda região. PMG Atacadista estoque amplo e variedade de produtos.</p>
-  
-  <h3>PMG Atacado</h3>
-  <p>PMG Atacado - condições especiais para compras em grande quantidade. PMG Atacadista melhores preços de atacado.</p>
-  
-  <h3>PMG</h3>
-  <p>PMG - Empresa sólida no mercado de distribuição. PMG tradição e qualidade. PMG atendimento personalizado.</p>
-</div>
-
-{/* Seção CTA Simplificada com suas Frases - CORRIGIDA */}
-<section style={{
-  textAlign: 'center',
-  margin: isMobile ? '30px 0' : '50px 0',
-  padding: isMobile ? '25px 15px' : '35px 20px',
-  backgroundColor: '#f0f8f0',
-  borderRadius: '12px',
-  boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
-  width: '100%',
-  maxWidth: '800px',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  border: '1px solid #e0f0e0',
-  boxSizing: 'border-box' // ← ADICIONE ISSO
-}}>
-  <div style={{
-    maxWidth: '600px',
-    margin: '0 auto'
-  }}>
-    <h2 style={{
-      color: '#095400',
-      fontSize: isMobile ? '1.4rem' : '1.8rem',
-      fontWeight: '700',
-      marginBottom: isMobile ? '15px' : '20px',
-      lineHeight: '1.3'
-    }}>
-      Cadastre-se gratuitamente
-    </h2>
-    
-    <p style={{
-      color: '#444',
-      fontSize: isMobile ? '1rem' : '1.1rem',
-      margin: isMobile ? '0 auto 20px' : '0 auto 30px',
-      lineHeight: '1.6',
-      maxWidth: '95%' // ← EVITA TEXTO MUITO LONGO
-    }}>
-      Ganhe acesso completo ao nosso catálogo com condições especiais para seu negócio!
-    </p>
-    
-    <Link href="/produtos" passHref legacyBehavior>
-      <a 
-        className="cta-button" // ← MUDEI PARA CLASSNAME
-        style={{
-          display: 'inline-block',
-          padding: isMobile ? '14px 30px' : '16px 40px',
-          backgroundColor: '#095400',
-          color: '#fff',
-          textDecoration: 'none',
-          borderRadius: '8px',
-          fontSize: isMobile ? '1.1rem' : '1.2rem',
-          fontWeight: '700',
-          transition: 'all 0.3s ease',
-          boxShadow: '0 4px 12px rgba(9, 84, 0, 0.3)',
-          marginBottom: '15px'
-        }}
-      >
-        COMPRE AGORA →
-      </a>
-    </Link>
-
-    <p style={{
-      color: '#666',
-      fontSize: isMobile ? '0.8rem' : '0.9rem',
-      fontStyle: 'italic',
-      margin: '10px 0 0 0'
-    }}>
-      Cadastro rápido e sem complicação. Leva menos de 2 minutos!
-    </p>
-  </div>
-</section>
-
-        {/* Seção de Avaliações */}
-{/* Seção de Avaliações - Versão Otimizada */}
-<section style={{
-  margin: isMobile ? '20px 0' : '40px 0',
-  padding: isMobile ? '0 10px' : '0 20px',
-  width: '100%',
-  overflow: 'hidden'
-}}>
-  <h2 style={{
-    color: '#095400',
-    fontSize: isMobile ? '1.3rem' : '1.5rem',
-    fontWeight: '600',
-    textAlign: 'center',
-    marginBottom: isMobile ? '15px' : '25px',
-    padding: '0 15px'
-  }}>
-    O que nossos clientes dizem
-  </h2>
-
-  <div style={{
-    position: 'relative',
-    maxWidth: '100%',
-    margin: '0 auto'
-  }}>
-    <div 
-      ref={avaliacoesRef}
-      style={{
-        display: 'flex',
-        overflowX: 'auto',
-        scrollBehavior: 'smooth',
-        gap: '15px',
-        padding: '10px',
-        scrollbarWidth: 'none', /* Firefox */
-        msOverflowStyle: 'none', /* IE/Edge */
-        '&::-webkit-scrollbar': {
-          display: 'none' /* Chrome/Safari */
-        }
-      }}
-    >
-      {avaliacoes.map((avaliacao, index) => (
-        <div key={index} style={{
-          minWidth: isMobile ? '85vw' : '28vw',
-          maxWidth: isMobile ? '85vw' : '28vw',
-          padding: '20px',
-          background: '#fff',
-          borderRadius: '10px',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-          flexShrink: 0,
+        {/* Seção CTA Simplificada */}
+        <section style={{
+          textAlign: 'center',
+          margin: isMobile ? '30px 0' : '50px 0',
+          padding: isMobile ? '25px 15px' : '35px 20px',
+          backgroundColor: colorPalette.white,
+          borderRadius: '12px',
+          boxShadow: '0 5px 15px rgba(139, 0, 0, 0.08)',
+          width: '100%',
+          maxWidth: '800px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          border: `1px solid ${colorPalette.secondary}`,
           boxSizing: 'border-box'
         }}>
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            marginBottom: '12px',
-            flexWrap: 'wrap'
+          <div style={{
+            maxWidth: '600px',
+            margin: '0 auto'
           }}>
-            <img 
-              src={avaliacao.foto} 
-              alt={avaliacao.nome} 
-              style={{ 
-                width: '45px', 
-                height: '45px', 
-                borderRadius: '50%', 
-                objectFit: 'cover',
-                marginRight: '10px'
-              }} 
-            />
-            <div>
-              <h3 style={{ 
-                color: '#095400', 
-                fontSize: isMobile ? '0.95rem' : '1rem',
-                margin: '0 0 3px 0',
-                fontWeight: '600'
-              }}>
-                {avaliacao.nome}
-              </h3>
-              <div style={{ 
-                display: 'flex',
-                gap: '2px'
-              }}>
-                {[...Array(5)].map((_, i) => (
-                  <span 
-                    key={i} 
-                    style={{ 
-                      color: i < avaliacao.estrelas ? '#FFD700' : '#e0e0e0',
-                      fontSize: isMobile ? '16px' : '18px',
-                      lineHeight: '1'
-                    }}
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
-            </div>
+            <h2 style={{
+              color: colorPalette.primary,
+              fontSize: isMobile ? '1.4rem' : '1.8rem',
+              fontWeight: '700',
+              marginBottom: isMobile ? '15px' : '20px',
+              lineHeight: '1.3'
+            }}>
+              Monte Seu Churrasco Perfeito!
+            </h2>
+            
+            <p style={{
+              color: colorPalette.text,
+              fontSize: isMobile ? '1rem' : '1.1rem',
+              margin: isMobile ? '0 auto 20px' : '0 auto 30px',
+              lineHeight: '1.6',
+              maxWidth: '95%'
+            }}>
+              Escolha entre nossos kits completos, carnes premium, acompanhamentos especiais ou monte seu combo personalizado!
+            </p>
+            
+            <Link href="/mp" passHref legacyBehavior>
+              <a 
+                style={{
+                  display: 'inline-block',
+                  padding: isMobile ? '14px 30px' : '16px 40px',
+                  backgroundColor: colorPalette.primary,
+                  color: '#fff',
+                  textDecoration: 'none',
+                  borderRadius: '8px',
+                  fontSize: isMobile ? '1.1rem' : '1.2rem',
+                  fontWeight: '700',
+                  transition: 'all 0.3s ease',
+                  boxShadow: `0 4px 12px rgba(139, 0, 0, 0.3)`,
+                  marginBottom: '15px'
+                }}
+              >
+                🔥 VER KITS DE CHURRASCO →
+              </a>
+            </Link>
+
+            <p style={{
+              color: colorPalette.accent,
+              fontSize: isMobile ? '0.8rem' : '0.9rem',
+              fontStyle: 'italic',
+              margin: '10px 0 0 0'
+            }}>
+              Entrega agendada em {localConfig.city} e região. Pague no ato da entrega!
+            </p>
           </div>
-          <p style={{ 
-            color: '#555', 
-            fontSize: isMobile ? '0.88rem' : '0.92rem',
-            lineHeight: '1.5',
-            margin: 0,
-            wordBreak: 'break-word',
-            hyphens: 'auto'
+        </section>
+
+        {/* Seção de Avaliações */}
+        <section style={{
+          margin: isMobile ? '20px 0' : '40px 0',
+          padding: isMobile ? '0 10px' : '0 20px',
+          width: '100%',
+          overflow: 'hidden'
+        }}>
+          <h2 style={{
+            color: colorPalette.primary,
+            fontSize: isMobile ? '1.3rem' : '1.5rem',
+            fontWeight: '600',
+            textAlign: 'center',
+            marginBottom: isMobile ? '15px' : '25px',
+            padding: '0 15px'
           }}>
-            "{avaliacao.texto}"
-          </p>
-        </div>
-      ))}
-    </div>
+            🔥 O que nossos clientes dizem
+          </h2>
 
-    {/* Botões de Navegação - Estilo Melhorado */}
-    <button 
-      onClick={() => {
-        const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
-        avaliacoesRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      }}
-      style={{
-        position: 'absolute',
-        top: '50%',
-        left: isMobile ? '5px' : '10px',
-        transform: 'translateY(-50%)',
-        background: 'rgba(255,255,255,0.9)',
-        border: '1px solid #e0e0e0',
-        borderRadius: '50%',
-        width: '36px',
-        height: '36px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        cursor: 'pointer',
-        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-        zIndex: 2,
-        color: '#095400',
-        fontSize: '18px',
-        fontWeight: 'bold'
-      }}
-      aria-label="Avaliação anterior"
-    >
-      ❮
-    </button>
-    <button 
-      onClick={() => {
-        const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
-        avaliacoesRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }}
-      style={{
-        position: 'absolute',
-        top: '50%',
-        right: isMobile ? '5px' : '10px',
-        transform: 'translateY(-50%)',
-        background: 'rgba(255,255,255,0.9)',
-        border: '1px solid #e0e0e0',
-        borderRadius: '50%',
-        width: '36px',
-        height: '36px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        cursor: 'pointer',
-        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-        zIndex: 2,
-        color: '#095400',
-        fontSize: '18px',
-        fontWeight: 'bold'
-      }}
-      aria-label="Próxima avaliação"
-    >
-      ❯
-    </button>
-  </div>
-</section>
+          <div style={{
+            position: 'relative',
+            maxWidth: '100%',
+            margin: '0 auto'
+          }}>
+            <div 
+              ref={avaliacoesRef}
+              style={{
+                display: 'flex',
+                overflowX: 'auto',
+                scrollBehavior: 'smooth',
+                gap: '15px',
+                padding: '10px',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+                '&::-webkit-scrollbar': {
+                  display: 'none'
+                }
+              }}
+            >
+              {avaliacoes.map((avaliacao, index) => (
+                <div key={index} style={{
+                  minWidth: isMobile ? '85vw' : '28vw',
+                  maxWidth: isMobile ? '85vw' : '28vw',
+                  padding: '20px',
+                  background: colorPalette.white,
+                  borderRadius: '10px',
+                  boxShadow: '0 2px 8px rgba(139, 0, 0, 0.1)',
+                  flexShrink: 0,
+                  boxSizing: 'border-box',
+                  border: `1px solid ${colorPalette.secondary}`
+                }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    marginBottom: '12px',
+                    flexWrap: 'wrap'
+                  }}>
+                    <img 
+                      src={avaliacao.foto} 
+                      alt={avaliacao.nome} 
+                      style={{ 
+                        width: '45px', 
+                        height: '45px', 
+                        borderRadius: '50%', 
+                        objectFit: 'cover',
+                        marginRight: '10px'
+                      }} 
+                    />
+                    <div>
+                      <h3 style={{ 
+                        color: colorPalette.primary, 
+                        fontSize: isMobile ? '0.95rem' : '1rem',
+                        margin: '0 0 3px 0',
+                        fontWeight: '600'
+                      }}>
+                        {avaliacao.nome}
+                      </h3>
+                      <div style={{ 
+                        display: 'flex',
+                        gap: '2px'
+                      }}>
+                        {[...Array(5)].map((_, i) => (
+                          <span 
+                            key={i} 
+                            style={{ 
+                              color: i < avaliacao.estrelas ? '#FFD700' : '#e0e0e0',
+                              fontSize: isMobile ? '16px' : '18px',
+                              lineHeight: '1'
+                            }}
+                          >
+                            ★
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p style={{ 
+                    color: colorPalette.text, 
+                    fontSize: isMobile ? '0.88rem' : '0.92rem',
+                    lineHeight: '1.5',
+                    margin: 0,
+                    wordBreak: 'break-word',
+                    hyphens: 'auto'
+                  }}>
+                    "{avaliacao.texto}"
+                  </p>
+                </div>
+              ))}
+            </div>
 
-{/* Rodapé Premium - Totalmente Reformulado */}
-<footer style={{
-  marginTop: isMobile ? '40px' : '60px',
-  padding: isMobile ? '25px 15px' : '40px 20px',
-  textAlign: 'center',
-  color: '#666',
-  fontSize: isMobile ? '0.8rem' : '0.85rem',
-  borderTop: '2px solid #095400',
-  backgroundColor: '#f8f9fa',
-  borderRadius: '12px 12px 0 0',
-  boxShadow: '0 -2px 10px rgba(9, 84, 0, 0.1)'
-}}>
-  
-  {/* Título do Rodapé */}
-  <h3 style={{
-    color: '#095400',
-    fontSize: isMobile ? '1rem' : '1.1rem',
-    marginBottom: '20px',
-    fontWeight: '600'
-  }}>
-    📋 Informações Legais
-  </h3>
+            {/* Botões de Navegação */}
+            <button 
+              onClick={() => {
+                const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
+                avaliacoesRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+              }}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: isMobile ? '5px' : '10px',
+                transform: 'translateY(-50%)',
+                background: 'rgba(255,255,255,0.9)',
+                border: `1px solid ${colorPalette.secondary}`,
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '0 2px 6px rgba(139, 0, 0, 0.1)',
+                zIndex: 2,
+                color: colorPalette.primary,
+                fontSize: '18px',
+                fontWeight: 'bold'
+              }}
+              aria-label="Avaliação anterior"
+            >
+              ❮
+            </button>
+            <button 
+              onClick={() => {
+                const scrollAmount = isMobile ? window.innerWidth * 0.85 : window.innerWidth * 0.28;
+                avaliacoesRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+              }}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                right: isMobile ? '5px' : '10px',
+                transform: 'translateY(-50%)',
+                background: 'rgba(255,255,255,0.9)',
+                border: `1px solid ${colorPalette.secondary}`,
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '0 2px 6px rgba(139, 0, 0, 0.1)',
+                zIndex: 2,
+                color: colorPalette.primary,
+                fontSize: '18px',
+                fontWeight: 'bold'
+              }}
+              aria-label="Próxima avaliação"
+            >
+              ❯
+            </button>
+          </div>
+        </section>
 
-  {/* Links Principais em Grid Organizado */}
-  <div style={{
-    display: 'grid',
-    gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
-    gap: isMobile ? '15px' : '20px',
-    marginBottom: '25px',
-    maxWidth: '600px',
-    margin: '0 auto 25px auto'
-  }}>
-    
-    {/* Política de Privacidade */}
-    <a 
-      href="/politica-de-privacidade" 
-      style={{ 
-        color: '#095400', 
-        textDecoration: 'none',
-        fontWeight: '600',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '12px 8px',
-        borderRadius: '8px',
-        transition: 'all 0.3s ease',
-        backgroundColor: 'white',
-        border: '1px solid #e0e0e0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-      }}
-      title="Política de Privacidade"
-      aria-label="Leia nossa Política de Privacidade"
-    >
-      <span>🔒</span>
-      {isMobile ? 'Privacidade' : 'Política de Privacidade'}
-    </a>
+        {/* Rodapé Premium */}
+        <footer style={{
+          marginTop: isMobile ? '40px' : '60px',
+          padding: isMobile ? '25px 15px' : '40px 20px',
+          textAlign: 'center',
+          color: '#666',
+          fontSize: isMobile ? '0.8rem' : '0.85rem',
+          borderTop: `2px solid ${colorPalette.primary}`,
+          backgroundColor: colorPalette.light,
+          borderRadius: '12px 12px 0 0',
+          boxShadow: '0 -2px 10px rgba(139, 0, 0, 0.1)'
+        }}>
+          
+          {/* Título do Rodapé */}
+          <h3 style={{
+            color: colorPalette.primary,
+            fontSize: isMobile ? '1rem' : '1.1rem',
+            marginBottom: '20px',
+            fontWeight: '600'
+          }}>
+            📋 Informações Legais
+          </h3>
 
-      {/* Política de Devolução e Reembolso */}
-      <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
-        <a style={{ 
-          color: '#095400', 
-          textDecoration: 'none',
-          fontWeight: '600',
-          fontSize: '14px',
-          padding: '12px 8px',
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-          backgroundColor: 'white',
-          border: '1px solid #e0e0e0',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '8px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-          minHeight: '50px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#095400';
-          e.target.style.color = 'white';
-          e.target.style.transform = 'translateY(-2px)';
-          e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = 'white';
-          e.target.style.color = '#095400';
-          e.target.style.transform = 'translateY(0)';
-          e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-        }}
-        title="Política de Devolução e Reembolso"
-        aria-label="Leia nossa Política de Devolução e Reembolso"
-      >
-        <span>🔄</span>
-        Política de Devolução e Reembolso
-      </a>
-      </Link>
+          {/* Links Principais em Grid Organizado */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
+            gap: isMobile ? '15px' : '20px',
+            marginBottom: '25px',
+            maxWidth: '600px',
+            margin: '0 auto 25px auto'
+          }}>
+            
+            {/* Política de Privacidade */}
+            <Link href="/politica-de-privacidade" passHref legacyBehavior>
+              <a style={{ 
+                color: colorPalette.primary, 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: isMobile ? '0.8rem' : '0.85rem',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: colorPalette.white,
+                border: `1px solid ${colorPalette.secondary}`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = colorPalette.primary;
+                e.target.style.color = colorPalette.white;
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(139, 0, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = colorPalette.white;
+                e.target.style.color = colorPalette.primary;
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Política de Privacidade"
+              aria-label="Leia nossa Política de Privacidade"
+            >
+              <span>🔒</span>
+              {isMobile ? 'Privacidade' : 'Política de Privacidade'}
+            </a>
+            </Link>
 
-    {/* Termos de Uso */}
-    <Link href="/termos" passHref legacyBehavior>
-      <a style={{ 
-        color: '#095400', 
-        textDecoration: 'none',
-        fontWeight: '600',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '12px 8px',
-        borderRadius: '8px',
-        transition: 'all 0.3s ease',
-        backgroundColor: 'white',
-        border: '1px solid #e0e0e0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-      }}
-      title="Termos de Uso"
-      aria-label="Leia nossos Termos de Uso"
-    >
-      <span>📄</span>
-      {isMobile ? 'Termos' : 'Termos de Uso'}
-    </a>
-    </Link>
+            {/* Política de Devolução e Reembolso */}
+            <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
+              <a style={{ 
+                color: colorPalette.primary, 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: isMobile ? '0.8rem' : '0.85rem',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: colorPalette.white,
+                border: `1px solid ${colorPalette.secondary}`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = colorPalette.primary;
+                e.target.style.color = colorPalette.white;
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(139, 0, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = colorPalette.white;
+                e.target.style.color = colorPalette.primary;
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Política de Devolução e Reembolso"
+              aria-label="Leia nossa Política de Devolução e Reembolso"
+            >
+              <span>🔄</span>
+              {isMobile ? 'Devolução' : 'Política de Devolução'}
+            </a>
+            </Link>
 
-    {/* Quem Somos */}
-    <Link href="/quem-somos" passHref legacyBehavior>
-      <a style={{ 
-        color: '#095400', 
-        textDecoration: 'none',
-        fontWeight: '600',
-        fontSize: isMobile ? '0.8rem' : '0.85rem',
-        padding: '12px 8px',
-        borderRadius: '8px',
-        transition: 'all 0.3s ease',
-        backgroundColor: 'white',
-        border: '1px solid #e0e0e0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '8px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-      }}
-      title="Quem Somos"
-      aria-label="Conheça mais sobre nós"
-    >
-      <span>👥</span>
-      {isMobile ? 'Sobre' : 'Quem Somos'}
-    </a>
-    </Link>
-  </div>
+            {/* Termos de Uso */}
+            <Link href="/termos" passHref legacyBehavior>
+              <a style={{ 
+                color: colorPalette.primary, 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: isMobile ? '0.8rem' : '0.85rem',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: colorPalette.white,
+                border: `1px solid ${colorPalette.secondary}`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = colorPalette.primary;
+                e.target.style.color = colorPalette.white;
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(139, 0, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = colorPalette.white;
+                e.target.style.color = colorPalette.primary;
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Termos de Uso"
+              aria-label="Leia nossos Termos de Uso"
+            >
+              <span>📄</span>
+              {isMobile ? 'Termos' : 'Termos de Uso'}
+            </a>
+            </Link>
 
-  {/* Linha Divisa Estilizada */}
-  <div style={{
-    height: '1px',
-    background: 'linear-gradient(90deg, transparent, #095400, transparent)',
-    margin: '20px auto',
-    maxWidth: '300px'
-  }}></div>
+            {/* Quem Somos */}
+            <Link href="/quem-somos" passHref legacyBehavior>
+              <a style={{ 
+                color: colorPalette.primary, 
+                textDecoration: 'none',
+                fontWeight: '600',
+                fontSize: isMobile ? '0.8rem' : '0.85rem',
+                padding: '12px 8px',
+                borderRadius: '8px',
+                transition: 'all 0.3s ease',
+                backgroundColor: colorPalette.white,
+                border: `1px solid ${colorPalette.secondary}`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}
+              onMouseOver={(e) => {
+                e.target.style.backgroundColor = colorPalette.primary;
+                e.target.style.color = colorPalette.white;
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 4px 8px rgba(139, 0, 0, 0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.backgroundColor = colorPalette.white;
+                e.target.style.color = colorPalette.primary;
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
+              }}
+              title="Quem Somos"
+              aria-label="Conheça mais sobre nós"
+            >
+              <span>👥</span>
+              {isMobile ? 'Sobre' : 'Quem Somos'}
+            </a>
+            </Link>
+          </div>
 
-  {/* Informações de copyright e redes sociais */}
-  <div style={{ 
-    marginTop: '10px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '15px'
-  }}>
-    {/* Redes Sociais - Versão Clean com Logos Visíveis */}
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      gap: isMobile ? '20px' : '25px',
-      alignItems: 'center'
-    }}>
-      {/* Facebook */}
-      <a 
-        href="https://www.facebook.com/MarquesVendaspmg" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '32px',
-          height: '32px',
-          borderRadius: '4px',
-          transition: 'all 0.3s ease',
-          textDecoration: 'none',
-          padding: '6px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.transform = 'scale(1.1)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.transform = 'scale(1)';
-        }}
-      >
-        <img 
-          src="https://i.imgur.com/prULUUA.png" 
-          alt="Facebook" 
-          style={{
-            width: '20px',
-            height: '20px',
-            transition: 'all 0.3s ease'
-          }}
-        />
-      </a>
+          {/* Linha Divisa Estilizada */}
+          <div style={{
+            height: '1px',
+            background: `linear-gradient(90deg, transparent, ${colorPalette.primary}, transparent)`,
+            margin: '20px auto',
+            maxWidth: '300px'
+          }}></div>
 
-      {/* Instagram */}
-      <a 
-        href="https://www.instagram.com/marquesvendaspmg" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '32px',
-          height: '32px',
-          borderRadius: '4px',
-          transition: 'all 0.3s ease',
-          textDecoration: 'none',
-          padding: '6px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.transform = 'scale(1.1)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.transform = 'scale(1)';
-        }}
-      >
-        <img 
-          src="https://i.imgur.com/I0ZZLjG.png" 
-          alt="Instagram" 
-          style={{
-            width: '20px',
-            height: '20px',
-            transition: 'all 0.3s ease'
-          }}
-        />
-      </a>
+          {/* Redes Sociais */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: isMobile ? '20px' : '25px',
+            alignItems: 'center',
+            marginBottom: '20px'
+          }}>
+            {/* WhatsApp */}
+            <a 
+              href={`https://wa.me/${localConfig.whatsapp}`}
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '32px',
+                height: '32px',
+                borderRadius: '4px',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none',
+                padding: '6px',
+                backgroundColor: colorPalette.white,
+                border: `1px solid ${colorPalette.secondary}`
+              }}
+              onMouseOver={(e) => {
+                e.target.style.transform = 'scale(1.1)';
+                e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = 'none';
+              }}
+            >
+              <img 
+                src="https://i.imgur.com/62MbxLy.png" 
+                alt="WhatsApp" 
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+            </a>
 
-      {/* YouTube */}
-      <a 
-        href="https://www.youtube.com/@MarquesVendasPMG" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '32px',
-          height: '32px',
-          borderRadius: '4px',
-          transition: 'all 0.3s ease',
-          textDecoration: 'none',
-          padding: '6px'
-        }}
-        onMouseOver={(e) => {
-          e.target.style.transform = 'scale(1.1)';
-        }}
-        onMouseOut={(e) => {
-          e.target.style.transform = 'scale(1)';
-        }}
-      >
-        <img 
-          src="https://i.imgur.com/WfpZ8Gg.png" 
-          alt="YouTube" 
-          style={{
-            width: '20px',
-            height: '20px',
-            transition: 'all 0.3s ease'
-          }}
-        />
-      </a>
-    </div>
+            {/* Instagram */}
+            <a 
+              href="https://www.instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '32px',
+                height: '32px',
+                borderRadius: '4px',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none',
+                padding: '6px',
+                backgroundColor: colorPalette.white,
+                border: `1px solid ${colorPalette.secondary}`
+              }}
+              onMouseOver={(e) => {
+                e.target.style.transform = 'scale(1.1)';
+                e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = 'none';
+              }}
+            >
+              <img 
+                src="https://i.imgur.com/I0ZZLjG.png" 
+                alt="Instagram" 
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+            </a>
 
-{/* Copyright, Texto SEO e Endereço */}
-<div style={{ textAlign: 'center' }}>
-  {/* TEXTO SEO VISÍVEL - ALINHADO COM PÁGINA PRODUTOS */}
-  <div style={{
-    maxWidth: '800px',
-    margin: '15px auto 20px auto',
-    padding: '0 15px'
-  }}>
-    <p style={{
-      color: '#666',
-      fontSize: isMobile ? '0.75rem' : '0.85rem',
-      lineHeight: '1.5',
-      textAlign: 'center',
-      fontStyle: 'italic',
-      margin: '0 0 15px 0'
-    }}>
-      <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
-      Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
-      Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>. 
-      Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
-    </p>
-  </div>
+            {/* Facebook */}
+            <a 
+              href="https://www.facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '32px',
+                height: '32px',
+                borderRadius: '4px',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none',
+                padding: '6px',
+                backgroundColor: colorPalette.white,
+                border: `1px solid ${colorPalette.secondary}`
+              }}
+              onMouseOver={(e) => {
+                e.target.style.transform = 'scale(1.1)';
+                e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+              }}
+              onMouseOut={(e) => {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = 'none';
+              }}
+            >
+              <img 
+                src="https://i.imgur.com/prULUUA.png" 
+                alt="Facebook" 
+                style={{
+                  width: '20px',
+                  height: '20px',
+                  transition: 'all 0.3s ease'
+                }}
+              />
+            </a>
+          </div>
 
-  <p style={{ 
-    margin: '5px 0', 
-    fontSize: isMobile ? '0.8rem' : '0.85rem',
-    color: '#666'
-  }}>
-    © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
-  </p>
-  
-  <p style={{ 
-    margin: '5px 0', 
-    fontSize: isMobile ? '0.7rem' : '0.8rem', 
-    color: '#999',
-    lineHeight: '1.4'
-  }}>
-    • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
-  </p>
-</div>
-  </div>
-</footer>
+          {/* Informações Finais */}
+          <div style={{ textAlign: 'center' }}>
+            <div style={{
+              maxWidth: '800px',
+              margin: '15px auto 20px auto',
+              padding: '0 15px'
+            }}>
+              <p style={{
+                color: colorPalette.dark,
+                fontSize: isMobile ? '0.75rem' : '0.85rem',
+                lineHeight: '1.5',
+                textAlign: 'center',
+                fontStyle: 'italic',
+                margin: '0 0 15px 0'
+              }}>
+                <strong>{localConfig.businessName}</strong> - Especialistas em churrasco gourmet em <strong>{localConfig.city}-{localConfig.state}</strong>. 
+                Kits completos com carnes selecionadas, acompanhamentos premium e tudo que você precisa para um churrasco perfeito.
+              </p>
+            </div>
 
-<style jsx global>{`
-  /* Garante que o link fique acima das notificações */
-  #legal-links-container {
-    position: relative;
-    z-index: 100;
-  }
-`}</style>
+            <p style={{ 
+              margin: '5px 0', 
+              fontSize: isMobile ? '0.8rem' : '0.85rem',
+              color: colorPalette.dark
+            }}>
+              © {new Date().getFullYear()} {localConfig.businessName}. Todos os direitos reservados.
+            </p>
+            
+            <p style={{ 
+              margin: '5px 0', 
+              fontSize: isMobile ? '0.7rem' : '0.8rem', 
+              color: '#888',
+              lineHeight: '1.4'
+            }}>
+              • Endereço: {localConfig.address} • CEP: {localConfig.cep}
+            </p>
+            
+            <p style={{ 
+              margin: '5px 0', 
+              fontSize: isMobile ? '0.7rem' : '0.8rem', 
+              color: '#888'
+            }}>
+              📞 Telefone: {localConfig.phone}
+            </p>
+            
+            {/* HORÁRIO ATUALIZADO */}
+            <p style={{ 
+              margin: '5px 0', 
+              fontSize: isMobile ? '0.7rem' : '0.8rem', 
+              color: '#888',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              flexWrap: 'wrap'
+            }}>
+              <span>🕒</span>
+              {localConfig.openingHours}
+            </p>
+          </div>
+        </footer>
       </div>
     </>
   );
