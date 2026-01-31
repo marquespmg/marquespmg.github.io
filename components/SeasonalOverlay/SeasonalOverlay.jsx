@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import dezembroTheme from './themes/janeiro';
+import dezembroTheme from './themes/fevereiro';
 
 const SeasonalOverlay = () => {
   const theme = dezembroTheme;
@@ -118,7 +118,7 @@ const SeasonalOverlay = () => {
             animation: 'slideUp 0.6s ease'
           }}>
             <h2 style={{
-              color: theme.cores.dourado,
+              color: theme.cores.roxo,
               fontSize: '28px',
               marginBottom: '10px',
               fontWeight: '600'
@@ -147,7 +147,7 @@ const SeasonalOverlay = () => {
             <button
               onClick={() => setShowModal(false)}
               style={{
-                backgroundColor: theme.cores.dourado,
+                backgroundColor: theme.cores.roxo,
                 color: 'white',
                 border: 'none',
                 padding: '12px 30px',
@@ -215,7 +215,7 @@ const SeasonalOverlay = () => {
             {currentMessage && (
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: theme.cores.dourado,
+                color: theme.cores.roxo,
                 padding: '8px 12px',
                 borderRadius: '12px',
                 fontSize: '12px',
@@ -226,7 +226,7 @@ const SeasonalOverlay = () => {
                 animation: 'messageFloat 5s ease-out',
                 maxWidth: '160px',
                 textAlign: 'center',
-                border: `1px solid ${theme.cores.dourado}20`
+                border: `1px solid ${theme.cores.roxo}20`
               }}>
                 {currentMessage}
                 
@@ -375,3 +375,4 @@ const SeasonalOverlay = () => {
 };
 
 export default SeasonalOverlay;
+
