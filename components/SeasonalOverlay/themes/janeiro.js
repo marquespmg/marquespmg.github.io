@@ -2,7 +2,7 @@
 const janeiroTheme = {
   id: 'janeiro',
   nome: 'Ano Novo PMG 2026',
-  ativo: true, // DEIXE false ATÉ 01/01/2026
+  ativo: false, // DEIXE false ATÉ 01/01/2026
   
   // Cores do Ano Novo + Verão
   cores: {
@@ -66,3 +66,4 @@ const janeiroTheme = {
 };
 
 export default janeiroTheme;
+
