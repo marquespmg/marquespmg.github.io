@@ -56,23 +56,23 @@ const featuredProducts = [
 const banners = [
   { 
     id: 1,
-    desktop: 'https://i.imgur.com/m9DxquV.png',
-    mobile: 'https://i.imgur.com/m9DxquV.png'
+    desktop: 'https://i.imgur.com/33QMJL2.png',
+    mobile: 'https://i.imgur.com/33QMJL2.png'
   },
   { 
     id: 2,
-    desktop: 'https://i.imgur.com/g6h6z2i.png',
-    mobile: 'https://i.imgur.com/g6h6z2i.png'
+    desktop: 'https://i.imgur.com/GmAXGiB.png',
+    mobile: 'https://i.imgur.com/GmAXGiB.png'
   },
   { 
     id: 3,
-    desktop: 'https://i.imgur.com/w9JCpKX.png',
-    mobile: 'https://i.imgur.com/w9JCpKX.png'
+    desktop: 'https://i.imgur.com/t5yuOrl.png',
+    mobile: 'https://i.imgur.com/t5yuOrl.png'
   },
   { 
     id: 4,
-    desktop: 'https://i.imgur.com/gX6M2lu.png',
-    mobile: 'https://i.imgur.com/gX6M2lu.png'
+    desktop: 'https://i.imgur.com/AWqaPY4.png',
+    mobile: 'https://i.imgur.com/AWqaPY4.png'
   }
 ];
 
