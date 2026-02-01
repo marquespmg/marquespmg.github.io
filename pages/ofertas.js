@@ -40,16 +40,16 @@ const citiesData = {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 878, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 3,6 KILO', category: 'Ofertas', price: 143.49, image: 'https://www.marquesvendaspmg.shop/images/requeijao-catupiry-sem-amido-36-kilo-pmg-atacadista.jpg' },
-  { id: 1125, name: 'AZEITE DE OLIVA GRANDE EXTRA VIRGEM REY 5,01 L (CX 3 GL)', category: 'Ofertas', price: 239.99, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-grande-extra-virgem-rey-501-l-cx-3-gl-pmg-atacadista.jpg' },
-  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
-  { id: 1746, name: 'FARINHA DE TRIGO PIZZA ANACONDA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 80.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1415, name: 'TOMATE TRITURADO EKMA 1,7 KILO', category: 'Ofertas', price: 91.00, image: 'https://www.marquesvendaspmg.shop/images/tomate-triturado-ekma-17-kilo-pmg-atacadista.jpg' },
-  { id: 416, name: 'MOLHO DE TOMATE REFOGADO TRADICIONAL EKMA 1,7 KILO (CX 6 BAG)', category: 'Ofertas', price: 62.00, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-refogado-tradicional-ekma-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
-  { id: 184, name: 'GUARANÁ ANTARCTICA PET 600 ML (PCT 12 UN)', category: 'Ofertas', price: 57.80, image: 'https://www.marquesvendaspmg.shop/images/guarana-antarctica-pet-600-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 910, name: 'REQUEIJÃO SABOR CHEDDAR SCALON 1,02 KILO', category: 'Ofertas', price: 31.55, image: 'https://www.marquesvendaspmg.shop/images/requeijao-sabor-cheddar-scalon-102-kilo-pmg-atacadista.jpg' }
+  { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 17.83, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 13.57, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 57, name: 'ÁGUA MINERAL GRANDE BUONAVITA SEM GÁS 1,5 L (PCT 6 UN)', category: 'Ofertas', price: 14.46, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-buonavita-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 148, name: 'ENERGÉTICO LONG ONE 2 L (PCT 6 UN)', category: 'Ofertas', price: 31.55, image: 'https://www.marquesvendaspmg.shop/images/energetico-long-one-2-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 339, name: 'VODKA SMIRNOFF 998 ML', category: 'Ofertas', price: 32.30, image: 'https://www.marquesvendaspmg.shop/images/vodka-smirnoff-998-ml-pmg-atacadista.jpg' },
+  { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML (CX 12 UN)', category: 'Ofertas', price: 100.55, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 281, name: 'TEQUILA JOSE CUERVO ESPECIAL REPOSADO OURO 750 ML (CX 12 UN)', category: 'Ofertas', price: 115.00, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-reposado-ouro-750-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 61, name: 'ÁGUA TÔNICA ANTARCTICA LATA 350 ML (PCT 12 LT)', category: 'Ofertas', price: 42.00, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
+  { id: 62, name: 'ÁGUA TÔNICA ANTARCTICA ZERO AÇÚCARES LATA 350 ML (PCT 12 LT)', category: 'Ofertas', price: 42.00, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-zero-acucares-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
+  { id: 65, name: 'AGUARDENTE DE CANA PITÚ 965 ML', category: 'Ofertas', price: 11.20, image: 'https://www.marquesvendaspmg.shop/images/aguardente-de-cana-pitu-965-ml-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
