@@ -1193,9 +1193,9 @@ const products = [
   { id: 1178, name: 'BATATA CONGELADA PRÉ FRITA SMILES SORRISO MCCAIN 1,5 KILO (CX 6 PCT)', category: 'Derivados de Vegetal', price: 203.19, image: 'https://www.marquesvendaspmg.shop/images/batata-congelada-pre-frita-smiles-sorriso-mccain-15-kilo-cx-6-pct-pmg-atacadista.jpg' },
   { id: 1179, name: 'BATATA PALHA EXTRAFINA DA TERRINHA 100 G', category: 'Derivados de Vegetal', price: 7.03, image: 'https://www.marquesvendaspmg.shop/images/batata-palha-extrafina-da-terrinha-100-g-pmg-atacadista.jpg' },
   { id: 1180, name: 'BATATA PALHA EXTRAFINA KISABOR 100 G', category: 'Derivados de Vegetal', price: 6.77, image: 'https://www.marquesvendaspmg.shop/images/batata-palha-extrafina-kisabor-100-g-pmg-atacadista.jpg' },
-  { id: 1181, name: 'BATATA PALHA EXTRAFINA KROCK 500 G (FDO 20 PCT)', category: 'Derivados de Vegetal', price: 13.29, image: 'https://www.marquesvendaspmg.shop/images/batata-palha-extrafina-krock-500-g-fdo-20-pct-pmg-atacadista.jpg' },
+  { id: 1181, name: 'BATATA PALHA EXTRAFINA KROCK 500 G', category: 'Derivados de Vegetal', price: 13.29, image: 'https://www.marquesvendaspmg.shop/images/batata-palha-extrafina-krock-500-g-fdo-20-pct-pmg-atacadista.jpg' },
   { id: 1182, name: 'BATATA PALHA TRADICIONAL KISABOR 100 G', category: 'Derivados de Vegetal', price: 5.66, image: 'https://www.marquesvendaspmg.shop/images/batata-palha-tradicional-kisabor-100-g-pmg-atacadista.jpg' },
-  { id: 1183, name: 'BATATA PALHA TRADICIONAL KROCK 500 G (FDO 20 PCT)', category: 'Derivados de Vegetal', price: 13.29, image: 'https://www.marquesvendaspmg.shop/images/batata-palha-tradicional-krock-500-g-fdo-20-pct-pmg-atacadista.jpg' },
+  { id: 1183, name: 'BATATA PALHA TRADICIONAL KROCK 500 G', category: 'Derivados de Vegetal', price: 13.29, image: 'https://www.marquesvendaspmg.shop/images/batata-palha-tradicional-krock-500-g-fdo-20-pct-pmg-atacadista.jpg' },
   { id: 1184, name: 'BATATA PALHA TRADICIONAL YOKI 105 G', category: 'Derivados de Vegetal', price: 9.13, image: 'https://www.marquesvendaspmg.shop/images/batata-palha-tradicional-yoki-105-g-pmg-atacadista.jpg' },
   { id: 1185, name: 'BATATA PALITO CONGELADA PRÉ FRITA 10 MM CORTE TRADICIONAL "EXTRA CRUNCH" SIMPLOT 2,5 KILO (CX 6 PCT)', category: 'Derivados de Vegetal', price: 231.38, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-10-mm-corte-tradicional-extra-crunch-simplot-25-kilo-cx-6-pct-pmg-atacadista.jpg' },
   { id: 1186, name: 'BATATA PALITO CONGELADA PRÉ FRITA 10 MM CORTE TRADICIONAL RAPIPAP 2,5 KILO (CX 6 PCT)', category: 'Derivados de Vegetal', price: 143.96, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-10-mm-corte-tradicional-rapipap-25-kilo-cx-6-pct-pmg-atacadista.jpg' },
@@ -4846,6 +4846,7 @@ const loadCartFromSupabase = async (userId) => {
   };
 
   export default ProductsPage;
+
 
 
 
