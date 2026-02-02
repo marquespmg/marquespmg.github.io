@@ -357,8 +357,8 @@ const products = [
   { id: 277, name: 'SUKITA LARANJA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 42.71, image: 'https://www.marquesvendaspmg.shop/images/sukita-laranja-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 278, name: 'SUKITA LIMÃO PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 42.71, image: 'https://www.marquesvendaspmg.shop/images/sukita-limao-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 279, name: 'SUKITA TUBAÍNA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 42.71, image: 'https://www.marquesvendaspmg.shop/images/sukita-tubaina-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML (CX 12 UN)', category: 'Bebidas', price: 100.55, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
-  { id: 281, name: 'TEQUILA JOSE CUERVO ESPECIAL REPOSADO OURO 750 ML (CX 12 UN)', category: 'Bebidas', price: 115.00, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-reposado-ouro-750-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML', category: 'Bebidas', price: 100.55, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 281, name: 'TEQUILA JOSE CUERVO ESPECIAL REPOSADO OURO 750 ML', category: 'Bebidas', price: 115.00, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-reposado-ouro-750-ml-cx-12-un-pmg-atacadista.jpg' },
   { id: 282, name: 'TUBAÍNA CAMPOS TUTTI FRUTTI PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 29.26, image: 'https://www.marquesvendaspmg.shop/images/tubaina-campos-tutti-frutti-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 283, name: 'VINHO ARGENTINO TINTO MEIO SECO MALBEC RESERVADO CONCHA Y TORO 750 ML', category: 'Bebidas', price: 24.54, image: 'https://www.marquesvendaspmg.shop/images/vinho-argentino-tinto-meio-seco-malbec-reservado-concha-y-toro-750-ml-pmg-atacadista.jpg' },
   { id: 284, name: 'VINHO ARGENTINO TINTO SECO CABERNET SAUVIGNON BENJAMIN NIETO SENETINER 750 ML', category: 'Bebidas', price: 33.68, image: 'https://www.marquesvendaspmg.shop/images/vinho-argentino-tinto-seco-cabernet-sauvignon-benjamin-nieto-senetiner-750-ml-pmg-atacadista.jpg' },
@@ -1893,8 +1893,8 @@ const products = [
   { id: 57, name: 'ÁGUA MINERAL GRANDE BUONAVITA SEM GÁS 1,5 L (PCT 6 UN)', category: '⏳ Ofertas da Semana 🚨', price: 14.46, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-buonavita-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 148, name: 'ENERGÉTICO LONG ONE 2 L (PCT 6 UN)', category: '⏳ Ofertas da Semana 🚨', price: 31.55, image: 'https://www.marquesvendaspmg.shop/images/energetico-long-one-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 339, name: 'VODKA SMIRNOFF 998 ML', category: '⏳ Ofertas da Semana 🚨', price: 32.30, image: 'https://www.marquesvendaspmg.shop/images/vodka-smirnoff-998-ml-pmg-atacadista.jpg' },
-  { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML (CX 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 100.55, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
-  { id: 281, name: 'TEQUILA JOSE CUERVO ESPECIAL REPOSADO OURO 750 ML (CX 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 115.00, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-reposado-ouro-750-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML', category: '⏳ Ofertas da Semana 🚨', price: 100.55, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 281, name: 'TEQUILA JOSE CUERVO ESPECIAL REPOSADO OURO 750 ML', category: '⏳ Ofertas da Semana 🚨', price: 115.00, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-reposado-ouro-750-ml-cx-12-un-pmg-atacadista.jpg' },
   { id: 61, name: 'ÁGUA TÔNICA ANTARCTICA LATA 350 ML (PCT 12 LT)', category: '⏳ Ofertas da Semana 🚨', price: 42.00, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 62, name: 'ÁGUA TÔNICA ANTARCTICA ZERO AÇÚCARES LATA 350 ML (PCT 12 LT)', category: '⏳ Ofertas da Semana 🚨', price: 42.00, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-zero-acucares-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 65, name: 'AGUARDENTE DE CANA PITÚ 965 ML', category: '⏳ Ofertas da Semana 🚨', price: 11.20, image: 'https://www.marquesvendaspmg.shop/images/aguardente-de-cana-pitu-965-ml-pmg-atacadista.jpg' },
@@ -4846,6 +4846,7 @@ const loadCartFromSupabase = async (userId) => {
   };
 
   export default ProductsPage;
+
 
 
 
