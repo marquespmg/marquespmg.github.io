@@ -265,8 +265,8 @@ const products = [
   { id: 277, name: 'SUKITA LARANJA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 42.71, image: 'https://www.marquesvendaspmg.shop/images/sukita-laranja-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 278, name: 'SUKITA LIMÃO PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 42.71, image: 'https://www.marquesvendaspmg.shop/images/sukita-limao-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 279, name: 'SUKITA TUBAÍNA PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 42.71, image: 'https://www.marquesvendaspmg.shop/images/sukita-tubaina-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML (CX 12 UN)', category: 'Bebidas', price: 100.55, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
-  { id: 281, name: 'TEQUILA JOSE CUERVO ESPECIAL REPOSADO OURO 750 ML (CX 12 UN)', category: 'Bebidas', price: 115.00, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-reposado-ouro-750-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML', category: 'Bebidas', price: 100.55, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
+  { id: 281, name: 'TEQUILA JOSE CUERVO ESPECIAL REPOSADO OURO 750 ML', category: 'Bebidas', price: 115.00, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-reposado-ouro-750-ml-cx-12-un-pmg-atacadista.jpg' },
   { id: 282, name: 'TUBAÍNA CAMPOS TUTTI FRUTTI PET 2 L (PCT 6 UN)', category: 'Bebidas', price: 29.26, image: 'https://www.marquesvendaspmg.shop/images/tubaina-campos-tutti-frutti-pet-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 283, name: 'VINHO ARGENTINO TINTO MEIO SECO MALBEC RESERVADO CONCHA Y TORO 750 ML', category: 'Bebidas', price: 24.54, image: 'https://www.marquesvendaspmg.shop/images/vinho-argentino-tinto-meio-seco-malbec-reservado-concha-y-toro-750-ml-pmg-atacadista.jpg' },
   { id: 284, name: 'VINHO ARGENTINO TINTO SECO CABERNET SAUVIGNON BENJAMIN NIETO SENETINER 750 ML', category: 'Bebidas', price: 33.68, image: 'https://www.marquesvendaspmg.shop/images/vinho-argentino-tinto-seco-cabernet-sauvignon-benjamin-nieto-senetiner-750-ml-pmg-atacadista.jpg' },
@@ -3370,6 +3370,7 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
+
 
 
 
