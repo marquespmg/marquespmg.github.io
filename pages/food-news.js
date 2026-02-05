@@ -8871,7 +8871,7 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
         
         <!-- Item 1995 -->
         <div style="position: relative; margin-bottom: 30px;">
-          <div style="position: absolute; left: -36px; top: 0; background: #095400; color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1995</div>
+          <div style="position: absolute; left: -36px; top: 0; background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1995</div>
           <div style="background: #e8f5e8; padding: 15px; border-radius: 8px;">
             <h4 style="color: #095400; margin: 0 0 8px 0;">Fundação em Santo Amaro</h4>
             <p style="margin: 0; font-size: 0.95rem;">PMG Frios e Laticínios inicia operações focada em pizzarias da Zona Sul de SP.</p>
@@ -8880,7 +8880,7 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
         
         <!-- Item 2012 -->
         <div style="position: relative; margin-bottom: 30px;">
-          <div style="position: absolute; left: -36px; top: 0; background: #095400; color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2012</div>
+          <div style="position: absolute; left: -36px; top: 0; background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2012</div>
           <div style="background: #e8f5e8; padding: 15px; border-radius: 8px;">
             <h4 style="color: #095400; margin: 0 0 8px 0;">Mudança para Taboão da Serra</h4>
             <p style="margin: 0; font-size: 0.95rem;">Expansão para 4.800m² para atender mais clientes e categorias de produtos.</p>
@@ -8889,7 +8889,7 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
         
         <!-- Item 2019 -->
         <div style="position: relative; margin-bottom: 30px;">
-          <div style="position: absolute; left: -36px; top: 0; background: #095400; color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2019</div>
+          <div style="position: absolute; left: -36px; top: 0; background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2019</div>
           <div style="background: #e8f5e8; padding: 15px; border-radius: 8px;">
             <h4 style="color: #095400; margin: 0 0 8px 0;">Nova Sede em Itapecerica da Serra</h4>
             <p style="margin: 0; font-size: 0.95rem;">Estrutura de 11.000m², tornando-se uma das maiores distribuidoras do estado.</p>
@@ -8898,7 +8898,7 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
         
         <!-- Item 2026 -->
         <div style="position: relative;">
-          <div style="position: absolute; left: -36px; top: 0; background: #095400; color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2026</div>
+          <div style="position: absolute; left: -36px; top: 0; background: #095400; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2026</div>
           <div style="background: #e8f5e8; padding: 15px; border-radius: 8px;">
             <h4 style="color: #095400; margin: 0 0 8px 0;">Liderança Consolidada</h4>
             <p style="margin: 0; font-size: 0.95rem;">+20.000 clientes, 280 veículos, 400+ representantes e cobertura em 3 estados.</p>
