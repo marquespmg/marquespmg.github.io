@@ -1888,9 +1888,9 @@ const products = [
   { id: 1895, name: 'CHEESE PILLOWS CONGELADO EMPANADO MCCAIN 1 KILO (CX 6 PCT)', category: 'Salgados', price: 441.73, image: 'https://www.marquesvendaspmg.shop/images/cheese-pillows-congelado-empanado-mccain-1-kilo-cx-6-pct-pmg-atacadista.jpg' },
   { id: 1896, name: 'DADINHO DE TAPIOCA COM QUEIJO DE COALHO CONGELADO PIF PAF 300 G', category: 'Salgados', price: 10.74, image: 'https://www.marquesvendaspmg.shop/images/dadinho-de-tapioca-com-queijo-de-coalho-congelado-pif-paf-300-g-pmg-atacadista.jpg' },
   { id: 1898, name: 'WAFFLE CONGELADO FORNO DE MINAS 525 G (CX 3,15 KILO)', category: 'Salgados', price: 135.32, image: 'https://www.marquesvendaspmg.shop/images/waffle-congelado-forno-de-minas-525-g-cx-315-kilo-pmg-atacadista.jpg' },
-  { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 17.83, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 13.57, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 57, name: 'ÁGUA MINERAL GRANDE BUONAVITA SEM GÁS 1,5 L (PCT 6 UN)', category: '⏳ Ofertas da Semana 🚨', price: 14.46, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-buonavita-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
+  { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 18.80, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 14.75, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 57, name: 'ÁGUA MINERAL GRANDE BUONAVITA SEM GÁS 1,5 L (PCT 6 UN)', category: '⏳ Ofertas da Semana 🚨', price: 15.71, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-buonavita-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 148, name: 'ENERGÉTICO LONG ONE 2 L (PCT 6 UN)', category: '⏳ Ofertas da Semana 🚨', price: 31.55, image: 'https://www.marquesvendaspmg.shop/images/energetico-long-one-2-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 339, name: 'VODKA SMIRNOFF 998 ML', category: '⏳ Ofertas da Semana 🚨', price: 32.30, image: 'https://www.marquesvendaspmg.shop/images/vodka-smirnoff-998-ml-pmg-atacadista.jpg' },
   { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML', category: '⏳ Ofertas da Semana 🚨', price: 100.55, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
@@ -4846,6 +4846,7 @@ const loadCartFromSupabase = async (userId) => {
   };
 
   export default ProductsPage;
+
 
 
 
