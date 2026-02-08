@@ -1811,6 +1811,12 @@ function escapeXml(unsafe) {
   if (!unsafe) return '';
   return unsafe.replace(/[<>&'"]/g, function (c) {
     switch (c) {
+
+// Função para escapar caracteres XML
+function escapeXml(unsafe) {
+  if (!unsafe) return '';
+  return unsafe.replace(/[<>&'"]/g, function (c) {
+    switch (c) {
       case '<': return '&lt;';
       case '>': return '&gt;';
       case '&': return '&amp;';
@@ -1908,6 +1914,7 @@ export default function ImageSiteMap() {
   return null;
 
 }
+
 
 
 
