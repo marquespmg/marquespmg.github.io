@@ -40,16 +40,16 @@ const citiesData = {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 17.83, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 13.57, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 57, name: 'ÁGUA MINERAL GRANDE BUONAVITA SEM GÁS 1,5 L (PCT 6 UN)', category: 'Ofertas', price: 14.46, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-buonavita-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 148, name: 'ENERGÉTICO LONG ONE 2 L (PCT 6 UN)', category: 'Ofertas', price: 31.55, image: 'https://www.marquesvendaspmg.shop/images/energetico-long-one-2-l-pct-6-un-pmg-atacadista.jpg' },
-  { id: 339, name: 'VODKA SMIRNOFF 998 ML', category: 'Ofertas', price: 32.30, image: 'https://www.marquesvendaspmg.shop/images/vodka-smirnoff-998-ml-pmg-atacadista.jpg' },
-  { id: 280, name: 'TEQUILA JOSE CUERVO ESPECIAL PRATA 750 ML (CX 12 UN)', category: 'Ofertas', price: 100.55, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-prata-750-ml-cx-12-un-pmg-atacadista.jpg' },
-  { id: 281, name: 'TEQUILA JOSE CUERVO ESPECIAL REPOSADO OURO 750 ML (CX 12 UN)', category: 'Ofertas', price: 115.00, image: 'https://www.marquesvendaspmg.shop/images/tequila-jose-cuervo-especial-reposado-ouro-750-ml-cx-12-un-pmg-atacadista.jpg' },
-  { id: 61, name: 'ÁGUA TÔNICA ANTARCTICA LATA 350 ML (PCT 12 LT)', category: 'Ofertas', price: 42.00, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 62, name: 'ÁGUA TÔNICA ANTARCTICA ZERO AÇÚCARES LATA 350 ML (PCT 12 LT)', category: 'Ofertas', price: 42.00, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-zero-acucares-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
-  { id: 65, name: 'AGUARDENTE DE CANA PITÚ 965 ML', category: 'Ofertas', price: 11.20, image: 'https://www.marquesvendaspmg.shop/images/aguardente-de-cana-pitu-965-ml-pmg-atacadista.jpg' },
+  { id: 59, name: 'ÁGUA MINERAL SÃO LOURENÇO COM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 26.00, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-com-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 60, name: 'ÁGUA MINERAL SÃO LOURENÇO SEM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 22.60, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-sem-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 254, name: 'SUCO DEL VALLE GOIABA SEM ADIÇÃO DE AÇÚCAR LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-goiaba-sem-adicao-de-acucar-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
+  { id: 256, name: 'SUCO DEL VALLE MANGA LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-manga-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
+  { id: 257, name: 'SUCO DEL VALLE MARACUJÁ LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-maracuja-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
+  { id: 258, name: 'SUCO DEL VALLE PÊSSEGO LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-pessego-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
+  { id: 259, name: 'SUCO DEL VALLE UVA LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-uva-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
+  { id: 353, name: 'WHISKY JOHNNIE WALKER BLUE LABEL 750 ML', category: 'Ofertas', price: 999.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-blue-label-750-ml-pmg-atacadista.jpg' },
+  { id: 354, name: 'WHISKY JOHNNIE WALKER DOUBLE BLACK 1 L', category: 'Ofertas', price: 198.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-double-black-1-l-pmg-atacadista.jpg' },
+  { id: 199, name: 'LICOR 43 CHOCOLATE 700 ML', category: 'Ofertas', price: 174.00, image: 'https://www.marquesvendaspmg.shop/images/licor-43-chocolate-700-ml-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
