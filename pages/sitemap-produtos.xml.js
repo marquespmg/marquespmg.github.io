@@ -111,7 +111,7 @@ const products = [
   { id: 118, name: 'CERVEJA PEQUENA ORIGINAL LATA 269 ML (CX 8 LT)', category: 'Bebidas', price: 32.22, image: 'https://www.marquesvendaspmg.shop/images/cerveja-pequena-original-lata-269-ml-cx-8-lt-pmg-atacadista.jpg' },
   { id: 119, name: 'CERVEJA PEQUENA SKOL PILSEN LATA 269 ML (PCT 15 LT)', category: 'Bebidas', price: 45.66, image: 'https://www.marquesvendaspmg.shop/images/cerveja-pequena-skol-pilsen-lata-269-ml-pct-15-lt-pmg-atacadista.jpg' },
   { id: 120, name: 'CERVEJA PETRA PURO MALTE LATA 350 ML (CX 12 LT)', category: 'Bebidas', price: 42.16, image: 'https://www.marquesvendaspmg.shop/images/cerveja-petra-puro-malte-lata-350-ml-cx-12-lt-pmg-atacadista.jpg' },
-  { id: 122, name: 'CERVEJA SPATEN MUNICH LONG NECK 330 ML (CX 24 UN)', category: 'Bebidas', price: 67.68, image: 'https://www.marquesvendaspmg.shop/images/cerveja-spaten-munich-long-neck-330-ml-cx-24-un-pmg-atacadista.jpg' },
+  { id: 122, name: 'CERVEJA SPATEN MUNICH LONG NECK 330 ML (CX 12 UN)', category: 'Bebidas', price: 67.68, image: 'https://www.marquesvendaspmg.shop/images/cerveja-spaten-munich-long-neck-330-ml-cx-24-un-pmg-atacadista.jpg' },
   { id: 123, name: 'CERVEJA STELLA ARTOIS LONG NECK 330 ML (PCT 24 UN)', category: 'Bebidas', price: 162.11, image: 'https://www.marquesvendaspmg.shop/images/cerveja-stella-artois-long-neck-330-ml-pct-24-un-pmg-atacadista.jpg' },
   { id: 124, name: 'CHÁ ICE TEA LEÃO PÊSSEGO 450 ML (PCT 6 UN)', category: 'Bebidas', price: 26.71, image: 'https://www.marquesvendaspmg.shop/images/cha-ice-tea-leao-pessego-450-ml-pct-6-un-pmg-atacadista.jpg' },
   { id: 125, name: 'CHOPP DE VINHO DRAFT 600 ML (CX 6 UN)', category: 'Bebidas', price: 64.71, image: 'https://www.marquesvendaspmg.shop/images/chopp-de-vinho-draft-600-ml-cx-6-un-pmg-atacadista.jpg' },
@@ -1943,6 +1943,7 @@ export async function getServerSideProps({ res }) {
 export default function SiteMap() {
   return null;
 }
+
 
 
 
