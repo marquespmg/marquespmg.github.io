@@ -151,7 +151,6 @@ const products = [
   { id: 57, name: 'ÁGUA MINERAL GRANDE BUONAVITA SEM GÁS 1,5 L (PCT 6 UN)', category: 'Bebidas', price: 15.12, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-buonavita-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 58, name: 'ÁGUA MINERAL GRANDE CRYSTAL SEM GÁS 1,5 L (PCT 6 UN)', category: 'Bebidas', price: 21.57, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-grande-crystal-sem-gas-15-l-pct-6-un-pmg-atacadista.jpg' },
   { id: 59, name: 'ÁGUA MINERAL SÃO LOURENÇO COM GÁS 300 ML (PCT 12 UN)', category: 'Bebidas', price: 26.00, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-com-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 59, name: 'ÁGUA MINERAL SÃO LOURENÇO COM GÁS 300 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 26.00, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-com-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 60, name: 'ÁGUA MINERAL SÃO LOURENÇO SEM GÁS 300 ML (PCT 12 UN)', category: 'Bebidas', price: 22.60, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-sem-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 61, name: 'ÁGUA TÔNICA ANTARCTICA LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 42.81, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
   { id: 62, name: 'ÁGUA TÔNICA ANTARCTICA ZERO AÇÚCARES LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 42.81, image: 'https://www.marquesvendaspmg.shop/images/agua-tonica-antarctica-zero-acucares-lata-350-ml-pct-12-lt-pmg-atacadista.jpg' },
@@ -1903,6 +1902,7 @@ const products = [
   { id: 1910, name: 'COXINHAS DAS ASAS DE FRANGO CONGELADAS EMPANADAS SEARA 900 G (CX 5 PCT)', category: 'Derivados de Ave', price: 137.11, image: 'https://www.marquesvendaspmg.shop/images/solicite-a-imagem-do-produto-ao-finalizar-o-pedido.png' },
   { id: 1911, name: 'ISCAS DE FRANGO APIMENTADAS EMPANADAS CONGELADAS SEARA 300 G (CX 16 PCT)', category: 'Derivados de Ave', price: 173.25, image: 'https://www.marquesvendaspmg.shop/images/solicite-a-imagem-do-produto-ao-finalizar-o-pedido.png' },
   { id: 1912, name: 'ISCAS DE FRANGO EMPANADAS CONGELADAS SEARA 900 G (CX 5 PCT)', category: 'Derivados de Ave', price: 129.92, image: 'https://www.marquesvendaspmg.shop/images/solicite-a-imagem-do-produto-ao-finalizar-o-pedido.png' },
+  { id: 59, name: 'ÁGUA MINERAL SÃO LOURENÇO COM GÁS 300 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 26.00, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-com-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 60, name: 'ÁGUA MINERAL SÃO LOURENÇO SEM GÁS 300 ML (PCT 12 UN)', category: '⏳ Ofertas da Semana 🚨', price: 22.60, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-sem-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
   { id: 254, name: 'SUCO DEL VALLE GOIABA SEM ADIÇÃO DE AÇÚCAR LATA 290 ML (PCT 6 LT)', category: '⏳ Ofertas da Semana 🚨', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-goiaba-sem-adicao-de-acucar-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
   { id: 256, name: 'SUCO DEL VALLE MANGA LATA 290 ML (PCT 6 LT)', category: '⏳ Ofertas da Semana 🚨', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-manga-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
@@ -4860,6 +4860,7 @@ const loadCartFromSupabase = async (userId) => {
   };
 
   export default ProductsPage;
+
 
 
 
