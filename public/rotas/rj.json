@@ -1,0 +1,62 @@
+{
+  "BARRA DO PIRAÍ-RJ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BARRA MANSA-RJ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITATIAIA-RJ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PARATY-RJ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PIRAÍ-RJ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PORTO REAL-RJ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "RESENDE-RJ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "VALENÇA-RJ": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "VASSOURAS-RJ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "VOLTA REDONDA-RJ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  }
+}

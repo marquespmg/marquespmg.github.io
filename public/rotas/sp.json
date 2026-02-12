@@ -1,0 +1,2564 @@
+{
+  "AGUAÍ - SP": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": false
+  },
+  "ÁGUAS DA PRATA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ÁGUAS DE LINDÓIA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ÁGUAS DE SANTA BARBARA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "ÁGUAS DE SÃO PEDRO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "AGUDOS": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ALAMBARI": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ALTAIR": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ALTINÓPOLIS": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "ALUMINIO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ALVARES FLORENCE": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "AMERICANA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "AMÉRICO BRASILIENSE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "AMERICO CAMPOS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "AMPARO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ANALÂNDIA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "ANGATUBA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "APARECIDA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "APIAÍ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ARAÇARIGUAMA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ARAÇATUBA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ARAÇOIABA DA SERRA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ARANDU": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ARAPEI": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ARARAQUARA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ARARAS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "AREALVA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "AREIOPOLIS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "ARTHUR NOGUEIRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ARUJA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ASSIS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "ATIBAIA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "AURIFLAMA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "AVARÉ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "BADY BASSITT": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BANANAL": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BARÃO DE ANTONINA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "BARIRI": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "BARRA BONITA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "BARRETOS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "BARRINHA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BARUERI": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "BATATAIS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BAURU": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "BEBEDOURO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BERNARDINO DE CAMPOS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "BERTIOGA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "BILAC": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "BIRIGUI": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BIRITIBA-MIRIM": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "BOA ESPERANÇA DO SUL": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "BOFETE": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BOITUVA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "BOM JESUS DOS PERDOES": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "BOM SUCESSO DE ITARARÉ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "BORBOREMA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BOTUCATU": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "BRAGANÇA PAULISTA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "BRODOWSKI": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "BROTAS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "BURI": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CABREUVA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAÇAPAVA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CACHOEIRA PAULISTA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CACONDE": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "CAIEIRAS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAJAMAR": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAJATI": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAJOBI": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAJURU": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "CAMPANHA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAMPINAS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAMPO LIMPO PAULISTA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAMPOS DO JORDÃO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CANANEIA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CANAS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CANITAR": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAPAO BONITO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CAPELA DO ALTO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CAPIVARI": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "CARAGUATATUBA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CARAPICUIBA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CASA BRANCA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CASSIA DOS COQUEIROS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "CATANDUVA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CAUCAIA DO ALTO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CEDRAL": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CERQUEIRA CESAR": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "CERQUILHO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CESARIO LANGE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CHARQUEADA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CHAVANTES": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "COLINA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "COLOMBIA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CONCHAL": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CONCHAS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CORDEIRÓPOLIS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "CORONEL MACEDO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CORUMBATAÍ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "COSMÓPOLIS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "COSMORAMA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "COTIA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CRAVINHOS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "CRUZEIRO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CUBATÃO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "CUNHA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "DESCALVADO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "DIADEMA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "DIVINOLÂNDIA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "DOBRADA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "DOIS CORREGOS": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "DOURADO SP": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "DUARTINA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": false
+  },
+  "ELDORADO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ELIAS FAUSTO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ELISIARIO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "EMBAUBA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "EMBU GUAÇU": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ENGENHEIRO COELHO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ESPÍRITO SANTO DO PINHAL": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ESPÍRITO SANTO DO TURVO": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "ESTIVA GERBI": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "ESTRELA D OESTE": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "FARTURA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "FERNANDO PRESTES": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "FERNANDÓPOLIS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "FERRAZ DE VASCONCELOS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "FRANCA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "FRANCISCO MORATO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "FRANCO DA ROCHA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "GARÇA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "GAVIÃO PEIXOTO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": false
+  },
+  "GUAÍRA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "GUAPIAÇU": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "GUAPIARA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "GUARÁ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "GUARACI": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "GUARAREMA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "GUARATINGUETÁ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "GUAREÍ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "GUARIBA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "GUARUJÁ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "GUARULHOS1": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "GUARULHOS2": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "GUATAPARA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "GUATAPARÁ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "HOLAMBRA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "HORTOLANDIA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "IBATE": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "IBIRÁ": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "IBITINGA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "IBIUNA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "IGARAÇÚ DO TIETÊ": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "IGARATÁ": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "IGUAPE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ILHA BELA NORTE / CENTRO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ILHA BELA SUL": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ILHA COMPRIDA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "INDAIATUBA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "IPAUSSU": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "IPERÓ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "IPEUNA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "IPORANGA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "IPUÃ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "IRACEMAPOLIS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITABERA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ITAI": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ITAJOBI": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITANHAÉM": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITAPETININGA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITAPEVA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITAPEVI": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITAPIRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITÁPOLIS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITAPORANGA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ITAQUAQUECETUBA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITARARÉ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ITARIRI": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITATIBA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITATINGA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "ITIRAPINA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITOBI": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITU": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITUPEVA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ITUVERAVA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "JABORANDI": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "JABOTICABAL": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JACAREI": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JACI": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "JACUPIRANGA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JAGUARIUNA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "JALES": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "JAMBEIRO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "JANDIRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JARDINÓPOLIS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": false
+  },
+  "JARINU": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JAÚ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JOANOPOLIS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JOÃO RAMALHO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JOSÉ BONIFÁCIO": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "JUMIRIM": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "JUNDIAI": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JUQUIA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "JUQUITIBA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "LAGOINHA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "LARANJAL PAULISTA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "LEME": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "LENÇOIS PAULISTA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "LIMEIRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "LINS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "LORENA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "LOUVEIRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "LUIS ANTONIO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "LUTÉCIA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MAIRINQUE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MAIRIPORÃ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "MANDURI": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "MARAPOAMA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "MARÍLIA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "MATÃO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MAUA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MENDONÇA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "MERIDIANO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "METRÔ 1": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "METRÔ 2": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MIGUELÓPOLIS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "MINEIROS DO TIETE": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "MIRACATU": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MIRANDOPOLIS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "MIRASSOL": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "MOCOCA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "MOGI DAS CRUZES": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MOGI GUAÇU": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MOGI MIRIM": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MONGAGUÁ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MONTE ALEGRE DO SUL": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "MONTE ALTO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "MONTE APRAZÍVEL": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "MONTE AZUL PAULISTA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "MONTE MOR": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "MONTEIRO LOBATO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "MORRO AGUDO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "MORUNGABA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "MOTUCA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "NATIVIDADE DA SERRA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "NAZARÉ PAULISTA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "NHANDEARA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "NOVA ALIANÇA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "NOVA CAMPINA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "NOVA EUROPA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "NOVA ODESSA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "NOVA ZONA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "NOVAIS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "NOVO HORIZONTE": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "NUPORANGA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "OLÍMPIA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "ORLÂNDIA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "OSASCO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "OSCAR BRESSANE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "OURINHOS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "PALMITAL": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "PARAGUAÇU PAULISTA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "PARAIBÚNA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "PARAISO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "PARDINHO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "PARIQUERA-ACU": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PARISI": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PAULÍNIA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PAULISTANIA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "PEDERNEIRAS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "PEDRA BELA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "PEDRANOPOLIS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PEDREGULHO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PEDREIRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PEDRO DE TOLEDO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "PENAPOLIS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PEREIRAS": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "PERUÍBE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PIEDADE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PILAR DO SUL": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PINDAMONHANGABA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PINHALZINHO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PIQUETE": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PIRACAIA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PIRACICABA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PIRAJU": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PIRAJUÍ": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "PIRAPORA DO BOM JESUS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "PIRASSUNUNGA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PITANGUEIRAS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "POÁ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "POMPÉIA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "PONTAL": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "PORANGABA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PORTO FELIZ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PORTO FERREIRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "POTIM": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "POTIRENDABA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "PRADÓPOLIS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "PRAIA GRANDE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PROMISSÃO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "QUADRA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "QUATÁ": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "RAFARD": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "REDENÇÃO DA SERRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "REGISTRO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "RIBEIRA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "RIBEIRÃO BRANCO": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "RIBEIRÃO GRANDE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "RIBEIRÃO PIRES": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "RIBEIRÃO PRETO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "RINCAO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "RIO CLARO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "RIO DAS PEDRAS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "RIO GRANDE DA SERRA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ROSEIRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "SALES OLIVEIRA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SALESÓPOLIS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": false
+  },
+  "SALTINHO": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "SALTO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SALTO DE PIRAPORA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SALTO GRANDE": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SANTA ADÉLIA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SANTA BARBARA D OESTE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTA BRANCA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTA CRUZ DA CONCEIÇÃO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SANTA CRUZ DA ESPERANÇA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SANTA CRUZ DAS PALMEIRAS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SANTA CRUZ DO RIO PARDO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SANTA ERNESTINA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTA FÉ DO SUL": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "SANTA GERTRUDES": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTA ISABEL": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTA LUCIA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "SANTA RITA DO PASSA QUATRO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTA ROSA DE VITERBO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SANTANA DE PARNAIBA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTO ANDRE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTO ANTONIO DA ALEGRIA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": false
+  },
+  "SANTO ANTÔNIO DE POSSE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTO ANTONIO DO PINHAL": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SANTOS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO BENTO DO SAPUCAI": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "SÃO BERNARDO DO CAMPO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO CAETANO DO SUL": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO CARLOS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO JOÃO DA BOA VISTA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO JOAQUIM DA BARRA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SÃO JOSÉ DO RIO PARDO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO JOSÉ DO RIO PRETO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SÃO JOSÉ DOS CAMPOS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO LOURENÇO DA SERRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO LUIS DO PARAITINGA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO MANUEL": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO MIGUEL ARCANJO": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SÃO PEDRO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SÃO PEDRO DO TURVO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SÃO ROQUE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO SEBASTIÃO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SÃO SIMÃO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SÃO VICENTE": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SARAPUI": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SARUTAIA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SERRA NEGRA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SERRANA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "SERTÃOZINHO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SETE BARRAS": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "SEVERINIA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "SILVEIRAS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SOCORRO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SOROCABA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SUMARÉ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "SUZANO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "TABAPUÃ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "TABATINGA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "TAGUAÍ": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "TAIAÇU": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "TAMBAU": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "TANABI": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "TAPIRAÍ": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "TAPIRATIBA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "TAQUARITINGA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "TAQUARITUBA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "TAQUARIVAÍ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "TATUÍ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "TAUBATÉ": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "TERRA ROXA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "TIETÊ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "TIMBURI": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "TORRE DE PEDRA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "TORRINHA": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "TREMEMBÉ": {
+    "terca": false,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "TRÊS FRONTEIRAS": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "TUIUTI": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "TUPÃ": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
+  "UBATUBA": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "UCHOA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "URUPÊS": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "VALENTIM GENTIL": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "VALINHOS": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "VARGEM": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "VARGEM GRANDE DO SUL": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "VARGEM GRANDE PAULISTA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "VARZEA PAULISTA": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "VINHEDO": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "VIRADOURO": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "VISTA ALEGRE DO ALTO": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": false
+  },
+  "VOTORANTIM": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "VOTUPORANGA": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ZONA CENTRAL 1": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA CENTRAL 2": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA CENTRAL 3": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA LESTE 1": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA LESTE 2": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA LESTE 3": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA NORTE 1": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA NORTE 2": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA NORTE 3": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA OESTE 1": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA SUL 1": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA SUL 2": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA SUL 3 - AR 1": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": false
+  },
+  "ZONA SUL 3 - AR 2": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA SUL 3 - AR 3": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": false
+  },
+  "ZONA SUL 3A": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA SUL 3B": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "ZONA SUL 4": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  }
+}

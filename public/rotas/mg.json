@@ -1,0 +1,152 @@
+{
+  "CAMANDUCAIA-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CAMBUÍ-MG": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CONCEIÇÃO DOS OUROS-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "CONGONHAL-MG": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "DELFIM MOREIRA-MG": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ESTIVA-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "EXTREMA-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ITAJUBÁ-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ITAMONTE-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ITANHANDU-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "ITAPEVA-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "MARIA DA FÉ-MG": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": false
+  },
+  "MONTE VERDE-MG": {
+    "terca": true,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "OURO FINO-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": true,
+    "sexta": true
+  },
+  "PARAISÓPOLIS-MG": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PASSA QUATRO-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "PIRANGUINHO-MG": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "POÇOS DE CALDAS-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "POUSO ALEGRE-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SANTA RITA DO SAPUCAÍ-MG": {
+    "terca": true,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SÃO LOURENÇO-MG": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  },
+  "SÃO SEBASTIÃO DO PARAÍSO-MG": {
+    "terca": false,
+    "quarta": false,
+    "quinta": false,
+    "sexta": true
+  },
+  "TRÊS PONTAS-MG": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "VARGINHA-MG": {
+    "terca": true,
+    "quarta": false,
+    "quinta": true,
+    "sexta": true
+  },
+  "VIRGÍNIA-MG": {
+    "terca": false,
+    "quarta": true,
+    "quinta": false,
+    "sexta": true
+  }
+}
