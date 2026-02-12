@@ -5128,6 +5128,8 @@ const loadCartFromSupabase = async (userId) => {
   };
 
   export default ProductsPage;
+  export const produtosArray = products; // Exporta o array de produtos
+
 
 
 
