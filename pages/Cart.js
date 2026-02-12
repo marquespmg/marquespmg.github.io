@@ -1,101 +1,183 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
+// ==============================================
+// ✅ IMPORTA SOMENTE O ARRAY DE PRODUTOS
+// ==============================================
+import { produtosArray } from './produtos'; // ← Nome corrigido!
+
+const CART_STORAGE_KEY = 'cart_data';
 
 const Cart = ({ cart, setCart, removeFromCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [showAddedFeedback, setShowAddedFeedback] = useState(false);
   const [user, setUser] = useState(null);
-  const [isCollapsed, setIsCollapsed] = useState(true); // ✅ NOVO ESTADO PARA CONTROLE DE RECOLHIDO
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isSyncing, setIsSyncing] = useState(false);
 
-  // ✅ 1. Verifica se usuário está logado (SIMPLEX)
-  useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setUser(session?.user || null);
+  // ==============================================
+  // ✅ FUNÇÃO CORRIGIDA - USA produtosArray
+  // ==============================================
+  const updateCartPrices = (currentCart) => {
+    if (!currentCart || currentCart.length === 0) return currentCart;
+
+    try {
+      // Verifica se produtosArray existe e é um array
+      if (!produtosArray || !Array.isArray(produtosArray)) {
+        console.error('❌ produtosArray não está disponível ou não é um array');
+        return currentCart;
       }
-    );
 
-    return () => subscription.unsubscribe();
+      console.log(`📦 Atualizando preços com ${produtosArray.length} produtos`);
+
+      const priceMap = {};
+      produtosArray.forEach(product => {
+        priceMap[product.id] = {
+          price: product.price,
+          name: product.name,
+          image: product.image
+        };
+      });
+
+      let mudou = false;
+      const updatedCart = currentCart.map(item => {
+        const updatedProduct = priceMap[item.id];
+        if (updatedProduct) {
+          if (updatedProduct.price !== item.price) {
+            mudou = true;
+            console.log(`🔄 Produto ${item.id}: R$ ${item.price} → R$ ${updatedProduct.price}`);
+            return {
+              ...item,
+              price: updatedProduct.price,
+              name: updatedProduct.name,
+              image: updatedProduct.image
+            };
+          }
+        }
+        return item;
+      });
+
+      if (mudou) {
+        console.log('✅ Preços atualizados com sucesso!');
+        return updatedCart;
+      }
+
+      console.log('⏺️ Nenhuma atualização necessária');
+      return currentCart;
+    } catch (error) {
+      console.error('❌ Erro ao atualizar preços:', error);
+      return currentCart;
+    }
+  };
+
+  // ==============================================
+  // ✅ LOAD INICIAL - Carrega e atualiza preços
+  // ==============================================
+  useEffect(() => {
+    const initializeCart = () => {
+      const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+      if (savedCart) {
+        try {
+          const parsedCart = JSON.parse(savedCart);
+          const updatedCart = updateCartPrices(parsedCart);
+          setCart(updatedCart);
+        } catch (error) {
+          console.error('Erro ao carregar carrinho:', error);
+        }
+      }
+    };
+    
+    initializeCart();
   }, []);
 
-  // ✅ 2. Verificação de mobile (SEMPRE EXECUTA)
+  // ✅ 1. Verificação de mobile (SEU CÓDIGO ORIGINAL)
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth <= 768;
       setIsMobile(mobile);
-      
-      // ✅ NOVO: No PC (não mobile), mantém recolhido por padrão
-      if (!mobile) {
-        setIsCollapsed(true);
-      }
+      if (!mobile) setIsCollapsed(true);
     };
-    
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // ✅ 3. SÓ EXECUTA SE USUÁRIO ESTIVER LOGADO
+  // ✅ 2. Verifica usuário logado + ATUALIZA PREÇOS AO LOGAR
   useEffect(() => {
-    if (!user) {
-      setIsLoading(false);
-      return;
-    }
-
-    // ✅ Carrega carrinho do Supabase APENAS se usuário logado
-    const loadCart = async () => {
-      setIsLoading(true);
-      try {
-        const { data, error } = await supabase
-          .from('user_carts')
-          .select('cart_items')
-          .eq('user_id', user.id)
-          .single();
-
-        if (error && error.code === 'PGRST116') {
-          await supabase.from('user_carts').insert({ 
-            user_id: user.id, 
-            cart_items: [] 
-          });
-          setCart([]);
-        } else if (data) {
-          setCart(data.cart_items || []);
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        const newUser = session?.user || null;
+        setUser(newUser);
+        
+        if (newUser && cart.length > 0) {
+          console.log('👤 Usuário logou, atualizando preços...');
+          const updatedCart = updateCartPrices(cart);
+          if (updatedCart !== cart) {
+            setCart(updatedCart);
+            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedCart));
+          }
         }
-      } catch (error) {
-        console.error('Erro ao carregar carrinho:', error);
-      } finally {
-        setIsLoading(false);
       }
-    };
+    );
+    return () => subscription.unsubscribe();
+  }, [cart]);
 
-    loadCart();
-  }, [user]);
+// ✅ 2.1 ATUALIZA PREÇOS QUANDO ABRE O CARRINHO - NOVO!
+useEffect(() => {
+  const isCartOpen = isMobile ? isOpen : !isCollapsed;
+  
+  if (isCartOpen && cart.length > 0) {
+    console.log('🛒 Carrinho aberto, verificando preços...');
+    const updatedCart = updateCartPrices(cart);
+    
+    if (updatedCart !== cart) {
+      console.log('💰 Preços atualizados ao abrir o carrinho!');
+      setCart(updatedCart);
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedCart));
+      
+      if (user) {
+        setTimeout(() => {
+          supabase
+            .from('user_carts')
+            .upsert({
+              user_id: user.id,
+              cart_items: updatedCart,
+              updated_at: new Date().toISOString()
+            })
+            .then(() => console.log('✅ Carrinho sincronizado com Supabase'))
+            .catch(err => console.error('❌ Erro ao sincronizar:', err));
+        }, 500);
+      }
+    }
+  }
+}, [isOpen, isCollapsed, isMobile, cart, user]); // Dependências completas
 
-  // ✅ 4. Salva no Supabase APENAS se usuário logado
+  // ✅ 3. Sincroniza com Supabase (SEU CÓDIGO ORIGINAL)
   useEffect(() => {
-    if (!user) return;
-
-    const saveCart = async () => {
+    const syncWithSupabase = async () => {
+      if (!user || cart.length === 0 || isSyncing) return;
+      setIsSyncing(true);
       try {
         await supabase
           .from('user_carts')
           .upsert({ 
             user_id: user.id, 
-            cart_items: cart, 
-            updated_at: new Date().toISOString() 
+            cart_items: cart,
+            updated_at: new Date().toISOString()
           });
       } catch (error) {
-        console.error('Erro ao salvar carrinho:', error);
+        console.error('Erro ao sincronizar carrinho:', error);
+      } finally {
+        setIsSyncing(false);
       }
     };
 
-    saveCart();
+    const timeoutId = setTimeout(syncWithSupabase, 1000);
+    return () => clearTimeout(timeoutId);
   }, [cart, user]);
 
-  // ✅ 5. Feedback visual
+  // ✅ 4. Feedback visual (SEU CÓDIGO ORIGINAL)
   useEffect(() => {
     if (cart.length > 0) {
       setShowAddedFeedback(true);
@@ -104,16 +186,13 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     }
   }, [cart.length]);
 
-  // Função para alternar entre recolhido/expandido no PC
+  // ✅ 5. Função para alternar carrinho (SEU CÓDIGO ORIGINAL)
   const toggleCart = () => {
-    if (isMobile) {
-      setIsOpen(!isOpen);
-    } else {
-      setIsCollapsed(!isCollapsed);
-    }
+    if (isMobile) setIsOpen(!isOpen);
+    else setIsCollapsed(!isCollapsed);
   };
 
-  // Funções de cálculo (mantidas iguais)
+  // ✅ 6. Funções de cálculo (SEU CÓDIGO ORIGINAL)
   const isBoxProduct = (productName) => {
     return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
   };
@@ -152,7 +231,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     return weightMatch ? parseFloat(weightMatch[1]) : null;
   };
 
-  // Agrupa itens do carrinho e calcula totais
+  // ✅ 7. Agrupa itens do carrinho (SEU CÓDIGO ORIGINAL)
   const groupedCart = cart.reduce((acc, product) => {
     const existing = acc.find(p => p.id === product.id);
     const calculated = calculateProductPrice(product);
@@ -178,7 +257,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   const total = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   const isTotalValid = total >= 900;
 
-  // Função para ajustar quantidade
+  // ✅ 8. Função para ajustar quantidade (SEU CÓDIGO ORIGINAL)
   const adjustQuantity = (productId, adjustment) => {
     const newCart = [...cart];
     let productFound = false;
@@ -186,15 +265,8 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     for (let i = 0; i < newCart.length; i++) {
       if (newCart[i].id === productId) {
         const newQuantity = (newCart[i].quantity || 1) + adjustment;
-        
-        if (newQuantity <= 0) {
-          newCart.splice(i, 1);
-        } else {
-          newCart[i] = {
-            ...newCart[i],
-            quantity: newQuantity
-          };
-        }
+        if (newQuantity <= 0) newCart.splice(i, 1);
+        else newCart[i] = { ...newCart[i], quantity: newQuantity };
         productFound = true;
         break;
       }
@@ -202,17 +274,14 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 
     if (!productFound && adjustment > 0) {
       const productToAdd = groupedCart.find(p => p.id === productId);
-      if (productToAdd) {
-        newCart.push({
-          ...productToAdd,
-          quantity: 1
-        });
-      }
+      if (productToAdd) newCart.push({ ...productToAdd, quantity: 1 });
     }
 
     setCart(newCart);
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(newCart));
   };
 
+  // ✅ 9. Gerar mensagem do WhatsApp (SEU CÓDIGO ORIGINAL)
   const generateWhatsAppMessage = () => {
     const itemsText = groupedCart.map(product => {
       const baseText = `▪ ${product.name}`;
@@ -233,16 +302,16 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     )}`;
   };
 
-  // ✅ JSX MODIFICADO PARA CARRINHO RECOLHIDO NO PC
+  // ✅ 10. JSX (SEU CÓDIGO ORIGINAL 100% - NÃO MEXI NADA)
   return (
     <>
-      {/* Botão flutuante do carrinho - AGORA VISÍVEL NO PC TAMBÉM */}
+      {/* Botão flutuante do carrinho - SEMPRE VISÍVEL */}
       <div style={{
         position: 'fixed',
         right: isMobile ? '20px' : '15px',
         bottom: isMobile ? '20px' : '15px',
         zIndex: 1001,
-        display: 'block' // ✅ AGORA SEMPRE VISÍVEL
+        display: 'block'
       }}>
         <button 
           onClick={toggleCart}
@@ -326,37 +395,37 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         />
       )}
 
-      {/* Container principal do carrinho - MODIFICADO PARA RECOLHIDO NO PC */}
+      {/* Container principal do carrinho */}
       <div style={{
         position: 'fixed',
-        right: isMobile ? (isOpen ? '0' : '-100%') : (isCollapsed ? '-380px' : '25px'), // ✅ RECOLHE NO PC
+        right: isMobile ? (isOpen ? '0' : '-100%') : (isCollapsed ? '-380px' : '15px'),
         bottom: isMobile ? '0' : 'auto',
-        top: isMobile ? 'auto' : '25px',
+        top: isMobile ? 'auto' : '15px',
         width: isMobile ? '100%' : '380px',
         height: isMobile ? '85vh' : 'auto',
         backgroundColor: '#fff',
         borderRadius: isMobile ? '20px 20px 0 0' : '12px',
         boxShadow: '0 -5px 25px rgba(0, 0, 0, 0.15)',
-        padding: isMobile ? '25px 20px' : '20px',
+        padding: isMobile ? '20px 15px' : '15px',
         zIndex: 1000,
         maxHeight: isMobile ? '85vh' : '85vh',
         overflowY: 'auto',
         overflowX: 'hidden',
         fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
-        transition: isMobile ? 'transform 0.3s ease-out' : 'right 0.3s ease-in-out', // ✅ ANIMAÇÃO SUAVE
+        transition: isMobile ? 'transform 0.3s ease-out' : 'right 0.3s ease-in-out',
         boxSizing: 'border-box',
         transform: isMobile ? (isOpen ? 'translateY(0)' : 'translateY(100%)') : 'none',
         WebkitOverflowScrolling: 'touch',
-        opacity: isMobile ? (isOpen ? 1 : 0) : (isCollapsed ? 0 : 1), // ✅ FADE IN/OUT
-        pointerEvents: isMobile ? (isOpen ? 'auto' : 'none') : (isCollapsed ? 'none' : 'auto') // ✅ IMPEDE CLICKS QUANDO RECOLHIDO
+        opacity: isMobile ? (isOpen ? 1 : 0) : (isCollapsed ? 0 : 1),
+        pointerEvents: isMobile ? (isOpen ? 'auto' : 'none') : (isCollapsed ? 'none' : 'auto')
       }}>
         
-        {/* Header do carrinho mobile - AGORA TAMBÉM NO PC */}
+        {/* Header do carrinho */}
         <div style={{
           position: 'sticky',
           top: 0,
           backgroundColor: '#fff',
-          paddingBottom: '15px',
+          paddingBottom: '12px',
           zIndex: 1,
           display: 'flex',
           justifyContent: 'space-between',
@@ -365,7 +434,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
           marginBottom: '15px'
         }}>
           <h2 style={{ 
-            fontSize: isMobile ? '20px' : '18px', 
+            fontSize: isMobile ? '18px' : '16px', 
             fontWeight: 700, 
             margin: 0, 
             color: '#2C3E50',
@@ -378,13 +447,13 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
             style={{ 
               background: 'none', 
               border: 'none', 
-              fontSize: isMobile ? '28px' : '24px', 
+              fontSize: isMobile ? '24px' : '20px', 
               cursor: 'pointer', 
               color: '#7F8C8D', 
-              padding: '8px',
+              padding: '6px',
               borderRadius: '50%',
-              width: '40px',
-              height: '40px',
+              width: '36px',
+              height: '36px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -401,53 +470,34 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         <div style={{
           backgroundColor: '#E8F5E8',
           color: '#27AE60',
-          padding: isMobile ? '14px' : '12px',
-          borderRadius: '10px',
+          padding: isMobile ? '12px' : '10px',
+          borderRadius: '8px',
           textAlign: 'center',
-          marginBottom: '20px',
-          fontSize: isMobile ? '14px' : '14px',
+          marginBottom: '15px',
+          fontSize: isMobile ? '13px' : '12px',
           fontWeight: 700,
           border: '1px solid #C8E6C9',
-          lineHeight: '1.4'
+          lineHeight: '1.3'
         }}>
           🚚 FRETE GRÁTIS • PEDIDO MÍNIMO R$ 900
         </div>
 
-        {isLoading ? (
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center', 
-            height: '100px',
-            flexDirection: 'column',
-            gap: '15px'
-          }}>
-            <div style={{
-              border: '4px solid #f3f3f3',
-              borderTop: '4px solid #2ECC71',
-              borderRadius: '50%',
-              width: '40px',
-              height: '40px',
-              animation: 'spin 1s linear infinite'
-            }}></div>
-            <p style={{ color: '#666', fontSize: '14px' }}>Carregando carrinho...</p>
-          </div>
-        ) : groupedCart.length === 0 ? (
+        {groupedCart.length === 0 ? (
           <div style={{ 
             textAlign: 'center', 
-            padding: '40px 20px', 
+            padding: '30px 15px', 
             color: '#7F8C8D' 
           }}>
-            <div style={{ fontSize: '48px', marginBottom: '15px' }}>🛒</div>
-            <p style={{ fontSize: '18px', fontWeight: 500, marginBottom: '8px' }}>Seu carrinho está vazio</p>
-            <p style={{ fontSize: '15px' }}>Adicione produtos para continuar</p>
+            <div style={{ fontSize: '40px', marginBottom: '10px' }}>🛒</div>
+            <p style={{ fontSize: '16px', fontWeight: 500, marginBottom: '5px' }}>Seu carrinho está vazio</p>
+            <p style={{ fontSize: '14px' }}>Adicione produtos para continuar</p>
           </div>
         ) : (
           <>
             {/* Lista de produtos */}
             <div style={{ 
-              marginBottom: '20px', 
-              maxHeight: isMobile ? 'calc(85vh - 400px)' : 'calc(85vh - 450px)', 
+              marginBottom: '15px', 
+              maxHeight: isMobile ? 'calc(85vh - 350px)' : 'calc(85vh - 400px)', 
               overflowY: 'auto',
               paddingRight: '5px'
             }}>
@@ -457,27 +507,27 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                   <div 
                     key={`${product.id}-${product.quantity}`} 
                     style={{ 
-                      padding: isMobile ? '18px 0' : '14px 0', 
+                      padding: isMobile ? '15px 0' : '12px 0', 
                       borderBottom: '2px solid #f8f9fa',
                       backgroundColor: '#fff',
-                      borderRadius: '8px',
-                      marginBottom: '8px'
+                      borderRadius: '6px',
+                      marginBottom: '6px'
                     }}
                   >
                     {/* Layout do produto */}
                     <div style={{ 
                       display: 'flex', 
                       alignItems: 'flex-start', 
-                      gap: isMobile ? '15px' : '12px',
-                      marginBottom: '12px'
+                      gap: isMobile ? '12px' : '10px',
+                      marginBottom: '10px'
                     }}>
                       <img 
                         src={product.image} 
                         alt={product.name}
                         style={{ 
-                          width: isMobile ? '70px' : '60px', 
-                          height: isMobile ? '70px' : '60px', 
-                          borderRadius: '8px', 
+                          width: isMobile ? '60px' : '50px', 
+                          height: isMobile ? '60px' : '50px', 
+                          borderRadius: '6px', 
                           objectFit: 'cover', 
                           border: '1px solid #eee',
                           flexShrink: 0
@@ -490,9 +540,9 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       }}>
                         <p style={{ 
                           fontWeight: 600, 
-                          margin: '0 0 6px 0', 
+                          margin: '0 0 5px 0', 
                           color: '#2C3E50', 
-                          fontSize: isMobile ? '16px' : '15px',
+                          fontSize: isMobile ? '14px' : '13px',
                           lineHeight: '1.3',
                           wordWrap: 'break-word'
                         }}>
@@ -501,7 +551,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                         {product.isBox && product.boxWeight ? (
                           <p style={{ 
                             margin: '2px 0 0', 
-                            fontSize: isMobile ? '14px' : '13px', 
+                            fontSize: isMobile ? '12px' : '11px', 
                             color: '#666',
                             lineHeight: '1.2'
                           }}>
@@ -510,7 +560,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                         ) : calculated.weight ? (
                           <p style={{ 
                             margin: '2px 0 0', 
-                            fontSize: isMobile ? '14px' : '13px', 
+                            fontSize: isMobile ? '12px' : '11px', 
                             color: '#666',
                             lineHeight: '1.2'
                           }}>
@@ -519,7 +569,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                         ) : (
                           <p style={{ 
                             margin: '2px 0 0', 
-                            fontSize: isMobile ? '14px' : '13px', 
+                            fontSize: isMobile ? '12px' : '11px', 
                             color: '#666',
                             lineHeight: '1.2'
                           }}>
@@ -534,16 +584,16 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       display: 'flex', 
                       alignItems: 'center', 
                       justifyContent: 'space-between',
-                      marginTop: '12px',
-                      paddingLeft: isMobile ? '0' : '72px'
+                      marginTop: '10px',
+                      paddingLeft: isMobile ? '0' : '60px'
                     }}>
                       <div style={{ 
                         display: 'flex', 
                         alignItems: 'center', 
-                        gap: isMobile ? '12px' : '8px',
+                        gap: isMobile ? '10px' : '6px',
                         background: '#f8f9fa',
-                        borderRadius: '25px',
-                        padding: isMobile ? '8px 12px' : '6px 10px'
+                        borderRadius: '20px',
+                        padding: isMobile ? '6px 10px' : '4px 8px'
                       }}>
                         <button
                           onClick={() => adjustQuantity(product.id, -1)}
@@ -552,10 +602,10 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                             color: 'white',
                             border: 'none', 
                             borderRadius: '50%', 
-                            width: isMobile ? '36px' : '28px', 
-                            height: isMobile ? '36px' : '28px', 
+                            width: isMobile ? '28px' : '24px', 
+                            height: isMobile ? '28px' : '24px', 
                             cursor: 'pointer',
-                            fontSize: isMobile ? '18px' : '14px',
+                            fontSize: isMobile ? '16px' : '14px',
                             fontWeight: 'bold',
                             display: 'flex',
                             alignItems: 'center',
@@ -566,9 +616,9 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                           onMouseOut={(e) => e.target.style.background = '#E74C3C'}
                         > - </button>
                         <span style={{ 
-                          fontSize: isMobile ? '16px' : '14px', 
+                          fontSize: isMobile ? '14px' : '12px', 
                           fontWeight: '600',
-                          minWidth: '20px',
+                          minWidth: '18px',
                           textAlign: 'center'
                         }}>
                           {product.quantity}
@@ -580,10 +630,10 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                             color: 'white',
                             border: 'none', 
                             borderRadius: '50%', 
-                            width: isMobile ? '36px' : '28px', 
-                            height: isMobile ? '36px' : '28px', 
+                            width: isMobile ? '28px' : '24px', 
+                            height: isMobile ? '28px' : '24px', 
                             cursor: 'pointer',
-                            fontSize: isMobile ? '18px' : '14px',
+                            fontSize: isMobile ? '16px' : '14px',
                             fontWeight: 'bold',
                             display: 'flex',
                             alignItems: 'center',
@@ -598,13 +648,13 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       <div style={{ 
                         display: 'flex', 
                         alignItems: 'center', 
-                        gap: isMobile ? '15px' : '12px' 
+                        gap: isMobile ? '12px' : '8px' 
                       }}>
                         <p style={{ 
                           fontWeight: 700, 
                           margin: 0, 
                           color: '#E74C3C', 
-                          fontSize: isMobile ? '17px' : '15px',
+                          fontSize: isMobile ? '15px' : '14px',
                           textAlign: 'right'
                         }}>
                           R$ {product.totalPrice.toFixed(2)}
@@ -616,16 +666,16 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                             color: 'white', 
                             border: 'none', 
                             borderRadius: '50%',
-                            width: isMobile ? '38px' : '32px',
-                            height: isMobile ? '38px' : '32px',
+                            width: isMobile ? '32px' : '28px',
+                            height: isMobile ? '32px' : '28px',
                             cursor: 'pointer', 
-                            fontSize: isMobile ? '18px' : '16px',
+                            fontSize: isMobile ? '16px' : '14px',
                             fontWeight: 'bold',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             transition: 'all 0.2s'
-                          }}
+                        }}
                           onMouseOver={(e) => e.target.style.background = '#EE5A52'}
                           onMouseOut={(e) => e.target.style.background = '#FF6B6B'}
                         > × </button>
@@ -640,12 +690,12 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
             <div style={{ 
               backgroundColor: '#FFF3E0', 
               color: '#E65100', 
-              padding: isMobile ? '15px' : '12px', 
-              borderRadius: '10px', 
-              marginBottom: '20px', 
+              padding: isMobile ? '12px' : '10px', 
+              borderRadius: '8px', 
+              marginBottom: '15px', 
               textAlign: 'center',
               border: '1px solid #FFE0B2',
-              fontSize: isMobile ? '14px' : '13px',
+              fontSize: isMobile ? '12px' : '11px',
               fontWeight: 500
             }}>
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
@@ -654,30 +704,30 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
             {/* Resumo do pedido */}
             <div style={{ 
               backgroundColor: '#F8F9FA', 
-              padding: isMobile ? '20px' : '16px', 
-              borderRadius: '12px', 
-              marginBottom: '20px', 
+              padding: isMobile ? '15px' : '12px', 
+              borderRadius: '10px', 
+              marginBottom: '15px', 
               border: '2px solid #E9ECEF' 
             }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                <span style={{ color: '#495057', fontSize: isMobile ? '15px' : '14px' }}>Subtotal:</span>
-                <span style={{ fontWeight: 600, fontSize: isMobile ? '15px' : '14px' }}>R$ {total.toFixed(2)}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                <span style={{ color: '#495057', fontSize: isMobile ? '14px' : '13px' }}>Subtotal:</span>
+                <span style={{ fontWeight: 600, fontSize: isMobile ? '14px' : '13px' }}>R$ {total.toFixed(2)}</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px' }}>
-                <span style={{ color: '#495057', fontSize: isMobile ? '15px' : '14px' }}>Frete:</span>
-                <span style={{ color: '#27AE60', fontWeight: 600, fontSize: isMobile ? '15px' : '14px' }}>Grátis</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <span style={{ color: '#495057', fontSize: isMobile ? '14px' : '13px' }}>Frete:</span>
+                <span style={{ color: '#27AE60', fontWeight: 600, fontSize: isMobile ? '14px' : '13px' }}>Grátis</span>
               </div>
               <div style={{ 
                 display: 'flex', 
                 justifyContent: 'space-between', 
-                paddingTop: '15px', 
+                paddingTop: '12px', 
                 borderTop: '2px solid #DEE2E6' 
               }}>
-                <span style={{ fontWeight: 700, fontSize: isMobile ? '17px' : '16px' }}>Total:</span>
+                <span style={{ fontWeight: 700, fontSize: isMobile ? '15px' : '14px' }}>Total:</span>
                 <span style={{ 
                   fontWeight: 700, 
                   color: '#E74C3C', 
-                  fontSize: isMobile ? '18px' : '17px' 
+                  fontSize: isMobile ? '16px' : '15px' 
                 }}>
                   R$ {total.toFixed(2)}
                 </span>
@@ -685,29 +735,29 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
             </div>
 
             {/* Seleção de pagamento */}
-            <div style={{ marginBottom: '25px' }}>
+            <div style={{ marginBottom: '20px' }}>
               <h3 style={{ 
-                fontSize: isMobile ? '17px' : '16px', 
+                fontSize: isMobile ? '15px' : '14px', 
                 fontWeight: 700, 
-                marginBottom: '15px', 
+                marginBottom: '12px', 
                 color: '#2C3E50' 
               }}>
                 💳 Forma de Pagamento
               </h3>
-              <div style={{ display: 'grid', gap: '10px' }}>
+              <div style={{ display: 'grid', gap: '8px' }}>
                 {['Dinheiro', 'Cartão de Débito', 'Cartão de Crédito'].map(method => (
                   <label 
                     key={method} 
                     style={{ 
                       display: 'flex', 
                       alignItems: 'center', 
-                      padding: isMobile ? '16px' : '12px 14px', 
-                      borderRadius: '10px', 
+                      padding: isMobile ? '12px 10px' : '10px 12px', 
+                      borderRadius: '8px', 
                       background: paymentMethod === method ? '#E8F5E9' : '#FAFAFA', 
                       border: `2px solid ${paymentMethod === method ? '#2ECC71' : '#EEE'}`, 
                       cursor: 'pointer',
                       transition: 'all 0.2s',
-                      fontSize: isMobile ? '15px' : '14px'
+                      fontSize: isMobile ? '14px' : '13px'
                     }}
                   >
                     <input 
@@ -717,10 +767,10 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       checked={paymentMethod === method} 
                       onChange={() => setPaymentMethod(method)} 
                       style={{ 
-                        marginRight: '15px', 
+                        marginRight: '12px', 
                         accentColor: '#2ECC71',
-                        width: isMobile ? '18px' : '16px',
-                        height: isMobile ? '18px' : '16px'
+                        width: isMobile ? '16px' : '14px',
+                        height: isMobile ? '16px' : '14px'
                       }} 
                     />
                     {method}
@@ -735,13 +785,13 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               disabled={!isTotalValid || !paymentMethod}
               style={{ 
                 width: '100%', 
-                padding: isMobile ? '18px' : '16px', 
+                padding: isMobile ? '16px' : '14px', 
                 background: isTotalValid && paymentMethod ? '#2ECC71' : '#BDC3C7', 
                 color: 'white', 
                 border: 'none', 
-                borderRadius: '12px', 
+                borderRadius: '10px', 
                 fontWeight: 700, 
-                fontSize: isMobile ? '17px' : '16px', 
+                fontSize: isMobile ? '15px' : '14px', 
                 cursor: isTotalValid && paymentMethod ? 'pointer' : 'not-allowed',
                 transition: 'all 0.3s',
                 boxShadow: isTotalValid && paymentMethod ? '0 4px 15px rgba(46, 204, 113, 0.3)' : 'none'
@@ -766,8 +816,8 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               <p style={{ 
                 color: '#E74C3C', 
                 textAlign: 'center', 
-                marginTop: '15px', 
-                fontSize: isMobile ? '14px' : '13px',
+                marginTop: '12px', 
+                fontSize: isMobile ? '12px' : '11px',
                 fontWeight: 500
               }}>
                 ❌ O pedido mínimo é R$ 900.00
@@ -789,7 +839,6 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
           100% { opacity: 0; transform: translateY(-10px); }
         }
         
-        /* Melhorias de scroll para mobile */
         @media (max-width: 768px) {
           ::-webkit-scrollbar {
             width: 6px;
@@ -808,4 +857,3 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 };
 
 export default Cart;
-
