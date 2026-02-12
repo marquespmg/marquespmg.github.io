@@ -1815,18 +1815,100 @@ const products = [
 
 // ========== DADOS DAS CIDADES ========== //
 const citiesData = {
-  sp: {
-    title: "🏢 Estado de São Paulo",
-    regions: [
-      '🏞️ Interior',
-      '🏖️ Litoral', 
-      '🏙️ Capital',
-      '📍 Zona Sul',
-      '📍 Zona Leste',
-      '📍 Zona Norte',
-      '📍 Zona Oeste'
-    ]
-  },
+sp: {
+  title: "🏢 Estado de São Paulo",
+  regions: [
+    'AGUAÍ - SP', 'ÁGUAS DA PRATA', 'ÁGUAS DE LINDÓIA', 'ÁGUAS DE SANTA BARBARA', 
+    'ÁGUAS DE SÃO PEDRO', 'AGUDOS', 'ALAMBARI', 'ALTAIR', 'ALTINÓPOLIS', 
+    'ALUMINIO', 'ALVARES FLORENCE', 'AMERICANA', 'AMÉRICO BRASILIENSE', 
+    'AMERICO CAMPOS', 'AMPARO', 'ANALÂNDIA', 'ANGATUBA', 'APARECIDA', 'APIAÍ', 
+    'ARAÇARIGUAMA', 'ARAÇATUBA', 'ARAÇOIABA DA SERRA', 'ARANDU', 'ARAPEI', 
+    'ARARAQUARA', 'ARARAS', 'AREALVA', 'AREIOPOLIS', 'ARTHUR NOGUEIRA', 'ARUJA', 
+    'ASSIS', 'ATIBAIA', 'AURIFLAMA', 'AVARÉ', 'BADY BASSITT', 'BANANAL', 
+    'BARÃO DE ANTONINA', 'BARIRI', 'BARRA BONITA', 'BARRETOS', 'BARRINHA', 
+    'BARUERI', 'BATATAIS', 'BAURU', 'BEBEDOURO', 'BERNARDINO DE CAMPOS', 
+    'BERTIOGA', 'BILAC', 'BIRIGUI', 'BIRITIBA-MIRIM', 'BOA ESPERANÇA DO SUL', 
+    'BOFETE', 'BOITUVA', 'BOM JESUS DOS PERDOES', 'BOM SUCESSO DE ITARARÉ', 
+    'BORBOREMA', 'BOTUCATU', 'BRAGANÇA PAULISTA', 'BRODOWSKI', 'BROTAS', 'BURI', 
+    'CABREUVA', 'CAÇAPAVA', 'CACHOEIRA PAULISTA', 'CACONDE', 'CAIEIRAS', 
+    'CAJAMAR', 'CAJATI', 'CAJOBI', 'CAJURU', 'CAMPANHA', 'CAMPINAS', 
+    'CAMPO LIMPO PAULISTA', 'CAMPOS DO JORDÃO', 'CANANEIA', 'CANAS', 'CANITAR', 
+    'CAPAO BONITO', 'CAPELA DO ALTO', 'CAPIVARI', 'CARAGUATATUBA', 'CARAPICUIBA', 
+    'CASA BRANCA', 'CASSIA DOS COQUEIROS', 'CATANDUVA', 'CAUCAIA DO ALTO', 
+    'CEDRAL', 'CERQUEIRA CESAR', 'CERQUILHO', 'CESARIO LANGE', 'CHARQUEADA', 
+    'CHAVANTES', 'COLINA', 'COLOMBIA', 'CONCHAL', 'CONCHAS', 'CORDEIRÓPOLIS', 
+    'CORONEL MACEDO', 'CORUMBATAÍ', 'COSMÓPOLIS', 'COSMORAMA', 'COTIA', 
+    'CRAVINHOS', 'CRUZEIRO', 'CUBATÃO', 'CUNHA', 'DESCALVADO', 'DIADEMA', 
+    'DIVINOLÂNDIA', 'DOBRADA', 'DOIS CORREGOS', 'DOURADO SP', 'DUARTINA', 
+    'ELDORADO', 'ELIAS FAUSTO', 'ELISIARIO', 'EMBAUBA', 'EMBU GUAÇU', 
+    'ENGENHEIRO COELHO', 'ESPÍRITO SANTO DO PINHAL', 'ESPÍRITO SANTO DO TURVO', 
+    'ESTIVA GERBI', 'ESTRELA D OESTE', 'FARTURA', 'FERNANDO PRESTES', 
+    'FERNANDÓPOLIS', 'FERRAZ DE VASCONCELOS', 'FRANCA', 'FRANCISCO MORATO', 
+    'FRANCO DA ROCHA', 'GARÇA', 'GAVIÃO PEIXOTO', 'GUAÍRA', 'GUAPIAÇU', 
+    'GUAPIARA', 'GUARÁ', 'GUARACI', 'GUARAREMA', 'GUARATINGUETÁ', 'GUAREÍ', 
+    'GUARIBA', 'GUARUJÁ', 'GUARULHOS1', 'GUARULHOS2', 'GUATAPARA', 'GUATAPARÁ', 
+    'HOLAMBRA', 'HORTOLANDIA', 'IBATE', 'IBIRÁ', 'IBITINGA', 'IBIUNA', 
+    'IGARAÇÚ DO TIETÊ', 'IGARATÁ', 'IGUAPE', 'ILHA BELA NORTE / CENTRO', 
+    'ILHA BELA SUL', 'ILHA COMPRIDA', 'INDAIATUBA', 'IPAUSSU', 'IPERÓ', 'IPEUNA', 
+    'IPORANGA', 'IPUÃ', 'IRACEMAPOLIS', 'ITABERA', 'ITAI', 'ITAJOBI', 
+    'ITANHAÉM', 'ITAPETININGA', 'ITAPEVA', 'ITAPEVI', 'ITAPIRA', 'ITÁPOLIS', 
+    'ITAPORANGA', 'ITAQUAQUECETUBA', 'ITARARÉ', 'ITARIRI', 'ITATIBA', 
+    'ITATINGA', 'ITIRAPINA', 'ITOBI', 'ITU', 'ITUPEVA', 'ITUVERAVA', 'JABORANDI', 
+    'JABOTICABAL', 'JACAREI', 'JACI', 'JACUPIRANGA', 'JAGUARIUNA', 'JALES', 
+    'JAMBEIRO', 'JANDIRA', 'JARDINÓPOLIS', 'JARINU', 'JAÚ', 'JOANOPOLIS', 
+    'JOÃO RAMALHO', 'JOSÉ BONIFÁCIO', 'JUMIRIM', 'JUNDIAI', 'JUQUIA', 
+    'JUQUITIBA', 'LAGOINHA', 'LARANJAL PAULISTA', 'LEME', 'LENÇOIS PAULISTA', 
+    'LIMEIRA', 'LINS', 'LORENA', 'LOUVEIRA', 'LUIS ANTONIO', 'LUTÉCIA', 
+    'MAIRINQUE', 'MAIRIPORÃ', 'MANDURI', 'MARAPOAMA', 'MARÍLIA', 'MATÃO', 
+    'MAUA', 'MENDONÇA', 'MERIDIANO', 'METRÔ 1', 'METRÔ 2', 'MIGUELÓPOLIS', 
+    'MINEIROS DO TIETE', 'MIRACATU', 'MIRANDOPOLIS', 'MIRASSOL', 'MOCOCA', 
+    'MOGI DAS CRUZES', 'MOGI GUAÇU', 'MOGI MIRIM', 'MONGAGUÁ', 
+    'MONTE ALEGRE DO SUL', 'MONTE ALTO', 'MONTE APRAZÍVEL', 'MONTE AZUL PAULISTA', 
+    'MONTE MOR', 'MONTEIRO LOBATO', 'MORRO AGUDO', 'MORUNGABA', 'MOTUCA', 
+    'NATIVIDADE DA SERRA', 'NAZARÉ PAULISTA', 'NHANDEARA', 'NOVA ALIANÇA', 
+    'NOVA CAMPINA', 'NOVA EUROPA', 'NOVA ODESSA', 'NOVA ZONA', 'NOVAIS', 
+    'NOVO HORIZONTE', 'NUPORANGA', 'OLÍMPIA', 'ORLÂNDIA', 'OSASCO', 
+    'OSCAR BRESSANE', 'OURINHOS', 'PALMITAL', 'PARAGUAÇU PAULISTA', 'PARAIBÚNA', 
+    'PARAISO', 'PARDINHO', 'PARIQUERA-ACU', 'PARISI', 'PAULÍNIA', 'PAULISTANIA', 
+    'PEDERNEIRAS', 'PEDRA BELA', 'PEDRANOPOLIS', 'PEDREGULHO', 'PEDREIRA', 
+    'PEDRO DE TOLEDO', 'PENAPOLIS', 'PEREIRAS', 'PERUÍBE', 'PIEDADE', 
+    'PILAR DO SUL', 'PINDAMONHANGABA', 'PINHALZINHO', 'PIQUETE', 'PIRACAIA', 
+    'PIRACICABA', 'PIRAJU', 'PIRAJUÍ', 'PIRAPORA DO BOM JESUS', 'PIRASSUNUNGA', 
+    'PITANGUEIRAS', 'POÁ', 'POMPÉIA', 'PONTAL', 'PORANGABA', 'PORTO FELIZ', 
+    'PORTO FERREIRA', 'POTIM', 'POTIRENDABA', 'PRADÓPOLIS', 'PRAIA GRANDE', 
+    'PROMISSÃO', 'QUADRA', 'QUATÁ', 'RAFARD', 'REDENÇÃO DA SERRA', 'REGISTRO', 
+    'RIBEIRA', 'RIBEIRÃO BRANCO', 'RIBEIRÃO GRANDE', 'RIBEIRÃO PIRES', 
+    'RIBEIRÃO PRETO', 'RINCAO', 'RIO CLARO', 'RIO DAS PEDRAS', 
+    'RIO GRANDE DA SERRA', 'ROSEIRA', 'SALES OLIVEIRA', 'SALESÓPOLIS', 
+    'SALTINHO', 'SALTO', 'SALTO DE PIRAPORA', 'SALTO GRANDE', 'SANTA ADÉLIA', 
+    'SANTA BARBARA D OESTE', 'SANTA BRANCA', 'SANTA CRUZ DA CONCEIÇÃO', 
+    'SANTA CRUZ DA ESPERANÇA', 'SANTA CRUZ DAS PALMEIRAS', 
+    'SANTA CRUZ DO RIO PARDO', 'SANTA ERNESTINA', 'SANTA FÉ DO SUL', 
+    'SANTA GERTRUDES', 'SANTA ISABEL', 'SANTA LUCIA', 
+    'SANTA RITA DO PASSA QUATRO', 'SANTA ROSA DE VITERBO', 'SANTANA DE PARNAIBA', 
+    'SANTO ANDRE', 'SANTO ANTONIO DA ALEGRIA', 'SANTO ANTÔNIO DE POSSE', 
+    'SANTO ANTONIO DO PINHAL', 'SANTOS', 'SÃO BENTO DO SAPUCAI', 
+    'SÃO BERNARDO DO CAMPO', 'SÃO CAETANO DO SUL', 'SÃO CARLOS', 
+    'SÃO JOÃO DA BOA VISTA', 'SÃO JOAQUIM DA BARRA', 'SÃO JOSÉ DO RIO PARDO', 
+    'SÃO JOSÉ DO RIO PRETO', 'SÃO JOSÉ DOS CAMPOS', 'SÃO LOURENÇO DA SERRA', 
+    'SÃO LUIS DO PARAITINGA', 'SÃO MANUEL', 'SÃO MIGUEL ARCANJO', 'SÃO PEDRO', 
+    'SÃO PEDRO DO TURVO', 'SÃO ROQUE', 'SÃO SEBASTIÃO', 'SÃO SIMÃO', 
+    'SÃO VICENTE', 'SARAPUI', 'SARUTAIA', 'SERRA NEGRA', 'SERRANA', 
+    'SERTÃOZINHO', 'SETE BARRAS', 'SEVERINIA', 'SILVEIRAS', 'SOCORRO', 
+    'SOROCABA', 'SUMARÉ', 'SUZANO', 'TABAPUÃ', 'TABATINGA', 'TAGUAÍ', 'TAIAÇU', 
+    'TAMBAU', 'TANABI', 'TAPIRAÍ', 'TAPIRATIBA', 'TAQUARITINGA', 'TAQUARITUBA', 
+    'TAQUARIVAÍ', 'TATUÍ', 'TAUBATÉ', 'TERRA ROXA', 'TIETÊ', 'TIMBURI', 
+    'TORRE DE PEDRA', 'TORRINHA', 'TREMEMBÉ', 'TRÊS FRONTEIRAS', 'TUIUTI', 
+    'TUPÃ', 'UBATUBA', 'UCHOA', 'URUPÊS', 'VALENTIM GENTIL', 'VALINHOS', 
+    'VARGEM', 'VARGEM GRANDE DO SUL', 'VARGEM GRANDE PAULISTA', 
+    'VARZEA PAULISTA', 'VINHEDO', 'VIRADOURO', 'VISTA ALEGRE DO ALTO', 
+    'VOTORANTIM', 'VOTUPORANGA', 'ZONA CENTRAL 1', 'ZONA CENTRAL 2', 
+    'ZONA CENTRAL 3', 'ZONA LESTE 1', 'ZONA LESTE 2', 'ZONA LESTE 3', 
+    'ZONA NORTE 1', 'ZONA NORTE 2', 'ZONA NORTE 3', 'ZONA OESTE 1', 
+    'ZONA SUL 1', 'ZONA SUL 2', 'ZONA SUL 3 - AR 1', 'ZONA SUL 3 - AR 2', 
+    'ZONA SUL 3 - AR 3', 'ZONA SUL 3A', 'ZONA SUL 3B', 'ZONA SUL 4'
+  ]
+},
   rj: {
     title: "🏖️ Sul do Rio de Janeiro",
     cities: [
@@ -1973,6 +2055,83 @@ export default function ProductPage({
   const [userName, setUserName] = useState('');
   
   useTrackUser();
+
+// ========== NOVO: DADOS DE DIAS DE ENTREGA ========== //
+const [deliveryDaysData, setDeliveryDaysData] = useState({});
+const [loadingDeliveryData, setLoadingDeliveryData] = useState(true);
+const [expandedCity, setExpandedCity] = useState(null);
+
+// ========== NOVO: ALTERNAR EXPANSÃO DA CIDADE ========== //
+const toggleCityExpand = (cityName) => {
+  setExpandedCity(expandedCity === cityName ? null : cityName);
+};
+
+// ========== NOVO: COMPONENTE DE DIAS DE ENTREGA ========== //
+const DeliveryDaysDisplay = ({ days }) => {
+  // Converte os true/false em nomes dos dias
+  const activeDays = [];
+  if (days.terca) activeDays.push('Terça');
+  if (days.quarta) activeDays.push('Quarta');
+  if (days.quinta) activeDays.push('Quinta');
+  if (days.sexta) activeDays.push('Sexta');
+  
+  if (activeDays.length === 0) return null;
+  
+  return (
+    <div style={{
+      marginTop: '4px',
+      marginBottom: '4px',
+      padding: '8px 10px',
+      backgroundColor: '#f0f8f0',
+      borderLeft: '3px solid #095400',
+      borderRadius: '0 4px 4px 0',
+      fontSize: '12px',
+      color: '#333',
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      gap: '6px'
+    }}>
+      <span style={{ fontWeight: 'bold', color: '#095400' }}>📅 Entrega:</span>
+      {activeDays.map((day, index) => (
+        <span key={day} style={{
+          backgroundColor: '#095400',
+          color: 'white',
+          padding: '2px 8px',
+          borderRadius: '12px',
+          fontSize: '11px',
+          fontWeight: '600'
+        }}>
+          {day} manhã
+        </span>
+      ))}
+    </div>
+  );
+};
+
+// ========== NOVO: CARREGAR DIAS DE ENTREGA ========== //
+useEffect(() => {
+  const loadDeliveryData = async () => {
+    try {
+      // Carrega os 3 arquivos em paralelo
+      const [spData, mgData, rjData] = await Promise.all([
+        fetch('/rotas/sp.json').then(res => res.ok ? res.json() : {}),
+        fetch('/rotas/mg.json').then(res => res.ok ? res.json() : {}),
+        fetch('/rotas/rj.json').then(res => res.ok ? res.json() : {})
+      ]);
+      
+      // Junta tudo em um único objeto
+      const allData = { ...spData, ...mgData, ...rjData };
+      setDeliveryDaysData(allData);
+    } catch (error) {
+      console.error('Erro ao carregar dias de entrega:', error);
+    } finally {
+      setLoadingDeliveryData(false);
+    }
+  };
+  
+  loadDeliveryData();
+}, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -2526,62 +2685,173 @@ export default function ProductPage({
               </p>
             </div>
 
-            {/* CIDADES COM ENTREGA */}
-            <div style={styles.deliveryInfo}>
-              <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
+ {/* CIDADES COM ENTREGA - AGORA COM DIAS DA SEMANA */}
+<div style={styles.deliveryInfo}>
+  <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
+  
+  <div style={styles.regionsContainer}>
+    {Object.entries(citiesData).map(([key, region]) => (
+      <div key={key} style={styles.regionSection}>
+        <button 
+          onClick={() => toggleRegion(key)}
+          style={styles.regionButton}
+        >
+          <span style={styles.regionTitle}>
+            {region.title}
+          </span>
+          <span style={{
+            ...styles.arrow,
+            transform: openRegions[key] ? 'rotate(180deg)' : 'rotate(0deg)'
+          }}>
+            ▼
+          </span>
+        </button>
+        
+        {openRegions[key] && (
+          <div style={styles.citiesList}>
+            {key === 'sp' && region.regions.map((city, index) => {
+              // SP: cidade já vem com " -SP"
+              const cityKey = city;
+              const hasDeliveryData = deliveryDaysData[cityKey];
               
-              <div style={styles.regionsContainer}>
-                {Object.entries(citiesData).map(([key, region]) => (
-                  <div key={key} style={styles.regionSection}>
-                    <button 
-                      onClick={() => toggleRegion(key)}
-                      style={styles.regionButton}
-                    >
-                      <span style={styles.regionTitle}>
-                        {region.title}
-                      </span>
-                      <span style={{
-                        ...styles.arrow,
-                        transform: openRegions[key] ? 'rotate(180deg)' : 'rotate(0deg)'
-                      }}>
+              return (
+                <div key={index}>
+                  <div style={{ 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    padding: '2px 0',
+                    cursor: hasDeliveryData ? 'pointer' : 'default'
+                  }}>
+                    <span style={styles.cityItem}>📍 {city}</span>
+                    {hasDeliveryData && (
+                      <button
+                        onClick={() => toggleCityExpand(cityKey)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: '#e53935',
+                          cursor: 'pointer',
+                          fontSize: '10px',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          marginLeft: '4px'
+                        }}
+                      >
                         ▼
-                      </span>
-                    </button>
-                    
-                    {openRegions[key] && (
-                      <div style={styles.citiesList}>
-                        {key === 'sp' && region.regions.map((regiao, index) => (
-                          <div key={index} style={styles.regionItem}>
-                            {regiao}
-                          </div>
-                        ))}
-                        
-                        {(key === 'rj' || key === 'mg') && region.cities.map((city, index) => (
-                          <div key={index} style={styles.cityItem}>
-                            📍 {city}
-                          </div>
-                        ))}
-                      </div>
+                      </button>
                     )}
                   </div>
-                ))}
-              </div>
+                  {expandedCity === cityKey && hasDeliveryData && (
+                    <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                  )}
+                </div>
+              );
+            })}
+            
+            {key === 'rj' && region.cities.map((city, index) => {
+              // RJ: adiciona -RJ
+              const cityKey = `${city}-RJ`;
+              const hasDeliveryData = deliveryDaysData[cityKey];
+              
+              return (
+                <div key={index}>
+                  <div style={{ 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    padding: '2px 0',
+                    cursor: hasDeliveryData ? 'pointer' : 'default'
+                  }}>
+                    <span style={styles.cityItem}>📍 {city}</span>
+                    {hasDeliveryData && (
+                      <button
+                        onClick={() => toggleCityExpand(cityKey)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: '#e53935',
+                          cursor: 'pointer',
+                          fontSize: '10px',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          marginLeft: '4px'
+                        }}
+                      >
+                        ▼
+                      </button>
+                    )}
+                  </div>
+                  {expandedCity === cityKey && hasDeliveryData && (
+                    <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                  )}
+                </div>
+              );
+            })}
+            
+            {key === 'mg' && region.cities.map((city, index) => {
+              // MG: adiciona -MG
+              const cityKey = `${city}-MG`;
+              const hasDeliveryData = deliveryDaysData[cityKey];
+              
+              return (
+                <div key={index}>
+                  <div style={{ 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    padding: '2px 0',
+                    cursor: hasDeliveryData ? 'pointer' : 'default'
+                  }}>
+                    <span style={styles.cityItem}>📍 {city}</span>
+                    {hasDeliveryData && (
+                      <button
+                        onClick={() => toggleCityExpand(cityKey)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: '#e53935',
+                          cursor: 'pointer',
+                          fontSize: '10px',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          marginLeft: '4px'
+                        }}
+                      >
+                        ▼
+                      </button>
+                    )}
+                  </div>
+                  {expandedCity === cityKey && hasDeliveryData && (
+                    <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
 
-              <div style={styles.deliveryList}>
-                <div style={styles.deliveryItem}>
-                  <span style={styles.checkIcon}>✓</span>
-                  Frete grátis
-                </div>
-                <div style={styles.deliveryItem}>
-                  <span style={styles.checkIcon}>✓</span>
-                  Entrega em 1-2 dias úteis
-                </div>
-                <div style={styles.deliveryItem}>
-                  <span style={styles.checkIcon}>✓</span>
-                  Atendimento para food service
-                </div>
-              </div>
-            </div>
+  <div style={styles.deliveryList}>
+    <div style={styles.deliveryItem}>
+      <span style={styles.checkIcon}>✓</span>
+      Frete grátis
+    </div>
+    <div style={styles.deliveryItem}>
+      <span style={styles.checkIcon}>✓</span>
+      Entrega em 1-2 dias úteis
+    </div>
+    <div style={styles.deliveryItem}>
+      <span style={styles.checkIcon}>✓</span>
+      Atendimento para food service
+    </div>
+  </div>
+</div>
 
             {/* VANTAGENS */}
             <div style={styles.advantagesSection}>
@@ -3384,6 +3654,7 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
+
 
 
 
