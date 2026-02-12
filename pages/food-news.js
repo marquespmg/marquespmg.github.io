@@ -7,18 +7,100 @@ import useTrackUser from '../hook/useTrackUser';
 
 // ========== DADOS DAS CIDADES ========== //
 const citiesData = {
-  sp: {
-    title: "🏢 Estado de São Paulo",
-    regions: [
-      '🏞️ Interior',
-      '🏖️ Litoral', 
-      '🏙️ Capital',
-      '📍 Zona Sul',
-      '📍 Zona Leste',
-      '📍 Zona Norte',
-      '📍 Zona Oeste'
-    ]
-  },
+sp: {
+  title: "🏢 Estado de São Paulo",
+  regions: [
+    'AGUAÍ - SP', 'ÁGUAS DA PRATA', 'ÁGUAS DE LINDÓIA', 'ÁGUAS DE SANTA BARBARA', 
+    'ÁGUAS DE SÃO PEDRO', 'AGUDOS', 'ALAMBARI', 'ALTAIR', 'ALTINÓPOLIS', 
+    'ALUMINIO', 'ALVARES FLORENCE', 'AMERICANA', 'AMÉRICO BRASILIENSE', 
+    'AMERICO CAMPOS', 'AMPARO', 'ANALÂNDIA', 'ANGATUBA', 'APARECIDA', 'APIAÍ', 
+    'ARAÇARIGUAMA', 'ARAÇATUBA', 'ARAÇOIABA DA SERRA', 'ARANDU', 'ARAPEI', 
+    'ARARAQUARA', 'ARARAS', 'AREALVA', 'AREIOPOLIS', 'ARTHUR NOGUEIRA', 'ARUJA', 
+    'ASSIS', 'ATIBAIA', 'AURIFLAMA', 'AVARÉ', 'BADY BASSITT', 'BANANAL', 
+    'BARÃO DE ANTONINA', 'BARIRI', 'BARRA BONITA', 'BARRETOS', 'BARRINHA', 
+    'BARUERI', 'BATATAIS', 'BAURU', 'BEBEDOURO', 'BERNARDINO DE CAMPOS', 
+    'BERTIOGA', 'BILAC', 'BIRIGUI', 'BIRITIBA-MIRIM', 'BOA ESPERANÇA DO SUL', 
+    'BOFETE', 'BOITUVA', 'BOM JESUS DOS PERDOES', 'BOM SUCESSO DE ITARARÉ', 
+    'BORBOREMA', 'BOTUCATU', 'BRAGANÇA PAULISTA', 'BRODOWSKI', 'BROTAS', 'BURI', 
+    'CABREUVA', 'CAÇAPAVA', 'CACHOEIRA PAULISTA', 'CACONDE', 'CAIEIRAS', 
+    'CAJAMAR', 'CAJATI', 'CAJOBI', 'CAJURU', 'CAMPANHA', 'CAMPINAS', 
+    'CAMPO LIMPO PAULISTA', 'CAMPOS DO JORDÃO', 'CANANEIA', 'CANAS', 'CANITAR', 
+    'CAPAO BONITO', 'CAPELA DO ALTO', 'CAPIVARI', 'CARAGUATATUBA', 'CARAPICUIBA', 
+    'CASA BRANCA', 'CASSIA DOS COQUEIROS', 'CATANDUVA', 'CAUCAIA DO ALTO', 
+    'CEDRAL', 'CERQUEIRA CESAR', 'CERQUILHO', 'CESARIO LANGE', 'CHARQUEADA', 
+    'CHAVANTES', 'COLINA', 'COLOMBIA', 'CONCHAL', 'CONCHAS', 'CORDEIRÓPOLIS', 
+    'CORONEL MACEDO', 'CORUMBATAÍ', 'COSMÓPOLIS', 'COSMORAMA', 'COTIA', 
+    'CRAVINHOS', 'CRUZEIRO', 'CUBATÃO', 'CUNHA', 'DESCALVADO', 'DIADEMA', 
+    'DIVINOLÂNDIA', 'DOBRADA', 'DOIS CORREGOS', 'DOURADO SP', 'DUARTINA', 
+    'ELDORADO', 'ELIAS FAUSTO', 'ELISIARIO', 'EMBAUBA', 'EMBU GUAÇU', 
+    'ENGENHEIRO COELHO', 'ESPÍRITO SANTO DO PINHAL', 'ESPÍRITO SANTO DO TURVO', 
+    'ESTIVA GERBI', 'ESTRELA D OESTE', 'FARTURA', 'FERNANDO PRESTES', 
+    'FERNANDÓPOLIS', 'FERRAZ DE VASCONCELOS', 'FRANCA', 'FRANCISCO MORATO', 
+    'FRANCO DA ROCHA', 'GARÇA', 'GAVIÃO PEIXOTO', 'GUAÍRA', 'GUAPIAÇU', 
+    'GUAPIARA', 'GUARÁ', 'GUARACI', 'GUARAREMA', 'GUARATINGUETÁ', 'GUAREÍ', 
+    'GUARIBA', 'GUARUJÁ', 'GUARULHOS1', 'GUARULHOS2', 'GUATAPARA', 'GUATAPARÁ', 
+    'HOLAMBRA', 'HORTOLANDIA', 'IBATE', 'IBIRÁ', 'IBITINGA', 'IBIUNA', 
+    'IGARAÇÚ DO TIETÊ', 'IGARATÁ', 'IGUAPE', 'ILHA BELA NORTE / CENTRO', 
+    'ILHA BELA SUL', 'ILHA COMPRIDA', 'INDAIATUBA', 'IPAUSSU', 'IPERÓ', 'IPEUNA', 
+    'IPORANGA', 'IPUÃ', 'IRACEMAPOLIS', 'ITABERA', 'ITAI', 'ITAJOBI', 
+    'ITANHAÉM', 'ITAPETININGA', 'ITAPEVA', 'ITAPEVI', 'ITAPIRA', 'ITÁPOLIS', 
+    'ITAPORANGA', 'ITAQUAQUECETUBA', 'ITARARÉ', 'ITARIRI', 'ITATIBA', 
+    'ITATINGA', 'ITIRAPINA', 'ITOBI', 'ITU', 'ITUPEVA', 'ITUVERAVA', 'JABORANDI', 
+    'JABOTICABAL', 'JACAREI', 'JACI', 'JACUPIRANGA', 'JAGUARIUNA', 'JALES', 
+    'JAMBEIRO', 'JANDIRA', 'JARDINÓPOLIS', 'JARINU', 'JAÚ', 'JOANOPOLIS', 
+    'JOÃO RAMALHO', 'JOSÉ BONIFÁCIO', 'JUMIRIM', 'JUNDIAI', 'JUQUIA', 
+    'JUQUITIBA', 'LAGOINHA', 'LARANJAL PAULISTA', 'LEME', 'LENÇOIS PAULISTA', 
+    'LIMEIRA', 'LINS', 'LORENA', 'LOUVEIRA', 'LUIS ANTONIO', 'LUTÉCIA', 
+    'MAIRINQUE', 'MAIRIPORÃ', 'MANDURI', 'MARAPOAMA', 'MARÍLIA', 'MATÃO', 
+    'MAUA', 'MENDONÇA', 'MERIDIANO', 'METRÔ 1', 'METRÔ 2', 'MIGUELÓPOLIS', 
+    'MINEIROS DO TIETE', 'MIRACATU', 'MIRANDOPOLIS', 'MIRASSOL', 'MOCOCA', 
+    'MOGI DAS CRUZES', 'MOGI GUAÇU', 'MOGI MIRIM', 'MONGAGUÁ', 
+    'MONTE ALEGRE DO SUL', 'MONTE ALTO', 'MONTE APRAZÍVEL', 'MONTE AZUL PAULISTA', 
+    'MONTE MOR', 'MONTEIRO LOBATO', 'MORRO AGUDO', 'MORUNGABA', 'MOTUCA', 
+    'NATIVIDADE DA SERRA', 'NAZARÉ PAULISTA', 'NHANDEARA', 'NOVA ALIANÇA', 
+    'NOVA CAMPINA', 'NOVA EUROPA', 'NOVA ODESSA', 'NOVA ZONA', 'NOVAIS', 
+    'NOVO HORIZONTE', 'NUPORANGA', 'OLÍMPIA', 'ORLÂNDIA', 'OSASCO', 
+    'OSCAR BRESSANE', 'OURINHOS', 'PALMITAL', 'PARAGUAÇU PAULISTA', 'PARAIBÚNA', 
+    'PARAISO', 'PARDINHO', 'PARIQUERA-ACU', 'PARISI', 'PAULÍNIA', 'PAULISTANIA', 
+    'PEDERNEIRAS', 'PEDRA BELA', 'PEDRANOPOLIS', 'PEDREGULHO', 'PEDREIRA', 
+    'PEDRO DE TOLEDO', 'PENAPOLIS', 'PEREIRAS', 'PERUÍBE', 'PIEDADE', 
+    'PILAR DO SUL', 'PINDAMONHANGABA', 'PINHALZINHO', 'PIQUETE', 'PIRACAIA', 
+    'PIRACICABA', 'PIRAJU', 'PIRAJUÍ', 'PIRAPORA DO BOM JESUS', 'PIRASSUNUNGA', 
+    'PITANGUEIRAS', 'POÁ', 'POMPÉIA', 'PONTAL', 'PORANGABA', 'PORTO FELIZ', 
+    'PORTO FERREIRA', 'POTIM', 'POTIRENDABA', 'PRADÓPOLIS', 'PRAIA GRANDE', 
+    'PROMISSÃO', 'QUADRA', 'QUATÁ', 'RAFARD', 'REDENÇÃO DA SERRA', 'REGISTRO', 
+    'RIBEIRA', 'RIBEIRÃO BRANCO', 'RIBEIRÃO GRANDE', 'RIBEIRÃO PIRES', 
+    'RIBEIRÃO PRETO', 'RINCAO', 'RIO CLARO', 'RIO DAS PEDRAS', 
+    'RIO GRANDE DA SERRA', 'ROSEIRA', 'SALES OLIVEIRA', 'SALESÓPOLIS', 
+    'SALTINHO', 'SALTO', 'SALTO DE PIRAPORA', 'SALTO GRANDE', 'SANTA ADÉLIA', 
+    'SANTA BARBARA D OESTE', 'SANTA BRANCA', 'SANTA CRUZ DA CONCEIÇÃO', 
+    'SANTA CRUZ DA ESPERANÇA', 'SANTA CRUZ DAS PALMEIRAS', 
+    'SANTA CRUZ DO RIO PARDO', 'SANTA ERNESTINA', 'SANTA FÉ DO SUL', 
+    'SANTA GERTRUDES', 'SANTA ISABEL', 'SANTA LUCIA', 
+    'SANTA RITA DO PASSA QUATRO', 'SANTA ROSA DE VITERBO', 'SANTANA DE PARNAIBA', 
+    'SANTO ANDRE', 'SANTO ANTONIO DA ALEGRIA', 'SANTO ANTÔNIO DE POSSE', 
+    'SANTO ANTONIO DO PINHAL', 'SANTOS', 'SÃO BENTO DO SAPUCAI', 
+    'SÃO BERNARDO DO CAMPO', 'SÃO CAETANO DO SUL', 'SÃO CARLOS', 
+    'SÃO JOÃO DA BOA VISTA', 'SÃO JOAQUIM DA BARRA', 'SÃO JOSÉ DO RIO PARDO', 
+    'SÃO JOSÉ DO RIO PRETO', 'SÃO JOSÉ DOS CAMPOS', 'SÃO LOURENÇO DA SERRA', 
+    'SÃO LUIS DO PARAITINGA', 'SÃO MANUEL', 'SÃO MIGUEL ARCANJO', 'SÃO PEDRO', 
+    'SÃO PEDRO DO TURVO', 'SÃO ROQUE', 'SÃO SEBASTIÃO', 'SÃO SIMÃO', 
+    'SÃO VICENTE', 'SARAPUI', 'SARUTAIA', 'SERRA NEGRA', 'SERRANA', 
+    'SERTÃOZINHO', 'SETE BARRAS', 'SEVERINIA', 'SILVEIRAS', 'SOCORRO', 
+    'SOROCABA', 'SUMARÉ', 'SUZANO', 'TABAPUÃ', 'TABATINGA', 'TAGUAÍ', 'TAIAÇU', 
+    'TAMBAU', 'TANABI', 'TAPIRAÍ', 'TAPIRATIBA', 'TAQUARITINGA', 'TAQUARITUBA', 
+    'TAQUARIVAÍ', 'TATUÍ', 'TAUBATÉ', 'TERRA ROXA', 'TIETÊ', 'TIMBURI', 
+    'TORRE DE PEDRA', 'TORRINHA', 'TREMEMBÉ', 'TRÊS FRONTEIRAS', 'TUIUTI', 
+    'TUPÃ', 'UBATUBA', 'UCHOA', 'URUPÊS', 'VALENTIM GENTIL', 'VALINHOS', 
+    'VARGEM', 'VARGEM GRANDE DO SUL', 'VARGEM GRANDE PAULISTA', 
+    'VARZEA PAULISTA', 'VINHEDO', 'VIRADOURO', 'VISTA ALEGRE DO ALTO', 
+    'VOTORANTIM', 'VOTUPORANGA', 'ZONA CENTRAL 1', 'ZONA CENTRAL 2', 
+    'ZONA CENTRAL 3', 'ZONA LESTE 1', 'ZONA LESTE 2', 'ZONA LESTE 3', 
+    'ZONA NORTE 1', 'ZONA NORTE 2', 'ZONA NORTE 3', 'ZONA OESTE 1', 
+    'ZONA SUL 1', 'ZONA SUL 2', 'ZONA SUL 3 - AR 1', 'ZONA SUL 3 - AR 2', 
+    'ZONA SUL 3 - AR 3', 'ZONA SUL 3A', 'ZONA SUL 3B', 'ZONA SUL 4'
+  ]
+},
   rj: {
     title: "🏖️ Sul do Rio de Janeiro",
     cities: [
@@ -10374,6 +10456,59 @@ export default function FoodNews({ initialPage }) {
     rj: false,
     mg: false
   });
+
+    // ========== NOVO: DADOS DE DIAS DE ENTREGA ========== //
+  const [deliveryDaysData, setDeliveryDaysData] = useState({});
+  const [loadingDeliveryData, setLoadingDeliveryData] = useState(true);
+  const [expandedCity, setExpandedCity] = useState(null); // Qual cidade está expandida
+  
+  // ========== NOVO: ALTERNAR EXPANSÃO DA CIDADE ========== //
+const toggleCityExpand = (cityName) => {
+  setExpandedCity(expandedCity === cityName ? null : cityName);
+};
+
+// ========== NOVO: COMPONENTE DE DIAS DE ENTREGA ========== //
+const DeliveryDaysDisplay = ({ days }) => {
+  // Converte os true/false em nomes dos dias
+  const activeDays = [];
+  if (days.terca) activeDays.push('Terça');
+  if (days.quarta) activeDays.push('Quarta');
+  if (days.quinta) activeDays.push('Quinta');
+  if (days.sexta) activeDays.push('Sexta');
+  
+  if (activeDays.length === 0) return null;
+  
+  return (
+    <div style={{
+      marginTop: '8px',
+      padding: '10px 12px',
+      backgroundColor: '#f0f8f0',
+      borderLeft: '3px solid #095400',
+      borderRadius: '0 6px 6px 0',
+      fontSize: '13px',
+      color: '#333',
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      gap: '8px'
+    }}>
+      <span style={{ fontWeight: 'bold', color: '#095400' }}>📅 Entrega:</span>
+      {activeDays.map((day, index) => (
+        <span key={day} style={{
+          backgroundColor: '#095400',
+          color: 'white',
+          padding: '3px 10px',
+          borderRadius: '20px',
+          fontSize: '12px',
+          fontWeight: '600'
+        }}>
+          {day} manhã
+        </span>
+      ))}
+    </div>
+  );
+};  
+
   const [windowWidth, setWindowWidth] = useState(0);
   
   // Estados do usuário
@@ -10383,6 +10518,30 @@ export default function FoodNews({ initialPage }) {
   
   const articleRefs = useRef([]);
   useTrackUser();
+
+// ========== NOVO: CARREGAR DIAS DE ENTREGA ========== //
+useEffect(() => {
+  const loadDeliveryData = async () => {
+    try {
+      // Carrega os 3 arquivos em paralelo (mais rápido!)
+      const [spData, mgData, rjData] = await Promise.all([
+        fetch('/rotas/sp.json').then(res => res.ok ? res.json() : {}),
+        fetch('/rotas/mg.json').then(res => res.ok ? res.json() : {}),
+        fetch('/rotas/rj.json').then(res => res.ok ? res.json() : {})
+      ]);
+      
+      // Junta tudo em um único objeto
+      const allData = { ...spData, ...mgData, ...rjData };
+      setDeliveryDaysData(allData);
+    } catch (error) {
+      console.error('Erro ao carregar dias de entrega:', error);
+    } finally {
+      setLoadingDeliveryData(false);
+    }
+  };
+  
+  loadDeliveryData();
+}, []);
 
   useEffect(() => {
     setIsClient(true);
@@ -11184,175 +11343,285 @@ export default function FoodNews({ initialPage }) {
                         {/* Conteúdo do Menu */}
                         <div style={{ padding: '12px' }}>
                           
-                          {/* São Paulo */}
-                          <div style={{ marginBottom: '12px' }}>
-                            <div 
-                              onClick={() => toggleRegion('sp')}
-                              style={{
-                                color: '#095400',
-                                fontWeight: '600',
-                                fontSize: windowWidth > 768 ? '14px' : '12px',
-                                marginBottom: '6px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px',
-                                cursor: 'pointer',
-                                padding: '4px',
-                                borderRadius: '4px',
-                                ':hover': {
-                                  backgroundColor: '#f9f9f9'
-                                }
-                              }}
-                            >
-                              <span>🏢</span>
-                              <span>Estado de São Paulo</span>
-                              <span style={{
-                                marginLeft: 'auto',
-                                fontSize: '10px',
-                                transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
-                                transition: 'transform 0.2s'
-                              }}>
-                                ▼
-                              </span>
-                            </div>
-                            
-                            {openRegions.sp && (
-                              <div style={{
-                                marginLeft: '8px',
-                                paddingLeft: '8px',
-                                borderLeft: '2px solid #095400',
-                                maxHeight: '100px',
-                                overflowY: 'auto'
-                              }}>
-                                {citiesData.sp.regions.map((regiao, index) => (
-                                  <div key={index} style={{
-                                    padding: '3px 0',
-                                    color: '#555',
-                                    fontSize: windowWidth > 768 ? '12px' : '11px'
-                                  }}>
-                                    • {regiao}
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                          
-                          {/* Rio de Janeiro */}
-                          <div style={{ marginBottom: '12px' }}>
-                            <div 
-                              onClick={() => toggleRegion('rj')}
-                              style={{
-                                color: '#095400',
-                                fontWeight: '600',
-                                fontSize: windowWidth > 768 ? '14px' : '12px',
-                                marginBottom: '6px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px',
-                                cursor: 'pointer',
-                                padding: '4px',
-                                borderRadius: '4px',
-                                ':hover': {
-                                  backgroundColor: '#f9f9f9'
-                                }
-                              }}
-                            >
-                              <span>🏖️</span>
-                              <span>Sul do Rio de Janeiro</span>
-                              <span style={{
-                                marginLeft: 'auto',
-                                fontSize: '10px',
-                                transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
-                                transition: 'transform 0.2s'
-                              }}>
-                                ▼
-                              </span>
-                            </div>
-                            
-                            {openRegions.rj && (
-                              <div style={{
-                                marginLeft: '8px',
-                                paddingLeft: '8px',
-                                borderLeft: '2px solid #e53935',
-                                maxHeight: '100px',
-                                overflowY: 'auto'
-                              }}>
-                                {citiesData.rj.cities.map((city, index) => (
-                                  <div key={index} style={{
-                                    padding: '3px 0',
-                                    color: '#555',
-                                    fontSize: windowWidth > 768 ? '12px' : '11px'
-                                  }}>
-                                    • {city}
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                          
-                          {/* Minas Gerais */}
-                          <div>
-                            <div 
-                              onClick={() => toggleRegion('mg')}
-                              style={{
-                                color: '#095400',
-                                fontWeight: '600',
-                                fontSize: windowWidth > 768 ? '14px' : '12px',
-                                marginBottom: '6px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px',
-                                cursor: 'pointer',
-                                padding: '4px',
-                                borderRadius: '4px',
-                                ':hover': {
-                                  backgroundColor: '#f9f9f9'
-                                }
-                              }}
-                            >
-                              <span>⛰️</span>
-                              <span>Sul de Minas Gerais</span>
-                              <span style={{
-                                marginLeft: 'auto',
-                                fontSize: '10px',
-                                transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
-                                transition: 'transform 0.2s'
-                              }}>
-                                ▼
-                              </span>
-                            </div>
-                            
-                            {openRegions.mg && (
-                              <div style={{
-                                marginLeft: '8px',
-                                paddingLeft: '8px',
-                                borderLeft: '2px solid #e53935',
-                                maxHeight: '100px',
-                                overflowY: 'auto'
-                              }}>
-                                {citiesData.mg.cities.slice(0, 59).map((city, index) => (
-                                  <div key={index} style={{
-                                    padding: '3px 0',
-                                    color: '#555',
-                                    fontSize: windowWidth > 768 ? '12px' : '11px'
-                                  }}>
-                                    • {city}
-                                  </div>
-                                ))}
-                                {citiesData.mg.cities.length > 59 && (
-                                  <div style={{
-                                    color: '#888',
-                                    fontSize: '11px',
-                                    fontStyle: 'italic',
-                                    padding: '3px 0'
-                                  }}>
-                                    + {citiesData.mg.cities.length - 59} cidades...
-                                  </div>
-                                )}
-                              </div>
-                            )}
-                          </div>
-                        </div>
+{/* ========== SÃO PAULO ========== */}
+<div style={{ marginBottom: '15px' }}>
+  <div 
+    onClick={() => toggleRegion('sp')}
+    style={{
+      color: '#095400',
+      fontWeight: '600',
+      fontSize: windowWidth > 768 ? '15px' : '13px',
+      marginBottom: '8px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      cursor: 'pointer',
+      padding: '5px',
+      borderRadius: '4px',
+      ':hover': {
+        backgroundColor: '#f9f9f9'
+      }
+    }}
+  >
+    <span>🏢</span>
+    <span>Estado de São Paulo</span>
+    <span style={{
+      marginLeft: 'auto',
+      fontSize: '12px',
+      transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
+      transition: 'transform 0.2s'
+    }}>
+      ▼
+    </span>
+  </div>
+  
+  {openRegions.sp && (
+    <div style={{
+      marginLeft: '10px',
+      paddingLeft: '10px',
+      borderLeft: '2px solid #095400',
+      maxHeight: '120px',
+      overflowY: 'auto'
+    }}>
+      {citiesData.sp.regions.map((city, index) => {
+        // Nome da cidade exatamente como está no JSON (adiciona -SP)
+        const cityKey = city;
+        const hasDeliveryData = deliveryDaysData[cityKey];
+        
+        return (
+          <div key={index}>
+            <div style={{ 
+              padding: '5px 0', 
+              color: '#555',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              cursor: hasDeliveryData ? 'pointer' : 'default'
+            }}>
+              <span>• {city}</span>
+              {hasDeliveryData && (
+                <button
+                  onClick={() => toggleCityExpand(cityKey)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#e53935',
+                    cursor: 'pointer',
+                    fontSize: '12px',
+                    padding: '4px 8px',
+                    borderRadius: '4px',
+                    transition: 'all 0.2s',
+                    ':hover': {
+                      backgroundColor: '#f0f0f0'
+                    }
+                  }}
+                >
+                  ▼
+                </button>
+              )}
+            </div>
+            
+            {/* Mostra os dias se estiver expandido */}
+            {expandedCity === cityKey && hasDeliveryData && (
+              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+            )}
+          </div>
+        );
+      })}
+    </div>
+  )}
+</div>
+
+{/* ========== RIO DE JANEIRO ========== */}
+<div style={{ marginBottom: '15px' }}>
+  <div 
+    onClick={() => toggleRegion('rj')}
+    style={{
+      color: '#095400',
+      fontWeight: '600',
+      fontSize: windowWidth > 768 ? '15px' : '13px',
+      marginBottom: '8px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      cursor: 'pointer',
+      padding: '5px',
+      borderRadius: '4px',
+      ':hover': {
+        backgroundColor: '#f9f9f9'
+      }
+    }}
+  >
+    <span>🏖️</span>
+    <span>Sul do Rio de Janeiro</span>
+    <span style={{
+      marginLeft: 'auto',
+      fontSize: '12px',
+      transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
+      transition: 'transform 0.2s'
+    }}>
+      ▼
+    </span>
+  </div>
+  
+  {openRegions.rj && (
+    <div style={{
+      marginLeft: '10px',
+      paddingLeft: '10px',
+      borderLeft: '2px solid #e53935',
+      maxHeight: '120px',
+      overflowY: 'auto'
+    }}>
+      {citiesData.rj.cities.map((city, index) => {
+        // Nome da cidade exatamente como está no JSON (adiciona -RJ)
+        const cityKey = `${city}-RJ`;
+        const hasDeliveryData = deliveryDaysData[cityKey];
+        
+        return (
+          <div key={index}>
+            <div style={{ 
+              padding: '5px 0', 
+              color: '#555',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              cursor: hasDeliveryData ? 'pointer' : 'default'
+            }}>
+              <span>• {city}</span>
+              {hasDeliveryData && (
+                <button
+                  onClick={() => toggleCityExpand(cityKey)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#e53935',
+                    cursor: 'pointer',
+                    fontSize: '12px',
+                    padding: '4px 8px',
+                    borderRadius: '4px',
+                    transition: 'all 0.2s',
+                    ':hover': {
+                      backgroundColor: '#f0f0f0'
+                    }
+                  }}
+                >
+                  ▼
+                </button>
+              )}
+            </div>
+            
+            {/* Mostra os dias se estiver expandido */}
+            {expandedCity === cityKey && hasDeliveryData && (
+              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+            )}
+          </div>
+        );
+      })}
+    </div>
+  )}
+</div>
+
+{/* ========== MINAS GERAIS ========== */}
+<div>
+  <div 
+    onClick={() => toggleRegion('mg')}
+    style={{
+      color: '#095400',
+      fontWeight: '600',
+      fontSize: windowWidth > 768 ? '15px' : '13px',
+      marginBottom: '8px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      cursor: 'pointer',
+      padding: '5px',
+      borderRadius: '4px',
+      ':hover': {
+        backgroundColor: '#f9f9f9'
+      }
+    }}
+  >
+    <span>⛰️</span>
+    <span>Sul de Minas Gerais</span>
+    <span style={{
+      marginLeft: 'auto',
+      fontSize: '12px',
+      transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
+      transition: 'transform 0.2s'
+    }}>
+      ▼
+    </span>
+  </div>
+  
+  {openRegions.mg && (
+    <div style={{
+      marginLeft: '10px',
+      paddingLeft: '10px',
+      borderLeft: '2px solid #e53935',
+      maxHeight: '120px',
+      overflowY: 'auto'
+    }}>
+      {citiesData.mg.cities.map((city, index) => {
+        // Nome da cidade exatamente como está no JSON (adiciona -MG)
+        const cityKey = `${city}-MG`;
+        const hasDeliveryData = deliveryDaysData[cityKey];
+        
+        return (
+          <div key={index}>
+            <div style={{ 
+              padding: '5px 0', 
+              color: '#555',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              cursor: hasDeliveryData ? 'pointer' : 'default'
+            }}>
+              <span>• {city}</span>
+              {hasDeliveryData && (
+                <button
+                  onClick={() => toggleCityExpand(cityKey)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#e53935',
+                    cursor: 'pointer',
+                    fontSize: '12px',
+                    padding: '4px 8px',
+                    borderRadius: '4px',
+                    transition: 'all 0.2s',
+                    ':hover': {
+                      backgroundColor: '#f0f0f0'
+                    }
+                  }}
+                >
+                  ▼
+                </button>
+              )}
+            </div>
+            
+            {/* Mostra os dias se estiver expandido */}
+            {expandedCity === cityKey && hasDeliveryData && (
+              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+            )}
+          </div>
+        );
+      })}
+      
+      {/* Mensagem de "mais cidades" apenas para MG (se necessário) */}
+      {citiesData.mg.cities.length > 59 && (
+        <div style={{
+          color: '#888',
+          fontSize: '12px',
+          fontStyle: 'italic',
+          padding: '5px 0'
+        }}>
+          + {citiesData.mg.cities.length - 59} cidades...
+        </div>
+      )}
+    </div>
+  )}
+</div>
+</div>
                         
                         {/* Rodapé do Menu */}
                         <div style={{
