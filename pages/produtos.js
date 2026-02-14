@@ -770,8 +770,8 @@ const products = [
   { id: 634, name: 'CREAM CHEESE SCALON 1,02 KILO', category: 'Derivados de Leite', price: 28.11, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-scalon-102-kilo-pmg-atacadista.jpg' },
   { id: 636, name: 'CREAM CHEESE SULMINAS 1,2 KILO', category: 'Derivados de Leite', price: 28.82, image: 'https://www.marquesvendaspmg.shop/images/cream-cheese-sulminas-12-kilo-pmg-atacadista.jpg' },
   { id: 637, name: 'CREME CULINÁRIO 19% DE GORDURA DAUS 1 KG (CX 12 UN)', category: 'Derivados de Leite', price: 124.42, image: 'https://www.marquesvendaspmg.shop/images/creme-culinario-daus-1-kilo-cx-12-un-pmg-atacadista.jpg' },
-  { id: 638, name: 'CREME DE LEITE GRANDE LEVE FOOD SERVICE 17% DE GORDURA ITALAC 1,030 KG (CX 12 UN)', category: 'Derivados de Leite', price: 153.14, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-grande-food-service-italac-1030-kilo-cx-12-un-pmg-atacadista.jpg' },
-  { id: 639, name: 'CREME DE LEITE GRANDE LEVE FOOD SERVICE 17% DE GORDURA PIRACANJUBA 1,030 KG (CX 12 UN)', category: 'Derivados de Leite', price: 191.41, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-grande-food-service-piracanjuba-1030-kilo-cx-12-un-pmg-atacadista.jpg' },
+  { id: 638, name: 'CREME DE LEITE GRANDE LEVE FOOD SERVICE 17% DE GORDURA ITALAC 1,030 KILO (CX 12 UN)', category: 'Derivados de Leite', price: 153.14, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-grande-food-service-italac-1030-kilo-cx-12-un-pmg-atacadista.jpg' },
+  { id: 639, name: 'CREME DE LEITE GRANDE LEVE FOOD SERVICE 17% DE GORDURA PIRACANJUBA 1,030 KILO (CX 12 UN)', category: 'Derivados de Leite', price: 191.41, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-grande-food-service-piracanjuba-1030-kilo-cx-12-un-pmg-atacadista.jpg' },
   { id: 640, name: 'CREME DE LEITE LEVE 17% DE GORDURA ITALAC 200 G (CX 24 UN)', category: 'Derivados de Leite', price: 80.64, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-italac-200-g-cx-24-un-pmg-atacadista.jpg' },
   { id: 641, name: 'CREME DE LEITE JUSSARA 200 G (CX 27 UN)', category: 'Derivados de Leite', price: 0.00, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-jussara-200-g-cx-27-un-pmg-atacadista.jpg' },
   { id: 642, name: 'CREME DE LEITE PASTEURIZADO BIOCREME 1,01 KILO', category: 'Derivados de Leite', price: 30.84, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-pasteurizado-biocreme-101-kilo-pmg-atacadista.jpg' },
@@ -5129,6 +5129,7 @@ const loadCartFromSupabase = async (userId) => {
 
   export default ProductsPage;
   export const produtosArray = products; // Exporta o array de produtos
+
 
 
 
