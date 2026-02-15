@@ -122,16 +122,16 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 59, name: 'ÁGUA MINERAL SÃO LOURENÇO COM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 26.00, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-com-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 60, name: 'ÁGUA MINERAL SÃO LOURENÇO SEM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 22.60, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-sao-lourenco-sem-gas-300-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 254, name: 'SUCO DEL VALLE GOIABA SEM ADIÇÃO DE AÇÚCAR LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-goiaba-sem-adicao-de-acucar-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
-  { id: 256, name: 'SUCO DEL VALLE MANGA LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-manga-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
-  { id: 257, name: 'SUCO DEL VALLE MARACUJÁ LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-maracuja-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
-  { id: 258, name: 'SUCO DEL VALLE PÊSSEGO LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-pessego-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
-  { id: 259, name: 'SUCO DEL VALLE UVA LATA 290 ML (PCT 6 LT)', category: 'Ofertas', price: 23.30, image: 'https://www.marquesvendaspmg.shop/images/suco-del-valle-uva-lata-290-ml-pct-6-lt-pmg-atacadista.jpg' },
-  { id: 353, name: 'WHISKY JOHNNIE WALKER BLUE LABEL 750 ML', category: 'Ofertas', price: 999.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-blue-label-750-ml-pmg-atacadista.jpg' },
-  { id: 354, name: 'WHISKY JOHNNIE WALKER DOUBLE BLACK 1 L', category: 'Ofertas', price: 198.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-double-black-1-l-pmg-atacadista.jpg' },
-  { id: 199, name: 'LICOR 43 CHOCOLATE 700 ML', category: 'Ofertas', price: 174.00, image: 'https://www.marquesvendaspmg.shop/images/licor-43-chocolate-700-ml-pmg-atacadista.jpg' },
+  { id: 891, name: 'REQUEIJÃO CREMILLE COM AMIDO 1,5 KILO', category: 'Ofertas', price: 9.89, image: 'https://www.marquesvendaspmg.shop/images/requeijao-cremille-com-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 711, name: 'MISTURA DE REQUEIJÃO SABOR CHEDDAR ROSELI 1,2 KILO', category: 'Ofertas', price: 13.30, image: 'https://www.marquesvendaspmg.shop/images/mistura-de-requeijao-sabor-cheddar-roseli-12-kilo-pmg-atacadista.jpg' },
+  { id: 904, name: 'REQUEIJÃO ROSELI SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 37.55, image: 'https://www.marquesvendaspmg.shop/images/requeijao-roseli-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 1607, name: 'GOIABADA BISNAGA VAL 1,01 KILO', category: 'Ofertas', price: 17.05, image: 'https://www.marquesvendaspmg.shop/images/goiabada-bisnaga-val-101-kilo-pmg-atacadista.jpg' },
+  { id: 896, name: 'REQUEIJÃO GALILEO COM AMIDO 1,5 KILO', category: 'Ofertas', price: 13.30, image: 'https://www.marquesvendaspmg.shop/images/requeijao-galileo-com-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 1571, name: 'CREME DE AVELÃ GRANDE COM CACAU FOOD SERVICE NUTELLA 3 KILO', category: 'Ofertas', price: 201.00, image: 'https://www.marquesvendaspmg.shop/images/creme-de-avela-grande-com-cacau-food-service-nutella-3-kilo-pmg-atacadista.jpg' },
+  { id: 1574, name: 'CREME DE AVELÃ PEQUENO COM CACAU NUTELLA 650 G', category: 'Ofertas', price: 44.80, image: 'https://www.marquesvendaspmg.shop/images/creme-de-avela-pequeno-com-cacau-nutella-650-g-pmg-atacadista.jpg' },
+  { id: 642, name: 'CREME DE LEITE PASTEURIZADO BIOCREME 1,01 KILO', category: 'Ofertas', price: 29.99, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-pasteurizado-biocreme-101-kilo-pmg-atacadista.jpg' },
+  { id: 638, name: 'CREME DE LEITE GRANDE LEVE FOOD SERVICE 17% DE GORDURA ITALAC 1,030 KILO (CX 12 UN)', category: 'Ofertas', price: 149.00, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-grande-food-service-italac-1030-kilo-cx-12-un-pmg-atacadista.jpg' },
+  { id: 640, name: 'CREME DE LEITE LEVE 17% DE GORDURA ITALAC 200 G (CX 24 UN)', category: 'Ofertas', price: 78.55, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-italac-200-g-cx-24-un-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
