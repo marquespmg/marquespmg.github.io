@@ -525,39 +525,49 @@ const adjustQuantity = (productId, adjustment) => {
   }
 };
 
-  // ✅ 9. Gerar mensagem do WhatsApp (SEU CÓDIGO ORIGINAL + cupom)
-  const generateWhatsAppMessage = () => {
-    const itemsText = groupedCart.map(product => {
-      const isElegivel = !PRODUTOS_EM_OFERTA.includes(product.id);
-      const precoFinal = getPrecoComDesconto(product.id, product.totalPrice);
-      const precoTexto = precoFinal !== product.totalPrice 
-        ? `R$ ${precoFinal.toFixed(2)} (R$ ${product.totalPrice.toFixed(2)} sem desconto)`
-        : `R$ ${product.totalPrice.toFixed(2)}`;
-      
-      const baseText = `▪ ${product.name} ${!isElegivel ? '[EM OFERTA - SEM DESCONTO]' : ''}`;
-      
-      if (product.isBox && product.boxWeight) {
-        return `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - ${precoTexto}`;
-      } else if (product.weight) {
-        return `${baseText} (${product.quantity}x ${product.weight}KG) - R$ ${product.unitPrice.toFixed(2)}/KG = ${precoTexto}`;
-      }
-      return `${baseText} (${product.quantity}x) - ${precoTexto}`;
-    }).join('\n');
+// ✅ 9. Gerar mensagem do WhatsApp (SIMPLIFICADA e profissional)
+const generateWhatsAppMessage = () => {
+  const itemsText = groupedCart.map(product => {
+    const isElegivel = !PRODUTOS_EM_OFERTA.includes(product.id);
+    const precoFinal = getPrecoComDesconto(product.id, product.totalPrice);
+    
+    // Formatação limpa e profissional
+    let linha = '';
+    
+    if (product.isBox && product.boxWeight) {
+      linha = `▪ ${product.quantity}x ${product.name} - R$ ${precoFinal.toFixed(2)}`;
+    } else if (product.weight) {
+      linha = `▪ ${product.quantity}x ${product.name} - R$ ${precoFinal.toFixed(2)}`;
+    } else {
+      linha = `▪ ${product.quantity}x ${product.name} - R$ ${precoFinal.toFixed(2)}`;
+    }
+    
+    return linha;
+  }).join('\n');
 
-    // ✅ Adiciona informação do cupom na mensagem
-    const cupomText = cupomAplicado && dadosDesconto
-      ? `\n🏷️ *CUPOM:* ${cupomAplicado.nome} (${cupomAplicado.desconto}% distribuído)\n💰 *Desconto total: R$ ${dadosDesconto.totalDesconto.toFixed(2)}*\n`
-      : '';
+  // Informação do cupom (só se aplicado)
+  const cupomText = cupomAplicado && dadosDesconto
+    ? `\n🏷️ CUPOM: ${cupomAplicado.nome} (${cupomAplicado.desconto}% OFF) - R$ ${dadosDesconto.totalDesconto.toFixed(2)}`
+    : '';
 
-    return `https://wa.me/5511913572902?text=${encodeURIComponent(
-      `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
-      `💰 *SUBTOTAL: R$ ${totalSemDesconto.toFixed(2)}*${cupomText}\n` +
-      `💰 *TOTAL COM DESCONTO: R$ ${totalComDesconto.toFixed(2)}*\n` +
-      `💳 *Pagamento:* ${paymentMethod}\n` +
-      `📦 *Entrega:* Frete grátis\n\n` +
-      `Por favor, confirme meu pedido!`
-    )}`;
-  };
+  // Montagem limpa da mensagem
+  const mensagem = 
+    `🛒 *NOVO PEDIDO* 🛒\n\n` +
+    `${itemsText}\n\n` +
+    `📦 *Entrega:* Frete grátis\n` +
+    `💳 *Pagamento:* ${paymentMethod}\n\n` +
+    `💰 *Subtotal:* R$ ${totalSemDesconto.toFixed(2)}${cupomText}\n` +
+    `🔹 *TOTAL:* R$ ${totalComDesconto.toFixed(2)}\n\n` +
+    `✅ Por favor, confirme meu pedido!`;
+
+  // Remove acentos e caracteres especiais que podem causar problemas
+  const mensagemLimpa = mensagem
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+    .replace(/[®™©]/g, ''); // Remove símbolos especiais
+
+  return `https://wa.me/5511913572902?text=${encodeURIComponent(mensagemLimpa)}`;
+};
 
   // ✅ 10. JSX (SEU CÓDIGO ORIGINAL 100% + seção de cupom NOVA com cores ajustadas)
   return (
@@ -1433,3 +1443,4 @@ const adjustQuantity = (productId, adjustment) => {
 };
 
 export default Cart;
+
