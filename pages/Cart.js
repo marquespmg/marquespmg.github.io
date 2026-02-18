@@ -525,42 +525,48 @@ const adjustQuantity = (productId, adjustment) => {
   }
 };
 
-// ✅ 9. Gerar mensagem do WhatsApp (SIMPLIFICADA e profissional)
+// ✅ 9. Gerar mensagem do WhatsApp (FORMATO PERFEITO - com emoji no topo)
 const generateWhatsAppMessage = () => {
   const itemsText = groupedCart.map(product => {
     const isElegivel = !PRODUTOS_EM_OFERTA.includes(product.id);
     const precoFinal = getPrecoComDesconto(product.id, product.totalPrice);
+    const quantidade = product.quantity;
+    const valorUnitario = precoFinal / quantidade;
     
-    // Formatação limpa e profissional
+    // Formato: Quantidade | Produto | Valor Unitário | Valor Total
     let linha = '';
     
     if (product.isBox && product.boxWeight) {
-      linha = `▪ ${product.quantity}x ${product.name} - R$ ${precoFinal.toFixed(2)}`;
+      // Ex: 2 | Requeijão (CX 2KG) | R$ 18,50 | R$ 37,00
+      linha = `${quantidade} | ${product.name} | R$ ${valorUnitario.toFixed(2)} | R$ ${precoFinal.toFixed(2)}`;
     } else if (product.weight) {
-      linha = `▪ ${product.quantity}x ${product.name} - R$ ${precoFinal.toFixed(2)}`;
+      // Ex: 3 | Picanha (KG) | R$ 45,90 | R$ 137,70
+      linha = `${quantidade} | ${product.name} | R$ ${valorUnitario.toFixed(2)} | R$ ${precoFinal.toFixed(2)}`;
     } else {
-      linha = `▪ ${product.quantity}x ${product.name} - R$ ${precoFinal.toFixed(2)}`;
+      // Ex: 2 | Requeijão | R$ 8,50 | R$ 17,00
+      linha = `${quantidade} | ${product.name} | R$ ${valorUnitario.toFixed(2)} | R$ ${precoFinal.toFixed(2)}`;
     }
     
     return linha;
   }).join('\n');
 
-  // Informação do cupom (só se aplicado)
+  // Informação do cupom (se aplicado)
   const cupomText = cupomAplicado && dadosDesconto
-    ? `\n🏷️ CUPOM: ${cupomAplicado.nome} (${cupomAplicado.desconto}% OFF) - R$ ${dadosDesconto.totalDesconto.toFixed(2)}`
+    ? `\nCUPOM: ${cupomAplicado.nome} (${cupomAplicado.desconto}% OFF) - R$ ${dadosDesconto.totalDesconto.toFixed(2)}`
     : '';
 
-  // Montagem limpa da mensagem
+  // Montagem da mensagem com emoji no topo
   const mensagem = 
-    `🛒 *NOVO PEDIDO* 🛒\n\n` +
+    `🛒 PEDIDO\n\n` +  // ← Emoji do carrinho no topo
+    `QTD | PRODUTO | VL UNIT | VL TOTAL\n` +
     `${itemsText}\n\n` +
-    `📦 *Entrega:* Frete grátis\n` +
-    `💳 *Pagamento:* ${paymentMethod}\n\n` +
-    `💰 *Subtotal:* R$ ${totalSemDesconto.toFixed(2)}${cupomText}\n` +
-    `🔹 *TOTAL:* R$ ${totalComDesconto.toFixed(2)}\n\n` +
-    `✅ Por favor, confirme meu pedido!`;
+    `FORMA PAG: ${paymentMethod}\n` +
+    `ENTREGA: Frete gratis\n` +
+    `${cupomText}\n` +
+    `TOTAL: R$ ${totalComDesconto.toFixed(2)}\n\n` +
+    `Por favor, confirme meu pedido!`;
 
-  // Remove acentos e caracteres especiais que podem causar problemas
+  // Remove acentos e caracteres especiais (mantém o emoji)
   const mensagemLimpa = mensagem
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '') // Remove acentos
@@ -1443,4 +1449,5 @@ const generateWhatsAppMessage = () => {
 };
 
 export default Cart;
+
 
