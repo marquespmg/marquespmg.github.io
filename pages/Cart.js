@@ -1130,7 +1130,7 @@ const generateWhatsAppMessage = () => {
         {cupomAplicado ? (
           <>🏷️ Cupom aplicado: <span style={{ color: '#27AE60' }}>{cupomAplicado.nome}</span></>
         ) : (
-          '🏷️ Tem um cupom de desconto?'
+          '🏷️ Aplicar Desconto'
         )}
       </span>
       {cupomAplicado && (
@@ -1435,6 +1435,7 @@ const generateWhatsAppMessage = () => {
 };
 
 export default Cart;
+
 
 
 
