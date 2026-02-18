@@ -525,54 +525,40 @@ const adjustQuantity = (productId, adjustment) => {
   }
 };
 
-// ✅ 9. Gerar mensagem do WhatsApp (FORMATO PERFEITO - com emoji no topo)
+// ✅ 9. Gerar mensagem do WhatsApp (MANTENDO SEU FORMATO ORIGINAL)
 const generateWhatsAppMessage = () => {
   const itemsText = groupedCart.map(product => {
     const isElegivel = !PRODUTOS_EM_OFERTA.includes(product.id);
     const precoFinal = getPrecoComDesconto(product.id, product.totalPrice);
-    const quantidade = product.quantity;
-    const valorUnitario = precoFinal / quantidade;
+    const temDesconto = precoFinal !== product.totalPrice;
     
-    // Formato: Quantidade | Produto | Valor Unitário | Valor Total
-    let linha = '';
+    // Usa o preço com desconto se tiver, senão usa o original
+    const precoExibir = temDesconto ? precoFinal : product.totalPrice;
+    
+    const baseText = `▪ ${product.name}`;
     
     if (product.isBox && product.boxWeight) {
-      // Ex: 2 | Requeijão (CX 2KG) | R$ 18,50 | R$ 37,00
-      linha = `${quantidade} | ${product.name} | R$ ${valorUnitario.toFixed(2)} | R$ ${precoFinal.toFixed(2)}`;
+      return `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${precoExibir.toFixed(2)}`;
     } else if (product.weight) {
-      // Ex: 3 | Picanha (KG) | R$ 45,90 | R$ 137,70
-      linha = `${quantidade} | ${product.name} | R$ ${valorUnitario.toFixed(2)} | R$ ${precoFinal.toFixed(2)}`;
-    } else {
-      // Ex: 2 | Requeijão | R$ 8,50 | R$ 17,00
-      linha = `${quantidade} | ${product.name} | R$ ${valorUnitario.toFixed(2)} | R$ ${precoFinal.toFixed(2)}`;
+      return `${baseText} (${product.quantity}x ${product.weight}KG) - R$ ${product.unitPrice.toFixed(2)}/KG = R$ ${precoExibir.toFixed(2)}`;
     }
-    
-    return linha;
+    return `${baseText} (${product.quantity}x) - R$ ${precoExibir.toFixed(2)}`;
   }).join('\n');
 
-  // Informação do cupom (se aplicado)
+  // ✅ Linha do cupom (só aparece se tiver cupom aplicado)
   const cupomText = cupomAplicado && dadosDesconto
-    ? `\nCUPOM: ${cupomAplicado.nome} (${cupomAplicado.desconto}% OFF) - R$ ${dadosDesconto.totalDesconto.toFixed(2)}`
+    ? `\n🏷️ *CUPOM:* ${cupomAplicado.nome} (${cupomAplicado.desconto}% OFF) - R$ ${dadosDesconto.totalDesconto.toFixed(2)}\n`
     : '';
 
-  // Montagem da mensagem com emoji no topo
-  const mensagem = 
-    `🛒 PEDIDO\n\n` +  // ← Emoji do carrinho no topo
-    `QTD | PRODUTO | VL UNIT | VL TOTAL\n` +
-    `${itemsText}\n\n` +
-    `FORMA PAG: ${paymentMethod}\n` +
-    `ENTREGA: Frete gratis\n` +
-    `${cupomText}\n` +
-    `TOTAL: R$ ${totalComDesconto.toFixed(2)}\n\n` +
-    `Por favor, confirme meu pedido!`;
-
-  // Remove acentos e caracteres especiais (mantém o emoji)
-  const mensagemLimpa = mensagem
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '') // Remove acentos
-    .replace(/[®™©]/g, ''); // Remove símbolos especiais
-
-  return `https://wa.me/5511913572902?text=${encodeURIComponent(mensagemLimpa)}`;
+  // ✅ MANTIVE EXATAMENTE SEU FORMATO ORIGINAL
+  return `https://wa.me/5511913572902?text=${encodeURIComponent(
+    `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
+    `💰 *TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
+    `${cupomText}` + // ← Cupom aqui (se existir)
+    `💳 *Pagamento:* ${paymentMethod}\n` +
+    `📦 *Entrega:* Frete grátis\n\n` +
+    `Por favor, confirme meu pedido!`
+  )}`;
 };
 
   // ✅ 10. JSX (SEU CÓDIGO ORIGINAL 100% + seção de cupom NOVA com cores ajustadas)
@@ -1449,5 +1435,6 @@ const generateWhatsAppMessage = () => {
 };
 
 export default Cart;
+
 
 
