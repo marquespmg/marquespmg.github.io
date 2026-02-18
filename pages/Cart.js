@@ -545,16 +545,16 @@ const generateWhatsAppMessage = () => {
     return `${baseText} (${product.quantity}x) - R$ ${precoExibir.toFixed(2)}`;
   }).join('\n');
 
-  // ✅ Linha do cupom (só aparece se tiver cupom aplicado)
+  // ✅ Linha do cupom (só aparece se tiver cupom aplicado) - SEM VALOR
   const cupomText = cupomAplicado && dadosDesconto
-    ? `\n🏷️ *CUPOM:* ${cupomAplicado.nome} (${cupomAplicado.desconto}% OFF) - R$ ${dadosDesconto.totalDesconto.toFixed(2)}\n`
+    ? `\n🏷️ *Pedido usando cupom ${cupomAplicado.nome}*\n`
     : '';
 
   // ✅ MANTIVE EXATAMENTE SEU FORMATO ORIGINAL
   return `https://wa.me/5511913572902?text=${encodeURIComponent(
     `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
     `💰 *TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
-    `${cupomText}` + // ← Cupom aqui (se existir)
+    `${cupomText}` + // ← Cupom aqui (sem valor)
     `💳 *Pagamento:* ${paymentMethod}\n` +
     `📦 *Entrega:* Frete grátis\n\n` +
     `Por favor, confirme meu pedido!`
@@ -1435,6 +1435,7 @@ const generateWhatsAppMessage = () => {
 };
 
 export default Cart;
+
 
 
 
