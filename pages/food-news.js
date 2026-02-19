@@ -10407,6 +10407,2701 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
       </p>
     </div>
   `
+},
+{
+  "id": 46,
+  "title": "Atacado Sul do Rio de Janeiro | Distribuidora de Alimentos PMG ATACADISTA para Restaurantes e Mercados",
+  "description": "Sou representante da PMG ATACADISTA no Sul do Rio de Janeiro: atacado direto de alimentos, bebidas e food service para restaurantes, mercados e estabelecimentos comerciais. Preço especial!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "sul-do-rio-de-janeiro",
+  "readTime": "4 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado Sul do Rio de Janeiro | Distribuidora PMG para Seu Negócio Crescer</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou qualquer estabelecimento comercial no Sul do Rio de Janeiro</strong>, precisa de um <strong>fornecedor atacadista confiável</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na região, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em toda a região sul fluminense.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA no Sul do Rio de Janeiro?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em toda região</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado Sul do Rio de Janeiro - Distribuidora PMG para restaurantes e mercados" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição no Sul do Rio de Janeiro</p>
+    </section>
+
+    <!-- CIDADES QUE ATENDO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Cidades que Atendemos no Sul do Rio de Janeiro</h2>
+      <p>Como representante regional, atendo pessoalmente estas cidades com <strong>entrega direta e atendimento local</strong>:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Barra do Piraí</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=47#artigo-47" style="color: #095400; font-weight: 600;">Ver atacado em Barra do Piraí →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Barra Mansa</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=48#artigo-48" style="color: #095400; font-weight: 600;">Ver atacado em Barra Mansa →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Itatiaia</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=49#artigo-49" style="color: #095400; font-weight: 600;">Ver atacado em Itatiaia →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Paraty</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=50#artigo-50" style="color: #095400; font-weight: 600;">Ver atacado em Paraty →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Piraí</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=51#artigo-51" style="color: #095400; font-weight: 600;">Ver atacado em Piraí →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Porto Real</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=52#artigo-52" style="color: #095400; font-weight: 600;">Ver atacado em Porto Real →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Resende</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=53#artigo-53" style="color: #095400; font-weight: 600;">Ver atacado em Resende →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Valença</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=54#artigo-54" style="color: #095400; font-weight: 600;">Ver atacado em Valença →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Vassouras</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=55#artigo-55" style="color: #095400; font-weight: 600;">Ver atacado em Vassouras →</a></p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <h4 style="color: #095400; margin: 0 0 8px 0;">🏭 Volta Redonda</h4>
+          <p style="margin: 0; font-size: 0.9rem;"><a href="/food-news?page=56#artigo-56" style="color: #095400; font-weight: 600;">Ver atacado em Volta Redonda →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIAS DE PRODUTOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 O que Oferecemos como Atacadista no Sul do Rio de Janeiro</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Carne seca, linguiças, frango, hambúrgueres premium</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas, molhos, conservas, temperos, grãos</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Refrigerantes, sucos, águas, cervejas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produtos profissionais para restaurantes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens de Comprar na PMG ATACADISTA</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço direto de atacado, sem intermediários</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Entrega Garantida</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entregamos em toda região Sul do Rio de Janeiro</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Pague no ato da entrega</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Tudo que seu negócio precisa em um só lugar</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Representante:</strong> Comprar no atacado reduz seu custo em até 40% comparado ao varejo tradicional.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUEM É -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é Nosso Atacado no Sul do Rio de Janeiro?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🛒</div>
+          <p style="margin: 0; font-weight: 600;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🥐</div>
+          <p style="margin: 0; font-weight: 600;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏨</div>
+          <p style="margin: 0; font-weight: 600;">Hotéis</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏫</div>
+          <p style="margin: 0; font-weight: 600;">Escolas</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏢</div>
+          <p style="margin: 0; font-weight: 600;">Empresas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA CONTATO -->
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Atendimento Personalizado no Sul do Rio de Janeiro</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sou <strong>Marques Antonio, da PMG ATACADISTA</strong> na região. Atendo pessoalmente cada cliente com solução específica para seu negócio.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto do Representante:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- LINK PARA PRODUTOS -->
+    <section style="text-align: center; padding: 12px; background: #f0f8f0; border-radius: 10px; margin-bottom: 12px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">📋 Catálogo Completo PMG 2026</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        +2000 produtos com preço de atacado direto para revenda.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 12px 15px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1 rem;">
+         VER CATÁLOGO COMPLETO →
+      </a>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📚 Destaques da PMG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <a href="/food-news?page=11#artigo-11" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">🥩</div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">Carne Seca Alfama</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Qualidade premium para seu negócio</p>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=30#artigo-30" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 10px;">📍</div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">Atacado em Extrema</h4>
+            <p style="margin: 0; font-size: 0.8rem; color: #666;">Distribuidora local na sua cidade</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave relacionadas:</strong> atacado sul do rio de janeiro, distribuidora alimentos sul fluminense, fornecedor restaurantes sul do rio, atacadista bebidas sul do rio, food service sul fluminense, representante PMG sul do rio, compra atacado restaurante, distribuição alimentos região.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 47,
+  "title": "Atacado em Barra do Piraí RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Barra do Piraí? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "barra-do-pirai",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Barra do Piraí RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou comércio em Barra do Piraí</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Barra do Piraí e região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Barra do Piraí?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Barra do Piraí</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Barra do Piraí RJ - Distribuidora PMG para restaurantes e mercados" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Barra do Piraí</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Barra do Piraí</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Carne seca, linguiças, frango, hambúrgueres premium</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas, molhos, conservas, temperos, grãos</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Refrigerantes, sucos, águas, cervejas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produtos profissionais para restaurantes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Barra do Piraí</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Preço direto de atacado, sem intermediários</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Entrega em Barra do Piraí</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Entregamos direto no seu estabelecimento</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Consulte condições para sua região</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Tudo que seu negócio precisa em um só lugar</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Dica do Representante:</strong> Comprando no atacado em Barra do Piraí você reduz seus custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Barra do Piraí?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🛒</div>
+          <p style="margin: 0; font-weight: 600;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🥐</div>
+          <p style="margin: 0; font-weight: 600;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏨</div>
+          <p style="margin: 0; font-weight: 600;">Hotéis</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏫</div>
+          <p style="margin: 0; font-weight: 600;">Escolas</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 10px;">🏢</div>
+          <p style="margin: 0; font-weight: 600;">Empresas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE BARRA DO PIRAÍ -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Barra do Piraí</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="margin: 0 0 15px 0;">Barra do Piraí é um importante polo comercial do Sul do Rio de Janeiro, com forte presença de comércio varejista e alimentício. A PMG Atacadista está presente na cidade para atender:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 10px;">✅ <strong>Centro comercial</strong> - restaurantes e lanchonetes</li>
+          <li style="margin-bottom: 10px;">✅ <strong>Bairros</strong> - mercados de bairro e padarias</li>
+          <li style="margin-bottom: 10px;">✅ <strong>Distritos industriais</strong> - refeitórios de empresas</li>
+          <li style="margin-bottom: 10px;">✅ <strong>Zona rural</strong> - comércio local e sítios</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 40px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.8rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 25px 0; font-size: 1.2rem;">
+        +2000 produtos com preço de atacado para seu negócio em Barra do Piraí.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO COMPLETO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 20px; font-size: 1rem;">
+        ✆ WhatsApp direto: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div style="background: #f0f8f0; padding: 25px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 15px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 10px 0;">Atendimento em Barra do Piraí</h4>
+          <p style="margin: 0 0 15px 0;">Representante exclusivo na região</p>
+          <p style="font-weight: 600; color: #095400; font-size: 1.2rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1.1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 25px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 15px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 10px 0;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 15px 0;">Entrega rápida em Barra do Piraí</p>
+          <p style="font-weight: 600; color: #095400;">24/48 horas úteis</p>
+          <p style="margin: 5px 0 0 0; font-size: 0.9rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Região Atendida</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 10px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600;">🌎 Atacado Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=48#artigo-48" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 10px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600;">🏭 Barra Mansa</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=11#artigo-11" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 10px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600;">🥩 Carne Seca</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> atacado em barra do piraí, distribuidora barra do piraí, fornecedor restaurantes barra do piraí, atacadista barra do piraí, food service barra do piraí, representante PMG barra do piraí, compra atacado barra do piraí, distribuição alimentos barra do piraí, atacado sul fluminense, atacado em barra do piraí rj.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 48,
+  "title": "Atacado em Barra Mansa RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Barra Mansa? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "barra-mansa",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Barra Mansa RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou comércio em Barra Mansa</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Barra Mansa e região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Barra Mansa?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Barra Mansa</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Barra Mansa RJ - Distribuidora PMG para restaurantes e mercados" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Barra Mansa</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Barra Mansa</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Carne seca, linguiças, frango</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Massas, molhos, conservas, grãos</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Refrigerantes, sucos, águas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Produtos profissionais</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Barra Mansa</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">🚚 Entrega Local</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Em Barra Mansa</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Consulte condições</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.85rem;">+2000 produtos</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">💡 <strong>Dica:</strong> Comprando no atacado em Barra Mansa você reduz custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Barra Mansa?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🥐</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏨</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Hotéis</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏫</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Escolas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏢</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Empresas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE BARRA MANSA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Barra Mansa</h2>
+      
+      <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0 0 12px 0; font-size: 0.95rem;">Barra Mansa é um dos principais polos comerciais e industriais do Sul Fluminense. A PMG Atacadista atende:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Centro</strong> - Restaurantes e lanchonetes</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Bairros</strong> - Mercados e padarias</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Distrito Industrial</strong> - Refeitórios</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Região</strong> - Bocaina e bairros</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Barra Mansa.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Atendimento Local</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">24/48 horas</p>
+          <p style="font-size: 0.85rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Região Atendida</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🌎 Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=47#artigo-47" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra do Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=49#artigo-49" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Itatiaia</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=11#artigo-11" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🥩 Carne Seca</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.8rem; color: #666; line-height: 1.4;">
+        <strong>Palavras-chave:</strong> atacado em barra mansa, distribuidora barra mansa, fornecedor restaurantes barra mansa, atacadista barra mansa, food service barra mansa, representante PMG barra mansa, compra atacado barra mansa, atacado sul fluminense, atacado em barra mansa rj.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 49,
+  "title": "Atacado em Itatiaia RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Itatiaia? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "itatiaia",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Itatiaia RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou comércio em Itatiaia</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Itatiaia e região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Itatiaia?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Itatiaia</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Itatiaia RJ - Distribuidora PMG para restaurantes e mercados" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Itatiaia</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Itatiaia</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Carne seca, linguiças, frango</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Massas, molhos, conservas, grãos</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Refrigerantes, sucos, águas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Produtos profissionais</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Itatiaia</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">🚚 Entrega Local</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Em Itatiaia</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Consulte condições</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.85rem;">+2000 produtos</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">💡 <strong>Dica:</strong> Comprando no atacado em Itatiaia você reduz custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Itatiaia?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🥐</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏨</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Hotéis</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏫</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Escolas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏢</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Empresas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE ITATIAIA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Itatiaia</h2>
+      
+      <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0 0 12px 0; font-size: 0.95rem;">Itatiaia é um importante polo industrial e turístico do Sul Fluminense, com forte presença de comércio e serviços. A PMG Atacadista atende:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Centro</strong> - Restaurantes e lanchonetes</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Penedo</strong> - Comércio turístico e gastronomia</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Distrito Industrial</strong> - Refeitórios de empresas</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Maromba</strong> - Pousadas e restaurantes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Itatiaia.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Atendimento Local</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">2 dias úteis</p>
+          <p style="font-size: 0.85rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Região Atendida</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🌎 Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=47#artigo-47" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra do Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=48#artigo-48" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra Mansa</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=50#artigo-50" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Paraty</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=11#artigo-11" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🥩 Carne Seca</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.8rem; color: #666; line-height: 1.4;">
+        <strong>Palavras-chave:</strong> atacado em itatiaia, distribuidora itatiaia, fornecedor restaurantes itatiaia, atacadista itatiaia, food service itatiaia, representante PMG itatiaia, compra atacado itatiaia, atacado penedo, atacado em itatiaia rj, distribuidora penedo.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 50,
+  "title": "Atacado em Paraty RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Paraty? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "paraty",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Paraty RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria, pousada ou comércio em Paraty</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Paraty, Trindade e toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Paraty?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Paraty</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Paraty RJ - Distribuidora PMG para restaurantes, pousadas e mercados" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Paraty</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Paraty</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Carne seca, linguiças, frango</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Massas, molhos, conservas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Refrigerantes, sucos, águas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para restaurantes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏨</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Para Pousadas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Café da manhã, snacks</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Paraty</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">🚚 Entrega Local</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Paraty e Trindade</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Consulte condições</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.85rem;">+2000 produtos</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">💡 <strong>Dica:</strong> Comprando no atacado em Paraty você reduz custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Paraty?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏨</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Pousadas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🥐</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">⛵</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Bares</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏫</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Escolas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE PARATY -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Paraty</h2>
+      
+      <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0 0 12px 0; font-size: 0.95rem;">Paraty é um dos principais destinos turísticos do Brasil, com centenas de restaurantes, pousadas e bares. A PMG Atacadista atende toda a região:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Centro Histórico</strong> - Restaurantes e bares</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Trindade</strong> - Pousadas e quiosques</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Praia do Sono</strong> - Comércio local</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Paraty Mirim</strong> - Restaurantes e pousadas</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Cunha</strong> - Acesso à serra</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Paraty.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Atendimento Local</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">2 dias úteis</p>
+          <p style="font-size: 0.85rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Região Atendida</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🌎 Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=47#artigo-47" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra do Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=48#artigo-48" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra Mansa</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=49#artigo-49" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Itatiaia</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=51#artigo-51" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=11#artigo-11" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🥩 Carne Seca</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.8rem; color: #666; line-height: 1.4;">
+        <strong>Palavras-chave:</strong> atacado em paraty, distribuidora paraty, fornecedor restaurantes paraty, atacadista paraty, food service paraty, representante PMG paraty, compra atacado paraty, atacado trindade, distribuidora trindade, atacado em paraty rj, fornecedor pousadas paraty.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 51,
+  "title": "Atacado em Piraí RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Piraí? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "pirai",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Piraí RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou comércio em Piraí</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Piraí, Arrozal e toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Piraí?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Piraí</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Piraí RJ - Distribuidora PMG para restaurantes e mercados" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Piraí</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Piraí</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Carne seca, linguiças, frango</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Massas, molhos, conservas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Refrigerantes, sucos, águas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para restaurantes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Piraí</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">🚚 Entrega Local</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Piraí e Arrozal</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Consulte condições</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.85rem;">+2000 produtos</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">💡 <strong>Dica:</strong> Comprando no atacado em Piraí você reduz custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Piraí?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🥐</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏭</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Indústrias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏫</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Escolas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏢</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Empresas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE PIRAÍ -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Piraí</h2>
+      
+      <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0 0 12px 0; font-size: 0.95rem;">Piraí é uma cidade em crescimento no Sul Fluminense, com forte presença industrial e comercial. A PMG Atacadista atende toda a região:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Centro</strong> - Restaurantes e comércio</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Arrozal</strong> - Mercados e padarias</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Distrito Industrial</strong> - Refeitórios</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Santanésia</strong> - Comércio local</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Rialto</strong> - Estabelecimentos comerciais</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Piraí.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Atendimento Local</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">2 dias úteis</p>
+          <p style="font-size: 0.85rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Região Atendida</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🌎 Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=47#artigo-47" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra do Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=48#artigo-48" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra Mansa</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=49#artigo-49" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Itatiaia</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=50#artigo-50" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Paraty</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=52#artigo-52" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Porto Real</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=11#artigo-11" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🥩 Carne Seca</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.8rem; color: #666; line-height: 1.4;">
+        <strong>Palavras-chave:</strong> atacado em piraí, distribuidora piraí, fornecedor restaurantes piraí, atacadista piraí, food service piraí, representante PMG piraí, compra atacado piraí, atacado arrozal, distribuidora arrozal, atacado em piraí rj, fornecedor industrias piraí.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 52,
+  "title": "Atacado em Porto Real RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Porto Real? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "porto-real",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Porto Real RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou comércio em Porto Real</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Porto Real, Bulhões e toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Porto Real?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Porto Real</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Porto Real RJ - Distribuidora PMG para restaurantes, industrias e mercados" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Porto Real</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Porto Real</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Carne seca, linguiças, frango</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Massas, molhos, conservas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Refrigerantes, sucos, águas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para restaurantes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏭</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Refeitórios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para indústrias</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Porto Real</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">🚚 Entrega Local</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Porto Real e Bulhões</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Consulte condições</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.85rem;">+2000 produtos</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">💡 <strong>Dica:</strong> Comprando no atacado em Porto Real você reduz custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Porto Real?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏭</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Indústrias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🥐</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏢</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Empresas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏫</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Escolas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE PORTO REAL -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Porto Real</h2>
+      
+      <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0 0 12px 0; font-size: 0.95rem;">Porto Real é um dos principais polos industriais do Sul Fluminense, com grandes indústrias automotivas e de outros segmentos. A PMG Atacadista atende toda a região:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Centro</strong> - Restaurantes e comércio</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Distrito Industrial</strong> - Refeitórios e cantinas</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Bulhões</strong> - Mercados e padarias</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Freitas Soares</strong> - Comércio local</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Jardim das Acácias</strong> - Estabelecimentos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Porto Real.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Atendimento Local</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">2 dias úteis</p>
+          <p style="font-size: 0.85rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Região Atendida</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🌎 Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=47#artigo-47" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra do Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=48#artigo-48" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra Mansa</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=49#artigo-49" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Itatiaia</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=50#artigo-50" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Paraty</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=51#artigo-51" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=53#artigo-53" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Resende</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=11#artigo-11" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🥩 Carne Seca</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.8rem; color: #666; line-height: 1.4;">
+        <strong>Palavras-chave:</strong> atacado em porto real, distribuidora porto real, fornecedor restaurantes porto real, atacadista porto real, food service porto real, representante PMG porto real, compra atacado porto real, atacado bulhões, distribuidora industrias porto real, atacado em porto real rj, fornecedor refeitórios porto real.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 53,
+  "title": "Atacado em Resende RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Resende? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "resende",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Resende RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou comércio em Resende</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Resende, Visconde de Mauá e toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Resende?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Resende</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Resende RJ - Distribuidora PMG para restaurantes e mercados" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Resende</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Resende</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Carne seca, linguiças, frango</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Massas, molhos, conservas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Refrigerantes, sucos, águas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para restaurantes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏭</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Refeitórios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para indústrias</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Resende</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">🚚 Entrega Local</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Resende e Mauá</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Consulte condições</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.85rem;">+2000 produtos</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">💡 <strong>Dica:</strong> Comprando no atacado em Resende você reduz custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Resende?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏭</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Indústrias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🥐</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏨</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Pousadas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏫</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Escolas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE RESENDE -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Resende</h2>
+      
+      <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0 0 12px 0; font-size: 0.95rem;">Resende é a maior cidade do Sul Fluminense, com forte polo industrial, comercial e turístico. A PMG Atacadista atende toda a região:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Centro</strong> - Restaurantes e comércio</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Visconde de Mauá</strong> - Pousadas e restaurantes</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Distrito Industrial</strong> - Refeitórios</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Campos Elíseos</strong> - Mercados e padarias</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Engenheiro Passos</strong> - Comércio local</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Serra da Mantiqueira</strong> - Turismo rural</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Resende.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Atendimento Local</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">2 dias úteis</p>
+          <p style="font-size: 0.85rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS - SOMENTE CIDADES -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Cidades da Região</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🌎 Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=47#artigo-47" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra do Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=48#artigo-48" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra Mansa</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=49#artigo-49" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Itatiaia</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=50#artigo-50" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Paraty</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=51#artigo-51" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=52#artigo-52" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Porto Real</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=54#artigo-54" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Valença</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=55#artigo-55" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Vassouras</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=56#artigo-56" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Volta Redonda</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.8rem; color: #666; line-height: 1.4;">
+        <strong>Palavras-chave:</strong> atacado em resende, distribuidora resende, fornecedor restaurantes resende, atacadista resende, food service resende, representante PMG resende, compra atacado resende, atacado visconde de mauá, distribuidora resende rj, atacado em resende rj, fornecedor pousadas resende.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 54,
+  "title": "Atacado em Valença RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Valença? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "valenca",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Valença RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou comércio em Valença</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Valença, Conservatória e toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Valença?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Valença</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Valença RJ - Distribuidora PMG para restaurantes e mercados" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Valença</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Valença</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Carne seca, linguiças, frango</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Massas, molhos, conservas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Refrigerantes, sucos, águas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para restaurantes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Valença</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">🚚 Entrega Local</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Valença e Conservatória</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Consulte condições</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.85rem;">+2000 produtos</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">💡 <strong>Dica:</strong> Comprando no atacado em Valença você reduz custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Valença?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🥐</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏨</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Pousadas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏫</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Escolas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏢</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Empresas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE VALENÇA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Valença</h2>
+      
+      <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0 0 12px 0; font-size: 0.95rem;">Valença é um importante polo comercial e turístico do Sul Fluminense, conhecida por suas fazendas históricas e pelo distrito de Conservatória. A PMG Atacadista atende toda a região:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Centro</strong> - Restaurantes e comércio</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Conservatória</strong> - Pousadas e bares</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Parapeúna</strong> - Comércio local</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Barão de Juparanã</strong> - Mercados e padarias</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Santa Isabel</strong> - Zona rural</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Pentagna</strong> - Estabelecimentos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Valença.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Atendimento Local</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">2 dias úteis</p>
+          <p style="font-size: 0.85rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS - SOMENTE CIDADES -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Cidades da Região</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🌎 Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=47#artigo-47" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra do Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=48#artigo-48" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra Mansa</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=49#artigo-49" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Itatiaia</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=50#artigo-50" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Paraty</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=51#artigo-51" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=52#artigo-52" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Porto Real</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=53#artigo-53" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Resende</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=55#artigo-55" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Vassouras</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=56#artigo-56" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Volta Redonda</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.8rem; color: #666; line-height: 1.4;">
+        <strong>Palavras-chave:</strong> atacado em valença, distribuidora valença, fornecedor restaurantes valença, atacadista valença, food service valença, representante PMG valença, compra atacado valença, atacado conservatória, distribuidora valença rj, atacado em valença rj, fornecedor pousadas conservatória.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 55,
+  "title": "Atacado em Vassouras RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Vassouras? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "vassouras",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Vassouras RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou comércio em Vassouras</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Vassouras, Andrade Pinto e toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Vassouras?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Vassouras</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Vassouras RJ - Distribuidora PMG para restaurantes, pousadas e mercados" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Vassouras</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Vassouras</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Carne seca, linguiças, frango</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Massas, molhos, conservas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Refrigerantes, sucos, águas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para restaurantes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏨</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Para Pousadas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Café da manhã</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Vassouras</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">🚚 Entrega Local</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Vassouras e Andrade Pinto</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Consulte condições</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.85rem;">+2000 produtos</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">💡 <strong>Dica:</strong> Comprando no atacado em Vassouras você reduz custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Vassouras?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏨</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Pousadas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🥐</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏫</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Escolas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏢</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Empresas</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE VASSOURAS -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Vassouras</h2>
+      
+      <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0 0 12px 0; font-size: 0.95rem;">Vassouras é uma das cidades históricas mais importantes do Sul Fluminense, conhecida como "A Princesinha do Vale" por sua arquitetura preservada e forte tradição cultural. A PMG Atacadista atende toda a região:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Centro Histórico</strong> - Restaurantes e bares</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Andrade Pinto</strong> - Mercados e padarias</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Massambará</strong> - Pousadas rurais</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Barão de Vassouras</strong> - Comércio local</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Santa Alice</strong> - Estabelecimentos</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Fazendas Históricas</strong> - Eventos e turismo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Vassouras.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Atendimento Local</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">2 dias úteis</p>
+          <p style="font-size: 0.85rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS - SOMENTE CIDADES -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Cidades da Região</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🌎 Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=47#artigo-47" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra do Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=48#artigo-48" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra Mansa</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=49#artigo-49" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Itatiaia</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=50#artigo-50" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Paraty</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=51#artigo-51" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=52#artigo-52" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Porto Real</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=53#artigo-53" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Resende</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=54#artigo-54" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Valença</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=56#artigo-56" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Volta Redonda</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.8rem; color: #666; line-height: 1.4;">
+        <strong>Palavras-chave:</strong> atacado em vassouras, distribuidora vassouras, fornecedor restaurantes vassouras, atacadista vassouras, food service vassouras, representante PMG vassouras, compra atacado vassouras, atacado andrade pinto, distribuidora vassouras rj, atacado em vassouras rj, fornecedor pousadas vassouras, atacado centro histórico vassouras.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 56,
+  "title": "Atacado em Volta Redonda RJ | Distribuidora de Alimentos PMG para Restaurantes e Mercados",
+  "description": "Precisa de atacado em Volta Redonda? Representante PMG na região: alimentos, bebidas e food service com entrega direta. Preço de atacado para seu negócio!",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado",
+  "section": "volta-redonda",
+  "readTime": "3 min de leitura",
+  "date": "2026-02-19",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <!-- INTRODUÇÃO COM FOCO EM SEO -->
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 Atacado em Volta Redonda RJ | Distribuidora PMG para Seu Negócio</h1>
+      <p>Se você tem <strong>restaurante, mercado, padaria ou comércio em Volta Redonda</strong>, precisa de um <strong>fornecedor atacadista de confiança</strong>. Como <strong>representante oficial da PMG Atacadista</strong> na cidade, ofereço <strong>preços diretos de fábrica</strong> com entrega rápida em Volta Redonda, Retiro e toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Escolher a PMG ATACADISTA em Volta Redonda?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens em catálogo</strong> • <strong>Preço atacado direto</strong> • <strong>Entrega em Volta Redonda</strong> • <strong>Atendimento personalizado</strong> • <strong>Frete grátis</strong></p>
+      </div>
+    </section>
+
+    <!-- IMAGEM PRINCIPAL -->
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Atacado em Volta Redonda RJ - Distribuidora PMG para restaurantes, industrias e mercados" style="width: 100%; max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Representante PMG - Atacado e distribuição em Volta Redonda</p>
+    </section>
+
+    <!-- PRODUTOS DESTAQUE - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos em Destaque para Volta Redonda</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Carnes e Frios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Carne seca, linguiças, frango</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥫</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Mercearia</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Massas, molhos, conservas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Bebidas</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Refrigerantes, sucos, águas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Food Service</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para restaurantes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; word-wrap: break-word;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">🏭</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Refeitórios</h4>
+          <p style="margin: 0; font-size: 0.85rem;">Para indústrias</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VANTAGENS LOCAIS - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Vantagens do Atacado PMG em Volta Redonda</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">💰 Economia Real</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Preço direto de atacado</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">🚚 Entrega Local</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Todos os bairros</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📦 Frete grátis</h4>
+            <p style="margin: 0; font-size: 0.85rem;">Consulte condições</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">📋 Mix Completo</h4>
+            <p style="margin: 0; font-size: 0.85rem;">+2000 produtos</p>
+          </div>
+        </div>
+        
+        <div style="background: #e8f5e8; padding: 12px; border-radius: 6px; margin-top: 15px;">
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">💡 <strong>Dica:</strong> Comprando no atacado em Volta Redonda você reduz custos em até 40%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÚBLICO ALVO - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏢 Para Quem é o Atacado PMG em Volta Redonda?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🍽️</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Restaurantes</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏭</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Indústrias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Mercados</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🥐</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Padarias</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏨</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Hotéis</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏫</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Escolas</p>
+        </div>
+        
+        <div style="text-align: center; background: #f8f8f8; padding: 10px; border-radius: 8px;">
+          <div style="font-size: 2rem; margin-bottom: 5px;">🏥</div>
+          <p style="margin: 0; font-weight: 600; font-size: 0.9rem;">Hospitais</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES SOBRE VOLTA REDONDA -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Sobre Volta Redonda</h2>
+      
+      <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+        <p style="margin: 0 0 12px 0; font-size: 0.95rem;">Volta Redonda é a maior cidade do Sul Fluminense e um dos principais polos industriais do estado, sede da CSN e de centenas de outras indústrias. A PMG Atacadista atende toda a região:</p>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Centro</strong> - Restaurantes e comércio</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Retiro</strong> - Polo comercial</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Aterrado</strong> - Bares e restaurantes</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Vila Santa Cecília</strong> - Mercados</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Conforto</strong> - Padarias e comércio</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>São Geraldo</strong> - Estabelecimentos</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Jardim Amália</strong> - Comércio local</li>
+          <li style="margin-bottom: 8px; font-size: 0.9rem;">✅ <strong>Voldac</strong> - Restaurantes industriais</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Volta Redonda.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+
+    <!-- CONTATO LOCAL - GRID RESPONSIVO -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Atendimento Local</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">Marques Antonio</p>
+          <p style="font-weight: 600; font-size: 1rem;">(11) 91357-2902</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 10px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0; font-size: 1.1rem;">Prazo de Entrega</h4>
+          <p style="margin: 0 0 8px 0; font-size: 0.9rem;">2 dias úteis</p>
+          <p style="font-size: 0.85rem;">Frete grátis*</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS RELACIONADOS - TODAS AS CIDADES -->
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Cidades da Região</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <a href="/food-news?page=46#artigo-46" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🌎 Sul do RJ</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=47#artigo-47" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra do Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=48#artigo-48" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Barra Mansa</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=49#artigo-49" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Itatiaia</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=50#artigo-50" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Paraty</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=51#artigo-51" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Piraí</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=52#artigo-52" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Porto Real</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=53#artigo-53" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Resende</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=54#artigo-54" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Valença</span>
+          </div>
+        </a>
+        
+        <a href="/food-news?page=55#artigo-55" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 8px; border-radius: 6px; text-align: center;">
+            <span style="color: #095400; font-weight: 600; font-size: 0.85rem;">🏭 Vassouras</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- SEO FOOTER -->
+    <div style="background: #f5f5f5; padding: 12px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.8rem; color: #666; line-height: 1.4;">
+        <strong>Palavras-chave:</strong> atacado em volta redonda, distribuidora volta redonda, fornecedor restaurantes volta redonda, atacadista volta redonda, food service volta redonda, representante PMG volta redonda, compra atacado volta redonda, atacado retiro, distribuidora volta redonda rj, atacado em volta redonda rj, fornecedor industrias volta redonda, atacado csn.
+      </p>
+    </div>
+  `
 }
   ];
 
