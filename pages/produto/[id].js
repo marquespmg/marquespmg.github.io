@@ -375,8 +375,8 @@ const products = [
   { id: 390, name: 'MILHO QUERO 170 G (CX 24 LT)', category: 'Conservas/Enlatados', price: 104.08, image: 'https://www.marquesvendaspmg.shop/images/milho-quero-170-g-cx-24-lt-pmg-atacadista.jpg' },
   { id: 391, name: 'MOLHO ALHO CEPÊRA 1,01 L', category: 'Conservas/Enlatados', price: 12.64, image: 'https://www.marquesvendaspmg.shop/images/molho-alho-cepera-101-l-pmg-atacadista.jpg' },
   { id: 392, name: 'MOLHO BACONNAISE JUNIOR 1,1 KILO', category: 'Conservas/Enlatados', price: 48.62, image: 'https://www.marquesvendaspmg.shop/images/molho-baconnaise-junior-11-kilo-pmg-atacadista.jpg' },
-  { id: 393, name: 'MOLHO BARBECUE CEPÊRA 1,01 KILO', category: 'Conservas/Enlatados', price: 38.36, image: 'https://www.marquesvendaspmg.shop/images/molho-barbecue-cepera-101-kilo-pmg-atacadista.jpg' },
-  { id: 394, name: 'MOLHO BARBECUE CEPÊRA 3,5 KILO', category: 'Conservas/Enlatados', price: 14.89, image: 'https://www.marquesvendaspmg.shop/images/molho-barbecue-cepera-35-kilo-pmg-atacadista.jpg' },
+  { id: 393, name: 'MOLHO BARBECUE CEPÊRA 1,01 KILO', category: 'Conservas/Enlatados', price: 14.89, image: 'https://www.marquesvendaspmg.shop/images/molho-barbecue-cepera-101-kilo-pmg-atacadista.jpg' },
+  { id: 394, name: 'MOLHO BARBECUE CEPÊRA 3,5 KILO', category: 'Conservas/Enlatados', price: 38.89, image: 'https://www.marquesvendaspmg.shop/images/molho-barbecue-cepera-35-kilo-pmg-atacadista.jpg' },
   { id: 395, name: 'MOLHO BARBECUE EKMA 3,5 KILO', category: 'Conservas/Enlatados', price: 29.57, image: 'https://www.marquesvendaspmg.shop/images/molho-barbecue-ekma-35-kilo-pmg-atacadista.jpg' },
   { id: 396, name: 'MOLHO BARBECUE HEINZ 2 KILO', category: 'Conservas/Enlatados', price: 46.74, image: 'https://www.marquesvendaspmg.shop/images/molho-barbecue-heinz-2-kilo-pmg-atacadista.jpg' },
   { id: 397, name: 'MOLHO BARBECUE SACHÊ CEPÊRA 7 G (CX 175 UN)', category: 'Conservas/Enlatados', price: 28.68, image: 'https://www.marquesvendaspmg.shop/images/molho-barbecue-sache-cepera-7-g-cx-175-un-pmg-atacadista.jpg' },
@@ -3650,6 +3650,7 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
+
 
 
 
