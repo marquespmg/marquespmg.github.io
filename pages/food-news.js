@@ -13102,6 +13102,1123 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
       </p>
     </div>
   `
+},
+{
+  "id": 57,
+  "title": "Fornecedor de Pizza em SP: Guia Completo para Pizzarias Profissionais da PMG Atacadista",
+  "description": "Descubra o melhor fornecedor de pizza em SP para sua pizzaria profissional. A PMG Atacadista oferece produtos de qualidade, preço de atacado e entrega rápida em São Paulo, incluindo Zona Sul, Leste e Norte.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Pizzaria",
+  "section": "food-news",
+  "readTime": "7 min de leitura",
+  "date": "2026-02-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🍕 Fornecedor de Pizza em SP: Guia Completo para Pizzarias Profissionais da PMG Atacadista</h1>
+      <p>Para o sucesso de qualquer pizzaria, a escolha do <strong>fornecedor de pizza em SP</strong> é crucial. A <strong>PMG Atacadista</strong>, com a representação da <strong>Marques Vendas PMG</strong>, oferece um catálogo completo de ingredientes e insumos de alta qualidade para o seu negócio. Se você busca um <strong>fornecedor de pizza profissional</strong> que entenda suas necessidades, este guia é para você.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Destaque PMG: Qualidade e Rentabilidade para sua Pizzaria</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens</strong> • <strong>Preço de atacado</strong> • <strong>Entrega rápida em SP (Zona Sul, Leste, Norte)</strong> • <strong>Atendimento especializado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG Atacadista - Fornecedor de Pizza em SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">PMG Atacadista: Seu parceiro ideal como fornecedor de pizza em SP.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Por que a PMG Atacadista é o Melhor Fornecedor de Pizza em SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> se destaca como <strong>distribuidora de alimentos para pizzaria em SP</strong> por diversos motivos. Nossa experiência de quase 30 anos no mercado de food service nos permite entender as demandas específicas do seu negócio, oferecendo não apenas produtos, mas soluções completas.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4>🚚 Logística Otimizada em São Paulo</h4>
+            <p>Frota própria refrigerada garante a integridade dos seus produtos, com foco em <strong>atacado zona sul sp</strong>, <strong>zona leste sp</strong> e <strong>zona norte sp</strong>.</p>
+          </div>
+          <div>
+            <h4>💰 Preços Competitivos de Atacado</h4>
+            <p>Oferecemos as melhores condições para você que busca <strong>fornecedor pizza atacado</strong>, otimizando sua margem de lucro.</p>
+          </div>
+          <div>
+            <h4>✅ Qualidade Garantida</h4>
+            <p>Trabalhamos apenas com as melhores marcas e produtos, essenciais para uma <strong>pizza profissional</strong> de excelência.</p>
+          </div>
+          <div>
+            <h4>🤝 Atendimento Personalizado Marques Vendas PMG</h4>
+            <p>Como seu representante, garanto suporte e soluções sob medida para sua pizzaria.</p>
+          </div>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Com a PMG Atacadista, você tem um parceiro estratégico para o crescimento da sua pizzaria em São Paulo.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Essenciais para sua Pizzaria: Catálogo PMG Atacadista</h2>
+      <p>Nosso catálogo é vasto e inclui tudo o que você precisa para produzir pizzas de alta qualidade. Somos o <strong>fornecedor de alimentos sp</strong> ideal para sua cozinha:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Farinhas Especiais</h4>
+            <p>Para massas perfeitas, incluindo opções para <strong>pizza profissional</strong>.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Leite" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Laticínios e Queijos</h4>
+            <p>Muçarelas, provolones e outros queijos para sua <strong>pizza</strong>.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Conservas%2FEnlatados" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🍅</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Tomates e Conservas</h4>
+            <p>Molhos de tomate, azeitonas e outros complementos.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Su%C3%ADno" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥓</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Embutidos e Frios</h4>
+            <p>Calabresas, presuntos e outros recheios para <strong>pizza</strong>.</p>
+          </div>
+        </a>
+      </div>
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>E muito mais:</strong> <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">Explore nosso catálogo completo</a> para todos os seus insumos de pizzaria.
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Pronto para Abastecer sua Pizzaria?</h2>
+      <p>Não perca tempo! A <strong>PMG Atacadista</strong> tem tudo o que você precisa para a sua pizzaria em São Paulo. Clique abaixo e confira nosso catálogo completo de produtos com preços de atacado. Faça seu pedido online de forma rápida e segura!</p>
+      
+      <p style="text-align: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank" class="cta-button">Ver Catálogo de Produtos PMG Atacadista</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Sua Pizzaria Merece o Melhor Fornecedor em SP!</h2>
+      <p>Escolher o <strong>fornecedor de pizza em SP</strong> certo faz toda a diferença no seu negócio. Com a <strong>PMG Atacadista</strong>, você garante qualidade, variedade e um parceiro que entende suas necessidades. Invista na excelência e veja sua pizzaria crescer!</p>
+    </section>
+	
+	    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Pizzarias.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+  `
+},
+{
+  "id": 58,
+  "title": "Fornecedor de Pizza Profissional e Atacado em SP: PMG Atacadista para sua Pizzaria",
+  "description": "Encontre o melhor fornecedor de pizza profissional e atacado em SP. A PMG Atacadista oferece insumos de alta qualidade para pizzarias que buscam excelência e preço competitivo.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Pizzaria",
+  "section": "food-news",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": false,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">⭐ Fornecedor de Pizza Profissional e Atacado em SP: A Escolha Certa para sua Pizzaria</h1>
+      <p>Para pizzarias que buscam excelência e rentabilidade, encontrar um <strong>fornecedor de pizza profissional</strong> e com opções de <strong>atacado em SP</strong> é fundamental. A <strong>PMG Atacadista</strong>, através da <strong>Marques Vendas PMG</strong>, é a parceira ideal para garantir que sua cozinha tenha acesso aos melhores ingredientes com as melhores condições.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">📈 Maximize seu Lucro com a PMG Atacadista</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Ingredientes de alta qualidade</strong> • <strong>Preços competitivos no atacado</strong> • <strong>Logística eficiente em toda SP</strong> • <strong>Foco no seu sucesso</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG Atacadista - Fornecedor de Pizza Profissional e Atacado em SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Qualidade e economia para sua pizzaria com a PMG Atacadista.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Por Que Escolher um Fornecedor de Pizza Profissional?</h2>
+      <p>Um <strong>fornecedor de pizza profissional</strong> não oferece apenas produtos, mas uma parceria estratégica. Com a <strong>PMG Atacadista</strong>, você garante:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4>Consistentência na Qualidade</h4>
+            <p>Ingredientes padronizados que garantem o sabor e a textura da sua pizza em todas as fornadas.</p>
+          </div>
+          <div>
+            <h4>Variedade de Produtos</h4>
+            <p>Acesso a um catálogo completo, desde farinhas especiais até queijos e embutidos de primeira linha.</p>
+          </div>
+          <div>
+            <h4>Otimização de Custos</h4>
+            <p>Comprar no <strong>atacado</strong> reduz o custo por unidade, aumentando sua margem de lucro.</p>
+          </div>
+          <div>
+            <h4>Entrega Confiável</h4>
+            <p>Logística própria e refrigerada para que seus produtos cheguem frescos e no prazo.</p>
+          </div>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>A PMG Atacadista entende as necessidades de uma pizzaria profissional e oferece soluções completas.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💰 Vantagens de Comprar Pizza no Atacado em SP com a PMG</h2>
+      <p>Comprar seus insumos de <strong>pizza no atacado em SP</strong> com a <strong>PMG Atacadista</strong> traz benefícios significativos para o seu negócio:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">💲</div>
+          <h4>Melhores Preços</h4>
+          <p>Condições exclusivas para compras em volume, otimizando seu investimento.</p>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📦</div>
+          <h4>Estoque Sempre Cheio</h4>
+          <p>Evite rupturas e garanta a produção contínua da sua pizzaria.</p>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4>Agilidade na Entrega</h4>
+          <p>Receba seus produtos rapidamente em toda a região de São Paulo.</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>Não perca tempo!</strong> <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">Confira nosso catálogo e faça seu pedido de atacado hoje mesmo.</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Abasteça sua Pizzaria com a PMG Atacadista!</h2>
+      <p>Se você busca um <strong>fornecedor de pizza profissional</strong> e com os melhores preços de <strong>atacado em SP</strong>, a <strong>PMG Atacadista</strong> é a sua melhor opção. Clique abaixo e explore nosso catálogo completo de produtos para pizzarias. Faça seu pedido online de forma rápida e segura!</p>
+      
+      <p style="text-align: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank" class="cta-button">Ver Catálogo de Produtos PMG Atacadista</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Sua Pizzaria Merece o Melhor!</h2>
+      <p>Invista na qualidade e na eficiência. Escolha a <strong>PMG Atacadista</strong> como seu <strong>fornecedor de pizza profissional e atacado em SP</strong> e garanta o sucesso do seu negócio.</p>
+    </section>
+	
+		    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Pizzarias.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+  `
+},
+{
+  "id": 59,
+  "title": "Fornecedores de Ingredientes para Pizzaria e Distribuidora de Alimentos em SP: PMG Atacadista",
+  "description": "Descubra os melhores fornecedores de ingredientes para pizzaria e distribuidora de alimentos em SP. A PMG Atacadista oferece um catálogo completo para sua pizzaria com qualidade e preço de atacado.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Pizzaria",
+  "section": "food-news",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": false,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🍕 Fornecedores de Ingredientes para Pizzaria e Distribuidora de Alimentos em SP: PMG Atacadista</h1>
+      <p>Para o sucesso de uma pizzaria, a qualidade dos ingredientes é inegociável. Encontrar os melhores <strong>fornecedores de ingredientes para pizzaria</strong> e uma <strong>distribuidora de alimentos em SP</strong> confiável é o primeiro passo. A <strong>PMG Atacadista</strong>, com a representação da <strong>Marques Vendas PMG</strong>, oferece um vasto catálogo para atender todas as suas necessidades.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ PMG Atacadista: Seu Parceiro Completo em Ingredientes para Pizzaria</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Variedade de produtos</strong> • <strong>Qualidade garantida</strong> • <strong>Preços de atacado</strong> • <strong>Entrega em toda SP</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG Atacadista - Fornecedores de Ingredientes para Pizzaria em SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">PMG Atacadista: A melhor escolha para fornecedores de ingredientes para pizzaria em SP.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚚 A Importância de uma Distribuidora de Alimentos em SP para sua Pizzaria</h2>
+      <p>Uma boa <strong>distribuidora de alimentos em SP</strong> é a espinha dorsal de qualquer pizzaria de sucesso. Com a <strong>PMG Atacadista</strong>, você garante não apenas a entrega, mas a qualidade e a frescura dos seus ingredientes:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4>Logística Refrigerada</h4>
+            <p>Nossa frota própria assegura que produtos perecíveis cheguem em perfeito estado.</p>
+          </div>
+          <div>
+            <h4>Abrangência em SP</h4>
+            <p>Atendemos todas as regiões, incluindo <strong>zona sul</strong>, <strong>zona leste</strong> e <strong>zona norte</strong> de São Paulo.</p>
+          </div>
+          <div>
+            <h4>Confiabilidade</h4>
+            <p>Entregas pontuais para que sua produção nunca pare.</p>
+          </div>
+          <div>
+            <h4>Suporte ao Cliente</h4>
+            <p>Atendimento dedicado para resolver suas demandas rapidamente.</p>
+          </div>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Conte com a PMG Atacadista para ser sua distribuidora de alimentos em SP de confiança.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧀 Ingredientes Essenciais que Todo Fornecedor de Pizzaria Deve Ter</h2>
+      <p>Como um dos principais <strong>fornecedores de ingredientes para pizzaria</strong>, a PMG Atacadista oferece uma seleção completa:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Farinhas Especiais</h4>
+            <p>Para massas leves e crocantes.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Leite" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Queijos de Qualidade</h4>
+            <p>Muçarelas, provolones e parmesão.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Conservas%2FEnlatados" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🍅</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Molhos e Conservas</h4>
+            <p>Tomate pelado, azeitonas, palmito.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Su%C3%ADno" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥓</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Embutidos Frescos</h4>
+            <p>Calabresa, bacon, presunto.</p>
+          </div>
+        </a>
+      </div>
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>Encontre tudo para sua pizzaria:</strong> <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">Visite nosso catálogo completo de produtos.</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Abasteça sua Pizzaria com os Melhores Ingredientes!</h2>
+      <p>Não perca tempo procurando por múltiplos <strong>fornecedores de ingredientes para pizzaria</strong>. A <strong>PMG Atacadista</strong> é a sua <strong>distribuidora de alimentos em SP</strong> completa. Clique abaixo e confira nosso catálogo para fazer seu pedido online de forma rápida e segura!</p>
+      
+      <p style="text-align: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank" class="cta-button">Ver Catálogo de Produtos PMG Atacadista</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Sua Pizzaria no Topo com a PMG Atacadista!</h2>
+      <p>Escolher os <strong>fornecedores de ingredientes para pizzaria</strong> e a <strong>distribuidora de alimentos em SP</strong> certos é fundamental. Com a <strong>PMG Atacadista</strong>, você garante qualidade, variedade e um parceiro que entende suas necessidades. Invista na excelência e veja sua pizzaria crescer!</p>
+    </section>
+
+	    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Pizzarias.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+  `
+},
+{
+  "id": 60,
+  "title": "Atacado Zona Sul SP: Seu Guia Completo para Comprar na PMG Atacadista",
+  "description": "Descubra o melhor atacado na Zona Sul de SP para seu negócio. A PMG Atacadista oferece produtos de food service com preço de atacado e entrega rápida em toda a região.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado Regional",
+  "section": "food-news",
+  "readTime": "7 min de leitura",
+  "date": "2026-02-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🛒 Atacado Zona Sul SP: A PMG Atacadista é Sua Melhor Opção para Food Service</h1>
+      <p>Se o seu negócio está localizado na <strong>Zona Sul de SP</strong> e você busca um parceiro confiável para <strong>compras no atacado</strong>, a <strong>PMG Atacadista</strong> é a solução ideal. Com um vasto catálogo de produtos de food service e logística especializada, garantimos o abastecimento do seu estabelecimento com qualidade e eficiência.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Destaque PMG: Atendimento Exclusivo para a Zona Sul de SP</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Entrega rápida</strong> • <strong>Preços competitivos</strong> • <strong>Variedade de produtos</strong> • <strong>Foco no seu sucesso na Zona Sul</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG Atacadista - Atacado Zona Sul SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">PMG Atacadista: Seu parceiro de atacado na Zona Sul de SP.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Por que Escolher a PMG Atacadista para seu Atacado na Zona Sul de SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> se destaca como o principal <strong>atacadista na Zona Sul de SP</strong> por oferecer uma combinação imbatível de qualidade, preço e serviço. Entendemos as particularidades da região e adaptamos nossa operação para melhor atendê-lo.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4>🚚 Logística Otimizada na Zona Sul</h4>
+            <p>Frota própria e rotas inteligentes garantem entregas rápidas e eficientes em toda a <strong>Zona Sul de SP</strong>.</p>
+          </div>
+          <div>
+            <h4>💰 Preços de Atacado Competitivos</h4>
+            <p>As melhores condições para você que busca otimizar custos e aumentar a rentabilidade do seu negócio.</p>
+          </div>
+          <div>
+            <h4>✅ Produtos de Alta Qualidade</h4>
+            <p>Trabalhamos com as principais marcas do mercado, garantindo a excelência dos seus pratos e produtos.</p>
+          </div>
+          <div>
+            <h4>🤝 Atendimento Personalizado</h4>
+            <p>A <strong>Marques Vendas PMG</strong> oferece suporte dedicado para suas necessidades específicas na <strong>Zona Sul</strong>.</p>
+          </div>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Com a PMG Atacadista, seu negócio na Zona Sul de SP tem um parceiro forte e confiável.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Essenciais para Food Service na Zona Sul de SP</h2>
+      <p>Nosso catálogo abrange todas as necessidades do seu estabelecimento, desde restaurantes e pizzarias até mercados e padarias na <strong>Zona Sul de SP</strong>:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Farináceos</h4>
+            <p>Farinhas, massas e produtos para panificação.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+            <p>Refrigerantes, sucos, águas e cervejas.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Carnes e Derivados</h4>
+            <p>Cortes bovinos, suínos e aves.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Leite" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Laticínios e Frios</h4>
+            <p>Queijos, iogurtes e embutidos.</p>
+          </div>
+        </a>
+      </div>
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>Confira nosso catálogo completo:</strong> <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">Tudo para seu atacado na Zona Sul de SP.</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Abasteça seu Negócio na Zona Sul de SP com a PMG Atacadista!</h2>
+      <p>Não perca tempo! Se você busca o melhor <strong>atacado na Zona Sul de SP</strong>, a <strong>PMG Atacadista</strong> é a sua escolha. Clique abaixo e confira nosso catálogo completo de produtos com preços de atacado. Faça seu pedido online de forma rápida e segura!</p>
+      
+      <p style="text-align: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank" class="cta-button">Ver Catálogo de Produtos PMG Atacadista</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Seu Sucesso Começa com o Melhor Atacado na Zona Sul de SP!</h2>
+      <p>Escolher o parceiro certo para o seu <strong>atacado na Zona Sul de SP</strong> é fundamental. Com a <strong>PMG Atacadista</strong>, você garante qualidade, variedade e um serviço de entrega eficiente. Invista na excelência e veja seu negócio prosperar!</p>
+    </section>
+
+	    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Pizzarias.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+  `
+},
+{
+  "id": 61,
+  "title": "Atacadista Zona Sul SP e Distribuidora de Alimentos: PMG Atacadista para seu Negócio",
+  "description": "Encontre o melhor atacadista na Zona Sul de SP e distribuidora de alimentos para seu negócio. A PMG Atacadista oferece produtos de food service com entrega rápida na região.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado Regional",
+  "section": "food-news",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": false,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">⭐ Atacadista Zona Sul SP e Distribuidora de Alimentos: A PMG Atacadista é Sua Parceira</h1>
+      <p>Para negócios na <strong>Zona Sul de SP</strong>, encontrar um <strong>atacadista</strong> e uma <strong>distribuidora de alimentos</strong> que realmente atendam às suas necessidades é um diferencial competitivo. A <strong>PMG Atacadista</strong>, representada pela <strong>Marques Vendas PMG</strong>, oferece soluções completas para restaurantes, pizzarias, bares e mercados da região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Destaque PMG: Qualidade e Eficiência na Zona Sul de SP</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Produtos de alta qualidade</strong> • <strong>Entrega rápida e refrigerada</strong> • <strong>Preços de atacado</strong> • <strong>Atendimento especializado na Zona Sul</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG Atacadista - Atacadista Zona Sul SP e Distribuidora de Alimentos" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">PMG Atacadista: Seu atacadista e distribuidora de alimentos na Zona Sul de SP.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Por Que Escolher a PMG como seu Atacadista e Distribuidora de Alimentos na Zona Sul de SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> se consolida como a melhor opção de <strong>atacadista na Zona Sul de SP</strong> e <strong>distribuidora de alimentos</strong> por oferecer um serviço diferenciado, focado nas necessidades do seu negócio:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4>Logística Localizada</h4>
+            <p>Nossa frota otimizada garante entregas rápidas e seguras em toda a <strong>Zona Sul de SP</strong>.</p>
+          </div>
+          <div>
+            <h4>Variedade e Qualidade</h4>
+            <p>Um catálogo com mais de 2.000 itens das melhores marcas, garantindo a excelência dos seus produtos.</p>
+          </div>
+          <div>
+            <h4>Preços Competitivos</h4>
+            <p>Condições especiais para compras em volume, otimizando seus custos e aumentando sua lucratividade.</p>
+          </div>
+          <div>
+            <h4>Atendimento Personalizado</h4>
+            <p>A <strong>Marques Vendas PMG</strong> oferece suporte dedicado para suas demandas específicas na região.</p>
+          </div>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>A PMG Atacadista é a parceira ideal para o sucesso do seu negócio na Zona Sul de SP.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Essenciais para seu Negócio na Zona Sul de SP</h2>
+      <p>Como uma <strong>distribuidora de alimentos em SP</strong> completa, a PMG Atacadista oferece uma vasta gama de produtos para atender a todos os segmentos de food service na <strong>Zona Sul</strong>:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Farináceos</h4>
+            <p>Farinhas, massas e produtos para panificação.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+            <p>Refrigerantes, sucos, águas e cervejas.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Carnes e Derivados</h4>
+            <p>Cortes bovinos, suínos e aves.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Leite" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Laticínios e Frios</h4>
+            <p>Queijos, iogurtes e embutidos.</p>
+          </div>
+        </a>
+      </div>
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>Confira nosso catálogo completo:</strong> <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">Tudo para seu negócio na Zona Sul de SP.</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Abasteça seu Negócio na Zona Sul de SP com a PMG Atacadista!</h2>
+      <p>Não perca tempo! Se você busca o melhor <strong>atacadista na Zona Sul de SP</strong> e uma <strong>distribuidora de alimentos</strong> confiável, a <strong>PMG Atacadista</strong> é a sua escolha. Clique abaixo e confira nosso catálogo completo de produtos com preços de atacado. Faça seu pedido online de forma rápida e segura!</p>
+      
+      <p style="text-align: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank" class="cta-button">Ver Catálogo de Produtos PMG Atacadista</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Seu Sucesso Começa com o Melhor Atacadista e Distribuidora na Zona Sul de SP!</h2>
+      <p>Escolher o parceiro certo para o seu <strong>atacado na Zona Sul de SP</strong> é fundamental. Com a <strong>PMG Atacadista</strong>, você garante qualidade, variedade e um serviço de entrega eficiente. Invista na excelência e veja seu negócio prosperar!</p>
+    </section>
+
+	    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Pizzarias.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+  `
+},
+{
+  "id": 62,
+  "title": "Atacado São Paulo Zona Sul: Sua Distribuidora de Alimentos PMG Atacadista",
+  "description": "Encontre o melhor atacado em São Paulo Zona Sul e distribuidora de alimentos para seu negócio. A PMG Atacadista oferece produtos de food service com entrega rápida na região.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Atacado Regional",
+  "section": "food-news",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": false,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🛒 Atacado São Paulo Zona Sul: A PMG Atacadista é Sua Distribuidora de Alimentos Ideal</h1>
+      <p>Para empreendedores que buscam um <strong>atacado em São Paulo Zona Sul</strong> com variedade e qualidade, a <strong>PMG Atacadista</strong> se apresenta como a <strong>distribuidora de alimentos em SP Zona Sul</strong> mais completa. Com a representação da <strong>Marques Vendas PMG</strong>, garantimos o abastecimento do seu negócio com os melhores produtos e um serviço de entrega eficiente.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Destaque PMG: Soluções Completas para o Atacado na Zona Sul de SP</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Catálogo com +2000 itens</strong> • <strong>Preços de atacado</strong> • <strong>Entrega rápida e refrigerada</strong> • <strong>Atendimento personalizado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG Atacadista - Atacado São Paulo Zona Sul e Distribuidora de Alimentos" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">PMG Atacadista: Seu parceiro de atacado e distribuidora de alimentos na Zona Sul de SP.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Por Que a PMG Atacadista é a Melhor Distribuidora de Alimentos em SP Zona Sul?</h2>
+      <p>Escolher a <strong>PMG Atacadista</strong> como seu parceiro de <strong>atacado em São Paulo Zona Sul</strong> significa contar com uma <strong>distribuidora de alimentos em SP Zona Sul</strong> que entende e atende às suas necessidades específicas:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4>Logística Especializada</h4>
+            <p>Frota própria e rotas otimizadas para garantir a entrega rápida e segura dos seus produtos na <strong>Zona Sul</strong>.</p>
+          </div>
+          <div>
+            <h4>Preços Competitivos</h4>
+            <p>As melhores condições de <strong>atacado</strong> para que seu negócio tenha mais lucratividade.</p>
+          </div>
+          <div>
+            <h4>Qualidade Assegurada</h4>
+            <p>Trabalhamos com as principais marcas, garantindo a excelência dos produtos que você oferece aos seus clientes.</p>
+          </div>
+          <div>
+            <h4>Variedade de Produtos</h4>
+            <p>Um catálogo completo para abastecer restaurantes, pizzarias, bares, mercados e outros estabelecimentos.</p>
+          </div>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>A PMG Atacadista é a solução completa para seu atacado em São Paulo Zona Sul.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Essenciais para seu Negócio na Zona Sul de SP</h2>
+      <p>Como uma <strong>distribuidora de alimentos em SP Zona Sul</strong> de referência, a PMG Atacadista oferece uma vasta gama de produtos para atender a todos os segmentos de food service na <strong>Zona Sul</strong>:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Farináceos</h4>
+            <p>Farinhas, massas e produtos para panificação.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+            <p>Refrigerantes, sucos, águas e cervejas.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Carnes e Derivados</h4>
+            <p>Cortes bovinos, suínos e aves.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Leite" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Laticínios e Frios</h4>
+            <p>Queijos, iogurtes e embutidos.</p>
+          </div>
+        </a>
+      </div>
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>Confira nosso catálogo completo:</strong> <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">Tudo para seu atacado em São Paulo Zona Sul.</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Abasteça seu Negócio na Zona Sul de SP com a PMG Atacadista!</h2>
+      <p>Não perca tempo! Se você busca o melhor <strong>atacado em São Paulo Zona Sul</strong> e uma <strong>distribuidora de alimentos em SP Zona Sul</strong> confiável, a <strong>PMG Atacadista</strong> é a sua escolha. Clique abaixo e confira nosso catálogo completo de produtos com preços de atacado. Faça seu pedido online de forma rápida e segura!</p>
+      
+      <p style="text-align: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank" class="cta-button">Ver Catálogo de Produtos PMG Atacadista</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Seu Sucesso Começa com o Melhor Atacado em São Paulo Zona Sul!</h2>
+      <p>Escolher o parceiro certo para o seu <strong>atacado em São Paulo Zona Sul</strong> é fundamental. Com a <strong>PMG Atacadista</strong>, você garante qualidade, variedade e um serviço de entrega eficiente. Invista na excelência e veja seu negócio prosperar!</p>
+    </section>
+
+	    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para Pizzarias.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+  `
+},
+{
+  "id": 63,
+  "title": "Distribuidora de Alimentos SP: PMG Atacadista, Sua Parceira de Food Service em São Paulo",
+  "description": "Encontre a melhor distribuidora de alimentos em SP para seu negócio. A PMG Atacadista oferece produtos de food service com preço de atacado e entrega rápida em toda São Paulo.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Food Service",
+  "section": "food-news",
+  "readTime": "7 min de leitura",
+  "date": "2026-02-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🚚 Distribuidora de Alimentos SP: PMG Atacadista, Sua Parceira Estratégica em Food Service</h1>
+      <p>Para o sucesso de qualquer negócio no setor de food service em São Paulo, contar com uma <strong>distribuidora de alimentos SP</strong> confiável e eficiente é fundamental. A <strong>PMG Atacadista</strong>, com a representação da <strong>Marques Vendas PMG</strong>, oferece um serviço completo de distribuição de alimentos e bebidas, garantindo qualidade, variedade e agilidade para o seu estabelecimento.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Destaque PMG: Soluções Completas para o seu Negócio em SP</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 itens no catálogo</strong> • <strong>Preços de atacado</strong> • <strong>Entrega rápida em toda SP</strong> • <strong>Atendimento especializado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG Atacadista - Distribuidora de Alimentos SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">PMG Atacadista: A distribuidora de alimentos em SP que seu negócio precisa.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⭐ Por que a PMG Atacadista é a Melhor Distribuidora de Alimentos em SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> se destaca como a principal <strong>distribuidora de alimentos em SP</strong> por oferecer um conjunto de vantagens que fazem a diferença no dia a dia do seu negócio:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4>Logística Abrangente em SP</h4>
+            <p>Frota própria refrigerada garante a integridade dos seus produtos, com entregas em toda São Paulo (Capital, Interior e Litoral).</p>
+          </div>
+          <div>
+            <h4>💰 Preços Competitivos de Atacado</h4>
+            <p>Oferecemos as melhores condições para você que busca otimizar custos e aumentar a rentabilidade do seu negócio.</p>
+          </div>
+          <div>
+            <h4>✅ Qualidade e Variedade</h4>
+            <p>Um catálogo com mais de 2.000 itens das melhores marcas, garantindo a excelência dos seus produtos.</p>
+          </div>
+          <div>
+            <h4>🤝 Atendimento Personalizado Marques Vendas PMG</h4>
+            <p>Como seu representante, garanto suporte e soluções sob medida para suas necessidades.</p>
+          </div>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>Com a PMG Atacadista, você tem um parceiro estratégico para o crescimento do seu negócio em São Paulo.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Essenciais para Food Service: Catálogo PMG Atacadista</h2>
+      <p>Nosso catálogo abrange todas as necessidades do seu estabelecimento, desde restaurantes e pizzarias até mercados e padarias em toda a região de São Paulo:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Farináceos</h4>
+            <p>Farinhas, massas e produtos para panificação.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+            <p>Refrigerantes, sucos, águas e cervejas.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Carnes e Derivados</h4>
+            <p>Cortes bovinos, suínos e aves.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Leite" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Laticínios e Frios</h4>
+            <p>Queijos, iogurtes e embutidos.</p>
+          </div>
+        </a>
+      </div>
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>Confira nosso catálogo completo:</strong> <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">Tudo para seu negócio em São Paulo.</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Abasteça seu Negócio em SP com a PMG Atacadista!</h2>
+      <p>Não perca tempo! Se você busca a melhor <strong>distribuidora de alimentos em SP</strong>, a <strong>PMG Atacadista</strong> é a sua escolha. Clique abaixo e confira nosso catálogo completo de produtos com preços de atacado. Faça seu pedido online de forma rápida e segura!</p>
+      
+      <p style="text-align: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank" class="cta-button">Ver Catálogo de Produtos PMG Atacadista</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Seu Sucesso Começa com a Melhor Distribuidora de Alimentos em SP!</h2>
+      <p>Escolher o parceiro certo para a sua <strong>distribuidora de alimentos em SP</strong> é fundamental. Com a <strong>PMG Atacadista</strong>, você garante qualidade, variedade e um serviço de entrega eficiente. Invista na excelência e veja seu negócio prosperar!</p>
+    </section>
+
+	    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para o seu Comercio.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+  `
+},
+{
+  "id": 64,
+  "title": "Distribuidora de Alimentos Atacado SP e Fornecedor de Alimentos: PMG Atacadista",
+  "description": "Encontre a melhor distribuidora de alimentos atacado SP e fornecedor de alimentos para seu negócio. A PMG Atacadista oferece produtos de food service com entrega rápida em toda São Paulo.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Food Service",
+  "section": "food-news",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": false,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">📦 Distribuidora de Alimentos Atacado SP e Fornecedor de Alimentos: PMG Atacadista</h1>
+      <p>Para negócios que buscam otimizar custos e garantir o abastecimento com produtos de qualidade, a <strong>PMG Atacadista</strong> se destaca como a principal <strong>distribuidora de alimentos atacado SP</strong> e um confiável <strong>fornecedor de alimentos SP</strong>. Com a representação da <strong>Marques Vendas PMG</strong>, oferecemos soluções completas para o seu estabelecimento.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Destaque PMG: Economia e Qualidade para seu Atacado em SP</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Preços de atacado imbatíveis</strong> • <strong>Variedade de produtos</strong> • <strong>Entrega rápida em toda SP</strong> • <strong>Parceria de sucesso</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG Atacadista - Distribuidora de Alimentos Atacado SP e Fornecedor de Alimentos" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">PMG Atacadista: Sua melhor opção como distribuidora de alimentos atacado SP.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Por Que Escolher a PMG como sua Distribuidora de Alimentos Atacado SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> é a <strong>distribuidora de alimentos atacado SP</strong> ideal para o seu negócio, oferecendo benefícios que vão além do preço:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4>Preços Competitivos</h4>
+            <p>Condições especiais para compras em grande volume, maximizando sua margem de lucro.</p>
+          </div>
+          <div>
+            <h4>Logística Eficiente</h4>
+            <p>Frota própria e entregas programadas para todo o estado de São Paulo.</p>
+          </div>
+          <div>
+            <h4>Qualidade Garantida</h4>
+            <p>Trabalhamos com as melhores marcas, assegurando a excelência dos produtos que você oferece.</p>
+          </div>
+          <div>
+            <h4>Variedade de Produtos</h4>
+            <p>Um catálogo completo para atender a todas as necessidades do seu food service.</p>
+          </div>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>A PMG Atacadista é a solução completa para seu atacado de alimentos em SP.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🤝 PMG Atacadista: Seu Fornecedor de Alimentos SP de Confiança</h2>
+      <p>Como um <strong>fornecedor de alimentos SP</strong> de referência, a PMG Atacadista entende a importância de ter um parceiro que ofereça não apenas produtos, mas também segurança e agilidade. Conte conosco para:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📈</div>
+          <h4>Crescimento do seu Negócio</h4>
+          <p>Produtos que impulsionam a qualidade e a satisfação dos seus clientes.</p>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4>Agilidade no Abastecimento</h4>
+          <p>Entregas rápidas para que você nunca fique sem estoque.</p>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">✅</div>
+          <h4>Confiabilidade</h4>
+          <p>Um parceiro com quase 30 anos de experiência no mercado.</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>Não hesite!</strong> <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">Conheça nosso catálogo e torne-se um cliente PMG Atacadista.</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Abasteça seu Negócio em SP com a PMG Atacadista!</h2>
+      <p>Se você busca a melhor <strong>distribuidora de alimentos atacado SP</strong> e um <strong>fornecedor de alimentos SP</strong> de confiança, a <strong>PMG Atacadista</strong> é a sua escolha. Clique abaixo e confira nosso catálogo completo de produtos com preços de atacado. Faça seu pedido online de forma rápida e segura!</p>
+      
+      <p style="text-align: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank" class="cta-button">Ver Catálogo de Produtos PMG Atacadista</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Seu Sucesso Começa com a Melhor Distribuidora de Alimentos Atacado SP!</h2>
+      <p>Escolher o parceiro certo para a sua <strong>distribuidora de alimentos atacado SP</strong> é fundamental. Com a <strong>PMG Atacadista</strong>, você garante qualidade, variedade e um serviço de entrega eficiente. Invista na excelência e veja seu negócio prosperar!</p>
+    </section>
+
+	    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para o seu Comercio.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+  `
+},
+{
+  "id": 65,
+  "title": "Distribuidora de Alimentos Food Service e São Paulo SP: PMG Atacadista",
+  "description": "Encontre a melhor distribuidora de alimentos food service em São Paulo SP. A PMG Atacadista oferece produtos de food service com entrega rápida em toda a região.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Food Service",
+  "section": "food-news",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": false,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🚚 Distribuidora de Alimentos Food Service e São Paulo SP: PMG Atacadista</h1>
+      <p>Para o setor de <strong>food service em São Paulo SP</strong>, a escolha da <strong>distribuidora de alimentos</strong> é um fator crítico para o sucesso. A <strong>PMG Atacadista</strong>, com a representação da <strong>Marques Vendas PMG</strong>, é a parceira ideal, oferecendo um catálogo completo e logística eficiente para atender às demandas de restaurantes, pizzarias, bares e outros estabelecimentos.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Destaque PMG: Soluções Completas para o Food Service em SP</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Variedade de produtos</strong> • <strong>Qualidade garantida</strong> • <strong>Entrega rápida em toda São Paulo</strong> • <strong>Atendimento especializado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="PMG Atacadista - Distribuidora de Alimentos Food Service e São Paulo SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">PMG Atacadista: Sua distribuidora de alimentos food service em São Paulo SP.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Por Que a PMG Atacadista é a Melhor Distribuidora de Alimentos Food Service em São Paulo SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> se destaca como a principal <strong>distribuidora de alimentos food service em São Paulo SP</strong> por oferecer um serviço diferenciado, focado nas necessidades do seu negócio:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4>Logística Especializada</h4>
+            <p>Frota própria e rotas otimizadas para garantir a entrega rápida e segura dos seus produtos em toda <strong>São Paulo SP</strong>.</p>
+          </div>
+          <div>
+            <h4>Variedade e Qualidade</h4>
+            <p>Um catálogo com mais de 2.000 itens das melhores marcas, garantindo a excelência dos seus produtos.</p>
+          </div>
+          <div>
+            <h4>Preços Competitivos</h4>
+            <p>Condições especiais para compras em volume, otimizando seus custos e aumentando sua lucratividade.</p>
+          </div>
+          <div>
+            <h4>Atendimento Personalizado</h4>
+            <p>A <strong>Marques Vendas PMG</strong> oferece suporte dedicado para suas demandas específicas.</p>
+          </div>
+        </div>
+        <div style="background: #e8f5e8; padding: 15px; border-radius: 6px; margin-top: 20px;">
+          <p style="margin: 0; font-weight: 600;">💡 <strong>A PMG Atacadista é a solução completa para seu food service em São Paulo SP.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Produtos Essenciais para Food Service em São Paulo SP</h2>
+      <p>Como uma <strong>distribuidora de alimentos em São Paulo SP</strong> de referência, a PMG Atacadista oferece uma vasta gama de produtos para atender a todos os segmentos de food service:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Farináceos</h4>
+            <p>Farinhas, massas e produtos para panificação.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+            <p>Refrigerantes, sucos, águas e cervejas.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Carnes e Derivados</h4>
+            <p>Cortes bovinos, suínos e aves.</p>
+          </div>
+        </a>
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Leite" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform=\'translateY(-5px)\'" onmouseout="this.style.transform=\'translateY(0)\'">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Laticínios e Frios</h4>
+            <p>Queijos, iogurtes e embutidos.</p>
+          </div>
+        </a>
+      </div>
+      <p style="text-align: center; margin-top: 10px;">
+        <strong>Confira nosso catálogo completo:</strong> <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">Tudo para seu food service em São Paulo SP.</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Abasteça seu Negócio em São Paulo SP com a PMG Atacadista!</h2>
+      <p>Não perca tempo! Se você busca a melhor <strong>distribuidora de alimentos food service em São Paulo SP</strong>, a <strong>PMG Atacadista</strong> é a sua escolha. Clique abaixo e confira nosso catálogo completo de produtos com preços de atacado. Faça seu pedido online de forma rápida e segura!</p>
+      
+      <p style="text-align: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" target="_blank" class="cta-button">Ver Catálogo de Produtos PMG Atacadista</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚀 Seu Sucesso Começa com a Melhor Distribuidora de Alimentos Food Service em São Paulo SP!</h2>
+      <p>Escolher o parceiro certo para a sua <strong>distribuidora de alimentos food service em São Paulo SP</strong> é fundamental. Com a <strong>PMG Atacadista</strong>, você garante qualidade, variedade e um serviço de entrega eficiente. Invista na excelência e veja seu negócio prosperar!</p>
+    </section>
+
+	    <!-- CHAMADA PARA AÇÃO PRINCIPAL - PRODUTOS -->
+    <section style="text-align: center; padding: 30px 20px; background: linear-gradient(135deg, #095400 0%, #0a6b00 100%); border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 12px 0; font-size: 1.5rem;">🛒 Faça seu Pedido Agora!</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1rem;">
+        +2000 produtos com preço de atacado para o seu Comercio.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="display: inline-block; background: white; color: #095400; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+         ⭐ VER CATÁLOGO ⭐
+      </a>
+      
+      <p style="color: white; margin-top: 15px; font-size: 0.9rem;">
+        ✆ WhatsApp: <strong>(11) 91357-2902</strong>
+      </p>
+    </section>
+  `
 }
   ];
 
