@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabaseClient';
 import { produtosArray } from './produtos'; // ← Nome corrigido!
 
 // ✅ NOVO: Array com IDs dos produtos em oferta (substitua pelos IDs reais)
-const PRODUTOS_EM_OFERTA = [891, 711, 904, 1607, 896, 1571, 1574, 642, 638, 640]; // IDs dos produtos que NÃO devem receber desconto
+const PRODUTOS_EM_OFERTA = [922, 879, 391, 393, 394, 397, 407, 411, 414, 420, 425, 441, 446, 1132, 1231, 1240, 1243, 1299, 1340, 1341, 1344, 1349, 1503, 1515]; // IDs dos produtos que NÃO devem receber desconto
 
 // ✅ NOVO: Configuração dos cupons
 const CUPONS = {
@@ -1435,6 +1435,7 @@ const generateWhatsAppMessage = () => {
 };
 
 export default Cart;
+
 
 
 
