@@ -304,7 +304,6 @@ const products = [
   { id: 319, name: 'VINHO NACIONAL TINTO SUAVE COUNTRY WINE 750 ML', category: 'Bebidas', price: 13.87, image: 'https://www.marquesvendaspmg.shop/images/vinho-nacional-tinto-suave-country-wine-750-ml-pmg-atacadista.jpg' },
   { id: 320, name: 'VINHO NACIONAL TINTO SUAVE RANDON 4,6 L (CX 2 GL)', category: 'Bebidas', price: 102.13, image: 'https://www.marquesvendaspmg.shop/images/vinho-nacional-tinto-suave-randon-46-l-cx-2-gl-pmg-atacadista.jpg' },
   { id: 321, name: 'VINHO NACIONAL TINTO SUAVE SANTOMÉ 750 ML', category: 'Bebidas', price: 11.66, image: 'https://www.marquesvendaspmg.shop/images/vinho-nacional-tinto-suave-santome-750-ml-pmg-atacadista.jpg' },
-  { id: 322, name: 'VINHO PEQUENO CHILENO TINTO MEIO SECO CABERNET SAUVIGNON RESERVADO SANTA HELENA 375 ML', category: 'Bebidas', price: 18.78, image: 'https://www.marquesvendaspmg.shop/images/vinho-pequeno-chileno-tinto-meio-seco-cabernet-sauvignon-reservado-santa-helena-375-ml-pmg-atacadista.jpg' },
   { id: 323, name: 'VINHO PEQUENO PORTUGUÊS TINTO SECO PERIQUITA 375 ML', category: 'Bebidas', price: 33.74, image: 'https://www.marquesvendaspmg.shop/images/vinho-pequeno-portugues-tinto-seco-periquita-375-ml-pmg-atacadista.jpg' },
   { id: 324, name: 'VINHO PORTUGUÊS TINTO SECO CASAL GARCIA 750 ML', category: 'Bebidas', price: 41.52, image: 'https://www.marquesvendaspmg.shop/images/vinho-portugues-tinto-seco-casal-garcia-750-ml-pmg-atacadista.jpg' },
   { id: 325, name: 'VINHO PORTUGUÊS TINTO SECO PERIQUITA 750 ML', category: 'Bebidas', price: 52.76, image: 'https://www.marquesvendaspmg.shop/images/vinho-portugues-tinto-seco-periquita-750-ml-pmg-atacadista.jpg' },
@@ -3650,6 +3649,7 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
+
 
 
 
