@@ -14219,6 +14219,2174 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
       </p>
     </section>
   `
+},
+{
+  "id": 66,
+  "title": "CATÁLOGO PMG ATACADISTA | Acesse Nossos Produtos com Preços em Menos de 2 Minutos",
+  "description": "Acesse o catálogo completo da PMG ATACADISTA com +2000 itens. Cadastro rápido em menos de 2 minutos. Veja preços, marcas e faça seu pedido online com o representante Marques.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Catálogo",
+  "section": "pmg-atacadista",
+  "readTime": "4 min de leitura",
+  "date": "2026-02-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">📋 CATÁLOGO PMG ATACADISTA: +2000 Produtos com Preço de Atacado</h1>
+      <p>Você busca o <strong>catálogo PMG Atacadista</strong> para conferir preços e produtos? Aqui você encontra tudo! Sou <strong>Marques Antonio, representante oficial da PMG</strong>, e vou te mostrar como acessar nosso <strong>catálogo completo com mais de 2000 itens</strong> em menos de 2 minutos. Descubra por que somos a <strong>distribuidora preferida de pizzarias, restaurantes e mercados em São Paulo</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">📱 Acesso Rápido ao Catálogo</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Cadastre-se em menos de 2 minutos</strong> • <strong>+2000 produtos</strong> • <strong>Preços atualizados</strong> • <strong>Pedido online</strong> • <strong>Entrega em SP, Sul de MG e Sul do RJ</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Catálogo PMG Atacadista - Mais de 2000 produtos para seu negócio" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Catálogo PMG Atacadista: variedade e preços competitivos</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🔍 Como Acessar o Catálogo PMG Atacadista?</h2>
+      <p>Disponibilizamos um <strong>catálogo online completo e atualizado</strong> para facilitar sua compra. Diferente de catálogos em PDF que ficam desatualizados, nosso sistema mostra <strong>preços em tempo real e disponibilidade de estoque</strong>.</p>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h4 style="color: #095400; margin: 0 0 15px 0;">📌 Passo a Passo para Acessar:</h4>
+        <ol style="margin: 0; padding-left: 20px;">
+          <li style="margin-bottom: 10px;"><strong>Clique no botão "ACESSAR CATÁLOGO"</strong> abaixo</li>
+          <li style="margin-bottom: 10px;"><strong>Faça seu cadastro rápido</strong> (menos de 2 minutos)</li>
+          <li style="margin-bottom: 10px;"><strong>Navegue por categorias</strong> ou use a busca</li>
+          <li style="margin-bottom: 10px;"><strong>Veja preços exclusivos</strong> para atacado</li>
+          <li style="margin-bottom: 10px;"><strong>Adicione ao carrinho</strong> e finalize seu pedido</li>
+        </ol>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 O Que Você Encontra no Catálogo PMG?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Farin%C3%A1ceos" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🌾</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Farináceos</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Farinhas, féculas, misturas</p>
+          </div>
+        </a>
+        
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥩</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Derivados de Bovino</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Carnes, hambúrgueres</p>
+          </div>
+        </a>
+        
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Latic%C3%ADnios" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🧀</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Laticínios</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Queijos, manteigas, requeijões</p>
+          </div>
+        </a>
+        
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="text-decoration: none; color: inherit;">
+          <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 10px;">🥤</div>
+            <h4 style="color: #095400; margin: 0 0 8px 0;">Bebidas</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Refrigerantes, sucos, cervejas</p>
+          </div>
+        </a>
+      </div>
+      
+      <p style="text-align: center; margin-top: 10px;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400; font-weight: 600;">👉 Confira todas as 20+ categorias no catálogo completo</a>
+      </p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💰 Vantagens de Comprar pelo Catálogo Online</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px; margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">💵 Preços Visíveis</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Todos os preços aparecem após cadastro</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🔄 Estoque em Tempo Real</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Saiba o que tem disponível antes de pedir</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🏷️ Marcas Premium</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Vigor, Swift, Qualitá, Grano, e muitas outras</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Histórico de Pedidos</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Facilidade para reabastecer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Dúvidas sobre o Catálogo?</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Fale direto comigo, <strong>Marques Antonio</strong>, representante PMG. Tiro suas dúvidas e ajudo a encontrar os produtos ideais.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse o Catálogo PMG Agora Mesmo</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        <strong>Cadastro rápido em menos de 2 minutos!</strong> Veja todos os produtos, preços e faça seu pedido online.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      <p style="color: #666; font-size: 0.9rem; margin: 10px 0 0 0;">
+        Menos de 2 minutos para cadastrar e ver todos os preços.
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> catálogo pmg atacadista, pmg atacadista catálogo, catálogo de produtos pmg, pmg atacadista preços, catálogo pmg online, acessar catálogo pmg, pmg atacadista produtos, representante pmg catálogo, marques vendas pmg, atacadista catálogo sp.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 67,
+  "title": "ONDE COMPRAR CARNE SECA DESFIADA | Linha Completa de Desfiados Alfama na PMG",
+  "description": "Compre carne seca desfiada Alfama 1kg e toda linha de desfiados congelados: peito de frango, carne de sol, costela, cupim e pernil. Entrega para SP. Cadastre-se e peça online.",
+  "image": "https://i.imgur.com/eLVTIJn.png",
+  "category": "Produtos",
+  "section": "alfama-desfiados",
+  "readTime": "5 min de leitura",
+  "date": "2026-02-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🥩 ONDE COMPRAR CARNE SECA DESFIADA e Outros Desfiados Alfama</h1>
+      <p>Se você busca praticidade e qualidade para seu restaurante ou pizzaria, descubra <strong>onde comprar carne seca desfiada</strong> e toda a <strong>linha de desfiados congelados Alfama</strong>. Sou <strong>Marques Antonio, representante PMG ATACADISTA</strong>, e oferecemos as melhores opções de <strong>carnes desfiadas prontas</strong> para seu cardápio. Economize tempo e mão de obra com produtos de alta qualidade, entregues em São Paulo.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que Comprar Desfiados Alfama na PMG?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>6 opções de desfiados</strong> • <strong>Qualidade Alfama</strong> • <strong>Prontos para uso</strong> • <strong>Economia de mão de obra</strong> • <strong>Entrega refrigerada em SP</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/eLVTIJn.png" alt="Linha de desfiados congelados Alfama - Carne seca, frango, costela e mais" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Linha completa de desfiados Alfama: praticidade e sabor para seu negócio</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Linha Completa de Desfiados Alfama Disponível na PMG</h2>
+      <p>Trabalhamos com a <strong>linha completa de desfiados congelados Alfama</strong>, perfeitos para food service. Todos os produtos são <strong>cozidos e desfiados</strong>, prontos para usar em diversas preparações.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 25px 0;">
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; border-left: 5px solid #095400;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥩 CARNE SECA BOVINA DESFIADA ALFAMA 1KG</h4>
+          <p><strong>Produto:</strong> Carne seca bovina congelada desfiada</p>
+          <p><strong>Ideal para:</strong> Esfihas, pastéis, arroz carreteiro, tapiocas</p>
+          <p><strong>Embalagem:</strong> 1kg</p>
+          <a href="https://www.marquesvendaspmg.shop/produto/533" style="color: #095400; font-weight: 600; text-decoration: none;">👉 Ver produto →</a>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; border-left: 5px solid #095400;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍗 PEITO DE FRANGO DESFIADO ALFAMA 1KG</h4>
+          <p><strong>Produto:</strong> Peito de frango congelado cozido desfiado</p>
+          <p><strong>Ideal para:</strong> Salgados, recheios, risotos, pratos leves</p>
+          <p><strong>Embalagem:</strong> 1kg (cx com 6 unidades)</p>
+          <a href="https://www.marquesvendaspmg.shop/produto/507" style="color: #095400; font-weight: 600; text-decoration: none;">👉 Ver produto →</a>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; border-left: 5px solid #095400;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">☀️ CARNE DE SOL DESFIADA ALFAMA 1KG</h4>
+          <p><strong>Produto:</strong> Carne de sol bovina congelada desfiada</p>
+          <p><strong>Ideal para:</strong> Refeições regionais, escondidinho, pizza de carne de sol</p>
+          <p><strong>Embalagem:</strong> 1kg</p>
+          <a href="https://www.marquesvendaspmg.shop/produto/527" style="color: #095400; font-weight: 600; text-decoration: none;">👉 Ver produto →</a>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; border-left: 5px solid #095400;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍖 COSTELA BOVINA DESFIADA ALFAMA 1KG</h4>
+          <p><strong>Produto:</strong> Costela bovina congelada desfiada</p>
+          <p><strong>Ideal para:</strong> Pratos especiais, massas, risotos</p>
+          <p><strong>Embalagem:</strong> 1kg</p>
+          <a href="https://www.marquesvendaspmg.shop/produto/546" style="color: #095400; font-weight: 600; text-decoration: none;">👉 Ver produto →</a>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; border-left: 5px solid #095400;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥩 CUPIM BOVINO DESFIADO ALFAMA 1KG</h4>
+          <p><strong>Produto:</strong> Cupim bovino congelado desfiado</p>
+          <p><strong>Ideal para:</strong> Recheios nobres, pratos diferenciados</p>
+          <p><strong>Embalagem:</strong> 1kg</p>
+          <a href="https://www.marquesvendaspmg.shop/produto/556" style="color: #095400; font-weight: 600; text-decoration: none;">👉 Ver produto →</a>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; border-left: 5px solid #095400;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🐷 PERNIL SUÍNO DESFIADO ALFAMA 1KG</h4>
+          <p><strong>Produto:</strong> Pernil suíno congelado desfiado</p>
+          <p><strong>Ideal para:</strong> Lanches, sanduíches, pratos com molho agridoce</p>
+          <p><strong>Embalagem:</strong> 1kg (pacote)</p>
+          <a href="https://www.marquesvendaspmg.shop/produto/1052" style="color: #095400; font-weight: 600; text-decoration: none;">👉 Ver produto →</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Como Usar os Desfiados Alfama no Seu Cardápio</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <p><strong>Cada desfiado tem uma aplicação específica que pode valorizar seu cardápio:</strong></p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+          <div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">🍕 Para Pizzarias</h4>
+            <p>Carne seca, carne de sol e frango desfiado são recheios que vendem muito e não exigem preparo prévio.</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">🥟 Para Salgados e Esfihas</h4>
+            <p>Todos os desfiados funcionam perfeitamente. A textura e o tempero já estão no ponto ideal.</p>
+          </div>
+          
+          <div>
+            <h4 style="color: #095400; margin: 0 0 5px 0;">🍛 Para Pratos Executivos</h4>
+            <p>Arroz de costela, escondidinho de cupim, risoto de frango - pratos rápidos com sabor de comida caseira.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💰 Vantagens de Usar Desfiados Prontos</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⏱️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Economia de Tempo</h4>
+          <p style="margin: 0; font-size: 0.9rem;">2 horas de preparo viram 2 minutos</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Redução de Mão de Obra</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sem funcionário dedicado ao preparo</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⚖️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Padronização</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Mesmo sabor e textura sempre</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">💵</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Custo-benefício</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sem perda com aparas e gordura</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Regiões de Entrega</h2>
+      <p>Entregamos para toda <strong>São Paulo capital, Grande SP, interior, litoral, sul de Minas Gerais e sul do Rio de Janeiro</strong>. Nossa frota refrigerada garante a qualidade do produto até você.</p>
+      
+      <div style="background: #f0f8f0; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <p style="margin: 0;"><strong>✅ Frete grátis para diversas regiões</strong> - Entrega em 1-2 dias úteis.</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Dúvidas sobre os Desfiados Alfama?</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber qual desfiado combina mais com seu cardápio? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Representante PMG</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Comprar Desfiados Alfama Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Acesse nosso catálogo, cadastre-se em <strong>menos de 2 minutos</strong> e escolha seus desfiados.
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" 
+           style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; width: 80%; max-width: 400px;">
+           👉 VER TODOS OS DESFIADOS
+        </a>
+        
+        <p style="margin: 5px 0; font-weight: 600;">Ou acesse direto:</p>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+          <a href="https://www.marquesvendaspmg.shop/produto/533" style="background: #fff; border: 1px solid #095400; color: #095400; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-size: 0.9rem;">Carne Seca</a>
+          <a href="https://www.marquesvendaspmg.shop/produto/507" style="background: #fff; border: 1px solid #095400; color: #095400; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-size: 0.9rem;">Peito de Frango</a>
+          <a href="https://www.marquesvendaspmg.shop/produto/527" style="background: #fff; border: 1px solid #095400; color: #095400; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-size: 0.9rem;">Carne de Sol</a>
+          <a href="https://www.marquesvendaspmg.shop/produto/546" style="background: #fff; border: 1px solid #095400; color: #095400; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-size: 0.9rem;">Costela</a>
+          <a href="https://www.marquesvendaspmg.shop/produto/556" style="background: #fff; border: 1px solid #095400; color: #095400; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-size: 0.9rem;">Cupim</a>
+          <a href="https://www.marquesvendaspmg.shop/produto/1052" style="background: #fff; border: 1px solid #095400; color: #095400; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-size: 0.9rem;">Pernil Suíno</a>
+        </div>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> onde comprar carne seca desfiada, carne seca desfiada alfama, desfiados congelados alfama, comprar carne seca desfiada, peito de frango desfiado congelado, carne de sol desfiada, costela desfiada, cupim desfiado, pernil suíno desfiado, fornecedor de desfiados sp, pmg atacadista desfiados, marques vendas pmg.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 68,
+  "title": "RECEITA DE ARROZ COM CARNE SECA DESFIADA | Prato Rápido com Desfiados Alfama",
+  "description": "Aprenda a fazer arroz com carne seca desfiada usando a Carne Seca Bovina Desfiada Alfama 1kg. Receita prática para restaurantes e pizzarias. Aproveite e veja outras variações com desfiados.",
+  "image": "https://i.imgur.com/eLVTIJn.png",
+  "category": "Receitas",
+  "section": "receitas-desfiados",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🍛 RECEITA DE ARROZ COM CARNE SECA DESFIADA (Prático e Econômico)</h1>
+      <p>Você busca uma <strong>receita de arroz com carne seca desfiada</strong> que seja prática, saborosa e que possa ser replicada no seu restaurante ou pizzaria? Aqui você encontra! Sou <strong>Marques Antonio, representante PMG ATACADISTA</strong>, e vou te ensinar a preparar esse prato delicioso usando a <strong>Carne Seca Bovina Desfiada Alfama 1kg</strong> – que já vem pronta, cozida e desfiada, economizando horas na cozinha.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">⏱️ Receita Rápida para Food Service</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Tempo de preparo:</strong> 20 minutos • <strong>Rendimento:</strong> 10 porções • <strong>Dificuldade:</strong> Fácil • <strong>Custo:</strong> Baixo</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/eLVTIJn.png" alt="Arroz com carne seca desfiada feito com Carne Seca Alfama" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Arroz com carne seca desfiada: praticidade e sabor com produtos Alfama</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛒 Ingredientes (para 10 porções)</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <ul style="margin: 0; padding-left: 20px; font-size: 1.1rem;">
+          <li style="margin-bottom: 10px;"><strong>1kg de Carne Seca Bovina Desfiada Alfama</strong> <a href="https://www.marquesvendaspmg.shop/produto/533" style="color: #095400;">(comprar aqui)</a></li>
+          <li style="margin-bottom: 10px;">1kg de arroz branco cozido</li>
+          <li style="margin-bottom: 10px;">2 cebolas grandes picadas</li>
+          <li style="margin-bottom: 10px;">4 dentes de alho picados</li>
+          <li style="margin-bottom: 10px;">2 tomates picados sem sementes</li>
+          <li style="margin-bottom: 10px;">1 pimentão verde picado</li>
+          <li style="margin-bottom: 10px;">Cheiro-verde a gosto</li>
+          <li style="margin-bottom: 10px;">Sal e pimenta-do-reino a gosto</li>
+          <li style="margin-bottom: 10px;">2 colheres (sopa) de azeite ou óleo</li>
+        </ul>
+      </div>
+      
+      <p style="margin-top: 15px;"><strong>💡 Dica PMG:</strong> Para variar o cardápio, você pode substituir a carne seca por <a href="https://www.marquesvendaspmg.shop/produto/546" style="color: #095400;">Costela Desfiada Alfama</a> ou <a href="https://www.marquesvendaspmg.shop/produto/556" style="color: #095400;">Cupim Desfiado Alfama</a>.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">👨‍🍳 Modo de Preparo</h2>
+      
+      <div style="display: grid; gap: 20px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h3 style="color: #095400; margin: 0 0 10px 0;">1️⃣ Prepare a Carne Seca</h3>
+          <p>A <strong>Carne Seca Desfiada Alfama</strong> já vem cozida e desfiada. Basta aquecer: em uma panela grande, refogue metade da cebola e do alho no azeite, acrescente a carne seca congelada e refogue por 5 minutos até aquecer completamente. Reserve.</p>
+          <p><em>⏱️ Tempo: 5 minutos</em></p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h3 style="color: #095400; margin: 0 0 10px 0;">2️⃣ Prepare o Refogado Base</h3>
+          <p>Na mesma panela, refogue o restante da cebola e alho. Acrescente o tomate e o pimentão, refogue até murchar. Tempere com sal e pimenta.</p>
+          <p><em>⏱️ Tempo: 5 minutos</em></p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h3 style="color: #095400; margin: 0 0 10px 0;">3️⃣ Incorpore o Arroz</h3>
+          <p>Adicione o arroz já cozido ao refogado, misturando bem para incorporar os sabores. Acrescente a carne seca reservada e misture delicadamente.</p>
+          <p><em>⏱️ Tempo: 5 minutos</em></p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h3 style="color: #095400; margin: 0 0 10px 0;">4️⃣ Finalize e Sirva</h3>
+          <p>Finalize com cheiro-verde picado. Sirva quente, acompanhado de salada, feijão tropeiro ou como prato único.</p>
+          <p><em>⏱️ Tempo: 5 minutos</em></p>
+        </div>
+      </div>
+      
+      <div style="background: #f0f8f0; padding: 15px; border-radius: 8px; margin-top: 20px;">
+        <p style="margin: 0; font-weight: 600;">🍽️ Rendimento: 10 porções generosas | Tempo total: 20 minutos</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Variações do Prato com Outros Desfiados Alfama</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍗 Arroz com Frango Desfiado</h4>
+          <p>Substitua a carne seca por <a href="https://www.marquesvendaspmg.shop/produto/507" style="color: #095400;">Peito de Frango Desfiado Alfama</a>. Fica mais leve e agrada todos os públicos.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">☀️ Arroz com Carne de Sol</h4>
+          <p>Use <a href="https://www.marquesvendaspmg.shop/produto/527" style="color: #095400;">Carne de Sol Desfiada Alfama</a> para uma versão ainda mais regional do prato.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍖 Arroz com Costela Desfiada</h4>
+          <p>Com <a href="https://www.marquesvendaspmg.shop/produto/546" style="color: #095400;">Costela Desfiada Alfama</a>, o prato fica mais nobre e pode ser vendido como opção premium.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥩 Arroz com Cupim</h4>
+          <p><a href="https://www.marquesvendaspmg.shop/produto/556" style="color: #095400;">Cupim Desfiado Alfama</a> dá um sabor marcante e textura diferenciada ao prato.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💰 Cálculo de Custo por Porção</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 25px;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 10px; text-align: left;">Ingrediente</th>
+            <th style="padding: 10px; text-align: left;">Custo (aprox.)</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada Alfama (1kg)</td>
+            <td style="padding: 10px;">R$ 61,35</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Arroz (1kg)</td>
+            <td style="padding: 10px;">R$ 5,00</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Legumes e temperos</td>
+            <td style="padding: 10px;">R$ 8,00</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;"><strong>Custo total (10 porções)</strong></td>
+            <td style="padding: 10px;"><strong>R$ 74,35</strong></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;"><strong>Custo por porção</strong></td>
+            <td style="padding: 10px;"><strong>R$ 7,43</strong></td>
+          </tr>
+        </table>
+        
+        <p style="margin-top: 20px; background: #f0f8f0; padding: 10px; border-radius: 6px;">
+          <strong>💵 Sugestão de preço de venda:</strong> R$ 22 a R$ 28 por porção → <strong>Margem de lucro de 65% a 75%</strong>
+        </p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Por que Usar os Desfiados Alfama?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">⚡</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Prontos em Minutos</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Economize horas de cozimento e desfio</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">👨‍🍳</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Menos Mão de Obra</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Um auxiliar faz em minutos o que levaria horas</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">📊</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Padronização</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Mesmo sabor e textura em todas as porções</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 10px;">❄️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Estoque Seguro</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produto congelado, sempre disponível</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Dúvidas sobre a Receita ou os Produtos?</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer testar a receita no seu negócio? Fala comigo no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Representante PMG</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Comprar os Ingredientes Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Acesse nosso catálogo, cadastre-se em <strong>menos de 2 minutos</strong> e peça seus desfiados Alfama.
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" 
+           style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; width: 80%; max-width: 400px;">
+           👉 VER TODOS OS DESFIADOS
+        </a>
+        
+        <p style="margin: 5px 0; font-weight: 600;">Produto principal da receita:</p>
+        
+        <a href="https://www.marquesvendaspmg.shop/produto/533" 
+           style="background: #fff; border: 2px solid #095400; color: #095400; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600;">
+           🥩 CARNE SECA DESFIADA ALFAMA 1KG
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> receita de arroz com carne seca desfiada, arroz com carne seca desfiada, como fazer arroz com carne seca, carne seca desfiada alfama, receita com carne seca desfiada, arroz carreteiro rápido, receita para restaurante, desfiados alfama, pmg atacadista receitas, marques vendas pmg.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 69,
+  "title": "CHEDDAR FATIADO VIGOR PREÇO | 160 Fatias 2,24kg para Pizzarias e Lanchonetes",
+  "description": "Confira o preço do cheddar fatiado Vigor 2,24kg com 160 fatias. Ideal para pizzarias, lanchonetes e food service. Compra no atacado com entrega em SP. Cadastre-se e peça online.",
+  "image": "https://i.imgur.com/Ut0BxB4.png",
+  "category": "Produtos",
+  "section": "laticinios",
+  "readTime": "5 min de leitura",
+  "date": "2026-02-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧀 CHEDDAR FATIADO VIGOR PREÇO: 160 Fatias por Apenas R$ 73,61</h1>
+      <p>Você busca o <strong>cheddar fatiado Vigor preço</strong> competitivo para seu negócio? Aqui na <strong>PMG ATACADISTA</strong> você encontra o <strong>Cheddar Fatiado Processado Vigor 2,24kg com 160 fatias</strong> pelo melhor preço do atacado. Sou <strong>Marques Antonio, representante oficial</strong>, e ofereço esse produto indispensável para pizzarias, lanchonetes e restaurantes com <strong>entrega rápida em São Paulo</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🏷️ Oferta Especial PMG</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Cheddar Vigor 2,24kg:</strong> R$ 73,61 • <strong>160 fatias</strong> • <strong>Menos de R$ 0,46 por fatia</strong> • <strong>Frete grátis disponível</strong> • <strong>Entrega em 1-2 dias</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/Ut0BxB4.png" alt="Cheddar Fatiado Vigor 160 fatias 2,24kg para food service" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Cheddar Fatiado Vigor 2,24kg - 160 fatias de qualidade para seu negócio</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Especificações do Produto</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 20px;">
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 15px 0;">📊 Dados Técnicos</h4>
+          <ul style="margin: 0; padding-left: 20px;">
+            <li><strong>Marca:</strong> Vigor</li>
+            <li><strong>Peso:</strong> 2,24kg</li>
+            <li><strong>Quantidade:</strong> 160 fatias</li>
+            <li><strong>Tipo:</strong> Queijo processado fatiado</li>
+            <li><strong>Embalagem:</strong> Pacote fechado a vácuo</li>
+          </ul>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 15px 0;">💰 Cálculo por Fatia</h4>
+          <ul style="margin: 0; padding-left: 20px; font-size: 1.1rem;">
+            <li><strong>Preço total:</strong> R$ 73,61</li>
+            <li><strong>Número de fatias:</strong> 160</li>
+            <li><strong>Custo por fatia:</strong> R$ 0,46</li>
+            <li><strong>Custo por kg:</strong> R$ 32,86</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 20px;">
+        <p style="margin: 0; font-size: 1.1rem;"><strong>🔍 Comparação:</strong> Enquanto no varejo uma fatia de cheddar custa entre R$ 1,50 e R$ 2,50, comprando na PMG você paga <strong>menos de R$ 0,46 por fatia</strong> – uma economia de mais de 70%!</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Para Quem Este Produto é Ideal</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+        <div style="text-align: center; padding: 15px;">
+          <div style="font-size: 3rem; margin-bottom: 10px;">🍕</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Pizzarias</h4>
+          <p>Perfeito para pizzas de cheddar, bordas recheadas e coberturas</p>
+        </div>
+        
+        <div style="text-align: center; padding: 15px;">
+          <div style="font-size: 3rem; margin-bottom: 10px;">🍔</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Lanchonetes</h4>
+          <p>Hambúrgueres artesanais, sanduíches e porções</p>
+        </div>
+        
+        <div style="text-align: center; padding: 15px;">
+          <div style="font-size: 3rem; margin-bottom: 10px;">🌯</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Fast Food</h4>
+          <p>Churros, esfihas, pastéis e tudo que leva queijo</p>
+        </div>
+        
+        <div style="text-align: center; padding: 15px;">
+          <div style="font-size: 3rem; margin-bottom: 10px;">🍽️</div>
+          <h4 style="color: #095400; margin: 0 0 8px 0;">Restaurantes</h4>
+          <p>Pratos que levam queijo derretido ou fatias</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Vantagens do Cheddar Vigor para Food Service</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🧀 Derretimento Perfeito</h4>
+          <p>O cheddar Vigor tem a textura ideal para derreter, ficando cremoso sem separar ou ficar oleoso.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📏 Fatias Padronizadas</h4>
+          <p>160 fatias exatas, todas do mesmo tamanho e peso, facilitando o controle de custo por porção.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Praticidade</h4>
+          <p>Produto pronto para uso, não precisa fatiar, pesar ou preparar. Economiza mão de obra.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">❄️ Longa Durabilidade</h4>
+          <p>Embalagem a vácuo que preserva o produto por mais tempo na câmara fria.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Comparativo de Mercado</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 2px;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 10px; text-align: left;">Onde Comprar</th>
+            <th style="padding: 10px; text-align: left;">Preço por kg</th>
+            <th style="padding: 10px; text-align: left;">Preço por fatia</th>
+            <th style="padding: 10px; text-align: left;">Economia</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Supermercado (varejo)</td>
+            <td style="padding: 10px;">R$ 60 a R$ 80</td>
+            <td style="padding: 10px;">R$ 1,50 a R$ 2,00</td>
+            <td style="padding: 10px;">-</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd; background: #f0f8f0;">
+            <td style="padding: 10px;"><strong>PMG ATACADISTA</strong></td>
+            <td style="padding: 10px;"><strong>R$ 32,86</strong></td>
+            <td style="padding: 10px;"><strong>R$ 0,46</strong></td>
+            <td style="padding: 10px;"><strong>70% mais barato</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧑‍🍳 Como Usar no Dia a Dia</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 5px 0;">🍕 Pizza de Cheddar</h4>
+          <p>Use 8 a 10 fatias por pizza média. Custo: R$ 3,68 a R$ 4,60 por pizza.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 5px 0;">🍔 Hambúrguer</h4>
+          <p>1 a 2 fatias por sanduíche. Custo: R$ 0,46 a R$ 0,92 por hambúrguer.</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 5px 0;">🌯 Churros de Cheddar</h4>
+          <p>Derreta as fatias em banho-maria para uma calda cremosa. Rendimento excelente.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Dúvidas sobre o Cheddar Vigor?</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre o produto ou precisa de quantidade maior? Fala comigo!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Representante PMG</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Comprar Cheddar Fatiado Vigor Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Acesse nosso catálogo, cadastre-se em <strong>menos de 2 minutos</strong> e peça seu Cheddar Vigor com preço de atacado.
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        <a href="https://www.marquesvendaspmg.shop/produto/615" 
+           style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; width: 80%; max-width: 400px;">
+           👉 VER CHEDDAR VIGOR 2,24KG
+        </a>
+        
+        <p style="margin: 5px 0;">ou</p>
+        
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Leite" 
+           style="background: #fff; border: 2px solid #095400; color: #095400; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: 600;">
+           📋 VER OUTROS LATICÍNIOS
+        </a>
+      </div>
+      
+      <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+        <strong>Resumo do pedido:</strong> Cheddar Vigor 2,24kg • 160 fatias • R$ 73,61 • Entrega em 1-2 dias
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> cheddar fatiado vigor preço, cheddar vigor 2 24kg, cheddar fatiado vigor 160 fatias, queijo cheddar fatiado vigor, comprar cheddar fatiado atacado, cheddar para pizzaria, fornecedor de cheddar sp, preço do cheddar fatiado, pmg atacadista cheddar, marques vendas pmg, cheddar vigor food service.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 70,
+  "title": "FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NA ZONA SUL DE SP",
+  "description": "Encontre o melhor fornecedor para restaurantes, pizzarias, lanchonetes e cozinhas industriais na Zona Sul de SP. PMG ATACADISTA entrega em toda região com +2000 produtos. Cadastre-se.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Fornecedor Regional",
+  "section": "fornecedor-zona-sul",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">📍 FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NA ZONA SUL DE SP</h1>
+      <p>Você busca um <strong>fornecedor para restaurantes na Zona Sul de São Paulo</strong> que seja confiável, completo e com entrega rápida? Ou talvez um <strong>fornecedor para pizzarias na Zona Sul</strong>, ou ainda <strong>fornecedor para cozinha industrial na Zona Sul</strong>? Sou <strong>Marques Antonio, representante da PMG ATACADISTA</strong>, e atendo todos esses segmentos com mais de <strong>2000 produtos em estoque</strong>, frota própria refrigerada e entrega em <strong>1-2 dias úteis</strong> para toda a Zona Sul.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que a PMG é o Fornecedor Ideal para a Zona Sul?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos</strong> • <strong>Entrega em 1-2 dias</strong> • <strong>Frota refrigerada</strong> • <strong>Atendimento especializado</strong> • <strong>Preço de atacado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Fornecedor para restaurantes, pizzarias e cozinhas na Zona Sul de SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Entrega PMG Atacadista para toda Zona Sul de São Paulo</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos todos os bairros da Zona Sul, incluindo:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Jardim Ângela</div>
+          <div>✅ Capão Redondo</div>
+          <div>✅ Socorro</div>
+          <div>✅ Cidade Ademar</div>
+          <div>✅ Pedreira</div>
+          <div>✅ Grajaú</div>
+          <div>✅ Parelheiros</div>
+          <div>✅ Marsilac</div>
+          <div>✅ Jardim São Luís</div>
+          <div>✅ Vila Andrade</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entrega rápida para toda região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 FORNECEDOR PARA PIZZARIAS NA ZONA SUL</h2>
+      <p>Se você tem uma pizzaria, sabe que a qualidade dos ingredientes faz toda diferença. A PMG é <strong>fornecedor especializado para pizzarias</strong> com produtos que garantem o sucesso do seu negócio.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</td>
+            <td style="padding: 10px;">Vigor</td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/615" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela Bari</td>
+            <td style="padding: 10px;">Bari</td>
+            <td style="padding: 10px;">4kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/719" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/533" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/507" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Calabresa</td>
+            <td style="padding: 10px;">Aurora</td>
+            <td style="padding: 10px;">5kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/978" style="color: #095400;">Ver preço</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ FORNECEDOR PARA RESTAURANTES NA ZONA SUL</h2>
+      <p>Para restaurantes, a variedade precisa ser grande. A PMG oferece desde cortes especiais até itens para pratos executivos.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Destaques</th>
+            <th style="padding: 12px; text-align: left;">Marcas</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Derivados de Bovino</td>
+            <td style="padding: 10px;">Cortes, hambúrgueres, preparados</td>
+            <td style="padding: 10px;">Frigonosso, Boi brasil</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aves</td>
+            <td style="padding: 10px;">Peito, coxa, sobrecoxa</td>
+            <td style="padding: 10px;">Adoro, Jaguá</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20ave" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Suínos</td>
+            <td style="padding: 10px;">Pernil, lombo, costelinha</td>
+            <td style="padding: 10px;">My Pork, Pamplona</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20suíno" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Desfiados</td>
+            <td style="padding: 10px;">Carne seca, frango, costela</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 FORNECEDOR PARA COZINHA INDUSTRIAL NA ZONA SUL</h2>
+      <p>Cozinhas industriais precisam de volume, regularidade e padronização. A PMG atende hospitais, escolas, refeitórios e empresas com contratos de fornecimento contínuo.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Formato</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Moída</td>
+            <td style="padding: 10px;">Congelada</td>
+            <td style="padding: 10px;">1kg a 5kg</td>
+            <td style="padding: 10px;">Molhos, recheios</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Frango Desfiado</td>
+            <td style="padding: 10px;">Cozido congelado</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;">Saladas, risotos</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Legumes Pré-cozidos</td>
+            <td style="padding: 10px;">Congelados</td>
+            <td style="padding: 10px;">2kg</td>
+            <td style="padding: 10px;">Guarnições</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Hambúrguer</td>
+            <td style="padding: 10px;">Congelado</td>
+            <td style="padding: 10px;">Caixa c/ 24</td>
+            <td style="padding: 10px;">Refeições rápidas</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌯 OUTROS SEGMENTOS ATENDIDOS</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥐</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Farináceos, frios, laticínios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🌮</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Esfiharias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Desfiados Alfama, carnes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Hambúrgueres, queijos, frios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥗</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Marmitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Carnes, congelados, porcionados</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Ter a PMG como Fornecedor</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos refrigerados garantindo qualidade na entrega</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, sempre disponíveis</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com Representante para Zona Sul</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber se atendemos seu bairro ou precisa de uma cotação? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo Completo</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio na Zona Sul.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos:</strong> Restaurantes • Pizzarias • Cozinhas Industriais • Lanchonetes • Padarias • Esfiharias • Marmitarias
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> fornecedor para restaurantes zona sul sp, fornecedor para pizzarias zona sul sp, fornecedor para cozinha industrial zona sul sp, atacadista zona sul sp, distribuidora de alimentos zona sul, pmg atacadista zona sul, entregas zona sul sp, marques vendas pmg, fornecedor food service zona sul, atacado de alimentos zona sul.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 71,
+  "title": "FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NA ZONA NORTE DE SP",
+  "description": "Encontre o melhor fornecedor para restaurantes, pizzarias, lanchonetes e cozinhas industriais na Zona Norte de SP. PMG ATACADISTA entrega em toda região com +2000 produtos. Cadastre-se.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Fornecedor Regional",
+  "section": "fornecedor-zona-norte",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">📍 FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NA ZONA NORTE DE SP</h1>
+      <p>Você busca um <strong>fornecedor para restaurantes na Zona Norte de São Paulo</strong> que seja confiável e com entrega rápida? Ou um <strong>fornecedor para pizzarias na Zona Norte</strong>, ou ainda <strong>fornecedor para cozinha industrial na Zona Norte</strong>? Sou <strong>Marques Antonio, representante da PMG ATACADISTA</strong>, e atendo todos esses segmentos com mais de <strong>2000 produtos em estoque</strong>, frota própria refrigerada e entrega em <strong>1-2 dias úteis</strong> para toda a Zona Norte.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que a PMG é o Fornecedor Ideal para a Zona Norte?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos</strong> • <strong>Entrega em 1-2 dias</strong> • <strong>Frota refrigerada</strong> • <strong>Atendimento especializado</strong> • <strong>Preço de atacado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Fornecedor para restaurantes, pizzarias e cozinhas na Zona Norte de SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Entrega PMG Atacadista para toda Zona Norte de São Paulo</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Norte</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos todos os bairros da Zona Norte, incluindo:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santana</div>
+          <div>✅ Tucuruvi</div>
+          <div>✅ Vila Guilherme</div>
+          <div>✅ Vila Maria</div>
+          <div>✅ Jaçanã</div>
+          <div>✅ Tremembé</div>
+          <div>✅ Mandaqui</div>
+          <div>✅ Casa Verde</div>
+          <div>✅ Limão</div>
+          <div>✅ Freguesia do Ó</div>
+          <div>✅ Brasilândia</div>
+          <div>✅ Pirituba</div>
+          <div>✅ São Domingos</div>
+          <div>✅ Jaraguá</div>
+          <div>✅ Perus</div>
+          <div>✅ Anhanguera</div>
+          <div>✅ Vila Nova Cachoeirinha</div>
+          <div>✅ Cachoeirinha</div>
+          <div>✅ Parque Edu Chaves</div>
+          <div>✅ Lauzane Paulista</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entrega rápida para toda região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 FORNECEDOR PARA PIZZARIAS NA ZONA NORTE</h2>
+      <p>Se você tem uma pizzaria na Zona Norte, a qualidade dos ingredientes faz toda diferença. A PMG é <strong>fornecedor especializado para pizzarias</strong> com produtos que garantem o sucesso do seu negócio.</p>      
+	  
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</td>
+            <td style="padding: 10px;">Vigor</td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/615" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela Bari</td>
+            <td style="padding: 10px;">Bari</td>
+            <td style="padding: 10px;">4kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/719" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/533" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/507" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Calabresa</td>
+            <td style="padding: 10px;">Aurora</td>
+            <td style="padding: 10px;">5kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/978" style="color: #095400;">Ver preço</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ FORNECEDOR PARA RESTAURANTES NA ZONA NORTE</h2>
+      <p>Para restaurantes da Zona Norte, a variedade precisa ser grande. A PMG oferece desde cortes especiais até itens para pratos executivos.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Destaques</th>
+            <th style="padding: 12px; text-align: left;">Marcas</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Derivados de Bovino</td>
+            <td style="padding: 10px;">Cortes, hambúrgueres, preparados</td>
+            <td style="padding: 10px;">Frigonosso, Boi brasil</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aves</td>
+            <td style="padding: 10px;">Peito, coxa, sobrecoxa</td>
+            <td style="padding: 10px;">Adoro, Jaguá</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20ave" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Suínos</td>
+            <td style="padding: 10px;">Pernil, lombo, costelinha</td>
+            <td style="padding: 10px;">My Pork, Pamplona</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20suíno" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Desfiados</td>
+            <td style="padding: 10px;">Carne seca, frango, costela</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 FORNECEDOR PARA COZINHA INDUSTRIAL NA ZONA NORTE</h2>
+      <p>Cozinhas industriais na Zona Norte precisam de volume, regularidade e padronização. A PMG atende hospitais, escolas, refeitórios e empresas com contratos de fornecimento contínuo.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Formato</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Moída</td>
+            <td style="padding: 10px;">Congelada</td>
+            <td style="padding: 10px;">1kg a 5kg</td>
+            <td style="padding: 10px;">Molhos, recheios</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Frango Desfiado</td>
+            <td style="padding: 10px;">Cozido congelado</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;">Saladas, risotos</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Legumes Pré-cozidos</td>
+            <td style="padding: 10px;">Congelados</td>
+            <td style="padding: 10px;">2kg</td>
+            <td style="padding: 10px;">Guarnições</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Hambúrguer</td>
+            <td style="padding: 10px;">Congelado</td>
+            <td style="padding: 10px;">Caixa c/ 24</td>
+            <td style="padding: 10px;">Refeições rápidas</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌯 OUTROS SEGMENTOS ATENDIDOS NA ZONA NORTE</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥐</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Farináceos, frios, laticínios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🌮</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Esfiharias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Desfiados Alfama, carnes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Hambúrgueres, queijos, frios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥗</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Marmitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Carnes, congelados, porcionados</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Ter a PMG como Fornecedor na Zona Norte</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos refrigerados garantindo qualidade na entrega até sua região</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, sempre disponíveis</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Norte</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com Representante para Zona Norte</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber se atendemos seu bairro na Zona Norte ou precisa de uma cotação? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Norte</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo Completo</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio na Zona Norte.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos na Zona Norte:</strong> Restaurantes • Pizzarias • Cozinhas Industriais • Lanchonetes • Padarias • Esfiharias • Marmitarias
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> fornecedor para restaurantes zona norte sp, fornecedor para pizzarias zona norte sp, fornecedor para cozinha industrial zona norte sp, atacadista zona norte sp, distribuidora de alimentos zona norte, pmg atacadista zona norte, entregas zona norte sp, marques vendas pmg, fornecedor food service zona norte, atacado de alimentos zona norte, fornecedor santana sp, fornecedor tucuruvi sp.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 72,
+  "title": "FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NA ZONA LESTE DE SP",
+  "description": "Encontre o melhor fornecedor para restaurantes, pizzarias, lanchonetes e cozinhas industriais na Zona Leste de SP. PMG ATACADISTA entrega em toda região com +2000 produtos. Cadastre-se.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Fornecedor Regional",
+  "section": "fornecedor-zona-leste",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">📍 FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NA ZONA LESTE DE SP</h1>
+      <p>Você busca um <strong>fornecedor para restaurantes na Zona Leste de São Paulo</strong> que seja confiável e com entrega rápida? Ou um <strong>fornecedor para pizzarias na Zona Leste</strong>, ou ainda <strong>fornecedor para cozinha industrial na Zona Leste</strong>? Sou <strong>Marques Antonio, representante da PMG ATACADISTA</strong>, e atendo todos esses segmentos com mais de <strong>2000 produtos em estoque</strong>, frota própria refrigerada e entrega em <strong>1-2 dias úteis</strong> para toda a Zona Leste.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que a PMG é o Fornecedor Ideal para a Zona Leste?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos</strong> • <strong>Entrega em 1-2 dias</strong> • <strong>Frota refrigerada</strong> • <strong>Atendimento especializado</strong> • <strong>Preço de atacado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Fornecedor para restaurantes, pizzarias e cozinhas na Zona Leste de SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Entrega PMG Atacadista para toda Zona Leste de São Paulo</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Leste</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos todos os bairros da Zona Leste, incluindo:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Tatuapé</div>
+          <div>✅ Mooca</div>
+          <div>✅ Belém</div>
+          <div>✅ Brás</div>
+          <div>✅ Pari</div>
+          <div>✅ Água Rasa</div>
+          <div>✅ Carrão</div>
+          <div>✅ Vila Formosa</div>
+          <div>✅ Aricanduva</div>
+          <div>✅ Penha</div>
+          <div>✅ Vila Matilde</div>
+          <div>✅ Artur Alvim</div>
+          <div>✅ Cangaíba</div>
+          <div>✅ Ermelino Matarazzo</div>
+          <div>✅ Itaquera</div>
+          <div>✅ José Bonifácio</div>
+          <div>✅ Parque do Carmo</div>
+          <div>✅ São Mateus</div>
+          <div>✅ São Miguel Paulista</div>
+          <div>✅ Itaim Paulista</div>
+          <div>✅ Guaianases</div>
+          <div>✅ Cidade Tiradentes</div>
+          <div>✅ Sapopemba</div>
+          <div>✅ São Rafael</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entrega rápida para toda região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 FORNECEDOR PARA PIZZARIAS NA ZONA LESTE</h2>
+      <p>Se você tem uma pizzaria na Zona Leste, a qualidade dos ingredientes faz toda diferença. A PMG é <strong>fornecedor especializado para pizzarias</strong> com produtos que garantem o sucesso do seu negócio.</p>      
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</td>
+            <td style="padding: 10px;">Vigor</td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/615" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela Bari</td>
+            <td style="padding: 10px;">Bari</td>
+            <td style="padding: 10px;">4kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/719" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/533" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/507" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Calabresa</td>
+            <td style="padding: 10px;">Aurora</td>
+            <td style="padding: 10px;">5kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/978" style="color: #095400;">Ver preço</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ FORNECEDOR PARA RESTAURANTES NA ZONA LESTE</h2>
+      <p>Para restaurantes da Zona Leste, a variedade precisa ser grande. A PMG oferece desde cortes especiais até itens para pratos executivos.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Destaques</th>
+            <th style="padding: 12px; text-align: left;">Marcas</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Derivados de Bovino</td>
+            <td style="padding: 10px;">Cortes, hambúrgueres, preparados</td>
+            <td style="padding: 10px;">Frigonosso, Boi brasil</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aves</td>
+            <td style="padding: 10px;">Peito, coxa, sobrecoxa</td>
+            <td style="padding: 10px;">Adoro, Jaguá</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20ave" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Suínos</td>
+            <td style="padding: 10px;">Pernil, lombo, costelinha</td>
+            <td style="padding: 10px;">My Pork, Pamplona</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20suíno" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Desfiados</td>
+            <td style="padding: 10px;">Carne seca, frango, costela</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 FORNECEDOR PARA COZINHA INDUSTRIAL NA ZONA LESTE</h2>
+      <p>Cozinhas industriais na Zona Leste precisam de volume, regularidade e padronização. A PMG atende hospitais, escolas, refeitórios e empresas com contratos de fornecimento contínuo.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Formato</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Moída</td>
+            <td style="padding: 10px;">Congelada</td>
+            <td style="padding: 10px;">1kg a 5kg</td>
+            <td style="padding: 10px;">Molhos, recheios</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Frango Desfiado</td>
+            <td style="padding: 10px;">Cozido congelado</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;">Saladas, risotos</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Legumes Pré-cozidos</td>
+            <td style="padding: 10px;">Congelados</td>
+            <td style="padding: 10px;">2kg</td>
+            <td style="padding: 10px;">Guarnições</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Hambúrguer</td>
+            <td style="padding: 10px;">Congelado</td>
+            <td style="padding: 10px;">Caixa c/ 24</td>
+            <td style="padding: 10px;">Refeições rápidas</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌯 OUTROS SEGMENTOS ATENDIDOS NA ZONA LESTE</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥐</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Farináceos, frios, laticínios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🌮</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Esfiharias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Desfiados Alfama, carnes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Hambúrgueres, queijos, frios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥗</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Marmitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Carnes, congelados, porcionados</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Ter a PMG como Fornecedor na Zona Leste</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos refrigerados garantindo qualidade na entrega até sua região</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, sempre disponíveis</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Leste</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com Representante para Zona Leste</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber se atendemos seu bairro na Zona Leste ou precisa de uma cotação? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Leste</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo Completo</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio na Zona Leste.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos na Zona Leste:</strong> Restaurantes • Pizzarias • Cozinhas Industriais • Lanchonetes • Padarias • Esfiharias • Marmitarias
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> fornecedor para restaurantes zona leste sp, fornecedor para pizzarias zona leste sp, fornecedor para cozinha industrial zona leste sp, atacadista zona leste sp, distribuidora de alimentos zona leste, pmg atacadista zona leste, entregas zona leste sp, marques vendas pmg, fornecedor food service zona leste, atacado de alimentos zona leste, fornecedor tatuapé sp, fornecedor mooca sp, fornecedor itaquera sp.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 73,
+  "title": "FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NO CENTRO DE SP",
+  "description": "Encontre o melhor fornecedor para restaurantes, pizzarias, lanchonetes e cozinhas industriais no Centro de SP. PMG ATACADISTA entrega em toda região com +2000 produtos. Cadastre-se.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Fornecedor Regional",
+  "section": "fornecedor-centro",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">📍 FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NO CENTRO DE SP</h1>
+      <p>Você busca um <strong>fornecedor para restaurantes no Centro de São Paulo</strong> que seja confiável e com entrega rápida? Ou um <strong>fornecedor para pizzarias no Centro</strong>, ou ainda <strong>fornecedor para cozinha industrial no Centro</strong>? Sou <strong>Marques Antonio, representante da PMG ATACADISTA</strong>, e atendo todos esses segmentos com mais de <strong>2000 produtos em estoque</strong>, frota própria refrigerada e entrega em <strong>1-2 dias úteis</strong> para toda a região Central.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que a PMG é o Fornecedor Ideal para o Centro?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos</strong> • <strong>Entrega em 1-2 dias</strong> • <strong>Frota refrigerada</strong> • <strong>Atendimento especializado</strong> • <strong>Preço de atacado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Fornecedor para restaurantes, pizzarias e cozinhas no Centro de SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Entrega PMG Atacadista para toda região Central de São Paulo</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos no Centro</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos todos os bairros da região Central, incluindo:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ República</div>
+          <div>✅ Sé</div>
+          <div>✅ Bom Retiro</div>
+          <div>✅ Santa Cecília</div>
+          <div>✅ Campos Elíseos</div>
+          <div>✅ Barra Funda</div>
+          <div>✅ Vila Buarque</div>
+          <div>✅ Consolação</div>
+          <div>✅ Bela Vista</div>
+          <div>✅ Liberdade</div>
+          <div>✅ Cambuci</div>
+          <div>✅ Aclimação</div>
+          <div>✅ Brás</div>
+          <div>✅ Pari</div>
+          <div>✅ Belém</div>
+          <div>✅ Santa Ifigênia</div>
+          <div>✅ Luz</div>
+          <div>✅ Glicério</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entrega rápida para toda região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 FORNECEDOR PARA PIZZARIAS NO CENTRO</h2>
+      <p>Se você tem uma pizzaria no Centro, a qualidade dos ingredientes faz toda diferença. A PMG é <strong>fornecedor especializado para pizzarias</strong> com produtos que garantem o sucesso do seu negócio.</p>      
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</td>
+            <td style="padding: 10px;">Vigor</td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/615" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela Bari</td>
+            <td style="padding: 10px;">Bari</td>
+            <td style="padding: 10px;">4kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/719" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/533" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/507" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Calabresa</td>
+            <td style="padding: 10px;">Aurora</td>
+            <td style="padding: 10px;">5kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/978" style="color: #095400;">Ver preço</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ FORNECEDOR PARA RESTAURANTES NO CENTRO</h2>
+      <p>Para restaurantes do Centro, a variedade precisa ser grande. A PMG oferece desde cortes especiais até itens para pratos executivos.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Destaques</th>
+            <th style="padding: 12px; text-align: left;">Marcas</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Derivados de Bovino</td>
+            <td style="padding: 10px;">Cortes, hambúrgueres, preparados</td>
+            <td style="padding: 10px;">Frigonosso, Boi brasil</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aves</td>
+            <td style="padding: 10px;">Peito, coxa, sobrecoxa</td>
+            <td style="padding: 10px;">Adoro, Jaguá</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20ave" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Suínos</td>
+            <td style="padding: 10px;">Pernil, lombo, costelinha</td>
+            <td style="padding: 10px;">My Pork, Pamplona</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20suíno" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Desfiados</td>
+            <td style="padding: 10px;">Carne seca, frango, costela</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 FORNECEDOR PARA COZINHA INDUSTRIAL NO CENTRO</h2>
+      <p>Cozinhas industriais no Centro precisam de volume, regularidade e padronização. A PMG atende hospitais, escolas, refeitórios e empresas com contratos de fornecimento contínuo.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Formato</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Moída</td>
+            <td style="padding: 10px;">Congelada</td>
+            <td style="padding: 10px;">1kg a 5kg</td>
+            <td style="padding: 10px;">Molhos, recheios</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Frango Desfiado</td>
+            <td style="padding: 10px;">Cozido congelado</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;">Saladas, risotos</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Legumes Pré-cozidos</td>
+            <td style="padding: 10px;">Congelados</td>
+            <td style="padding: 10px;">2kg</td>
+            <td style="padding: 10px;">Guarnições</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Hambúrguer</td>
+            <td style="padding: 10px;">Congelado</td>
+            <td style="padding: 10px;">Caixa c/ 24</td>
+            <td style="padding: 10px;">Refeições rápidas</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌯 OUTROS SEGMENTOS ATENDIDOS NO CENTRO</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥐</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Farináceos, frios, laticínios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🌮</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Esfiharias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Desfiados Alfama, carnes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Hambúrgueres, queijos, frios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥗</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Marmitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Carnes, congelados, porcionados</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Ter a PMG como Fornecedor no Centro</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos refrigerados garantindo qualidade na entrega até sua região</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, sempre disponíveis</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda região Central</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com Representante para o Centro</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber se atendemos seu bairro no Centro ou precisa de uma cotação? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Centro</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo Completo</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio no Centro.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos no Centro:</strong> Restaurantes • Pizzarias • Cozinhas Industriais • Lanchonetes • Padarias • Esfiharias • Marmitarias
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> fornecedor para restaurantes centro sp, fornecedor para pizzarias centro sp, fornecedor para cozinha industrial centro sp, atacadista centro sp, distribuidora de alimentos centro, pmg atacadista centro, entregas centro sp, marques vendas pmg, fornecedor food service centro, atacado de alimentos centro, fornecedor república sp, fornecedor liberdade sp, fornecedor bela vista sp.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 74,
+  "title": "FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NA ZONA OESTE DE SP",
+  "description": "Encontre o melhor fornecedor para restaurantes, pizzarias, lanchonetes e cozinhas industriais na Zona Oeste de SP. PMG ATACADISTA entrega em toda região com +2000 produtos. Cadastre-se.",
+  "image": "https://i.imgur.com/ennvys5.png",
+  "category": "Fornecedor Regional",
+  "section": "fornecedor-zona-oeste",
+  "readTime": "6 min de leitura",
+  "date": "2026-02-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">📍 FORNECEDOR PARA RESTAURANTES, PIZZARIAS E COZINHAS NA ZONA OESTE DE SP</h1>
+      <p>Você busca um <strong>fornecedor para restaurantes na Zona Oeste de São Paulo</strong> que seja confiável e com entrega rápida? Ou um <strong>fornecedor para pizzarias na Zona Oeste</strong>, ou ainda <strong>fornecedor para cozinha industrial na Zona Oeste</strong>? Sou <strong>Marques Antonio, representante da PMG ATACADISTA</strong>, e atendo todos esses segmentos com mais de <strong>2000 produtos em estoque</strong>, frota própria refrigerada e entrega em <strong>1-2 dias úteis</strong> para toda a Zona Oeste.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que a PMG é o Fornecedor Ideal para a Zona Oeste?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>+2000 produtos</strong> • <strong>Entrega em 1-2 dias</strong> • <strong>Frota refrigerada</strong> • <strong>Atendimento especializado</strong> • <strong>Preço de atacado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <img src="https://i.imgur.com/ennvys5.png" alt="Fornecedor para restaurantes, pizzarias e cozinhas na Zona Oeste de SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Entrega PMG Atacadista para toda Zona Oeste de São Paulo</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Oeste</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos todos os bairros da Zona Oeste, incluindo:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Pinheiros</div>
+          <div>✅ Vila Madalena</div>
+          <div>✅ Alto de Pinheiros</div>
+          <div>✅ Jardim Paulista</div>
+          <div>✅ Cerqueira César</div>
+          <div>✅ Consolação</div>
+          <div>✅ Perdizes</div>
+          <div>✅ Pompeia</div>
+          <div>✅ Lapa</div>
+          <div>✅ Barra Funda</div>
+          <div>✅ Vila Leopoldina</div>
+          <div>✅ Jaguaré</div>
+          <div>✅ Butantã</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Rio Pequeno</div>
+          <div>✅ Raposo Tavares</div>
+          <div>✅ Jardim Ângela</div>
+          <div>✅ Jardim São Paulo</div>
+          <div>✅ City América</div>
+          <div>✅ Jardim Europa</div>
+          <div>✅ Jardim América</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entrega rápida para toda região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 FORNECEDOR PARA PIZZARIAS NA ZONA OESTE</h2>
+      <p>Se você tem uma pizzaria na Zona Oeste, a qualidade dos ingredientes faz toda diferença. A PMG é <strong>fornecedor especializado para pizzarias</strong> com produtos que garantem o sucesso do seu negócio.</p>      
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</td>
+            <td style="padding: 10px;">Vigor</td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/615" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela Bari</td>
+            <td style="padding: 10px;">Bari</td>
+            <td style="padding: 10px;">4kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/719" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/533" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/507" style="color: #095400;">Ver preço</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Calabresa</td>
+            <td style="padding: 10px;">Aurora</td>
+            <td style="padding: 10px;">5kg</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/978" style="color: #095400;">Ver preço</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ FORNECEDOR PARA RESTAURANTES NA ZONA OESTE</h2>
+      <p>Para restaurantes da Zona Oeste, a variedade precisa ser grande. A PMG oferece desde cortes especiais até itens para pratos executivos.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Destaques</th>
+            <th style="padding: 12px; text-align: left;">Marcas</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Derivados de Bovino</td>
+            <td style="padding: 10px;">Cortes, hambúrgueres, preparados</td>
+            <td style="padding: 10px;">Frigonosso, Boi brasil</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aves</td>
+            <td style="padding: 10px;">Peito, coxa, sobrecoxa</td>
+            <td style="padding: 10px;">Adoro, Jaguá</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20ave" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Suínos</td>
+            <td style="padding: 10px;">Pernil, lombo, costelinha</td>
+            <td style="padding: 10px;">My Pork, Pamplona</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20suíno" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Desfiados</td>
+            <td style="padding: 10px;">Carne seca, frango, costela</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Ver produtos</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 FORNECEDOR PARA COZINHA INDUSTRIAL NA ZONA OESTE</h2>
+      <p>Cozinhas industriais na Zona Oeste precisam de volume, regularidade e padronização. A PMG atende hospitais, escolas, refeitórios e empresas com contratos de fornecimento contínuo.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Formato</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Moída</td>
+            <td style="padding: 10px;">Congelada</td>
+            <td style="padding: 10px;">1kg a 5kg</td>
+            <td style="padding: 10px;">Molhos, recheios</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Frango Desfiado</td>
+            <td style="padding: 10px;">Cozido congelado</td>
+            <td style="padding: 10px;">1kg</td>
+            <td style="padding: 10px;">Saladas, risotos</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Legumes Pré-cozidos</td>
+            <td style="padding: 10px;">Congelados</td>
+            <td style="padding: 10px;">2kg</td>
+            <td style="padding: 10px;">Guarnições</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">Hambúrguer</td>
+            <td style="padding: 10px;">Congelado</td>
+            <td style="padding: 10px;">Caixa c/ 24</td>
+            <td style="padding: 10px;">Refeições rápidas</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌯 OUTROS SEGMENTOS ATENDIDOS NA ZONA OESTE</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥐</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Farináceos, frios, laticínios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🌮</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Esfiharias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Desfiados Alfama, carnes</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Hambúrgueres, queijos, frios</p>
+        </div>
+        
+        <div style="background: #f8f8f8; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥗</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Marmitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Carnes, congelados, porcionados</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Ter a PMG como Fornecedor na Zona Oeste</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos refrigerados garantindo qualidade na entrega até sua região</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, sempre disponíveis</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Oeste</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com Representante para Zona Oeste</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber se atendemos seu bairro na Zona Oeste ou precisa de uma cotação? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Oeste</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo Completo</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio na Zona Oeste.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos na Zona Oeste:</strong> Restaurantes • Pizzarias • Cozinhas Industriais • Lanchonetes • Padarias • Esfiharias • Marmitarias
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> fornecedor para restaurantes zona oeste sp, fornecedor para pizzarias zona oeste sp, fornecedor para cozinha industrial zona oeste sp, atacadista zona oeste sp, distribuidora de alimentos zona oeste, pmg atacadista zona oeste, entregas zona oeste sp, marques vendas pmg, fornecedor food service zona oeste, atacado de alimentos zona oeste, fornecedor pinheiros sp, fornecedor vila madalena sp, fornecedor butantã sp, fornecedor lapa sp.
+      </p>
+    </div>
+  `
 }
   ];
 
