@@ -1,7 +1,7 @@
 const fevereiroTheme = {
   id: 'fevereiro',
   nome: 'Carnaval PMG 2026',
-  ativo: true, // DEIXE false ATÉ 01/02/2026
+  ativo: false, // DEIXE false ATÉ 01/02/2026
   
   // Cores vibrantes do Carnaval
   cores: {
@@ -65,5 +65,6 @@ const fevereiroTheme = {
     tamanho: '40px'   // Tamanho um pouco maior para carnaval
   }
 };
+
 
 export default fevereiroTheme;
