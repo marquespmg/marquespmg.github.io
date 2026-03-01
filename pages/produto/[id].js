@@ -1819,7 +1819,7 @@ sp: {
     'ALUMINIO', 'ALVARES FLORENCE', 'AMERICANA', 'AMÉRICO BRASILIENSE', 
     'AMERICO CAMPOS', 'AMPARO', 'ANALÂNDIA', 'ANGATUBA', 'APARECIDA', 'APIAÍ', 
     'ARAÇARIGUAMA', 'ARAÇATUBA', 'ARAÇOIABA DA SERRA', 'ARANDU', 'ARAPEI', 
-    'ARARAQUARA', 'ARARAS', 'AREALVA', 'AREIOPOLIS', 'ARTHUR NOGUEIRA', 'ARUJA', 
+    'ARAÇAQUARA', 'ARARAS', 'AREALVA', 'AREIOPOLIS', 'ARTHUR NOGUEIRA', 'ARUJA', 
     'ASSIS', 'ATIBAIA', 'AURIFLAMA', 'AVARÉ', 'BADY BASSITT', 'BANANAL', 
     'BARÃO DE ANTONINA', 'BARIRI', 'BARRA BONITA', 'BARRETOS', 'BARRINHA', 
     'BARUERI', 'BATATAIS', 'BAURU', 'BEBEDOURO', 'BERNARDINO DE CAMPOS', 
@@ -2052,82 +2052,99 @@ export default function ProductPage({
   
   useTrackUser();
 
-// ========== NOVO: DADOS DE DIAS DE ENTREGA ========== //
-const [deliveryDaysData, setDeliveryDaysData] = useState({});
-const [loadingDeliveryData, setLoadingDeliveryData] = useState(true);
-const [expandedCity, setExpandedCity] = useState(null);
-
-// ========== NOVO: ALTERNAR EXPANSÃO DA CIDADE ========== //
-const toggleCityExpand = (cityName) => {
-  setExpandedCity(expandedCity === cityName ? null : cityName);
-};
-
-// ========== NOVO: COMPONENTE DE DIAS DE ENTREGA ========== //
-const DeliveryDaysDisplay = ({ days }) => {
-  // Converte os true/false em nomes dos dias
-  const activeDays = [];
-  if (days.terca) activeDays.push('Terça');
-  if (days.quarta) activeDays.push('Quarta');
-  if (days.quinta) activeDays.push('Quinta');
-  if (days.sexta) activeDays.push('Sexta');
-  
-  if (activeDays.length === 0) return null;
-  
-  return (
-    <div style={{
-      marginTop: '4px',
-      marginBottom: '4px',
-      padding: '8px 10px',
-      backgroundColor: '#f0f8f0',
-      borderLeft: '3px solid #095400',
-      borderRadius: '0 4px 4px 0',
-      fontSize: '12px',
-      color: '#333',
-      display: 'flex',
-      flexWrap: 'wrap',
-      alignItems: 'center',
-      gap: '6px'
-    }}>
-      <span style={{ fontWeight: 'bold', color: '#095400' }}>📅 Entrega:</span>
-      {activeDays.map((day, index) => (
-        <span key={day} style={{
-          backgroundColor: '#095400',
-          color: 'white',
-          padding: '2px 8px',
-          borderRadius: '12px',
-          fontSize: '11px',
-          fontWeight: '600'
-        }}>
-          {day} manhã
-        </span>
-      ))}
-    </div>
-  );
-};
-
-// ========== NOVO: CARREGAR DIAS DE ENTREGA ========== //
-useEffect(() => {
-  const loadDeliveryData = async () => {
-    try {
-      // Carrega os 3 arquivos em paralelo
-      const [spData, mgData, rjData] = await Promise.all([
-        fetch('/rotas/sp.json').then(res => res.ok ? res.json() : {}),
-        fetch('/rotas/mg.json').then(res => res.ok ? res.json() : {}),
-        fetch('/rotas/rj.json').then(res => res.ok ? res.json() : {})
-      ]);
-      
-      // Junta tudo em um único objeto
-      const allData = { ...spData, ...mgData, ...rjData };
-      setDeliveryDaysData(allData);
-    } catch (error) {
-      console.error('Erro ao carregar dias de entrega:', error);
-    } finally {
-      setLoadingDeliveryData(false);
-    }
+  // ========== FUNÇÕES DE DISPONIBILIDADE (MESMA LÓGICA DA PÁGINA DE PRODUTOS) ========== //
+  const isProductAvailable = (product) => {
+    return product.price > 0;
   };
-  
-  loadDeliveryData();
-}, []);
+
+  const getProductStatus = (product) => {
+    return {
+      available: product.price > 0,
+      price: product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível',
+      priceStyle: product.price > 0 ? styles.productPrice : styles.unavailablePrice,
+      buttonText: product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível',
+      buyButtonText: product.price > 0 ? (user ? 'Comprar Agora' : 'Fazer Login para Comprar') : 'Produto Indisponível',
+      disabled: product.price === 0,
+      cardOpacity: product.price === 0 ? 0.7 : 1
+    };
+  };
+
+  // ========== NOVO: DADOS DE DIAS DE ENTREGA ========== //
+  const [deliveryDaysData, setDeliveryDaysData] = useState({});
+  const [loadingDeliveryData, setLoadingDeliveryData] = useState(true);
+  const [expandedCity, setExpandedCity] = useState(null);
+
+  // ========== NOVO: ALTERNAR EXPANSÃO DA CIDADE ========== //
+  const toggleCityExpand = (cityName) => {
+    setExpandedCity(expandedCity === cityName ? null : cityName);
+  };
+
+  // ========== NOVO: COMPONENTE DE DIAS DE ENTREGA ========== //
+  const DeliveryDaysDisplay = ({ days }) => {
+    // Converte os true/false em nomes dos dias
+    const activeDays = [];
+    if (days.terca) activeDays.push('Terça');
+    if (days.quarta) activeDays.push('Quarta');
+    if (days.quinta) activeDays.push('Quinta');
+    if (days.sexta) activeDays.push('Sexta');
+    
+    if (activeDays.length === 0) return null;
+    
+    return (
+      <div style={{
+        marginTop: '4px',
+        marginBottom: '4px',
+        padding: '8px 10px',
+        backgroundColor: '#f0f8f0',
+        borderLeft: '3px solid #095400',
+        borderRadius: '0 4px 4px 0',
+        fontSize: '12px',
+        color: '#333',
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        gap: '6px'
+      }}>
+        <span style={{ fontWeight: 'bold', color: '#095400' }}>📅 Entrega:</span>
+        {activeDays.map((day, index) => (
+          <span key={day} style={{
+            backgroundColor: '#095400',
+            color: 'white',
+            padding: '2px 8px',
+            borderRadius: '12px',
+            fontSize: '11px',
+            fontWeight: '600'
+          }}>
+            {day} manhã
+          </span>
+        ))}
+      </div>
+    );
+  };
+
+  // ========== NOVO: CARREGAR DIAS DE ENTREGA ========== //
+  useEffect(() => {
+    const loadDeliveryData = async () => {
+      try {
+        // Carrega os 3 arquivos em paralelo
+        const [spData, mgData, rjData] = await Promise.all([
+          fetch('/rotas/sp.json').then(res => res.ok ? res.json() : {}),
+          fetch('/rotas/mg.json').then(res => res.ok ? res.json() : {}),
+          fetch('/rotas/rj.json').then(res => res.ok ? res.json() : {})
+        ]);
+        
+        // Junta tudo em um único objeto
+        const allData = { ...spData, ...mgData, ...rjData };
+        setDeliveryDaysData(allData);
+      } catch (error) {
+        console.error('Erro ao carregar dias de entrega:', error);
+      } finally {
+        setLoadingDeliveryData(false);
+      }
+    };
+    
+    loadDeliveryData();
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -2183,7 +2200,7 @@ useEffect(() => {
   };
 
   const handleAddToCart = () => {
-    if (!product) return;
+    if (!product || !getProductStatus(product).available) return;
     
     addToCart(product);
     
@@ -2194,6 +2211,9 @@ useEffect(() => {
   const isProductInCart = product && cart.some(item => item.id === product.id);
 
   const handleBuyNow = () => {
+    const status = getProductStatus(product);
+    if (!status.available) return;
+    
     if (user) {
       handleAddToCart();
     } else {
@@ -2249,6 +2269,7 @@ useEffect(() => {
 
   const canonicalUrl = `https://www.marquesvendaspmg.shop/produto/${product.id}-${generateSlug(product.name)}`;
   const seo = generateImageSEO(product);
+  const status = getProductStatus(product);
 
   return (
     <>
@@ -2272,7 +2293,7 @@ useEffect(() => {
         <meta property="og:price:currency" content="BRL" />
         <meta property="product:price:amount" content={product.price.toFixed(2)} />
         <meta property="product:price:currency" content="BRL" />
-        <meta property="product:availability" content="in stock" />
+        <meta property="product:availability" content={status.available ? "in stock" : "out of stock"} />
         <meta property="product:condition" content="new" />
         <meta property="product:retailer_item_id" content={`PMG-${product.id}`} />
       </Head>
@@ -2333,9 +2354,9 @@ useEffect(() => {
             ],
             "offers": {
               "@type": "Offer",
-              "price": product.price.toFixed(2),
+              "price": product.price > 0 ? product.price.toFixed(2) : "0.00",
               "priceCurrency": "BRL",
-              "availability": "https://schema.org/InStock",
+              "availability": status.available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
               "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 30 dias no futuro
               "url": canonicalUrl,
               "shippingDetails": {
@@ -2391,7 +2412,7 @@ useEffect(() => {
               },
               "priceSpecification": {
                 "@type": "UnitPriceSpecification",
-                "price": product.price.toFixed(2),
+                "price": product.price > 0 ? product.price.toFixed(2) : "0.00",
                 "priceCurrency": "BRL",
                 "referenceQuantity": {
                   "@type": "QuantitativeValue",
@@ -2609,7 +2630,10 @@ useEffect(() => {
         </div>
 
         {/* PRODUTO */}
-        <div style={styles.productContainer}>
+        <div style={{
+          ...styles.productContainer,
+          opacity: status.cardOpacity
+        }}>
           
           {/* IMAGEM DO PRODUTO */}
           <div style={styles.imageContainer}>
@@ -2622,6 +2646,21 @@ useEffect(() => {
                 e.target.src = 'https://via.placeholder.com/400x300/095400/ffffff?text=PMG+ATACADISTA';
               }}
             />
+            {!status.available && (
+              <div style={{
+                position: 'absolute',
+                top: '10px',
+                left: '10px',
+                backgroundColor: 'rgba(0,0,0,0.7)',
+                color: 'white',
+                padding: '5px 10px',
+                borderRadius: '5px',
+                fontSize: '14px',
+                fontWeight: 'bold'
+              }}>
+                INDISPONÍVEL
+              </div>
+            )}
           </div>
 
           {/* INFORMAÇÕES DO PRODUTO */}
@@ -2639,33 +2678,40 @@ useEffect(() => {
               {product.category}
             </div>
 
-            {/* PREÇO - VISÍVEL PARA TODOS (com vírgula para formato brasileiro) */}
-            <div style={styles.productPrice}>
-              R$ {product.price.toFixed(2)}  {/* ← MANTÉM PONTO */}
+            {/* PREÇO - Adaptado para produtos indisponíveis */}
+            <div style={status.priceStyle}>
+              {status.price}
             </div>
 
             {/* BOTÕES DE AÇÃO */}
             <div style={styles.actionButtons}>
               <button
                 onClick={handleAddToCart}
+                disabled={!status.available}
                 style={{
                   ...styles.addToCartButton,
-                  backgroundColor: isProductInCart ? '#27AE60' : '#ff0000'
+                  backgroundColor: !status.available ? '#ccc' : (isProductInCart ? '#27AE60' : '#ff0000'),
+                  cursor: !status.available ? 'not-allowed' : 'pointer'
                 }}
               >
                 <span style={styles.buttonIcon}>🛒</span>
-                {isProductInCart ? '✓ Adicionado' : 'Adicionar ao Carrinho'}
+                {status.buttonText}
               </button>
               
               <button
                 onClick={handleBuyNow}
-                style={styles.buyNowButton}
+                disabled={!status.available}
+                style={{
+                  ...styles.buyNowButton,
+                  backgroundColor: !status.available ? '#ccc' : '#095400',
+                  cursor: !status.available ? 'not-allowed' : 'pointer'
+                }}
               >
-                {user ? 'Comprar Agora' : 'Fazer Login para Comprar'}
+                {status.buyButtonText}
               </button>
             </div>
 
-            {!user && (
+            {!user && status.available && (
               <div style={styles.loginWarning}>
                 ⚠️ Faça login para finalizar a compra
               </div>
@@ -2681,173 +2727,173 @@ useEffect(() => {
               </p>
             </div>
 
- {/* CIDADES COM ENTREGA - AGORA COM DIAS DA SEMANA */}
-<div style={styles.deliveryInfo}>
-  <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
-  
-  <div style={styles.regionsContainer}>
-    {Object.entries(citiesData).map(([key, region]) => (
-      <div key={key} style={styles.regionSection}>
-        <button 
-          onClick={() => toggleRegion(key)}
-          style={styles.regionButton}
-        >
-          <span style={styles.regionTitle}>
-            {region.title}
-          </span>
-          <span style={{
-            ...styles.arrow,
-            transform: openRegions[key] ? 'rotate(180deg)' : 'rotate(0deg)'
-          }}>
-            ▼
-          </span>
-        </button>
-        
-        {openRegions[key] && (
-          <div style={styles.citiesList}>
-            {key === 'sp' && region.regions.map((city, index) => {
-              // SP: cidade já vem com " -SP"
-              const cityKey = city;
-              const hasDeliveryData = deliveryDaysData[cityKey];
+            {/* CIDADES COM ENTREGA - AGORA COM DIAS DA SEMANA */}
+            <div style={styles.deliveryInfo}>
+              <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
               
-              return (
-                <div key={index}>
-                  <div style={{ 
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    width: '100%',
-                    padding: '2px 0',
-                    cursor: hasDeliveryData ? 'pointer' : 'default'
-                  }}>
-                    <span style={styles.cityItem}>📍 {city}</span>
-                    {hasDeliveryData && (
-                      <button
-                        onClick={() => toggleCityExpand(cityKey)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          color: '#e53935',
-                          cursor: 'pointer',
-                          fontSize: '10px',
-                          padding: '2px 6px',
-                          borderRadius: '4px',
-                          marginLeft: '4px'
-                        }}
-                      >
+              <div style={styles.regionsContainer}>
+                {Object.entries(citiesData).map(([key, region]) => (
+                  <div key={key} style={styles.regionSection}>
+                    <button 
+                      onClick={() => toggleRegion(key)}
+                      style={styles.regionButton}
+                    >
+                      <span style={styles.regionTitle}>
+                        {region.title}
+                      </span>
+                      <span style={{
+                        ...styles.arrow,
+                        transform: openRegions[key] ? 'rotate(180deg)' : 'rotate(0deg)'
+                      }}>
                         ▼
-                      </button>
+                      </span>
+                    </button>
+                    
+                    {openRegions[key] && (
+                      <div style={styles.citiesList}>
+                        {key === 'sp' && region.regions.map((city, index) => {
+                          // SP: cidade já vem com " -SP"
+                          const cityKey = city;
+                          const hasDeliveryData = deliveryDaysData[cityKey];
+                          
+                          return (
+                            <div key={index}>
+                              <div style={{ 
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                width: '100%',
+                                padding: '2px 0',
+                                cursor: hasDeliveryData ? 'pointer' : 'default'
+                              }}>
+                                <span style={styles.cityItem}>📍 {city}</span>
+                                {hasDeliveryData && (
+                                  <button
+                                    onClick={() => toggleCityExpand(cityKey)}
+                                    style={{
+                                      background: 'none',
+                                      border: 'none',
+                                      color: '#e53935',
+                                      cursor: 'pointer',
+                                      fontSize: '10px',
+                                      padding: '2px 6px',
+                                      borderRadius: '4px',
+                                      marginLeft: '4px'
+                                    }}
+                                  >
+                                    ▼
+                                  </button>
+                                )}
+                              </div>
+                              {expandedCity === cityKey && hasDeliveryData && (
+                                <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                              )}
+                            </div>
+                          );
+                        })}
+                        
+                        {key === 'rj' && region.cities.map((city, index) => {
+                          // RJ: adiciona -RJ
+                          const cityKey = `${city}-RJ`;
+                          const hasDeliveryData = deliveryDaysData[cityKey];
+                          
+                          return (
+                            <div key={index}>
+                              <div style={{ 
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                width: '100%',
+                                padding: '2px 0',
+                                cursor: hasDeliveryData ? 'pointer' : 'default'
+                              }}>
+                                <span style={styles.cityItem}>📍 {city}</span>
+                                {hasDeliveryData && (
+                                  <button
+                                    onClick={() => toggleCityExpand(cityKey)}
+                                    style={{
+                                      background: 'none',
+                                      border: 'none',
+                                      color: '#e53935',
+                                      cursor: 'pointer',
+                                      fontSize: '10px',
+                                      padding: '2px 6px',
+                                      borderRadius: '4px',
+                                      marginLeft: '4px'
+                                    }}
+                                  >
+                                    ▼
+                                  </button>
+                                )}
+                              </div>
+                              {expandedCity === cityKey && hasDeliveryData && (
+                                <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                              )}
+                            </div>
+                          );
+                        })}
+                        
+                        {key === 'mg' && region.cities.map((city, index) => {
+                          // MG: adiciona -MG
+                          const cityKey = `${city}-MG`;
+                          const hasDeliveryData = deliveryDaysData[cityKey];
+                          
+                          return (
+                            <div key={index}>
+                              <div style={{ 
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                width: '100%',
+                                padding: '2px 0',
+                                cursor: hasDeliveryData ? 'pointer' : 'default'
+                              }}>
+                                <span style={styles.cityItem}>📍 {city}</span>
+                                {hasDeliveryData && (
+                                  <button
+                                    onClick={() => toggleCityExpand(cityKey)}
+                                    style={{
+                                      background: 'none',
+                                      border: 'none',
+                                      color: '#e53935',
+                                      cursor: 'pointer',
+                                      fontSize: '10px',
+                                      padding: '2px 6px',
+                                      borderRadius: '4px',
+                                      marginLeft: '4px'
+                                    }}
+                                  >
+                                    ▼
+                                  </button>
+                                )}
+                              </div>
+                              {expandedCity === cityKey && hasDeliveryData && (
+                                <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
                     )}
                   </div>
-                  {expandedCity === cityKey && hasDeliveryData && (
-                    <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-                  )}
-                </div>
-              );
-            })}
-            
-            {key === 'rj' && region.cities.map((city, index) => {
-              // RJ: adiciona -RJ
-              const cityKey = `${city}-RJ`;
-              const hasDeliveryData = deliveryDaysData[cityKey];
-              
-              return (
-                <div key={index}>
-                  <div style={{ 
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    width: '100%',
-                    padding: '2px 0',
-                    cursor: hasDeliveryData ? 'pointer' : 'default'
-                  }}>
-                    <span style={styles.cityItem}>📍 {city}</span>
-                    {hasDeliveryData && (
-                      <button
-                        onClick={() => toggleCityExpand(cityKey)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          color: '#e53935',
-                          cursor: 'pointer',
-                          fontSize: '10px',
-                          padding: '2px 6px',
-                          borderRadius: '4px',
-                          marginLeft: '4px'
-                        }}
-                      >
-                        ▼
-                      </button>
-                    )}
-                  </div>
-                  {expandedCity === cityKey && hasDeliveryData && (
-                    <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-                  )}
-                </div>
-              );
-            })}
-            
-            {key === 'mg' && region.cities.map((city, index) => {
-              // MG: adiciona -MG
-              const cityKey = `${city}-MG`;
-              const hasDeliveryData = deliveryDaysData[cityKey];
-              
-              return (
-                <div key={index}>
-                  <div style={{ 
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    width: '100%',
-                    padding: '2px 0',
-                    cursor: hasDeliveryData ? 'pointer' : 'default'
-                  }}>
-                    <span style={styles.cityItem}>📍 {city}</span>
-                    {hasDeliveryData && (
-                      <button
-                        onClick={() => toggleCityExpand(cityKey)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          color: '#e53935',
-                          cursor: 'pointer',
-                          fontSize: '10px',
-                          padding: '2px 6px',
-                          borderRadius: '4px',
-                          marginLeft: '4px'
-                        }}
-                      >
-                        ▼
-                      </button>
-                    )}
-                  </div>
-                  {expandedCity === cityKey && hasDeliveryData && (
-                    <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
+                ))}
+              </div>
 
-  <div style={styles.deliveryList}>
-    <div style={styles.deliveryItem}>
-      <span style={styles.checkIcon}>✓</span>
-      Frete grátis
-    </div>
-    <div style={styles.deliveryItem}>
-      <span style={styles.checkIcon}>✓</span>
-      Entrega em 1-2 dias úteis
-    </div>
-    <div style={styles.deliveryItem}>
-      <span style={styles.checkIcon}>✓</span>
-      Atendimento para food service
-    </div>
-  </div>
-</div>
+              <div style={styles.deliveryList}>
+                <div style={styles.deliveryItem}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Frete grátis
+                </div>
+                <div style={styles.deliveryItem}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Entrega em 1-2 dias úteis
+                </div>
+                <div style={styles.deliveryItem}>
+                  <span style={styles.checkIcon}>✓</span>
+                  Atendimento para food service
+                </div>
+              </div>
+            </div>
 
             {/* VANTAGENS */}
             <div style={styles.advantagesSection}>
@@ -3401,7 +3447,8 @@ const styles = {
   imageContainer: {
     width: '100%',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    position: 'relative'
   },
   
   productImage: {
@@ -3464,6 +3511,14 @@ const styles = {
     margin: '0'
   },
   
+  unavailablePrice: {
+    fontSize: '26px',
+    color: '#999',
+    fontWeight: 'bold',
+    margin: '0',
+    textDecoration: 'line-through'
+  },
+  
   actionButtons: {
     display: 'flex',
     gap: '15px',
@@ -3471,7 +3526,6 @@ const styles = {
   },
   
   addToCartButton: {
-    backgroundColor: '#ff0000',
     color: 'white',
     border: 'none',
     padding: '12px 20px',
@@ -3578,18 +3632,19 @@ const styles = {
 
   citiesList: {
     backgroundColor: 'white',
-    padding: '12px',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-    gap: '6px',
-    maxHeight: '250px',
+    padding: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2px',
+    maxHeight: '300px',
     overflowY: 'auto'
   },
 
   cityItem: {
     fontSize: '12px',
     color: '#555',
-    padding: '4px 0'
+    padding: '2px 0',
+    flex: 1
   },
 
   regionItem: {
@@ -3650,20 +3705,3 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
