@@ -134,7 +134,6 @@ const featuredProducts = [
   { id: 420, name: "MOLHO DE TOMATE TRADICIONAL MAMMA D ORO CEPÊRA 1,7 KILO (CX 6 BAG)", category: "Ofertas", price: 95.71, image: "https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-mamma-d-oro-cepera-17-kilo-cx-6-bag-pmg-atacadista.jpg" },
   { id: 425, name: "MOLHO INGLÊS CEPÊRA 1,01 L", category: "Ofertas", price: 7.27, image: "https://www.marquesvendaspmg.shop/images/molho-ingles-cepera-101-l-pmg-atacadista.jpg" },
   { id: 441, name: "MOLHO SHOYU CEPÊRA 1,01 L", category: "Ofertas", price: 11.84, image: "https://www.marquesvendaspmg.shop/images/molho-shoyu-cepera-101-l-pmg-atacadista.jpg" },
-  { id: 446, name: "MOLHO SHOYU PREMIUM CEPÊRA 5 L", category: "Ofertas", price: 60.18, image: "https://www.marquesvendaspmg.shop/images/molho-shoyu-premium-cepera-5-l-pmg-atacadista.jpg" },
   { id: 1132, name: "AZEITE DENDÊ CEPÊRA 900 ML", category: "Ofertas", price: 28.16, image: "https://www.marquesvendaspmg.shop/images/azeite-dende-cepera-900-ml-pmg-atacadista.jpg" },
   { id: 1231, name: "CATCHUP CEPÊRA 3,5 KILO", category: "Ofertas", price: 29.48, image: "https://www.marquesvendaspmg.shop/images/catchup-cepera-35-kilo-pmg-atacadista.jpg" },
   { id: 1240, name: "CATCHUP PEQUENO CEPÊRA 1,01 KILO", category: "Ofertas", price: 9.76, image: "https://www.marquesvendaspmg.shop/images/catchup-pequeno-cepera-101-kilo-pmg-atacadista.jpg" },
