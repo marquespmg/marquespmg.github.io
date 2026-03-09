@@ -502,23 +502,34 @@ class CartNotificationSystem {
     });
   }
   
-  // ==============================================
-  // VERIFICA EXIT POPUP
-  // ==============================================
-  async checkAndShowExitPopup() {
-    // Remove a verificação popupShown para mostrar SEMPRE
-    
-    this.loadFromLocalStorage();
-    
-    const cartItems = this.cartData?.cart_items;
-    if (!cartItems || cartItems.length === 0) return;
-    
-    const total = this.calculateCartTotal(cartItems);
-    if (total >= this.options.pedidoMinimo) return;
-    
-    // Mostra popup SEMPRE que tentar sair
-    this.showExitPopup(cartItems, total);
+// ==============================================
+// VERIFICA EXIT POPUP (COM LIMITE)
+// ==============================================
+async checkAndShowExitPopup() {
+  // Só mostra se NÃO tiver mostrado nos últimos 2 minutos
+  if (this.popupShown) {
+    console.log('⏰ Popup já mostrado recentemente, aguardando...');
+    return;
   }
+  
+  this.loadFromLocalStorage();
+  
+  const cartItems = this.cartData?.cart_items;
+  if (!cartItems || cartItems.length === 0) return;
+  
+  const total = this.calculateCartTotal(cartItems);
+  if (total >= this.options.pedidoMinimo) return;
+  
+  // Marca que mostrou e programa para liberar depois
+  this.popupShown = true;
+  this.showExitPopup(cartItems, total);
+  
+  // Libera para mostrar novamente após 2 minutos
+  setTimeout(() => {
+    this.popupShown = false;
+    console.log('⏰ Popup liberado para mostrar novamente');
+  }, 120000); // 2 minutos
+}
   
   // ==============================================
   // MOSTRA EXIT POPUP (COM BOTÃO CORRIGIDO)
@@ -754,5 +765,6 @@ export const getCartNotifications = () => {
   if (typeof window === 'undefined') return null;
   return notificationInstance;
 };
+
 
 export default CartNotificationSystem;
