@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { supabase } from '../../lib/supabaseClient';
 import Cart from '../Cart';
 import useTrackUser from '../../hook/useTrackUser';
+import { initCartNotifications } from '../../components/CartNotification';
 
 const products = [
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 821.75, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg' },
@@ -2601,6 +2602,20 @@ export default function ProductPage({
     loadDeliveryData();
   }, []);
 
+  // ===== INICIALIZA O SISTEMA DE NOTIFICAÇÕES =====
+useEffect(() => {
+  const notifications = initCartNotifications({
+    pedidoMinimo: 900,
+    tempoNotificacao: 30000
+  });
+  
+  return () => {
+    if (notifications && notifications.destroy) {
+      notifications.destroy();
+    }
+  };
+}, []);
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -2654,14 +2669,23 @@ export default function ProductPage({
     }));
   };
 
-  const handleAddToCart = () => {
-    if (!product || !getProductStatus(product).available) return;
-    
-    addToCart(product);
-    
-    setShowAddedFeedback(true);
-    setTimeout(() => setShowAddedFeedback(false), 2000);
-  };
+const handleAddToCart = () => {
+  if (!product || !getProductStatus(product).available) return;
+  
+  addToCart(product);
+  
+  setShowAddedFeedback(true);
+  setTimeout(() => setShowAddedFeedback(false), 2000);
+  
+  // ===== NOTIFICA O SISTEMA SOBRE A MUDANÇA =====
+  setTimeout(() => {
+    import('../../components/CartNotification').then(module => {
+      const { getCartNotifications } = module;
+      const notifications = getCartNotifications();
+      if (notifications) notifications.updateCartData();
+    });
+  }, 100);
+};
 
   const isProductInCart = product && cart.some(item => item.id === product.id);
 
@@ -4160,5 +4184,6 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
+
 
 
