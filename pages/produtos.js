@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import useTrackUser from '../hook/useTrackUser';
-import { initCartNotifications } from '../components/CartNotification';
 
 // ========== DADOS DAS CIDADES ========== //
 const citiesData = {
@@ -2559,21 +2558,7 @@ const ProductsPage = () => {
     loadCartFromStorage();
   }, []); // Executa apenas uma vez quando o componente monta
   // ========== FIM DA CORREÇÃO ========== //
-
-    // ===== ADICIONAR ESTE useEffect =====
-useEffect(() => {
-  const notifications = initCartNotifications({
-    pedidoMinimo: 900,
-    tempoNotificacao: 30000
-  });
   
-  return () => {
-    if (notifications && notifications.destroy) {
-      notifications.destroy();
-    }
-  };
-}, []);
-	
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState('');
   const [userAvatar, setUserAvatar] = useState('');
@@ -2816,143 +2801,141 @@ useEffect(() => {
     applyCategoryFilterFromURL();
   }, []); // Executa apenas uma vez ao carregar a página
 
-// ===== USEEFFECT DE SEO CORRIGIDO - SEM TRAVAMENTOS =====
-useEffect(() => {
-  // Só executa no cliente
-  if (typeof window === 'undefined') return;
-  
-  // Flag para evitar execuções múltiplas
-  let isUpdating = false;
-  
-  const updateSEOMetaTags = () => {
-    // Evita execução simultânea
-    if (isUpdating) return;
-    isUpdating = true;
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const categoriaFromURL = urlParams.get('categoria');
-    
-    console.log('🔍 DEBUG SEO - Categoria detectada:', categoriaFromURL);
-    
-    let pageTitle = '';
-    let metaDescription = '';
+  // SUBSTITUA O USEEFFECT PROBLEMÁTICO POR ESTE:
+  useEffect(() => {
+    const updateSEOMetaTags = () => {
+      // Só executa no cliente
+      if (typeof window === 'undefined') return;
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const categoriaFromURL = urlParams.get('categoria');
+      
+      console.log('🔍 DEBUG SEO - Categoria detectada:', categoriaFromURL);
+      
+      let pageTitle = '';
+      let metaDescription = '';
 
-    if (categoriaFromURL) {
-      // MAPEAMENTO COMPLETO DE SEO
-      const seoMap = {
-        'acessórios': {
-          title: 'Acessórios para Restaurantes e Bares - Utensílios Profissionais | PMG Atacadista',
-          description: 'Acessórios e utensílios profissionais para restaurantes, bares e food service. Melhor preço atacado com entrega grátis SP.'
-        },
-        'bebidas': {
-          title: 'Bebidas para Atacado - Cervejas, Refris, Sucos, Águas | PMG Atacadista',
-          description: 'Melhor preço em bebidas para seu negócio! Cervejas Skol, Brahma, Heineken. Refrigerantes, sucos, águas, energéticos. Atacado food service com entrega grátis.'
-        },
-        'conservas/enlatados': {
-          title: 'Conservas e Enlatados para Atacado - Milho, Ervilha, Seleta | PMG Atacadista',
-          description: 'Conservas, enlatados e produtos em lata para seu restaurante. Milho, ervilha, seleta, palmito, azeitonas. Atacado food service SP.'
-        },
-        'derivados de ave': {
-          title: 'Produtos de Frango para Atacado - Frango Inteiro, Cortes, Embutidos | PMG',
-          description: 'Derivados de frango e ave para food service. Frango inteiro, cortes, filé, coxa, sobrecoxa, linguiça de frango. Melhor preço atacado.'
-        },
-        'derivados de bovino': {
-          title: 'Carnes Bovinas para Atacado - Picanha, Alcatra, Contrafilé | PMG Atacadista',
-          description: 'Carnes bovinas premium para churrascos e restaurantes. Picanha, alcatra, contrafilé, maminha. Melhor preço atacado com entrega rápida.'
-        },
-        'derivados de leite': {
-          title: 'Laticínios para Atacado - Queijos, Manteiga, Iogurte, Requeijão | PMG',
-          description: 'Laticínios e derivados de leite para seu negócio. Queijos, manteiga, iogurte, requeijão, cream cheese. Atacado food service SP.'
-        },
-        'derivados de suíno': {
-          title: 'Produtos Suínos para Atacado - Linguiça, Bacon, Pernil, Carne de Porco | PMG',
-          description: 'Derivados de suínos e carne de porco para restaurantes. Linguiça toscana, bacon, pernil, costela, lombo. Melhor preço atacado.'
-        },
-        'derivados de vegetal': {
-          title: 'Produtos Vegetais para Atacado - Hortifruti, Legumes, Verduras | PMG Atacadista',
-          description: 'Derivados vegetais e hortifruti para food service. Legumes, verduras, produtos congelados, polpas. Atacado com entrega grátis SP.'
-        },
-        'derivados do mar': {
-          title: 'Frutos do Mar e Pescados para Atacado - Peixes, Camarão, Polvo | PMG',
-          description: 'Frutos do mar e pescados frescos e congelados. Peixes, camarão, polvo, lula, mariscos. Melhor preço atacado para restaurantes.'
-        },
-        'doces/frutas': {
-          title: 'Doces e Frutas para Atacado - Sobremesas, Geleias, Frutas Frescas | PMG',
-          description: 'Doces, sobremesas e frutas para seu estabelecimento. Geleias, compotas, frutas frescas e secas. Atacado food service SP.'
-        },
-        'farináceos': {
-          title: 'Farináceos para Atacado - Arroz, Feijão, Macarrão, Farinha | PMG Atacadista',
-          description: 'Farináceos e mantimentos para seu comércio. Arroz, feijão, macarrão, farinha de trigo, óleo, açúcar. Melhor preço atacado região SP.'
-        },
-        'higiene': {
-          title: 'Produtos de Higiene e Limpeza para Atacado - Sabão, Detergente, Álcool | PMG',
-          description: 'Produtos de higiene e limpeza profissional para restaurantes e mercados. Sabão, detergente, álcool, desinfetante. Atacado SP.'
-        },
-        'orientais': {
-          title: 'Produtos Orientais para Atacado - Temperos, Molhos, Massas Asiáticas | PMG',
-          description: 'Produtos orientais e asiáticos para food service. Shoyu, temperos, molhos, massas, ingredientes. Melhor preço atacado SP.'
-        },
-        'panificação': {
-          title: 'Produtos de Panificação para Atacado - Pães, Bolos, Farinhas | PMG Atacadista',
-          description: 'Produtos para panificação e confeitaria. Farinhas, fermentos, pães, bolos, ingredientes. Atacado para padarias e restaurantes.'
-        },
-        'salgados': {
-          title: 'Salgados e Congelados para Atacado - Coxinhas, Empadas, Pizzas | PMG',
-          description: 'Salgados, congelados e pratos prontos para seu negócio. Coxinhas, empadas, pizzas, esfihas. Melhor preço atacado food service.'
-        },
-        '⏳ ofertas da semana 🚨': {
-          title: '🔥 Ofertas da Semana - Promoções Imperdíveis em Atacado | PMG Atacadista',
-          description: 'Promoções da semana com até 50% off! Ofertas especiais em bebidas, carnes, laticínios, mercearia. Corre que é por tempo limitado!'
+      if (categoriaFromURL) {
+        // MAPEAMENTO COMPLETO DE SEO
+        const seoMap = {
+          'acessórios': {
+            title: 'Acessórios para Restaurantes e Bares - Utensílios Profissionais | PMG Atacadista',
+            description: 'Acessórios e utensílios profissionais para restaurantes, bares e food service. Melhor preço atacado com entrega grátis SP.'
+          },
+          'bebidas': {
+            title: 'Bebidas para Atacado - Cervejas, Refris, Sucos, Águas | PMG Atacadista',
+            description: 'Melhor preço em bebidas para seu negócio! Cervejas Skol, Brahma, Heineken. Refrigerantes, sucos, águas, energéticos. Atacado food service com entrega grátis.'
+          },
+          'conservas/enlatados': {
+            title: 'Conservas e Enlatados para Atacado - Milho, Ervilha, Seleta | PMG Atacadista',
+            description: 'Conservas, enlatados e produtos em lata para seu restaurante. Milho, ervilha, seleta, palmito, azeitonas. Atacado food service SP.'
+          },
+          'derivados de ave': {
+            title: 'Produtos de Frango para Atacado - Frango Inteiro, Cortes, Embutidos | PMG',
+            description: 'Derivados de frango e ave para food service. Frango inteiro, cortes, filé, coxa, sobrecoxa, linguiça de frango. Melhor preço atacado.'
+          },
+          'derivados de bovino': {
+            title: 'Carnes Bovinas para Atacado - Picanha, Alcatra, Contrafilé | PMG Atacadista',
+            description: 'Carnes bovinas premium para churrascos e restaurantes. Picanha, alcatra, contrafilé, maminha. Melhor preço atacado com entrega rápida.'
+          },
+          'derivados de leite': {
+            title: 'Laticínios para Atacado - Queijos, Manteiga, Iogurte, Requeijão | PMG',
+            description: 'Laticínios e derivados de leite para seu negócio. Queijos, manteiga, iogurte, requeijão, cream cheese. Atacado food service SP.'
+          },
+          'derivados de suíno': {
+            title: 'Produtos Suínos para Atacado - Linguiça, Bacon, Pernil, Carne de Porco | PMG',
+            description: 'Derivados de suínos e carne de porco para restaurantes. Linguiça toscana, bacon, pernil, costela, lombo. Melhor preço atacado.'
+          },
+          'derivados de vegetal': {
+            title: 'Produtos Vegetais para Atacado - Hortifruti, Legumes, Verduras | PMG Atacadista',
+            description: 'Derivados vegetais e hortifruti para food service. Legumes, verduras, produtos congelados, polpas. Atacado com entrega grátis SP.'
+          },
+          'derivados do mar': {
+            title: 'Frutos do Mar e Pescados para Atacado - Peixes, Camarão, Polvo | PMG',
+            description: 'Frutos do mar e pescados frescos e congelados. Peixes, camarão, polvo, lula, mariscos. Melhor preço atacado para restaurantes.'
+          },
+          'doces/frutas': {
+            title: 'Doces e Frutas para Atacado - Sobremesas, Geleias, Frutas Frescas | PMG',
+            description: 'Doces, sobremesas e frutas para seu estabelecimento. Geleias, compotas, frutas frescas e secas. Atacado food service SP.'
+          },
+          'farináceos': {
+            title: 'Farináceos para Atacado - Arroz, Feijão, Macarrão, Farinha | PMG Atacadista',
+            description: 'Farináceos e mantimentos para seu comércio. Arroz, feijão, macarrão, farinha de trigo, óleo, açúcar. Melhor preço atacado região SP.'
+          },
+          'higiene': {
+            title: 'Produtos de Higiene e Limpeza para Atacado - Sabão, Detergente, Álcool | PMG',
+            description: 'Produtos de higiene e limpeza profissional para restaurantes e mercados. Sabão, detergente, álcool, desinfetante. Atacado SP.'
+          },
+          'orientais': {
+            title: 'Produtos Orientais para Atacado - Temperos, Molhos, Massas Asiáticas | PMG',
+            description: 'Produtos orientais e asiáticos para food service. Shoyu, temperos, molhos, massas, ingredientes. Melhor preço atacado SP.'
+          },
+          'panificação': {
+            title: 'Produtos de Panificação para Atacado - Pães, Bolos, Farinhas | PMG Atacadista',
+            description: 'Produtos para panificação e confeitaria. Farinhas, fermentos, pães, bolos, ingredientes. Atacado para padarias e restaurantes.'
+          },
+          'salgados': {
+            title: 'Salgados e Congelados para Atacado - Coxinhas, Empadas, Pizzas | PMG',
+            description: 'Salgados, congelados e pratos prontos para seu negócio. Coxinhas, empadas, pizzas, esfihas. Melhor preço atacado food service.'
+          },
+          '⏳ ofertas da semana 🚨': {
+            title: '🔥 Ofertas da Semana - Promoções Imperdíveis em Atacado | PMG Atacadista',
+            description: 'Promoções da semana com até 50% off! Ofertas especiais em bebidas, carnes, laticínios, mercearia. Corre que é por tempo limitado!'
+          }
+        };
+
+        const categoriaLower = categoriaFromURL.toLowerCase();
+        const seoData = seoMap[categoriaLower];
+
+        if (seoData) {
+          pageTitle = seoData.title;
+          metaDescription = seoData.description;
+        } else {
+          pageTitle = `${categoriaFromURL} - PMG Atacadista | Melhor Preço em Atacado`;
+          metaDescription = `Compre ${categoriaFromURL} com melhor preço atacado. PMG Atacadista - food service com entrega grátis SP e região.`;
+        }
+      } else {
+        pageTitle = 'Catálogo Completo - PMG Atacadista | Atacado Food Service SP';
+        metaDescription = 'Catálogo completo de produtos atacado. Bebidas, carnes, laticínios, mercearia, limpeza. Melhor preço com entrega grátis SP.';
+      }
+
+      console.log('🔄 Atualizando título para:', pageTitle);
+      
+      // Força a atualização do título
+      document.title = pageTitle;
+      
+      // Atualiza meta description
+      let metaDescTag = document.querySelector('meta[name="description"]');
+      if (!metaDescTag) {
+        metaDescTag = document.createElement('meta');
+        metaDescTag.name = 'description';
+        document.head.appendChild(metaDescTag);
+      }
+      metaDescTag.content = metaDescription;
+
+      // Múltiplas tentativas para garantir
+      const forceTitleUpdate = () => {
+        if (document.title !== pageTitle) {
+          console.log('🔄 Forçando atualização do título...');
+          document.title = pageTitle;
         }
       };
 
-      const categoriaLower = categoriaFromURL.toLowerCase();
-      const seoData = seoMap[categoriaLower];
+      // Executa várias vezes para garantir
+      forceTitleUpdate();
+      setTimeout(forceTitleUpdate, 100);
+      setTimeout(forceTitleUpdate, 500);
+      setTimeout(forceTitleUpdate, 1000);
+    };
 
-      if (seoData) {
-        pageTitle = seoData.title;
-        metaDescription = seoData.description;
-      } else {
-        pageTitle = `${categoriaFromURL} - PMG Atacadista | Melhor Preço em Atacado`;
-        metaDescription = `Compre ${categoriaFromURL} com melhor preço atacado. PMG Atacadista - food service com entrega grátis SP e região.`;
-      }
-    } else {
-      pageTitle = 'Catálogo Completo - PMG Atacadista | Atacado Food Service SP';
-      metaDescription = 'Catálogo completo de produtos atacado. Bebidas, carnes, laticínios, mercearia, limpeza. Melhor preço com entrega grátis SP.';
-    }
-
-    // Atualiza o título APENAS SE for diferente (UMA VEZ)
-    if (document.title !== pageTitle) {
-      console.log('🔄 Atualizando título para:', pageTitle);
-      document.title = pageTitle;
-    }
+    // Executa imediatamente
+    updateSEOMetaTags();
     
-    // Atualiza meta description APENAS SE for diferente
-    let metaDescTag = document.querySelector('meta[name="description"]');
-    if (!metaDescTag) {
-      metaDescTag = document.createElement('meta');
-      metaDescTag.name = 'description';
-      document.head.appendChild(metaDescTag);
-    }
+    // Re-executa após o componente montar completamente
+    const timer = setTimeout(updateSEOMetaTags, 300);
     
-    if (metaDescTag.content !== metaDescription) {
-      metaDescTag.content = metaDescription;
-    }
-    
-    // Libera a flag
-    isUpdating = false;
-  };
-
-  // Executa UMA VEZ
-  updateSEOMetaTags();
-  
-  // NÃO executa múltiplas vezes - SEM TIMERS ADICIONAIS
-  
-  // Cleanup simples
-  return () => {
-    isUpdating = false;
-  };
-}, [selectedCategory]); // Só executa quando a categoria muda
+    return () => clearTimeout(timer);
+  }, [selectedCategory]); // REMOVI window.location.search da dependência
 
   // Função para login com Google
   const handleGoogleLogin = async () => {
@@ -3071,25 +3054,6 @@ useEffect(() => {
     };
   }, []);
 
-  // ===== CARREGA CARRINHO DO LOCALSTORAGE AO INICIAR =====
-useEffect(() => {
-  const loadCartFromStorage = () => {
-    try {
-      const savedCart = localStorage.getItem('cart_data');
-      if (savedCart) {
-        const parsedCart = JSON.parse(savedCart);
-        console.log('📦 produtos.js - Carrinho carregado do localStorage:', parsedCart);
-        setCart(parsedCart);
-        setTotal(parsedCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
-      }
-    } catch (error) {
-      console.error('Erro ao carregar carrinho:', error);
-    }
-  };
-
-  loadCartFromStorage();
-}, []);
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -3193,46 +3157,35 @@ useEffect(() => {
     localStorage.removeItem('cart_data');
   };
 
-// ========== FUNÇÃO addToCart CORRIGIDA ========== //
-const addToCart = (product) => {
-  setCart(prevCart => {
-    // Verifica se o produto já está no carrinho
-    const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
-    
-    let newCart;
-    
-    if (existingProductIndex !== -1) {
-      // Incrementa a quantidade se já existir
-      newCart = [...prevCart];
-      newCart[existingProductIndex] = {
-        ...newCart[existingProductIndex],
-        quantity: (newCart[existingProductIndex].quantity || 1) + 1
-      };
-    } else {
-      // Adiciona novo produto com quantidade 1
-      newCart = [...prevCart, { ...product, quantity: 1 }];
-    }
-    
-    // Atualiza o total
-    const newTotal = newCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
-    setTotal(newTotal);
-    
-    // SALVA NO LOCALSTORAGE IMEDIATAMENTE
-    localStorage.setItem('cart_data', JSON.stringify(newCart));
-    console.log('💾 produtos.js - Carrinho salvo no localStorage:', newCart);
-    
-    // NOTIFICA O SISTEMA
-    setTimeout(() => {
-      import('../components/CartNotification').then(module => {
-        const { getCartNotifications } = module;
-        const notifications = getCartNotifications();
-        if (notifications) notifications.updateCartData();
-      });
-    }, 100);
-    
-    return newCart;
-  });
-};
+  // ========== FUNÇÃO addToCart CORRIGIDA ========== //
+  const addToCart = (product) => {
+    setCart(prevCart => {
+      // Verifica se o produto já está no carrinho
+      const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
+      
+      let newCart;
+      
+      if (existingProductIndex !== -1) {
+        // Incrementa a quantidade se já existir
+        newCart = [...prevCart];
+        newCart[existingProductIndex] = {
+          ...newCart[existingProductIndex],
+          quantity: (newCart[existingProductIndex].quantity || 1) + 1
+        };
+      } else {
+        // Adiciona novo produto com quantidade 1
+        newCart = [...prevCart, { ...product, quantity: 1 }];
+      }
+      
+      // Atualiza o total
+      setTotal(newCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
+      
+      // SALVA NO LOCALSTORAGE IMEDIATAMENTE
+      localStorage.setItem('cart_data', JSON.stringify(newCart));
+      
+      return newCart;
+    });
+  };
 
   // ========== FUNÇÃO removeFromCart CORRIGIDA ========== //
   const removeFromCart = (productId) => {
@@ -5650,33 +5603,3 @@ const filteredProducts = uniqueProducts
 
   export default ProductsPage;
   export const produtosArray = products; // Exporta o array de produtos
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
