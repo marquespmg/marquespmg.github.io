@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { supabase } from '../../lib/supabaseClient';
 import Cart from '../Cart';
 import useTrackUser from '../../hook/useTrackUser';
-import { initCartNotifications } from '../../components/CartNotification';
 
 const products = [
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 821.75, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg' },
@@ -2602,47 +2601,6 @@ export default function ProductPage({
     loadDeliveryData();
   }, []);
 
-// ===== SISTEMA DE NOTIFICAÇÕES GLOBAL (IGUAL AO PRODUTOS.JS) =====
-useEffect(() => {
-  // Inicializa o sistema de notificações (apenas uma vez)
-  const notifications = initCartNotifications({
-    pedidoMinimo: 900,
-    tempoNotificacao: 30000
-  });
-  
-  // Força atualização inicial
-  setTimeout(() => {
-    if (notifications) {
-      notifications.updateCartData();
-    }
-  }, 500);
-  
-  // NÃO destruir ao sair - o sistema é global
-  return () => {
-    // Não faz nada - mantém a instância global
-  };
-}, []);
-
-// ===== CARREGA CARRINHO DO LOCALSTORAGE AO INICIAR =====
-useEffect(() => {
-  const loadCartFromStorage = () => {
-    try {
-      const savedCart = localStorage.getItem('cart_data');
-      if (savedCart) {
-        const parsedCart = JSON.parse(savedCart);
-        console.log('📦 [id].js - Carrinho carregado do localStorage:', parsedCart);
-        if (typeof setCart === 'function') {
-          setCart(parsedCart);
-        }
-      }
-    } catch (error) {
-      console.error('Erro ao carregar carrinho:', error);
-    }
-  };
-
-  loadCartFromStorage();
-}, []);
-
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -2696,34 +2654,14 @@ useEffect(() => {
     }));
   };
 
-const handleAddToCart = () => {
-  if (!product || !getProductStatus(product).available) return;
-  
-  addToCart(product);
-  
-  setShowAddedFeedback(true);
-  setTimeout(() => setShowAddedFeedback(false), 2000);
-  
-  // FORÇA SINCRONIZAÇÃO
-  setTimeout(() => {
-    const savedCart = localStorage.getItem('cart_data');
-    if (savedCart) {
-      const parsedCart = JSON.parse(savedCart);
-      console.log('🔄 [id].js - Carrinho atual no localStorage:', parsedCart);
-      if (typeof setCart === 'function') {
-        setCart(parsedCart);
-      }
-    }
+  const handleAddToCart = () => {
+    if (!product || !getProductStatus(product).available) return;
     
-    import('../../components/CartNotification').then(module => {
-      const { getCartNotifications } = module;
-      const notifications = getCartNotifications();
-      if (notifications) {
-        notifications.updateCartData();
-      }
-    });
-  }, 200);
-};
+    addToCart(product);
+    
+    setShowAddedFeedback(true);
+    setTimeout(() => setShowAddedFeedback(false), 2000);
+  };
 
   const isProductInCart = product && cart.some(item => item.id === product.id);
 
@@ -4222,8 +4160,3 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
-
-
-
-
-
