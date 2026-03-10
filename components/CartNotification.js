@@ -708,28 +708,35 @@ async checkAndShowExitPopup() {
   // ==============================================
   // ATUALIZA CARRINHO
   // ==============================================
-  async updateCartData() {
-    const oldTotal = this.lastTotal;
-    
-    this.loadFromLocalStorage();
-    
-    const newTotal = this.cartData ? this.calculateCartTotal(this.cartData.cart_items) : 0;
-    
-    console.log(`📊 Total anterior: R$ ${oldTotal.toFixed(2)} → Novo total: R$ ${newTotal.toFixed(2)}`);
-    
-    this.lastTotal = newTotal;
-    
-    if (newTotal >= this.options.pedidoMinimo) {
-      console.log('✅ Pedido atingiu mínimo! Resetando...');
-      this.resetNotificationState();
-      return;
-    }
-    
-    if (!this.notificationShown && newTotal > 0) {
-      console.log('⏰ Reiniciando timer...');
-      this.startNotificationTimer();
-    }
+async updateCartData() {
+  console.log('🔄 updateCartData chamado');
+  
+  const oldTotal = this.lastTotal;
+  this.loadFromLocalStorage(); // Recarrega do localStorage
+  
+  if (!this.cartData || !this.cartData.cart_items) return;
+  
+  const newTotal = this.calculateCartTotal(this.cartData.cart_items);
+  
+  console.log(`📊 Total anterior: R$ ${oldTotal.toFixed(2)} → Novo total: R$ ${newTotal.toFixed(2)}`);
+  
+  this.lastTotal = newTotal;
+  
+  // SE ATINGIU O MÍNIMO (≥ 900)
+  if (newTotal >= this.options.pedidoMinimo) {
+    console.log('✅ Pedido atingiu mínimo! Resetando notificações');
+    this.resetNotificationState(); // 👈 RESETA TUDO
+    return;
   }
+  
+  // SE CAIU ABAIXO DO MÍNIMO (< 900)
+  if (newTotal < this.options.pedidoMinimo) {
+    console.log('⚠️ Pedido abaixo do mínimo, reativando notificações');
+    this.notificationShown = false; // 👈 PERMITE MOSTRAR DE NOVO
+    this.popupShown = false;        // 👈 PERMITE POPUP DE NOVO
+    this.startNotificationTimer();  // 👈 REINICIA TIMER
+  }
+}
   
   // ==============================================
   // DESTROI
@@ -768,3 +775,4 @@ export const getCartNotifications = () => {
 
 
 export default CartNotificationSystem;
+
