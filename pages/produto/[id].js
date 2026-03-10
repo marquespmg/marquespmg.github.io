@@ -2623,6 +2623,26 @@ useEffect(() => {
   };
 }, []);
 
+// ===== CARREGA CARRINHO DO LOCALSTORAGE AO INICIAR =====
+useEffect(() => {
+  const loadCartFromStorage = () => {
+    try {
+      const savedCart = localStorage.getItem('cart_data');
+      if (savedCart) {
+        const parsedCart = JSON.parse(savedCart);
+        console.log('📦 [id].js - Carrinho carregado do localStorage:', parsedCart);
+        if (typeof setCart === 'function') {
+          setCart(parsedCart);
+        }
+      }
+    } catch (error) {
+      console.error('Erro ao carregar carrinho:', error);
+    }
+  };
+
+  loadCartFromStorage();
+}, []);
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -2684,14 +2704,25 @@ const handleAddToCart = () => {
   setShowAddedFeedback(true);
   setTimeout(() => setShowAddedFeedback(false), 2000);
   
-  // ===== NOTIFICA O SISTEMA SOBRE A MUDANÇA =====
+  // FORÇA SINCRONIZAÇÃO
   setTimeout(() => {
+    const savedCart = localStorage.getItem('cart_data');
+    if (savedCart) {
+      const parsedCart = JSON.parse(savedCart);
+      console.log('🔄 [id].js - Carrinho atual no localStorage:', parsedCart);
+      if (typeof setCart === 'function') {
+        setCart(parsedCart);
+      }
+    }
+    
     import('../../components/CartNotification').then(module => {
       const { getCartNotifications } = module;
       const notifications = getCartNotifications();
-      if (notifications) notifications.updateCartData();
+      if (notifications) {
+        notifications.updateCartData();
+      }
     });
-  }, 100);
+  }, 200);
 };
 
   const isProductInCart = product && cart.some(item => item.id === product.id);
@@ -4191,6 +4222,7 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
+
 
 
 
