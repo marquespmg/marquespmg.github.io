@@ -3071,6 +3071,25 @@ useEffect(() => {
     };
   }, []);
 
+  // ===== CARREGA CARRINHO DO LOCALSTORAGE AO INICIAR =====
+useEffect(() => {
+  const loadCartFromStorage = () => {
+    try {
+      const savedCart = localStorage.getItem('cart_data');
+      if (savedCart) {
+        const parsedCart = JSON.parse(savedCart);
+        console.log('📦 produtos.js - Carrinho carregado do localStorage:', parsedCart);
+        setCart(parsedCart);
+        setTotal(parsedCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
+      }
+    } catch (error) {
+      console.error('Erro ao carregar carrinho:', error);
+    }
+  };
+
+  loadCartFromStorage();
+}, []);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -3174,44 +3193,46 @@ useEffect(() => {
     localStorage.removeItem('cart_data');
   };
 
-  // ========== FUNÇÃO addToCart CORRIGIDA ========== //
-  const addToCart = (product) => {
-    setCart(prevCart => {
-      // Verifica se o produto já está no carrinho
-      const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
-      
-      let newCart;
-      
-      if (existingProductIndex !== -1) {
-        // Incrementa a quantidade se já existir
-        newCart = [...prevCart];
-        newCart[existingProductIndex] = {
-          ...newCart[existingProductIndex],
-          quantity: (newCart[existingProductIndex].quantity || 1) + 1
-        };
-      } else {
-        // Adiciona novo produto com quantidade 1
-        newCart = [...prevCart, { ...product, quantity: 1 }];
-      }
-      
-      // Atualiza o total
-      setTotal(newCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
-      
-      // SALVA NO LOCALSTORAGE IMEDIATAMENTE
-      localStorage.setItem('cart_data', JSON.stringify(newCart));
-      
-      // DEPOIS de atualizar o carrinho, ADICIONE:
-      setTimeout(() => {
-        import('../components/CartNotification').then(module => {
-          const { getCartNotifications } = module;
-          const notifications = getCartNotifications();
-          if (notifications) notifications.updateCartData();
-        });
-      }, 100);
-      
-      return newCart;
-    });
-  };
+// ========== FUNÇÃO addToCart CORRIGIDA ========== //
+const addToCart = (product) => {
+  setCart(prevCart => {
+    // Verifica se o produto já está no carrinho
+    const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
+    
+    let newCart;
+    
+    if (existingProductIndex !== -1) {
+      // Incrementa a quantidade se já existir
+      newCart = [...prevCart];
+      newCart[existingProductIndex] = {
+        ...newCart[existingProductIndex],
+        quantity: (newCart[existingProductIndex].quantity || 1) + 1
+      };
+    } else {
+      // Adiciona novo produto com quantidade 1
+      newCart = [...prevCart, { ...product, quantity: 1 }];
+    }
+    
+    // Atualiza o total
+    const newTotal = newCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+    setTotal(newTotal);
+    
+    // SALVA NO LOCALSTORAGE IMEDIATAMENTE
+    localStorage.setItem('cart_data', JSON.stringify(newCart));
+    console.log('💾 produtos.js - Carrinho salvo no localStorage:', newCart);
+    
+    // NOTIFICA O SISTEMA
+    setTimeout(() => {
+      import('../components/CartNotification').then(module => {
+        const { getCartNotifications } = module;
+        const notifications = getCartNotifications();
+        if (notifications) notifications.updateCartData();
+      });
+    }, 100);
+    
+    return newCart;
+  });
+};
 
   // ========== FUNÇÃO removeFromCart CORRIGIDA ========== //
   const removeFromCart = (productId) => {
@@ -5629,6 +5650,7 @@ const filteredProducts = uniqueProducts
 
   export default ProductsPage;
   export const produtosArray = products; // Exporta o array de produtos
+
 
 
 
