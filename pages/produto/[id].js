@@ -2602,17 +2602,24 @@ export default function ProductPage({
     loadDeliveryData();
   }, []);
 
-  // ===== INICIALIZA O SISTEMA DE NOTIFICAÇÕES =====
+// ===== SISTEMA DE NOTIFICAÇÕES GLOBAL (IGUAL AO PRODUTOS.JS) =====
 useEffect(() => {
+  // Inicializa o sistema de notificações (apenas uma vez)
   const notifications = initCartNotifications({
     pedidoMinimo: 900,
     tempoNotificacao: 30000
   });
   
-  return () => {
-    if (notifications && notifications.destroy) {
-      notifications.destroy();
+  // Força atualização inicial
+  setTimeout(() => {
+    if (notifications) {
+      notifications.updateCartData();
     }
+  }, 500);
+  
+  // NÃO destruir ao sair - o sistema é global
+  return () => {
+    // Não faz nada - mantém a instância global
   };
 }, []);
 
@@ -4184,6 +4191,7 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
+
 
 
 
