@@ -2104,7 +2104,7 @@ const products = [
   { id: 2208, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO 900 ML', category: 'Derivados de Vegetal', price: 9.24, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao.png' },
   { id: 2209, name: 'ÓLEO DE ALGODÃO FRY SINA (BD 15,7 L)', category: 'Derivados de Vegetal', price: 168.79, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-fry-sina.png' },
   { id: 2210, name: 'ÓLEO DE ALGODÃO PEQUENO ELOGIATA 5,1 L', category: 'Derivados de Vegetal', price: 52.2, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-pequeno-elogiata.png' },
-  { id: 2211, name: 'ÓLEO DE ALGODÃO TRAVIÚ (BD 15,7 L)', category: 'Derivados de Vegetal', price: 61.73, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-traviu.png' },
+  { id: 2211, name: 'ÓLEO DE ALGODÃO TRAVIÚ (BD 15,7 L)', category: 'Derivados de Vegetal', price: 162.53, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-traviu.png' },
   { id: 2212, name: 'ÓLEO DE ALGODÃO TRAVIÚ 6 L', category: 'Derivados de Vegetal', price: 61.73, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-traviu1.png' },
   { id: 2213, name: 'ÓLEO DE SOJA FRY MAX SOYA (BD 15,8 L)', category: 'Derivados de Vegetal', price: 171.21, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-fry-max-soya.png' },
   { id: 2214, name: 'ÓLEO DE SOJA TRAVIÚ 6 L', category: 'Derivados de Vegetal', price: 53.09, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-traviu.png' },
@@ -4160,3 +4160,4 @@ export async function getStaticPaths() {
     fallback: 'blocking'
   };
 }
+
