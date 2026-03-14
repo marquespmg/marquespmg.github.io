@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { supabase } from '../../lib/supabaseClient';
 import Cart from '../Cart';
 import useTrackUser from '../../hook/useTrackUser';
+import WithdrawalModal from '../../components/WithdrawalModal';
+
 
 const products = [
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 821.75, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg' },
@@ -2504,6 +2506,8 @@ export default function ProductPage({
   const [openRegions, setOpenRegions] = useState({});
   const [showAddedFeedback, setShowAddedFeedback] = useState(false);
   const [userName, setUserName] = useState('');
+  const [showWithdrawalModal, setShowWithdrawalModal] = useState(false);
+
   
   useTrackUser();
 
@@ -3138,39 +3142,96 @@ export default function ProductPage({
               {status.price}
             </div>
 
-            {/* BOTÕES DE AÇÃO */}
-            <div style={styles.actionButtons}>
-              <button
-                onClick={handleAddToCart}
-                disabled={!status.available}
-                style={{
-                  ...styles.addToCartButton,
-                  backgroundColor: !status.available ? '#ccc' : (isProductInCart ? '#27AE60' : '#ff0000'),
-                  cursor: !status.available ? 'not-allowed' : 'pointer'
-                }}
-              >
-                <span style={styles.buttonIcon}>🛒</span>
-                {status.buttonText}
-              </button>
-              
-              <button
-                onClick={handleBuyNow}
-                disabled={!status.available}
-                style={{
-                  ...styles.buyNowButton,
-                  backgroundColor: !status.available ? '#ccc' : '#095400',
-                  cursor: !status.available ? 'not-allowed' : 'pointer'
-                }}
-              >
-                {status.buyButtonText}
-              </button>
-            </div>
+{/* BOTÕES DE AÇÃO */}
+<div style={styles.actionButtons}>
+  <button
+    onClick={handleAddToCart}
+    disabled={!status.available}
+    style={{
+      ...styles.addToCartButton,
+      backgroundColor: !status.available ? '#ccc' : (isProductInCart ? '#27AE60' : '#ff0000'),
+      cursor: !status.available ? 'not-allowed' : 'pointer'
+    }}
+  >
+    <span style={styles.buttonIcon}>🛒</span>
+    {status.buttonText}
+  </button>
+  
+  <button
+    onClick={handleBuyNow}
+    disabled={!status.available}
+    style={{
+      ...styles.buyNowButton,
+      backgroundColor: !status.available ? '#ccc' : '#095400',
+      cursor: !status.available ? 'not-allowed' : 'pointer'
+    }}
+  >
+    {status.buyButtonText}
+  </button>
+</div>
 
-            {!user && status.available && (
-              <div style={styles.loginWarning}>
-                ⚠️ Faça login para finalizar a compra
-              </div>
-            )}
+{/* BOTÃO DE RETIRADA - VISÍVEL PARA TODOS (logados OU não) */}
+<div style={{ 
+  display: 'flex', 
+  justifyContent: 'center',
+  marginTop: '15px',
+  marginBottom: '15px'
+}}>
+  <button
+    onClick={() => {
+      if (!user) {
+        // Se não estiver logado, redireciona para login com returnTo
+        const returnUrl = encodeURIComponent(router.asPath);
+        router.push(`/produtos?returnTo=${returnUrl}`);
+      } else {
+        // Se estiver logado, abre o modal
+        setShowWithdrawalModal(true);
+      }
+    }}
+    style={{
+      backgroundColor: '#dc3545',
+      color: 'white',
+      border: 'none',
+      padding: '12px 25px',
+      borderRadius: '50px',
+      fontSize: '16px',
+      fontWeight: '600',
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '10px',
+      width: '100%',
+      maxWidth: '400px',
+      transition: 'all 0.3s',
+      boxShadow: '0 4px 10px rgba(220, 53, 69, 0.3)'
+    }}
+    onMouseOver={(e) => {
+      e.target.style.backgroundColor = '#c82333';
+      e.target.style.transform = 'translateY(-2px)';
+      e.target.style.boxShadow = '0 6px 15px rgba(220, 53, 69, 0.4)';
+    }}
+    onMouseOut={(e) => {
+      e.target.style.backgroundColor = '#dc3545';
+      e.target.style.transform = 'translateY(0)';
+      e.target.style.boxShadow = '0 4px 10px rgba(220, 53, 69, 0.3)';
+    }}
+  >
+    <span style={{ fontSize: '20px' }}>🚚</span>
+    Retirada no Local
+  </button>
+</div>
+
+{/* MODAL DE RETIRADA (só abre se estiver logado) */}
+{user && (
+  <WithdrawalModal
+    isOpen={showWithdrawalModal}
+    onClose={() => setShowWithdrawalModal(false)}
+    cart={cart}
+    total={total}
+    user={user}
+  />
+)}
 
             {/* DESCRIÇÃO */}
             <div style={styles.descriptionSection}>
