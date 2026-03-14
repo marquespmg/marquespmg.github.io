@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import useTrackUser from '../hook/useTrackUser';
+import WithdrawalModal from '../components/WithdrawalModal';
 
 // ========== DADOS DAS CIDADES ========== //
 const citiesData = {
@@ -2578,6 +2579,8 @@ const ProductsPage = () => {
   const [showFreteToast, setShowFreteToast] = useState(false);
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const citiesButtonRef = useRef(null);
+  const [showWithdrawalModal, setShowWithdrawalModal] = useState(false);
+
   
   useTrackUser(); // ← ADICIONE ESTA LINHA
 
@@ -4513,39 +4516,99 @@ const filteredProducts = uniqueProducts
   </div>
 )}
 
-        <div style={styles.header}>
-          <img 
-            src="https://i.imgur.com/pBH5WpZ.png" 
-            alt="Logo" 
-            style={{ 
-              height: windowWidth > 768 ? '60px' : '50px', 
-              marginBottom: windowWidth > 768 ? '15px' : '10px' 
-            }} 
-          />
-          <h1 style={{ 
-            color: '#095400', 
-            fontSize: windowWidth > 768 ? '28px' : '22px', 
-            fontWeight: '700',
-            marginBottom: '10px'
-          }}>
-            PMG ATACADISTA
-          </h1>
-          <p style={{ 
-            color: '#666', 
-            fontSize: windowWidth > 768 ? '16px' : '14px' 
-          }}>
-            Encontre os melhores produtos para seu negócio
-          </p>
-        </div>
+<div style={styles.header}>
+  <img 
+    src="https://i.imgur.com/pBH5WpZ.png" 
+    alt="Logo" 
+    style={{ 
+      height: windowWidth > 768 ? '60px' : '50px', 
+      marginBottom: windowWidth > 768 ? '15px' : '10px' 
+    }} 
+  />
+  <h1 style={{ 
+    color: '#095400', 
+    fontSize: windowWidth > 768 ? '28px' : '22px', 
+    fontWeight: '700',
+    marginBottom: '10px'
+  }}>
+    PMG ATACADISTA
+  </h1>
+  <p style={{ 
+    color: '#666', 
+    fontSize: windowWidth > 768 ? '16px' : '14px' 
+  }}>
+    Encontre os melhores produtos para seu negócio
+  </p>
+  
+  {/* CONTAINER DOS BOTÕES - SÓ APARECE SE USUÁRIO LOGADO */}
+  {user && (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: '10px',
+      marginTop: '15px',
+      flexWrap: 'wrap'
+    }}>
+      {/* BOTÃO SAIR DA CONTA */}
+      <button
+        onClick={handleLogout}
+        style={{
+          backgroundColor: '#6c757d',
+          color: 'white',
+          border: 'none',
+          padding: windowWidth > 768 ? '10px 20px' : '8px 15px',
+          borderRadius: '30px',
+          fontSize: windowWidth > 768 ? '14px' : '12px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '5px',
+          transition: 'all 0.3s'
+        }}
+        onMouseOver={(e) => e.target.style.backgroundColor = '#5a6268'}
+        onMouseOut={(e) => e.target.style.backgroundColor = '#6c757d'}
+      >
+        <span>👋</span>
+        Sair da Conta
+      </button>
 
-        {user && (
-          <button
-            onClick={handleLogout}
-            style={styles.logoutButton}
-          >
-            Sair da Conta
-          </button>
-        )}
+      {/* BOTÃO RETIRADA NO LOCAL */}
+      <button
+        onClick={() => setShowWithdrawalModal(true)}
+        style={{
+          backgroundColor: '#dc3545',
+          color: 'white',
+          border: 'none',
+          padding: windowWidth > 768 ? '10px 20px' : '8px 15px',
+          borderRadius: '30px',
+          fontSize: windowWidth > 768 ? '14px' : '12px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '5px',
+          transition: 'all 0.3s'
+        }}
+        onMouseOver={(e) => e.target.style.backgroundColor = '#c82333'}
+        onMouseOut={(e) => e.target.style.backgroundColor = '#dc3545'}
+      >
+        <span>🚚</span>
+        Retirada no Local
+      </button>
+    </div>
+  )}
+</div>
+
+{/* MODAL DE RETIRADA */}
+<WithdrawalModal
+  isOpen={showWithdrawalModal}
+  onClose={() => setShowWithdrawalModal(false)}
+  cart={cart}
+  total={total}
+  user={user}
+/>
 
         <div style={styles.searchBar}>
           <input
