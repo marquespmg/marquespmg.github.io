@@ -4573,42 +4573,9 @@ const filteredProducts = uniqueProducts
         <span>👋</span>
         Sair da Conta
       </button>
-
-      {/* BOTÃO RETIRADA NO LOCAL */}
-      <button
-        onClick={() => setShowWithdrawalModal(true)}
-        style={{
-          backgroundColor: '#dc3545',
-          color: 'white',
-          border: 'none',
-          padding: windowWidth > 768 ? '10px 20px' : '8px 15px',
-          borderRadius: '30px',
-          fontSize: windowWidth > 768 ? '14px' : '12px',
-          fontWeight: '600',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '5px',
-          transition: 'all 0.3s'
-        }}
-        onMouseOver={(e) => e.target.style.backgroundColor = '#c82333'}
-        onMouseOut={(e) => e.target.style.backgroundColor = '#dc3545'}
-      >
-        <span>🚚</span>
-        Retirada no Local
-      </button>
     </div>
   )}
 </div>
-
-{/* MODAL DE RETIRADA */}
-<WithdrawalModal
-  isOpen={showWithdrawalModal}
-  onClose={() => setShowWithdrawalModal(false)}
-  cart={cart}
-  total={total}
-  user={user}
-/>
 
         <div style={styles.searchBar}>
           <input
