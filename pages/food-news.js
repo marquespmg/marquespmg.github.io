@@ -16387,6 +16387,1758 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
       </p>
     </div>
   `
+},
+{
+  "id": 75,
+  "title": "MANTEIGA SEM SAL BLEND PASSA QUATRO 5KG: A Escolha Perfeita para Confeitaria e Páscoa",
+  "description": "Manteiga sem sal blend Passa Quatro 5kg: ideal para massas, sorvetes e receitas de Páscoa. Textura lisa, 84% lipídeos, entrega rápida na Zona Sul de SP. Compre agora!",
+  "image": "https://i.imgur.com/tGyTJzf.png",
+  "category": "Manteigas Especiais",
+  "section": "manteiga-pascoa-confeitaria",
+  "readTime": "7 min de leitura",
+  "date": "2026-03-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧈 MANTEIGA SEM SAL BLEND PASSA QUATRO 5KG: A Escolha Perfeita para Confeitaria e Páscoa</h1>
+      <p>Se você é confeiteiro, tem uma padaria, pizzaria ou trabalha com <strong>food service</strong>, sabe que a escolha da manteiga faz toda diferença no resultado final dos seus produtos. E quando o assunto é <strong>Páscoa</strong>, a qualidade dos ingredientes se torna ainda mais importante. A <strong>Manteiga sem sal Blend Passa Quatro</strong> na versão de <strong>5kg</strong> é a solução ideal para quem busca um produto versátil, de alta performance e com excelente custo-benefício.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher a Manteiga Blend Passa Quatro 5kg?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>84% lipídeos</strong> • <strong>Textura lisa e uniforme</strong> • <strong>Ideal para massas e sorvetes</strong> • <strong>Embalagem 5kg</strong> • <strong>6 meses de shelf life</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/700" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - MANTEIGA BLEND 5KG</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/tGyTJzf.png" alt="Manteiga sem sal Blend Passa Quatro 5kg para confeitaria e Páscoa" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Manteiga Blend Passa Quatro 5kg - Ideal para receitas de Páscoa e confeitaria profissional</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Manteiga Sem Sal Blend Passa Quatro 5kg</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Descrição do Produto</h3>
+        <p>Alimento à base de gordura vegetal de palma e manteiga. Blend com 84% de lipídeos, desenvolvido especialmente para indústrias de alimentos e food service.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Usos e Funcionalidades</h3>
+        <p>Ideal para <strong>indústrias de alimentos e food service</strong>, com destaque para:</p>
+        <ul>
+          <li>✓ Massas em geral (pães, bolos, tortas, croissants)</li>
+          <li>✓ Sorvetes e sobremesas geladas</li>
+          <li>✓ Receitas de Páscoa (ovos de chocolate recheados, colomba pascal, tortas)</li>
+          <li>✓ Confeitaria fina e produtos de panificação</li>
+        </ul>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Características Físico-Químicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Análise</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Lipídeos (%)</td>
+            <td style="padding: 10px;">Mín. 82</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade e Voláteis (%)</td>
+            <td style="padding: 10px;">Máx. 16</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidez na Gordura (%)</td>
+            <td style="padding: 10px;">Máx. 2</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de Peróxido (mEq/Kg)</td>
+            <td style="padding: 10px;">Máx. 3</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">ESD (%)</td>
+            <td style="padding: 10px;">Máx. 2</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Características Sensoriais</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Critério</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aspecto</td>
+            <td style="padding: 10px;">Consistência sólida, pastosa à temperatura de 20°C</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor</td>
+            <td style="padding: 10px;">Branco amarelada, sem manchas de outra coloração</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Textura</td>
+            <td style="padding: 10px;">Lisa, uniforme, untosa, com distribuição uniforme de água</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Odor e Sabor</td>
+            <td style="padding: 10px;">Suave e característico</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">V - Tabela Nutricional (porção de 10g - 1 colher de sopa)</h3>
+        <ul>
+          <li><strong>Valor Energético:</strong> 75,4 kcal (4% VD*)</li>
+          <li><strong>Gorduras Totais:</strong> 8,4g (16% VD*)</li>
+          <li><strong>Gorduras Saturadas:</strong> 5,4g (25% VD*)</li>
+          <li><strong>Carboidratos:</strong> 0g</li>
+          <li><strong>Proteínas:</strong> 0g</li>
+          <li><strong>Sódio:</strong> 0mg</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*Percentual de valores diários fornecidos pela porção</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">VI - Armazenamento e Shelf Life</h3>
+        <p><strong>Armazenamento:</strong> Manter refrigerado de 0°C a 10°C. Após aberto, manter sob refrigeração e consumir em até 10 dias.<br>
+        <strong>Shelf Life:</strong> 6 meses a partir da data de fabricação.<br>
+        <strong>Embalagem:</strong> Primária em polietileno e secundária em caixa de papelão contendo 1 unidade de 5kg.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🐣 Por que a Manteiga Blend Passa Quatro é ideal para a Páscoa?</h2>
+      <p>A Páscoa é uma das épocas mais importantes para confeiteiros e padarias. A demanda por produtos artesanais e de alta qualidade aumenta significativamente. A <strong>Manteiga sem sal Blend Passa Quatro 5kg</strong> oferece:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍫 Massas para Ovos de Páscoa</h4>
+          <p>Textura lisa e homogênea que garante massas perfeitas para recheios cremosos e bombons finos.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥐 Colomba Pascal e Panetones</h4>
+          <p>Ideal para massas fermentadas que exigem uma manteiga de qualidade para textura macia e sabor marcante.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍰 Tortas e Sobremesas</h4>
+          <p>Perfeita para bases de tortas, recheios e coberturas que levam manteiga como ingrediente principal.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍦 Sorvetes Artesanais</h4>
+          <p>A alta concentração de lipídeos (84%) garante cremosidade incomparável aos sorvetes da Páscoa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicada Esta Manteiga 5kg?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍰</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Confeitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas, recheios, coberturas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥖</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Pães, croissants, folhados</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍕</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Pizzarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas especiais e bordas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Sorveterias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sorvetes cremosos</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústrias Alimentícias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>+280 veículos garantindo a qualidade da sua manteiga na entrega</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, sempre disponíveis</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre a Manteiga Blend Passa Quatro 5kg ou precisa de uma cotação especial? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo a <strong>Manteiga Blend Passa Quatro 5kg</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/700" style="color: #095400; font-weight: 600;">MANTEIGA SEM SAL BLEND PASSA QUATRO 5KG</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/700" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> manteiga sem sal 5kg, manteiga blend passs quatro, manteiga para confeitaria, manteiga para pascoa, manteiga para massas, manteiga para sorvetes, manteiga food service, fornecedor de manteiga zona sul sp, atacado de manteiga 5kg, manteiga blend 84%, pmg atacadista manteiga, marques vendas pmg, manteiga para padaria, manteiga para pizzaria, ingredientes para pascoa, manteiga profissional.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 76,
+  "title": "MANTEIGA SEM SAL FRIZZO 5KG: Tradição e Qualidade para Confeitaria e Páscoa",
+  "description": "Manteiga sem sal Frizzo 5kg: produto premium com 82% de gordura, textura lisa e sabor suave. Ideal para confeitaria, massas e receitas de Páscoa. Entrega rápida na Zona Sul de SP. Compre agora!",
+  "image": "https://i.imgur.com/OOS7Tq5.png",
+  "category": "Manteigas Especiais",
+  "section": "manteiga-pascoa-confeitaria",
+  "readTime": "7 min de leitura",
+  "date": "2026-03-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧈 MANTEIGA SEM SAL FRIZZO 5KG: Tradição e Qualidade para Confeitaria e Páscoa</h1>
+      <p>Quando o assunto é <strong>manteiga de alta qualidade</strong> para confeitaria profissional, padarias e food service, a <strong>Manteiga sem sal Frizzo 5kg</strong> se destaca como uma das melhores opções do mercado. Produzida pelo renomado Laticínios Frizzo, com mais de décadas de tradição na produção de lácteos de excelência, esta manteiga é a escolha certa para quem busca um produto puro, feito exclusivamente com <strong>creme de leite</strong>, sem adição de sais ou conservantes.</p>
+      
+      <p>Com a <strong>Páscoa</strong> se aproximando, a demanda por ingredientes premium aumenta. Se você trabalha com <strong>ovos de Páscoa recheados, colomba pascal, panetones artesanais, tortas finas ou sorvetes</strong>, a Manteiga Frizzo 5kg garante o sabor suave e a textura perfeita que seus clientes esperam.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher a Manteiga sem sal Frizzo 5kg?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>100% creme de leite</strong> • <strong>82% de gordura</strong> • <strong>Sem sal</strong> • <strong>Sem glúten</strong> • <strong>Shelf life 180 dias</strong> • <strong>Sabor suave e delicado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/702" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - MANTEIGA FRIZZO 5KG</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/OOS7Tq5.png" alt="Manteiga sem sal Frizzo 5kg para confeitaria e Páscoa" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Manteiga sem sal Frizzo 5kg - Tradição e qualidade para suas receitas de Páscoa</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Manteiga sem sal Frizzo 5kg</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Definição e Origem do Produto</h3>
+        <p><strong>Manteiga sem sal Frizzo</strong> é o produto gorduroso obtido pela bateção e malaxagem do creme derivado exclusivamente do leite de vaca. Produzida pelo <strong>Laticínios Frizzo Ltda.</strong>, localizado em Planalto - RS, com registro SIE 445 e SISBI, garantindo a mais alta qualidade e procedência.</p>
+        <p><strong>Código de Barras:</strong> 7897153001823<br>
+        <strong>Registro SIE:</strong> 0012/445</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Ingredientes e Alergênicos</h3>
+        <p><strong>Ingrediente:</strong> Creme de leite (100% puro).</p>
+        <p><strong>Alergênicos:</strong> Contém derivados de leite. Contém lactose. Não contém glúten.</p>
+        <p><strong>Grupos sensíveis:</strong> Consumidores intolerantes à lactose e alérgicos ao leite e seus derivados.</p>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Características Sensoriais</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Critério</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Consistência</td>
+            <td style="padding: 10px;">Sólida e pastosa</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Textura</td>
+            <td style="padding: 10px;">Lisa, uniforme e untosa</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor</td>
+            <td style="padding: 10px;">Branco amarelado</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor e Odor</td>
+            <td style="padding: 10px;">Suave, aroma delicado, sem odor e sabor estranho</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Características Físico-Químicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Análise</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gordura</td>
+            <td style="padding: 10px;">Mínimo 82% (m/m)</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade</td>
+            <td style="padding: 10px;">Máximo 16% (m/m)</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidez</td>
+            <td style="padding: 10px;">Máximo 3 mL/100g</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Insolúveis em éter etílico</td>
+            <td style="padding: 10px;">Máximo 2%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de peróxidos</td>
+            <td style="padding: 10px;">Máximo 1%</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">V - Características Microbiológicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Análise</th>
+            <th style="padding: 12px; text-align: left;">Tolerância</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Coliformes a 30°C</td>
+            <td style="padding: 10px;">≤ 100 NMP/g</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Coliformes Termotolerantes a 45°C</td>
+            <td style="padding: 10px;">≤ 10 NMP/g</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Staphylococcus coagulase positiva</td>
+            <td style="padding: 10px;">≤ 100 UFC/g</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Salmonela spp.</td>
+            <td style="padding: 10px;">Ausente</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Bolores e leveduras</td>
+            <td style="padding: 10px;">10.000 UFC/g</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Escherichia coli/g</td>
+            <td style="padding: 10px;">10 UFC/g</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">VI - Tabela Nutricional (porção de 10g - 1 colher de sopa)</h3>
+        <ul>
+          <li><strong>Valor Energético:</strong> 203 kcal (3% VD*)</li>
+          <li><strong>Gorduras Totais:</strong> 8,2g (13% VD*)</li>
+          <li><strong>Gorduras Saturadas:</strong> 4,7g (24% VD*)</li>
+          <li><strong>Gorduras Trans:</strong> 0g</li>
+          <li><strong>Carboidratos:</strong> 0g</li>
+          <li><strong>Açúcares Totais:</strong> 0g</li>
+          <li><strong>Proteínas:</strong> 0g</li>
+          <li><strong>Sódio:</strong> 8,4mg (0% VD*)</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*Percentual de valores diários fornecidos pela porção</p>
+        <p><strong>Porções por embalagem:</strong> 500 porções de 10g</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">VII - Armazenamento, Transporte e Shelf Life</h3>
+        <p><strong>Armazenamento:</strong> Manter refrigerado de 0°C a 5°C. Após aberto, consumir em até 7 dias.</p>
+        <p><strong>Transporte:</strong> O produto deve ser transportado em caminhões baú com refrigeração de 0°C a 5°C, mantendo a integridade do produto, livre de pragas e materiais estranhos.</p>
+        <p><strong>Shelf Life:</strong> 180 dias a partir da data de fabricação, desde que atendidas as condições de conservação indicadas.</p>
+        <p><strong>Embalagem:</strong> Primária em plástico transparente e secundária em caixa de papelão contendo 1 unidade de 5kg. Proibida a venda fracionada.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🐣 Manteiga Frizzo 5kg: A Escolha Premium para a Páscoa</h2>
+      <p>A <strong>Páscoa</strong> é a época mais aguardada por confeiteiros e padarias. É quando os clientes buscam produtos artesanais, de alta qualidade e com sabor inesquecível. A <strong>Manteiga sem sal Frizzo 5kg</strong>, por ser 100% creme de leite e ter um sabor suave e delicado, é o ingrediente secreto para elevar suas receitas a outro nível.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍫 Ovos de Páscoa Recheados</h4>
+          <p>Massas cremosas e recheios aveludados que derretem na boca. A manteiga Frizzo garante a textura perfeita.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥐 Colomba Pascal e Panetones</h4>
+          <p>Massas fermentadas que exigem manteiga de alta qualidade para desenvolver estrutura macia e sabor marcante.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍰 Tortas Finas e Sobremesas</h4>
+          <p>Bases amanteigadas, recheios cremosos e coberturas brilhantes que impressionam pela qualidade.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍦 Sorvetes Artesanais</h4>
+          <p>Cremosidade incomparável para sorvetes e sobremesas geladas da Páscoa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicada a Manteiga Frizzo 5kg?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍰</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Confeitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas, recheios, coberturas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥖</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Pães, croissants, folhados</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍕</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Pizzarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas especiais e bordas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Sorveterias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sorvetes cremosos</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústrias Alimentícias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>+280 veículos garantindo a qualidade da sua manteiga na entrega, mantendo a temperatura entre 0°C e 5°C.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo a Manteiga Frizzo 5kg, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre a Manteiga sem sal Frizzo 5kg ou precisa de uma cotação especial para a Páscoa? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo a <strong>Manteiga sem sal Frizzo 5kg</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/702" style="color: #095400; font-weight: 600;">MANTEIGA SEM SAL FRIZZO 5KG</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/702" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> manteiga sem sal frizzo 5kg, manteiga frizzo, manteiga para confeitaria, manteiga para pascoa, manteiga para massas, manteiga 82% gordura, manteiga food service, fornecedor de manteiga zona sul sp, atacado de manteiga 5kg, laticinios frizzo, pmg atacadista manteiga, marques vendas pmg, manteiga para padaria, manteiga para pizzaria, ingredientes para pascoa, manteiga premium, manteiga sem sal 5kg.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 77,
+  "title": "MANTEIGA SEM SAL LAURITA 5KG: Pura Creme de Leite para Confeitaria e Páscoa",
+  "description": "Manteiga sem sal Laurita 5kg: 100% creme de leite pasteurizado, 82% gordura, sem conservantes. Ideal para confeitaria, massas e receitas de Páscoa. Entrega rápida Zona Sul SP. Compre agora!",
+  "image": "https://i.imgur.com/jeQTdSZ.png",
+  "category": "Manteigas Especiais",
+  "section": "manteiga-pascoa-confeitaria",
+  "readTime": "6 min de leitura",
+  "date": "2026-03-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧈 MANTEIGA SEM SAL LAURITA 5KG: Pura Creme de Leite para Confeitaria e Páscoa</h1>
+      <p>A <strong>Manteiga sem sal Laurita 5kg</strong> é a escolha perfeita para confeiteiros, padarias e food service que buscam um produto puro, de alta qualidade e com sabor suave e delicado. Produzida exclusivamente com <strong>creme de leite pasteurizado</strong>, sem conservantes e sem glúten, esta manteiga entrega tudo o que você precisa para criar receitas inesquecíveis, especialmente na <strong>Páscoa</strong>.</p>
+      
+      <p>Com <strong>82% de gordura mínima</strong> e textura lisa e uniforme, a Manteiga Laurita garante massas perfeitas, recheios cremosos e sobremesas que derretem na boca. Se você trabalha com <strong>ovos de Páscoa artesanais, colomba pascal, panetones, tortas finas ou sorvetes</strong>, este é o ingrediente que vai elevar seu produto ao próximo nível.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher a Manteiga sem sal Laurita 5kg?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>100% creme de leite pasteurizado</strong> • <strong>82% de gordura</strong> • <strong>Sem conservantes</strong> • <strong>Sem glúten</strong> • <strong>Isenta de aromatizantes</strong> • <strong>Sabor suave e delicado</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/2050" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - MANTEIGA LAURITA 5KG</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/jeQTdSZ.png" alt="Manteiga sem sal Laurita 5kg para confeitaria e Páscoa" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Manteiga sem sal Laurita 5kg - Pura creme de leite para receitas premium</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Manteiga sem sal Laurita 5kg</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Definição e Ingredientes</h3>
+        <p><strong>Manteiga sem sal Laurita</strong> é produzida exclusivamente com <strong>creme de leite pasteurizado</strong>, passando por um rigoroso processo de fabricação que garante a pureza e qualidade do produto final.</p>
+        <p><strong>Ingredientes:</strong> Creme de leite pasteurizado.<br>
+        <strong>Aromatizantes:</strong> Não contém.<br>
+        <strong>Conservantes:</strong> Não contém.</p>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">II - Características Organolépticas (Sensoriais)</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Critério</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor</td>
+            <td style="padding: 10px;">Suave, característico, sem ranço</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aroma</td>
+            <td style="padding: 10px;">Delicado, sem odor estranho</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor</td>
+            <td style="padding: 10px;">Branco amarelada, sem manchas ou pontos de outra coloração</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aparência/Consistência</td>
+            <td style="padding: 10px;">Sólida e pastosa</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Características Físico-Químicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Análise</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Lipídios (gordura)</td>
+            <td style="padding: 10px;">Mínimo 82%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade e voláteis</td>
+            <td style="padding: 10px;">Máximo 16%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Extrato seco desengordurado</td>
+            <td style="padding: 10px;">Máximo 2%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidez na gordura</td>
+            <td style="padding: 10px;">Máximo 3%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de peróxido</td>
+            <td style="padding: 10px;">Máximo 1%</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Características Microbiológicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Análise</th>
+            <th style="padding: 12px; text-align: left;">Tolerância</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Coliformes Totais a 30°C/g</td>
+            <td style="padding: 10px;">Máx. 100</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Coliformes Termotolerantes a 45°C/g</td>
+            <td style="padding: 10px;">Máx. 10</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Estafilococos Coagulase Positiva/g</td>
+            <td style="padding: 10px;">Máx. 100</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Salmonella spp./25g</td>
+            <td style="padding: 10px;">Ausente</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Bolores e Leveduras</td>
+            <td style="padding: 10px;">Máx. 1000</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Listeria monocytogenes</td>
+            <td style="padding: 10px;">Ausente</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Escherichia coli/g</td>
+            <td style="padding: 10px;">Máx. 10</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">V - Informações Adicionais</h3>
+        <p><strong>Dados Alergênicos:</strong><br>
+        ✓ Contém derivados de leite<br>
+        ✓ Contém lactose<br>
+        ✓ Não contém glúten<br>
+        ✓ Isento de conservantes</p>
+        <p><strong>Material de Embalagem:</strong><br>
+        Primária: Sacos plásticos de grau alimentício<br>
+        Secundária: Caixas de papelão brancas<br>
+        Peso líquido: 5kg</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">VI - Armazenamento e Shelf Life</h3>
+        <p><strong>Armazenamento:</strong> Manter em local limpo e seco; manter em câmara fria.<br>
+        <strong>Transporte:</strong> Transportar em caminhão isotérmico, limpo, seco, longe de produtos tóxicos ou que exalem odores fortes.<br>
+        <strong>Conservação após aberto:</strong> Manter em geladeira e consumir em até 10 dias.<br>
+        <strong>Prazo de Validade:</strong> 3 meses (90 dias) após a data de fabricação, se mantido nas condições adequadas de armazenamento.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🐣 Manteiga Laurita 5kg: O Ingrediente Secreto para uma Páscoa Inesquecível</h2>
+      <p>A <strong>Páscoa</strong> é a data mais importante para confeiteiros e padarias. É quando seus clientes estão dispostos a pagar mais por produtos artesanais, de alta qualidade e com sabor autêntico. A <strong>Manteiga sem sal Laurita 5kg</strong>, por ser 100% creme de leite pasteurizado e isenta de conservantes, oferece o sabor puro e a textura cremosa que fazem toda diferença.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍫 Ovos de Páscoa Recheados</h4>
+          <p>Massas cremosas que não cristalizam e recheios aveludados que derretem na boca.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥐 Colomba Pascal e Panetones</h4>
+          <p>Massas fermentadas que exigem manteiga pura para desenvolver a textura macia e o sabor característico.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍰 Tortas Finas e Sobremesas</h4>
+          <p>Bases amanteigadas, recheios cremosos e coberturas brilhantes que impressionam.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍦 Sorvetes Artesanais</h4>
+          <p>Cremosidade incomparável para sorvetes e sobremesas geladas da Páscoa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicada a Manteiga Laurita 5kg?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍰</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Confeitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas, recheios, coberturas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥖</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Pães, croissants, folhados</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍕</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Pizzarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas especiais e bordas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Sorveterias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sorvetes cremosos</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústrias Alimentícias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>+280 veículos garantindo a qualidade da sua manteiga na entrega, mantendo a cadeia de frio.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo a Manteiga Laurita 5kg, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre a Manteiga sem sal Laurita 5kg ou precisa de uma cotação especial para a Páscoa? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo a <strong>Manteiga sem sal Laurita 5kg</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/2050" style="color: #095400; font-weight: 600;">MANTEIGA SEM SAL LAURITA 5KG</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/2050" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> manteiga sem sal laurita 5kg, manteiga laurita, manteiga para confeitaria, manteiga para pascoa, manteiga para massas, manteiga 82% gordura, manteiga food service, fornecedor de manteiga zona sul sp, atacado de manteiga 5kg, manteiga sem conservantes, pmg atacadista manteiga, marques vendas pmg, manteiga para padaria, manteiga para pizzaria, ingredientes para pascoa, manteiga pura creme de leite.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 78,
+  "title": "MANTEIGA SEM SAL SCALA 5KG: Excelência em Gordura Láctea para Confeitaria e Páscoa",
+  "description": "Manteiga sem sal Scala 5kg: 100% gordura láctea, produzida com creme de soro, SIF 1236. Ideal para confeitaria, massas e receitas de Páscoa. Entrega rápida Zona Sul SP. Compre agora!",
+  "image": "https://i.imgur.com/OOTGDkf.png",
+  "category": "Manteigas Especiais",
+  "section": "manteiga-pascoa-confeitaria",
+  "readTime": "7 min de leitura",
+  "date": "2026-03-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧈 MANTEIGA SEM SAL SCALA 5KG: Excelência em Gordura Láctea para Confeitaria e Páscoa</h1>
+      <p>A <strong>Manteiga sem sal Scala 5kg</strong> é um produto de excelência produzida pelo renomado <strong>Laticínios Scala</strong>, detentor do selo SIF 1236 e reconhecido pela qualidade de seus lácteos. Composta exclusivamente por <strong>gordura láctea</strong> e produzida a partir de creme de soro, esta manteiga oferece sabor suave, textura lisa e uniforme, sendo a escolha ideal para confeiteiros, padarias e food service que buscam um produto premium.</p>
+      
+      <p>Com a <strong>Páscoa</strong> se aproximando, a qualidade dos ingredientes é fundamental para criar produtos artesanais que encantam os clientes. A Manteiga Scala 5kg é perfeita para <strong>ovos de Páscoa recheados, colomba pascal, panetones, tortas finas, sorvetes e muito mais</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher a Manteiga sem sal Scala 5kg?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>100% gordura láctea</strong> • <strong>SIF 1236</strong> • <strong>80% de matéria gorda mínima</strong> • <strong>Selo ABIQ</strong> • <strong>Isenta de sódio</strong> • <strong>Sem glúten</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/704" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - MANTEIGA SCALA 5KG</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/OOTGDkf.png" alt="Manteiga sem sal Scala 5kg para confeitaria e Páscoa" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Manteiga sem sal Scala 5kg - Excelência em gordura láctea para suas receitas</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Manteiga sem sal Scala 5kg</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Denominação e Descrição do Produto</h3>
+        <p><strong>Manteiga comum sem sal Scala</strong> é o produto gorduroso obtido exclusivamente pela bateção e malaxagem, com ou sem modificação microbiológica de creme pasteurizado derivado exclusivamente de vaca, por processos tecnologicamente adequados. Sua matéria gorda é composta exclusivamente de <strong>gordura láctea</strong>.</p>
+        <p><strong>Ingrediente:</strong> Creme de soro.<br>
+        <strong>Registro SIF/DIPOA:</strong> N° 0030/1236</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Alergênicos</h3>
+        <p><strong>Declaração de Alergênicos (RDC ANVISA Nº 26/2015):</strong></p>
+        <ul>
+          <li>✓ Leite e derivados (incluindo lactose) - <strong>CONTÉM</strong></li>
+          <li>✗ Glúten (trigo, centeio, cevada, aveia) - <strong>NÃO CONTÉM</strong></li>
+          <li>✗ Soja, ovos, peixes, crustáceos, amendoim e demais castanhas - <strong>NÃO CONTÉM</strong></li>
+        </ul>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Características Sensoriais</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Critério</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor</td>
+            <td style="padding: 10px;">Branco amarelado, sem manchas ou pontos de outra coloração</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor</td>
+            <td style="padding: 10px;">Suave, característico</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Odor</td>
+            <td style="padding: 10px;">Aroma delicado, sem odor estranho</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Consistência</td>
+            <td style="padding: 10px;">Sólida, pastosa à temperatura de 20°C</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Textura</td>
+            <td style="padding: 10px;">Lisa e uniforme, untuosa, com distribuição uniforme de umidade</td>
+           </tr>
+          <tr>
+            <td style="padding: 10px;">Sujidades/Materiais Estranhos</td>
+            <td style="padding: 10px;">Ausentes</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Características Físico-Químicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Critério</th>
+            <th style="padding: 12px; text-align: left;">Mínimo</th>
+            <th style="padding: 12px; text-align: left;">Máximo</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade (%)</td>
+            <td style="padding: 10px;">-</td>
+            <td style="padding: 10px;">18</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Matéria Gorda (%)</td>
+            <td style="padding: 10px;">80</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">E.S.T (Extrato Seco Total) %</td>
+            <td style="padding: 10px;">82</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">E.S.D (Extrato Seco Desengordurado) %</td>
+            <td style="padding: 10px;">-</td>
+            <td style="padding: 10px;">2</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidez (milimoles / 100g de matéria gorda)</td>
+            <td style="padding: 10px;">-</td>
+            <td style="padding: 10px;">3</td>
+           </tr>
+          <tr>
+            <td style="padding: 10px;">Índice de Peróxido (meq.de peróxido / kg mat.gorda)</td>
+            <td style="padding: 10px;">-</td>
+            <td style="padding: 10px;">1</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">V - Características Microbiológicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Características Biológicas</th>
+            <th style="padding: 12px; text-align: left;">Padrões UFC/g</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Coliformes a 35°C</td>
+            <td style="padding: 10px;">< 100</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Coliformes a 45°C</td>
+            <td style="padding: 10px;">< 10</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Bolores e Levedura</td>
+            <td style="padding: 10px;">< 100</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Staphylococcus aureus coagulação positiva</td>
+            <td style="padding: 10px;">< 100</td>
+           </tr>
+          <tr>
+            <td style="padding: 10px;">Salmonella sp</td>
+            <td style="padding: 10px;">Ausência em 25g</td>
+           </tr>
+         </table>
+        <p style="padding: 0 15px 15px 15px; font-size: 0.8rem; color: #666;">De acordo com ANVISA – Resolução RDC nº 12 de 02 de janeiro de 2001 - item 8.C – letra a.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">VI - Tabela Nutricional (porção de 10g - 1 colher de sopa)</h3>
+        <ul>
+          <li><strong>Valor Energético:</strong> 77 kcal (4% VD*)</li>
+          <li><strong>Gorduras Totais:</strong> 8,6g (16% VD*)</li>
+          <li><strong>Gorduras Saturadas:</strong> 6,3g (29% VD*)</li>
+          <li><strong>Gorduras Trans:</strong> 0g</li>
+          <li><strong>Carboidratos:</strong> 0g</li>
+          <li><strong>Proteínas:</strong> 0g</li>
+          <li><strong>Sódio:</strong> 0mg</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*Percentual de valores diários fornecidos pela porção. Valores diários podem ser maiores ou menores dependendo das necessidades energéticas.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">VII - Armazenamento, Transporte e Validade</h3>
+        <p><strong>Armazenamento:</strong> Os sacos com a manteiga são acondicionados em caixas de papelão e armazenados em câmara fria com temperatura de 1° a 10°C.</p>
+        <p><strong>Transporte:</strong> O transporte ocorre em veículo dotado de carroceria isotérmica e frigorífica livre de substâncias ou produtos que possam contaminá-lo ou danificá-lo, em temperatura não superior a 10°C.</p>
+        <p><strong>Validade:</strong> 120 dias após a data de fabricação, observadas as condições de armazenagem. Após aberto, consumir em até 7 dias.</p>
+        <p><strong>Embalagem:</strong> Primária em saco monocamada em PEBD transparente; secundária em caixa de papelão ondulado contendo 1 unidade de 5kg. Código de barras: 7898039680255</p>
+        <p><strong>Produtor:</strong> Scalon e Cerchi Ltda – Laticínios Scala | SIF – 1236 | Sacramento – MG</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🐣 Manteiga Scala 5kg: A Escolha Premium para sua Páscoa</h2>
+      <p>A <strong>Páscoa</strong> é a época mais importante para confeiteiros e padarias. É quando seus clientes buscam produtos artesanais, de alta qualidade e com sabor autêntico. A <strong>Manteiga sem sal Scala 5kg</strong>, com seu selo SIF 1236 e garantia de qualidade ABIQ, oferece a confiabilidade e o sabor que seus produtos precisam.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍫 Ovos de Páscoa Recheados</h4>
+          <p>Massas cremosas que não cristalizam e recheios aveludados que derretem na boca.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥐 Colomba Pascal e Panetones</h4>
+          <p>Massas fermentadas que exigem manteiga de alta qualidade para desenvolver a textura macia.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍰 Tortas Finas e Sobremesas</h4>
+          <p>Bases amanteigadas, recheios cremosos e coberturas brilhantes que impressionam.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍦 Sorvetes Artesanais</h4>
+          <p>Cremosidade incomparável para sorvetes e sobremesas geladas da Páscoa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicada a Manteiga Scala 5kg?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍰</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Confeitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas, recheios, coberturas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥖</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Pães, croissants, folhados</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍕</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Pizzarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas especiais e bordas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Sorveterias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sorvetes cremosos</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústrias Alimentícias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>+280 veículos garantindo a qualidade da sua manteiga na entrega, mantendo a temperatura adequada.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo a Manteiga Scala 5kg com SIF 1236, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre a Manteiga sem sal Scala 5kg ou precisa de uma cotação especial para a Páscoa? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo a <strong>Manteiga sem sal Scala 5kg</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/704" style="color: #095400; font-weight: 600;">MANTEIGA SEM SAL SCALA 5KG</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/704" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> manteiga sem sal scala 5kg, manteiga scala, manteiga para confeitaria, manteiga para pascoa, manteiga para massas, manteiga 80% gordura, manteiga food service, fornecedor de manteiga zona sul sp, atacado de manteiga 5kg, laticinios scala, scala sif 1236, pmg atacadista manteiga, marques vendas pmg, manteiga para padaria, manteiga para pizzaria, ingredientes para pascoa, manteiga premium.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 79,
+  "title": "MANTEIGA SEM SAL TIROLEZ 5KG: Sabor Lácteo e Frescor para Confeitaria e Páscoa",
+  "description": "Manteiga sem sal Tirolez 5kg: produto premium com 82% de gordura, textura macia e cremosa, SIF 0112/2971. Ideal para confeitaria, massas e receitas de Páscoa. Entrega rápida Zona Sul SP. Compre agora!",
+  "image": "https://i.imgur.com/9wKareU.png",
+  "category": "Manteigas Especiais",
+  "section": "manteiga-pascoa-confeitaria",
+  "readTime": "7 min de leitura",
+  "date": "2026-03-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧈 MANTEIGA SEM SAL TIROLEZ 5KG: Sabor Lácteo e Frescor para Confeitaria e Páscoa</h1>
+      <p>A <strong>Manteiga sem sal Tirolez 5kg</strong> é sinônimo de qualidade e tradição no mercado brasileiro. Produzida pela renomada <strong>Tirolez</strong>, uma das marcas mais respeitadas do segmento de lácteos, esta manteiga é obtida exclusivamente pela bateção e malaxagem do creme pasteurizado derivado do leite de vaca, garantindo um produto puro, com sabor lácteo fresco e textura macia e cremosa.</p>
+      
+      <p>Com a <strong>Páscoa</strong> se aproximando, a escolha dos ingredientes certos faz toda diferença. A Manteiga Tirolez 5kg é perfeita para <strong>ovos de Páscoa artesanais, colomba pascal, panetones, tortas finas, sorvetes e receitas que exigem o melhor da gordura láctea</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher a Manteiga sem sal Tirolez 5kg?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Marca Tirolez</strong> • <strong>82% de gordura mínima</strong> • <strong>Sabor lácteo fresco e neutro</strong> • <strong>Textura macia e cremosa</strong> • <strong>SIF 0112/2971</strong> • <strong>Sem glúten</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/705" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - MANTEIGA TIROLEZ 5KG</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/9wKareU.png" alt="Manteiga sem sal Tirolez 5kg para confeitaria e Páscoa" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Manteiga sem sal Tirolez 5kg - Tradição e sabor lácteo para suas receitas</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Manteiga sem sal Tirolez 5kg</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Denominação e Descrição do Produto</h3>
+        <p><strong>Manteiga Comum Sem Sal Tirolez</strong> é o produto gorduroso obtido exclusivamente pela bateção e malaxagem, com ou sem modificação biológica do creme pasteurizado (Registro SIF/DIPOA - 0112/2971) ou creme de soro pasteurizado (Registro SIF/DIPOA - 0152/2971) derivado exclusivamente do leite de vaca, por processo tecnológico adequado.</p>
+        <p><strong>Classificação:</strong> Manteiga Comum (Resolução nº 4, de 28/06/2000 – MAPA)<br>
+        <strong>Unidade Fabril:</strong> Arapuá - MG<br>
+        <strong>Registro SIF/DIPOA:</strong> 0112/2971</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Composição e Alergênicos</h3>
+        <p><strong>Composição:</strong><br>
+        • Registro SIF 0112/2971: Creme de leite pasteurizado<br>
+        • Registro SIF 0152/2971: Creme de soro pasteurizado e fermento lácteo</p>
+        <p><strong>Declarações na Rotulagem:</strong><br>
+        ✓ <strong>CONTÉM LEITE</strong> (RDC n° 26/2015 - ANVISA)<br>
+        ✓ <strong>NÃO CONTÉM GLÚTEN</strong> (Lei Federal nº 10.674/2003)<br>
+        ✓ <strong>CONTÉM LACTOSE</strong> (RDC nº 136/2017 - ANVISA)</p>
+        <p><strong>Grupo Vulnerável:</strong> Alérgicos à proteína do leite e intolerantes à lactose.</p>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Características Sensoriais</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Parâmetro</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Formato</td>
+            <td style="padding: 10px;">Formato da embalagem secundária</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Crosta</td>
+            <td style="padding: 10px;">Não apresenta</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Consistência</td>
+            <td style="padding: 10px;">Macia, lisa e cremosa</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Textura</td>
+            <td style="padding: 10px;">Untuosa</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor</td>
+            <td style="padding: 10px;">Amarela</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aroma e Sabor</td>
+            <td style="padding: 10px;">Lácteo, fresco, neutro e franco</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Características Físico-Químicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Parâmetro</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade (%)</td>
+            <td style="padding: 10px;">13,0 – 16,0</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gordura (%)</td>
+            <td style="padding: 10px;">Mín. 82,0</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Extrato Seco Total (%)</td>
+            <td style="padding: 10px;">84,0 – 87,0</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Extrato Seco Desengordurado (%)</td>
+            <td style="padding: 10px;">Máx. 2,0</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">pH</td>
+            <td style="padding: 10px;">4,0 – 7,0</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidez (ºD)</td>
+            <td style="padding: 10px;">Máx. 3,0</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">V - Características Microbiológicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Parâmetro</th>
+            <th style="padding: 12px; text-align: left;">Padrão Interno</th>
+            <th style="padding: 12px; text-align: left;">Padrão Legal</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Coliformes (30°C) UFC/g</td>
+            <td style="padding: 10px;">10</td>
+            <td style="padding: 10px;">10² (M)</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Coliformes (45°C) UFC/g</td>
+            <td style="padding: 10px;">mapa**</td>
+            <td style="padding: 10px;">< 10 (M)</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Estafilococos Coagulase Positiva UFC/g</td>
+            <td style="padding: 10px;">10</td>
+            <td style="padding: 10px;">10² (M)</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Salmonella spp. UFC/25g</td>
+            <td style="padding: 10px;">**</td>
+            <td style="padding: 10px;">Ausência</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Bolores e Leveduras UFC/g</td>
+            <td style="padding: 10px;">500</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">VI - Tabela Nutricional (porção de 10g - 1 colher de sopa)</h3>
+        <ul>
+          <li><strong>Valor Energético:</strong> 77 kcal (4% VD*)</li>
+          <li><strong>Gorduras Totais:</strong> 8,5g (16% VD*)</li>
+          <li><strong>Gorduras Saturadas:</strong> 5,6g (25% VD*)</li>
+          <li><strong>Gorduras Trans:</strong> 0,3g</li>
+          <li><strong>Gorduras Monoinsaturadas:</strong> 1,8g</li>
+          <li><strong>Gorduras Poli-insaturadas:</strong> 0,2g</li>
+          <li><strong>Colesterol:</strong> 27mg</li>
+          <li><strong>Carboidratos:</strong> 0g</li>
+          <li><strong>Proteínas:</strong> 0g</li>
+          <li><strong>Sódio:</strong> 0mg</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*% Valores Diários com base em uma dieta de 2000 kcal ou 8400 kJ. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">VII - Armazenamento, Transporte e Validade</h3>
+        <p><strong>Validade:</strong> 120 dias a partir da data de fabricação.</p>
+        <p><strong>Condições de Armazenamento:</strong> Manter refrigerado de 1°C a 5°C. Após aberto, manter refrigerado e consumir em até 20 dias.</p>
+        <p><strong>Uso Pretendido:</strong> Uso industrial e food service.</p>
+        <p><strong>Restrição de uso:</strong> Se submetido ao congelamento, o produto poderá apresentar alterações nos aspectos sensoriais, mudanças pelas quais a empresa não se responsabiliza.</p>
+        <p><strong>Embalagem:</strong> Primária em embalagem plástica com etiqueta adesiva; secundária em caixa de papelão com 1 unidade de 5kg.</p>
+        <p><strong>Código de Barras:</strong> 789 60305 1103 5<br>
+        <strong>Classificação Fiscal – NCM:</strong> 0405.10.00</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🐣 Manteiga Tirolez 5kg: A Escolha Certa para uma Páscoa Inesquecível</h2>
+      <p>A <strong>Páscoa</strong> é o momento de criar produtos que encantam e fidelizam clientes. A <strong>Manteiga sem sal Tirolez 5kg</strong>, com seu sabor lácteo fresco e textura macia, é o ingrediente perfeito para elevar suas criações a outro patamar.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍫 Ovos de Páscoa Recheados</h4>
+          <p>Massas cremosas e recheios aveludados que derretem na boca com o sabor característico Tirolez.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥐 Colomba Pascal e Panetones</h4>
+          <p>Massas fermentadas que exigem manteiga de alta qualidade para desenvolver textura macia e sabor marcante.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍰 Tortas Finas e Sobremesas</h4>
+          <p>Bases amanteigadas, recheios cremosos e coberturas brilhantes que impressionam pela qualidade.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍦 Sorvetes Artesanais</h4>
+          <p>Cremosidade incomparável para sorvetes e sobremesas geladas da Páscoa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicada a Manteiga Tirolez 5kg?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍰</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Confeitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas, recheios, coberturas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥖</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Pães, croissants, folhados</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍕</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Pizzarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas especiais e bordas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Sorveterias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sorvetes cremosos</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústrias Alimentícias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>+280 veículos garantindo a qualidade da sua manteiga na entrega, mantendo a temperatura entre 1°C e 5°C.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo a Manteiga Tirolez 5kg, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre a Manteiga sem sal Tirolez 5kg ou precisa de uma cotação especial para a Páscoa? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo a <strong>Manteiga sem sal Tirolez 5kg</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/705" style="color: #095400; font-weight: 600;">MANTEIGA SEM SAL TIROLEZ 5KG</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/705" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> manteiga sem sal tirolez 5kg, manteiga tirolez, manteiga para confeitaria, manteiga para pascoa, manteiga para massas, manteiga 82% gordura, manteiga food service, fornecedor de manteiga zona sul sp, atacado de manteiga 5kg, laticinios tirolez, tirolez sif 0112, pmg atacadista manteiga, marques vendas pmg, manteiga para padaria, manteiga para pizzaria, ingredientes para pascoa, manteiga premium.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 80,
+  "title": "MANTEIGA SEM SAL TRÊS MARIAS 5KG: Tradição Mineira para Confeitaria e Páscoa",
+  "description": "Manteiga sem sal Três Marias 5kg: produzida com creme de soro de leite, SIF 1555, textura compacta e firme. Ideal para confeitaria, massas e receitas de Páscoa. Entrega rápida Zona Sul SP. Compre agora!",
+  "image": "https://i.imgur.com/pdMqGpH.png",
+  "category": "Manteigas Especiais",
+  "section": "manteiga-pascoa-confeitaria",
+  "readTime": "6 min de leitura",
+  "date": "2026-03-22",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧈 MANTEIGA SEM SAL TRÊS MARIAS 5KG: Tradição Mineira para Confeitaria e Páscoa</h1>
+      <p>A <strong>Manteiga sem sal Três Marias 5kg</strong> é um produto de alta qualidade produzida com <strong>creme de soro de leite</strong>, seguindo a tradição e o compromisso com a excelência que marcam a marca Três Marias. Com <strong>textura compacta e firme</strong>, sabor suave e cor branco amarelada, esta manteiga é a escolha ideal para confeiteiros, padarias e food service que buscam um produto confiável e de alto rendimento.</p>
+      
+      <p>A <strong>Páscoa</strong> está chegando e a qualidade dos ingredientes é fundamental para criar produtos artesanais que encantam os clientes. A Manteiga Três Marias 5kg é perfeita para <strong>ovos de Páscoa recheados, colomba pascal, panetones, tortas finas, sorvetes e muito mais</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher a Manteiga sem sal Três Marias 5kg?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Marca Tradicional Três Marias</strong> • <strong>Creme de soro de leite</strong> • <strong>Textura compacta e firme</strong> • <strong>Sabor suave e característico</strong> • <strong>SIF 1555</strong> • <strong>Produto brasileiro</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/706" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - MANTEIGA TRÊS MARIAS 5KG</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/pdMqGpH.png" alt="Manteiga sem sal Três Marias 5kg para confeitaria e Páscoa" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Manteiga sem sal Três Marias 5kg - Tradição mineira para suas receitas de Páscoa</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Manteiga sem sal Três Marias 5kg</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Identificação do Produto</h3>
+        <p><strong>Denominação de Venda:</strong> Manteiga sem sal<br>
+        <strong>Marca:</strong> Três Marias<br>
+        <strong>Registro SIF/DIPOA:</strong> N° 0002/1555<br>
+        <strong>Ingrediente:</strong> Creme de soro de leite<br>
+        <strong>Peso:</strong> 5kg (aproximadamente 4kg líquido conforme ficha técnica)</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Alergênicos e Informações de Rotulagem</h3>
+        <p><strong>Declaração de Alergênicos:</strong><br>
+        ✓ <strong>Contém Derivado de Leite</strong><br>
+        ✓ <strong>Contém Glúten</strong><br>
+        ✓ <strong>Contém Lactose</strong></p>
+        <p><strong>Informações importantes:</strong><br>
+        • Manter resfriado até 5°C<br>
+        • Após aberto, manter sob refrigeração e consumir em até 10 dias<br>
+        • Indústria Brasileira<br>
+        • SAC: (65) 3266-4859</p>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Características Sensoriais</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Critério</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Consistência</td>
+            <td style="padding: 10px;">Sólida, pastosa à temperatura de 20°C</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Textura</td>
+            <td style="padding: 10px;">Compacta, firme</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor</td>
+            <td style="padding: 10px;">Branco amarelada, sem manchas ou pontos de outra coloração</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor</td>
+            <td style="padding: 10px;">Suave, característico</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Odor</td>
+            <td style="padding: 10px;">Sem odor estranho</td>
+            </tr>
+          </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Códigos e Classificação Fiscal</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Código de Barras</th>
+            <th style="padding: 12px; text-align: left;">NCM</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Manteiga 5kg</td>
+            <td style="padding: 10px;">17898024450153 (secundário)</td>
+            <td style="padding: 10px;">04051000</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Manteiga 5kg</td>
+            <td style="padding: 10px;">7898024450160 (primário)</td>
+            <td style="padding: 10px;">04051000</td>
+            </tr>
+          </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">V - Armazenamento e Validade</h3>
+        <p><strong>Armazenamento:</strong> Manter refrigerado até 5°C. Após aberto, manter sob refrigeração e consumir em até 10 dias.</p>
+        <p><strong>Validade:</strong> Conforme data de validade impressa na embalagem.</p>
+        <p><strong>Embalagem:</strong> Produto acondicionado em embalagem adequada para 5kg, com informações de lote, data de fabricação e validade carimbadas conforme legislação (carimbo SIF com tamanho mínimo de 4cm para embalagens de 1kg ou acima).</p>
+        <p><strong>Produtor:</strong> Três Marias - Indústria Brasileira<br>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🐣 Manteiga Três Marias 5kg: A Escolha Certa para uma Páscoa Especial</h2>
+      <p>A <strong>Páscoa</strong> é a época mais importante para confeiteiros e padarias. É quando seus clientes buscam produtos artesanais, de alta qualidade e com sabor autêntico. A <strong>Manteiga sem sal Três Marias 5kg</strong>, com sua textura compacta e firme, oferece o rendimento e a confiabilidade que seu negócio precisa.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍫 Ovos de Páscoa Recheados</h4>
+          <p>Massas cremosas e recheios aveludados que derretem na boca com a qualidade Três Marias.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥐 Colomba Pascal e Panetones</h4>
+          <p>Massas fermentadas que exigem manteiga de alta qualidade para desenvolver textura macia e sabor marcante.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍰 Tortas Finas e Sobremesas</h4>
+          <p>Bases amanteigadas, recheios cremosos e coberturas brilhantes que impressionam pela qualidade.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍦 Sorvetes Artesanais</h4>
+          <p>Cremosidade incomparável para sorvetes e sobremesas geladas da Páscoa.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicada a Manteiga Três Marias 5kg?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍰</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Confeitarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas, recheios, coberturas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥖</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Pães, croissants, folhados</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍕</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Pizzarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas especiais e bordas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Sorveterias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Sorvetes cremosos</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústrias Alimentícias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>+280 veículos garantindo a qualidade da sua manteiga na entrega, mantendo a temperatura adequada até 5°C.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo a Manteiga Três Marias 5kg, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre a Manteiga sem sal Três Marias 5kg ou precisa de uma cotação especial para a Páscoa? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo a <strong>Manteiga sem sal Três Marias 5kg</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/706" style="color: #095400; font-weight: 600;">MANTEIGA SEM SAL TRÊS MARIAS 5KG</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/706" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> manteiga sem sal três marias 5kg, manteiga três marias, manteiga para confeitaria, manteiga para pascoa, manteiga para massas, manteiga food service, fornecedor de manteiga zona sul sp, atacado de manteiga 5kg, laticinios três marias, três marias sif 1555, pmg atacadista manteiga, marques vendas pmg, manteiga para padaria, manteiga para pizzaria, ingredientes para pascoa, manteiga tradicional mineira.
+      </p>
+    </div>
+  `
 }
   ];
 
