@@ -1942,7 +1942,7 @@ const products = [
   { id: 2044, name: 'MANTEIGA COM SAL PIRACANJUBA 500 G', category: 'Derivados de Leite', price: 25.52, image: 'https://www.marquesvendaspmg.shop/images/manteiga-com-sal-piracanjuba.png' },
   { id: 2045, name: 'MANTEIGA COM SAL TABLETE TIROLEZ 200 G (CX 12 UN)', category: 'Derivados de Leite', price: 148.08, image: 'https://www.marquesvendaspmg.shop/images/manteiga-tablete-com-sal-tirolez.png' },
   { id: 2046, name: 'MANTEIGA SEM SAL DE PRIMEIRA TIROLEZ (CX 5 KILO)', category: 'Derivados de Leite', price: 235.74, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-tirolez.png' },
-  { id: 2047, name: 'MANTEIGA SEM SAL FRIZZO (CX 5 KILO)', category: 'Derivados de Leite', price: 127.81, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-frizzo.png' },
+  { id: 2047, name: 'MANTEIGA SEM SAL FRIZZO (CX 5 KILO)', category: 'Derivados de Leite', price: 0.0, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-frizzo.png' },
   { id: 2048, name: 'MANTEIGA SEM SAL HÉRCULES (CX 5 KILO)', category: 'Derivados de Leite', price: 115.03, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-hercules.png' },
   { id: 2049, name: 'MANTEIGA SEM SAL HM (CX 5 KILO)', category: 'Derivados de Leite', price: 127.81, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-hm.png' },
   { id: 2050, name: 'MANTEIGA SEM SAL LAURITA (CX 5 KILO)', category: 'Derivados de Leite', price: 121.42, image: 'https://www.marquesvendaspmg.shop/images/manteiga-sem-sal-laurita.png' },
