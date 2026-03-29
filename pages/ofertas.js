@@ -122,7 +122,7 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 1284, name: 'GORDURA VEGETAL SUPREMA BUNGE (BD 14,5 KILO)', category: 'Ofertas', price: 219.89, image: 'https://www.marquesvendaspmg.shop/images/gordura-vegetal-suprema-bunge-bd-145-kilo-pmg-atacadista.jpg' },
+  { id: 1284, name: 'GORDURA VEGETAL SUPREMA BUNGE (BD 14,5 KILO)', category: 'Ofertas', price: 225.99, image: 'https://www.marquesvendaspmg.shop/images/gordura-vegetal-suprema-bunge-bd-145-kilo-pmg-atacadista.jpg' },
   { id: 1720, name: 'FARINHA DE TRIGO LONGA FERMENTAÇÃO PIZZA SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 93.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-longa-fermentacao-pizza-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1730, name: 'FARINHA DE TRIGO PASTEL SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 98.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
   { id: 1753, name: 'FARINHA DE TRIGO PIZZA SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 74.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
