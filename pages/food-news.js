@@ -17942,7 +17942,6 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
         • Manter resfriado até 5°C<br>
         • Após aberto, manter sob refrigeração e consumir em até 10 dias<br>
         • Indústria Brasileira<br>
-        • SAC: (65) 3266-4859</p>
       </div>
 
       <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
@@ -18136,6 +18135,1586 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
     <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
       <p style="margin: 0; font-size: 0.9rem; color: #666;">
         <strong>Palavras-chave:</strong> manteiga sem sal três marias 5kg, manteiga três marias, manteiga para confeitaria, manteiga para pascoa, manteiga para massas, manteiga food service, fornecedor de manteiga zona sul sp, atacado de manteiga 5kg, laticinios três marias, três marias sif 1555, pmg atacadista manteiga, marques vendas pmg, manteiga para padaria, manteiga para pizzaria, ingredientes para pascoa, manteiga tradicional mineira.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 81,
+  "title": "ÓLEO DE ALGODÃO ELOGIATA 15,8L: Alta Estabilidade para Frituras e Indústria Alimentícia",
+  "description": "Óleo de algodão Elogiata 15,8L: alta estabilidade oxidativa, alto ponto de fumaça, rico em vitamina E. Ideal para frituras industriais, snacks e food service. Entrega rápida Zona Sul SP. Compre agora!",
+  "image": "https://i.imgur.com/InZjm8I.png",
+  "category": "Óleos Especiais",
+  "section": "oleo-algodao-industria",
+  "readTime": "7 min de leitura",
+  "date": "2026-03-30",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🛢️ ÓLEO DE ALGODÃO ELOGIATA 15,8L: Alta Estabilidade para Frituras e Indústria Alimentícia</h1>
+      <p>Se você trabalha com <strong>frituras industriais, snacks, restaurantes, lanchonetes ou indústria alimentícia</strong>, sabe que a escolha do óleo faz toda diferença na qualidade final dos seus produtos. O <strong>Óleo de Algodão Elogiata Flor de Algodão</strong> na versão de <strong>15,8 litros</strong> é a solução ideal para quem busca alta estabilidade oxidativa, excelente resistência ao aquecimento e um produto com ótimo custo-benefício.</p>
+      
+      <p>Produzido pela <strong>Icofort Agroindustrial S/A</strong>, uma das maiores referências no segmento de óleos vegetais, o óleo de algodão Elogiata é amplamente utilizado em <strong>frituras rasas e de imersão</strong>, sendo a escolha preferida de grandes redes de alimentação e indústrias de snacks.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher o Óleo de Algodão Elogiata 15,8L?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Alta estabilidade oxidativa</strong> • <strong>Alto ponto de fumaça</strong> • <strong>Rico em Vitamina E (tocoferóis)</strong> • <strong>Livre de colesterol e gorduras trans</strong> • <strong>Não contém glúten</strong> • <strong>Ideal para frituras industriais</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/1355" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - ÓLEO DE ALGODÃO ELOGIATA 15,8L</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/InZjm8I.png" alt="Óleo de algodão Elogiata 15,8L para frituras e indústria alimentícia" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Óleo de algodão Elogiata 15,8L - Alta estabilidade para frituras profissionais</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Óleo de Algodão Elogiata 15,8L</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Descrição e Composição</h3>
+        <p><strong>Óleo de algodão refinado Elogiata</strong> é obtido a partir de sementes das espécies cultivadas de algodão, por meio de processos tecnológicos adequados. É um produto de alta qualidade, ideal para uso culinário e industrial.</p>
+        <p><strong>Ingredientes:</strong> Óleo vegetal de semente de algodão (geneticamente modificado a partir de Bacillus thuringiensis), antioxidante TBHQ, ácido cítrico e antiespumante dimetilpolisiloxano.</p>
+        <p><strong>Status GMO:</strong> O produto não contém OGM em sua composição (PCR Negativo), porém não é possível declarar que este produto não seja produzido a partir de caroço de algodão geneticamente modificado.</p>
+        <p><strong>NÃO CONTÉM GLÚTEN</strong></p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Aplicações e Vantagens</h3>
+        <p><strong>Aplicações:</strong> Uso culinário, indústria de alimentos em geral, frituras rasas e de imersão devido sua alta estabilidade oxidativa, fabricação de snacks, veículo para aditivos e aromas.</p>
+        <p><strong>Vantagens:</strong><br>
+        ✓ Facilita homogeneização de aditivos e aromas<br>
+        ✓ Excelente resistência ao aquecimento<br>
+        ✓ Maior shelf-life em comparação a outros óleos<br>
+        ✓ Alto ponto de fumaça (aplicação em frituras)<br>
+        ✓ Rico em Tocoferóis (Vitamina E)<br>
+        ✓ Livre de colesterol e gorduras trans<br>
+        ✓ Ótima estabilidade em frituras industriais</p>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Especificações Técnicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Parâmetro</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidez (% ácido oleico)</td>
+            <td style="padding: 10px;">≤ 0,05</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de peróxidos (meq/kg)</td>
+            <td style="padding: 10px;">≤ 1,0</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade (%)</td>
+            <td style="padding: 10px;">≤ 0,1</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor Lovibond Red 5 ¼"</td>
+            <td style="padding: 10px;">≤ 8,0</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de iodo (Wijs)</td>
+            <td style="padding: 10px;">100 - 123</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de Refração (Raia D a 40°C)</td>
+            <td style="padding: 10px;">1,458 – 1,466</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabões (ppm oleato de sódio)</td>
+            <td style="padding: 10px;">Máx. 10</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aspecto a 25°C</td>
+            <td style="padding: 10px;">Límpido e livre de impurezas</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor e Odor</td>
+            <td style="padding: 10px;">Característico do produto</td>
+            </tr>
+          </table>
+        <p style="padding: 0 15px 15px 15px; font-size: 0.8rem; color: #666;">Obs: O produto poderá apresentar-se turvo em temperaturas abaixo de 18°C. O aspecto levemente turvo é devido sua composição de ácidos graxos. O ponto de fusão do produto fica em torno de 13°C.</p>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Aditivos e Contaminantes</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Aditivo</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">TBHQ</td>
+            <td style="padding: 10px;">Max. 0,020%</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Ácido cítrico</td>
+            <td style="padding: 10px;">Max. 0,005%</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Dimetilpolisiloxano</td>
+            <td style="padding: 10px;">Max. 0,001%</td>
+            </tr>
+          </table>
+        <p style="padding: 0 15px 0 15px; font-size: 0.8rem; color: #666;">Dosagem em acordo com: RDC nº 740/2022</p>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px; margin-top: 15px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Contaminantes Inorgânicos</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Arsênio</td>
+            <td style="padding: 10px;">Max. 0,10 mg/Kg</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Chumbo</td>
+            <td style="padding: 10px;">Max. 0,10 mg/Kg</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cobre</td>
+            <td style="padding: 10px;">Max. 0,10 mg/Kg</td>
+            </tr>
+          </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">V - Tabela Nutricional (porção de 13ml - 1 colher de sopa)</h3>
+        <ul>
+          <li><strong>Valor Energético:</strong> 108 kcal (5% VD*)</li>
+          <li><strong>Gorduras Totais:</strong> 12g (22% VD*)</li>
+          <li><strong>Gorduras Saturadas:</strong> 3,1g (14% VD*)</li>
+          <li><strong>Gorduras Monoinsaturadas:</strong> 2,3g</li>
+          <li><strong>Gorduras Poli-insaturadas:</strong> 6,4g</li>
+          <li><strong>Ômega-3 (Ácido Linolênico):</strong> 0,1g</li>
+          <li><strong>Ômega-6 (Ácido Linoleico):</strong> 6,3g</li>
+          <li><strong>Gorduras Trans:</strong> 0g</li>
+          <li><strong>Colesterol:</strong> 0mg</li>
+          <li><strong>Vitamina E:</strong> 4,3 mg (43% VD*)</li>
+          <li><strong>Sódio:</strong> 0mg</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*% de Valores Diários com base em uma dieta de 2.000 kcal ou 8.400 kj. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.</p>
+        <p style="font-size: 0.8rem; color: #666;">O produto não contém açúcares, seja natural ou adicionado.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">VI - Armazenamento, Validade e Transporte</h3>
+        <p><strong>Validade:</strong> 9 meses (270 dias) a partir da data de fabricação para embalagens balde, desde que armazenados sob condições adequadas.</p>
+        <p><strong>Após aberto:</strong> Manter a embalagem fechada para evitar contaminações externas, consumir de preferência em até 30 dias.</p>
+        <p><strong>Conservação e Estocagem:</strong> Manter em local seco e arejado na ausência de luz solar direta e longe de fontes térmicas. Empilhamento máximo: 04 baldes.</p>
+        <p><strong>Transporte:</strong> Em caminhão carga seca ou baú em condições higiênicas e de segurança.</p>
+        <p><strong>Embalagem:</strong> Balde polietileno atóxico contendo 15,8 litros (14,5 Kg).</p>
+        <p><strong>Produtor:</strong> Icofort Agroindustrial S/A - Juazeiro, Bahia<br>
+        <strong>Alergênicos:</strong> Não contém alergênicos de acordo com RDC Nº 727/2022 ANVISA.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍟 Óleo de Algodão Elogiata: O Escolhido para Frituras Profissionais</h2>
+      <p>O <strong>óleo de algodão</strong> é amplamente reconhecido na indústria alimentícia por sua <strong>alta estabilidade oxidativa</strong> e <strong>resistência ao aquecimento</strong>. Isso significa que ele suporta mais ciclos de fritura sem degradar, resultando em:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍗 Frituras Crocantes</h4>
+          <p>Alta resistência ao aquecimento garante frituras mais crocantes e douradas, com menos absorção de gordura.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥨 Snacks e Salgadinhos</h4>
+          <p>Ideal para produção industrial de batatas fritas, extrusados e snacks em geral.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🏭 Indústria Alimentícia</h4>
+          <p>Excelente veículo para aditivos e aromas, além de ser livre de colesterol e gorduras trans.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍔 Restaurantes e Lanchonetes</h4>
+          <p>Perfeito para frituras de imersão em cozinhas profissionais, com alta durabilidade.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicado o Óleo de Algodão Elogiata 15,8L?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍟</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Frituras em geral</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Restaurantes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Cozinhas profissionais</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria de Snacks</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria Alimentícia</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Aditivos e aromas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍕</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Pizzarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas e frituras</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos garantindo entrega segura e eficiente para sua operação.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo o Óleo Elogiata 15,8L, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre o Óleo de Algodão Elogiata 15,8L ou precisa de uma cotação especial? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo o <strong>Óleo de Algodão Elogiata 15,8L</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/1355" style="color: #095400; font-weight: 600;">ÓLEO DE ALGODÃO ELOGIATA 15,8L</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/1355" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> óleo de algodão, óleo de algodão 20 litros, óleo de algodão direto da fábrica, oleo de algodão elogiata, óleo para fritura industrial, óleo para snacks, óleo vegetal para restaurantes, fornecedor de óleo de algodão zona sul sp, atacado de óleo de algodão, icofort óleo de algodão, pmg atacadista óleo, marques vendas pmg, óleo para lanchonete, óleo para pizzaria, óleo com alta estabilidade, óleo rico em vitamina E.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 82,
+  "title": "ÓLEO DE ALGODÃO FRY SINA 15,7L: Sabor Neutro e Alta Resistência para Frituras",
+  "description": "Óleo de algodão Fry Sina 15,7L: sabor e odor neutros, excelente resistência à oxidação, ideal para frituras, massas e pães industriais. Entrega rápida Zona Sul SP. Compre agora!",
+  "image": "https://i.imgur.com/X7Uze6z.png",
+  "category": "Óleos Especiais",
+  "section": "oleo-algodao-industria",
+  "readTime": "7 min de leitura",
+  "date": "2026-03-30",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🛢️ ÓLEO DE ALGODÃO FRY SINA 15,7L: Sabor Neutro e Alta Resistência para Frituras</h1>
+      <p>Se você busca um <strong>óleo de algodão de alta qualidade</strong> para sua operação de <strong>frituras, indústria de massas, pães industriais ou cozinhas profissionais</strong>, o <strong>Óleo de Algodão Fry Sina</strong> na versão de <strong>15,7 litros</strong> é a escolha certa. Produzido pela <strong>Agrofoods Brasil Alimentos S/A</strong>, este óleo refinado oferece sabor e odor neutros, excelente resistência à oxidação e alta estabilidade térmica.</p>
+      
+      <p>Com aplicação versátil para <strong>aspersão, frituras, massas e pães industriais</strong>, o óleo Fry Sina é ideal para restaurantes, lanchonetes, indústrias de snacks e padarias que buscam um produto confiável e com ótimo rendimento.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher o Óleo de Algodão Fry Sina 15,7L?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Sabor e odor neutros</strong> • <strong>Excelente resistência à oxidação</strong> • <strong>Alta estabilidade térmica</strong> • <strong>Não contém glúten</strong> • <strong>Ideal para frituras e massas</strong> • <strong>6 meses de validade</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/2209" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - ÓLEO FRY SINA 15,7L</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/X7Uze6z.png" alt="Óleo de algodão Fry Sina 15,7L para frituras e indústria alimentícia" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Óleo de algodão Fry Sina 15,7L - Sabor neutro e alta resistência para frituras profissionais</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Óleo de Algodão Fry Sina 15,7L</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Descrição e Composição</h3>
+        <p><strong>Óleo de Algodão Refinado Fry Sina</strong> é obtido através da extração e refino do óleo de caroço de algodão (<em>Gossypium herbacium</em>), através de processos tecnológicos adequados, conferindo ao produto sabor e odor neutros e excelente resistência à oxidação.</p>
+        <p><strong>Ingredientes:</strong> Óleo de algodão*, antioxidantes: TBHQ (INS 319), BHT (INS 321) e ácido cítrico (INS 330), e antiespumante dimetilpolisiloxano (INS 900a).</p>
+        <p><strong>*Produto obtido a partir de óleo de algodão geneticamente modificado</strong> a partir de Agrobacterium tumefaciens, Bacillus thuringiensis, Delftia acidovorans, Streptomyces hygroscopicus, Streptomyces viridochromogenes e Zea mays.</p>
+        <p><strong>NÃO CONTÉM GLÚTEN</strong><br>
+        <strong>ALÉRGICOS:</strong> PODE CONTER SOJA.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Aplicações</h3>
+        <p>O Óleo de Algodão Fry Sina é versátil e indicado para diversas aplicações na indústria alimentícia e food service:</p>
+        <ul>
+          <li>✓ <strong>Aspersão</strong> - Ideal para aplicação em superfícies</li>
+          <li>✓ <strong>Frituras</strong> - Frituras rasas e de imersão</li>
+          <li>✓ <strong>Massas</strong> - Formulação de massas industriais</li>
+          <li>✓ <strong>Pães Industriais</strong> - Ingrediente para panificação</li>
+        </ul>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Características Físico-Químicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Parâmetro</th>
+            <th style="padding: 12px; text-align: left;">Limite</th>
+            <th style="padding: 12px; text-align: left;">Unidade</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidez (% Oleico)</td>
+            <td style="padding: 10px;">Máx. 0,05</td>
+            <td style="padding: 10px;">%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de Peróxido</td>
+            <td style="padding: 10px;">Máx. 1,00</td>
+            <td style="padding: 10px;">meqO₂/kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade / Voláteis</td>
+            <td style="padding: 10px;">Máx. 0,10</td>
+            <td style="padding: 10px;">%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor Lovibond Vermelho cubeta 5 ¼</td>
+            <td style="padding: 10px;">Máx. 5,00</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabões (Oleato de Sódio)</td>
+            <td style="padding: 10px;">Isento</td>
+            <td style="padding: 10px;">ppm</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Odor / Sabor</td>
+            <td style="padding: 10px;">Mín. 8,0</td>
+            <td style="padding: 10px;">Sensorial</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aspecto Visual</td>
+            <td style="padding: 10px;">Límpido, sem impurezas</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Contaminantes Inorgânicos e Microbiológicos</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Contaminantes Inorgânicos</th>
+            <th style="padding: 12px; text-align: left;">Limite</th>
+            <th style="padding: 12px; text-align: left;">Unidade</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Arsênio</td>
+            <td style="padding: 10px;">Máx. 0,10</td>
+            <td style="padding: 10px;">mg/kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Chumbo</td>
+            <td style="padding: 10px;">Máx. 0,10</td>
+            <td style="padding: 10px;">mg/kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cobre</td>
+            <td style="padding: 10px;">Máx. 0,10</td>
+            <td style="padding: 10px;">mg/kg</td>
+           </tr>
+         </table>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px; margin-top: 15px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Características Microbiológicas</th>
+            <th style="padding: 12px; text-align: left;">Limite</th>
+            <th style="padding: 12px; text-align: left;">Unidade</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Coliformes a 45°C</td>
+            <td style="padding: 10px;">Máx. 5,0</td>
+            <td style="padding: 10px;">UFC/g</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Estaf. Coagulase Positiva</td>
+            <td style="padding: 10px;">Máx. 100,0</td>
+            <td style="padding: 10px;">UFC/g</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cinzas insolúveis em ácido</td>
+            <td style="padding: 10px;">Máx. 1,5</td>
+            <td style="padding: 10px;">%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Ácaros mortos</td>
+            <td style="padding: 10px;">Máx. 5</td>
+            <td style="padding: 10px;">Unidade</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">V - Tabela Nutricional (porção de 13ml - 1 colher de sopa)</h3>
+        <ul>
+          <li><strong>Valor Energético:</strong> 117 kcal (6% VD*)</li>
+          <li><strong>Gorduras Totais:</strong> 12g (18% VD*)</li>
+          <li><strong>Gorduras Saturadas:</strong> 3,4g (17% VD*)</li>
+          <li><strong>Gorduras Trans:</strong> 0g</li>
+          <li><strong>Carboidratos:</strong> 0g</li>
+          <li><strong>Proteínas:</strong> 0g</li>
+          <li><strong>Sódio:</strong> 0mg</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*Percentual de valores diários fornecidos pela porção. Porções por embalagem: cerca de 1212 porções de 13ml.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">VI - Armazenamento, Validade e Transporte</h3>
+        <p><strong>Validade:</strong> 6 meses a partir da data de fabricação, desde que estocado adequadamente. Após aberto, consumir em até 30 dias.</p>
+        <p><strong>Armazenamento:</strong> Em local seco, fresco e limpo. Distante de paredes, fornos e de produtos com odores fortes. Não refrigerar. Empilhamento máximo: 4 baldes.</p>
+        <p><strong>Transporte:</strong> Veículo carga seca, baú simples ou sider. Evitar exposição prolongada ao sol. Não transportar com produtos que liberem odores. Pode ser paletizado conforme necessidade do cliente.</p>
+        <p><strong>Embalagem:</strong> Balde de polipropileno com 15,7 litros (Peso líquido 14,5 kg).</p>
+        <p><strong>Produtor:</strong> Agrofoods Brasil Alimentos S/A - Orlândia, SP<br>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍟 Por que o Óleo de Algodão Fry Sina é Ideal para Frituras?</h2>
+      <p>O <strong>óleo de algodão</strong> é reconhecido na indústria alimentícia por sua <strong>alta estabilidade oxidativa</strong> e <strong>resistência ao aquecimento</strong>. O Fry Sina leva essa característica ao extremo com sua formulação refinada:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍗 Frituras Crocantes</h4>
+          <p>Sabor neutro que não interfere no gosto dos alimentos, garantindo frituras mais crocantes e douradas.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍞 Massas e Pães Industriais</h4>
+          <p>Ideal para formulação de massas, proporcionando textura e conservação adequadas.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🏭 Indústria Alimentícia</h4>
+          <p>Excelente resistência à oxidação, garantindo maior vida útil do produto e estabilidade nos processos.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍔 Restaurantes e Lanchonetes</h4>
+          <p>Perfeito para frituras de imersão em cozinhas profissionais, com alta durabilidade.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicado o Óleo de Algodão Fry Sina 15,7L?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍟</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Frituras em geral</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Restaurantes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Cozinhas profissionais</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria de Snacks</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍞</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas e pães</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria Alimentícia</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Formulação de produtos</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos garantindo entrega segura e eficiente para sua operação.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo o Óleo Fry Sina 15,7L, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre o Óleo de Algodão Fry Sina 15,7L ou precisa de uma cotação especial? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo o <strong>Óleo de Algodão Fry Sina 15,7L</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/2209" style="color: #095400; font-weight: 600;">ÓLEO DE ALGODÃO FRY SINA 15,7L</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/2209" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> óleo de algodão, óleo de algodão 20 litros, óleo de algodão direto da fábrica, oleo de algodão fry sina, óleo para fritura industrial, óleo para massas e pães, óleo vegetal para restaurantes, fornecedor de óleo de algodão zona sul sp, atacado de óleo de algodão, agrofoods óleo de algodão, pmg atacadista óleo, marques vendas pmg, óleo para lanchonete, óleo sabor neutro, óleo com alta estabilidade.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 83,
+  "title": "ÓLEO DE ALGODÃO LIZA 15,8L: Rico em Ômega 6 e Vitamina E da Cargill",
+  "description": "Óleo de algodão Liza 15,8L: produzido pela Cargill, rico em ômega 6, fonte de vitamina E, sabor neutro. Ideal para frituras, restaurantes e indústria alimentícia. Entrega rápida Zona Sul SP. Compre agora!",
+  "image": "https://i.imgur.com/LNYggJ1.png",
+  "category": "Óleos Especiais",
+  "section": "oleo-algodao-industria",
+  "readTime": "6 min de leitura",
+  "date": "2026-03-30",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🛢️ ÓLEO DE ALGODÃO LIZA 15,8L: Rico em Ômega 6 e Vitamina E da Cargill</h1>
+      <p>O <strong>Óleo de Algodão Liza</strong> é um dos produtos mais reconhecidos no mercado brasileiro, produzido pela <strong>Cargill Agrícola S/A</strong>, uma das maiores e mais respeitadas empresas do setor de alimentos. Com sua embalagem de <strong>15,8 litros</strong>, este óleo é a escolha ideal para restaurantes, lanchonetes, indústrias alimentícias e cozinhas profissionais que buscam um produto de qualidade superior.</p>
+      
+      <p>O óleo de algodão Liza se destaca por ser <strong>rico em ômega 6</strong> e <strong>fonte de vitamina E</strong>, além de ter sabor e odor neutros, garantindo que o sabor dos seus alimentos não seja alterado durante o preparo. É a escolha perfeita para <strong>frituras, massas, pães e diversas aplicações na indústria alimentícia</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher o Óleo de Algodão Liza 15,8L?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Marca Liza - Cargill</strong> • <strong>Rico em Ômega 6</strong> • <strong>Fonte de Vitamina E</strong> • <strong>Sabor e odor neutros</strong> • <strong>Não contém glúten</strong> • <strong>12 meses de validade</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/1356" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - ÓLEO LIZA 15,8L</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/LNYggJ1.png" alt="Óleo de algodão Liza 15,8L da Cargill para frituras e indústria alimentícia" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Óleo de algodão Liza 15,8L - Rico em ômega 6 e vitamina E, sabor neutro</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Óleo de Algodão Liza 15,8L</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Descrição e Composição</h3>
+        <p><strong>Óleo de algodão comestível Liza</strong> é obtido a partir do processo de refino do óleo bruto de caroço de algodão, resultando em um produto de alta qualidade, com sabor e odor neutros.</p>
+        <p><strong>Ingredientes:</strong> Óleo de algodão.</p>
+        <p><strong>Não contém glúten.</strong></p>
+        <p><strong>Alergênicos:</strong> Não contém os alimentos alergênicos, definidos segundo a Resolução ANVISA RDC nº 26/15 – Rotulagem Obrigatória de Alergênicos.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Vantagens do Produto</h3>
+        <ul>
+          <li>✓ <strong>Rico em Ômega 6</strong> - Ácido graxo essencial para a saúde</li>
+          <li>✓ <strong>Fonte de Vitamina E</strong> - Antioxidante natural</li>
+          <li>✓ <strong>Sabor e odor neutros</strong> - Não altera o sabor dos alimentos</li>
+          <li>✓ <strong>Versatilidade</strong> - Ideal para frituras, massas, pães e diversas preparações</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*Como todo óleo de algodão. Este não é um alimento baixo ou reduzido em gorduras saturadas.</p>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Especificações Técnicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Parâmetro</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de acidez (mg KOH/g)</td>
+            <td style="padding: 10px;">≤ 0,20</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de Peróxido (meq/kg)</td>
+            <td style="padding: 10px;">≤ 2,5</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de Iodo (cg I₂/g)</td>
+            <td style="padding: 10px;">100 a 123</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aspecto</td>
+            <td style="padding: 10px;">Líquido</td>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor / Odor</td>
+            <td style="padding: 10px;">Neutro</td>
+            </tr>
+          </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">IV - Tabela Nutricional (porção de 13ml - 1 colher de sopa)</h3>
+        <ul>
+          <li><strong>Valor Energético:</strong> 108 kcal (5% VD*)</li>
+          <li><strong>Gorduras Totais:</strong> 12g (22% VD*)</li>
+          <li><strong>Gorduras Saturadas:</strong> 3,4g (15% VD*)</li>
+          <li><strong>Gorduras Trans:</strong> não contém</li>
+          <li><strong>Gordura Monoinsaturada (Ômega 9 - ácido oleico):</strong> 1,9g</li>
+          <li><strong>Gorduras Poli-insaturadas:</strong> 6,7g</li>
+          <li><strong>Colesterol:</strong> 0mg</li>
+          <li><strong>Carboidratos:</strong> 0g</li>
+          <li><strong>Proteínas:</strong> 0g</li>
+          <li><strong>Fibra Alimentar:</strong> 0g</li>
+          <li><strong>Sódio:</strong> 0mg</li>
+          <li><strong>Vitamina E:</strong> 1,7mg (17% VD*)</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*% Valores diários com base em uma dieta de 2.000 kcal ou 8.400 kJ. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">V - Armazenamento, Validade e Transporte</h3>
+        <p><strong>Validade:</strong> 12 meses a partir da data de fabricação, desde que estocado adequadamente.</p>
+        <p><strong>Armazenamento:</strong> Para melhor conservação, este produto deve ser armazenado e comercializado em local fresco e seco, mantido longe de fonte de calor e ao abrigo da luz.</p>
+        <p><strong>Transporte:</strong> Em caminhão carga seca ou baú em condições higiênicas e de segurança.</p>
+        <p><strong>Embalagem:</strong> Balde polietileno atóxico contendo 15,8 litros.</p>
+        <p><strong>Produtor:</strong> Cargill Agrícola S/A - Uma das maiores empresas do setor de alimentos no mundo.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌟 Diferenciais do Óleo de Algodão Liza</h2>
+      <p>O <strong>Óleo de Algodão Liza</strong> é um produto premium que oferece benefícios únicos para sua cozinha profissional:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥗 Rico em Ômega 6</h4>
+          <p>O ômega 6 é um ácido graxo essencial que contribui para uma alimentação equilibrada.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">💪 Fonte de Vitamina E</h4>
+          <p>Poderoso antioxidante natural que ajuda na conservação do óleo e traz benefícios à saúde.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">👃 Sabor e Odor Neutros</h4>
+          <p>Não interfere no sabor original dos alimentos, mantendo o gosto característico de cada preparo.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🏭 Qualidade Cargill</h4>
+          <p>Produzido por uma das maiores e mais confiáveis empresas do setor alimentício mundial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicado o Óleo de Algodão Liza 15,8L?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍟</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Frituras em geral</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Restaurantes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Cozinhas profissionais</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria de Snacks</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍞</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas e pães</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria Alimentícia</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Formulação de produtos</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos garantindo entrega segura e eficiente para sua operação.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo o Óleo Liza 15,8L, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre o Óleo de Algodão Liza 15,8L ou precisa de uma cotação especial? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo o <strong>Óleo de Algodão Liza 15,8L</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/1356" style="color: #095400; font-weight: 600;">ÓLEO DE ALGODÃO LIZA 15,8L</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/1356" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> óleo de algodão, óleo de algodão 20 litros, óleo de algodão direto da fábrica, oleo de algodão liza, óleo liza 15 litros, óleo para fritura industrial, óleo vegetal para restaurantes, fornecedor de óleo de algodão zona sul sp, atacado de óleo de algodão, cargill óleo de algodão, pmg atacadista óleo, marques vendas pmg, óleo para lanchonete, óleo sabor neutro, óleo rico em ômega 6, óleo fonte de vitamina E.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 84,
+  "title": "ÓLEO DE ALGODÃO SOYA 15,8L: Qualidade Bunge para Frituras e Indústria Alimentícia",
+  "description": "Óleo de algodão Soya 15,8L: produzido pela Bunge Alimentos, alta estabilidade, baixa acidez, ideal para frituras e food service. Não contém glúten. Entrega rápida Zona Sul SP. Compre agora!",
+  "image": "https://i.imgur.com/veFaN6B.png",
+  "category": "Óleos Especiais",
+  "section": "oleo-algodao-industria",
+  "readTime": "6 min de leitura",
+  "date": "2026-03-30",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🛢️ ÓLEO DE ALGODÃO SOYA 15,8L: Qualidade Bunge para Frituras e Indústria Alimentícia</h1>
+      <p>O <strong>Óleo de Algodão Soya</strong> é um produto de alta qualidade produzido pela <strong>Bunge Alimentos S/A</strong>, uma das maiores e mais respeitadas empresas do setor alimentício no mundo. Com sua embalagem de <strong>15,8 litros</strong>, este óleo refinado é a escolha ideal para restaurantes, lanchonetes, indústrias alimentícias e cozinhas profissionais que buscam um produto confiável, com alta estabilidade e desempenho superior.</p>
+      
+      <p>O óleo de algodão Soya se destaca por sua <strong>baixa acidez</strong>, <strong>alta estabilidade oxidativa</strong> e <strong>sabor neutro</strong>, garantindo que seus alimentos mantenham o sabor original e fiquem crocantes. É a escolha perfeita para <strong>frituras, preparações em geral e aplicações industriais</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher o Óleo de Algodão Soya 15,8L?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Marca Soya - Bunge Alimentos</strong> • <strong>Baixa acidez (máx. 0,10%)</strong> • <strong>Alta estabilidade oxidativa</strong> • <strong>Sabor e odor neutros</strong> • <strong>Não contém glúten</strong> • <strong>180 dias de validade</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/1358" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - ÓLEO SOYA 15,8L</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/veFaN6B.png" alt="Óleo de algodão Soya 15,8L da Bunge para frituras e indústria alimentícia" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Óleo de algodão Soya 15,8L - Qualidade Bunge para suas preparações</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Óleo de Algodão Soya 15,8L</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Descrição e Composição</h3>
+        <p><strong>Óleo de algodão Soya</strong> é um óleo refinado de alta qualidade, obtido a partir do caroço de algodão, passando por rigorosos processos de refino que garantem pureza, estabilidade e sabor neutro.</p>
+        <p><strong>Ingredientes:</strong> Óleo de algodão, antioxidantes: TBHQ, ascorbil palmitato, tocoferóis e ácido cítrico e antiespumante dimetilpolisiloxana.</p>
+        <p><strong>NÃO CONTÉM GLÚTEN.</strong><br>
+        <strong>ALÉRGICOS:</strong> CONTÉM SOJA.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Aplicações</h3>
+        <p>O Óleo de Algodão Soya é versátil e indicado para diversas aplicações:</p>
+        <ul>
+          <li>✓ <strong>Frituras</strong> - Frituras rasas e de imersão</li>
+          <li>✓ <strong>Preparações culinárias</strong> - Uso geral em cozinhas profissionais</li>
+          <li>✓ <strong>Indústria alimentícia</strong> - Formulação de produtos</li>
+        </ul>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Especificações Técnicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Parâmetro</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            <th style="padding: 12px; text-align: left;">Unidade</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de Acidez (mg KOH/g)</td>
+            <td style="padding: 10px;">máx. 0,20</td>
+            <td style="padding: 10px;">mg KOH/g</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidez (% ácido oleico)</td>
+            <td style="padding: 10px;">máx. 0,10</td>
+            <td style="padding: 10px;">%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de Peróxido</td>
+            <td style="padding: 10px;">máx. 0,5</td>
+            <td style="padding: 10px;">meq/kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor - Vermelho (Lovibond, 5 ¼")</td>
+            <td style="padding: 10px;">máx. 10</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor / Odor (escala 1 - 10)</td>
+            <td style="padding: 10px;">mín. 7 - Isento de ranço</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aspecto a 25°C (escala 1 - 5)</td>
+            <td style="padding: 10px;">mín. 5 - Sem impurezas</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Teste d'água</td>
+            <td style="padding: 10px;">negativo</td>
+            <td style="padding: 10px;">qualitativo</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade e Matéria Volátil (%)</td>
+            <td style="padding: 10px;">máx. 0,10</td>
+            <td style="padding: 10px;">%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Fósforo</td>
+            <td style="padding: 10px;">máx. 3</td>
+            <td style="padding: 10px;">mg/kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Matéria Insaponificável (%)</td>
+            <td style="padding: 10px;">máx. 1,5</td>
+            <td style="padding: 10px;">%</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de Saponificação</td>
+            <td style="padding: 10px;">189 - 198</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de Iodo</td>
+            <td style="padding: 10px;">100 - 123</td>
+            <td style="padding: 10px;">-</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Contaminantes Inorgânicos</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Parâmetro</th>
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            <th style="padding: 12px; text-align: left;">Unidade</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Chumbo</td>
+            <td style="padding: 10px;">0,1</td>
+            <td style="padding: 10px;">ppm</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Arsênio</td>
+            <td style="padding: 10px;">0,1</td>
+            <td style="padding: 10px;">ppm</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cobre</td>
+            <td style="padding: 10px;">0,1</td>
+            <td style="padding: 10px;">ppm</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Níquel</td>
+            <td style="padding: 10px;">4</td>
+            <td style="padding: 10px;">ppm</td>
+           </tr>
+         </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">V - Tabela Nutricional (porção de 13ml - 1 colher de sopa)</h3>
+        <ul>
+          <li><strong>Valor Energético:</strong> 108 kcal (5% VD*)</li>
+          <li><strong>Gorduras Totais:</strong> 12g (22% VD*)</li>
+          <li><strong>Gorduras Saturadas:</strong> 3,2g (15% VD*)</li>
+          <li><strong>Gorduras Trans:</strong> 0g</li>
+          <li><strong>Gorduras Monoinsaturadas:</strong> 2,1g</li>
+          <li><strong>Gorduras Poli-insaturadas:</strong> 6,7g</li>
+          <li><strong>Vitamina E:</strong> 5,2mg (52% VD*)</li>
+          <li><strong>Carboidratos:</strong> 0g</li>
+          <li><strong>Proteínas:</strong> 0g</li>
+          <li><strong>Fibra Alimentar:</strong> 0g</li>
+          <li><strong>Sódio:</strong> 0mg</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*% Valores diários de referência com base em uma dieta de 2.000 kcal ou 8.400 kJ. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.</p>
+        <p style="font-size: 0.8rem; color: #666;">Não contém quantidade significativa de Carboidratos, Proteínas, Fibra alimentar e Sódio.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">VI - Armazenamento, Validade e Transporte</h3>
+        <p><strong>Validade:</strong> 180 dias a partir da data de fabricação, sob condições adequadas de armazenagem. Após aberto o balde, considerar máximo 30 dias, desde que em local com temperatura máxima de 25°C.</p>
+        <p><strong>Armazenamento:</strong> Local fresco e seco, evitando exposição ao sol. Recomenda-se o empilhamento máximo de 3 baldes.</p>
+        <p><strong>Transporte:</strong> Carga seca ou baú, evitando exposição ao sol.</p>
+        <p><strong>Embalagem:</strong> Balde plástico com alça contendo 15,8 litros.</p>
+        <p><strong>Produtor:</strong> Bunge Alimentos S/A - Uma das maiores empresas do setor alimentício mundial.<br>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌟 Diferenciais do Óleo de Algodão Soya</h2>
+      <p>O <strong>Óleo de Algodão Soya</strong> é um produto premium que oferece benefícios únicos para sua cozinha profissional:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📊 Baixíssima Acidez</h4>
+          <p>Acidez máxima de 0,10% (% ácido oleico), garantindo maior qualidade e estabilidade do produto.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🔬 Alto Índice de Peróxido Controlado</h4>
+          <p>Máximo de 0,5 meq/kg no momento da liberação, garantindo frescor e qualidade superior.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">👃 Sabor e Odor Neutros</h4>
+          <p>Não interfere no sabor original dos alimentos, mantendo o gosto característico de cada preparo.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🏭 Qualidade Bunge</h4>
+          <p>Produzido por uma das maiores e mais confiáveis empresas do setor alimentício mundial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicado o Óleo de Algodão Soya 15,8L?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍟</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Frituras em geral</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Restaurantes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Cozinhas profissionais</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria de Snacks</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍞</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Padarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas e pães</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria Alimentícia</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Formulação de produtos</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos garantindo entrega segura e eficiente para sua operação.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo o Óleo Soya 15,8L, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre o Óleo de Algodão Soya 15,8L ou precisa de uma cotação especial? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo o <strong>Óleo de Algodão Soya 15,8L</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/1358" style="color: #095400; font-weight: 600;">ÓLEO DE ALGODÃO SOYA 15,8L</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/1358" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> óleo de algodão, óleo de algodão 20 litros, óleo de algodão direto da fábrica, oleo de algodão soya, óleo soya 15 litros, óleo para fritura industrial, óleo vegetal para restaurantes, fornecedor de óleo de algodão zona sul sp, atacado de óleo de algodão, bunge óleo de algodão, pmg atacadista óleo, marques vendas pmg, óleo para lanchonete, óleo sabor neutro, óleo baixa acidez, óleo alta estabilidade.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 85,
+  "title": "ÓLEO DE ALGODÃO TRAVIÚ 15,7L: Alta Estabilidade e Ponto de Fumaça Superior",
+  "description": "Óleo de algodão Traviú 15,7L: alta estabilidade, ponto de fumaça de 218-228°C, baixa acidez (≤0,05%). Ideal para frituras industriais, restaurantes e food service. Entrega rápida Zona Sul SP. Compre agora!",
+  "image": "https://i.imgur.com/J0Y3G7k.png",
+  "category": "Óleos Especiais",
+  "section": "oleo-algodao-industria",
+  "readTime": "7 min de leitura",
+  "date": "2026-03-30",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🛢️ ÓLEO DE ALGODÃO TRAVIÚ 15,7L: Alta Estabilidade e Ponto de Fumaça Superior</h1>
+      <p>O <strong>Óleo de Algodão Traviú</strong> é um produto de excelência, desenvolvido pela <strong>Polo Indústria, Comércio e Exportação de Produtos Alimentícios Ltda</strong>, para atender as mais exigentes demandas do mercado alimentício. Com sua embalagem de <strong>15,7 litros</strong>, este óleo refinado se destaca pelo <strong>alto ponto de fumaça (218-228°C)</strong>, <strong>baixíssima acidez (≤0,05%)</strong> e <strong>excelente estabilidade oxidativa</strong>, sendo a escolha ideal para restaurantes, lanchonetes, indústrias de snacks e food service em geral.</p>
+      
+      <p>Com um perfil de ácidos graxos equilibrado e rico em ômega 6, o óleo Traviú garante frituras mais crocantes, maior durabilidade e sabor neutro que não interfere nos alimentos.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 Por que escolher o Óleo de Algodão Traviú 15,7L?</h3>
+        <p style="margin: 0; font-weight: 600;"><strong>Ponto de fumaça 218-228°C</strong> • <strong>Baixíssima acidez (≤0,05%)</strong> • <strong>Alta estabilidade oxidativa</strong> • <strong>Sabor e odor característicos</strong> • <strong>Não contém glúten</strong> • <strong>9 meses de validade</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/2211" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 COMPRAR AGORA - ÓLEO TRAVIÚ 15,7L</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/J0Y3G7k.png" alt="Óleo de algodão Traviú 15,7L para frituras e indústria alimentícia" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Óleo de algodão Traviú 15,7L - Alta estabilidade e ponto de fumaça superior</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha Técnica Completa: Óleo de Algodão Traviú 15,7L</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">I - Descrição e Composição</h3>
+        <p><strong>Óleo vegetal de algodão refinado Traviú</strong> é obtido a partir da extração mecânica, neutralização, branqueamento, desodorização e aditivação do óleo bruto proveniente do caroço de algodão. Este processo tecnológico garante um produto de alta qualidade, com sabor neutro e excelente estabilidade.</p>
+        <p><strong>Composição:</strong> Óleo refinado de algodão, aditivos antioxidante TBHQ, ácido cítrico e antiespumante.</p>
+        <p><strong>NÃO CONTÉM GLÚTEN.</strong></p>
+        <p><strong>Status OGM:</strong> PCR Negativo.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">II - Campo de Aplicação</h3>
+        <p>O óleo de algodão refinado Traviú destina-se à alimentação humana, com aplicações em:</p>
+        <ul>
+          <li>✓ Indústrias alimentícias</li>
+          <li>✓ Food service e restaurantes</li>
+          <li>✓ Frituras industriais e de imersão</li>
+          <li>✓ Indústria farmacêutica e cosmética</li>
+          <li>✓ Ração animal e biodiesel</li>
+        </ul>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">III - Especificações Técnicas</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Parâmetro</th>
+            <th style="padding: 12px; text-align: left;">Valor</th>
+            <th style="padding: 12px; text-align: left;">Unidade</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidez (% ácido oleico)</td>
+            <td style="padding: 10px;">≤ 0,05</td>
+            <td style="padding: 10px;">%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cor Vermelho (5 1/4") (Lovibond)</td>
+            <td style="padding: 10px;">≤ 5</td>
+            <td style="padding: 10px;">LOV</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade</td>
+            <td style="padding: 10px;">≤ 0,1</td>
+            <td style="padding: 10px;">%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabão</td>
+            <td style="padding: 10px;">≤ 10</td>
+            <td style="padding: 10px;">ppm</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de peróxido</td>
+            <td style="padding: 10px;">≤ 1</td>
+            <td style="padding: 10px;">mEq/kg</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de iodo</td>
+            <td style="padding: 10px;">100 a 123</td>
+            <td style="padding: 10px;">cgI₂/g</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Densidade relativa a 40° / 20° C</td>
+            <td style="padding: 10px;">0,918 a 0,926</td>
+            <td style="padding: 10px;">g/cm³</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Matéria insaponificável</td>
+            <td style="padding: 10px;">≤ 1,5</td>
+            <td style="padding: 10px;">g/100 g</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de saponificação</td>
+            <td style="padding: 10px;">189 a 198</td>
+            <td style="padding: 10px;">mg KOH/g</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Índice de refração (Raia D a 40°C)</td>
+            <td style="padding: 10px;">1,458 a 1,466</td>
+            <td style="padding: 10px;">-</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Ponto de Fumaça</td>
+            <td style="padding: 10px;">218 a 228</td>
+            <td style="padding: 10px;">°C</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor/ Odor</td>
+            <td style="padding: 10px;">Característico</td>
+            <td style="padding: 10px;">-</td>
+          </tr>
+        </table>
+        <p style="padding: 0 15px 15px 15px; font-size: 0.8rem; color: #666;">Obs: O produto poderá apresentar-se turvo em temperaturas inferiores a 20°C. O aspecto levemente turvo é devido sua composição de ácidos graxos. O ponto de fusão do produto fica em torno de 15°C.</p>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">IV - Perfil de Ácidos Graxos</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Ácido Graxo</th>
+            <th style="padding: 12px; text-align: left;">Faixa de Concentração</th>
+            <th style="padding: 12px; text-align: left;">Unidade</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Ácido Palmítico (C16:0)</td>
+            <td style="padding: 10px;">21,4 - 26,4</td>
+            <td style="padding: 10px;">%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Ácido Esteárico (C18:0)</td>
+            <td style="padding: 10px;">2,1 - 3,3</td>
+            <td style="padding: 10px;">%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Ácido Óleico (C18:1)</td>
+            <td style="padding: 10px;">14,7 - 21,7</td>
+            <td style="padding: 10px;">%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Ácido Linoléico (C18:2)</td>
+            <td style="padding: 10px;">46,7 - 58,2</td>
+            <td style="padding: 10px;">%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Ácidos graxos saturados</td>
+            <td style="padding: 10px;">45 - 52</td>
+            <td style="padding: 10px;">%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Acidos graxos trans totais</td>
+            <td style="padding: 10px;">máx. 1,0</td>
+            <td style="padding: 10px;">%</td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin: 15px 0 0 15px;">V - Aditivação e Metais Pesados</h3>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Aditivo</th>
+            <th style="padding: 12px; text-align: left;">Valor Máximo</th>
+            <th style="padding: 12px; text-align: left;">Unidade</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Palmitato de ascorbila (INS 304)</td>
+            <td style="padding: 10px;">500</td>
+            <td style="padding: 10px;">ppm</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">TBHQ (INS319)</td>
+            <td style="padding: 10px;">200</td>
+            <td style="padding: 10px;">ppm</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Mistura concentrada de tocoferois (INS 307.b)</td>
+            <td style="padding: 10px;">300</td>
+            <td style="padding: 10px;">ppm</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Polidimetilsiloxano (INS 900a)</td>
+            <td style="padding: 10px;">10</td>
+            <td style="padding: 10px;">ppm</td>
+          </tr>
+        </table>
+        <table style="width: 100%; border-collapse: collapse; min-width: 400px; margin-top: 15px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Metais Pesados</th>
+            <th style="padding: 12px; text-align: left;">Valor Máximo</th>
+            <th style="padding: 12px; text-align: left;">Unidade</th>
+            </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Arsênio Total</td>
+            <td style="padding: 10px;">0,1</td>
+            <td style="padding: 10px;">ppm</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cobre</td>
+            <td style="padding: 10px;">0,1</td>
+            <td style="padding: 10px;">ppm</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Chumbo</td>
+            <td style="padding: 10px;">0,1</td>
+            <td style="padding: 10px;">ppm</td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h3 style="color: #095400; margin-top: 0;">VI - Tabela Nutricional (porção de 13ml - 1 colher de sopa)</h3>
+        <ul>
+          <li><strong>Valor Energético:</strong> 107 kcal (5% VD*)</li>
+          <li><strong>Gorduras Totais:</strong> 12g (18% VD*)</li>
+          <li><strong>Gorduras Saturadas:</strong> 3,1g (15% VD*)</li>
+          <li><strong>Gorduras Trans:</strong> 0g</li>
+          <li><strong>Gorduras Monoinsaturadas:</strong> 1,9g (9% VD*)</li>
+          <li><strong>Gorduras Poli-insaturadas:</strong> 6,7g (34% VD*)</li>
+          <li><strong>Ômega 6:</strong> 6,7g (37% VD*)</li>
+          <li><strong>Ômega 3:</strong> 31mg (1% VD*)</li>
+          <li><strong>Colesterol:</strong> 0mg</li>
+          <li><strong>Carboidratos:</strong> 0g</li>
+          <li><strong>Proteínas:</strong> 0g</li>
+          <li><strong>Sódio:</strong> 0mg</li>
+        </ul>
+        <p style="font-size: 0.8rem; color: #666;">*% Valores diários com base em uma dieta de 2.000 kcal ou 8.400 kJ. Seus valores diários podem ser maiores ou menores dependendo de suas necessidades energéticas.</p>
+      </div>
+
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <h3 style="color: #095400; margin-top: 0;">VII - Armazenamento, Validade e Transporte</h3>
+        <p><strong>Validade:</strong> 9 meses a partir da data de fabricação, desde que estocado adequadamente. Após aberto, consumir em até 30 dias.</p>
+        <p><strong>Armazenamento:</strong> Manter o óleo em um lugar fresco e seco, longe da luz solar direta e fontes de calor. A exposição ao calor e à luz pode acelerar o processo de rancificação.</p>
+        <p><strong>Transporte:</strong> Em caminhão carga seca ou baú em condições higiênicas e de segurança.</p>
+        <p><strong>Embalagem:</strong> Balde de 14,5 kg (aproximadamente 15,7 litros). Código EAN13: 7898994142744.</p>
+        <p><strong>Produtor:</strong> Polo Indústria, Comércio e Exportação de Produtos Alimentícios Ltda<br>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌟 Diferenciais do Óleo de Algodão Traviú</h2>
+      <p>O <strong>Óleo de Algodão Traviú</strong> oferece características técnicas superiores que o tornam ideal para aplicações profissionais:</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🔥 Alto Ponto de Fumaça</h4>
+          <p>218-228°C - Ideal para frituras em alta temperatura sem degradação, garantindo alimentos mais crocantes.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📊 Baixíssima Acidez</h4>
+          <p>≤0,05% (% ácido oleico) - Um dos menores índices do mercado, garantindo maior qualidade e frescor.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">💪 Rica em Ômega 6</h4>
+          <p>Composta por 46,7-58,2% de ácido linoléico (ômega 6), essencial para uma alimentação equilibrada.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🏭 Alta Estabilidade Oxidativa</h4>
+          <p>Ideal para frituras industriais, snacks e processos que exigem alta durabilidade do óleo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para Quem é Indicado o Óleo de Algodão Traviú 15,7L?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍟</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Frituras em geral</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Restaurantes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Cozinhas profissionais</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥨</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria de Snacks</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Produção em larga escala</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏭</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Indústria Alimentícia</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Formulação de produtos</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍕</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Pizzarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Massas e frituras</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de Comprar na PMG Atacadista</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos garantindo entrega segura e eficiente para sua operação.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, incluindo o Óleo Traviú 15,7L, sempre disponíveis.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Quer saber mais sobre o Óleo de Algodão Traviú 15,7L ou precisa de uma cotação especial? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo e Compre Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio, incluindo o <strong>Óleo de Algodão Traviú 15,7L</strong>.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO COMPLETO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Link direto do produto:</strong> 
+        <a href="https://www.marquesvendaspmg.shop/produto/2211" style="color: #095400; font-weight: 600;">ÓLEO DE ALGODÃO TRAVIÚ 15,7L</a>
+      </p>
+      
+      <div style="margin-top: 20px;">
+        <a href="https://www.marquesvendaspmg.shop/produto/2211" 
+           style="background: #ff8c00; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.1rem; display: inline-block;">
+           🛒 COMPRAR AGORA
+        </a>
+      </div>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> óleo de algodão, óleo de algodão 20 litros, óleo de algodão direto da fábrica, oleo de algodão traviú, óleo traviú 15 litros, óleo para fritura industrial, óleo com alto ponto de fumaça, óleo vegetal para restaurantes, fornecedor de óleo de algodão zona sul sp, atacado de óleo de algodão, polo indústria óleo de algodão, pmg atacadista óleo, marques vendas pmg, óleo para lanchonete, óleo baixíssima acidez, óleo alta estabilidade.
       </p>
     </div>
   `
