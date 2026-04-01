@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import dezembroTheme from './themes/março';
+import dezembroTheme from './themes/abril';
 
 const SeasonalOverlay = () => {
   const theme = dezembroTheme;
@@ -12,6 +12,10 @@ const SeasonalOverlay = () => {
   const [currentMessage, setCurrentMessage] = useState('');
   
   if (!theme.ativo) return null;
+
+  // Verifica se é dia de Páscoa
+  const hoje = new Date().toISOString().split('T')[0];
+  const isDiaDePascoa = theme.diaPascoa && (hoje === theme.diaPascoa.data);
 
   // Controla modal
   useEffect(() => {
@@ -24,7 +28,7 @@ const SeasonalOverlay = () => {
     }
   }, []);
 
-  // Controla emoji aleatório
+  // Controla emoji aleatório (APENAS MENSAGENS NORMAIS, SEM A ESPECIAL)
   useEffect(() => {
     const showRandomEmoji = () => {
       // Escolhe um emoji aleatório
@@ -33,7 +37,7 @@ const SeasonalOverlay = () => {
       ];
       setCurrentEmoji(randomEmoji);
       
-      // Escolhe uma mensagem aleatória
+      // Escolhe uma mensagem aleatória NORMAL (sem a mensagem especial)
       const randomMessage = theme.mensagens[
         Math.floor(Math.random() * theme.mensagens.length)
       ];
@@ -91,7 +95,7 @@ const SeasonalOverlay = () => {
 
   return (
     <>
-      {/* MODAL DE BOAS-VINDAS */}
+      {/* MODAL DE BOAS-VINDAS COM MENSAGEM ESPECIAL DA PÁSCOA */}
       {showModal && (
         <div style={{
           position: 'fixed',
@@ -117,37 +121,40 @@ const SeasonalOverlay = () => {
             position: 'relative',
             animation: 'slideUp 0.6s ease'
           }}>
+            {/* TÍTULO - Especial se for dia de Páscoa */}
             <h2 style={{
-              color: theme.cores.rosa,
+              color: isDiaDePascoa ? theme.diaPascoa.corDestaque : theme.cores.roxo,
               fontSize: '28px',
               marginBottom: '10px',
               fontWeight: '600'
             }}>
-              {theme.modal.titulo}
+              {isDiaDePascoa ? '🕊️ FELIZ PÁSCOA! 🌟' : theme.modal.titulo}
             </h2>
             
+            {/* MENSAGEM - Especial se for dia de Páscoa */}
             <p style={{
               fontSize: '18px',
               color: '#333',
               marginBottom: '15px',
               lineHeight: '1.4'
             }}>
-              {theme.modal.mensagem}
+              {isDiaDePascoa ? theme.diaPascoa.mensagemEspecial : theme.modal.mensagem}
             </p>
             
+            {/* SUBTÍTULO - Especial se for dia de Páscoa */}
             <p style={{
               fontSize: '14px',
               color: '#666',
               marginBottom: '25px',
               fontStyle: 'italic'
             }}>
-              {theme.modal.subtitulo}
+              {isDiaDePascoa ? theme.diaPascoa.ofertaEspecial : theme.modal.subtitulo}
             </p>
             
             <button
               onClick={() => setShowModal(false)}
               style={{
-                backgroundColor: theme.cores.rosa,
+                backgroundColor: isDiaDePascoa ? theme.diaPascoa.corDestaque : theme.cores.roxo,
                 color: 'white',
                 border: 'none',
                 padding: '12px 30px',
@@ -159,7 +166,7 @@ const SeasonalOverlay = () => {
               }}
               onMouseOver={(e) => {
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 6px 20px rgba(198, 40, 40, 0.4)';
+                e.target.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.2)';
               }}
               onMouseOut={(e) => {
                 e.target.style.transform = 'translateY(0)';
@@ -178,13 +185,13 @@ const SeasonalOverlay = () => {
               fontSize: '50px',
               animation: 'bounce 3s infinite'
             }}>
-              {theme.emojis[0].emoji}
+              {isDiaDePascoa ? '🐰' : theme.emojis[0].emoji}
             </div>
           </div>
         </div>
       )}
       
-      {/* EMOJI FLUTUANTE ALEATÓRIO */}
+      {/* EMOJI FLUTUANTE ALEATÓRIO (SEMPRE COM MENSAGENS NORMAIS) */}
       {showEmoji && currentEmoji.emoji && (
         <div
           style={{
@@ -201,7 +208,7 @@ const SeasonalOverlay = () => {
             alignItems: 'center',
             gap: '8px'
           }}>
-            {/* Emoji natalino */}
+            {/* Emoji temático */}
             <div style={{
               fontSize: theme.config.tamanho,
               animation: 'emojiBounce 2s ease-in-out infinite',
@@ -211,11 +218,11 @@ const SeasonalOverlay = () => {
               {currentEmoji.emoji}
             </div>
             
-            {/* Balão de mensagem (só se tiver mensagem) */}
+            {/* Balão de mensagem (sempre mensagens normais, curtas) */}
             {currentMessage && (
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: theme.cores.rosa,
+                color: theme.cores.roxo,
                 padding: '8px 12px',
                 borderRadius: '12px',
                 fontSize: '12px',
@@ -226,7 +233,7 @@ const SeasonalOverlay = () => {
                 animation: 'messageFloat 5s ease-out',
                 maxWidth: '160px',
                 textAlign: 'center',
-                border: `1px solid ${theme.cores.rosa}20`
+                border: `1px solid ${theme.cores.roxo}20`
               }}>
                 {currentMessage}
                 
@@ -350,10 +357,6 @@ const SeasonalOverlay = () => {
         }
         
         @media (max-width: 480px) {
-          .emoji-container {
-            /* Ajusta posições para mobile */
-          }
-          
           .emoji-floating {
             font-size: 24px !important;
           }
@@ -363,11 +366,6 @@ const SeasonalOverlay = () => {
             max-width: 110px !important;
             white-space: normal !important;
           }
-          
-          /* Em telas muito pequenas, reduz frequência */
-          .emoji-timer {
-            display: none;
-          }
         }
       `}</style>
     </>
@@ -375,5 +373,3 @@ const SeasonalOverlay = () => {
 };
 
 export default SeasonalOverlay;
-
-
