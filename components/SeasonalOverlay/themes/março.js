@@ -1,7 +1,7 @@
 const marcoTheme = {
   id: 'março',
   nome: 'Mês da Mulher PMG 2026',
-  ativo: true, // DEIXE false ATÉ 01/03/2026
+  ativo: false, // DEIXE false ATÉ 01/03/2026
   
   // Cores temáticas do Mês da Mulher
   cores: {
