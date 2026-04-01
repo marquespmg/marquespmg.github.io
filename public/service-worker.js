@@ -1,5 +1,5 @@
 // service-worker.js
-const CACHE_NAME = 'pmg-cache-v2';
+const CACHE_NAME = 'pmg-cache-v3';
 const urlsToCache = [
   '/',
   '/produtos',
@@ -22,7 +22,7 @@ const urlsToCache = [
   'https://i.imgur.com/jrERRsC.png'
 ];
 
-// Instala o Service Worker
+// ========== INSTALAÇÃO ==========
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -34,29 +34,31 @@ self.addEventListener('install', event => {
   self.skipWaiting();
 });
 
-// Intercepta as requisições
+// ========== INTERCEPTA REQUISIÇÕES COM SUPORTE OFFLINE ==========
 self.addEventListener('fetch', event => {
+  // Ignora requisições de analytics e tracking
+  if (event.request.url.includes('google-analytics') || 
+      event.request.url.includes('facebook.net') ||
+      event.request.url.includes('gtag')) {
+    return;
+  }
+  
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Cache hit - retorna do cache
         if (response) {
           return response;
         }
         
-        // Clone da requisição para fazer fetch
         const fetchRequest = event.request.clone();
         
         return fetch(fetchRequest)
           .then(response => {
-            // Verifica se a resposta é válida
             if (!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
             
-            // Clone da resposta para cache
             const responseToCache = response.clone();
-            
             caches.open(CACHE_NAME)
               .then(cache => {
                 cache.put(event.request, responseToCache);
@@ -65,14 +67,21 @@ self.addEventListener('fetch', event => {
             return response;
           })
           .catch(() => {
-            // Se falhar (offline), tenta mostrar página offline
+            // Para requisições de API, retorna erro controlado
+            if (event.request.url.includes('/api/')) {
+              return new Response(JSON.stringify({ error: 'Você está offline' }), {
+                status: 503,
+                headers: { 'Content-Type': 'application/json' }
+              });
+            }
+            // Para páginas, mostra página offline
             return caches.match('/offline.html');
           });
       })
   );
 });
 
-// Ativa e limpa cache antigo
+// ========== ATIVAÇÃO E LIMPEZA DE CACHE ==========
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
@@ -90,15 +99,84 @@ self.addEventListener('activate', event => {
   event.waitUntil(clients.claim());
 });
 
-// Background Sync (para tentar sincronizar quando voltar online)
+// ========== PERIODIC SYNC (opcional, mas recomendado) ==========
+// Se o navegador suportar, faz sync periódico
+if ('periodicSync' in self.registration) {
+  self.addEventListener('periodicsync', event => {
+    if (event.tag === 'sync-products') {
+      event.waitUntil(syncProducts());
+    }
+  });
+}
+
+async function syncProducts() {
+  try {
+    console.log('🔄 Sincronizando produtos em background...');
+    
+    // Tenta sincronizar produtos (se tiver API)
+    const response = await fetch('/api/produtos');
+    if (response.ok) {
+      const produtos = await response.json();
+      const cache = await caches.open(CACHE_NAME);
+      await cache.put('/api/produtos', new Response(JSON.stringify(produtos), {
+        headers: { 'Content-Type': 'application/json' }
+      }));
+      console.log('✅ Produtos sincronizados');
+    }
+  } catch (error) {
+    console.log('⚠️ Periodic sync não disponível ou erro:', error);
+  }
+}
+
+// ========== BACKGROUND SYNC (CARRINHO) ==========
 self.addEventListener('sync', event => {
   if (event.tag === 'sync-cart') {
     event.waitUntil(syncCart());
   }
 });
 
-function syncCart() {
-  // Aqui você pode implementar sincronização do carrinho
-  console.log('🔄 Sincronizando carrinho...');
-  return Promise.resolve();
+async function syncCart() {
+  try {
+    console.log('🛒 Sincronizando carrinho pendente...');
+    
+    // Recupera carrinho pendente do localStorage
+    const pendingCart = localStorage.getItem('pending_cart');
+    
+    if (pendingCart && pendingCart !== '[]') {
+      const response = await fetch('/api/cart/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: pendingCart
+      });
+      
+      if (response.ok) {
+        console.log('✅ Carrinho sincronizado com sucesso');
+        localStorage.removeItem('pending_cart');
+      }
+    }
+  } catch (error) {
+    console.error('❌ Erro na sincronização do carrinho:', error);
+  }
 }
+
+// ========== MENSAGENS DO CLIENTE ==========
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+  
+  if (event.data && event.data.type === 'PENDING_CART') {
+    // Salva carrinho pendente para sincronizar depois
+    localStorage.setItem('pending_cart', JSON.stringify(event.data.cart));
+    
+    // Registra sync em background
+    event.waitUntil(
+      self.registration.sync.register('sync-cart')
+    );
+  }
+});
+
+// ========== CHECK DE ATUALIZAÇÕES ==========
+self.addEventListener('controllerchange', () => {
+  console.log('🔄 Service Worker atualizado');
+});
