@@ -1,0 +1,76 @@
+{
+  "name": "PMG Atacadista",
+  "short_name": "PMG",
+  "description": "Atacado food service para restaurantes e mercados. Melhores preços em bebidas, carnes, laticínios e muito mais.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#095400",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/logo-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "business", "food"],
+  "lang": "pt-BR",
+  "scope": "/",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Catálogo",
+      "url": "/produtos",
+      "description": "Ver todos os produtos"
+    },
+    {
+      "name": "Ofertas",
+      "url": "/produtos?categoria=⏳%20Ofertas%20da%20Semana%20🚨",
+      "description": "Ver ofertas da semana"
+    }
+  ]
+}
