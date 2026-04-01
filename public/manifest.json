@@ -3,6 +3,7 @@
   "short_name": "PMG",
   "description": "Atacado food service para restaurantes e mercados. Melhores preços em bebidas, carnes, laticínios e muito mais.",
   "start_url": "/",
+  "id": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#095400",
@@ -57,6 +58,71 @@
       "purpose": "any maskable"
     }
   ],
+  "screenshots": [
+    {
+      "src": "/screenshots/mobile.jpeg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Tela inicial do PMG Atacadista"
+    },
+    {
+      "src": "/screenshots/mobile1.jpeg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Catálogo de produtos"
+    },
+    {
+      "src": "/screenshots/mobile2.jpeg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Categorias e busca"
+    },
+    {
+      "src": "/screenshots/mobile3.jpeg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Carrinho de compras"
+    },
+    {
+      "src": "/screenshots/mobile4.jpeg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Ofertas da semana"
+    },
+    {
+      "src": "/screenshots/desktop.jpeg",
+      "sizes": "1280x800",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Versão desktop"
+    },
+    {
+      "src": "/screenshots/desktop1.jpeg",
+      "sizes": "1280x800",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Catálogo desktop"
+    },
+    {
+      "src": "/screenshots/desktop2.jpeg",
+      "sizes": "1280x800",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Categorias desktop"
+    },
+    {
+      "src": "/screenshots/desktop3.jpeg",
+      "sizes": "1280x800",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Carrinho desktop"
+    }
+  ],
   "categories": ["shopping", "business", "food"],
   "lang": "pt-BR",
   "scope": "/",
@@ -71,6 +137,17 @@
       "name": "Ofertas",
       "url": "/produtos?categoria=⏳%20Ofertas%20da%20Semana%20🚨",
       "description": "Ver ofertas da semana"
+    },
+    {
+      "name": "Food News",
+      "url": "/food-news",
+      "description": "Blog e novidades"
+    },
+    {
+      "name": "Carrinho",
+      "url": "/produtos",
+      "description": "Meu carrinho de compras"
     }
-  ]
+  ],
+  "display_override": ["standalone", "minimal-ui"]
 }
