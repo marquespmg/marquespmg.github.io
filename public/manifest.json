@@ -8,6 +8,14 @@
   "background_color": "#ffffff",
   "theme_color": "#095400",
   "orientation": "portrait",
+  "dir": "ltr",
+  "lang": "pt-BR",
+  "scope": "/",
+  "scope_extensions": [
+    {
+      "origin": "https://www.marquesvendaspmg.shop"
+    }
+  ],
   "icons": [
     {
       "src": "/logo-72x72.png",
@@ -61,72 +69,72 @@
   "screenshots": [
     {
       "src": "/screenshots/mobile.jpeg",
-      "sizes": "1080x1920",
+      "sizes": "720x1600",
       "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "Tela inicial do PMG Atacadista"
     },
     {
       "src": "/screenshots/mobile1.jpeg",
-      "sizes": "1080x1920",
+      "sizes": "720x1600",
       "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "Catálogo de produtos"
     },
     {
       "src": "/screenshots/mobile2.jpeg",
-      "sizes": "1080x1920",
+      "sizes": "720x1600",
       "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "Categorias e busca"
     },
     {
       "src": "/screenshots/mobile3.jpeg",
-      "sizes": "1080x1920",
+      "sizes": "720x1600",
       "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "Carrinho de compras"
     },
     {
       "src": "/screenshots/mobile4.jpeg",
-      "sizes": "1080x1920",
+      "sizes": "720x1600",
       "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "Ofertas da semana"
     },
     {
       "src": "/screenshots/desktop.jpeg",
-      "sizes": "1280x800",
+      "sizes": "1600x746",
       "type": "image/jpeg",
       "form_factor": "wide",
-      "label": "Versão desktop"
+      "label": "Versão desktop - Página inicial"
     },
     {
       "src": "/screenshots/desktop1.jpeg",
-      "sizes": "1280x800",
+      "sizes": "1600x746",
       "type": "image/jpeg",
       "form_factor": "wide",
       "label": "Catálogo desktop"
     },
     {
       "src": "/screenshots/desktop2.jpeg",
-      "sizes": "1280x800",
+      "sizes": "1600x746",
       "type": "image/jpeg",
       "form_factor": "wide",
       "label": "Categorias desktop"
     },
     {
       "src": "/screenshots/desktop3.jpeg",
-      "sizes": "1280x800",
+      "sizes": "1600x746",
       "type": "image/jpeg",
       "form_factor": "wide",
       "label": "Carrinho desktop"
     }
   ],
   "categories": ["shopping", "business", "food"],
-  "lang": "pt-BR",
-  "scope": "/",
   "prefer_related_applications": false,
+  "related_applications": [],
+  "iarc_rating_id": "",
   "shortcuts": [
     {
       "name": "Catálogo",
@@ -149,5 +157,26 @@
       "description": "Meu carrinho de compras"
     }
   ],
-  "display_override": ["standalone", "minimal-ui"]
+  "file_handlers": [],
+  "launch_handler": {
+    "client_mode": ["focus-existing", "auto"]
+  },
+  "protocol_handlers": [],
+  "share_target": {
+    "action": "/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "widgets": [],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "display_override": ["standalone", "minimal-ui"],
+  "note_taking": {
+    "new_note_url": "/"
+  }
 }
