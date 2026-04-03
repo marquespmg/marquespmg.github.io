@@ -28,7 +28,7 @@ export default function Document() {
         {/* Android specific */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="application-name" content="PMG Atacadista" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/logo-32x32.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/logo-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/logo-180x180.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/logo-152x152.png" />
@@ -92,7 +92,7 @@ export default function Document() {
         <Main />
         <NextScript />
 
-        {/* ========== REGISTRO DO SERVICE WORKER ========== */}
+        {/* ========== REGISTRO DO SERVICE WORKER COM ATUALIZAÇÃO AUTOMÁTICA ========== */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -101,6 +101,25 @@ export default function Document() {
                   navigator.serviceWorker.register('/service-worker.js')
                     .then(function(registration) {
                       console.log('✅ Service Worker registrado com sucesso:', registration.scope);
+                      
+                      // ===== NOVO: ATUALIZAÇÃO AUTOMÁTICA DE PREÇOS =====
+                      // Verifica se há atualização disponível
+                      registration.update();
+                      
+                      // Detecta quando uma nova versão é encontrada
+                      registration.addEventListener('updatefound', function() {
+                        const newWorker = registration.installing;
+                        console.log('🔄 Nova versão do Service Worker encontrada');
+                        
+                        newWorker.addEventListener('statechange', function() {
+                          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            console.log('✅ Nova versão instalada! Recarregando para ver preços atualizados...');
+                            // Recarrega a página automaticamente para pegar os novos preços
+                            window.location.reload();
+                          }
+                        });
+                      });
+                      // ===== FIM DA ATUALIZAÇÃO AUTOMÁTICA =====
                     })
                     .catch(function(error) {
                       console.log('❌ Falha ao registrar Service Worker:', error);
@@ -111,7 +130,6 @@ export default function Document() {
               // Evento para quando o PWA for instalado
               window.addEventListener('beforeinstallprompt', function(e) {
                 console.log('📱 PWA pode ser instalado');
-                // Você pode guardar o evento para mostrar um botão de instalação depois
                 window.deferredPrompt = e;
               });
             `,
