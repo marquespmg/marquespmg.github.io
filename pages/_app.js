@@ -41,24 +41,20 @@ function MyApp({ Component, pageProps }) {
   // ✅ FUNÇÃO addToCart ATUALIZADA
   const addToCart = (product) => {
     setCart(prevCart => {
-      // Verifica se o produto já está no carrinho
       const existingProductIndex = prevCart.findIndex(item => item.id === product.id);
       
       let newCart;
       
       if (existingProductIndex !== -1) {
-        // Incrementa a quantidade se já existir
         newCart = [...prevCart];
         newCart[existingProductIndex] = {
           ...newCart[existingProductIndex],
           quantity: (newCart[existingProductIndex].quantity || 1) + 1
         };
       } else {
-        // Adiciona novo produto com quantidade 1
         newCart = [...prevCart, { ...product, quantity: 1 }];
       }
       
-      // Atualiza o total
       setTotal(newCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
       
       return newCart;
@@ -69,15 +65,12 @@ function MyApp({ Component, pageProps }) {
   const removeFromCart = (productId) => {
     setCart(prevCart => {
       const newCart = prevCart.filter(item => item.id !== productId);
-      
-      // Atualiza o total
       setTotal(newCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
-      
       return newCart;
     });
   };
 
-  // ✅ NOVA FUNÇÃO: adjustQuantity
+  // ✅ FUNÇÃO adjustQuantity
   const adjustQuantity = (productId, adjustment) => {
     setCart(prevCart => {
       const newCart = [...prevCart];
@@ -101,7 +94,6 @@ function MyApp({ Component, pageProps }) {
       }
 
       if (productFound) {
-        // Atualiza o total
         setTotal(newCart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0));
         return newCart;
       }
@@ -110,58 +102,102 @@ function MyApp({ Component, pageProps }) {
     });
   };
 
-  // ✅ NOVA FUNÇÃO: clearCart
+  // ✅ FUNÇÃO clearCart
   const clearCart = () => {
     setCart([]);
     setTotal(0);
     localStorage.removeItem('cart_data');
   };
 
-  // ========== NOVO: REFRESH AUTOMÁTICO PARA PWA (APP) ==========
+  // ========== FORÇAR TEMA CLARO (GLOBAL) ==========
   useEffect(() => {
-    // Detecta se está rodando como PWA (app instalado)
+    // Remove qualquer classe de tema escuro
+    document.documentElement.classList.remove('dark', 'dark-mode', 'dark-theme');
+    
+    // Força o estilo inline
+    document.documentElement.style.colorScheme = 'light';
+    document.body.style.backgroundColor = '#ffffff';
+    document.body.style.color = '#333333';
+    
+    // Força a meta tag theme-color
+    let metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (!metaTheme) {
+      metaTheme = document.createElement('meta');
+      metaTheme.name = 'theme-color';
+      document.head.appendChild(metaTheme);
+    }
+    metaTheme.content = '#095400';
+    
+    // Força CSS global para garantir que tudo fique claro
+    const style = document.createElement('style');
+    style.id = 'force-light-theme';
+    style.textContent = `
+      * {
+        color-scheme: light !important;
+      }
+      body, html {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+      }
+      .dark, .dark-mode, .dark-theme {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+      }
+    `;
+    
+    // Remove se já existir para não duplicar
+    const existingStyle = document.getElementById('force-light-theme');
+    if (existingStyle) existingStyle.remove();
+    document.head.appendChild(style);
+    
+    // Observa mudanças no tema do sistema
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleThemeChange = (e) => {
+      if (e.matches) {
+        document.documentElement.classList.remove('dark', 'dark-mode', 'dark-theme');
+        document.documentElement.style.colorScheme = 'light';
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#333333';
+      }
+    };
+    
+    mediaQuery.addEventListener('change', handleThemeChange);
+    
+    return () => {
+      mediaQuery.removeEventListener('change', handleThemeChange);
+      const styleToRemove = document.getElementById('force-light-theme');
+      if (styleToRemove) styleToRemove.remove();
+    };
+  }, []);
+  // ========== FIM FORÇAR TEMA CLARO ==========
+
+  // ========== REFRESH AUTOMÁTICO PARA PWA (APP) ==========
+  useEffect(() => {
     const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
                   window.navigator.standalone === true;
     
     if (isPWA) {
       console.log('📱 App PWA detectado - Refresh automático ativado');
       
-      // 1. Refresh quando o app for aberto (páginas que voltaram do cache)
       window.addEventListener('pageshow', (event) => {
         if (event.persisted) {
-          console.log('🔄 App aberto do cache - Recarregando para pegar preços novos');
+          console.log('🔄 App aberto do cache - Recarregando');
           window.location.reload();
         }
       });
       
-      // 2. Refresh quando o app voltar do segundo plano (visibilidade)
       const handleVisibilityChange = () => {
         if (!document.hidden) {
-          console.log('🔄 App voltou do segundo plano - Verificando preços');
-          // Pequeno delay para garantir que a página está ativa
-          setTimeout(() => {
-            window.location.reload();
-          }, 100);
+          console.log('🔄 App voltou do segundo plano');
+          setTimeout(() => window.location.reload(), 100);
         }
       };
       
       document.addEventListener('visibilitychange', handleVisibilityChange);
       
-      // 3. Refresh quando a tela for destravada (opcional)
-      const handleResume = () => {
-        console.log('🔄 Tela destravada - Recarregando');
-        setTimeout(() => {
-          window.location.reload();
-        }, 100);
-      };
-      
-      window.addEventListener('resume', handleResume);
-      
-      // Cleanup ao desmontar
       return () => {
         window.removeEventListener('pageshow', () => {});
         document.removeEventListener('visibilitychange', handleVisibilityChange);
-        window.removeEventListener('resume', handleResume);
       };
     }
   }, []);
@@ -182,7 +218,6 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="Carrinho de compras profissional" />
       </Head>
 
-      {/* Google Analytics */}
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-89LSRYEHF1"
@@ -200,7 +235,6 @@ function MyApp({ Component, pageProps }) {
         }}
       />
 
-      {/* Meta Pixel do Facebook */}
       <Script
         id="facebook-pixel"
         strategy="afterInteractive"
@@ -220,10 +254,8 @@ function MyApp({ Component, pageProps }) {
         }}
       />
 
-      {/* PELÍCULA DECORATIVA NATALINA */}
       <SeasonalOverlay />
 
-      {/* Componente principal - PASSANDO TODAS AS FUNÇÕES */}
       <Component 
         {...pageProps} 
         cart={cart}
@@ -235,7 +267,7 @@ function MyApp({ Component, pageProps }) {
         clearCart={clearCart}
       />
       
-      <Markito /> {/* Chat fixo */}
+      <Markito />
     </>
   );
 }
