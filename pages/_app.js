@@ -117,6 +117,56 @@ function MyApp({ Component, pageProps }) {
     localStorage.removeItem('cart_data');
   };
 
+  // ========== NOVO: REFRESH AUTOMÁTICO PARA PWA (APP) ==========
+  useEffect(() => {
+    // Detecta se está rodando como PWA (app instalado)
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
+                  window.navigator.standalone === true;
+    
+    if (isPWA) {
+      console.log('📱 App PWA detectado - Refresh automático ativado');
+      
+      // 1. Refresh quando o app for aberto (páginas que voltaram do cache)
+      window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+          console.log('🔄 App aberto do cache - Recarregando para pegar preços novos');
+          window.location.reload();
+        }
+      });
+      
+      // 2. Refresh quando o app voltar do segundo plano (visibilidade)
+      const handleVisibilityChange = () => {
+        if (!document.hidden) {
+          console.log('🔄 App voltou do segundo plano - Verificando preços');
+          // Pequeno delay para garantir que a página está ativa
+          setTimeout(() => {
+            window.location.reload();
+          }, 100);
+        }
+      };
+      
+      document.addEventListener('visibilitychange', handleVisibilityChange);
+      
+      // 3. Refresh quando a tela for destravada (opcional)
+      const handleResume = () => {
+        console.log('🔄 Tela destravada - Recarregando');
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
+      };
+      
+      window.addEventListener('resume', handleResume);
+      
+      // Cleanup ao desmontar
+      return () => {
+        window.removeEventListener('pageshow', () => {});
+        document.removeEventListener('visibilitychange', handleVisibilityChange);
+        window.removeEventListener('resume', handleResume);
+      };
+    }
+  }, []);
+  // ========== FIM DO REFRESH AUTOMÁTICO ==========
+
   // Google Analytics
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
