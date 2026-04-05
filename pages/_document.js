@@ -1,43 +1,62 @@
+// pages/_document.js
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
     <Html lang="pt-BR">
       <Head>
-        {/* ===== META TAGS ESSENCIAIS ===== */}
+        {/* Meta Tags Essenciais */}
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-        <meta name="description" content="MP na Brasa - Kits de churrasco gourmet em Joanópolis. Carnes premium, acompanhamentos selecionados e entrega rápida. Peça já seu churrasco!" />
-        <meta name="keywords" content="churrasco joanópolis, kit churrasco, churrasco gourmet, carnes premium, picanha, entrega de churrasco, MP na Brasa" />
-        <meta name="author" content="MP na Brasa" />
-        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta name="description" content="Distribuidora autorizada com os melhores produtos para seu negócio. Qualidade garantida e atendimento especializado." />
         
-        {/* ===== COR DO TEMA ===== */}
-        <meta name="theme-color" content="#8B0000" />
-        <meta name="msapplication-TileColor" content="#8B0000" />
+        {/* ========== CONFIGURAÇÕES PWA ========== */}
+        {/* Manifest PWA */}
+        <link rel="manifest" href="/manifest.json" />
         
-        {/* ===== LINKS DE POLÍTICA E TERMOS PARA SEO ===== */}
+        {/* Theme color - usado no PWA e navegador */}
+        <meta name="theme-color" content="#095400" />
+        <meta name="msapplication-TileColor" content="#095400" />
+        <meta name="msapplication-TileImage" content="/logo.png" />
+        
+        {/* iOS specific - para PWA no iPhone */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="PMG Atacadista" />
+        
+        {/* Android specific */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="PMG Atacadista" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logo-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo-180x180.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/logo-152x152.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/logo-144x144.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/logo-120x120.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/logo-114x114.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/logo-76x76.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/logo-72x72.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="msapplication-TileImage" content="/logo-144x144.png" />
+        
+        {/* Ícones para PWA */}
+        <link rel="icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="apple-touch-icon-precomposed" href="/logo.png" />
+        
+        {/* ========== FIM CONFIGURAÇÕES PWA ========== */}
+        
+        {/* Links de Política e Termos para SEO */}
         <link rel="privacy-policy" href="/politica-de-privacidade" />
         <link rel="terms-of-service" href="/termos" />
         
-        {/* ===== VERIFICAÇÃO DO GOOGLE ===== */}
+        {/* Verificação do Google */}
         <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
 
-        {/* ===== FAVICON MP NA BRASA ===== */}
-        <link rel="icon" href="/Logo MP cafe.png" />
-        <link rel="shortcut icon" href="/Logo MP cafe.png" />
-        <link rel="apple-touch-icon" href="/Logo MP cafe.png" />
-        <link rel="apple-touch-icon-precomposed" href="/Logo MP cafe.png" />
-        
-        {/* ===== PRÉ-CONEXÕES PARA MELHOR PERFORMANCE ===== */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://connect.facebook.net" />
-
-        {/* ===== GOOGLE ANALYTICS ===== */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9QFXDT8PL"></script>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-89LSRYEHF1"></script>
         <script dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -49,7 +68,7 @@ export default function Document() {
           `,
         }} />
 
-        {/* ===== META PIXEL ===== */}
+        {/* Meta Pixel */}
         <script dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -73,7 +92,52 @@ export default function Document() {
         <Main />
         <NextScript />
 
-        {/* ===== FALLBACK PARA JAVASCRIPT DESABILITADO ===== */}
+        {/* ========== REGISTRO DO SERVICE WORKER COM ATUALIZAÇÃO AUTOMÁTICA ========== */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                      console.log('✅ Service Worker registrado com sucesso:', registration.scope);
+                      
+                      // ===== NOVO: ATUALIZAÇÃO AUTOMÁTICA DE PREÇOS =====
+                      // Verifica se há atualização disponível
+                      registration.update();
+                      
+                      // Detecta quando uma nova versão é encontrada
+                      registration.addEventListener('updatefound', function() {
+                        const newWorker = registration.installing;
+                        console.log('🔄 Nova versão do Service Worker encontrada');
+                        
+                        newWorker.addEventListener('statechange', function() {
+                          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            console.log('✅ Nova versão instalada! Recarregando para ver preços atualizados...');
+                            // Recarrega a página automaticamente para pegar os novos preços
+                            window.location.reload();
+                          }
+                        });
+                      });
+                      // ===== FIM DA ATUALIZAÇÃO AUTOMÁTICA =====
+                    })
+                    .catch(function(error) {
+                      console.log('❌ Falha ao registrar Service Worker:', error);
+                    });
+                });
+              }
+              
+              // Evento para quando o PWA for instalado
+              window.addEventListener('beforeinstallprompt', function(e) {
+                console.log('📱 PWA pode ser instalado');
+                window.deferredPrompt = e;
+              });
+            `,
+          }}
+        />
+        {/* ========== FIM SERVICE WORKER ========== */}
+
+        {/* Fallback para JavaScript desabilitado */}
         <noscript>
           <div style={{
             position: 'fixed',
@@ -81,51 +145,31 @@ export default function Document() {
             left: '0',
             right: '0',
             background: '#f8f8f8',
-            padding: '12px',
+            padding: '10px',
             textAlign: 'center',
-            borderTop: '2px solid #8B0000',
-            zIndex: 9999,
-            fontFamily: 'Arial, sans-serif'
+            borderTop: '1px solid #ddd',
+            zIndex: 9999
           }}>
-            <p style={{ margin: '0 0 8px 0', color: '#333', fontSize: '14px' }}>
-              🔥 MP na Brasa - Churrasco Gourmet em Joanópolis
-            </p>
-            <div>
-              <a 
-                href="/politica-de-privacidade" 
-                style={{
-                  color: '#8B0000',
-                  textDecoration: 'underline',
-                  fontWeight: 'bold',
-                  margin: '0 15px',
-                  fontSize: '13px'
-                }}
-              >
-                Política de Privacidade
-              </a>
-              <a 
-                href="/termos" 
-                style={{
-                  color: '#8B0000',
-                  textDecoration: 'underline',
-                  margin: '0 15px',
-                  fontSize: '13px'
-                }}
-              >
-                Termos de Uso
-              </a>
-              <a 
-                href="/mp" 
-                style={{
-                  color: '#8B0000',
-                  textDecoration: 'underline',
-                  margin: '0 15px',
-                  fontSize: '13px'
-                }}
-              >
-                Kits de Churrasco
-              </a>
-            </div>
+            <a 
+              href="/politica-de-privacidade" 
+              style={{
+                color: '#095400',
+                textDecoration: 'underline',
+                fontWeight: 'bold',
+                margin: '0 15px'
+              }}
+            >
+              Política de Privacidade
+            </a>
+            <a 
+              href="/termos" 
+              style={{
+                color: '#095400',
+                margin: '0 15px'
+              }}
+            >
+              Termos de Uso
+            </a>
           </div>
         </noscript>
       </body>
