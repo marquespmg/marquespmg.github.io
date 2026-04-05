@@ -5,19 +5,22 @@ import Markito from '../pages/Markito';
 import SeasonalOverlay from '@/components/SeasonalOverlay/SeasonalOverlay';
 import '../styles/globals.css';
 
-// ========== DETECTAR TEMA ESCURO E REDIRECIONAR PARA AVISO ==========
+// ========== FORÇAR RECARGA PARA TEMA ESCURO (PRIMEIRO) ==========
+// Isso precisa ser a PRIMEIRA coisa que executa
 if (typeof window !== 'undefined') {
+  // Detecta tema escuro
   const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
                 window.navigator.standalone === true;
   
-  // Verifica se está na página de aviso (para não ficar em loop)
-  const isWarningPage = window.location.pathname.includes('/dark-mode-warning.html');
-  
-  // Se for PWA com tema escuro e NÃO está na página de aviso
-  if (isPWA && isDarkMode && !isWarningPage) {
-    // Redireciona para a página de aviso
-    window.location.href = '/dark-mode-warning.html';
+  // Se for PWA com tema escuro, força reload
+  if (isPWA && isDarkMode) {
+    const hasReloadedForDark = sessionStorage.getItem('dark_mode_reloaded');
+    if (!hasReloadedForDark) {
+      sessionStorage.setItem('dark_mode_reloaded', 'true');
+      // Força reload imediato
+      window.location.reload(true);
+    }
   }
 }
 // ========== FIM ==========
