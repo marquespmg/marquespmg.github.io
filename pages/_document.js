@@ -11,6 +11,12 @@ export default function Document() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <meta name="description" content="Distribuidora autorizada com os melhores produtos para seu negócio. Qualidade garantida e atendimento especializado." />
         
+        {/* ========== FORÇAR TEMA CLARO NO ANDROID ========== */}
+        <meta name="color-scheme" content="light only" />
+        <meta name="supported-color-schemes" content="light" />
+        <meta name="darkreader-lock" content="yes" />
+        {/* ========== FIM ========== */}
+        
         {/* ========== CONFIGURAÇÕES PWA ========== */}
         {/* Manifest PWA */}
         <link rel="manifest" href="/manifest.json" />
