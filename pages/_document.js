@@ -13,11 +13,6 @@ export default function Document() {
         <meta name="author" content="MP na Brasa" />
         <meta name="robots" content="index, follow" />
         
-        {/* ===== FORÇAR TEMA CLARO NO ANDROID ===== */}
-        <meta name="color-scheme" content="light only" />
-        <meta name="supported-color-schemes" content="light" />
-        <meta name="darkreader-lock" content="yes" />
-        
         {/* ===== COR DO TEMA ===== */}
         <meta name="theme-color" content="#8B0000" />
         <meta name="msapplication-TileColor" content="#8B0000" />
