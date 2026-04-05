@@ -2253,7 +2253,7 @@ const products = [
   { id: 2365, name: 'MINI SMOKY CHEESE DONUTS PICKERS MCCAIN 1 KILO (CX 6 PCT)', category: 'Salgados', price: 615.73, image: 'https://www.marquesvendaspmg.shop/images/mini-smoky-cheese-donuts-pickers-mccain.png' },
   { id: 2366, name: 'NACHO CHEESE TRIANGLES CONGELADOS PRÉ-FRITOS EMPANADOS RECHEADOS COM QUEIJO GOUDA E CHEDDAR PICKERS MCCAIN 1 KILO (CX 6 PCT)', category: 'Salgados', price: 0, image: 'https://www.marquesvendaspmg.shop/images/nacho-cheese-triangles-congelados-pre-fritos-recheados-com-queijo-gouda-cheddar-pickers-mccain.png' },
   { id: 2367, name: 'QUEIJO CRISPY BURGER SEARA GOURMET 100 G (CX 26 UN)', category: 'Salgados', price: 112.73, image: 'https://www.marquesvendaspmg.shop/images/queijo-crispy-burger-seara-gourmet.png' },
-    // ... adicione todos os produtos até ID 1898
+  // ... adicione todos os produtos até ID 1898
 ];
 
 // ========== FUNÇÃO PRINCIPAL INTELIGENTE ==========
