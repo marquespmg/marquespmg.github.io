@@ -5,6 +5,26 @@ import Markito from '../pages/Markito';
 import SeasonalOverlay from '@/components/SeasonalOverlay/SeasonalOverlay';
 import '../styles/globals.css';
 
+// ========== FORÇAR RECARGA PARA TEMA ESCURO (PRIMEIRO) ==========
+// Isso precisa ser a PRIMEIRA coisa que executa
+if (typeof window !== 'undefined') {
+  // Detecta tema escuro
+  const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
+                window.navigator.standalone === true;
+  
+  // Se for PWA com tema escuro, força reload
+  if (isPWA && isDarkMode) {
+    const hasReloadedForDark = sessionStorage.getItem('dark_mode_reloaded');
+    if (!hasReloadedForDark) {
+      sessionStorage.setItem('dark_mode_reloaded', 'true');
+      // Força reload imediato
+      window.location.reload(true);
+    }
+  }
+}
+// ========== FIM ==========
+
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
@@ -171,7 +191,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
   // ========== FIM FORÇAR TEMA CLARO ==========
 
-  // ========== REFRESH AUTOMÁTICO PARA PWA (APP) - VERSÃO FORTE ==========
+  // ========== REFRESH AUTOMÁTICO PARA PWA (APP) ==========
   useEffect(() => {
     // Detecta se está rodando como PWA (app instalado)
     const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
@@ -184,48 +204,30 @@ function MyApp({ Component, pageProps }) {
     console.log('🔍========================');
     
     if (isPWA) {
-      console.log('📱 App PWA detectado - Refresh FORTE ativado');
+      console.log('📱 App PWA detectado - Refresh automático ativado');
       
-      // 🔥 SOLUÇÃO PARA TEMA ESCURO: Força reload independente do evento
-      const hasReloaded = sessionStorage.getItem('app_has_reloaded');
+      // 1. Refresh quando o app for aberto
+      window.addEventListener('pageshow', (event) => {
+        console.log('📄 Evento pageshow disparado, persisted:', event.persisted);
+        if (event.persisted) {
+          console.log('🔄 App aberto do cache - Recarregando para pegar preços novos');
+          window.location.reload();
+        }
+      });
       
-      if (!hasReloaded) {
-        console.log('🔄 Primeira abertura - Forçando reload para pegar preços novos');
-        sessionStorage.setItem('app_has_reloaded', 'true');
-        // Força reload ignorando cache
-        window.location.reload(true);
-      } else {
-        console.log('✅ Sessão já recarregada - Mantendo página');
-      }
-      
-      // Detecção mais agressiva para voltar do segundo plano
-      let lastHiddenTime = 0;
-      
+      // 2. Refresh quando o app voltar do segundo plano
       const handleVisibilityChange = () => {
+        console.log('👁️ visibilitychange disparado, hidden:', document.hidden);
         if (!document.hidden) {
-          const now = Date.now();
-          // Se ficou mais de 2 segundos no fundo, recarrega
-          if (now - lastHiddenTime > 2000) {
-            console.log('🔄 App voltou do segundo plano - Recarregando');
-            sessionStorage.removeItem('app_has_reloaded');
-            window.location.reload(true);
-          }
-        } else {
-          lastHiddenTime = Date.now();
+          console.log('🔄 App voltou do segundo plano - Verificando preços');
+          setTimeout(() => {
+            console.log('🔄 Executando reload...');
+            window.location.reload();
+          }, 100);
         }
       };
       
       document.addEventListener('visibilitychange', handleVisibilityChange);
-      
-      // Fallback: focus event (funciona melhor em alguns Android)
-      window.addEventListener('focus', () => {
-        console.log('🔄 Janela ganhou foco - Verificando');
-        const reloaded = sessionStorage.getItem('app_has_reloaded');
-        if (!reloaded) {
-          sessionStorage.setItem('app_has_reloaded', 'true');
-          window.location.reload(true);
-        }
-      });
       
       return () => {
         document.removeEventListener('visibilitychange', handleVisibilityChange);
@@ -233,10 +235,9 @@ function MyApp({ Component, pageProps }) {
       
     } else {
       console.log('❌ Não detectado como PWA - Refresh NÃO ativado');
-      console.log('Dica: Certifique-se de que está rodando como app instalado');
     }
   }, []);
-  // ========== FIM DO REFRESH FORTE ==========
+  // ========== FIM DO REFRESH AUTOMÁTICO ==========
 
   // Google Analytics
   useEffect(() => {
