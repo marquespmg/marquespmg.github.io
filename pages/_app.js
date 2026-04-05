@@ -171,37 +171,72 @@ function MyApp({ Component, pageProps }) {
   }, []);
   // ========== FIM FORÇAR TEMA CLARO ==========
 
-  // ========== REFRESH AUTOMÁTICO PARA PWA (APP) ==========
+  // ========== REFRESH AUTOMÁTICO PARA PWA (APP) - VERSÃO FORTE ==========
   useEffect(() => {
+    // Detecta se está rodando como PWA (app instalado)
     const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
                   window.navigator.standalone === true;
     
+    console.log('🔍===== DEBUG REFRESH =====');
+    console.log('display-mode:', window.matchMedia('(display-mode: standalone)').matches);
+    console.log('navigator.standalone:', window.navigator.standalone);
+    console.log('isPWA detectado:', isPWA);
+    console.log('🔍========================');
+    
     if (isPWA) {
-      console.log('📱 App PWA detectado - Refresh automático ativado');
+      console.log('📱 App PWA detectado - Refresh FORTE ativado');
       
-      window.addEventListener('pageshow', (event) => {
-        if (event.persisted) {
-          console.log('🔄 App aberto do cache - Recarregando');
-          window.location.reload();
-        }
-      });
+      // 🔥 SOLUÇÃO PARA TEMA ESCURO: Força reload independente do evento
+      const hasReloaded = sessionStorage.getItem('app_has_reloaded');
+      
+      if (!hasReloaded) {
+        console.log('🔄 Primeira abertura - Forçando reload para pegar preços novos');
+        sessionStorage.setItem('app_has_reloaded', 'true');
+        // Força reload ignorando cache
+        window.location.reload(true);
+      } else {
+        console.log('✅ Sessão já recarregada - Mantendo página');
+      }
+      
+      // Detecção mais agressiva para voltar do segundo plano
+      let lastHiddenTime = 0;
       
       const handleVisibilityChange = () => {
         if (!document.hidden) {
-          console.log('🔄 App voltou do segundo plano');
-          setTimeout(() => window.location.reload(), 100);
+          const now = Date.now();
+          // Se ficou mais de 2 segundos no fundo, recarrega
+          if (now - lastHiddenTime > 2000) {
+            console.log('🔄 App voltou do segundo plano - Recarregando');
+            sessionStorage.removeItem('app_has_reloaded');
+            window.location.reload(true);
+          }
+        } else {
+          lastHiddenTime = Date.now();
         }
       };
       
       document.addEventListener('visibilitychange', handleVisibilityChange);
       
+      // Fallback: focus event (funciona melhor em alguns Android)
+      window.addEventListener('focus', () => {
+        console.log('🔄 Janela ganhou foco - Verificando');
+        const reloaded = sessionStorage.getItem('app_has_reloaded');
+        if (!reloaded) {
+          sessionStorage.setItem('app_has_reloaded', 'true');
+          window.location.reload(true);
+        }
+      });
+      
       return () => {
-        window.removeEventListener('pageshow', () => {});
         document.removeEventListener('visibilitychange', handleVisibilityChange);
       };
+      
+    } else {
+      console.log('❌ Não detectado como PWA - Refresh NÃO ativado');
+      console.log('Dica: Certifique-se de que está rodando como app instalado');
     }
   }, []);
-  // ========== FIM DO REFRESH AUTOMÁTICO ==========
+  // ========== FIM DO REFRESH FORTE ==========
 
   // Google Analytics
   useEffect(() => {
