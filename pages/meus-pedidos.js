@@ -3,6 +3,7 @@ import { supabase } from '../lib/supabaseClient';
 import { useRouter } from 'next/router';
 import { produtosArray } from './produtos';
 import Head from 'next/head';
+import useTrackUser from '../hook/useTrackUser';
 
 const MeusPedidos = () => {
   const router = useRouter();
@@ -11,6 +12,8 @@ const MeusPedidos = () => {
   const [loading, setLoading] = useState(true);
   const [expandedOrder, setExpandedOrder] = useState(null);
   const [comprandoNovamente, setComprandoNovamente] = useState(null);
+
+    useTrackUser(); // ← ADICIONE ESTA LINHA
 
   // ==============================================
   // ✅ FUNÇÃO PARA CALCULAR VALOR CORRETO DO ITEM
