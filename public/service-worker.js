@@ -36,39 +36,41 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
   const url = event.request.url;
   
-  // === NUNCA CACHEAR PÁGINAS DE PRODUTO (lista OU individual) ===
-  if (
-    url.includes('/produtos') ||           // Lista de produtos
-    url.includes('/produto/') ||           // Produto individual (/produto/2365)
-    url.includes('/api/') ||               // APIs
-    url.includes('.json') ||               // Arquivos JSON
-    url.includes('/feed.xml') ||           // Feed de produtos ✅ ADICIONADO
-    url.includes('/sitemap-imagens.xml') || // Sitemap de imagens ✅ ADICIONADO
-    url.includes('/sitemap-produtos.xml.js') || // Sitemap de produtos ✅ ADICIONADO
-    url.includes('/product-utils') ||      // Utilitário de produtos ✅ ADICIONADO
-    url.includes('/checkout-facebook.html') || // Checkout Facebook ✅ ADICIONADO
-    (url.includes('.js') && !url.includes('/logo')) || // JS (exceto logo)
-    url.includes('google-analytics') ||
-    url.includes('facebook.net') ||
-    url.includes('gtag')
-  ) {
-    event.respondWith(
-      fetch(event.request)
-        .then(response => {
-          return response;  // Retorna do servidor, sem cache
-        })
-        .catch(() => {
-          if (url.includes('/api/')) {
-            return new Response(JSON.stringify({ error: 'Você está offline' }), {
-              status: 503,
-              headers: { 'Content-Type': 'application/json' }
-            });
-          }
-          return caches.match('/offline.html');
-        })
-    );
-    return;
-  }
+// === NUNCA CACHEAR PÁGINAS QUE PRECISAM DE DADOS ATUALIZADOS ===
+if (
+  url.includes('/produtos') ||           // Lista de produtos
+  url.includes('/produto/') ||           // Produto individual (/produto/2365)
+  url.includes('/meus-pedidos') ||       // ✅ Meus Pedidos (NÃO CACHEAR!)
+  url.includes('/api/') ||               // APIs
+  url.includes('.json') ||               // Arquivos JSON
+  url.includes('/mapa.json') ||          // Lista de produtos
+  url.includes('/feed.xml') ||           // Feed de produtos
+  url.includes('/sitemap-imagens.xml') || // Sitemap de imagens
+  url.includes('/sitemap-produtos.xml.js') || // Sitemap de produtos
+  url.includes('/product-utils') ||      // Utilitário de produtos
+  url.includes('/checkout-facebook.html') || // Checkout Facebook
+  (url.includes('.js') && !url.includes('/logo')) || // JS (exceto logo)
+  url.includes('google-analytics') ||
+  url.includes('facebook.net') ||
+  url.includes('gtag')
+) {
+  event.respondWith(
+    fetch(event.request)
+      .then(response => {
+        return response;  // Retorna do servidor, SEM CACHE
+      })
+      .catch(() => {
+        if (url.includes('/api/')) {
+          return new Response(JSON.stringify({ error: 'Você está offline' }), {
+            status: 503,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+        return caches.match('/offline.html');
+      })
+  );
+  return;
+}
   
   // === PARA ARQUIVOS ESTÁTICOS (usa cache primeiro) ===
   event.respondWith(
