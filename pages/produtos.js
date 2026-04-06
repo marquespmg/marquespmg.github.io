@@ -2531,6 +2531,9 @@ const ProductsPage = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   
+  // ========== NOVO: Estado para contar pedidos do usuário ========== //
+  const [pedidosCount, setPedidosCount] = useState(0);
+  
   // Carrega o carrinho do localStorage quando a página monta
   useEffect(() => {
     const loadCartFromStorage = () => {
@@ -2549,6 +2552,37 @@ const ProductsPage = () => {
     loadCartFromStorage();
   }, []); // Executa apenas uma vez quando o componente monta
   // ========== FIM DA CORREÇÃO ========== //
+  
+  // ========== NOVO: Carregar quantidade de pedidos do usuário ========== //
+  useEffect(() => {
+    const carregarQuantidadePedidos = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { count, error } = await supabase
+          .from('user_orders')
+          .select('*', { count: 'exact', head: true })
+          .eq('user_id', user.id);
+        
+        if (!error && count !== null) {
+          setPedidosCount(count);
+        } else {
+          setPedidosCount(0);
+        }
+      } else {
+        setPedidosCount(0);
+      }
+    };
+    
+    carregarQuantidadePedidos();
+    
+    // Recarregar quando o usuário mudar
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+      carregarQuantidadePedidos();
+    });
+    
+    return () => subscription?.unsubscribe();
+  }, []);
+  // ========== FIM DO CONTADOR DE PEDIDOS ========== //
   
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState('');
@@ -3032,11 +3066,24 @@ useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN') {
         checkUserAndCart();
+        // Recarregar contador de pedidos quando logar
+        const carregarQuantidadePedidos = async () => {
+          const { data: { user } } = await supabase.auth.getUser();
+          if (user) {
+            const { count } = await supabase
+              .from('user_orders')
+              .select('*', { count: 'exact', head: true })
+              .eq('user_id', user.id);
+            setPedidosCount(count || 0);
+          }
+        };
+        carregarQuantidadePedidos();
       } else if (event === 'SIGNED_OUT') {
         setUser(null);
         setUserName('');
         setUserAvatar('');
         setPageBlocked(true);
+        setPedidosCount(0);
       }
     });
     
@@ -3147,6 +3194,7 @@ useEffect(() => {
     setPageBlocked(true);
     setCart([]);
     setTotal(0);
+    setPedidosCount(0);
     localStorage.removeItem('cart_data');
   };
 
@@ -4502,6 +4550,54 @@ const filteredProducts = uniqueProducts
           ❓ Perguntas
         </a>
       </Link>
+
+      {/* ========== BOTÃO MEUS PEDIDOS (NOVO) ========== */}
+      <Link href="/meus-pedidos" legacyBehavior>
+        <a style={{
+          backgroundColor: 'white',
+          color: '#095400',
+          border: '1px solid #095400',
+          padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
+          borderRadius: '20px',
+          fontSize: windowWidth > 768 ? '14px' : '12px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          textDecoration: 'none',
+          whiteSpace: 'nowrap',
+          transition: 'all 0.3s',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '5px',
+          position: 'relative',
+          ':hover': {
+            backgroundColor: '#095400',
+            color: 'white'
+          }
+        }}>
+          📦 Pedidos
+          {/* Bolinha vermelha com quantidade */}
+          {pedidosCount > 0 && (
+            <span style={{
+              position: 'absolute',
+              top: '-8px',
+              right: '-8px',
+              backgroundColor: '#E74C3C',
+              color: 'white',
+              borderRadius: '50%',
+              width: '18px',
+              height: '18px',
+              fontSize: '10px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontWeight: 'bold',
+              boxShadow: '0 1px 2px rgba(0,0,0,0.2)'
+            }}>
+              {pedidosCount > 99 ? '99+' : pedidosCount}
+            </span>
+          )}
+        </a>
+      </Link>
     </div>
   </div>
 )}
@@ -4600,7 +4696,7 @@ const filteredProducts = uniqueProducts
 
 <div style={styles.productsGrid}>
   {currentProducts.map(product => {
-    const seo = generateImageSEO(product); // ← LINHA ADICIONADA
+    const seo = generateImageSEO(product);
     
     return (
       <div 
@@ -4610,7 +4706,7 @@ const filteredProducts = uniqueProducts
           ...(product.price === 0 && { opacity: 0.7 })
         }}
       >
-        {/* BOTÃO LUPA - NOVO ELEMENTO ADICIONADO */}
+        {/* BOTÃO LUPA */}
         <button
           onClick={() => redirectToProductDetails(product.id)}
           style={styles.productDetailsButton}
@@ -4629,8 +4725,8 @@ const filteredProducts = uniqueProducts
         
         <img 
           src={product.image} 
-          alt={seo.alt}                    // ← MODIFICADO
-          title={seo.title}                // ← ADICIONADO
+          alt={seo.alt}
+          title={seo.title}
           style={styles.productImage}
           onError={(e) => {
             e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
@@ -4679,7 +4775,7 @@ const filteredProducts = uniqueProducts
         })}
         </div>
 		
-{/* ✅ AGORA SIM - Script de dados estruturados Schema.org */}
+{/* Script de dados estruturados Schema.org */}
 <>
 <script
   type="application/ld+json"
@@ -5623,4 +5719,3 @@ const filteredProducts = uniqueProducts
 
   export default ProductsPage;
   export const produtosArray = products; // Exporta o array de produtos
-
