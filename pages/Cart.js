@@ -35,8 +35,8 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isSyncing, setIsSyncing] = useState(false);
   const [cupomExpanded, setCupomExpanded] = useState(false);
+  const [finalizando, setFinalizando] = useState(false); // ✅ NOVO: estado para loading
 
-  
   // ✅ NOVO: Estados para cupom
   const [cupomInput, setCupomInput] = useState('');
   const [cupomAplicado, setCupomAplicado] = useState(null);
@@ -554,14 +554,99 @@ const generateWhatsAppMessage = () => {
   return `https://wa.me/5511913572902?text=${encodeURIComponent(
     `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
     `💰 *TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
-    `${cupomText}` + // ← Cupom aqui (sem valor)
+    `${cupomText}` +
     `💳 *Pagamento:* ${paymentMethod}\n` +
     `📦 *Entrega:* Frete grátis\n\n` +
     `Por favor, confirme meu pedido!`
   )}`;
 };
 
-  // ✅ 10. JSX (SEU CÓDIGO ORIGINAL 100% + seção de cupom NOVA com cores ajustadas)
+// ==============================================
+// ✅ NOVA FUNÇÃO: Finalizar pedido (SALVA NO BANCO + ZERA CARRINHO)
+// ==============================================
+const finalizarPedido = async () => {
+  if (!isTotalValid || !paymentMethod) {
+    alert('⚠️ Verifique o valor mínimo (R$ 900) e selecione a forma de pagamento');
+    return;
+  }
+
+  // Verificar se usuário está logado
+  const { data: { user: currentUser } } = await supabase.auth.getUser();
+  if (!currentUser) {
+    alert('❌ Faça login para finalizar o pedido');
+    return;
+  }
+
+  setFinalizando(true);
+
+  try {
+    // 1. Preparar dados do pedido
+    const orderItems = groupedCart.map(product => ({
+      id: product.id,
+      name: product.name,
+      price: product.unitPrice || product.price,
+      quantity: product.quantity,
+      image: product.image,
+      totalPrice: product.totalPrice
+    }));
+
+    const orderData = {
+      user_id: currentUser.id,
+      order_items: orderItems,
+      total_amount: totalComDesconto,
+      payment_method: paymentMethod,
+      cupom_applied: cupomAplicado?.nome || null,
+      discount_amount: cupomAplicado?.desconto || 0,
+      status: 'completed'
+    };
+
+    // 2. Salvar pedido no Supabase (chamar API)
+    const response = await fetch('/api/finalizar-pedido', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    });
+
+    const result = await response.json();
+    
+    if (!response.ok) throw new Error(result.error);
+
+    // 3. Enviar WhatsApp
+    const whatsappUrl = generateWhatsAppMessage();
+    window.open(whatsappUrl, '_blank');
+
+    // 4. ZERAR CARRINHO
+    setCart([]);
+    localStorage.removeItem(CART_STORAGE_KEY);
+    
+    // 5. Limpar carrinho no Supabase
+    await supabase
+      .from('user_carts')
+      .upsert({
+        user_id: currentUser.id,
+        cart_items: [],
+        updated_at: new Date().toISOString()
+      });
+
+    // 6. Limpar cupom
+    setCupomAplicado(null);
+    setPaymentMethod('');
+    
+    // 7. Fechar carrinho
+    toggleCart();
+
+    // 8. Feedback
+    alert(`✅ Pedido ${result.order_number} finalizado com sucesso!`);
+
+  } catch (error) {
+    console.error('❌ Erro ao finalizar pedido:', error);
+    alert('❌ Erro ao finalizar pedido. Tente novamente.');
+  } finally {
+    setFinalizando(false);
+  }
+};
+
+  // ✅ 10. JSX (SEU CÓDIGO ORIGINAL 100% + seção de cupom NOVA + botão finalizar atualizado)
   return (
     <>
       {/* Botão flutuante do carrinho - SEMPRE VISÍVEL */}
@@ -1356,37 +1441,41 @@ const generateWhatsAppMessage = () => {
   </div>
 </div>
 
-            {/* Botão finalizar */}
+            {/* ✅ Botão finalizar ATUALIZADO - Agora chama finalizarPedido() */}
             <button
-              onClick={() => window.open(generateWhatsAppMessage(), '_blank')}
-              disabled={!isTotalValid || !paymentMethod}
+              onClick={finalizarPedido}
+              disabled={!isTotalValid || !paymentMethod || finalizando}
               style={{ 
                 width: '100%', 
                 padding: isMobile ? '16px' : '14px', 
-                background: isTotalValid && paymentMethod ? '#2ECC71' : '#BDC3C7', 
+                background: isTotalValid && paymentMethod && !finalizando ? '#2ECC71' : '#BDC3C7', 
                 color: 'white', 
                 border: 'none', 
                 borderRadius: '10px', 
                 fontWeight: 700, 
                 fontSize: isMobile ? '15px' : '14px', 
-                cursor: isTotalValid && paymentMethod ? 'pointer' : 'not-allowed',
+                cursor: isTotalValid && paymentMethod && !finalizando ? 'pointer' : 'not-allowed',
                 transition: 'all 0.3s',
-                boxShadow: isTotalValid && paymentMethod ? '0 4px 15px rgba(46, 204, 113, 0.3)' : 'none'
+                boxShadow: isTotalValid && paymentMethod && !finalizando ? '0 4px 15px rgba(46, 204, 113, 0.3)' : 'none'
               }}
               onMouseOver={(e) => {
-                if (isTotalValid && paymentMethod) {
+                if (isTotalValid && paymentMethod && !finalizando) {
                   e.target.style.background = '#27AE60';
                   e.target.style.transform = 'translateY(-2px)';
                 }
               }}
               onMouseOut={(e) => {
-                if (isTotalValid && paymentMethod) {
+                if (isTotalValid && paymentMethod && !finalizando) {
                   e.target.style.background = '#2ECC71';
                   e.target.style.transform = 'translateY(0)';
                 }
               }}
             > 
-              📲 {isMobile ? 'FINALIZAR PEDIDO' : 'Finalizar Pedido'} 
+              {finalizando ? (
+                '🔄 Finalizando...'
+              ) : (
+                <>📲 {isMobile ? 'FINALIZAR PEDIDO' : 'Finalizar Pedido'}</>
+              )}
             </button>
 
             {!isTotalValid && (
@@ -1435,10 +1524,3 @@ const generateWhatsAppMessage = () => {
 };
 
 export default Cart;
-
-
-
-
-
-
-
