@@ -562,7 +562,7 @@ const generateWhatsAppMessage = () => {
 };
 
 // ==============================================
-// ✅ NOVA FUNÇÃO: Finalizar pedido (SALVA NO BANCO + ZERA CARRINHO)
+// ✅ FUNÇÃO CORRIGIDA: Finalizar pedido (iOS + Android)
 // ==============================================
 const finalizarPedido = async () => {
   if (!isTotalValid || !paymentMethod) {
@@ -600,26 +600,42 @@ const finalizarPedido = async () => {
       status: 'completed'
     };
 
-    // 2. Salvar pedido no Supabase (chamar API)
-    const response = await fetch('/api/finalizar-pedido', {
+    // ✅ 2. PRIMEIRO: Gerar URL do WhatsApp
+    const whatsappUrl = generateWhatsAppMessage();
+    
+    // ✅ 3. Detectar se é iOS (iPhone)
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    
+    // ✅ 4. Abrir WhatsApp (jeito certo para cada sistema)
+    if (isIOS) {
+      // Para iPhone: usa window.location.href (abre na mesma página)
+      window.location.href = whatsappUrl;
+    } else {
+      // Para Android/Desktop: abre em nova aba
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // ✅ 5. Salvar pedido no Supabase (em background, sem esperar)
+    fetch('/api/finalizar-pedido', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(orderData)
+    }).then(async (response) => {
+      const result = await response.json();
+      if (response.ok) {
+        console.log(`✅ Pedido ${result.order_number} salvo com sucesso!`);
+      } else {
+        console.error('Erro ao salvar pedido:', result.error);
+      }
+    }).catch(error => {
+      console.error('❌ Erro ao salvar pedido:', error);
     });
 
-    const result = await response.json();
-    
-    if (!response.ok) throw new Error(result.error);
-
-    // 3. Enviar WhatsApp
-    const whatsappUrl = generateWhatsAppMessage();
-    window.open(whatsappUrl, '_blank');
-
-    // 4. ZERAR CARRINHO
+    // ✅ 6. ZERAR CARRINHO
     setCart([]);
     localStorage.removeItem(CART_STORAGE_KEY);
     
-    // 5. Limpar carrinho no Supabase
+    // ✅ 7. Limpar carrinho no Supabase
     await supabase
       .from('user_carts')
       .upsert({
@@ -628,15 +644,12 @@ const finalizarPedido = async () => {
         updated_at: new Date().toISOString()
       });
 
-    // 6. Limpar cupom
+    // ✅ 8. Limpar cupom e pagamento
     setCupomAplicado(null);
     setPaymentMethod('');
     
-    // 7. Fechar carrinho
+    // ✅ 9. Fechar carrinho
     toggleCart();
-
-    // 8. Feedback
-    alert(`✅ Pedido ${result.order_number} finalizado com sucesso!`);
 
   } catch (error) {
     console.error('❌ Erro ao finalizar pedido:', error);
