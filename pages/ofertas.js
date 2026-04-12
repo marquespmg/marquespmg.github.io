@@ -122,20 +122,16 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 1284, name: 'GORDURA VEGETAL SUPREMA BUNGE (BD 14,5 KILO)', category: 'Ofertas', price: 225.99, image: 'https://www.marquesvendaspmg.shop/images/gordura-vegetal-suprema-bunge-bd-145-kilo-pmg-atacadista.jpg' },
-  { id: 1720, name: 'FARINHA DE TRIGO LONGA FERMENTAÇÃO PIZZA SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 93.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-longa-fermentacao-pizza-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1730, name: 'FARINHA DE TRIGO PASTEL SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 98.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pastel-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 1753, name: 'FARINHA DE TRIGO PIZZA SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 74.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 508, name: 'PEITO DE FRANGO DEFUMADO SEM OSSO CERATTI 2,3 KILO', category: 'Ofertas', price: 80.50, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-defumado-sem-osso-ceratti-23-kilo-pmg-atacadista.jpg' },
-  { id: 980, name: 'CALABRESA CERATTI 2.5 KILO', category: 'Ofertas', price: 53.80, image: 'https://www.marquesvendaspmg.shop/images/calabresa-ceratti-25-kilo-pmg-atacadista.jpg' },
-  { id: 982, name: 'CALABRESA FATIADA RESFRIADA CERATTI 1 KILO', category: 'Ofertas', price: 39.30, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-resfriada-ceratti-1-kilo-pmg-atacadista.jpg' },
-  { id: 1021, name: 'LOMBO CANADENSE CERATTI 1 KG', category: 'Ofertas', price: 45.00, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-ceratti-1-kg-pmg-atacadista.jpg' },
-  { id: 1033, name: 'MORTADELA TRADICIONAL BOLOGNA CERATTI 6 KG', category: 'Ofertas', price: 42.99, image: 'https://www.marquesvendaspmg.shop/images/mortadela-tradicional-bologna-ceratti-6-kg-pmg-atacadista.jpg' },
-  { id: 1042, name: 'PARMA PRESUNTO CRU FATIADO ITALIANO CERATTI 100 G PCT', category: 'Ofertas', price: 24.57, image: 'https://www.marquesvendaspmg.shop/images/parma-presunto-cru-fatiado-italiano-ceratti-100-g-pct-pmg-atacadista.jpg' },
-  { id: 1048, name: 'PEPPERONI FATIADO CERATTI 1 KILO PCT', category: 'Ofertas', price: 66.00, image: 'https://www.marquesvendaspmg.shop/images/pepperoni-fatiado-ceratti-1-kilo-pct-pmg-atacadista.jpg' },
-  { id: 1069, name: 'SALAME HAMBURGUÊS FATIADO DEFUMADO CERATTI 100 G PCT', category: 'Ofertas', price: 12.13, image: 'https://www.marquesvendaspmg.shop/images/salame-hamburgues-fatiado-defumado-ceratti-100-g-pct-pmg-atacadista.jpg' },
-  { id: 1072, name: 'SALAME ITALIANO FATIADO DEFUMADO CERATTI 100 G PCT', category: 'Ofertas', price: 12.13, image: 'https://www.marquesvendaspmg.shop/images/salame-italiano-fatiado-defumado-ceratti-100-g-pct-pmg-atacadista.jpg' },
-  { id: 2120, name: 'MORTADELA COM PISTACHE BOLOGNA CERATTI 6 KG', category: 'Ofertas', price: 62.00, image: 'https://www.marquesvendaspmg.shop/images/mortadela-com-pistache-bologna-ceratti.png' },
+  { id: 1355, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', category: 'Ofertas', price: 176.99, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao-bd-158-l-pmg-atacadista.jpg' },
+  { id: 2211, name: 'ÓLEO DE ALGODÃO TRAVIÚ (BD 15,7 L)', category: 'Ofertas', price: 164.89, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-traviu.png' },
+  { id: 2140, name: 'ARROZ BRANCO TIPO 1 CAMPEIRO 5 KILO (FDO 6 PCT)', category: 'Ofertas', price: 109.55, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-campeiro.png' },
+  { id: 858, name: 'QUEIJO PRATO APOLO 3.5 KG', category: 'Ofertas', price: 42.00, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-apolo-35-kg-pmg-atacadista.jpg' },
+  { id: 1277, name: 'GERGELIM GRANDE TORRADO PASTA TAHINE ISTAMBUL (BD 13 KILO)', category: 'Ofertas', price: 542.22, image: 'https://www.marquesvendaspmg.shop/images/gergelim-grande-torrado-pasta-tahine-istambul-bd-13-kilo-pmg-atacadista.jpg' },
+  { id: 1362, name: 'ÓLEO DE SOJA COAMO 900 ML (CX 20 FR)', category: 'Ofertas', price: 149.88, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-coamo-900-ml-cx-20-fr-pmg-atacadista.jpg' },
+  { id: 1246, name: 'CATCHUP SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Ofertas', price: 18.79, image: 'https://www.marquesvendaspmg.shop/images/catchup-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1302, name: 'MAIONESE SACHÊ HEINZ 7 G (CX 144 UN)', category: 'Ofertas', price: 18.79, image: 'https://www.marquesvendaspmg.shop/images/maionese-sache-heinz-7-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1352, name: 'MOSTARDA SACHÊ HEINZ 5 G (CX 144 UN)', category: 'Ofertas', price: 18.79, image: 'https://www.marquesvendaspmg.shop/images/mostarda-sache-heinz-5-g-cx-144-un-pmg-atacadista.jpg' },
+  { id: 1491, name: 'AÇÚCAR SACHÊ PREMIUM UNIÃO 5 G (CX 400 UN)', category: 'Ofertas', price: 16.99, image: 'https://www.marquesvendaspmg.shop/images/acucar-sache-premium-uniao-5-g-cx-400-un-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
