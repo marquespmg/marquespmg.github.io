@@ -39,12 +39,12 @@ self.addEventListener('fetch', event => {
 // === NUNCA CACHEAR PÁGINAS QUE PRECISAM DE DADOS ATUALIZADOS ===
 if (
   url.includes('/produtos') ||           // Lista de produtos
-  url.includes('/produto/') ||           // Produto individual (/produto/2365)
+  url.includes('/produto/') ||           // Produto individual
   url.includes('/ofertas') ||           
-  url.includes('/meus-pedidos') ||       // ✅ Meus Pedidos (NÃO CACHEAR!)
+  url.includes('/meus-pedidos') ||       // ✅ Meus Pedidos
   url.includes('/api/') ||               // APIs
-  url.includes('.json') ||               // Arquivos JSON
-  url.includes('/mapa.json') ||          // Lista de produtos
+  url.includes('/mapa.json') ||          // ✅ Mapa (cachear? depende)
+  url.includes('/validade.json') ||      // ✅ VALIDADE - NÃO CACHEAR!
   url.includes('/feed.xml') ||           // Feed de produtos
   url.includes('/sitemap-imagens.xml') || // Sitemap de imagens
   url.includes('/sitemap-produtos.xml.js') || // Sitemap de produtos
@@ -58,7 +58,8 @@ if (
   event.respondWith(
     fetch(event.request)
       .then(response => {
-        return response;  // Retorna do servidor, SEM CACHE
+        // Retorna do servidor, SEM CACHE
+        return response;
       })
       .catch(() => {
         if (url.includes('/api/')) {
@@ -68,6 +69,28 @@ if (
           });
         }
         return caches.match('/offline.html');
+      })
+  );
+  return;
+}
+
+// ===== ARQUIVOS ESTÁTICOS QUE PODEM SER CACHEADOS =====
+// Só cachear imagens, fontes e CSS
+if (
+  url.includes('.png') ||
+  url.includes('.jpg') ||
+  url.includes('.jpeg') ||
+  url.includes('.gif') ||
+  url.includes('.webp') ||
+  url.includes('.svg') ||
+  url.includes('.woff') ||
+  url.includes('.woff2') ||
+  url.includes('.css')
+) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        return response || fetch(event.request);
       })
   );
   return;
