@@ -6,6 +6,7 @@ import { supabase } from '../../lib/supabaseClient';
 import Cart from '../Cart';
 import useTrackUser from '../../hook/useTrackUser';
 import WithdrawalModal from '../../components/WithdrawalModal';
+import { useProdutoValidade } from '../../hook/useProdutoValidade';
 
 
 const products = [
@@ -2507,6 +2508,7 @@ export default function ProductPage({
   const [showAddedFeedback, setShowAddedFeedback] = useState(false);
   const [userName, setUserName] = useState('');
   const [showWithdrawalModal, setShowWithdrawalModal] = useState(false);
+  const { dadosValidade, loading: loadingValidade } = useProdutoValidade();
 
   
   useTrackUser();
@@ -3169,6 +3171,78 @@ export default function ProductPage({
     {status.buyButtonText}
   </button>
 </div>
+
+{/* ========== VALIDADE E LOTE - PÁGINA INDIVIDUAL ========== */}
+{user && dadosValidade[product.id] && (
+  <div style={{
+    marginTop: '15px',
+    padding: '12px 15px',
+    backgroundColor: dadosValidade[product.id]?.validade ? '#f0f8f0' : '#f8f9fa',
+    borderRadius: '8px',
+    borderLeft: dadosValidade[product.id]?.validade ? '4px solid #095400' : '4px solid #adb5bd'
+  }}>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      gap: '20px',
+      flexWrap: 'wrap',
+      fontSize: '14px'
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <span style={{ fontSize: '16px' }}>📅</span>
+        <span>
+          <strong style={{ color: '#495057' }}>Validade:</strong>{' '}
+          <span style={{ color: dadosValidade[product.id]?.validade ? '#095400' : '#6c757d', fontWeight: dadosValidade[product.id]?.validade ? '600' : 'normal' }}>
+            {dadosValidade[product.id]?.validade || 'Não informado'}
+          </span>
+        </span>
+      </div>
+      
+      {dadosValidade[product.id]?.lote && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span style={{ fontSize: '16px' }}>🏷️</span>
+          <span>
+            <strong style={{ color: '#495057' }}>Lote:</strong>{' '}
+            <span style={{ color: '#095400', fontWeight: '600' }}>
+              {dadosValidade[product.id].lote}
+            </span>
+          </span>
+        </div>
+      )}
+    </div>
+    
+    {/* Alerta para produtos próximos do vencimento (opcional) */}
+    {dadosValidade[product.id]?.validade && (() => {
+      const hoje = new Date();
+      const [dia, mes, ano] = dadosValidade[product.id].validade.split('/');
+      const dataValidade = new Date(ano, mes - 1, dia);
+      const diasRestantes = Math.ceil((dataValidade - hoje) / (1000 * 60 * 60 * 24));
+      
+      if (diasRestantes <= 30 && diasRestantes > 0) {
+        return (
+          <div style={{
+            marginTop: '10px',
+            padding: '8px 12px',
+            backgroundColor: '#fff3cd',
+            borderRadius: '6px',
+            fontSize: '12px',
+            color: '#856404',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}>
+            <span>⚠️</span>
+            <span>
+              <strong>Atenção:</strong> Produto próximo do vencimento! 
+              Faltam {diasRestantes} dia{diasRestantes !== 1 ? 's' : ''} para vencer.
+            </span>
+          </div>
+        );
+      }
+      return null;
+    })()}
+  </div>
+)}
 
             {/* DESCRIÇÃO */}
             <div style={styles.descriptionSection}>
