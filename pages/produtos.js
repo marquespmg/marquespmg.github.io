@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import useTrackUser from '../hook/useTrackUser';
 import WithdrawalModal from '../components/WithdrawalModal';
+import { useProdutoValidade } from '../hook/useProdutoValidade';
 
 // ========== DADOS DAS CIDADES ========== //
 const citiesData = {
@@ -2524,6 +2525,7 @@ const ProductsPage = () => {
   const { width: windowWidth } = useWindowSize();
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [searchTerm, setSearchTerm] = useState('');
+  const { dadosValidade, loading: loadingValidade } = useProdutoValidade();
   
   // ========== CORREÇÃO DO CARRINHO ========== //
   const [cart, setCart] = useState([]);
@@ -4767,6 +4769,36 @@ const filteredProducts = uniqueProducts
                     {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
                   </button>
                 )}
+{/* ========== VALIDADE E LOTE - VERSÃO FINAL ========== */}
+{user && dadosValidade[product.id] && (
+  <div style={{
+    marginTop: '10px',
+    paddingTop: '8px',
+    fontSize: '11px',
+    color: '#6c757d',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '15px',
+    flexWrap: 'wrap',
+    borderTop: '1px solid #f0f0f0'
+  }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+      <span>📅</span>
+      <span style={{ color: '#495057' }}>
+        <strong>Validade:</strong> {dadosValidade[product.id]?.validade || 'Não informado'}
+      </span>
+    </div>
+    
+    {dadosValidade[product.id]?.lote && (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+        <span>🏷️</span>
+        <span style={{ color: '#495057' }}>
+          <strong>Lote:</strong> {dadosValidade[product.id].lote}
+        </span>
+      </div>
+    )}
+  </div>
+)}
               </div>
             </div>
           );
