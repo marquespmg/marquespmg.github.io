@@ -537,23 +537,27 @@ const generateWhatsAppMessage = () => {
     const precoFinal = getPrecoComDesconto(product.id, product.totalPrice);
     const precoExibir = precoFinal !== product.totalPrice ? precoFinal : product.totalPrice;
     
-    // ✅ PEGA O ID PMG ATRAVÉS DO MAPA (idSite -> idPMG)
+    // PEGA O ID PMG ATRAVÉS DO MAPA (idSite -> idPMG)
     const idPMG = getIdPmg(product.id);
     
-    // Texto base com ID da PMG (sem texto extra)
+    // Texto base com ID da PMG
     const baseText = `- (ID ${idPMG}) ${product.name}`;
     
+    let linhaProduto;
     if (product.isBox && product.boxWeight) {
-      return `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${precoExibir.toFixed(2)}`;
+      linhaProduto = `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${precoExibir.toFixed(2)}`;
     } else if (product.weight) {
-      return `${baseText} (${product.quantity}x ${product.weight}KG) - R$ ${product.unitPrice.toFixed(2)}/KG = R$ ${precoExibir.toFixed(2)}`;
+      linhaProduto = `${baseText} (${product.quantity}x ${product.weight}KG) - R$ ${product.unitPrice.toFixed(2)}/KG = R$ ${precoExibir.toFixed(2)}`;
+    } else {
+      linhaProduto = `${baseText} (${product.quantity}x) - R$ ${precoExibir.toFixed(2)}`;
     }
-    return `${baseText} (${product.quantity}x) - R$ ${precoExibir.toFixed(2)}`;
-  }).join('\n');
+    
+    return linhaProduto;
+  }).join('\n\n');  // ✅ DOIS PULAR LINHA entre os produtos
 
-  // Linha do cupom
+  // ✅ Linha do cupom - FORMATO ORIGINAL
   const cupomText = cupomAplicado && dadosDesconto
-    ? `\n*Cupom:* ${cupomAplicado.nome} (${cupomAplicado.desconto}% OFF)\n`
+    ? `\n🏷️ *Pedido usando cupom ${cupomAplicado.nome}*\n`
     : '';
 
   // DETECTA SE É CELULAR OU PC
