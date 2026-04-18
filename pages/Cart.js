@@ -579,7 +579,7 @@ const generateWhatsAppMessage = () => {
     mensagemTexto = 
       `*PEDIDO*\n\n${itemsText}\n\n` +
       `*TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
-      `${cupomText}` +
+      `{cupomText}` +
       `*Pagamento:* ${paymentMethod}\n` +
       `*Entrega:* Frete grátis\n\n` +
       `Por favor, confirme meu pedido!`;
