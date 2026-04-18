@@ -5,6 +5,9 @@ import { supabase } from '../lib/supabaseClient';
 // ==============================================
 import { produtosArray } from './produtos'; // ← Nome corrigido!
 
+// ✅ IMPORTA O HOOK DE VALIDADE
+import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
+
 // ✅ NOVO: Array com IDs dos produtos em oferta (substitua pelos IDs reais)
 const PRODUTOS_EM_OFERTA = [1355, 2211, 2140, 858, 1277, 1362, 1246, 1302, 1352, 1491]; // IDs dos produtos que NÃO devem receber desconto
 
@@ -41,6 +44,9 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   const [cupomInput, setCupomInput] = useState('');
   const [cupomAplicado, setCupomAplicado] = useState(null);
   const [mensagemCupom, setMensagemCupom] = useState({ texto: '', tipo: '' }); // tipo: 'sucesso', 'erro', 'info'
+
+  // ✅ NOVO: Hook para validade dos produtos
+const { getIdPmg, loading: loadingIdPmg } = useProdutoIdPmg();
 
 // ==============================================
 // ✅ Função para calcular desconto do cupom (CORRIGIDA)
@@ -525,17 +531,17 @@ const adjustQuantity = (productId, adjustment) => {
   }
 };
 
-// ✅ 9. Gerar mensagem do WhatsApp (MANTENDO SEU FORMATO ORIGINAL)
+// ✅ 9. Gerar mensagem do WhatsApp (com idPMG correto via mapa.json)
 const generateWhatsAppMessage = () => {
   const itemsText = groupedCart.map(product => {
-    const isElegivel = !PRODUTOS_EM_OFERTA.includes(product.id);
     const precoFinal = getPrecoComDesconto(product.id, product.totalPrice);
-    const temDesconto = precoFinal !== product.totalPrice;
+    const precoExibir = precoFinal !== product.totalPrice ? precoFinal : product.totalPrice;
     
-    // Usa o preço com desconto se tiver, senão usa o original
-    const precoExibir = temDesconto ? precoFinal : product.totalPrice;
+    // ✅ PEGA O ID PMG ATRAVÉS DO MAPA (idSite -> idPMG)
+    const idPMG = getIdPmg(product.id);
     
-    const baseText = `▪ ${product.name}`;
+    // Texto base com ID da PMG (sem texto extra)
+    const baseText = `- (ID ${idPMG}) ${product.name}`;
     
     if (product.isBox && product.boxWeight) {
       return `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${precoExibir.toFixed(2)}`;
@@ -545,20 +551,37 @@ const generateWhatsAppMessage = () => {
     return `${baseText} (${product.quantity}x) - R$ ${precoExibir.toFixed(2)}`;
   }).join('\n');
 
-  // ✅ Linha do cupom (só aparece se tiver cupom aplicado) - SEM VALOR
+  // Linha do cupom
   const cupomText = cupomAplicado && dadosDesconto
-    ? `\n🏷️ *Pedido usando cupom ${cupomAplicado.nome}*\n`
+    ? `\n*Cupom:* ${cupomAplicado.nome} (${cupomAplicado.desconto}% OFF)\n`
     : '';
 
-  // ✅ MANTIVE EXATAMENTE SEU FORMATO ORIGINAL
-  return `https://wa.me/5511913572902?text=${encodeURIComponent(
-    `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
-    `💰 *TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
-    `${cupomText}` +
-    `💳 *Pagamento:* ${paymentMethod}\n` +
-    `📦 *Entrega:* Frete grátis\n\n` +
-    `Por favor, confirme meu pedido!`
-  )}`;
+  // DETECTA SE É CELULAR OU PC
+  const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  let mensagemTexto;
+  
+  if (isMobileDevice) {
+    // VERSÃO COM EMOJIS (para celular)
+    mensagemTexto = 
+      `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
+      `💰 *TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
+      `${cupomText}` +
+      `💳 *Pagamento:* ${paymentMethod}\n` +
+      `📦 *Entrega:* Frete grátis\n\n` +
+      `Por favor, confirme meu pedido!`;
+  } else {
+    // VERSÃO SEM EMOJIS (para PC - funciona 100%)
+    mensagemTexto = 
+      `*PEDIDO*\n\n${itemsText}\n\n` +
+      `*TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
+      `${cupomText}` +
+      `*Pagamento:* ${paymentMethod}\n` +
+      `*Entrega:* Frete grátis\n\n` +
+      `Por favor, confirme meu pedido!`;
+  }
+
+  return `https://wa.me/5511913572902?text=${encodeURIComponent(mensagemTexto)}`;
 };
 
 // ==============================================
