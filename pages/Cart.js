@@ -557,7 +557,7 @@ const generateWhatsAppMessage = () => {
 
   // ✅ Linha do cupom - FORMATO ORIGINAL
   const cupomText = cupomAplicado && dadosDesconto
-    ? `\n🏷️ *Pedido usando cupom ${cupomAplicado.nome}*\n`
+    ? `\n *Pedido usando cupom ${cupomAplicado.nome}*\n`
     : '';
 
   // DETECTA SE É CELULAR OU PC
@@ -579,7 +579,7 @@ const generateWhatsAppMessage = () => {
     mensagemTexto = 
       `*PEDIDO*\n\n${itemsText}\n\n` +
       `*TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
-      `{cupomText}` +
+      `${cupomText}` +
       `*Pagamento:* ${paymentMethod}\n` +
       `*Entrega:* Frete grátis\n\n` +
       `Por favor, confirme meu pedido!`;
