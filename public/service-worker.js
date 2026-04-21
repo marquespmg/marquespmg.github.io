@@ -40,7 +40,8 @@ self.addEventListener('fetch', event => {
 if (
   url.includes('/produtos') ||           // Lista de produtos
   url.includes('/produto/') ||           // Produto individual
-  url.includes('/ofertas') ||           
+  url.includes('/ofertas') ||
+  url.includes('/food-news') ||  
   url.includes('/meus-pedidos') ||       // ✅ Meus Pedidos
   url.includes('/api/') ||               // APIs
   url.includes('/mapa.json') ||          // ✅ Mapa (cachear? depende)
