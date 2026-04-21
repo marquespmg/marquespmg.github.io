@@ -8459,7 +8459,7 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
         <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Su%C3%ADno" style="color: #095400; font-weight: 600;">Derivados de Suíno</a>, 
         <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Conservas%2FEnlatados" style="color: #095400; font-weight: 600;">Conservas</a>, 
         <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Orientais" style="color: #095400; font-weight: 600;">Orientais</a>, 
-        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=⏳%20Ofertas%20da%20Semana%20🚨" style="color: #e53935; font-weight: 600;">Ofertas da Semana</a>.
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=%E2%8F%93%20Ofertas%20da%20Semana%20%F0%9F%9A%A8" style="color: #e53935; font-weight: 600;">Ofertas da Semana</a>.
       </p>
     </section>
 
@@ -19767,7 +19767,7 @@ export default function FoodNews({ initialPage }) {
     rj: false,
     mg: false
   });
-
+  
     // ========== NOVO: DADOS DE DIAS DE ENTREGA ========== //
   const [deliveryDaysData, setDeliveryDaysData] = useState({});
   const [loadingDeliveryData, setLoadingDeliveryData] = useState(true);
@@ -19927,226 +19927,517 @@ useEffect(() => {
     }
   };
 
-  // COMPONENTE DE ÍNDICE
-  const ArticleIndex = () => (
+// ========== COMPONENTE DE ÍNDICE COM BUSCA E FILTROS ========== //
+const ArticleIndex = () => {
+  // Estados para busca e filtros
+  const [searchTerm, setSearchTerm] = useState('');
+  const [activeFilter, setActiveFilter] = useState(null); // Começa como null (nenhum selecionado)
+  const [filteredArticles, setFilteredArticles] = useState([]); // Começa vazio
+  const [showResults, setShowResults] = useState(false); // Controla se mostra resultados
+  
+  // Categorias disponíveis
+  const categories = [
+    { id: 'todos', label: '📰 Todos', icon: '📰' },
+    { id: 'receitas', label: '🍳 Receitas', icon: '🍳' },
+    { id: 'dicas', label: '💡 Dicas', icon: '💡' },
+    { id: 'produtos', label: '🏷️ Produtos', icon: '🏷️' }
+  ];
+  
+  // Função para mapear categoria do artigo para o filtro
+  const getArticleFilterCategory = (articleCategory) => {
+    const categoryLower = articleCategory?.toLowerCase() || '';
+    
+    if (categoryLower.includes('receita') || categoryLower.includes('pizza') || categoryLower.includes('farinha')) {
+      return 'receitas';
+    }
+    if (categoryLower.includes('dica') || categoryLower.includes('guia') || categoryLower.includes('como')) {
+      return 'dicas';
+    }
+    if (categoryLower.includes('produto') || categoryLower.includes('óleo') || categoryLower.includes('farináceos')) {
+      return 'produtos';
+    }
+    return 'produtos';
+  };
+  
+  // Efeito para filtrar artigos quando busca ou filtro mudar
+  useEffect(() => {
+    let result = articles;
+    
+    // Se tem termo de busca, mostra resultados independente do filtro
+    if (searchTerm.trim() !== '') {
+      const term = searchTerm.toLowerCase();
+      result = result.filter(article =>
+        article.title.toLowerCase().includes(term) ||
+        article.description.toLowerCase().includes(term)
+      );
+      setShowResults(true);
+    } 
+    // Se não tem busca, mas tem filtro ativo
+    else if (activeFilter !== null) {
+      if (activeFilter !== 'todos') {
+        result = result.filter(article => 
+          getArticleFilterCategory(article.category) === activeFilter
+        );
+      }
+      setShowResults(true);
+    }
+    // Não tem busca e não tem filtro
+    else {
+      setShowResults(false);
+      setFilteredArticles([]);
+      return;
+    }
+    
+    setFilteredArticles(result);
+  }, [searchTerm, activeFilter]);
+  
+  // Função para selecionar um filtro
+  const selectFilter = (filterId) => {
+    // Se clicar no mesmo filtro que já está ativo, desativa
+    if (activeFilter === filterId) {
+      setActiveFilter(null);
+      // Se não tem busca, esconde os resultados
+      if (searchTerm.trim() === '') {
+        setShowResults(false);
+        setFilteredArticles([]);
+      }
+    } else {
+      setActiveFilter(filterId);
+    }
+  };
+  
+  // Função para limpar busca
+  const clearSearch = () => {
+    setSearchTerm('');
+    // Se não tem filtro ativo, esconde os resultados
+    if (activeFilter === null) {
+      setShowResults(false);
+      setFilteredArticles([]);
+    }
+  };
+  
+  // Função para fechar/limpar tudo
+  const clearAll = () => {
+    setSearchTerm('');
+    setActiveFilter(null);
+    setShowResults(false);
+    setFilteredArticles([]);
+  };
+  
+  return (
     <div style={{
       backgroundColor: '#fff',
       borderRadius: '10px',
-      padding: isMobile ? '15px' : '25px',
+      padding: isMobile ? '15px' : '20px',
       margin: isMobile ? '0 8px 15px 8px' : '0 0 25px 0',
       boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
       border: '1px solid #e8e8e8',
-      position: 'sticky',
-      top: isMobile ? '5px' : '15px',
-      zIndex: 50,
-      overflow: 'hidden'
     }}>
+      
+      {/* CABEÇALHO COM TÍTULO */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: '12px',
-        gap: '8px'
+        marginBottom: '15px',
+        flexWrap: 'wrap',
+        gap: '10px'
       }}>
         <h2 style={{
           color: '#095400',
-          fontSize: isMobile ? '1rem' : '1.2rem',
+          fontSize: isMobile ? '1.1rem' : '1.3rem',
           margin: 0,
           fontWeight: '700',
           display: 'flex',
           alignItems: 'center',
-          gap: '6px'
+          gap: '8px'
         }}>
-          <span style={{ fontSize: '1.1em' }}>📚</span>
-          Índice ({articles.length})
+          <span>📚</span>
+          Food News
+          <span style={{
+            fontSize: '0.75rem',
+            backgroundColor: '#e8f5e8',
+            padding: '2px 8px',
+            borderRadius: '20px',
+            color: '#095400'
+          }}>
+            {articles.length} artigos
+          </span>
         </h2>
         
-        <button
-          onClick={() => setShowIndex(!showIndex)}
-          style={{
-            backgroundColor: '#095400',
-            color: 'white',
-            border: 'none',
-            padding: isMobile ? '6px 10px' : '8px 14px',
-            borderRadius: '6px',
-            fontSize: isMobile ? '0.8rem' : '0.85rem',
-            fontWeight: '600',
-            cursor: 'pointer',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '4px',
-            flexShrink: 0
-          }}
-        >
-          {showIndex ? (
-            <>
-              <span style={{ fontSize: '0.9em' }}>✕</span>
-              Fechar
-            </>
-          ) : (
-            <>
-              <span style={{ fontSize: '0.9em' }}>📖</span>
-              Abrir
-            </>
-          )}
-        </button>
+        {/* Botão de limpar quando tiver resultados */}
+        {(searchTerm || activeFilter) && (
+          <button
+            onClick={clearAll}
+            style={{
+              backgroundColor: '#f0f0f0',
+              border: 'none',
+              padding: '5px 12px',
+              borderRadius: '20px',
+              fontSize: '12px',
+              cursor: 'pointer',
+              color: '#666',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}
+          >
+            ✕ Limpar
+          </button>
+        )}
       </div>
       
-      {showIndex && (
+      {/* CAMPO DE BUSCA - SEMPRE VISÍVEL E FUNCIONAL */}
+      <div style={{
+        marginBottom: '15px',
+        position: 'relative'
+      }}>
         <div style={{
-          maxHeight: isMobile ? '350px' : '450px',
-          overflowY: 'auto',
-          paddingRight: '5px',
-          transition: 'max-height 0.3s ease'
+          display: 'flex',
+          alignItems: 'center',
+          backgroundColor: '#f8f8f8',
+          border: searchTerm ? '2px solid #095400' : '1px solid #e0e0e0',
+          borderRadius: '25px',
+          padding: '0 15px',
+          transition: 'all 0.3s ease'
         }}>
+          <span style={{ fontSize: '18px', color: '#999' }}>🔍</span>
+          <input
+            type="text"
+            placeholder="Buscar artigos por título ou descrição..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{
+              flex: 1,
+              padding: isMobile ? '12px 10px' : '12px 15px',
+              border: 'none',
+              backgroundColor: 'transparent',
+              fontSize: isMobile ? '14px' : '15px',
+              outline: 'none',
+              color: '#333'
+            }}
+          />
+          {searchTerm && (
+            <button
+              onClick={clearSearch}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: '16px',
+                color: '#999',
+                padding: '5px',
+                borderRadius: '50%',
+                width: '28px',
+                height: '28px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              ✕
+            </button>
+          )}
+        </div>
+      </div>
+      
+      {/* BOTÕES DE FILTRO */}
+      <div style={{
+        display: 'flex',
+        gap: '10px',
+        marginBottom: showResults ? '20px' : '0',
+        flexWrap: 'wrap',
+        justifyContent: 'center'
+      }}>
+        {categories.map(cat => {
+          const isActive = activeFilter === cat.id;
+          
+          return (
+            <button
+              key={cat.id}
+              onClick={() => selectFilter(cat.id)}
+              style={{
+                backgroundColor: isActive ? '#095400' : '#f8f8f8',
+                color: isActive ? 'white' : '#555',
+                border: isActive ? '2px solid #095400' : '1px solid #ddd',
+                padding: isMobile ? '8px 16px' : '10px 20px',
+                borderRadius: '30px',
+                fontSize: isMobile ? '13px' : '14px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                boxShadow: isActive ? '0 2px 8px rgba(9, 84, 0, 0.3)' : 'none',
+                opacity: searchTerm ? 0.6 : 1
+              }}
+              disabled={!!searchTerm}
+              title={searchTerm ? "Limpe a busca para usar os filtros" : ""}
+            >
+              {cat.label}
+            </button>
+          );
+        })}
+      </div>
+      
+      {/* AVISO QUANDO BUSCA ESTÁ ATIVA */}
+      {searchTerm && (
+        <div style={{
+          marginBottom: '15px',
+          padding: '6px 12px',
+          backgroundColor: '#fff3e0',
+          borderRadius: '8px',
+          fontSize: '12px',
+          color: '#e67e22',
+          textAlign: 'center'
+        }}>
+          🔍 Resultados da busca por: <strong>"{searchTerm}"</strong>
+          {activeFilter && ` (filtro ignorado)`}
+        </div>
+      )}
+      
+      {/* MOSTRA OS RESULTADOS QUANDO TIVER */}
+      {showResults && (
+        <>
+          {/* CONTADOR DE RESULTADOS */}
           <div style={{
+            marginBottom: '15px',
+            padding: '8px 12px',
+            backgroundColor: '#f0f8f0',
+            borderRadius: '8px',
             display: 'flex',
-            flexDirection: 'column',
-            gap: isMobile ? '8px' : '10px'
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '8px'
           }}>
-            {articles.map(article => (
-              <a
-                key={article.id}
-                href={getArticleUrl(article)}
-                onClick={(e) => {
-                  e.preventDefault();
-                  goToArticle(article.id);
-                }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: isMobile ? '8px' : '10px',
-                  padding: isMobile ? '8px' : '10px',
-                  backgroundColor: activeArticle === article.id ? '#f0f8f0' : '#f8f8f8',
-                  border: activeArticle === article.id ? '2px solid #095400' : '1px solid #e0e0e0',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  textAlign: 'left',
-                  width: '100%',
-                  boxSizing: 'border-box',
-                  position: 'relative',
-                  minHeight: isMobile ? '65px' : '75px',
-                  overflow: 'visible',
-                  textDecoration: 'none',
-                  color: 'inherit'
-                }}
-              >
-                <div style={{
-                  position: 'absolute',
-                  top: isMobile ? '-5px' : '-7px',
-                  left: isMobile ? '-5px' : '-7px',
-                  backgroundColor: '#095400',
-                  color: 'white',
-                  width: isMobile ? '22px' : '26px',
-                  height: isMobile ? '22px' : '26px',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: isMobile ? '0.7rem' : '0.8rem',
-                  fontWeight: 'bold',
-                  zIndex: 5,
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
-                  border: '2px solid white',
-                  aspectRatio: '1 / 1'
-                }}>
-                  {article.id}
-                </div>
-                
-                <div style={{
-                  width: isMobile ? '40px' : '50px',
-                  height: isMobile ? '40px' : '50px',
-                  flexShrink: 0,
-                  borderRadius: '6px',
-                  overflow: 'hidden',
-                  border: '1px solid #ddd',
-                  backgroundColor: '#f0f0f0',
-                  position: 'relative',
-                  zIndex: 10
-                }}>
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    loading="lazy"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </div>
-                
-                <div style={{ 
-                  flex: 1, 
-                  minWidth: 0,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  gap: '3px',
-                  position: 'relative',
-                  zIndex: 10
-                }}>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    marginBottom: '3px',
-                    flexWrap: 'wrap'
-                  }}>
-                    <span style={{
-                      backgroundColor: '#e8f5e8',
-                      color: '#095400',
-                      padding: '2px 6px',
-                      borderRadius: '4px',
-                      fontSize: isMobile ? '0.6rem' : '0.65rem',
-                      fontWeight: '600',
-                      whiteSpace: 'nowrap'
-                    }}>
-                      {article.category}
-                    </span>
-                    <span style={{ 
-                      color: '#666',
-                      fontSize: isMobile ? '0.6rem' : '0.65rem',
-                      whiteSpace: 'nowrap'
-                    }}>
-                      {article.readTime}
-                    </span>
-                  </div>
-                  
-                  <h4 style={{
-                    fontSize: isMobile ? '0.75rem' : '0.85rem',
-                    margin: 0,
-                    color: '#333',
-                    fontWeight: '600',
-                    lineHeight: '1.2',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis'
-                  }}>
-                    {article.title}
-                  </h4>
-                </div>
-              </a>
-            ))}
+            <span style={{
+              fontSize: '13px',
+              color: '#095400',
+              fontWeight: '600'
+            }}>
+              📄 {filteredArticles.length} {filteredArticles.length === 1 ? 'artigo encontrado' : 'artigos encontrados'}
+            </span>
+            
+            {filteredArticles.length > 0 && (
+              <span style={{
+                fontSize: '11px',
+                color: '#666'
+              }}>
+                Clique no artigo para ler
+              </span>
+            )}
           </div>
           
+          {/* MENSAGEM QUANDO NÃO ENCONTRA ARTIGOS */}
+          {filteredArticles.length === 0 && (
+            <div style={{
+              textAlign: 'center',
+              padding: '40px 20px',
+              backgroundColor: '#f8f8f8',
+              borderRadius: '8px',
+              color: '#666'
+            }}>
+              <span style={{ fontSize: '48px', display: 'block', marginBottom: '10px' }}>🔍</span>
+              <p style={{ margin: 0, fontSize: '16px', fontWeight: '600' }}>
+                Nenhum artigo encontrado
+              </p>
+              <p style={{ margin: '5px 0 0 0', fontSize: '13px' }}>
+                {searchTerm 
+                  ? `Nenhum artigo com "${searchTerm}" foi encontrado` 
+                  : 'Nenhum artigo nesta categoria'}
+              </p>
+              <button
+                onClick={clearAll}
+                style={{
+                  marginTop: '15px',
+                  backgroundColor: '#095400',
+                  color: 'white',
+                  border: 'none',
+                  padding: '8px 20px',
+                  borderRadius: '20px',
+                  cursor: 'pointer',
+                  fontSize: '13px'
+                }}
+              >
+                Limpar busca
+              </button>
+            </div>
+          )}
+          
+{/* LISTA DE ARTIGOS FILTRADOS - COM IMAGEM CORRIGIDA */}
+{filteredArticles.length > 0 && (
+  <div style={{
+    maxHeight: isMobile ? '400px' : '500px',
+    overflowY: 'auto',
+    paddingRight: '5px'
+  }}>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      gap: isMobile ? '10px' : '12px' // AUMENTEI o gap
+    }}>
+      {filteredArticles.map(article => (
+        <a
+          key={article.id}
+          href={getArticleUrl(article)}
+          onClick={(e) => {
+            e.preventDefault();
+            goToArticle(article.id);
+          }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: isMobile ? '12px' : '15px', // AUMENTEI o gap
+            padding: isMobile ? '10px' : '12px', // AUMENTEI o padding
+            backgroundColor: currentPage === article.id ? '#f0f8f0' : '#f8f8f8',
+            border: currentPage === article.id ? '2px solid #095400' : '1px solid #e0e0e0',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease',
+            textAlign: 'left',
+            width: '100%',
+            boxSizing: 'border-box',
+            position: 'relative',
+            minHeight: isMobile ? '80px' : '90px', // AUMENTEI a altura mínima
+            textDecoration: 'none',
+            color: 'inherit'
+          }}
+        >
+          {/* Badge do ID */}
           <div style={{
-            marginTop: '12px',
-            paddingTop: '10px',
-            borderTop: '1px solid #e0e0e0',
-            textAlign: 'center',
-            fontSize: isMobile ? '0.7rem' : '0.8rem',
-            color: '#666'
+            position: 'absolute',
+            top: isMobile ? '-5px' : '-7px',
+            left: isMobile ? '-5px' : '-7px',
+            backgroundColor: '#095400',
+            color: 'white',
+            width: isMobile ? '24px' : '28px', // AUMENTEI
+            height: isMobile ? '24px' : '28px', // AUMENTEI
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: isMobile ? '0.75rem' : '0.85rem', // AUMENTEI
+            fontWeight: 'bold',
+            zIndex: 5,
+            boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+            border: '2px solid white'
           }}>
-            {articles.length} artigos disponíveis
+            {article.id}
           </div>
+          
+{/* IMAGEM DO ARTIGO - PROPORÇÃO 16:9 (igual à imagem original) */}
+<div style={{
+  width: isMobile ? '80px' : '100px',        // Largura
+  height: isMobile ? '45px' : '56px',        // Altura = largura * 9/16 (16:9)
+  flexShrink: 0,
+  borderRadius: '6px',
+  overflow: 'hidden',
+  border: '1px solid #ddd',
+  backgroundColor: '#f0f0f0',
+  marginLeft: '5px'
+}}>
+  <img
+    src={article.image}
+    alt={article.title}
+    loading="lazy"
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',    // Preenche sem distorcer
+      display: 'block'
+    }}
+  />
+</div>
+          
+          {/* Informações do artigo */}
+          <div style={{ 
+            flex: 1, 
+            minWidth: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            gap: '4px' // AUMENTEI
+          }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              marginBottom: '2px',
+              flexWrap: 'wrap'
+            }}>
+              <span style={{
+                backgroundColor: '#e8f5e8',
+                color: '#095400',
+                padding: '3px 8px', // AUMENTEI
+                borderRadius: '4px',
+                fontSize: isMobile ? '0.7rem' : '0.75rem', // AUMENTEI
+                fontWeight: '600',
+                whiteSpace: 'nowrap'
+              }}>
+                {article.category}
+              </span>
+              <span style={{ 
+                color: '#666',
+                fontSize: isMobile ? '0.65rem' : '0.7rem', // AUMENTEI
+                whiteSpace: 'nowrap'
+              }}>
+                {article.readTime}
+              </span>
+            </div>
+            
+            <h4 style={{
+              fontSize: isMobile ? '0.85rem' : '0.95rem', // AUMENTEI
+              margin: 0,
+              color: '#333',
+              fontWeight: '600',
+              lineHeight: '1.3',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden'
+            }}>
+              {article.title}
+            </h4>
+          </div>
+          
+          {/* Seta indicadora */}
+          <div style={{
+            color: '#095400',
+            fontSize: '16px', // AUMENTEI
+            opacity: 0.5,
+            marginRight: '5px'
+          }}>
+            →
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+)}
+        </>
+      )}
+      
+      {/* MENSAGEM INICIAL (sem busca e sem filtro) */}
+      {!showResults && !searchTerm && activeFilter === null && (
+        <div style={{
+          textAlign: 'center',
+          padding: '30px 20px',
+          backgroundColor: '#f8f8f8',
+          borderRadius: '8px',
+          color: '#666',
+          marginTop: '10px'
+        }}>
+          <span style={{ fontSize: '32px', display: 'block', marginBottom: '10px' }}>🔍</span>
+          <p style={{ margin: 0, fontSize: '14px', fontWeight: '500' }}>
+            Digite algo no campo de busca ou clique em uma categoria
+          </p>
+          <p style={{ margin: '5px 0 0 0', fontSize: '12px', color: '#999' }}>
+            Temos {articles.length} artigos no total
+          </p>
         </div>
       )}
     </div>
   );
+};
 
   // COMPONENTE DE NAVEGAÇÃO RÁPIDA
   const QuickNavigation = () => {
