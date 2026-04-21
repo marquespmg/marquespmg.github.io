@@ -708,9 +708,9 @@ const products = [
   { id: 756, name: 'MUÇARELA PARAÍSO 4 KG', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/mucarela-paraiso-4-kg-pmg-atacadista.jpg' },
   { id: 757, name: 'MUÇARELA PILOTO 4 KG', category: 'Derivados de Leite', price: 39.98, image: 'https://www.marquesvendaspmg.shop/images/mucarela-piloto-4-kg-pmg-atacadista.jpg' },
   { id: 758, name: 'MUÇARELA POLENGHI 3.5 KG', category: 'Derivados de Leite', price: 43.51, image: 'https://www.marquesvendaspmg.shop/images/mucarela-polenghi-35-kg-pmg-atacadista.jpg' },
-  { id: 759, name: 'MUÇARELA PRIMO 4 KG', category: 'Derivados de Leite', price: 37.63, image: 'https://www.marquesvendaspmg.shop/images/mucarela-primo-4-kg-pmg-atacadista.jpg' },
+  { id: 759, name: 'MUÇARELA PRIMO 4 KG', category: 'Derivados de Leite', price: 36.45, image: 'https://www.marquesvendaspmg.shop/images/mucarela-primo-4-kg-pmg-atacadista.jpg' },
   { id: 761, name: 'MUÇARELA QUATIGUÁ 4 KG', category: 'Derivados de Leite', price: 39.39, image: 'https://www.marquesvendaspmg.shop/images/mucarela-quatigua-4-kg-pmg-atacadista.jpg' },
-  { id: 764, name: 'MUÇARELA SCALA 4 KG', category: 'Derivados de Leite', price: 57.02, image: 'https://www.marquesvendaspmg.shop/images/mucarela-scala-4-kg-pmg-atacadista.jpg' },
+  { id: 764, name: 'MUÇARELA SCALA 4 KG', category: 'Derivados de Leite', price: 56.44, image: 'https://www.marquesvendaspmg.shop/images/mucarela-scala-4-kg-pmg-atacadista.jpg' },
   { id: 765, name: 'MUÇARELA TIROLEZ 4 KG', category: 'Derivados de Leite', price: 39.39, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tirolez-4-kg-pmg-atacadista.jpg' },
   { id: 766, name: 'MUÇARELA TRADIÇÃO 4 KG', category: 'Derivados de Leite', price: 42.52, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tradicao-4-kg-pmg-atacadista.jpg' },
   { id: 767, name: 'MUÇARELA TRÊS MARIAS "MATO GROSSO" 4 KG', category: 'Derivados de Leite', price: 39.68, image: 'https://www.marquesvendaspmg.shop/images/mucarela-tres-marias-mato-grosso-4-kg-pmg-atacadista.jpg' },
@@ -720,7 +720,7 @@ const products = [
   { id: 771, name: 'MUÇARELA VACA E BÚFALA BOCCONCINO YEMA 330 G', category: 'Derivados de Leite', price: 19.16, image: 'https://www.marquesvendaspmg.shop/images/mucarela-vaca-e-bufala-bocconcino-yema-330-g-pmg-atacadista.jpg' },
   { id: 772, name: 'MUÇARELA VACA E BÚFALA CEREJAS YEMA 330 G', category: 'Derivados de Leite', price: 19.16, image: 'https://www.marquesvendaspmg.shop/images/mucarela-vaca-e-bufala-cerejas-yema-330-g-pmg-atacadista.jpg' },
   { id: 773, name: 'MUÇARELA VACA E BÚFALA MARGHERITA YEMA 0.700 KG (700 GRAMAS)', category: 'Derivados de Leite', price: 51.11, image: 'https://www.marquesvendaspmg.shop/images/mucarela-vaca-e-bufala-margherita-yema-700-g-pmg-atacadista.jpg' },
-  { id: 774, name: 'MUÇARELA ZERO LACTOSE TRÊS MARIAS 4 KG', category: 'Derivados de Leite', price: 44.68, image: 'https://www.marquesvendaspmg.shop/images/mucarela-zero-lactose-tres-marias-4-kg-pmg-atacadista.jpg' },
+  { id: 774, name: 'MUÇARELA ZERO LACTOSE TRÊS MARIAS 4 KG', category: 'Derivados de Leite', price: 44.1, image: 'https://www.marquesvendaspmg.shop/images/mucarela-zero-lactose-tres-marias-4-kg-pmg-atacadista.jpg' },
   { id: 775, name: 'NATA GRANDE FRIMESA 3,5 KILO', category: 'Derivados de Leite', price: 160.49, image: 'https://www.marquesvendaspmg.shop/images/nata-grande-frimesa-35-kg-pmg-atacadista.jpg' },
   { id: 776, name: 'NATA PEQUENA FRIMESA 300 G', category: 'Derivados de Leite', price: 15.54, image: 'https://www.marquesvendaspmg.shop/images/nata-pequena-frimesa-300-g-pmg-atacadista.jpg' },
   { id: 777, name: 'PARMESÃO 1 / 4 SCALA 1,35 KILO', category: 'Derivados de Leite', price: 138.87, image: 'https://www.marquesvendaspmg.shop/images/parmesao-1-4-scala-135-kg-pmg-atacadista.jpg' },
@@ -786,7 +786,7 @@ const products = [
   { id: 838, name: 'QUEIJO FRACIONADO CAMEMBERT SÃO VICENTE 125 G', category: 'Derivados de Leite', price: 11.66, image: 'https://www.marquesvendaspmg.shop/images/queijo-fracionado-camembert-sao-vicente-125-g-pmg-atacadista.jpg' },
   { id: 839, name: 'QUEIJO FRACIONADO CAMEMBERT YEMA 125 G', category: 'Derivados de Leite', price: 10.43, image: 'https://www.marquesvendaspmg.shop/images/queijo-fracionado-camembert-yema-125-g-pmg-atacadista.jpg' },
   { id: 840, name: 'QUEIJO FRACIONADO GRUYÉRE VIGOR 145 G', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/queijo-fracionado-gruyere-vigor-145-g-pmg-atacadista.jpg' },
-  { id: 841, name: 'QUEIJO GOUDA BELLA ITÁLIA 3 KG', category: 'Derivados de Leite', price: 55.71, image: 'https://www.marquesvendaspmg.shop/images/queijo-gouda-bella-italia-3-kg-pmg-atacadista.jpg' },
+  { id: 841, name: 'QUEIJO GOUDA BELLA ITÁLIA 3 KG', category: 'Derivados de Leite', price: 58.53, image: 'https://www.marquesvendaspmg.shop/images/queijo-gouda-bella-italia-3-kg-pmg-atacadista.jpg' },
   { id: 842, name: 'QUEIJO GOUDA QUATÁ 3 KG', category: 'Derivados de Leite', price: 78.77, image: 'https://www.marquesvendaspmg.shop/images/queijo-gouda-quata-3-kg-pmg-atacadista.jpg' },
   { id: 843, name: 'QUEIJO GOUDA TIROLEZ 3 KG', category: 'Derivados de Leite', price: 79.16, image: 'https://www.marquesvendaspmg.shop/images/queijo-gouda-tirolez-3-kg-pmg-atacadista.jpg' },
   { id: 844, name: 'QUEIJO GRUYÉRE DOR 12 KG', category: 'Derivados de Leite', price: 72.15, image: 'https://www.marquesvendaspmg.shop/images/queijo-gruyere-dor-12-kg-pmg-atacadista.jpg' },
@@ -822,7 +822,7 @@ const products = [
   { id: 874, name: 'QUEIJO TIPO BURRATA DE BÚFALA DOR 180 G', category: 'Derivados de Leite', price: 22.14, image: 'https://www.marquesvendaspmg.shop/images/queijo-tipo-burrata-de-bufala-dor-180-g-pmg-atacadista.jpg' },
   { id: 875, name: 'QUEIJO TIPO BURRATA DE BÚFALA LEVITARE 150 G', category: 'Derivados de Leite', price: 22.39, image: 'https://www.marquesvendaspmg.shop/images/queijo-tipo-burrata-de-bufala-levitare-150-g-pmg-atacadista.jpg' },
   { id: 876, name: 'REQUEIJÃO AFFAMATO COM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 12.97, image: 'https://www.marquesvendaspmg.shop/images/requeijao-affamato-com-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 877, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 56.23, image: 'https://www.marquesvendaspmg.shop/images/requeijao-catupiry-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 877, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 1,5 KILO', category: 'Derivados de Leite', price: 60.49, image: 'https://www.marquesvendaspmg.shop/images/requeijao-catupiry-sem-amido-15-kilo-pmg-atacadista.jpg' },
   { id: 878, name: 'REQUEIJÃO CATUPIRY SEM AMIDO 3,6 KILO', category: 'Derivados de Leite', price: 127.39, image: 'https://www.marquesvendaspmg.shop/images/requeijao-catupiry-sem-amido-36-kilo-pmg-atacadista.jpg' },
   { id: 879, name: 'REQUEIJÃO CLARA MILK COM AMIDO 1,8 KILO', category: 'Derivados de Leite', price: 15.93, image: 'https://www.marquesvendaspmg.shop/images/requeijao-clara-milk-com-amido-18-kilo-pmg-atacadista.jpg' },
   { id: 880, name: 'REQUEIJÃO COPO CRIOULO SEM AMIDO 220 G (CX 24 UN)', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/requeijao-copo-crioulo-sem-amido-220-g-cx-24-un-pmg-atacadista.jpg' },
@@ -1957,7 +1957,7 @@ const products = [
   { id: 2058, name: 'MUÇARELA FATIADA PEQUENA TIROLEZ 150 G', category: 'Derivados de Leite', price: 8.43, image: 'https://www.marquesvendaspmg.shop/images/mucarela-fatiada-tirolez.png' },
   { id: 2059, name: 'MUÇARELA IMPERADOR 4 KG', category: 'Derivados de Leite', price: 38.22, image: 'https://www.marquesvendaspmg.shop/images/mucarela-imperador.png' },
   { id: 2060, name: 'MUÇARELA INLARON 4 KG', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/mucarela-inlaron.png' },
-  { id: 2061, name: 'MUÇARELA JUQUEÍ 4 KG', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/mucarela-juquei.png' },
+  { id: 2061, name: 'MUÇARELA JUQUEÍ 4 KG', category: 'Derivados de Leite', price: 37.03, image: 'https://www.marquesvendaspmg.shop/images/mucarela-juquei.png' },
   { id: 2062, name: 'MUÇARELA PROCESSADA SABOR DE MINAS 4 KG', category: 'Derivados de Leite', price: 37.4, image: 'https://www.marquesvendaspmg.shop/images/mucarela-processada-sabor-de-minas.png' },
   { id: 2063, name: 'MUÇARELA SANTA MARIA 4 KG', category: 'Derivados de Leite', price: 0, image: 'https://www.marquesvendaspmg.shop/images/mucarela-santa-maria.png' },
   { id: 2064, name: 'PARMESÃO 6 MESES BURITIS 5.5 KG', category: 'Derivados de Leite', price: 68.89, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-buritis.png' },
@@ -2036,7 +2036,7 @@ const products = [
   { id: 2137, name: 'ARROZ ARBÓRIO DON RAVELLO 1 KILO', category: 'Derivados de Vegetal', price: 23.24, image: 'https://www.marquesvendaspmg.shop/images/arroz-arborio-don-ravello.png' },
   { id: 2138, name: 'ARROZ ARBÓRIO LA PASTINA 1 KILO', category: 'Derivados de Vegetal', price: 23.24, image: 'https://www.marquesvendaspmg.shop/images/arroz-arborio-la-pastina.png' },
   { id: 2139, name: 'ARROZ ARBÓRIO PROVINCIAS DO SUL 1 KILO', category: 'Derivados de Vegetal', price: 16.63, image: 'https://www.marquesvendaspmg.shop/images/arroz-arborio-provincias-do-sul.png' },
-  { id: 2140, name: 'ARROZ BRANCO TIPO 1 CAMPEIRO 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 109.55, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-campeiro.png' },
+  { id: 2140, name: 'ARROZ BRANCO TIPO 1 CAMPEIRO 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 112.21, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-campeiro.png' },
   { id: 2141, name: 'ARROZ BRANCO TIPO 1 PANTERA 5 KILO (FDO 6 PCT)', category: 'Derivados de Vegetal', price: 124.27, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-pantera.png' },
   { id: 2142, name: 'AZEITE COMPOSTO 40% OLIVA 30% GIRASSOL E 30% SOJA FELICITÁ 500 ML', category: 'Derivados de Vegetal', price: 11.05, image: 'https://www.marquesvendaspmg.shop/images/azeite-composto-oliva-girassol-soja-felicita.png' },
   { id: 2143, name: 'AZEITE COMPOSTO 40% OLIVA 30% GIRASSOL E 30% SOJA FELICITÁ PET 500 ML', category: 'Derivados de Vegetal', price: 10.03, image: 'https://www.marquesvendaspmg.shop/images/azeite-composto-oliva-girassol-soja-felicita-pet.png' },
@@ -3210,37 +3210,6 @@ export default function ProductPage({
         </div>
       )}
     </div>
-    
-    {/* Alerta para produtos próximos do vencimento (opcional) */}
-    {dadosValidade[product.id]?.validade && (() => {
-      const hoje = new Date();
-      const [dia, mes, ano] = dadosValidade[product.id].validade.split('/');
-      const dataValidade = new Date(ano, mes - 1, dia);
-      const diasRestantes = Math.ceil((dataValidade - hoje) / (1000 * 60 * 60 * 24));
-      
-      if (diasRestantes <= 30 && diasRestantes > 0) {
-        return (
-          <div style={{
-            marginTop: '10px',
-            padding: '8px 12px',
-            backgroundColor: '#fff3cd',
-            borderRadius: '6px',
-            fontSize: '12px',
-            color: '#856404',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
-          }}>
-            <span>⚠️</span>
-            <span>
-              <strong>Atenção:</strong> Produto próximo do vencimento! 
-              Faltam {diasRestantes} dia{diasRestantes !== 1 ? 's' : ''} para vencer.
-            </span>
-          </div>
-        );
-      }
-      return null;
-    })()}
   </div>
 )}
 
