@@ -122,13 +122,16 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 1355, name: 'ÓLEO DE ALGODÃO ELOGIATA FLOR DE ALGODÃO (BD 15,8 L)', category: 'Ofertas', price: 176.99, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-elogiata-flor-de-algodao-bd-158-l-pmg-atacadista.jpg' },
-  { id: 2211, name: 'ÓLEO DE ALGODÃO TRAVIÚ (BD 15,7 L)', category: 'Ofertas', price: 164.89, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-traviu.png' },
-  { id: 2140, name: 'ARROZ BRANCO TIPO 1 CAMPEIRO 5 KILO (FDO 6 PCT)', category: 'Ofertas', price: 109.55, image: 'https://www.marquesvendaspmg.shop/images/arroz-branco-tipo-1-campeiro.png' },
-  { id: 858, name: 'QUEIJO PRATO APOLO 3.5 KG', category: 'Ofertas', price: 42.00, image: 'https://www.marquesvendaspmg.shop/images/queijo-prato-apolo-35-kg-pmg-atacadista.jpg' },
-  { id: 1277, name: 'GERGELIM GRANDE TORRADO PASTA TAHINE ISTAMBUL (BD 13 KILO)', category: 'Ofertas', price: 542.22, image: 'https://www.marquesvendaspmg.shop/images/gergelim-grande-torrado-pasta-tahine-istambul-bd-13-kilo-pmg-atacadista.jpg' },
-  { id: 1362, name: 'ÓLEO DE SOJA COAMO 900 ML (CX 20 FR)', category: 'Ofertas', price: 149.88, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-coamo-900-ml-cx-20-fr-pmg-atacadista.jpg' },
-  { id: 1491, name: 'AÇÚCAR SACHÊ PREMIUM UNIÃO 5 G (CX 400 UN)', category: 'Ofertas', price: 16.99, image: 'https://www.marquesvendaspmg.shop/images/acucar-sache-premium-uniao-5-g-cx-400-un-pmg-atacadista.jpg' },
+  { id: 1746, name: 'FARINHA DE TRIGO PIZZA ANACONDA 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 79.99, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-anaconda-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
+  { id: 1571, name: 'CREME DE AVELÃ GRANDE COM CACAU FOOD SERVICE NUTELLA 3 KILO', category: 'Ofertas', price: 199.00, image: 'https://www.marquesvendaspmg.shop/images/creme-de-avela-grande-com-cacau-food-service-nutella-3-kilo-pmg-atacadista.jpg' },
+  { id: 1574, name: 'CREME DE AVELÃ PEQUENO COM CACAU NUTELLA 650 G', category: 'Ofertas', price: 44.50, image: 'https://www.marquesvendaspmg.shop/images/creme-de-avela-pequeno-com-cacau-nutella-650-g-pmg-atacadista.jpg' },
+  { id: 1543, name: 'CHOCOLATE FORNEÁVEL GRANDE AO LEITE CONFEITEIRO HARALD 2,010 KILO', category: 'Ofertas', price: 62.69, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-grande-ao-leite-confeiteiro-harald-2010-kilo-pmg-atacadista.jpg' },
+  { id: 353, name: 'WHISKY JOHNNIE WALKER BLUE LABEL 750 ML', category: 'Ofertas', price: 1100.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-blue-label-750-ml-pmg-atacadista.jpg' },
+  { id: 352, name: 'WHISKY JOHNNIE WALKER BLACK LABEL 12 ANOS 1 L', category: 'Ofertas', price: 172.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-black-label-12-anos-1-l-pmg-atacadista.jpg' },
+  { id: 1923, name: 'VINHO NACIONAL TINTO SUAVE PÉRGOLA 1 L', category: 'Ofertas', price: 20.50, image: 'https://www.marquesvendaspmg.shop/images/vinho-nacional-tinto-suave-pergola-1-l.png' },
+  { id: 360, name: 'WHISKY PASSPORT 1 L', category: 'Ofertas', price: 47.80, image: 'https://www.marquesvendaspmg.shop/images/whisky-passport-1-l-pmg-atacadista.jpg' },
+  { id: 173, name: 'GIN GORDON´S 750 ML', category: 'Ofertas', price: 62.00, image: 'https://www.marquesvendaspmg.shop/images/gin-gordons-750-ml-pmg-atacadista.jpg' },
+  { id: 171, name: 'GIN BEEFEATER 750 ML', category: 'Ofertas', price: 87.00, image: 'https://www.marquesvendaspmg.shop/images/gin-beefeater-750-ml-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
