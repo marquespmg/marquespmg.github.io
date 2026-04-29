@@ -19718,6 +19718,1424 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
       </p>
     </div>
   `
+},
+{
+  "id": 86,
+  "title": "PRODUTOS HOMOLOGADOS PARA FRANQUIAS: Guia Completo para Comprar as Marcas Aprovadas",
+  "description": "Produtos homologados para franquias: saiba o que são, onde encontrar marcas aprovadas como Tirolez, Scala, Frizzo, Liza, Soya e muito mais. Entrega rápida na Zona Sul de SP. Compre tudo em um só lugar!",
+  "image": "https://i.imgur.com/fMTmLIy.png",
+  "category": "Homologação para Franquias",
+  "section": "homologacao-franquias",
+  "readTime": "8 min de leitura",
+  "date": "2026-04-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 PRODUTOS HOMOLOGADOS PARA FRANQUIAS: Guia Completo para Comprar as Marcas Aprovadas</h1>
+      <p>Se você trabalha em uma <strong>franquia</strong> — seja de <strong>padaria, restaurante, pizzaria, lanchonete ou food service</strong> — sabe que não pode simplesmente comprar qualquer produto. Cada franquia mantém uma <strong>lista de produtos homologados</strong> (aprovados), com <strong>marcas e especificações específicas</strong> que precisam ser seguidas à risca. Isso garante o padrão de qualidade da rede em todas as unidades.</p>
+      
+      <p>Mas, na prática, gerentes e compradores de franquias enfrentam um problema diário: <strong>onde encontrar todos os produtos homologados em um só lugar</strong>, com estoque disponível, entrega rápida e preço competitivo? É exatamente aqui que a <strong>PMG Atacadista</strong> entra como seu fornecedor estratégico na <strong>Zona Sul de São Paulo</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai aprender neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">✅ O que são produtos homologados e por que as franquias exigem • 📋 Como funciona o processo de homologação • 🧀 Quais marcas são mais aprovadas (Tirolez, Scala, Frizzo) • 🛢️ Óleos homologados (Liza, Soya, Traviú) • 🍗 Carnes e desfiados aprovados • 📦 Onde comprar tudo em um só lugar • 💰 Vantagens de centralizar suas compras na PMG</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 CONSULTAR PRODUTOS HOMOLOGADOS</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/fMTmLIy.png" alt="Produtos homologados para franquias - Fornecedor especializado na Zona Sul de SP" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Produtos homologados para franquias: compre as marcas aprovadas em um só lugar, com entrega rápida para a Zona Sul de SP</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📌 O que são produtos homologados para franquias?</h2>
+      <p><strong>Produtos homologados</strong> são aqueles que passaram por um rigoroso processo de avaliação e foram aprovados pela franquia para serem utilizados em todas as suas unidades. Esse processo considera critérios como:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Critério de Homologação</th>
+            <th style="padding: 12px; text-align: left;">Por que é importante para a franquia</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Padronização de sabor e textura</td>
+            <td style="padding: 10px;">Garante que o cliente receba o mesmo produto em qualquer unidade da rede</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Registro SIF / SIE / SISBI</td>
+            <td style="padding: 10px;">Assegura que o produto foi inspecionado e atende às normas sanitárias</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Embalagens padronizadas</td>
+            <td style="padding: 10px;">Facilita o estoque, o manuseio e o controle de validade nas unidades</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Fornecedor confiável</td>
+            <td style="padding: 10px;">Evita ruptura de estoque e garante entrega consistente</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Marcas consolidadas no mercado</td>
+            <td style="padding: 10px;">Franquias preferem marcas que já são referência no segmento</td>
+         </table>
+      </div>
+      
+      <p>Quando uma franquia homologa um produto, ela está dizendo: <strong>"Este é o item que você DEVE comprar. Não pode substituir por outra marca sem autorização."</strong></p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🎯 Por que as franquias exigem produtos homologados?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍕 Padronização do cardápio</h4>
+          <p>O cliente que come uma pizza em uma unidade espera o mesmo sabor em qualquer outra. Produtos homologados garantem essa consistência.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⚖️ Segurança jurídica</h4>
+          <p>Se um franqueado compra um produto não homologado e dá problema, a responsabilidade recai sobre ele. Homologar protege a rede e o franqueado.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">💰 Negociação centralizada</h4>
+          <p>Com a compra centralizada, a franquia consegue melhores preços e condições para toda a rede.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Controle de qualidade</h4>
+          <p>Produtos homologados passam por testes e auditorias antes de serem aprovados, garantindo que atendem aos padrões da rede.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧀 Produtos Homologados Mais Procurados em Franquias</h2>
+      <p>Com base no atendimento a dezenas de franquias na Zona Sul de SP, separamos as categorias e marcas que mais aparecem nas listas de produtos aprovados:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Marcas Homologadas</th>
+            <th style="padding: 12px; text-align: left;">Embalagens Comerciais</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Manteiga sem sal</td>
+            <td style="padding: 10px;">Tirolez, Scala, Frizzo, Laurita, Passa Quatro, Três Marias</td>
+            <td style="padding: 10px;">Caixa 5kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Óleo de algodão</td>
+            <td style="padding: 10px;">Liza, Soya, Traviú, Elogiata, Fry Sina</td>
+            <td style="padding: 10px;">Balde 15,8L / 15,7L</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela e cheddar</td>
+            <td style="padding: 10px;">Bari, Vigor</td>
+            <td style="padding: 10px;">Peça 2kg, 4kg, 5kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Desfiados (carne seca, frango)</td>
+            <td style="padding: 10px;">Alfama</td>
+            <td style="padding: 10px;">Pacote 1kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Calabresa e embutidos</td>
+            <td style="padding: 10px;">Aurora</td>
+            <td style="padding: 10px;">Pacote 5kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Hambúrguer e cortes bovinos</td>
+            <td style="padding: 10px;">Frigonosso, Boi Brasil</td>
+            <td style="padding: 10px;">Porcionado e congelado</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de frango e cortes de ave</td>
+            <td style="padding: 10px;">Adoro, Jaguá</td>
+            <td style="padding: 10px;">Pacote 1kg a 5kg</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cortes suínos</td>
+            <td style="padding: 10px;">My Pork, Pamplona</td>
+            <td style="padding: 10px;">Porcionado</td>
+           </tr>
+         </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar produtos homologados para sua franquia?</h2>
+      <p>A <strong>PMG Atacadista</strong> é referência no fornecimento de <strong>produtos homologados para franquias na Zona Sul de São Paulo</strong>. Com mais de <strong>2000 itens em estoque</strong>, atendemos desde pequenas redes regionais até grandes franquias nacionais.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens de centralizar suas compras na PMG:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Todas as marcas homologadas que sua franquia exige, em um só lugar</li>
+          <li>✓ <strong>Embalagens comerciais</strong> - 5kg, 15L, 1kg, 2kg - os tamanhos que as cozinhas profissionais usam</li>
+          <li>✓ <strong>Entrega refrigerada</strong> - Frota própria com +280 veículos, entregando em 1-2 dias úteis</li>
+          <li>✓ <strong>Atendimento especializado</strong> - Representante que entende de homologação e lista de produtos aprovados</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para franquias que compram em volume</li>
+          <li>✓ <strong>Entrega para toda Zona Sul de SP</strong> - Santo Amaro, Brooklin, Morumbi, Jabaquara, Saúde e mais de 20 bairros</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul para Franquias</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos todas as franquias localizadas nos bairros da Zona Sul, incluindo:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Jardim São Luís</div>
+          <div>✅ Capão Redondo</div>
+          <div>✅ Jardim Ângela</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Socorro</div>
+          <div>✅ Grajaú</div>
+          <div>✅ Pedreira</div>
+          <div>✅ Cidade Ademar</div>
+          <div>✅ Vila Andrade</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entrega rápida para toda região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dicas para compradores de franquias</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">1️⃣ Tenha a lista de homologados sempre em mãos</h4>
+          <p>Mantenha atualizada a planilha com todas as marcas e códigos aprovados pela sua franquia. Isso acelera o processo de compra.</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">2️⃣ Centralize suas compras em um único fornecedor</h4>
+          <p>Comprar tudo na PMG reduz o número de notas fiscais, simplifica o recebimento e facilita o controle de estoque.</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">3️⃣ Planeje suas compras com antecedência</h4>
+          <p>Produtos homologados costumam ter alta demanda. Compre com pelo menos 5-7 dias de antecedência para garantir estoque.</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">4️⃣ Mantenha contato direto com seu representante</h4>
+          <p>Ter um representante dedicado (como Marques Antonio) ajuda a resolver imprevistos e a garantir entregas de última hora.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">✅ Vantagens de ter a PMG como fornecedor de produtos homologados</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>+280 veículos garantindo a qualidade dos produtos homologados na entrega, mantendo a cadeia de frio.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo de Marcas Homologadas</h4>
+          <p>+2000 itens com as marcas que sua franquia exige (Tirolez, Scala, Frizzo, Liza, Soya, Bari, Aurora, Alfama e mais).</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para toda Zona Sul de SP, com horários flexíveis para atender sua operação.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado para Franquias</h4>
+          <p>Atendimento personalizado com Marques Antonio, que entende de lista de produtos homologados e processos de aprovação.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Como começar a comprar produtos homologados na PMG</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <ol style="margin-bottom: 0;">
+          <li><strong>Acesse nosso catálogo</strong> - Veja todos os produtos disponíveis em <a href="https://www.marquesvendaspmg.shop/produtos" style="color: #095400;">www.marquesvendaspmg.shop</a></li>
+          <li><strong>Confira sua lista de homologados</strong> - Compare com as marcas e embalagens que temos em estoque</li>
+          <li><strong>Faça uma cotação</strong> - Entre em contato pelo WhatsApp (11) 91357-2902 para condições especiais para franquias</li>
+          <li><strong>Agende sua entrega</strong> - Receba seus produtos homologados em 1-2 dias úteis na sua unidade da Zona Sul</li>
+          <li><strong>Mantenha o estoque regulado</strong> - Compras recorrentes com nosso representante para nunca faltar produto</li>
+        </ol>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante de Franquias</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Sua franquia tem uma lista de produtos homologados? Me chama no WhatsApp que eu verifico se tenho tudo em estoque e preparo uma cotação especial.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento a Franquias na Zona Sul</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo de Produtos Homologados</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para sua franquia na Zona Sul de SP.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO DE HOMOLOGADOS
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos franquias de:</strong> Restaurantes • Pizzarias • Padarias • Lanchonetes • Cozinhas Industriais • Marmitarias • Esfiharias
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> produtos homologados para franquias, marcas aprovadas em franquias, fornecedor para franquias zona sul sp, onde comprar produtos homologados, lista de produtos autorizados franquias, fornecedor aprovado para restaurantes franqueados, comprar marcas específicas para franquia, homologação de produtos food service, manteiga homologada para franquias, óleo de algodão homologado, queijos e derivados para franquias, carnes desfiadas homologadas, pmg atacadista franquias, marques vendas pmg, fornecedor de franquias em santo amaro, distribuidor autorizado para franquias, compra centralizada para franquias, produtos aprovados por franquias de padaria, franquias de restaurante zona sul sp.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 87,
+  "title": "MANTEIGAS HOMOLOGADAS PARA FRANQUIAS DE PADARIAS E CONFEITARIAS: Marcas Aprovadas em Caixa de 5kg",
+  "description": "Manteigas homologadas para franquias de padarias e confeitarias: Tirolez, Scala, Frizzo, Laurita, Passa Quatro e Três Marias. Embalagem de 5kg, entrega rápida na Zona Sul de SP. Compre as marcas aprovadas pela sua franquia!",
+  "image": "https://i.imgur.com/HPSbluL.png",
+  "category": "Homologação para Franquias",
+  "section": "homologacao-franquias",
+  "readTime": "7 min de leitura",
+  "date": "2026-04-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧈 MANTEIGAS HOMOLOGADAS PARA FRANQUIAS DE PADARIAS E CONFEITARIAS: Marcas Aprovadas em Caixa de 5kg</h1>
+      <p>Se sua <strong>franquia é do segmento de padarias, confeitarias, pizzarias ou food service</strong>, você sabe que a <strong>manteiga</strong> é um dos ingredientes mais críticos para manter o padrão das receitas. Cada rede tem sua <strong>lista de manteigas homologadas</strong> — marcas e especificações que precisam ser seguidas à risca para garantir o sabor, a textura e a qualidade dos produtos finais.</p>
+      
+      <p>Neste artigo, você vai conhecer as <strong>principais marcas de manteiga homologadas para franquias</strong> disponíveis no mercado, todas em <strong>embalagem de 5kg</strong> (o tamanho ideal para cozinhas profissionais), e vai descobrir onde comprar todas elas em <strong>um único lugar na Zona Sul de SP</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🧈 Tirolez • 🧈 Scala • 🧈 Frizzo • 🧈 Laurita • 🧈 Passa Quatro • 🧈 Três Marias • 📦 Embalagem 5kg • 📋 Especificações técnicas • 🏪 Onde comprar tudo em um só lugar • 📍 Entrega para Zona Sul de SP</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Manteigas" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 VER MANTEIGAS HOMOLOGADAS 5KG</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/HPSbluL.png" alt="Manteigas homologadas para franquias de padarias e confeitarias - marcas em caixa 5kg" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Manteigas homologadas para franquias: Tirolez, Scala, Frizzo, Laurita, Passa Quatro e Três Marias em embalagem de 5kg</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧈 Por que as franquias exigem marcas específicas de manteiga?</h2>
+      <p>A manteiga é um ingrediente que impacta diretamente o resultado final de pães, massas folhadas, bolos, croissants, tortas e sobremesas. Por isso, as franquias são rigorosas na homologação deste produto.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Característica</th>
+            <th style="padding: 12px; text-align: left;">Impacto no produto final</th>
+            <th style="padding: 12px; text-align: left;">O que a franquia exige</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Teor de gordura (%)</td>
+            <td style="padding: 10px;">Define maciez, crocância e sabor</td>
+            <td style="padding: 10px;">Mínimo 82% (padrão manteiga)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Umidade (%)</td>
+            <td style="padding: 10px;">Afeta a textura das massas</td>
+            <td style="padding: 10px;">Máximo 16%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor e aroma</td>
+            <td style="padding: 10px;">Define a identidade do produto</td>
+            <td style="padding: 10px;">Suave, característico, sem rancificação</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Consistência e textura</td>
+            <td style="padding: 10px;">Facilita o manuseio na produção</td>
+            <td style="padding: 10px;">Lisa, uniforme, untosa</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Registro SIF / SISBI / SIE</td>
+            <td style="padding: 10px;">Garante inspeção sanitária</td>
+            <td style="padding: 10px;">Obrigatório para todas as franquias</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Embalagem</td>
+            <td style="padding: 10px;">Padronização e logística</td>
+            <td style="padding: 10px;">Caixa 5kg (tamanho comercial)</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Marcas de Manteiga Homologadas para Franquias</h2>
+      <p>Abaixo, as <strong>6 principais marcas de manteiga sem sal</strong> mais encontradas nas listas de produtos homologados de franquias de padarias, confeitarias e pizzarias. Todas disponíveis na <strong>PMG Atacadista</strong> em embalagem de <strong>5kg</strong>.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 700px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Gordura (%)</th>
+            <th style="padding: 12px; text-align: left;">Diferencial</th>
+            <th style="padding: 12px; text-align: left;">Registro</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10;"><strong>Tirolez</strong></td>
+            <td style="padding: 10;">Mín. 82%</td>
+            <td style="padding: 10;">Sabor lácteo fresco e neutro</td>
+            <td style="padding: 10;">SIF 0112</td>
+            <td style="padding: 10;"><a href="https://www.marquesvendaspmg.shop/produto/705" style="color: #095400;">Ver produto</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10;"><strong>Scala</strong></td>
+            <td style="padding: 10;">Mín. 80%</td>
+            <td style="padding: 10;">100% gordura láctea, SIF 1236</td>
+            <td style="padding: 10;">SIF 1236</td>
+            <td style="padding: 10;"><a href="https://www.marquesvendaspmg.shop/produto/704" style="color: #095400;">Ver produto</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10;"><strong>Frizzo</strong></td>
+            <td style="padding: 10;">Mín. 82%</td>
+            <td style="padding: 10;">100% creme de leite, tradição gaúcha</td>
+            <td style="padding: 10;">SIE 445</td>
+            <td style="padding: 10;"><a href="https://www.marquesvendaspmg.shop/produto/702" style="color: #095400;">Ver produto</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10;"><strong>Laurita</strong></td>
+            <td style="padding: 10;">Mín. 82%</td>
+            <td style="padding: 10;">Isenta de conservantes, sabor suave</td>
+            <td style="padding: 10;">SIF/CRMV-PR</td>
+            <td style="padding: 10;"><a href="https://www.marquesvendaspmg.shop/produto/2050" style="color: #095400;">Ver produto</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10;"><strong>Passa Quatro</strong></td>
+            <td style="padding: 10;">Mín. 82%</td>
+            <td style="padding: 10;">Blend com óleo de palma (84% lipídeos)</td>
+            <td style="padding: 10;">MAPA</td>
+            <td style="padding: 10;"><a href="https://www.marquesvendaspmg.shop/produto/700" style="color: #095400;">Ver produto</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10;"><strong>Três Marias</strong></td>
+            <td style="padding: 10;">-</td>
+            <td style="padding: 10;">Creme de soro de leite, tradição mineira</td>
+            <td style="padding: 10;">SIF 1555</td>
+            <td style="padding: 10;"><a href="https://www.marquesvendaspmg.shop/produto/706" style="color: #095400;">Ver produto</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Por que a embalagem de 5kg é a preferida das franquias?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍞 Economia por quilo</h4>
+          <p>O custo por quilo da manteiga em embalagem de 5kg é significativamente menor do que em embalagens de 500g ou 1kg.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Menos desperdício de embalagem</h4>
+          <p>Menos material descartado, melhor para o meio ambiente e para a gestão de resíduos da franquia.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⚙️ Ideal para produção</h4>
+          <p>O volume de 5kg é perfeito para cozinhas profissionais que consomem grandes quantidades diariamente.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Facilidade no transporte</h4>
+          <p>Embalagem robusta, empilhável e adequada para transporte refrigerado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar todas as manteigas homologadas para sua franquia?</h2>
+      <p>A <strong>PMG Atacadista</strong> é o lugar certo para franquias da Zona Sul de SP que precisam de <strong>manteigas homologadas em caixa de 5kg</strong>. Com mais de <strong>2000 itens em estoque</strong>, garantimos que as marcas aprovadas pela sua rede estarão disponíveis.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens para franquias:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Todas as 6 marcas de manteiga 5kg disponíveis</li>
+          <li>✓ <strong>Entrega refrigerada</strong> - Frota própria com +280 veículos</li>
+          <li>✓ <strong>Entrega em 1-2 dias úteis</strong> para toda Zona Sul de SP</li>
+          <li>✓ <strong>Atendimento especializado</strong> para compradores de franquias</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para compras recorrentes</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul para Franquias</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos franquias de padarias, confeitarias e pizzarias em toda a Zona Sul:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Jardim São Luís</div>
+          <div>✅ Americanópolis</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda a região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dica para compradores de franquias</h2>
+      <p>Antes de fechar seu pedido, tenha em mãos a <strong>lista de manteigas homologadas da sua franquia</strong>. Algumas redes permitem mais de uma marca, outras exigem uma específica. Comprar na PMG, que tem TODAS as principais marcas, resolve esse problema de uma vez.</p>
+      
+      <div style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">📋 Checklist para compradores de franquias:</p>
+        <p style="margin: 5px 0 0 0;">☑️ Verificar na central da franquia as marcas aprovadas<br>
+        ☑️ Confirmar se a embalagem permitida é 5kg<br>
+        ☑️ Solicitar cotação na PMG com Marques Antonio<br>
+        ☑️ Agendar entrega para 1-2 dias úteis<br>
+        ☑️ Manter estoque regulado com compras programadas</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante de Franquias</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de manteiga homologada para sua franquia? Me chama no WhatsApp que verifico a disponibilidade e preparo uma cotação especial.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento a Franquias</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo de Manteigas Homologadas 5kg</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todas as marcas de manteiga 5kg disponíveis para sua franquia.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Manteigas" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 VER MANTEIGAS HOMOLOGADAS 5KG
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Links diretos para marcas homologadas:</strong><br>
+        <a href="https://www.marquesvendaspmg.shop/produto/705" style="color: #095400;">Tirolez</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/704" style="color: #095400;">Scala</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/702" style="color: #095400;">Frizzo</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/2050" style="color: #095400;">Laurita</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/700" style="color: #095400;">Passa Quatro</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/706" style="color: #095400;">Três Marias</a>
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> manteiga homologada para franquias, manteiga tirolez 5kg para franquias, manteiga scala homologada, manteiga frizzo franquias, manteiga laurita 5kg, manteiga passa quatro, manteiga três marias, fornecedor de manteiga para franquias zona sul sp, marcas de manteiga aprovadas por franquias, onde comprar manteiga homologada para padaria, manteiga 5kg para confeitaria, manteiga sem sal para franquias, atacado de manteiga para franquias, pmg atacadista manteiga homologada, marques vendas pmg, manteiga para franquias de padaria em santo amaro, manteiga para franquias de pizzaria.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 88,
+  "title": "ÓLEOS DE ALGODÃO HOMOLOGADOS PARA FRANQUIAS: Marcas Aprovadas em Balde de 15,8L para Frituras",
+  "description": "Óleos de algodão homologados para franquias de restaurantes, lanchonetes e pizzarias: Liza, Soya, Traviú, Elogiata e Fry Sina. Embalagem de 15,8L, alta estabilidade para frituras. Entrega rápida na Zona Sul de SP. Compre as marcas aprovadas!",
+  "image": "https://i.imgur.com/nKqRbNT.png",
+  "category": "Homologação para Franquias",
+  "section": "homologacao-franquias",
+  "readTime": "7 min de leitura",
+  "date": "2026-04-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🛢️ ÓLEOS DE ALGODÃO HOMOLOGADOS PARA FRANQUIAS: Marcas Aprovadas em Balde de 15,8L para Frituras</h1>
+      <p>Se sua <strong>franquia é do segmento de restaurantes, lanchonetes, pizzarias, fast food ou food service</strong>, o óleo de fritura é um dos insumos mais importantes e mais consumidos da operação. Por isso, as redes são extremamente rigorosas na <strong>homologação de óleos vegetais</strong> — especialmente o <strong>óleo de algodão</strong>, que é o preferido do setor por sua alta estabilidade oxidativa e alto ponto de fumaça.</p>
+      
+      <p>Neste artigo, você vai conhecer as <strong>principais marcas de óleo de algodão homologadas para franquias</strong> disponíveis no mercado, todas em <strong>embalagem de 15,8 litros</strong> (o balde comercial ideal para cozinhas profissionais), e vai descobrir onde comprar todas elas em <strong>um único lugar na Zona Sul de SP</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🛢️ Liza (Cargill) • 🛢️ Soya (Bunge) • 🛢️ Traviú (Polo) • 🛢️ Elogiata (Icofort) • 🛢️ Fry Sina (Agrofoods) • 📦 Balde 15,8L/15,7L • 📋 Especificações técnicas • 🏪 Onde comprar tudo em um só lugar • 📍 Entrega para Zona Sul de SP</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Óleos" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 VER ÓLEOS HOMOLOGADOS 15,8L</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/nKqRbNT.png" alt="Óleos de algodão homologados para franquias - marcas em balde 15,8L" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Óleos de algodão homologados para franquias: Liza, Soya, Traviú, Elogiata e Fry Sina em embalagem de 15,8L/15,7L</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛢️ Por que as franquias preferem o óleo de algodão?</h2>
+      <p>O óleo de algodão é amplamente reconhecido como o <strong>melhor óleo para frituras profissionais</strong>. Grandes redes de fast food e restaurantes o utilizam como padrão por suas características superiores.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Característica</th>
+            <th style="padding: 12px; text-align: left;">Benefício para a franquia</th>
+            <th style="padding: 12px; text-align: left;">Especificação exigida</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Ponto de fumaça elevado</td>
+            <td style="padding: 10px;">Suporta altas temperaturas sem degradar</td>
+            <td style="padding: 10px;">218-228°C</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Baixa acidez</td>
+            <td style="padding: 10px;">Maior durabilidade do óleo na fritura</td>
+            <td style="padding: 10px;">≤ 0,05%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Baixo índice de peróxido</td>
+            <td style="padding: 10px;">Produto fresco, menor rancificação</td>
+            <td style="padding: 10px;">≤ 1,0 mEq/kg</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor neutro</td>
+            <td style="padding: 10px;">Não interfere no gosto dos alimentos</td>
+            <td style="padding: 10px;">Característico / neutro</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sem colesterol e sem gorduras trans</td>
+            <td style="padding: 10px;">Atende às exigências nutricionais</td>
+            <td style="padding: 10px;">0%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Estabilidade oxidativa</td>
+            <td style="padding: 10px;">Maior vida útil do óleo na fritura</td>
+            <td style="padding: 10px;">Alta (TBHQ + Vitamina E)</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Marcas de Óleo de Algodão Homologadas para Franquias</h2>
+      <p>Abaixo, as <strong>5 principais marcas de óleo de algodão</strong> mais encontradas nas listas de produtos homologados de franquias de restaurantes, lanchonetes e pizzarias. Todas disponíveis na <strong>PMG Atacadista</strong> em embalagem de <strong>15,8L / 15,7L</strong>.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 750px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Fabricante</th>
+            <th style="padding: 12px; text-align: left;">Ponto de Fumaça</th>
+            <th style="padding: 12px; text-align: left;">Acidez</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Liza</strong></td>
+            <td style="padding: 10px;">Cargill</td>
+            <td style="padding: 10px;">Alto</td>
+            <td style="padding: 10px;">≤ 0,20 mg KOH/g</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/1356" style="color: #095400;">Ver produto</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Soya</strong></td>
+            <td style="padding: 10px;">Bunge</td>
+            <td style="padding: 10px;">Alto</td>
+            <td style="padding: 10px;">≤ 0,10%</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/1358" style="color: #095400;">Ver produto</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Traviú</strong></td>
+            <td style="padding: 10px;">Polo Indústria</td>
+            <td style="padding: 10px;">218-228°C</td>
+            <td style="padding: 10px;">≤ 0,05%</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/2211" style="color: #095400;">Ver produto</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Elogiata</strong></td>
+            <td style="padding: 10px;">Icofort</td>
+            <td style="padding: 10px;">Alto</td>
+            <td style="padding: 10px;">≤ 0,05%</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/1355" style="color: #095400;">Ver produto</a></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Fry Sina</strong></td>
+            <td style="padding: 10px;">Agrofoods</td>
+            <td style="padding: 10px;">Alto</td>
+            <td style="padding: 10px;">≤ 0,05%</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/2209" style="color: #095400;">Ver produto</a></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📦 Por que o balde de 15,8L é o padrão nas franquias?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍟 Custo-benefício superior</h4>
+          <p>Comprar óleo em balde de 15,8L reduz significativamente o custo por litro em comparação com garrafas menores.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Armazenamento eficiente</h4>
+          <p>Baldes empilháveis otimizam o espaço na despensa da franquia. Empilhamento máximo de 3 a 4 baldes.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⚙️ Praticidade na cozinha</h4>
+          <p>O balde com alça facilita o manuseio e o despejo do óleo nas fritadeiras.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">♻️ Menos resíduos de embalagem</h4>
+          <p>Uma embalagem de 15,8L substitui dezenas de garrafas PET, reduzindo o lixo gerado pela unidade.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar óleos de algodão homologados para sua franquia?</h2>
+      <p>A <strong>PMG Atacadista</strong> é o fornecedor referência para franquias da Zona Sul de SP que precisam de <strong>óleos de algodão homologados em balde de 15,8L</strong>. Com mais de <strong>2000 itens em estoque</strong>, garantimos todas as marcas aprovadas pelas principais redes.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens para franquias:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Todas as 5 marcas de óleo de algodão 15,8L disponíveis</li>
+          <li>✓ <strong>Entrega rápida</strong> - 1-2 dias úteis para toda Zona Sul de SP</li>
+          <li>✓ <strong>Frota própria</strong> - Entregas seguras e no prazo</li>
+          <li>✓ <strong>Atendimento especializado</strong> para compradores de franquias</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para volume</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Comparativo nutricional dos óleos de algodão homologados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Informação Nutricional (por 13ml)</th>
+            <th style="padding: 12px; text-align: left;">Valor médio</th>
+            <th style="padding: 12px; text-align: left;">% VD*</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Valor energético</td>
+            <td style="padding: 10px;">107-108 kcal</td>
+            <td style="padding: 10px;">5%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gorduras totais</td>
+            <td style="padding: 10px;">12g</td>
+            <td style="padding: 10px;">18-22%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gorduras saturadas</td>
+            <td style="padding: 10px;">3,1-3,4g</td>
+            <td style="padding: 10px;">15-17%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gorduras trans</td>
+            <td style="padding: 10px;">0g</td>
+            <td style="padding: 10px;">0%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gorduras poli-insaturadas</td>
+            <td style="padding: 10px;">6,4-6,7g</td>
+            <td style="padding: 10px;">34%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Vitamina E</td>
+            <td style="padding: 10px;">1,7-5,2mg</td>
+            <td style="padding: 10px;">17-52%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Colesterol</td>
+            <td style="padding: 10px;">0mg</td>
+            <td style="padding: 10px;">0%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sódio</td>
+            <td style="padding: 10px;">0mg</td>
+            <td style="padding: 10px;">0%</td>
+          </tr>
+        </table>
+        <p style="padding: 0 15px 15px 15px; font-size: 0.8rem; color: #666;">*% Valores diários com base em uma dieta de 2.000 kcal ou 8.400 kJ. Valores podem variar entre marcas.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul para Franquias</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos franquias de restaurantes, lanchonetes e pizzarias em toda a Zona Sul:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Jardim São Luís</div>
+          <div>✅ Capão Redondo</div>
+          <div>✅ Jardim Ângela</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Socorro</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda a região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dica para compradores de franquias</h2>
+      <p>O óleo de algodão é um item de <strong>consumo contínuo e alto volume</strong> na maioria das franquias de alimentação. Recomendamos:</p>
+      
+      <div style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">📋 Checklist para compra de óleo homologado:</p>
+        <p style="margin: 5px 0 0 0;">
+        ☑️ Verificar na central da franquia as marcas de óleo aprovadas<br>
+        ☑️ Confirmar a embalagem permitida (balde 15,8L / 15,7L)<br>
+        ☑️ Calcular o consumo mensal da sua unidade<br>
+        ☑️ Solicitar cotação na PMG para compra programada<br>
+        ☑️ Agendar entregas recorrentes para manter estoque</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante de Franquias</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de óleo de algodão homologado para sua franquia? Me chama no WhatsApp que verifico a disponibilidade e preparo uma cotação especial para volume.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento a Franquias</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo de Óleos Homologados 15,8L</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todas as marcas de óleo de algodão 15,8L disponíveis para sua franquia.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Óleos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 VER ÓLEOS HOMOLOGADOS 15,8L
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Links diretos para marcas homologadas:</strong><br>
+        <a href="https://www.marquesvendaspmg.shop/produto/1356" style="color: #095400;">Liza</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/1358" style="color: #095400;">Soya</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/2211" style="color: #095400;">Traviú</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/1355" style="color: #095400;">Elogiata</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/2209" style="color: #095400;">Fry Sina</a>
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> óleo de algodão homologado para franquias, óleo liza para franquias, óleo soya homologado, óleo traviú 15L, óleo elogiata para restaurantes, óleo fry sina para frituras, fornecedor de óleo para franquias zona sul sp, marcas de óleo aprovadas por franquias, onde comprar óleo de algodão homologado, óleo 15,8L para lanchonete, atacado de óleo para franquias, pmg atacadista óleo homologado, marques vendas pmg, óleo para franquias de fast food, óleo de algodão para pizzaria.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 89,
+  "title": "DERIVADOS DE LEITE E QUEIJOS HOMOLOGADOS PARA FRANQUIAS: Muçarela, Cheddar e Mais em Embalagens Comerciais",
+  "description": "Derivados de leite e queijos homologados para franquias de pizzarias, lanchonetes e restaurantes: Muçarela Bari, Cheddar Vigor em embalagens de 2kg, 4kg e 5kg. Entrega rápida na Zona Sul de SP. Compre as marcas aprovadas pela sua franquia!",
+  "image": "https://i.imgur.com/7Txvv96.png",
+  "category": "Homologação para Franquias",
+  "section": "homologacao-franquias",
+  "readTime": "7 min de leitura",
+  "date": "2026-04-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧀 DERIVADOS DE LEITE E QUEIJOS HOMOLOGADOS PARA FRANQUIAS: Muçarela, Cheddar e Mais em Embalagens Comerciais</h1>
+      <p>Se sua <strong>franquia é do segmento de pizzarias, lanchonetes, restaurantes ou food service</strong>, os <strong>derivados de leite e queijos</strong> estão entre os insumos mais importantes e de maior consumo. Muçarela para pizzas, cheddar para lanches, provolone para pratos especiais — cada rede tem sua <strong>lista de queijos homologados</strong> com marcas e especificações específicas que devem ser seguidas à risca.</p>
+      
+      <p>Neste artigo, você vai conhecer as <strong>principais marcas de derivados de leite homologadas para franquias</strong> disponíveis no mercado, todas em <strong>embalagens comerciais</strong> (2kg, 4kg, 5kg, fatiado porcionado), e vai descobrir onde comprar todas elas em <strong>um único lugar na Zona Sul de SP</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🧀 Muçarela Bari • 🧀 Cheddar Vigor (fatiado) • 📦 Embalagens 2kg, 4kg, 5kg e fatiados • 🍕 Aplicações em pizzarias e lanchonetes • 📋 Especificações técnicas • 🏪 Onde comprar tudo em um só lugar • 📍 Entrega para Zona Sul de SP</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Queijos%20e%20Derivados" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 VER QUEIJOS HOMOLOGADOS</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/7Txvv96.png" alt="Derivados de leite e queijos homologados para franquias - muçarela e cheddar em embalagens comerciais" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Derivados de leite homologados para franquias: Muçarela Bari 4kg e Cheddar Vigor fatiado 2,24kg</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧀 Por que as franquias homologam queijos específicos?</h2>
+      <p>Queijos e derivados de leite impactam diretamente o sabor, a textura e a apresentação dos pratos. Uma pizza com muçarela de qualidade diferente pode arruinar a experiência do cliente e prejudicar a imagem da franquia.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Característica</th>
+            <th style="padding: 12px; text-align: left;">Impacto no produto final</th>
+            <th style="padding: 12px; text-align: left;">O que a franquia exige</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Derretimento uniforme</td>
+            <td style="padding: 10px;">Cobertura perfeita da pizza/lanche</td>
+            <td style="padding: 10px;">Muçarela de qualidade, sem separação de gordura</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor característico</td>
+            <td style="padding: 10px;">Identidade do cardápio da rede</td>
+            <td style="padding: 10px;">Marcas específicas aprovadas em testes sensoriais</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Padronização de peso</td>
+            <td style="padding: 10px;">Controle de custo por porção</td>
+            <td style="padding: 10px;">Fatiamento porcionado (ex: 160 fatias por caixa)</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Registro SIF / SIE</td>
+            <td style="padding: 10px;">Garante inspeção sanitária</td>
+            <td style="padding: 10px;">Obrigatório para todas as franquias</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Embalagem</td>
+            <td style="padding: 10px;">Facilidade de armazenamento e manuseio</td>
+            <td style="padding: 10px;">Tamanhos comerciais (2kg, 4kg, 5kg e fatiados)</td>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Derivados de Leite Homologados para Franquias</h2>
+      <p>Abaixo, os <strong>principais queijos e derivados</strong> mais encontrados nas listas de produtos homologados de franquias de pizzarias, lanchonetes e restaurantes.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 750px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Aplicação principal</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela</td>
+            <td style="padding: 10px;"><strong>Bari</strong></td>
+            <td style="padding: 10px;">Peça de 4kg</td>
+            <td style="padding: 10px;">Pizzas, lasanhas, pratos gratinados</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/719" style="color: #095400;">Ver produto</a></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</td>
+            <td style="padding: 10px;"><strong>Vigor</strong></td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</td>
+            <td style="padding: 10px;">Hambúrgueres, sanduíches, batatas</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/615" style="color: #095400;">Ver produto</a></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela Fatiada</td>
+            <td style="padding: 10px;">Bari / Vigor</td>
+            <td style="padding: 10px;">Fatiado porcionado</td>
+            <td style="padding: 10px;">Sanduíches, lanches rápidos</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Queijos" style="color: #095400;">Consultar</a></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Provolone</td>
+            <td style="padding: 10px;">Bari / Scal</td>
+            <td style="padding: 10px;">Peça 2kg / 5kg</td>
+            <td style="padding: 10px;">Massas, pratos especiais</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Queijos" style="color: #095400;">Consultar</a></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Requeijão Cremoso</td>
+            <td style="padding: 10px;">Vigor / Scal</td>
+            <td style="padding: 10px;">Pote 1,5kg / 3kg</td>
+            <td style="padding: 10px;">Pizzas, calzones, recheios</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Queijos" style="color: #095400;">Consultar</a></td>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Muçarela Bari 4kg: A Favorita das Pizzarias em Franquias</h2>
+      <p>A <strong>Muçarela Bari</strong> é uma das marcas mais respeitadas no mercado de food service e está presente nas listas de homologação de diversas franquias de pizzaria. A embalagem de <strong>4kg</strong> é o tamanho comercial ideal para cozinhas profissionais.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Características da Muçarela Bari 4kg:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Derretimento uniforme</strong> - Cobertura perfeita para pizzas</li>
+          <li>✓ <strong>Sabor equilibrado</strong> - Não compete com outros ingredientes</li>
+          <li>✓ <strong>Registro SIF</strong> - Atende à fiscalização sanitária</li>
+          <li>✓ <strong>Embalagem 4kg</strong> - Ideal para alto volume de produção</li>
+          <li>✓ <strong>Fácil de ralar/fatiar</strong> - Praticidade na cozinha</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍔 Cheddar Vigor Fatiado 2,24kg: Padrão em Lanchonetes Franqueadas</h2>
+      <p>O <strong>Cheddar Vigor fatiado</strong> é o queridinho das redes de hambúrgueres e sanduíches. A embalagem de <strong>2,24kg com 160 fatias</strong> já vem porcionada, facilitando o controle de custo e o preparo rápido.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Características do Cheddar Vigor Fatiado:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>160 fatias por embalagem</strong> - Controle de custo preciso por lanche</li>
+          <li>✓ <strong>Derretimento rápido</strong> - Ideal para chapas e churrasqueiras</li>
+          <li>✓ <strong>Sabor cremoso</strong> - Padrão das grandes redes</li>
+          <li>✓ <strong>Embalagem prática</strong> - Fácil armazenamento e manuseio</li>
+          <li>✓ <strong>Sem glúten</strong> - Atende restrições alimentares</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar derivados de leite homologados para sua franquia?</h2>
+      <p>A <strong>PMG Atacadista</strong> é o fornecedor referência para franquias da Zona Sul de SP que precisam de <strong>queijos e derivados homologados</strong>. Com mais de <strong>2000 itens em estoque</strong>, garantimos as marcas aprovadas pelas principais redes.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens para franquias:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Muçarela Bari, Cheddar Vigor e outros derivados</li>
+          <li>✓ <strong>Embalagens comerciais</strong> - 4kg, 2,24kg fatiado, 2kg, 5kg</li>
+          <li>✓ <strong>Entrega refrigerada</strong> - Frota própria com +280 veículos</li>
+          <li>✓ <strong>Entrega em 1-2 dias úteis</strong> para toda Zona Sul de SP</li>
+          <li>✓ <strong>Atendimento especializado</strong> para compradores de franquias</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para compras recorrentes</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul para Franquias de Pizzarias e Lanchonetes</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos franquias de pizzarias, lanchonetes e restaurantes em toda a Zona Sul:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Socorro</div>
+          <div>✅ Grajaú</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda a região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dica para compradores de franquias de pizzarias e lanchonetes</h2>
+      <p>Queijos são itens de <strong>alta rotatividade e custo significativo</strong> na operação. Uma compra bem planejada faz toda diferença no resultado financeiro da unidade.</p>
+      
+      <div style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">📋 Checklist para compra de queijos homologados:</p>
+        <p style="margin: 5px 0 0 0;">
+        ☑️ Verificar na central da franquia as marcas de queijo aprovadas (Bari, Vigor)<br>
+        ☑️ Confirmar o tipo de embalagem (peça 4kg, fatiado 2,24kg, etc.)<br>
+        ☑️ Calcular o consumo semanal da sua unidade<br>
+        ☑️ Solicitar cotação na PMG para compra programada<br>
+        ☑️ Garantir que o produto chegue refrigerado (entrega PMG é refrigerada)</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante de Franquias</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de muçarela, cheddar ou outros queijos homologados para sua franquia? Me chama no WhatsApp que verifico a disponibilidade e preparo uma cotação especial.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento a Franquias</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo de Queijos Homologados</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os queijos e derivados disponíveis para sua franquia.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Queijos%20e%20Derivados" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 VER QUEIJOS HOMOLOGADOS
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Links diretos para produtos homologados:</strong><br>
+        <a href="https://www.marquesvendaspmg.shop/produto/719" style="color: #095400;">Muçarela Bari 4kg</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/615" style="color: #095400;">Cheddar Vigor Fatiado 2,24kg</a>
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> queijos homologados para franquias, derivados de leite para franquias, muçarela bari para pizzaria, cheddar vigor fatiado, queijo homologado para franquias zona sul sp, fornecedor de queijos para franquias, muçarela 4kg para pizzaria, cheddar 2,24kg para lanchonete, marcas de queijo aprovadas por franquias, onde comprar muçarela homologada, atacado de queijos para franquias, pmg atacadista queijos, marques vendas pmg, queijo para franquias de sanduíches, muçarela para pizza franqueada.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 90,
+  "title": "CARNES E DESFIADOS HOMOLOGADOS PARA FRANQUIAS: Carne Seca, Frango, Calabresa e Mais em Embalagens Comerciais",
+  "description": "Carnes e desfiados homologados para franquias de restaurantes, pizzarias e esfiharias: Carne seca Alfama 1kg, Peito de frango desfiado Alfama 1kg, Calabresa Aurora 5kg. Entrega rápida na Zona Sul de SP. Compre as marcas aprovadas!",
+  "image": "https://i.imgur.com/MTXexIX.png",
+  "category": "Homologação para Franquias",
+  "section": "homologacao-franquias",
+  "readTime": "7 min de leitura",
+  "date": "2026-04-28",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🥩 CARNES E DESFIADOS HOMOLOGADOS PARA FRANQUIAS: Carne Seca, Frango, Calabresa e Mais em Embalagens Comerciais</h1>
+      <p>Se sua <strong>franquia é do segmento de restaurantes, pizzarias, esfiharias, lanchonetes ou food service</strong>, as carnes e os desfiados estão entre os insumos de maior impacto no cardápio e no custo operacional. Cada rede tem sua <strong>lista de carnes homologadas</strong> — marcas, cortes, e especificações que precisam ser seguidas à risca para garantir o padrão de qualidade.</p>
+      
+      <p>Neste artigo, você vai conhecer as <strong>principais marcas de carnes e desfiados homologadas para franquias</strong> disponíveis no mercado, incluindo <strong>carne seca desfiada, peito de frango desfiado e calabresa</strong>, todas em <strong>embalagens comerciais</strong> (1kg e 5kg), e vai descobrir onde comprar todas elas em <strong>um único lugar na Zona Sul de SP</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🥩 Carne Seca Desfiada Alfama 1kg • 🍗 Peito de Frango Desfiado Alfama 1kg • 🌭 Calabresa Aurora 5kg • 📦 Embalagens comerciais • 🍕 Aplicações em esfihas, pizzas, salgados • 📋 Especificações técnicas • 🏪 Onde comprar tudo em um só lugar • 📍 Entrega para Zona Sul de SP</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Carnes%20e%20Desfiados" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 VER CARNES HOMOLOGADAS</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/MTXexIX.png" alt="Carnes e desfiados homologados para franquias - Alfama e Aurora em embalagens comerciais" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Carnes e desfiados homologados para franquias: Carne seca Alfama, Frango desfiado Alfama e Calabresa Aurora</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥩 Por que as franquias homologam carnes e desfiados específicos?</h2>
+      <p>Carnes e desfiados são protagonistas em pratos de sucesso de franquias de esfiharias, pizzarias e restaurantes. A escolha da marca certa impacta sabor, textura, rendimento e, principalmente, a fidelização do cliente.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Característica</th>
+            <th style="padding: 12px; text-align: left;">Impacto no produto final</th>
+            <th style="padding: 12px; text-align: left;">O que a franquia exige</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Textura e suculência</strong></td>
+            <td style="padding: 10px;">Mordida macia e agradável</td>
+            <td style="padding: 10px;">Desfiado na textura correta, sem excesso de gordura</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Padronização do sabor</strong></td>
+            <td style="padding: 10px;">Mesmo gosto em todas as unidades</td>
+            <td style="padding: 10px;">Marcas específicas aprovadas em testes sensoriais</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Rendimento padrão</strong></td>
+            <td style="padding: 10px;">Controle de custo por porção</td>
+            <td style="padding: 10px;">Embalagens de 1kg e 5kg para ficha técnica precisa</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Registro SIF / SIE</strong></td>
+            <td style="padding: 10px;">Garante inspeção sanitária</td>
+            <td style="padding: 10px;">Obrigatório para todas as franquias</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Procedência e rastreabilidade</strong></td>
+            <td style="padding: 10px;">Segurança alimentar</td>
+            <td style="padding: 10px;">Marcas consolidadas com certificação</td>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Carnes e Desfiados Homologados para Franquias</h2>
+      <p>Abaixo, os <strong>principais cortes e desfiados</strong> mais encontrados nas listas de produtos homologados de franquias de esfiharias, pizzarias e restaurantes.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 750px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Aplicação principal</th>
+            <th style="padding: 12px; text-align: left;">Link</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</strong></td>
+            <td style="padding: 10px;"><strong>Alfama</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</td>
+            <td style="padding: 10px;">Esfihas, pastéis, salgados, tapiocas</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/533" style="color: #095400;">Ver produto</a></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</strong></td>
+            <td style="padding: 10px;"><strong>Alfama</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</td>
+            <td style="padding: 10px;">Esfihas, pizzas, salgados, risotos</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/507" style="color: #095400;">Ver produto</a></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Calabresa</strong></td>
+            <td style="padding: 10px;"><strong>Aurora</strong></td>
+            <td style="padding: 10px;">Pacote 5kg</td>
+            <td style="padding: 10px;">Pizzas, esfihas, salgados assados/fritos</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produto/978" style="color: #095400;">Ver produto</a></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Costela Desfiada</strong></td>
+            <td style="padding: 10px;"><strong>Alfama</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</td>
+            <td style="padding: 10px;">Esfihas, pastéis, salgados especiais</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Consultar</a></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Hambúrguer (cortes bovinos)</strong></td>
+            <td style="padding: 10px;"><strong>Frigonosso / Boi Brasil</strong></td>
+            <td style="padding: 10px;">Porcionado congelado</td>
+            <td style="padding: 10px;">Lanches, hambúrgueres artesanais</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=Derivados%20de%20Bovino" style="color: #095400;">Consultar</a></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cortes Suínos (pernil, lombo)</strong></td>
+            <td style="padding: 10px;"><strong>My Pork / Pamplona</strong></td>
+            <td style="padding: 10px;">Porcionado</td>
+            <td style="padding: 10px;">Pratos principais, sanduíches</td>
+            <td style="padding: 10px;"><a href="https://www.marquesvendaspmg.shop/produtos?categoria=derivados%20de%20su%C3%ADno" style="color: #095400;">Consultar</a></td>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥩 Alfama: A Marca Referência em Desfiados para Franquias</h2>
+      <p>A <strong>Alfama</strong> é a marca mais respeitada no segmento de carnes desfiadas para food service. Sua linha de produtos está presente nas listas de homologação das principais franquias de esfiharias e salgados do país.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Produtos Alfama homologados:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Carne Seca Desfiada 1kg</strong> - Textura perfeita, sabor marcante, ideal para esfihas</li>
+          <li>✓ <strong>Peito de Frango Desfiado 1kg</strong> - Sabor neutro, versátil, ótimo rendimento</li>
+          <li>✓ <strong>Costela Desfiada 1kg</strong> - Sabor suculento, para receitas especiais</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌭 Aurora: Calabresa 5kg para Pizzarias e Esfiharias</h2>
+      <p>A <strong>Calabresa Aurora</strong> na embalagem de <strong>5kg</strong> é a preferida das franquias de pizzarias e esfiharias. O tamanho comercial facilita o armazenamento e o custo por quilo é muito competitivo.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Características da Calabresa Aurora 5kg:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Sabor tradicional</strong> - O padrão que o consumidor reconhece</li>
+          <li>✓ <strong>Embalagem 5kg</strong> - Ideal para alto volume de produção</li>
+          <li>✓ <strong>Fácil de fatiar</strong> - Praticidade na cozinha</li>
+          <li>✓ <strong>Versatilidade</strong> - Pizzas, esfihas, salgados assados e fritos</li>
+          <li>✓ <strong>Marca Aurora</strong> - Confiança e tradição no mercado</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Aplicações dos Desfiados em Franquias</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥙 Esfiharias</h4>
+          <p>Carne seca e frango desfiado são os recheios mais vendidos em esfihas abertas e fechadas. A Alfama é referência nesse segmento.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍕 Pizzarias</h4>
+          <p>Calabresa Aurora e frango desfiado com catupiry são sabores campeões de venda. A padronização da marca é essencial.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥟 Salgados para festas</h4>
+          <p>Pastéis, coxinhas, risoles e bolinhas de queijo com carne - tudo leva desfiados de qualidade.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍳 Lanchonetes e restaurantes</h4>
+          <p>Tapiocas, sanduíches naturais, omeletes e pratos executivos - o desfiado agrega valor ao cardápio.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar carnes e desfiados homologados para sua franquia?</h2>
+      <p>A <strong>PMG Atacadista</strong> é o fornecedor referência para franquias da Zona Sul de SP que precisam de <strong>carnes e desfiados homologados</strong>. Com mais de <strong>2000 itens em estoque</strong>, garantimos as marcas aprovadas pelas principais redes.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens para franquias:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Carne seca Alfama, Frango Alfama, Calabresa Aurora e mais</li>
+          <li>✓ <strong>Embalagens comerciais</strong> - 1kg para desfiados, 5kg para calabresa</li>
+          <li>✓ <strong>Entrega refrigerada</strong> - Frota própria com +280 veículos</li>
+          <li>✓ <strong>Entrega em 1-2 dias úteis</strong> para toda Zona Sul de SP</li>
+          <li>✓ <strong>Atendimento especializado</strong> para compradores de franquias</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para compras recorrentes</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul para Franquias</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos franquias de esfiharias, pizzarias e restaurantes em toda a Zona Sul:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Vila Andrade</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Socorro</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda a região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dica para compradores de franquias de esfiharias e pizzarias</h2>
+      <p>Carnes e desfiados são itens de <strong>alto custo e alta rotatividade</strong>. Uma compra bem planejada e com marcas homologadas garante o padrão do seu cardápio e o controle financeiro da unidade.</p>
+      
+      <div style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">📋 Checklist para compra de carnes homologadas:</p>
+        <p style="margin: 5px 0 0 0;">
+        ☑️ Verificar na central da franquia as marcas de carne aprovadas (Alfama, Aurora)<br>
+        ☑️ Confirmar a embalagem permitida (1kg para desfiados, 5kg para calabresa)<br>
+        ☑️ Calcular o consumo mensal de cada tipo de carne<br>
+        ☑️ Solicitar cotação na PMG para compra programada<br>
+        ☑️ Verificar o estoque semanal para não faltar produto nos dias de maior movimento</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Resumo das Categorias Homologadas Disponíveis na PMG</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Marcas Homologadas</th>
+            <th style="padding: 12px; text-align: left;">Embalagens</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Manteigas</strong></td>
+            <td style="padding: 10px;">Tirolez, Scala, Frizzo, Laurita, Passa Quatro, Três Marias</td>
+            <td style="padding: 10px;">Caixa 5kg</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Óleos de Algodão</strong></td>
+            <td style="padding: 10px;">Liza, Soya, Traviú, Elogiata, Fry Sina</td>
+            <td style="padding: 10px;">Balde 15,8L / 15,7L</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Queijos e Derivados</strong></td>
+            <td style="padding: 10px;">Bari (Muçarela), Vigor (Cheddar) </td>
+            <td style="padding: 10px;">4kg, 2,24kg fatiado</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Desfiados</strong></td>
+            <td style="padding: 10px;">Alfama (Carne seca, Frango)</td>
+            <td style="padding: 10px;">Pacote 1kg</td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Embutidos</strong></td>
+            <td style="padding: 10px;">Aurora (Calabresa)</td>
+            <td style="padding: 10px;">Pacote 5kg</td>
+        </table>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante de Franquias</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de carnes, desfiados ou calabresa homologados para sua franquia? Me chama no WhatsApp que verifico a disponibilidade e preparo uma cotação especial para seu volume.
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento a Franquias</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo de Carnes Homologadas</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todas as carnes e desfiados disponíveis para sua franquia.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Carnes%20e%20Desfiados" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 VER CARNES HOMOLOGADAS
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Links diretos para produtos homologados:</strong><br>
+        <a href="https://www.marquesvendaspmg.shop/produto/533" style="color: #095400;">Carne Seca Alfama 1kg</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/507" style="color: #095400;">Peito de Frango Alfama 1kg</a> • 
+        <a href="https://www.marquesvendaspmg.shop/produto/978" style="color: #095400;">Calabresa Aurora 5kg</a>
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> carnes homologadas para franquias, desfiados para franquias, carne seca alfama para esfiha, peito de frango desfiado alfama, calabresa aurora 5kg, fornecedor de carnes para franquias zona sul sp, marcas de carne aprovadas por franquias, onde comprar desfiado homologado, atacado de carnes para franquias, alfama para esfiharias, aurora para pizzarias, pmg atacadista carnes, marques vendas pmg, carne para franquias de salgados, desfiado para pizzaria, calabresa para esfiha.
+      </p>
+    </div>
+  `
 }
   ];
 
