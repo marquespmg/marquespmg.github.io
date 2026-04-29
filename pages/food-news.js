@@ -21136,6 +21136,2195 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
       </p>
     </div>
   `
+},
+{
+  "id": 91,
+  "title": "BEBIDAS PARA EVENTOS: Guia Completo para Comprar em Grande Quantidade para Casamentos, Festas e Confraternizações",
+  "description": "Bebidas para eventos: guia completo para comprar em grande quantidade para casamentos, festas e confraternizações. Destilados, cervejas, refrigerantes e muito mais. Entrega rápida na Zona Sul de SP. Compre tudo em um só lugar!",
+  "image": "https://i.imgur.com/Ups2fxR.png",
+  "category": "Bebidas para Eventos",
+  "section": "bebidas-eventos",
+  "readTime": "9 min de leitura",
+  "date": "2026-04-29",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🍾 BEBIDAS PARA EVENTOS: Guia Completo para Comprar em Grande Quantidade para Casamentos, Festas e Confraternizações</h1>
+      <p>Organizar um <strong>evento</strong> — seja um <strong>casamento, festa de aniversário, formatura, confraternização de empresa ou evento corporativo</strong> — dá trabalho. E um dos maiores desafios é garantir que as <strong>bebidas não faltem</strong> e, ao mesmo tempo, não haja desperdício. Comprar em <strong>grande quantidade</strong> exige planejamento, conhecimento de marcas e, principalmente, um <strong>fornecedor confiável</strong>.</p>
+      
+      <p>Neste guia completo, você vai aprender <strong>como calcular a quantidade ideal de bebidas</strong> para qualquer tipo de evento, quais <strong>marcas e categorias</strong> priorizar, e vai descobrir onde comprar tudo em <strong>um único lugar na Zona Sul de SP</strong> com entrega rápida.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai aprender neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🍾 Destilados (vodka, whisky, gin, licores) • 🍺 Cervejas (lata, long neck, garrafa) • 🥤 Refrigerantes e sucos • 💧 Águas e energéticos • 📊 Calculadora de bebidas por pessoa • 📋 Tabelas para casamento • 🏪 Onde comprar tudo em um só lugar • 📍 Entrega para Zona Sul de SP</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 VER BEBIDAS PARA EVENTOS</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/Ups2fxR.png" alt="Bebidas para eventos - casamento, festa e confraternização - compra em grande quantidade" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Bebidas para eventos: compre destilados, cervejas, refrigerantes e muito mais em grande quantidade na Zona Sul de SP</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Como Calcular Bebidas para Eventos: Quantidade por Pessoa</h2>
+      <p>O primeiro passo para não errar na compra é saber <strong>quanto cada pessoa consome</strong> em média. Veja a tabela abaixo com as recomendações padrão para eventos de 4 a 6 horas de duração.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Bebida</th>
+            <th style="padding: 12px; text-align: left;">Quantidade por pessoa (4-6h)</th>
+            <th style="padding: 12px; text-align: left;">Embalagem sugerida</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cerveja lata/long neck</strong></td>
+            <td style="padding: 10px;">3 a 5 unidades</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Long neck 330ml</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Refrigerante</strong></td>
+            <td style="padding: 10px;">500ml a 600ml</strong></td>
+            <td style="padding: 10px;">Garrafa PET 2L / Lata 350ml</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Água</strong></td>
+            <td style="padding: 10px;">500ml</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml / Galão</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Destilado (vodka, whisky, gin)</strong></td>
+            <td style="padding: 10px;">4 a 6 doses (200-300ml)</strong></td>
+            <td style="padding: 10px;">Garrafa 1L / 965ml / 700ml</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Licor</strong></td>
+            <td style="padding: 10px;">2 a 3 doses</strong></td>
+            <td style="padding: 10px;">Garrafa 900ml / 1L</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Energético</strong></td>
+            <td style="padding: 10px;">1 a 2 latas</strong></td>
+            <td style="padding: 10px;">Lata 250ml / 473ml</strong></td>
+        </table>
+      </div>
+      <p><strong>Fórmula rápida:</strong> Quantidade Total = (Número de Convidados) x (Consumo por Pessoa)</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💍 Quantidade de Bebidas para Casamento: Exemplo Prático</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Bebida</th>
+            <th style="padding: 12px; text-align: left;">Para 50 pessoas</th>
+            <th style="padding: 12px; text-align: left;">Para 100 pessoas</th>
+            <th style="padding: 12px; text-align: left;">Para 200 pessoas</th>
+            <th style="padding: 12px; text-align: left;">Para 500 pessoas</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cerveja (latas)</td>
+            <td style="padding: 10px;">200 latas</strong></td>
+            <td style="padding: 10px;">400 latas</strong></td>
+            <td style="padding: 10px;">800 latas</strong></td>
+            <td style="padding: 10px;">2.000 latas</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Refrigerante 2L</strong></td>
+            <td style="padding: 10px;">15 garrafas</strong></td>
+            <td style="padding: 10px;">30 garrafas</strong></td>
+            <td style="padding: 10px;">60 garrafas</strong></td>
+            <td style="padding: 10px;">150 garrafas</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Água 500ml</strong></td>
+            <td style="padding: 10px;">50 garrafas</strong></td>
+            <td style="padding: 10px;">100 garrafas</strong></td>
+            <td style="padding: 10px;">200 garrafas</strong></td>
+            <td style="padding: 10px;">500 garrafas</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Vodka 1L</strong></td>
+            <td style="padding: 10px;">5 a 7 garrafas</strong></td>
+            <td style="padding: 10px;">10 a 14 garrafas</strong></td>
+            <td style="padding: 10px;">20 a 28 garrafas</strong></td>
+            <td style="padding: 10px;">50 a 70 garrafas</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Whisky 1L</strong></td>
+            <td style="padding: 10px;">3 a 5 garrafas</strong></td>
+            <td style="padding: 10px;">6 a 10 garrafas</strong></td>
+            <td style="padding: 10px;">12 a 20 garrafas</strong></td>
+            <td style="padding: 10px;">30 a 50 garrafas</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Licor 900ml</strong></td>
+            <td style="padding: 10px;">5 garrafas</strong></td>
+            <td style="padding: 10px;">10 garrafas</strong></td>
+            <td style="padding: 10px;">20 garrafas</strong></td>
+            <td style="padding: 10px;">50 garrafas</strong></td>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍾 Principais Categorias de Bebidas para Eventos</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥃 Destilados</h4>
+          <p>Vodka, whisky, gin, rum, tequila. São a base dos drinks e coquetéis. Garrafas de 1L, 965ml e 700ml são as mais vendidas para eventos.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍺 Cervejas</h4>
+          <p>Lata 350ml (mais prática), long neck 330ml (mais sofisticada) e garrafa 600ml (para maior volume). Spaten, Heineken, Budweiser são as marcas mais pedidas.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥤 Refrigerantes e Sucos</h4>
+          <p>Coca-Cola, Guaraná, Fanta, Sprite, Pepsi, Sukita. Embalagens PET 2L são as mais econômicas para eventos.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">💧 Águas e Energéticos</h4>
+          <p>Água mineral com e sem gás (500ml), energéticos para drinks e para os convidados que não bebem álcool.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍾 Marcas de Destilados para Eventos</h2>
+      <p>As marcas mais procuradas por organizadores de eventos na Zona Sul de SP. Todas disponíveis na PMG Atacadista.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Bebida</th>
+            <th style="padding: 12px; text-align: left;">Marcas disponíveis</th>
+            <th style="padding: 12px; text-align: left;">Embalagens</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Vodka</strong></td>
+            <td style="padding: 10px;">Smirnoff, Absolut, Orloff, Dreher, Poti</strong></td>
+            <td style="padding: 10px;">965ml, 1L, 1,75L, 2L</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Whisky</strong></td>
+            <td style="padding: 10px;">Johnnie Walker, Red Label, Black Label, White Horse</strong></td>
+            <td style="padding: 10px;">1L</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gin</strong></td>
+            <td style="padding: 10px;">Gordon's, Beefeater, Tanqueray, Bombay</strong></td>
+            <td style="padding: 10px;">1L</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Licor</strong></td>
+            <td style="padding: 10px;">Dreher</strong></td>
+            <td style="padding: 10px;">900ml</strong></td>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍺 Marcas de Cervejas para Eventos</h2>
+      <p>Para eventos, as cervejas mais vendidas são as de <strong>lata 350ml e long neck 330ml</strong>, pela praticidade e menor geração de lixo (vidro).</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Cerveja</th>
+            <th style="padding: 12px; text-align: left;">Tipo</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Spaten</strong></td>
+            <td style="padding: 10px;">Pilsen</strong></td>
+            <td style="padding: 10px;">Lata 350ml</strong></td>
+            <td style="padding: 10px;">Eventos em geral</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Heineken</strong></td>
+            <td style="padding: 10px;">Pilsen Premium</strong></td>
+            <td style="padding: 10px;">Long neck 330ml / Lata</strong></td>
+            <td style="padding: 10px;">Eventos sofisticados</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Budweiser</strong></td>
+            <td style="padding: 10px;">Lager</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Long neck</strong></td>
+            <td style="padding: 10px;">Festas e baladas</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Brahma / Skol / Antártica</strong></td>
+            <td style="padding: 10px;">Pilsen</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Garrafa 600ml</strong></td>
+            <td style="padding: 10px;">Eventos de grande volume</strong></td>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥤 Refrigerantes e Sucos para Eventos</h2>
+      <p>Os refrigerantes são indispensáveis em qualquer evento. Veja as marcas e embalagens mais compradas.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marcas disponíveis</th>
+            <th style="padding: 12px; text-align: left;">Embalagens</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Refrigerante</strong></td>
+            <td style="padding: 10px;">Coca-Cola, Guaraná, Fanta, Sprite, Pepsi, Sukita</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L / PET 1L</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Energético</strong></td>
+            <td style="padding: 10px;">Red Bull, Monster</strong></td>
+            <td style="padding: 10px;">Lata 250ml / 473ml</strong></td>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Água Mineral</strong></td>
+            <td style="padding: 10px;">Indaiá, Bonafont, Minalba</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml / 1,5L / Galão</strong></td>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar bebidas para eventos na Zona Sul de SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> é a escolha certa para organizadores de eventos na Zona Sul de SP. Com mais de <strong>2000 itens em estoque</strong>, você encontra <strong>todas as bebidas que precisa em um só lugar</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens para compradores de eventos:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Destilados, cervejas, refrigerantes, águas, energéticos</li>
+          <li>✓ <strong>Embalagens para evento</strong> - Lata 350ml, long neck, PET 2L, garrafas 1L</li>
+          <li>✓ <strong>Entrega rápida</strong> - 1-2 dias úteis para toda Zona Sul de SP</li>
+          <li>✓ <strong>Frota própria</strong> - Entregas seguras e no prazo</li>
+          <li>✓ <strong>Atendimento especializado</strong> para organizadores de eventos</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para compras em grande volume</li>
+          <li>✓ <strong>Compre tudo em uma única nota</strong> - Facilita sua gestão financeira</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul para Eventos</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Entregamos bebidas para eventos em todos os bairros da Zona Sul:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Jardim São Luís</div>
+          <div>✅ Capão Redondo</div>
+          <div>✅ Jardim Ângela</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Socorro</div>
+          <div>✅ Grajaú</div>
+          <div>✅ Pedreira</div>
+          <div>✅ Cidade Ademar</div>
+          <div>✅ Vila Andrade</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda a região!</strong> Caso seu evento seja em outro local, consulte-nos.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dicas para compradores de eventos</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">1️⃣ Calcule com antecedência</h4>
+          <p>Use a tabela de consumo por pessoa para estimar a quantidade. Sempre adicione 10% de margem de segurança.</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">2️⃣ Compre as marcas certas</h4>
+          <p>Para eventos, marcas conhecidas fazem diferença. Invista em destilados como Smirnoff, Johnnie Walker, Gordon's.</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">3️⃣ Priorize latas e long necks</h4>
+          <p>Vidro quebra e gera risco. Latas e long necks são mais seguras e fáceis de descartar.</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">4️⃣ Planeje a entrega</h4>
+          <p>Agende sua entrega com 5-7 dias de antecedência para garantir disponibilidade e evitar contratempos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🎉 Tipos de Eventos que Atendemos</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">💍</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Casamentos</h4>
+          <p style="margin: 0;">Bebidas para festa completa</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🎂</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Aniversários</h4>
+          <p style="margin: 0;">Festa de 15 anos, adulto, infantil</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🎓</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Formaturas</h4>
+          <p style="margin: 0;">Formatura, baile de gala</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🏢</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Confraternizações</h4>
+          <p style="margin: 0;">Empresas, clubes, associações</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🎄</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Festa de fim de ano</h4>
+          <p style="margin: 0;">Celebrações natalinas e ano novo</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🎪</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Eventos corporativos</h4>
+          <p style="margin: 0;">Happy hour, treinamentos, open house</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante de Eventos</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Está organizando um evento e precisa de bebidas em grande quantidade? Me chama no WhatsApp que preparo uma cotação especial e ajudo no cálculo!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento para Eventos</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo de Bebidas para Eventos</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todas as bebidas disponíveis para seu evento em grande quantidade.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 VER BEBIDAS PARA EVENTOS
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Categorias disponíveis:</strong> Destilados • Cervejas • Refrigerantes • Sucos • Águas • Energéticos • Licores
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> bebidas para eventos, comprar bebida para casamento em quantidade, cerveja para festa em grande volume, destilados para eventos, calculadora de bebidas para festa, kit bebida para 100 pessoas, fornecedor de bebidas para eventos zona sul sp, atacado de bebidas para casamento, como calcular bebida por pessoa para festa, cerveja lata para evento, vodka para casamento, whisky para formatura, refrigerante para festa, energético para evento, água mineral para confraternização, marques vendas pmg bebidas, pmg atacadista eventos.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 92,
+  "title": "DESTILADOS PARA EVENTOS: Vodka, Whisky, Gin e Licores em Grande Quantidade para Casamentos e Festas",
+  "description": "Destilados para eventos: vodka Smirnoff, whisky Johnnie Walker, gin Gordon's e licores Dreher em grande quantidade para casamentos, festas e confraternizações. Entrega rápida na Zona Sul de SP. Compre tudo em um só lugar!",
+  "image": "https://i.imgur.com/PvvLKgk.png",
+  "category": "Bebidas para Eventos",
+  "section": "bebidas-eventos",
+  "readTime": "7 min de leitura",
+  "date": "2026-04-29",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🥃 DESTILADOS PARA EVENTOS: Vodka, Whisky, Gin e Licores em Grande Quantidade para Casamentos e Festas</h1>
+      <p>Os <strong>destilados</strong> — vodka, whisky, gin e licores — são presença garantida em qualquer <strong>evento</strong> que tenha um bar montado, coquetel de boas-vindas ou open bar liberado. Eles são a base dos drinks mais pedidos e um dos itens de <strong>maior custo na planilha do organizador</strong>. Por isso, comprar no <strong>atacado</strong>, em <strong>grande quantidade</strong> e com as <strong>marcas certas</strong> faz toda a diferença.</p>
+      
+      <p>Neste guia completo, você vai conhecer as <strong>principais marcas de destilados para eventos</strong>, as <strong>embalagens ideais</strong>, as <strong>quantidades sugeridas por tipo de evento</strong> e vai descobrir onde comprar tudo em <strong>um único lugar na Zona Sul de SP</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🥃 Vodka (Smirnoff, Absolut, Orloff) • 🥃 Whisky (Johnnie Walker, Red Label) • 🥃 Gin (Gordon's, Beefeater) • 🥃 Licores (Dreher) • 📊 Quantidades por evento • 🥂 Drinks mais pedidos • 🏪 Onde comprar tudo em um só lugar • 📍 Entrega para Zona Sul de SP</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 VER DESTILADOS PARA EVENTOS</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/PvvLKgk.png" alt="Destilados para eventos - vodka, whisky, gin e licores em grande quantidade" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Destilados para eventos: vodka Smirnoff, whisky Johnnie Walker, gin Gordon's e licores Dreher em grande quantidade</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥃 Por que os destilados são essenciais em eventos?</h2>
+      <p>Destilados são a alma do open bar. Eles permitem a preparação de <strong>coquetéis variados</strong>, atendem a diferentes perfis de convidados e, quando comprados em quantidade certa, garantem a <strong>satisfação geral</strong> sem desperdício.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Destilado</th>
+            <th style="padding: 12px; text-align: left;">Drinks mais pedidos</th>
+            <th style="padding: 12px; text-align: left;">Perfil de convidado</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Vodka</strong></td>
+            <td style="padding: 10px;">Caipiroska, Vodka com energético, Moscow Mule</td>
+            <td style="padding: 10px;">Público jovem e adulto (universal)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Whisky</strong></td>
+            <td style="padding: 10px;">Whisky com gelo, whisky com água, Jack & Coke</td>
+            <td style="padding: 10px;">Público mais maduro, homens</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Gin</strong></td>
+            <td style="padding: 10px;">Gin tônica, gin com limão, coquetéis sofisticados</td>
+            <td style="padding: 10px;">Público moderno e mulheres</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Licor</strong></td>
+            <td style="padding: 10px;">Licor puro, com gelo, em drinks doces</td>
+            <td style="padding: 10px;">Público feminino, sobremesas</td>
+           </tr>
+         </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Quantidade de Destilados por Tipo de Evento</h2>
+      <p>Calcular a quantidade certa de destilados evita sobras ou, pior, faltar bebida na metade da festa. Veja a tabela abaixo com as <strong>recomendações para eventos de 4 a 6 horas</strong>.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 650px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Destilado</th>
+            <th style="padding: 12px; text-align: left;">50 pessoas</th>
+            <th style="padding: 12px; text-align: left;">100 pessoas</th>
+            <th style="padding: 12px; text-align: left;">200 pessoas</th>
+            <th style="padding: 12px; text-align: left;">500 pessoas</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Vodka 1L</strong></td>
+            <td style="padding: 10px;">5 a 7 garrafas</td>
+            <td style="padding: 10px;">10 a 14 garrafas</td>
+            <td style="padding: 10px;">20 a 28 garrafas</td>
+            <td style="padding: 10px;">50 a 70 garrafas</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Whisky 1L</strong></td>
+            <td style="padding: 10px;">3 a 5 garrafas</td>
+            <td style="padding: 10px;">6 a 10 garrafas</td>
+            <td style="padding: 10px;">12 a 20 garrafas</td>
+            <td style="padding: 10px;">30 a 50 garrafas</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Gin 1L</strong></td>
+            <td style="padding: 10px;">2 a 4 garrafas</td>
+            <td style="padding: 10px;">4 a 8 garrafas</td>
+            <td style="padding: 10px;">8 a 16 garrafas</td>
+            <td style="padding: 10px;">20 a 40 garrafas</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Licor 900ml</strong></td>
+            <td style="padding: 10px;">3 a 5 garrafas</td>
+            <td style="padding: 10px;">6 a 10 garrafas</td>
+            <td style="padding: 10px;">12 a 20 garrafas</td>
+            <td style="padding: 10px;">30 a 50 garrafas</td>
+           </tr>
+         </table>
+      </div>
+      <p><strong>Fórmula rápida:</strong> Vodka é sempre o destilado de maior consumo. A proporção típica em eventos é: 50% vodka, 25% whisky, 15% gin, 10% licores.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥃 Marcas de Vodka para Eventos</h2>
+      <p>A vodka é o <strong>destilado mais consumido em eventos</strong> brasileiros. Leve, versátil e base de drinks como caipirinha, caipiroska e vodka com energético.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Perfil</th>
+            <th style="padding: 12px; text-align: left;">Embalagens</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Smirnoff</strong></td>
+            <td style="padding: 10px;">Premium, sabor neutro</td>
+            <td style="padding: 10px;">965ml / 1L / 1,75L</td>
+            <td style="padding: 10px;">Eventos de alto padrão</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Absolut</strong></td>
+            <td style="padding: 10px;">Ultra premium, sabor puro</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Coquetéis sofisticados</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Orloff</strong></td>
+            <td style="padding: 10px;">Custo-benefício, qualidade</td>
+            <td style="padding: 10px;">965ml / 1L</td>
+            <td style="padding: 10px;">Eventos de grande volume</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Dreher</strong></td>
+            <td style="padding: 10px;">Tradicional, suave</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Eventos tradicionais</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Poti</strong></td>
+            <td style="padding: 10px;">Econômica, boa relação preço</td>
+            <td style="padding: 10px;">1L / 2L</td>
+            <td style="padding: 10px;">Eventos com orçamento controlado</td>
+           </tr>
+         </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥃 Marcas de Whisky para Eventos</h2>
+      <p>O whisky é o <strong>destilado preferido do público masculino</strong> e indispensável em eventos mais formais, como casamentos e formaturas.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Perfil</th>
+            <th style="padding: 12px; text-align: left;">Embalagens</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Johnnie Walker Red Label</strong></td>
+            <td style="padding: 10px;">Suave, levemente defumado</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Casamentos e coquetéis</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Johnnie Walker Black Label</strong></td>
+            <td style="padding: 10px;">Avançado, 12 anos</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Eventos de alto padrão</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>White Horse</strong></td>
+            <td style="padding: 10px;">Tradicional, qualidade</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Eventos de grande volume</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Red & White</strong></td>
+            <td style="padding: 10px;">Custo-benefício</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Eventos com orçamento controlado</td>
+           </tr>
+         </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥃 Marcas de Gin para Eventos</h2>
+      <p>O gin é um dos destilados que <strong>mais cresceu no mercado de eventos</strong> nos últimos anos, especialmente entre o público feminino e jovem adulto.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Perfil</th>
+            <th style="padding: 12px; text-align: left;">Embalagens</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Gordon's</strong></td>
+            <td style="padding: 10px;">Clássico, botânico suave</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Gin tônica tradicional</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Beefeater</strong></td>
+            <td style="padding: 10px;">Botânico intenso, alfazema</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Coquetéis sofisticados</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Tanqueray</strong></td>
+            <td style="padding: 10px;">Ultra premium, zimbro marcante</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Eventos de alto padrão</td>
+           </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Bombay Sapphire</strong></td>
+            <td style="padding: 10px;">Premium, botânico equilibrado</td>
+            <td style="padding: 10px;">1L</td>
+            <td style="padding: 10px;">Coquetéis premium</td>
+           </tr>
+         </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥃 Licores para Eventos: Dreher</h2>
+      <p>Os <strong>licores Dreher</strong> são presença garantida em eventos, seja como drinque independente, em coquetéis ou na sobremesa.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Sabores disponíveis:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Dreher Tradicional</strong> - Sabor suave, versátil</li>
+          <li>✓ <strong>Dreher Morango</strong> - Doce, frutado</li>
+          <li>✓ <strong>Dreher Limão</strong> - Refrescante, cítrico</li>
+          <li>✓ <strong>Dreher Chocolate</strong> - Cremoso, sobremesa</li>
+        </ul>
+        <p style="margin-top: 15px;"><strong>Embalagem:</strong> Garrafa 900ml<br>
+        <strong>Quantidade recomendada para evento:</strong> 1 garrafa para cada 10-15 pessoas</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥂 Drinks com Destilados Mais Pedidos em Eventos</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍸 Caipiroska (Vodka)</h4>
+          <p>Vodka, limão, açúcar, gelo. O drink mais pedido em eventos brasileiros.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥃 Whisky com Gelo</h4>
+          <p>Whisky, gelo (ou água). Simples, tradicional e muito consumido.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍹 Gin Tônica</h4>
+          <p>Gin, água tônica, limão, gelo. Sofisticado e refrescante.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⚡ Vodka com Energético</h4>
+          <p>Vodka, energético, gelo. Muito pedido em festas noturnas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar destilados para eventos na Zona Sul de SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> é o fornecedor certo para organizadores de eventos na Zona Sul de SP que precisam de <strong>destilados em grande quantidade</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens para eventos:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Todas as marcas de destilados em um só lugar</li>
+          <li>✓ <strong>Embalagens ideais</strong> - 1L, 965ml, 900ml para eventos</li>
+          <li>✓ <strong>Entrega rápida</strong> - 1-2 dias úteis para toda Zona Sul de SP</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para compras em grande volume</li>
+          <li>✓ <strong>Atendimento especializado</strong> para organizadores de eventos</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Atendemos eventos em toda a Zona Sul:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Socorro</div>
+          <div>✅ Grajaú</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda a região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dicas para comprar destilados para eventos</h2>
+      
+      <div style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">📋 Checklist para compra de destilados:</p>
+        <p style="margin: 5px 0 0 0;">
+        ☑️ Calcule a quantidade por pessoa (use a tabela acima)<br>
+        ☑️ Defina as marcas de acordo com o padrão do evento<br>
+        ☑️ Vodka é sempre o item de maior volume (50% da compra)<br>
+        ☑️ Compre whisky para o público que não bebe vodka<br>
+        ☑️ Gin está em alta - considere incluí-lo<br>
+        ☑️ Licores são baratos e agradam o público feminino<br>
+        ☑️ Solicite cotação na PMG com Marques Antonio<br>
+        ☑️ Agende a entrega para 2-3 dias antes do evento</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante de Eventos</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de vodka, whisky, gin ou licores em grande quantidade para seu evento? Me chama no WhatsApp que preparo uma cotação especial!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento para Eventos</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo de Destilados</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os destilados disponíveis para seu evento.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 VER DESTILADOS PARA EVENTOS
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Produtos em destaque:</strong> Vodka Smirnoff • Vodka Orloff • Whisky Johnnie Walker • Gin Gordon's • Licor Dreher
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> destilados para eventos, vodka para casamento em quantidade, whisky para festa, gin para coquetel, licor para evento, comprar destilados em grande quantidade, fornecedor de destilados zona sul sp, vodka smirnoff para eventos, whisky johnnie walker para casamento, gin gordons para festa, licor dreher para sobremesa, atacado de destilados para casamento, como calcular quantidade de whisky por pessoa, marca de vodka para festa, drinks com destilados para eventos, marques vendas pmg destilados.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 93,
+  "title": "CERVEJAS PARA EVENTOS GRANDES: Lata, Long Neck e Garrafa em Volume para Casamentos e Festas",
+  "description": "Cervejas para eventos grandes: Spaten, Heineken, Budweiser, Brahma em lata 350ml, long neck 330ml e garrafa. Quantidade por pessoa e entrega rápida na Zona Sul de SP. Compre em grande volume!",
+  "image": "https://i.imgur.com/JjVXc5Y.png",
+  "category": "Bebidas para Eventos",
+  "section": "bebidas-eventos",
+  "readTime": "7 min de leitura",
+  "date": "2026-04-29",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🍺 CERVEJAS PARA EVENTOS GRANDES: Lata, Long Neck e Garrafa em Volume para Casamentos e Festas</h1>
+      <p>A <strong>cerveja</strong> é a bebida mais consumida em eventos brasileiros. Casamentos, festas de aniversário, formaturas, confraternizações — em todos eles, a cerveja é a <strong>primeira a acabar</strong> se a quantidade não for bem calculada. Por isso, saber <strong>quanto comprar, qual tipo de embalagem escolher e quais marcas priorizar</strong> faz toda a diferença.</p>
+      
+      <p>Neste guia completo, você vai aprender a <strong>calcular a quantidade ideal de cerveja</strong> para qualquer evento, conhecer as <strong>melhores marcas e embalagens</strong> (lata, long neck e garrafa) e descobrir onde comprar tudo em <strong>um único lugar na Zona Sul de SP</strong> com entrega rápida.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🍺 Lata 350ml • 🍺 Long neck 330ml • 🍺 Garrafa 600ml • 📊 Quantidade por pessoa • 📋 Tabelas por tipo de evento • 🍺 Spaten, Heineken, Budweiser, Brahma • 🏪 Onde comprar tudo em um só lugar • 📍 Entrega para Zona Sul de SP</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 VER CERVEJAS PARA EVENTOS</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/JjVXc5Y.png" alt="Cervejas para eventos grandes - lata, long neck e garrafa em volume" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Cervejas para eventos: lata 350ml, long neck 330ml e garrafa 600ml em grande quantidade</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍺 Qual a melhor embalagem de cerveja para eventos?</h2>
+      <p>A escolha da embalagem certa impacta o custo, a logística e a experiência dos convidados. Veja a comparação.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Volume</th>
+            <th style="padding: 12px; text-align: left;">Vantagens</th>
+            <th style="padding: 12px; text-align: left;">Desvantagens</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Lata 350ml</strong></td>
+            <td style="padding: 10px;">350ml</strong></td>
+            <td style="padding: 10px;">Prática, não quebra, gelo rápido, fácil descarte</strong></td>
+            <td style="padding: 10px;">Menos premium visualmente</strong></td>
+            <td style="padding: 10px;">Eventos de grande volume, festas ao ar livre</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Long Neck 330ml</strong></td>
+            <td style="padding: 10px;">330ml</strong></td>
+            <td style="padding: 10px;">Visual sofisticado, não quebra facilmente</strong></td>
+            <td style="padding: 10px;">Mais cara que a lata</strong></td>
+            <td style="padding: 10px;">Casamentos, eventos de alto padrão</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Garrafa 600ml</strong></td>
+            <td style="padding: 10px;">600ml</strong></td>
+            <td style="padding: 10px;">Melhor custo-benefício por ml</strong></td>
+            <td style="padding: 10px;">Vidro quebra, esquenta mais rápido</strong></td>
+            <td style="padding: 10px;">Eventos fechados com garçom servindo</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Quantidade de Cerveja por Pessoa em Eventos</h2>
+      <p>O consumo de cerveja varia conforme o tipo de evento, duração e perfil dos convidados. Use a tabela abaixo como referência para <strong>eventos de 4 a 6 horas</strong>.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 650px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Tipo de Evento</th>
+            <th style="padding: 12px; text-align: left;">Latas/Long (por pessoa)</th>
+            <th style="padding: 12px; text-align: left;">Garrafa 600ml (por pessoa)</th>
+            <th style="padding: 12px; text-align: left;">Observação</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Casamento (dia)</strong></td>
+            <td style="padding: 10px;">3 a 4 latas</strong></td>
+            <td style="padding: 10px;">2 a 3 garrafas</strong></td>
+            <td style="padding: 10px;">Consumo moderado</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Casamento (noite)</strong></td>
+            <td style="padding: 10px;">4 a 6 latas</strong></td>
+            <td style="padding: 10px;">3 a 4 garrafas</strong></td>
+            <td style="padding: 10px;">Consumo maior</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aniversário adulto</strong></td>
+            <td style="padding: 10px;">4 a 6 latas</strong></td>
+            <td style="padding: 10px;">3 a 4 garrafas</strong></td>
+            <td style="padding: 10px;">Depende do perfil</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Formatura</strong></td>
+            <td style="padding: 10px;">5 a 8 latas</strong></td>
+            <td style="padding: 10px;">4 a 6 garrafas</strong></td>
+            <td style="padding: 10px;">Público jovem, consumo alto</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Confraternização empresarial</strong></td>
+            <td style="padding: 10px;">2 a 4 latas</strong></td>
+            <td style="padding: 10px;">1 a 3 garrafas</strong></td>
+            <td style="padding: 10px;">Consumo controlado</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Festa de fim de ano</strong></td>
+            <td style="padding: 10px;">4 a 6 latas</strong></td>
+            <td style="padding: 10px;">3 a 4 garrafas</strong></td>
+            <td style="padding: 10px;">Consumo elevado</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Quantidade de Cerveja por Número de Convidados</h2>
+      <p>Use a tabela abaixo para calcular rapidamente a quantidade <strong>total de latas ou long necks</strong> para seu evento (considerando média de 4 a 5 unidades por pessoa).</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Nº de Convidados</th>
+            <th style="padding: 12px; text-align: left;">Latas/Long Necks (4 un/pessoa)</th>
+            <th style="padding: 12px; text-align: left;">Latas/Long Necks (5 un/pessoa)</th>
+            <th style="padding: 12px; text-align: left;">Latas/Long Necks (6 un/pessoa)</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">50 pessoas</strong></td>
+            <td style="padding: 10px;">200 latas</strong></td>
+            <td style="padding: 10px;">250 latas</strong></td>
+            <td style="padding: 10px;">300 latas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">100 pessoas</strong></td>
+            <td style="padding: 10px;">400 latas</strong></td>
+            <td style="padding: 10px;">500 latas</strong></td>
+            <td style="padding: 10px;">600 latas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">200 pessoas</strong></td>
+            <td style="padding: 10px;">800 latas</strong></td>
+            <td style="padding: 10px;">1.000 latas</strong></td>
+            <td style="padding: 10px;">1.200 latas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">500 pessoas</strong></td>
+            <td style="padding: 10px;">2.000 latas</strong></td>
+            <td style="padding: 10px;">2.500 latas</strong></td>
+            <td style="padding: 10px;">3.000 latas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">1.000 pessoas</strong></td>
+            <td style="padding: 10px;">4.000 latas</strong></td>
+            <td style="padding: 10px;">5.000 latas</strong></td>
+            <td style="padding: 10px;">6.000 latas</strong></td>
+          </tr>
+        </table>
+      </div>
+      <p><strong>Fórmula rápida:</strong> Total de latas = (Nº de convidados) x 5 (média segura)</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍺 Marcas de Cerveja para Eventos</h2>
+      <p>As marcas abaixo são as mais procuradas por organizadores de eventos na Zona Sul de SP. Todas disponíveis na PMG Atacadista em <strong>lata 350ml, long neck 330ml e garrafa 600ml</strong>.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Tipo</th>
+            <th style="padding: 12px; text-align: left;">Embalagens disponíveis</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Spaten</strong></td>
+            <td style="padding: 10px;">Pilsen</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Garrafa 600ml</strong></td>
+            <td style="padding: 10px;">Eventos em geral (melhor custo)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Heineken</strong></td>
+            <td style="padding: 10px;">Pilsen Premium</strong></td>
+            <td style="padding: 10px;">Long neck 330ml / Lata 350ml / Garrafa 600ml</strong></td>
+            <td style="padding: 10px;">Eventos sofisticados</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Budweiser</strong></td>
+            <td style="padding: 10px;">Lager</strong></td>
+            <td style="padding: 10px;">Long neck 330ml / Lata 350ml</strong></td>
+            <td style="padding: 10px;">Festas e baladas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Brahma</strong></td>
+            <td style="padding: 10px;">Pilsen</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Garrafa 600ml</strong></td>
+            <td style="padding: 10px;">Eventos de grande volume</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Skol</strong></td>
+            <td style="padding: 10px;">Pilsen</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Garrafa 600ml</strong></td>
+            <td style="padding: 10px;">Eventos de grande volume</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Antárctica</strong></td>
+            <td style="padding: 10px;">Pilsen</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Garrafa 600ml</strong></td>
+            <td style="padding: 10px;">Eventos de grande volume</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Corona</strong></td>
+            <td style="padding: 10px;">Lager Premium</strong></td>
+            <td style="padding: 10px;">Long neck 330ml</strong></td>
+            <td style="padding: 10px;">Eventos de alto padrão</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍺 Cerveja sem Álcool para Eventos</h2>
+      <p>Atender convidados que não bebem álcool ou que são os motoristas da vez é essencial. As <strong>cervejas sem álcool</strong> são uma excelente opção.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Marcas de cerveja sem álcool disponíveis:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Brahma Zero Álcool</strong> - Lata 350ml</li>
+          <li>✓ <strong>Skol Zero Álcool</strong> - Lata 350ml</li>
+          <li>✓ <strong>Heineken 0.0</strong> - Long neck 330ml (premium)</li>
+        </ul>
+        <p style="margin-top: 15px;"><strong>Quantidade recomendada:</strong> Calcule 1 cerveja sem álcool para cada 10 convidados, ou 10-15% do total de cervejas.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍺 Cálculo de Cerveja para Casamento: Exemplo Prático</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Convidados</th>
+            <th style="padding: 12px; text-align: left;">Latas (consumo médio)</th>
+            <th style="padding: 12px; text-align: left;">Custo estimado</th>
+            <th style="padding: 12px; text-align: left;">Sugestão de marcas</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">50 convidados</strong></td>
+            <td style="padding: 10px;">200 a 250 latas</strong></td>
+            <td style="padding: 10px;">Sob consulta</strong></td>
+            <td style="padding: 10px;">Spaten / Brahma</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">100 convidados</strong></td>
+            <td style="padding: 10px;">400 a 500 latas</strong></td>
+            <td style="padding: 10px;">Sob consulta</strong></td>
+            <td style="padding: 10px;">Spaten / Heineken</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">200 convidados</strong></td>
+            <td style="padding: 10px;">800 a 1.000 latas</strong></td>
+            <td style="padding: 10px;">Sob consulta</strong></td>
+            <td style="padding: 10px;">Heineken / Budweiser</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">500 convidados</strong></td>
+            <td style="padding: 10px;">2.000 a 2.500 latas</strong></td>
+            <td style="padding: 10px;">Sob consulta</strong></td>
+            <td style="padding: 10px;">Mix de marcas</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar cervejas para eventos na Zona Sul de SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> é o fornecedor ideal para organizadores de eventos que precisam de <strong>cervejas em grande quantidade</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens para eventos:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Todas as marcas de cerveja em lata, long neck e garrafa</li>
+          <li>✓ <strong>Embalagens para evento</strong> - Lata 350ml, long neck 330ml, garrafa 600ml</li>
+          <li>✓ <strong>Entrega rápida</strong> - 1-2 dias úteis para toda Zona Sul de SP</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para compras em grande volume</li>
+          <li>✓ <strong>Atendimento especializado</strong> para organizadores de eventos</li>
+          <li>✓ <strong>Cerveja gelada ou ambiente</strong> - Consulte opções</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Entregamos cervejas para eventos em toda a Zona Sul:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Socorro</div>
+          <div>✅ Grajaú</div>
+          <div>✅ Capão Redondo</div>
+          <div>✅ Jardim Ângela</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda a região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dicas para comprar cervejas para eventos</h2>
+      
+      <div style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">📋 Checklist para compra de cervejas:</p>
+        <p style="margin: 5px 0 0 0;">
+        ☑️ Calcule 5 latas por pessoa como margem segura<br>
+        ☑️ Para eventos ao ar livre ou piscina, priorize LATAS (não quebram)<br>
+        ☑️ Para casamentos e eventos noturnos, LONG NECKS têm mais aceitação<br>
+        ☑️ Sempre inclua cerveja sem álcool (10-15% do total)<br>
+        ☑️ Compre marcas variadas para agradar todos os perfis<br>
+        ☑️ Solicite cotação na PMG para volume - o preço por unidade cai muito<br>
+        ☑️ Agende a entrega para 2-3 dias antes do evento<br>
+        ☑️ Deixe as cervejas gelando com 24h de antecedência</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante de Eventos</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de cervejas em grande quantidade para seu evento? Me chama no WhatsApp que preparo uma cotação especial e ajudo a calcular o volume ideal!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento para Eventos</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo de Cervejas para Eventos</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todas as cervejas disponíveis para seu evento em grande quantidade.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 VER CERVEJAS PARA EVENTOS
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Produtos em destaque:</strong> Cerveja Spaten Lata • Heineken Long Neck • Budweiser Long Neck • Brahma Lata • Skol Lata • Cerveja Sem Álcool
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> cerveja para evento em grande quantidade, cerveja lata para casamento, long neck para festa, comprar cerveja em volume, cerveja para 100 pessoas, cerveja para 500 pessoas, fornecedor de cerveja para eventos zona sul sp, atacado de cerveja para casamento, spaten para evento, heineken long neck, budweiser long neck, brahma lata para festa, skol para confraternização, quanto comprar de cerveja por pessoa, cerveja sem álcool para evento, marques vendas pmg cervejas.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 94,
+  "title": "BEBIDAS NÃO ALCOÓLICAS PARA EVENTOS: Refrigerantes, Sucos, Águas e Energéticos em Grande Quantidade",
+  "description": "Bebidas não alcoólicas para eventos: refrigerantes Coca-Cola, Guaraná, Fanta, Sprite, sucos, águas e energéticos Red Bull, Monster em grande quantidade para festas. Entrega rápida na Zona Sul de SP. Compre tudo em um só lugar!",
+  "image": "https://i.imgur.com/CzDnRDU.png",
+  "category": "Bebidas para Eventos",
+  "section": "bebidas-eventos",
+  "readTime": "7 min de leitura",
+  "date": "2026-04-29",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🥤 BEBIDAS NÃO ALCOÓLICAS PARA EVENTOS: Refrigerantes, Sucos, Águas e Energéticos em Grande Quantidade</h1>
+      <p>Em qualquer <strong>evento</strong> — casamento, festa de aniversário, formatura ou confraternização — as <strong>bebidas não alcoólicas</strong> são tão importantes quanto as alcoólicas. Elas atendem quem não bebe álcool (crianças, gestantes, motoristas) e complementam os drinks e refeições.</p>
+      
+      <p>Neste guia completo, você vai aprender a <strong>calcular a quantidade ideal de refrigerantes, sucos, águas e energéticos</strong> para seu evento, conhecer as <strong>marcas e embalagens mais adequadas</strong> e descobrir onde comprar tudo em <strong>um único lugar na Zona Sul de SP</strong> com entrega rápida.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🥤 Refrigerantes (Coca, Guaraná, Fanta, Sprite) • 🧃 Sucos e néctares • 💧 Água mineral (com e sem gás) • ⚡ Energéticos (Red Bull, Monster) • 📊 Quantidades por pessoa e tipo de evento • 📋 Tabelas práticas • 🏪 Onde comprar tudo em um só lugar • 📍 Entrega para Zona Sul de SP</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 VER BEBIDAS NÃO ALCOÓLICAS</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/CzDnRDU.png" alt="Bebidas não alcoólicas para eventos - refrigerantes, sucos, águas e energéticos" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Bebidas não alcoólicas para eventos: refrigerantes, sucos, águas e energéticos em grande quantidade</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥤 Qual a importância das bebidas não alcoólicas em eventos?</h2>
+      <p>Muitos organizadores focam apenas nas bebidas alcoólicas e esquecem as não alcoólicas. Esse é um erro comum. Veja por que elas são essenciais:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Público</th>
+            <th style="padding: 12px; text-align: left;">Necessidade</th>
+            <th style="padding: 12px; text-align: left;">Bebidas indicadas</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Crianças</strong></td>
+            <td style="padding: 10px;">Não consomem álcool</strong></td>
+            <td style="padding: 10px;">Refrigerantes, sucos, água</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Gestantes</strong></td>
+            <td style="padding: 10px;">Não consomem álcool</strong></td>
+            <td style="padding: 10px;">Água, sucos, refrigerantes</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Motoristas</strong></td>
+            <td style="padding: 10px;">Precisam estar sóbrios</strong></td>
+            <td style="padding: 10px;">Água, refrigerantes, energéticos</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Convidados que não bebem</strong></td>
+            <td style="padding: 10px;">Por opção pessoal</strong></td>
+            <td style="padding: 10px;">Refrigerantes, sucos, água</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Todos os convidados</strong></td>
+            <td style="padding: 10px;">Hidratação durante o evento</strong></td>
+            <td style="padding: 10px;">Água mineral</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Quantidade de Refrigerantes por Pessoa</h2>
+      <p>O consumo de refrigerantes varia conforme a duração do evento e o perfil dos convidados. Use a tabela abaixo como referência.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Tipo de Evento</th>
+            <th style="padding: 12px; text-align: left;">Refrigerante por pessoa</th>
+            <th style="padding: 12px; text-align: left;">Embalagem indicada</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Casamento (dia)</strong></td>
+            <td style="padding: 10px;">500ml a 600ml</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Casamento (noite)</strong></td>
+            <td style="padding: 10px;">400ml a 500ml</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aniversário infantil</strong></td>
+            <td style="padding: 10px;">600ml a 800ml</strong></td>
+            <td style="padding: 10px;">PET 2L</strong></tr>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Festa adulto</strong></td>
+            <td style="padding: 10px;">400ml a 500ml</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Evento corporativo</strong></td>
+            <td style="padding: 10px;">300ml a 400ml</strong></td>
+            <td style="padding: 10px;">Lata 350ml</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Quantidade Total de Refrigerantes por Número de Convidados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Nº de Convidados</th>
+            <th style="padding: 12px; text-align: left;">Em litros (total)</th>
+            <th style="padding: 12px; text-align: left;">Em latas 350ml</th>
+            <th style="padding: 12px; text-align: left;">Em PET 2L</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">50 pessoas</strong></td>
+            <td style="padding: 10px;">25 litros</strong></td>
+            <td style="padding: 10px;">70 latas</strong></td>
+            <td style="padding: 10px;">12 garrafas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">100 pessoas</strong></td>
+            <td style="padding: 10px;">50 litros</strong></td>
+            <td style="padding: 10px;">140 latas</strong></td>
+            <td style="padding: 10px;">25 garrafas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">200 pessoas</strong></td>
+            <td style="padding: 10px;">100 litros</strong></td>
+            <td style="padding: 10px;">280 latas</strong></td>
+            <td style="padding: 10px;">50 garrafas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">500 pessoas</strong></td>
+            <td style="padding: 10px;">250 litros</strong></td>
+            <td style="padding: 10px;">700 latas</strong></td>
+            <td style="padding: 10px;">125 garrafas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">1.000 pessoas</strong></td>
+            <td style="padding: 10px;">500 litros</strong></td>
+            <td style="padding: 10px;">1.400 latas</strong></td>
+            <td style="padding: 10px;">250 garrafas</strong></td>
+          </tr>
+        </table>
+      </div>
+      <p><strong>Proporção entre sabores:</strong> 40% Coca / 30% Guaraná / 15% Fanta Laranja / 15% Sprite ou outros</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥤 Marcas de Refrigerantes para Eventos</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Sabor</th>
+            <th style="padding: 12px; text-align: left;">Embalagens disponíveis</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Coca-Cola</strong></td>
+            <td style="padding: 10px;">Cola</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 1L / PET 2L / PET 2,5L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Coca-Cola Zero</strong></td>
+            <td style="padding: 10px;">Cola sem açúcar</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Guaraná Antarctica</strong></td>
+            <td style="padding: 10px;">Guaraná</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Fanta Laranja</strong></td>
+            <td style="padding: 10px;">Laranja</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Fanta Uva</strong></td>
+            <td style="padding: 10px;">Uva</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Sprite</strong></td>
+            <td style="padding: 10px;">Limão</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Pepsi</strong></td>
+            <td style="padding: 10px;">Cola</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Sukita</strong></td>
+            <td style="padding: 10px;">Laranja</strong></td>
+            <td style="padding: 10px;">Lata 350ml</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💧 Quantidade de Água Mineral por Pessoa</h2>
+      <p>A água é a bebida mais importante do evento. Não pode faltar. Calcule com margem de segurança.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Tipo de Evento</th>
+            <th style="padding: 12px; text-align: left;">Água por pessoa</th>
+            <th style="padding: 12px; text-align: left;">Recomendação</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Eventos em geral (4-6h)</strong></td>
+            <td style="padding: 10px;">500ml a 750ml</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml individual</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Eventos ao ar livre / calor</strong></td>
+            <td style="padding: 10px;">1L a 1,5L</strong></td>
+            <td style="padding: 10px;">Garrafa 1,5L + individual</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Eventos noturnos / frio</strong></td>
+            <td style="padding: 10px;">300ml a 500ml</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💧 Marcas de Água Mineral para Eventos</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Tipo</th>
+            <th style="padding: 12px; text-align: left;">Embalagens disponíveis</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Indaiá</strong></td>
+            <td style="padding: 10px;">Sem gás / Com gás</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml / 1,5L / Galão</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Bonafont</strong></td>
+            <td style="padding: 10px;">Sem gás</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml / 1,5L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Minalba</strong></td>
+            <td style="padding: 10px;">Sem gás / Com gás</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml / 1,5L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Cristal</strong></td>
+            <td style="padding: 10px;">Sem gás</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml / 1,5L</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⚡ Energéticos para Eventos</h2>
+      <p>Os energéticos são muito procurados em eventos noturnos, baladas e como ingrediente para drinks (ex: vodka com energético).</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Volume</th>
+            <th style="padding: 12px; text-align: left;">Quantidade sugerida</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Red Bull</strong></td>
+            <td style="padding: 10px;">Lata 250ml</strong></td>
+            <td style="padding: 10px;">1 lata para cada 8-10 pessoas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Monster Energy</strong></td>
+            <td style="padding: 10px;">Lata 473ml</strong></td>
+            <td style="padding: 10px;">1 lata para cada 15-20 pessoas</strong></td>
+          </tr>
+        <tr>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧃 Sucos e Néctares para Eventos</h2>
+      <p>Sucos são ótimas opções para eventos com crianças ou para servir no café da manhã/brunch.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Opções disponíveis:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Sucos de caixinha (1L)</strong> - Sabor laranja, uva, manga, pêssego</li>
+          <li>✓ <strong>Sucos de garrafa PET</strong> - Sabor laranja, uva</li>
+          <li>✓ <strong>Néctares prontos para beber</strong></li>
+        </ul>
+        <p style="margin-top: 15px;"><strong>Quantidade sugerida:</strong> 1 caixinha de 1L para cada 10-15 pessoas</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Resumo: Quantidade Total de Bebidas Não Alcoólicas por Evento</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 700px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Convidados</th>
+            <th style="padding: 12px; text-align: left;">Refrigerante (latas)</th>
+            <th style="padding: 12px; text-align: left;">Água (500ml)</th>
+            <th style="padding: 12px; text-align: left;">Energético (latas)</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">50 pessoas</strong></td>
+            <td style="padding: 10px;">70 latas</strong></td>
+            <td style="padding: 10px;">50 garrafas</strong></td>
+            <td style="padding: 10px;">5 a 10 latas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">100 pessoas</strong></td>
+            <td style="padding: 10px;">140 latas</strong></td>
+            <td style="padding: 10px;">100 garrafas</strong></td>
+            <td style="padding: 10px;">10 a 15 latas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">200 pessoas</strong></td>
+            <td style="padding: 10px;">280 latas</strong></td>
+            <td style="padding: 10px;">200 garrafas</strong></td>
+            <td style="padding: 10px;">15 a 25 latas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">500 pessoas</strong></td>
+            <td style="padding: 10px;">700 latas</strong></td>
+            <td style="padding: 10px;">500 garrafas</strong></td>
+            <td style="padding: 10px;">30 a 50 latas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">1.000 pessoas</strong></td>
+            <td style="padding: 10px;">1.400 latas</strong></td>
+            <td style="padding: 10px;">1.000 garrafas</strong></td>
+            <td style="padding: 10px;">60 a 100 latas</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar bebidas não alcoólicas para eventos na Zona Sul?</h2>
+      <p>A <strong>PMG Atacadista</strong> é o fornecedor completo para organizadores de eventos que precisam de <strong>bebidas não alcoólicas em grande quantidade</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens para eventos:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Refrigerantes, águas, sucos e energéticos</li>
+          <li>✓ <strong>Embalagens para evento</strong> - Lata 350ml, PET 1L, PET 2L, garrafa 500ml</li>
+          <li>✓ <strong>Entrega rápida</strong> - 1-2 dias úteis para toda Zona Sul de SP</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para compras em grande volume</li>
+          <li>✓ <strong>Compre tudo em um só lugar</strong> - Incluindo destilados e cervejas</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Entregamos bebidas não alcoólicas para eventos em toda a Zona Sul:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Socorro</div>
+          <div>✅ Capão Redondo</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda a região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dicas para comprar bebidas não alcoólicas</h2>
+      
+      <div style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">📋 Checklist para compra de não alcoólicos:</p>
+        <p style="margin: 5px 0 0 0;">
+        ☑️ Água é o item mais importante - nunca economize na quantidade<br>
+        ☑️ Para eventos com crianças, dobre a quantidade de refrigerantes<br>
+        ☑️ A proporção de sabores: 40% Coca / 30% Guaraná / 15% Laranja / 15% Limão<br>
+        ☑️ Coca-Cola Zero e Guaraná Zero são obrigatórios para eventos com público diverso<br>
+        ☑️ Água com gás é um diferencial para eventos de alto padrão<br>
+        ☑️⃣ Energéticos são essenciais se você servir vodka como destilado principal<br>
+        ☑️ Para eventos longos (8h+), calcule 1L de água por pessoa<br>
+        ☑️ Solicite cotação na PMG - bebidas não alcoólicas em volume têm melhor preço</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante de Eventos</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de refrigerantes, águas ou energéticos em grande quantidade para seu evento? Me chama no WhatsApp que preparo uma cotação especial!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento para Eventos</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo de Bebidas Não Alcoólicas</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todas as bebidas não alcoólicas disponíveis para seu evento em grande quantidade.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 VER BEBIDAS NÃO ALCOÓLICAS
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Produtos em destaque:</strong> Coca-Cola Lata • Guaraná Lata • Fanta Laranja • Sprite • Água Mineral • Red Bull
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> bebidas não alcoólicas para eventos, refrigerante para casamento em quantidade, água mineral para festa, energético para evento, suco para aniversário, comprar refrigerante em grande quantidade, fornecedor de bebidas não alcoólicas zona sul sp, atacado de refrigerante para evento, coca cola para casamento, guaraná para festa, fanta para aniversário, água com gás para evento, energético red bull para balada, monster para festa, como calcular refrigerante por pessoa, marques vendas pmg não alcoólicos.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 95,
+  "title": "KIT DE BEBIDAS PARA CASAMENTO: Como Calcular e Comprar Tudo em um Só Lugar para sua Festa",
+  "description": "Kit de bebidas para casamento: guia completo com cálculo por convidado, lista de destilados, cervejas, refrigerantes e água. Tabelas para 50, 100, 200, 500 e 1000 pessoas. Entrega rápida na Zona Sul de SP. Compre tudo em um só lugar!",
+  "image": "https://i.imgur.com/LfQaii0.png",
+  "category": "Bebidas para Eventos",
+  "section": "bebidas-eventos",
+  "readTime": "8 min de leitura",
+  "date": "2026-04-29",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">💍 KIT DE BEBIDAS PARA CASAMENTO: Como Calcular e Comprar Tudo em um Só Lugar para sua Festa</h1>
+      <p>O <strong>casamento</strong> é um dos eventos mais importantes na vida de um casal. E quando o assunto é a festa, um dos maiores desafios é garantir que as <strong>bebidas não faltem</strong> e, ao mesmo tempo, não haja desperdício. Comprar o <strong>kit de bebidas para casamento</strong> exige planejamento, conhecimento de marcas e, principalmente, um <strong>fornecedor confiável</strong> que entregue tudo em um só lugar.</p>
+      
+      <p>Neste guia completo, você vai aprender a <strong>calcular a quantidade ideal de cada tipo de bebida</strong> para seu casamento, desde destilados e cervejas até refrigerantes, sucos, águas e energéticos. Com <strong>tabelas práticas para 50, 100, 200, 500 e 1000 convidados</strong>, você nunca mais vai errar na compra.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">💍 Tabelas por número de convidados • 🥃 Destilados (vodka, whisky, gin) • 🍺 Cervejas (lata e long neck) • 🥤 Refrigerantes e sucos • 💧 Água mineral • ⚡ Energéticos • 📊 Proporção entre bebidas • 💰 Economia comprando em kit • 🏪 Onde comprar tudo em um só lugar • 📍 Entrega para Zona Sul de SP</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.3rem; display: inline-block; margin-bottom: 15px;">🛒 SOLICITAR BEBIDAS PARA CASAMENTO</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega para Zona Sul de SP em 1-2 dias úteis | Frota própria</p>
+      </div>
+      <img src="https://i.imgur.com/LfQaii0.png" alt="Kit de bebidas para casamento - cálculo completo por convidado" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Kit de bebidas para casamento: cálculo completo para não faltar nem sobrar bebida na sua festa</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Kit de Bebidas para Casamento: Tabela para 50 Convidados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Bebida</th>
+            <th style="padding: 12px; text-align: left;">Quantidade para 50 pessoas</th>
+            <th style="padding: 12px; text-align: left;">Embalagem sugerida</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Vodka</strong></td>
+            <td style="padding: 10px;">5 a 7 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 965ml / 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Whisky</strong></td>
+            <td style="padding: 10px;">3 a 5 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Gin</strong></td>
+            <td style="padding: 10px;">2 a 4 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Licor</strong></td>
+            <td style="padding: 10px;">3 a 5 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 900ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Cerveja</strong></td>
+            <td style="padding: 10px;">200 a 300 latas</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Long neck 330ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Refrigerante</strong></td>
+            <td style="padding: 10px;">70 latas ou 25 garrafas 2L</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Água Mineral</strong></td>
+            <td style="padding: 10px;">50 garrafas (500ml)</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Energético</strong></td>
+            <td style="padding: 10px;">5 a 10 latas</strong></td>
+            <td style="padding: 10px;">Lata 250ml / 473ml</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Kit de Bebidas para Casamento: Tabela para 100 Convidados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Bebida</th>
+            <th style="padding: 12px; text-align: left;">Quantidade para 100 pessoas</th>
+            <th style="padding: 12px; text-align: left;">Embalagem sugerida</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Vodka</strong></td>
+            <td style="padding: 10px;">10 a 14 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 965ml / 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Whisky</strong></td>
+            <td style="padding: 10px;">6 a 10 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Gin</strong></td>
+            <td style="padding: 10px;">4 a 8 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Licor</strong></td>
+            <td style="padding: 10px;">6 a 10 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 900ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Cerveja</strong></td>
+            <td style="padding: 10px;">400 a 600 latas</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Long neck 330ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Refrigerante</strong></td>
+            <td style="padding: 10px;">140 latas ou 50 garrafas 2L</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Água Mineral</strong></td>
+            <td style="padding: 10px;">100 garrafas (500ml)</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Energético</strong></td>
+            <td style="padding: 10px;">10 a 15 latas</strong></td>
+            <td style="padding: 10px;">Lata 250ml / 473ml</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Kit de Bebidas para Casamento: Tabela para 200 Convidados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Bebida</th>
+            <th style="padding: 12px; text-align: left;">Quantidade para 200 pessoas</th>
+            <th style="padding: 12px; text-align: left;">Embalagem sugerida</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Vodka</strong></td>
+            <td style="padding: 10px;">20 a 28 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 965ml / 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Whisky</strong></td>
+            <td style="padding: 10px;">12 a 20 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Gin</strong></td>
+            <td style="padding: 10px;">8 a 16 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Licor</strong></td>
+            <td style="padding: 10px;">12 a 20 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 900ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Cerveja</strong></td>
+            <td style="padding: 10px;">800 a 1.200 latas</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Long neck 330ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Refrigerante</strong></td>
+            <td style="padding: 10px;">280 latas ou 100 garrafas 2L</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Água Mineral</strong></td>
+            <td style="padding: 10px;">200 garrafas (500ml)</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Energético</strong></td>
+            <td style="padding: 10px;">15 a 25 latas</strong></td>
+            <td style="padding: 10px;">Lata 250ml / 473ml</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Kit de Bebidas para Casamento: Tabela para 500 Convidados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Bebida</th>
+            <th style="padding: 12px; text-align: left;">Quantidade para 500 pessoas</th>
+            <th style="padding: 12px; text-align: left;">Embalagem sugerida</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Vodka</strong></td>
+            <td style="padding: 10px;">50 a 70 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 965ml / 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Whisky</strong></td>
+            <td style="padding: 10px;">30 a 50 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Gin</strong></td>
+            <td style="padding: 10px;">20 a 40 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Licor</strong></td>
+            <td style="padding: 10px;">30 a 50 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 900ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Cerveja</strong></td>
+            <td style="padding: 10px;">2.000 a 3.000 latas</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Long neck 330ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Refrigerante</strong></td>
+            <td style="padding: 10px;">700 latas ou 250 garrafas 2L</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Água Mineral</strong></td>
+            <td style="padding: 10px;">500 garrafas (500ml)</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Energético</strong></td>
+            <td style="padding: 10px;">30 a 50 latas</strong></td>
+            <td style="padding: 10px;">Lata 250ml / 473ml</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Kit de Bebidas para Casamento: Tabela para 1.000 Convidados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Bebida</th>
+            <th style="padding: 12px; text-align: left;">Quantidade para 1.000 pessoas</th>
+            <th style="padding: 12px; text-align: left;">Embalagem sugerida</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Vodka</strong></td>
+            <td style="padding: 10px;">100 a 140 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 965ml / 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Whisky</strong></td>
+            <td style="padding: 10px;">60 a 100 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Gin</strong></td>
+            <td style="padding: 10px;">40 a 80 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 1L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Licor</strong></td>
+            <td style="padding: 10px;">60 a 100 garrafas</strong></td>
+            <td style="padding: 10px;">Garrafa 900ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Cerveja</strong></td>
+            <td style="padding: 10px;">4.000 a 6.000 latas</strong></td>
+            <td style="padding: 10px;">Lata 350ml / Long neck 330ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Refrigerante</strong></td>
+            <td style="padding: 10px;">1.400 latas ou 500 garrafas 2L</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Água Mineral</strong></td>
+            <td style="padding: 10px;">1.000 garrafas (500ml)</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;"><strong>Energético</strong></td>
+            <td style="padding: 10px;">60 a 100 latas</strong></td>
+            <td style="padding: 10px;">Lata 250ml / 473ml</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📊 Resumo Visual: Kit de Bebidas por Número de Convidados</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 800px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Bebida</th>
+            <th style="padding: 12px; text-align: left;">50 pessoas</th>
+            <th style="padding: 12px; text-align: left;">100 pessoas</th>
+            <th style="padding: 12px; text-align: left;">200 pessoas</th>
+            <th style="padding: 12px; text-align: left;">500 pessoas</th>
+            <th style="padding: 12px; text-align: left;">1.000 pessoas</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Vodka</strong></td>
+            <td style="padding: 10px;">5-7</strong></td>
+            <td style="padding: 10px;">10-14</strong></td>
+            <td style="padding: 10px;">20-28</strong></td>
+            <td style="padding: 10px;">50-70</strong></td>
+            <td style="padding: 10px;">100-140</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Whisky</strong></td>
+            <td style="padding: 10px;">3-5</strong></td>
+            <td style="padding: 10px;">6-10</strong></td>
+            <td style="padding: 10px;">12-20</strong></td>
+            <td style="padding: 10px;">30-50</strong></td>
+            <td style="padding: 10px;">60-100</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gin</strong></td>
+            <td style="padding: 10px;">2-4</strong></td>
+            <td style="padding: 10px;">4-8</strong></td>
+            <td style="padding: 10px;">8-16</strong></td>
+            <td style="padding: 10px;">20-40</strong></td>
+            <td style="padding: 10px;">40-80</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Licor</strong></td>
+            <td style="padding: 10px;">3-5</strong></td>
+            <td style="padding: 10px;">6-10</strong></td>
+            <td style="padding: 10px;">12-20</strong></td>
+            <td style="padding: 10px;">30-50</strong></td>
+            <td style="padding: 10px;">60-100</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cerveja (latas)</strong></td>
+            <td style="padding: 10px;">200-300</strong></td>
+            <td style="padding: 10px;">400-600</strong></td>
+            <td style="padding: 10px;">800-1.200</strong></td>
+            <td style="padding: 10px;">2.000-3.000</strong></td>
+            <td style="padding: 10px;">4.000-6.000</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Refrigerante (latas)</strong></td>
+            <td style="padding: 10px;">70</strong></td>
+            <td style="padding: 10px;">140</strong></td>
+            <td style="padding: 10px;">280</strong></td>
+            <td style="padding: 10px;">700</strong></td>
+            <td style="padding: 10px;">1.400</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Água (500ml)</strong></td>
+            <td style="padding: 10px;">50</strong></td>
+            <td style="padding: 10px;">100</strong></td>
+            <td style="padding: 10px;">200</strong></td>
+            <td style="padding: 10px;">500</strong></td>
+            <td style="padding: 10px;">1.000</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Energético (latas)</strong></td>
+            <td style="padding: 10px;">5-10</strong></td>
+            <td style="padding: 10px;">10-15</strong></td>
+            <td style="padding: 10px;">15-25</strong></td>
+            <td style="padding: 10px;">30-50</strong></td>
+            <td style="padding: 10px;">60-100</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💍 Proporção Ideal de Bebidas por Tipo de Convidado</h2>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Distribuição sugerida para casamento com 100 convidados (misto):</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Vodka:</strong> 30% dos destilados (base para drinks)</li>
+          <li>✓ <strong>Whisky:</strong> 25% dos destilados (público masculino)</li>
+          <li>✓ <strong>Gin:</strong> 15% dos destilados (público moderno)</li>
+          <li>✓ <strong>Licor:</strong> 10% dos destilados (público feminino/sobremesa)</li>
+          <li>✓ <strong>Cerveja:</strong> 40% do total de bebidas (a mais consumida)</li>
+          <li>✓ <strong>Refrigerante:</strong> 25% do total de bebidas (incluindo opções zero)</li>
+          <li>✓ <strong>Água:</strong> 20% do total de bebidas (essencial)</li>
+          <li>✓ <strong>Outros (energético, suco):</strong> 15% do total de bebidas</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍾 Marcas Sugeridas para o Kit de Casamento</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Opção Econômica</th>
+            <th style="padding: 12px; text-align: left;">Opção Premium</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Vodka</strong></td>
+            <td style="padding: 10px;">Orloff / Poti</strong></td>
+            <td style="padding: 10px;">Smirnoff / Absolut</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Whisky</strong></td>
+            <td style="padding: 10px;">Red & White / White Horse</strong></td>
+            <td style="padding: 10px;">Johnnie Walker Red / Black</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gin</strong></td>
+            <td style="padding: 10px;">Gordon's</strong></td>
+            <td style="padding: 10px;">Beefeater / Tanqueray</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cerveja</strong></td>
+            <td style="padding: 10px;">Spaten / Brahma / Skol</strong></td>
+            <td style="padding: 10px;">Heineken / Budweiser</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Refrigerante</strong></td>
+            <td style="padding: 10px;">Coca, Guaraná, Fanta, Sprite</strong></td>
+            <td style="padding: 10px;">Mesmas marcas (embalagem premium)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Energético</strong></td>
+            <td style="padding: 10px;">Red Bull / Monster</strong></td>
+            <td style="padding: 10px;">Red Bull / Monster</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <p><strong>Solicite seu orçamento personalizado pelo WhatsApp (11) 91357-2902.</strong> Trabalhamos com as melhores marcas e condições especiais para casamentos.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar o kit de bebidas para casamento na Zona Sul de SP?</h2>
+      <p>A <strong>PMG Atacadista</strong> é o fornecedor ideal para casamentos na Zona Sul de SP. Com mais de <strong>2000 itens em estoque</strong>, você encontra <strong>todas as bebidas que precisa em um só lugar</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens para casamentos:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Estoque completo</strong> - Destilados, cervejas, refrigerantes, águas, energéticos</li>
+          <li>✓ <strong>Embalagens para casamento</strong> - Lata, long neck, garrafa 1L, PET 2L</li>
+          <li>✓ <strong>Entrega rápida</strong> - 1-2 dias úteis para toda Zona Sul de SP</li>
+          <li>✓ <strong>Frota própria</strong> - Entregas seguras e no prazo</li>
+          <li>✓ <strong>Atendimento especializado</strong> para noivos e organizadores</li>
+          <li>✓ <strong>Preço de atacado</strong> - Condições especiais para casamentos</li>
+          <li>✓ <strong>Compre tudo em uma única nota</strong> - Facilita sua gestão financeira</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros Atendidos na Zona Sul para Casamentos</h2>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <p style="font-weight: 600; margin-top: 0;">Entregamos kits de bebidas para casamentos em toda a Zona Sul:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+          <div>✅ Santo Amaro</div>
+          <div>✅ Brooklin</div>
+          <div>✅ Morumbi</div>
+          <div>✅ Jabaquara</div>
+          <div>✅ Saúde</div>
+          <div>✅ Campo Belo</div>
+          <div>✅ Cidade Monções</div>
+          <div>✅ Vila Sônia</div>
+          <div>✅ Campo Limpo</div>
+          <div>✅ Americanópolis</div>
+          <div>✅ Socorro</div>
+          <div>✅ Capão Redondo</div>
+          <div>✅ Jardim Ângela</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda a região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💡 Dicas para comprar kit de bebidas para casamento</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">1️⃣ Calcule com 6 meses de antecedência</h4>
+          <p>Quanto mais cedo você planejar, mais tempo terá para ajustar o orçamento e pesquisar preços.</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">2️⃣ Considere o perfil dos convidados</h4>
+          <p>Público jovem consome mais cerveja e vodka. Público mais maduro consome mais whisky e vinho.</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">3️⃣ Priorize latas e long necks</h4>
+          <p>Vidro quebra e gera risco. Latas e long necks são mais seguras e fáceis de descartar.</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">4️⃣ Inclua opções zero e sem álcool</h4>
+          <p>Coca Zero, Guaraná Zero e cerveja sem álcool são obrigatórios em casamentos modernos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🎁 Checklist para comprar kit de bebidas de casamento</h2>
+      
+      <div style="background-color: #f0f8f0; padding: 15px; border-left: 5px solid #095400; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">📋 Passo a passo para não errar:</p>
+        <p style="margin: 5px 0 0 0;">
+        ☑️ ✅ Defina o número de convidados<br>
+        ☑️ ✅ Calcule as quantidades usando as tabelas deste artigo<br>
+        ☑️ ✅ Escolha as marcas (econômica ou premium)<br>
+        ☑️ ✅ Decida as embalagens (lata, long neck, PET, garrafa)<br>
+        ☑️ ✅ Solicite uma cotação na PMG para o kit completo<br>
+        ☑️ ✅ Agende a entrega para 2-3 dias antes do casamento<br>
+        ☑️ ✅ Confira o estoque e programe a geladeira<br>
+        ☑️ ✅ Aproveite sua festa sem preocupações!
+        </p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Especialista em Casamentos</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Está planejando seu casamento? Me chama no WhatsApp que preparo um kit de bebidas personalizado para seu número de convidados e estilo de festa!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Especialista em Bebidas para Casamentos</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Solicite Bebidas para Casamento</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e solicite um orçamento personalizado para seu casamento.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Bebidas" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 SOLICITAR BEBIDAS
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos casamentos em:</strong> Santo Amaro • Brooklin • Morumbi • Jabaquara • Saúde • Campo Belo • e toda Zona Sul de SP
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> kit de bebidas para casamento, calcular bebidas para casamento, quantidade de bebida para casamento, kit casamento 100 pessoas, kit casamento 200 pessoas, kit casamento 500 pessoas, bebidas para casamento em grande quantidade, fornecedor de bebidas para casamento zona sul sp, atacado de bebidas para festa de casamento, como calcular bebida por pessoa para casamento, lista de bebidas para casamento, destilados para casamento, cerveja para casamento, refrigerante para casamento, água para casamento, marques vendas pmg kit casamento.
+      </p>
+    </div>
+  `
 }
   ];
 
