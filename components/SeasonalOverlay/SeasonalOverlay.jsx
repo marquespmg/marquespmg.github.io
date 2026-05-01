@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import dezembroTheme from './themes/abril';
+import maioTheme from './themes/maio';
 
 const SeasonalOverlay = () => {
-  const theme = dezembroTheme;
+  const theme = maioTheme;
   const [showModal, setShowModal] = useState(false);
   const [showEmoji, setShowEmoji] = useState(false);
   const [emojiPosition, setEmojiPosition] = useState({});
@@ -13,18 +13,18 @@ const SeasonalOverlay = () => {
   
   if (!theme.ativo) return null;
 
-  // Verifica se é dia de Páscoa
+  // Verifica se é dia especial (Dia das Mães)
   const hoje = new Date().toISOString().split('T')[0];
-  const isDiaDePascoa = theme.diaPascoa && (hoje === theme.diaPascoa.data);
+  const isDiaEspecial = theme.diaMaes && (hoje === theme.diaMaes.data);
 
   // Controla modal
   useEffect(() => {
     const today = new Date().toDateString();
-    const lastShown = localStorage.getItem('natalModalLastShown');
+    const lastShown = localStorage.getItem('modalLastShown');
     
     if (lastShown !== today) {
       setShowModal(true);
-      localStorage.setItem('natalModalLastShown', today);
+      localStorage.setItem('modalLastShown', today);
     }
   }, []);
 
@@ -95,7 +95,7 @@ const SeasonalOverlay = () => {
 
   return (
     <>
-      {/* MODAL DE BOAS-VINDAS COM MENSAGEM ESPECIAL DA PÁSCOA */}
+      {/* MODAL DE BOAS-VINDAS COM MENSAGEM ESPECIAL DO DIA DAS MÃES */}
       {showModal && (
         <div style={{
           position: 'fixed',
@@ -121,40 +121,40 @@ const SeasonalOverlay = () => {
             position: 'relative',
             animation: 'slideUp 0.6s ease'
           }}>
-            {/* TÍTULO - Especial se for dia de Páscoa */}
+            {/* TÍTULO - Especial se for Dia das Mães */}
             <h2 style={{
-              color: isDiaDePascoa ? theme.diaPascoa.corDestaque : theme.cores.roxo,
+              color: isDiaEspecial ? theme.diaMaes.corDestaque : theme.cores.rosa,
               fontSize: '28px',
               marginBottom: '10px',
               fontWeight: '600'
             }}>
-              {isDiaDePascoa ? '🕊️ FELIZ PÁSCOA! 🌟' : theme.modal.titulo}
+              {isDiaEspecial ? '🌹 FELIZ DIA DAS MÃES! 🌹' : theme.modal.titulo}
             </h2>
             
-            {/* MENSAGEM - Especial se for dia de Páscoa */}
+            {/* MENSAGEM - Especial se for Dia das Mães */}
             <p style={{
               fontSize: '18px',
               color: '#333',
               marginBottom: '15px',
               lineHeight: '1.4'
             }}>
-              {isDiaDePascoa ? theme.diaPascoa.mensagemEspecial : theme.modal.mensagem}
+              {isDiaEspecial ? theme.diaMaes.mensagemEspecial : theme.modal.mensagem}
             </p>
             
-            {/* SUBTÍTULO - Especial se for dia de Páscoa */}
+            {/* SUBTÍTULO - Especial se for Dia das Mães */}
             <p style={{
               fontSize: '14px',
               color: '#666',
               marginBottom: '25px',
               fontStyle: 'italic'
             }}>
-              {isDiaDePascoa ? theme.diaPascoa.ofertaEspecial : theme.modal.subtitulo}
+              {isDiaEspecial ? theme.diaMaes.ofertaEspecial : theme.modal.subtitulo}
             </p>
             
             <button
               onClick={() => setShowModal(false)}
               style={{
-                backgroundColor: isDiaDePascoa ? theme.diaPascoa.corDestaque : theme.cores.roxo,
+                backgroundColor: isDiaEspecial ? theme.diaMaes.corDestaque : theme.cores.rosa,
                 color: 'white',
                 border: 'none',
                 padding: '12px 30px',
@@ -185,7 +185,7 @@ const SeasonalOverlay = () => {
               fontSize: '50px',
               animation: 'bounce 3s infinite'
             }}>
-              {isDiaDePascoa ? '🐰' : theme.emojis[0].emoji}
+              {isDiaEspecial ? '💖' : theme.emojis[0].emoji}
             </div>
           </div>
         </div>
@@ -222,7 +222,7 @@ const SeasonalOverlay = () => {
             {currentMessage && (
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: theme.cores.roxo,
+                color: theme.cores.rosa,
                 padding: '8px 12px',
                 borderRadius: '12px',
                 fontSize: '12px',
@@ -233,7 +233,7 @@ const SeasonalOverlay = () => {
                 animation: 'messageFloat 5s ease-out',
                 maxWidth: '160px',
                 textAlign: 'center',
-                border: `1px solid ${theme.cores.roxo}20`
+                border: `1px solid ${theme.cores.rosa}20`
               }}>
                 {currentMessage}
                 
