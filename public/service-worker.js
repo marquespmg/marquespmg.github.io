@@ -42,6 +42,7 @@ if (
   url.includes('/produto/') ||           // Produto individual
   url.includes('/ofertas') ||
   url.includes('/food-news') ||  
+  url === '/' ||  // Só a página inicial mesmo
   url.includes('/meus-pedidos') ||       // ✅ Meus Pedidos
   url.includes('/api/') ||               // APIs
   url.includes('/mapa.json') ||          // ✅ Mapa (cachear? depende)
