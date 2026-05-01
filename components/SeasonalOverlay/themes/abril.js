@@ -1,7 +1,7 @@
 const abrilTheme = {
   id: 'abril',
   nome: 'Mês da Páscoa PMG 2026',
-  ativo: true, // DEIXE false ATÉ 01/04/2026
+  ativo: false, // DEIXE false ATÉ 01/04/2026
   
   // Cores temáticas da Páscoa
   cores: {
