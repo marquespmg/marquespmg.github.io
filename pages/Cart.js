@@ -9,7 +9,7 @@ import { produtosArray } from './produtos'; // ← Nome corrigido!
 import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 
 // ✅ NOVO: Array com IDs dos produtos em oferta (substitua pelos IDs reais)
-const PRODUTOS_EM_OFERTA = [1746, 1571, 1574, 1543, 353, 352, 1923, 360, 173, 171]; // IDs dos produtos que NÃO devem receber desconto
+const PRODUTOS_EM_OFERTA = [646, 981, 986, 1049, 2089, 2093, 2105, 2108, 1728, 1742, 1751, 1765, 1218, 1260, 1261, 1330, 1409, 216, 217, 219, 220, 222, 224, 226, 227, 228, 1407, 1408, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 1652, 1657, 1666, 1673, 1676, 1698, 1912, 1917, 1918, 2303, 2306]; // IDs dos produtos que NÃO devem receber desconto
 
 // ✅ NOVO: Configuração dos cupons
 const CUPONS = {
