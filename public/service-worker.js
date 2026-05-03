@@ -36,7 +36,7 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
   const url = event.request.url;
   
-// === NUNCA CACHEAR PÁGINAS QUE PRECISAM DE DADOS ATUALIZADOS ===
+// === NUNCA CACHEAR PÁGINAS E ARQUIVOS QUE PRECISAM DE DADOS ATUALIZADOS ===
 if (
   url.includes('/produtos') ||           // Lista de produtos
   url.includes('/produto/') ||           // Produto individual
@@ -45,8 +45,9 @@ if (
   url === '/' ||  // Só a página inicial mesmo
   url.includes('/meus-pedidos') ||       // ✅ Meus Pedidos
   url.includes('/api/') ||               // APIs
-  url.includes('/mapa.json') ||          // ✅ Mapa (cachear? depende)
+  url.includes('/mapa.json') ||          // ✅ Mapa
   url.includes('/validade.json') ||      // ✅ VALIDADE - NÃO CACHEAR!
+  url.includes('/constants/') ||         // ✅ 🔥 NOVO: Pasta constants (onde fica ofertas.js)
   url.includes('/feed.xml') ||           // Feed de produtos
   url.includes('/sitemap-imagens.xml') || // Sitemap de imagens
   url.includes('/sitemap-produtos.xml.js') || // Sitemap de produtos
