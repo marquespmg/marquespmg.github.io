@@ -122,7 +122,7 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 646, name: 'DOCE DE LEITE FRIMESA 4,8 KILO', category: 'Ofertas', price: 99.50, image: 'https://www.marquesvendaspmg.shop/images/doce-de-leite-frimesa-48-kilo-pmg-atacadista.jpg' },
+  { id: 646, name: 'DOCE DE LEITE FRIMESA 4,8 KILO', category: 'Ofertas', price: 105.00, image: 'https://www.marquesvendaspmg.shop/images/doce-de-leite-frimesa-48-kilo-pmg-atacadista.jpg' },
   { id: 981, name: 'CALABRESA FATIADA CONGELADA FRIMESA 1 KILO', category: 'Ofertas', price: 27.99, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-congelada-frimesa-1-kilo-pmg-atacadista.jpg' },
   { id: 986, name: 'CALABRESA FRIMESA 2.5 KILO', category: 'Ofertas', price: 51.50, image: 'https://www.marquesvendaspmg.shop/images/calabresa-frimesa-25-kilo-pmg-atacadista.jpg' },
   { id: 1049, name: 'PEPPERONI FATIADO FRIMESA 1 KILO PCT', category: 'Ofertas', price: 74.00, image: 'https://www.marquesvendaspmg.shop/images/pepperoni-fatiado-frimesa-1-kilo-pct-pmg-atacadista.jpg' },
