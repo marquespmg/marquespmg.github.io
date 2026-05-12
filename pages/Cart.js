@@ -560,6 +560,12 @@ const generateWhatsAppMessage = () => {
     ? `\n *Pedido usando cupom ${cupomAplicado.nome}*\n`
     : '';
 
+  // ✅ CORREÇÃO: Texto do pagamento baseado no método escolhido
+  let paymentText = paymentMethod;
+  if (paymentMethod === 'Solicitar Link de Pagamento Online') {
+    paymentText = 'Link de Pagamento Online';
+  }
+
   // DETECTA SE É CELULAR OU PC
   const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
@@ -571,7 +577,7 @@ const generateWhatsAppMessage = () => {
       `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
       `💰 *TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
       `${cupomText}` +
-      `💳 *Pagamento:* ${paymentMethod}\n` +
+      `💳 *Pagamento:* ${paymentText}\n` +
       `📦 *Entrega:* Frete grátis\n\n` +
       `Por favor, confirme meu pedido!`;
   } else {
@@ -580,7 +586,7 @@ const generateWhatsAppMessage = () => {
       `*PEDIDO*\n\n${itemsText}\n\n` +
       `*TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
       `${cupomText}` +
-      `*Pagamento:* ${paymentMethod}\n` +
+      `*Pagamento:* ${paymentText}\n` +
       `*Entrega:* Frete grátis\n\n` +
       `Por favor, confirme meu pedido!`;
   }
@@ -1436,7 +1442,7 @@ const finalizarPedido = async () => {
   ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
 </div>
 
-{/* Seleção de pagamento */}
+{/* ✅ Seleção de pagamento - COM NOVA OPÇÃO */}
 <div style={{ marginBottom: '20px' }}>
   <h3 style={{ 
     fontSize: isMobile ? '15px' : '14px', 
@@ -1447,7 +1453,7 @@ const finalizarPedido = async () => {
     💳 Forma de Pagamento
   </h3>
   <div style={{ display: 'grid', gap: '8px' }}>
-    {['Dinheiro', 'Cartão de Débito', 'Cartão de Crédito'].map(method => (
+    {['Dinheiro', 'Cartão de Débito', 'Cartão de Crédito', 'Solicitar Link de Pagamento Online'].map(method => (
       <label 
         key={method} 
         style={{ 
@@ -1479,6 +1485,26 @@ const finalizarPedido = async () => {
       </label>
     ))}
   </div>
+  
+  {/* ✅ Aviso condicional para Link de Pagamento Online */}
+  {paymentMethod === 'Solicitar Link de Pagamento Online' && (
+    <div style={{
+      marginTop: '12px',
+      padding: isMobile ? '12px' : '10px',
+      backgroundColor: '#E3F2FD',
+      border: '1px solid #90CAF9',
+      borderRadius: '8px',
+      fontSize: isMobile ? '13px' : '12px',
+      color: '#0D47A1',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      fontWeight: 500
+    }}>
+      <span style={{ fontSize: '16px' }}>🔒</span>
+      O pedido será liberado após a confirmação do pagamento via link enviado ao Finalizar o Pedido.
+    </div>
+  )}
 </div>
 
             {/* ✅ Botão finalizar ATUALIZADO - Agora chama finalizarPedido() */}
