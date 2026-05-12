@@ -6144,7 +6144,7 @@ const filteredProducts = uniqueProducts
                   alignItems: 'center',
                   gap: '8px'
                 }}>
-                  <span>👤</span> Minha Conta
+                  <span>👨‍🍳</span> Minha Conta
                 </h2>
                 <button
                   onClick={() => setShowAccountModal(false)}
