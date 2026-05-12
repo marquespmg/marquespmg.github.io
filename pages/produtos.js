@@ -2589,6 +2589,194 @@ const ProductsPage = () => {
   }, []); // Executa apenas uma vez quando o componente monta
   // ========== FIM DA CORREÇÃO ========== //
   
+// ========== FUNÇÃO PARA CARREGAR DADOS DO USUÁRIO ========== //
+const carregarDadosUsuario = async () => {
+  if (!user) return;
+  
+  setLoadingAccount(true);
+  try {
+    // Busca dados da tabela usuarios
+    const { data, error } = await supabase
+      .from('usuarios')
+      .select('nome, email, telefone, cpf_cnpj')
+      .eq('id', user.id)
+      .single();
+    
+    if (error) throw error;
+    
+    if (data) {
+      setAccountData({
+        nome: data.nome || '',
+        email: data.email || user.email || '',
+        telefone: data.telefone || '',
+        cpf_cnpj: data.cpf_cnpj || ''
+      });
+      setNovoNome(data.nome || '');
+      
+      // ✅ ATUALIZA O userName para refletir o nome da tabela
+      if (data.nome) {
+        setUserName(data.nome);
+      }
+    }
+    
+    // Verifica se o usuário tem senha cadastrada (login normal)
+    const { data: { user: authUser } } = await supabase.auth.getUser();
+    const temSenha = authUser?.identities?.some(
+      identity => identity.provider === 'email'
+    ) || false;
+    setUsuarioTemSenha(temSenha);
+    
+  } catch (error) {
+    console.error('Erro ao carregar dados:', error);
+    setMensagemAccount({ texto: 'Erro ao carregar dados', tipo: 'erro' });
+  } finally {
+    setLoadingAccount(false);
+  }
+};
+
+// ========== FUNÇÃO PARA SALVAR NOME ========== //
+const salvarNome = async () => {
+  if (!user || !novoNome.trim()) return;
+  
+  setLoadingAccount(true);
+  try {
+    const { error } = await supabase
+      .from('usuarios')
+      .update({ nome: novoNome.trim() })
+      .eq('id', user.id);
+    
+    if (error) throw error;
+    
+    setAccountData(prev => ({ ...prev, nome: novoNome.trim() }));
+    setEditandoNome(false);
+    
+    // ✅ ATUALIZA O userName para aparecer na mensagem "Olá"
+    setUserName(novoNome.trim());
+    
+    // ✅ ATUALIZA O user.user_metadata (opcional, mas bom para consistência)
+    const { data: { user: updatedUser } } = await supabase.auth.getUser();
+    if (updatedUser) {
+      setUser(updatedUser);
+    }
+    
+    setMensagemAccount({ texto: '✅ Nome atualizado com sucesso!', tipo: 'sucesso' });
+    setTimeout(() => setMensagemAccount({ texto: '', tipo: '' }), 3000);
+    
+  } catch (error) {
+    console.error('Erro ao salvar nome:', error);
+    setMensagemAccount({ texto: '❌ Erro ao salvar nome', tipo: 'erro' });
+  } finally {
+    setLoadingAccount(false);
+  }
+};
+
+// ========== FUNÇÃO PARA ALTERAR SENHA (LOGIN NORMAL) ========== //
+const alterarSenha = async () => {
+  if (!novaSenha) {
+    setMensagemAccount({ texto: '❌ Digite a nova senha', tipo: 'erro' });
+    return;
+  }
+  
+  if (novaSenha !== confirmarSenha) {
+    setMensagemAccount({ texto: '❌ As senhas não coincidem', tipo: 'erro' });
+    return;
+  }
+  
+  if (novaSenha.length < 6) {
+    setMensagemAccount({ texto: '❌ A senha deve ter pelo menos 6 caracteres', tipo: 'erro' });
+    return;
+  }
+  
+  setLoadingAccount(true);
+  try {
+    // Verifica a senha atual primeiro
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email: accountData.email,
+      password: senhaAtual
+    });
+    
+    if (signInError) {
+      setMensagemAccount({ texto: '❌ Senha atual incorreta', tipo: 'erro' });
+      setLoadingAccount(false);
+      return;
+    }
+    
+    // Altera a senha
+    const { error } = await supabase.auth.updateUser({
+      password: novaSenha
+    });
+    
+    if (error) throw error;
+    
+    setMensagemAccount({ texto: '✅ Senha alterada com sucesso!', tipo: 'sucesso' });
+    setSenhaAtual('');
+    setNovaSenha('');
+    setConfirmarSenha('');
+    setMostrarAlterarSenha(false);
+    setTimeout(() => setMensagemAccount({ texto: '', tipo: '' }), 3000);
+    
+  } catch (error) {
+    console.error('Erro ao alterar senha:', error);
+    setMensagemAccount({ texto: '❌ Erro ao alterar senha', tipo: 'erro' });
+  } finally {
+    setLoadingAccount(false);
+  }
+};
+
+// ========== FUNÇÃO PARA CADASTRAR SENHA (USUÁRIO DO GOOGLE) ========== //
+const cadastrarSenha = async () => {
+  if (!novaSenha) {
+    setMensagemAccount({ texto: '❌ Digite a nova senha', tipo: 'erro' });
+    return;
+  }
+  
+  if (novaSenha !== confirmarSenha) {
+    setMensagemAccount({ texto: '❌ As senhas não coincidem', tipo: 'erro' });
+    return;
+  }
+  
+  if (novaSenha.length < 6) {
+    setMensagemAccount({ texto: '❌ A senha deve ter pelo menos 6 caracteres', tipo: 'erro' });
+    return;
+  }
+  
+  setLoadingAccount(true);
+  try {
+    // Cadastra senha para usuário do Google
+    const { error } = await supabase.auth.updateUser({
+      password: novaSenha
+    });
+    
+    if (error) throw error;
+    
+    setMensagemAccount({ texto: '✅ Senha cadastrada com sucesso! Agora você pode entrar com email e senha.', tipo: 'sucesso' });
+    setUsuarioTemSenha(true);
+    setNovaSenha('');
+    setConfirmarSenha('');
+    setTimeout(() => setMensagemAccount({ texto: '', tipo: '' }), 4000);
+    
+  } catch (error) {
+    console.error('Erro ao cadastrar senha:', error);
+    setMensagemAccount({ texto: '❌ Erro ao cadastrar senha', tipo: 'erro' });
+  } finally {
+    setLoadingAccount(false);
+  }
+};
+
+// ========== FUNÇÃO PARA ABRIR MODAL E CARREGAR DADOS ========== //
+const abrirModalConta = async () => {
+  setShowAccountModal(true);
+  setEditandoNome(false);
+  setEditandoTelefone(false);
+  setEditandoCpfCnpj(false);
+  setMostrarAlterarSenha(false);
+  setSenhaAtual('');
+  setNovaSenha('');
+  setConfirmarSenha('');
+  setMensagemAccount({ texto: '', tipo: '' });
+  await carregarDadosUsuario();
+};
+  
   // ========== NOVO: Carregar quantidade de pedidos do usuário ========== //
   useEffect(() => {
     const carregarQuantidadePedidos = async () => {
@@ -2643,6 +2831,90 @@ const ProductsPage = () => {
 
   
   useTrackUser(); // ← ADICIONE ESTA LINHA
+
+// ========== ESTADOS PARA EDIÇÃO DE TELEFONE E CPF ========== //
+const [editandoTelefone, setEditandoTelefone] = useState(false);
+const [novoTelefone, setNovoTelefone] = useState('');
+const [editandoCpfCnpj, setEditandoCpfCnpj] = useState(false);
+const [novoCpfCnpj, setNovoCpfCnpj] = useState('');
+
+// ========== FUNÇÃO PARA SALVAR TELEFONE ========== //
+const salvarTelefone = async () => {
+  if (!user || !novoTelefone.trim()) {
+    setMensagemAccount({ texto: '❌ Digite um telefone válido', tipo: 'erro' });
+    return;
+  }
+  
+  setLoadingAccount(true);
+  try {
+    const { error } = await supabase
+      .from('usuarios')
+      .update({ telefone: novoTelefone.trim() })
+      .eq('id', user.id);
+    
+    if (error) throw error;
+    
+    setAccountData(prev => ({ ...prev, telefone: novoTelefone.trim() }));
+    setEditandoTelefone(false);
+    setMensagemAccount({ texto: '✅ Telefone adicionado com sucesso!', tipo: 'sucesso' });
+    setTimeout(() => setMensagemAccount({ texto: '', tipo: '' }), 3000);
+    
+  } catch (error) {
+    console.error('Erro ao salvar telefone:', error);
+    setMensagemAccount({ texto: '❌ Erro ao salvar telefone', tipo: 'erro' });
+  } finally {
+    setLoadingAccount(false);
+  }
+};
+
+// ========== FUNÇÃO PARA SALVAR CPF/CNPJ ========== //
+const salvarCpfCnpj = async () => {
+  if (!user || !novoCpfCnpj.trim()) {
+    setMensagemAccount({ texto: '❌ Digite um CPF/CNPJ válido', tipo: 'erro' });
+    return;
+  }
+  
+  setLoadingAccount(true);
+  try {
+    const { error } = await supabase
+      .from('usuarios')
+      .update({ cpf_cnpj: novoCpfCnpj.trim() })
+      .eq('id', user.id);
+    
+    if (error) throw error;
+    
+    setAccountData(prev => ({ ...prev, cpf_cnpj: novoCpfCnpj.trim() }));
+    setEditandoCpfCnpj(false);
+    setMensagemAccount({ texto: '✅ CPF/CNPJ adicionado com sucesso!', tipo: 'sucesso' });
+    setTimeout(() => setMensagemAccount({ texto: '', tipo: '' }), 3000);
+    
+  } catch (error) {
+    console.error('Erro ao salvar CPF/CNPJ:', error);
+    setMensagemAccount({ texto: '❌ Erro ao salvar CPF/CNPJ', tipo: 'erro' });
+  } finally {
+    setLoadingAccount(false);
+  }
+};
+
+// ========== ESTADOS DO MODAL MINHA CONTA ========== //
+const [showAccountModal, setShowAccountModal] = useState(false);
+const [accountData, setAccountData] = useState({
+  nome: '',
+  email: '',
+  telefone: '',
+  cpf_cnpj: ''
+});
+const [editandoNome, setEditandoNome] = useState(false);
+const [novoNome, setNovoNome] = useState('');
+const [loadingAccount, setLoadingAccount] = useState(false);
+const [mensagemAccount, setMensagemAccount] = useState({ texto: '', tipo: '' });
+
+// ========== ESTADOS PARA SENHA ========== //
+const [senhaAtual, setSenhaAtual] = useState('');
+const [novaSenha, setNovaSenha] = useState('');
+const [confirmarSenha, setConfirmarSenha] = useState('');
+const [mostrarAlterarSenha, setMostrarAlterarSenha] = useState(false);
+const [usuarioTemSenha, setUsuarioTemSenha] = useState(false); // true = login normal, false = Google
 
   // NOVOS ESTADOS PARA O MENU DE CIDADES
   const [showCitiesMenu, setShowCitiesMenu] = useState(false);
@@ -3050,85 +3322,97 @@ useEffect(() => {
     }, 10000);
   };
 
-  // Carrega o usuário, nome, avatar ao iniciar
-  useEffect(() => {
-    const checkUserAndCart = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        setUser(user);
-        setPageBlocked(false);
-        
-        // Pegar os dados do usuário (do Google ou cadastro normal)
-        const fullName = user.user_metadata?.full_name || '';
-        const avatarUrl = user.user_metadata?.avatar_url || '';
-        
-        setUserName(fullName);
-        setUserAvatar(avatarUrl);
-        
-        // Verificar se o usuário já existe na tabela 'usuarios'
-        const { data: usuarioData, error } = await supabase
+// Carrega o usuário, nome, avatar ao iniciar
+useEffect(() => {
+  const checkUserAndCart = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      setUser(user);
+      setPageBlocked(false);
+      
+      // ✅ PRIMEIRO: Buscar o nome da TABELA usuarios (prioridade)
+      const { data: usuarioData, error } = await supabase
+        .from('usuarios')
+        .select('nome, avatar_url, telefone, cpf_cnpj')
+        .eq('id', user.id)
+        .single();
+      
+      let nomeExibir = '';
+      let avatarUrl = '';
+      
+      if (usuarioData) {
+        // ✅ Usa o nome da tabela usuarios (que pode ter sido editado)
+        nomeExibir = usuarioData.nome || '';
+        avatarUrl = usuarioData.avatar_url || '';
+      }
+      
+      // ✅ Se não tem nome na tabela, usa do Google
+      if (!nomeExibir) {
+        nomeExibir = user.user_metadata?.full_name || user.email || '';
+      }
+      
+      // ✅ Se não tem avatar na tabela, usa do Google
+      if (!avatarUrl) {
+        avatarUrl = user.user_metadata?.avatar_url || '';
+      }
+      
+      // ✅ Atualiza os states com o nome correto
+      setUserName(nomeExibir);
+      setUserAvatar(avatarUrl);
+      
+      // ✅ Se não existia registro na tabela, cria um novo
+      if (error && error.code === 'PGRST116') {
+        await supabase
           .from('usuarios')
-          .select('nome, avatar_url')
-          .eq('id', user.id)
-          .single();
-        
-        if (error && error.code !== 'PGRST116') { // PGRST116 = nenhum resultado encontrado
-          console.error('Erro ao buscar usuário:', error);
-        }
-        
-        // Se não encontrou o usuário, cria um novo registro
-        if (!usuarioData) {
-          await supabase
-            .from('usuarios')
-            .insert({
-              id: user.id,
-              nome: fullName || user.email,
-              email: user.email,
-              avatar_url: avatarUrl
-            });
-        } else {
-          // Se encontrou, atualiza o avatar se necessário
-          if (usuarioData.avatar_url !== avatarUrl && avatarUrl) {
-            await supabase
-              .from('usuarios')
-              .update({ avatar_url: avatarUrl })
-              .eq('id', user.id);
-          }
-        }
+          .insert({
+            id: user.id,
+            nome: nomeExibir,
+            email: user.email,
+            avatar_url: avatarUrl,
+            telefone: '',
+            cpf_cnpj: ''
+          });
+      } else if (usuarioData && usuarioData.nome !== nomeExibir && nomeExibir) {
+        // ✅ Atualiza o nome na tabela se estiver diferente (caso tenha mudado no Google)
+        await supabase
+          .from('usuarios')
+          .update({ nome: nomeExibir })
+          .eq('id', user.id);
       }
-    };
-    
-    // Adicionar listener para mudanças de autenticação
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN') {
-        checkUserAndCart();
-        // Recarregar contador de pedidos quando logar
-        const carregarQuantidadePedidos = async () => {
-          const { data: { user } } = await supabase.auth.getUser();
-          if (user) {
-            const { count } = await supabase
-              .from('user_orders')
-              .select('*', { count: 'exact', head: true })
-              .eq('user_id', user.id);
-            setPedidosCount(count || 0);
-          }
-        };
-        carregarQuantidadePedidos();
-      } else if (event === 'SIGNED_OUT') {
-        setUser(null);
-        setUserName('');
-        setUserAvatar('');
-        setPageBlocked(true);
-        setPedidosCount(0);
-      }
-    });
-    
-    checkUserAndCart();
-    
-    return () => {
-      if (subscription) subscription.unsubscribe();
-    };
-  }, []);
+    }
+  };
+  
+  // Adicionar listener para mudanças de autenticação
+  const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN') {
+      checkUserAndCart();
+      // Recarregar contador de pedidos quando logar
+      const carregarQuantidadePedidos = async () => {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          const { count } = await supabase
+            .from('user_orders')
+            .select('*', { count: 'exact', head: true })
+            .eq('user_id', user.id);
+          setPedidosCount(count || 0);
+        }
+      };
+      carregarQuantidadePedidos();
+    } else if (event === 'SIGNED_OUT') {
+      setUser(null);
+      setUserName('');
+      setUserAvatar('');
+      setPageBlocked(true);
+      setPedidosCount(0);
+    }
+  });
+  
+  checkUserAndCart();
+  
+  return () => {
+    if (subscription) subscription.unsubscribe();
+  };
+}, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -4662,42 +4946,65 @@ const filteredProducts = uniqueProducts
     Encontre os melhores produtos para seu negócio
   </p>
   
-  {/* CONTAINER DOS BOTÕES - SÓ APARECE SE USUÁRIO LOGADO */}
-  {user && (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      gap: '10px',
-      marginTop: '15px',
-      flexWrap: 'wrap'
-    }}>
-      {/* BOTÃO SAIR DA CONTA */}
-      <button
-        onClick={handleLogout}
-        style={{
-          backgroundColor: '#6c757d',
-          color: 'white',
-          border: 'none',
-          padding: windowWidth > 768 ? '10px 20px' : '8px 15px',
-          borderRadius: '30px',
-          fontSize: windowWidth > 768 ? '14px' : '12px',
-          fontWeight: '600',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '5px',
-          transition: 'all 0.3s'
-        }}
-        onMouseOver={(e) => e.target.style.backgroundColor = '#5a6268'}
-        onMouseOut={(e) => e.target.style.backgroundColor = '#6c757d'}
-      >
-        <span>👋</span>
-        Sair da Conta
-      </button>
-    </div>
-  )}
-</div>
+{/* CONTAINER DOS BOTÕES - SÓ APARECE SE USUÁRIO LOGADO */}
+{user && (
+  <div style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '10px',
+    marginTop: '15px',
+    flexWrap: 'wrap'
+  }}>
+    {/* BOTÃO MINHA CONTA */}
+    <button
+      onClick={abrirModalConta}
+      style={{
+        backgroundColor: '#095400',
+        color: 'white',
+        border: 'none',
+        padding: windowWidth > 768 ? '10px 20px' : '8px 15px',
+        borderRadius: '30px',
+        fontSize: windowWidth > 768 ? '14px' : '12px',
+        fontWeight: '600',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '5px',
+        transition: 'all 0.3s'
+      }}
+      onMouseOver={(e) => e.target.style.backgroundColor = '#0a6d00'}
+      onMouseOut={(e) => e.target.style.backgroundColor = '#095400'}
+    >
+      <span>👨‍🍳</span>
+      Minha Conta
+    </button>
+    
+    {/* BOTÃO SAIR DA CONTA */}
+    <button
+      onClick={handleLogout}
+      style={{
+        backgroundColor: '#6c757d',
+        color: 'white',
+        border: 'none',
+        padding: windowWidth > 768 ? '10px 20px' : '8px 15px',
+        borderRadius: '30px',
+        fontSize: windowWidth > 768 ? '14px' : '12px',
+        fontWeight: '600',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '5px',
+        transition: 'all 0.3s'
+      }}
+      onMouseOver={(e) => e.target.style.backgroundColor = '#5a6268'}
+      onMouseOut={(e) => e.target.style.backgroundColor = '#6c757d'}
+    >
+      <span>👋</span>
+      Sair da Conta
+    </button>
+  </div>
+)}
 
         <div style={styles.searchBar}>
           <input
@@ -5779,9 +6086,587 @@ const filteredProducts = uniqueProducts
 
           <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
         </div>
-      </>
-    );
-  };
 
-  export default ProductsPage;
-  export const produtosArray = products; // Exporta o array de produtos
+        {/* ========== MODAL MINHA CONTA ========== */}
+        {showAccountModal && (
+          <>
+            {/* OVERLAY */}
+            <div 
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0,0,0,0.6)',
+                backdropFilter: 'blur(3px)',
+                zIndex: 2000,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: windowWidth > 768 ? '20px' : '10px'
+              }}
+              onClick={() => setShowAccountModal(false)}
+            />
+            
+            {/* CONTEÚDO DO MODAL */}
+            <div style={{
+              position: 'fixed',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              backgroundColor: '#fff',
+              borderRadius: '16px',
+              width: windowWidth > 768 ? '500px' : 'calc(100% - 40px)',
+              maxWidth: '500px',
+              maxHeight: '85vh',
+              overflowY: 'auto',
+              zIndex: 2001,
+              boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+              padding: windowWidth > 768 ? '25px' : '20px'
+            }}>
+              
+              {/* HEADER DO MODAL */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                borderBottom: '2px solid #095400',
+                paddingBottom: '15px',
+                marginBottom: '20px'
+              }}>
+                <h2 style={{
+                  margin: 0,
+                  color: '#095400',
+                  fontSize: windowWidth > 768 ? '22px' : '20px',
+                  fontWeight: '700',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}>
+                  <span>👤</span> Minha Conta
+                </h2>
+                <button
+                  onClick={() => setShowAccountModal(false)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    fontSize: '24px',
+                    cursor: 'pointer',
+                    color: '#666',
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'all 0.2s'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = '#f0f0f0';
+                    e.target.style.color = '#e53935';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.backgroundColor = 'transparent';
+                    e.target.style.color = '#666';
+                  }}
+                >
+                  ×
+                </button>
+              </div>
+              
+              {/* MENSAGEM DE FEEDBACK */}
+              {mensagemAccount.texto && (
+                <div style={{
+                  padding: '12px',
+                  borderRadius: '8px',
+                  marginBottom: '20px',
+                  backgroundColor: mensagemAccount.tipo === 'sucesso' ? '#E8F5E8' : '#FFEBEE',
+                  color: mensagemAccount.tipo === 'sucesso' ? '#27AE60' : '#E74C3C',
+                  border: `1px solid ${mensagemAccount.tipo === 'sucesso' ? '#C8E6C9' : '#FFCDD2'}`,
+                  fontSize: '14px',
+                  textAlign: 'center'
+                }}>
+                  {mensagemAccount.texto}
+                </div>
+              )}
+              
+              {/* LOADING */}
+              {loadingAccount && (
+                <div style={{
+                  textAlign: 'center',
+                  padding: '20px',
+                  color: '#095400'
+                }}>
+                  Carregando...
+                </div>
+              )}
+              
+              {/* DADOS DO USUÁRIO */}
+              {!loadingAccount && (
+                <>
+                  {/* NOME (EDITÁVEL) */}
+                  <div style={{ marginBottom: '20px' }}>
+                    <label style={{
+                      display: 'block',
+                      fontWeight: '600',
+                      color: '#333',
+                      marginBottom: '5px',
+                      fontSize: '14px'
+                    }}>
+                      Nome completo
+                    </label>
+                    {editandoNome ? (
+                      <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                        <input
+                          type="text"
+                          value={novoNome}
+                          onChange={(e) => setNovoNome(e.target.value)}
+                          style={{
+                            flex: 1,
+                            padding: '12px',
+                            border: '2px solid #095400',
+                            borderRadius: '8px',
+                            fontSize: '14px',
+                            outline: 'none'
+                          }}
+                          placeholder="Seu nome"
+                        />
+                        <button
+                          onClick={salvarNome}
+                          style={{
+                            backgroundColor: '#095400',
+                            color: 'white',
+                            border: 'none',
+                            padding: '10px 15px',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            fontWeight: '600'
+                          }}
+                        >
+                          Salvar
+                        </button>
+                        <button
+                          onClick={() => {
+                            setEditandoNome(false);
+                            setNovoNome(accountData.nome);
+                          }}
+                          style={{
+                            backgroundColor: '#95a5a6',
+                            color: 'white',
+                            border: 'none',
+                            padding: '10px 15px',
+                            borderRadius: '8px',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          Cancelar
+                        </button>
+                      </div>
+                    ) : (
+                      <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        padding: '12px',
+                        backgroundColor: '#f8f9fa',
+                        borderRadius: '8px',
+                        border: '1px solid #e9ecef'
+                      }}>
+                        <span style={{ color: '#333', fontSize: '15px' }}>{accountData.nome || 'Não informado'}</span>
+                        <button
+                          onClick={() => setEditandoNome(true)}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            color: '#095400',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            fontWeight: '600'
+                          }}
+                        >
+                          ✏️ Editar
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* EMAIL (NÃO EDITÁVEL) */}
+                  <div style={{ marginBottom: '15px' }}>
+                    <label style={{
+                      display: 'block',
+                      fontWeight: '600',
+                      color: '#333',
+                      marginBottom: '5px',
+                      fontSize: '14px'
+                    }}>
+                      E-mail
+                    </label>
+                    <div style={{
+                      padding: '12px',
+                      backgroundColor: '#f8f9fa',
+                      borderRadius: '8px',
+                      border: '1px solid #e9ecef',
+                      color: '#666',
+                      fontSize: '15px'
+                    }}>
+                      {accountData.email}
+                    </div>
+                  </div>
+                  
+{/* TELEFONE (EDITÁVEL APENAS SE ESTIVER VAZIO) */}
+<div style={{ marginBottom: '15px' }}>
+  <label style={{
+    display: 'block',
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: '5px',
+    fontSize: '14px'
+  }}>
+    Telefone
+  </label>
+  {editandoTelefone ? (
+    <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+      <input
+        type="tel"
+        value={novoTelefone}
+        onChange={(e) => setNovoTelefone(e.target.value)}
+        placeholder="(11) 99999-9999"
+        style={{
+          flex: 1,
+          padding: '12px',
+          border: '2px solid #095400',
+          borderRadius: '8px',
+          fontSize: '14px',
+          outline: 'none'
+        }}
+      />
+      <button
+        onClick={salvarTelefone}
+        style={{
+          backgroundColor: '#095400',
+          color: 'white',
+          border: 'none',
+          padding: '10px 15px',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontWeight: '600'
+        }}
+      >
+        Salvar
+      </button>
+      <button
+        onClick={() => {
+          setEditandoTelefone(false);
+          setNovoTelefone(accountData.telefone);
+        }}
+        style={{
+          backgroundColor: '#95a5a6',
+          color: 'white',
+          border: 'none',
+          padding: '10px 15px',
+          borderRadius: '8px',
+          cursor: 'pointer'
+        }}
+      >
+        Cancelar
+      </button>
+    </div>
+  ) : (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '12px',
+      backgroundColor: '#f8f9fa',
+      borderRadius: '8px',
+      border: '1px solid #e9ecef'
+    }}>
+      <span style={{ color: '#333', fontSize: '15px' }}>
+        {accountData.telefone || 'Não informado'}
+      </span>
+      {(!accountData.telefone || accountData.telefone === '') && (
+        <button
+          onClick={() => {
+            setEditandoTelefone(true);
+            setNovoTelefone(accountData.telefone);
+          }}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: '#095400',
+            cursor: 'pointer',
+            fontSize: '14px',
+            fontWeight: '600'
+          }}
+        >
+          ✏️ Adicionar
+        </button>
+      )}
+    </div>
+  )}
+</div>
+
+{/* CPF/CNPJ (EDITÁVEL APENAS SE ESTIVER VAZIO) */}
+<div style={{ marginBottom: '20px' }}>
+  <label style={{
+    display: 'block',
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: '5px',
+    fontSize: '14px'
+  }}>
+    CPF / CNPJ
+  </label>
+  {editandoCpfCnpj ? (
+    <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+      <input
+        type="text"
+        value={novoCpfCnpj}
+        onChange={(e) => setNovoCpfCnpj(e.target.value)}
+        placeholder="000.000.000-00 ou 00.000.000/0000-00"
+        style={{
+          flex: 1,
+          padding: '12px',
+          border: '2px solid #095400',
+          borderRadius: '8px',
+          fontSize: '14px',
+          outline: 'none'
+        }}
+      />
+      <button
+        onClick={salvarCpfCnpj}
+        style={{
+          backgroundColor: '#095400',
+          color: 'white',
+          border: 'none',
+          padding: '10px 15px',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontWeight: '600'
+        }}
+      >
+        Salvar
+      </button>
+      <button
+        onClick={() => {
+          setEditandoCpfCnpj(false);
+          setNovoCpfCnpj(accountData.cpf_cnpj);
+        }}
+        style={{
+          backgroundColor: '#95a5a6',
+          color: 'white',
+          border: 'none',
+          padding: '10px 15px',
+          borderRadius: '8px',
+          cursor: 'pointer'
+        }}
+      >
+        Cancelar
+      </button>
+    </div>
+  ) : (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '12px',
+      backgroundColor: '#f8f9fa',
+      borderRadius: '8px',
+      border: '1px solid #e9ecef'
+    }}>
+      <span style={{ color: '#333', fontSize: '15px' }}>
+        {accountData.cpf_cnpj || 'Não informado'}
+      </span>
+      {(!accountData.cpf_cnpj || accountData.cpf_cnpj === '') && (
+        <button
+          onClick={() => {
+            setEditandoCpfCnpj(true);
+            setNovoCpfCnpj(accountData.cpf_cnpj);
+          }}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: '#095400',
+            cursor: 'pointer',
+            fontSize: '14px',
+            fontWeight: '600'
+          }}
+        >
+          ✏️ Adicionar
+        </button>
+      )}
+    </div>
+  )}
+</div>
+                  
+                  {/* DIVISOR */}
+                  <div style={{
+                    height: '1px',
+                    backgroundColor: '#e9ecef',
+                    margin: '15px 0'
+                  }} />
+                  
+                  {/* SEÇÃO DE SENHA */}
+                  <div style={{ marginBottom: '10px' }}>
+                    <button
+                      onClick={() => setMostrarAlterarSenha(!mostrarAlterarSenha)}
+                      style={{
+                        width: '100%',
+                        padding: '12px',
+                        backgroundColor: '#f8f9fa',
+                        border: '1px solid #e9ecef',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        color: '#095400'
+                      }}
+                    >
+                      <span>🔐 {usuarioTemSenha ? 'Alterar Senha' : 'Cadastrar Senha'}</span>
+                      <span style={{ transform: mostrarAlterarSenha ? 'rotate(180deg)' : 'rotate(0deg)' }}>▼</span>
+                    </button>
+                    
+                    {mostrarAlterarSenha && (
+                      <div style={{
+                        marginTop: '15px',
+                        padding: '15px',
+                        backgroundColor: '#f8f9fa',
+                        borderRadius: '8px'
+                      }}>
+                        {usuarioTemSenha && (
+                          <input
+                            type="password"
+                            placeholder="Senha atual"
+                            value={senhaAtual}
+                            onChange={(e) => setSenhaAtual(e.target.value)}
+                            style={{
+                              width: '100%',
+                              padding: '12px',
+                              border: '1px solid #ddd',
+                              borderRadius: '8px',
+                              fontSize: '14px',
+                              marginBottom: '12px',
+                              outline: 'none',
+                              transition: 'border 0.2s'
+                            }}
+                            onFocus={(e) => e.target.style.borderColor = '#095400'}
+                            onBlur={(e) => e.target.style.borderColor = '#ddd'}
+                          />
+                        )}
+                        
+                        <input
+                          type="password"
+                          placeholder={usuarioTemSenha ? "Nova senha" : "Digite sua nova senha"}
+                          value={novaSenha}
+                          onChange={(e) => setNovaSenha(e.target.value)}
+                          style={{
+                            width: '100%',
+                            padding: '12px',
+                            border: '1px solid #ddd',
+                            borderRadius: '8px',
+                            fontSize: '14px',
+                            marginBottom: '12px',
+                            outline: 'none',
+                            transition: 'border 0.2s'
+                          }}
+                          onFocus={(e) => e.target.style.borderColor = '#095400'}
+                          onBlur={(e) => e.target.style.borderColor = '#ddd'}
+                        />
+                        
+                        <input
+                          type="password"
+                          placeholder="Confirmar senha"
+                          value={confirmarSenha}
+                          onChange={(e) => setConfirmarSenha(e.target.value)}
+                          style={{
+                            width: '100%',
+                            padding: '12px',
+                            border: '1px solid #ddd',
+                            borderRadius: '8px',
+                            fontSize: '14px',
+                            marginBottom: '15px',
+                            outline: 'none',
+                            transition: 'border 0.2s'
+                          }}
+                          onFocus={(e) => e.target.style.borderColor = '#095400'}
+                          onBlur={(e) => e.target.style.borderColor = '#ddd'}
+                        />
+                        
+                        <button
+                          onClick={usuarioTemSenha ? alterarSenha : cadastrarSenha}
+                          style={{
+                            width: '100%',
+                            padding: '12px',
+                            backgroundColor: '#095400',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            cursor: 'pointer',
+                            transition: 'all 0.3s'
+                          }}
+                          onMouseOver={(e) => e.target.style.backgroundColor = '#0a6d00'}
+                          onMouseOut={(e) => e.target.style.backgroundColor = '#095400'}
+                        >
+                          {usuarioTemSenha ? 'ALTERAR SENHA' : 'CADASTRAR SENHA'}
+                        </button>
+                        
+                        {!usuarioTemSenha && (
+                          <p style={{
+                            fontSize: '12px',
+                            color: '#666',
+                            textAlign: 'center',
+                            marginTop: '12px',
+                            marginBottom: 0
+                          }}>
+                            ⚡ Cadastre uma senha para poder entrar com e-mail senha também
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* BOTÃO FECHAR */}
+                  <button
+                    onClick={() => setShowAccountModal(false)}
+                    style={{
+                      width: '100%',
+                      padding: '12px',
+                      backgroundColor: '#e9ecef',
+                      color: '#666',
+                      border: 'none',
+                      borderRadius: '8px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      marginTop: '20px',
+                      transition: 'all 0.3s'
+                    }}
+                    onMouseOver={(e) => {
+                      e.target.style.backgroundColor = '#dee2e6';
+                      e.target.style.color = '#333';
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.backgroundColor = '#e9ecef';
+                      e.target.style.color = '#666';
+                    }}
+                  >
+                    Fechar
+                  </button>
+                </>
+              )}
+            </div>
+          </>
+        )}
+      </div>
+    </>
+  );
+};
+
+export default ProductsPage;
+export const produtosArray = products;
