@@ -200,22 +200,22 @@ const fifoImages = [
   { 
     video: 'https://i.imgur.com/wkqk63h.mp4',
     productId: 1746,
-    url: 'https://www.marquesvendaspmg.shop/produto/1746'
+    url: 'http://localhost:3000/produto/1746'
   },
   { 
     video: 'https://i.imgur.com/kmRpbcB.mp4',
     productId: 702,
-    url: 'https://www.marquesvendaspmg.shop/produto/702'
+    url: 'http://localhost:3000/produto/702'
   },
   { 
     video: 'https://i.imgur.com/7HNF3cf.mp4',
     productId: 533,
-    url: 'https://www.marquesvendaspmg.shop/produto/533'
+    url: 'http://localhost:3000/produto/533'
   },
   { 
     video: 'https://i.imgur.com/3OTFiIM.mp4',
     productId: 615,
-    url: 'https://www.marquesvendaspmg.shop/produto/615'
+    url: 'http://localhost:3000/produto/615'
   },
 ];
 
@@ -329,7 +329,7 @@ const OfertasPage = ({
   const [userName, setUserName] = useState('');
   const [user, setUser] = useState(null);
   const [userAvatar, setUserAvatar] = useState('');
-  
+
   // NOVOS ESTADOS PARA O MENU DE CIDADES
   const [showCitiesMenu, setShowCitiesMenu] = useState(false);
   const [openRegions, setOpenRegions] = useState({
@@ -337,7 +337,7 @@ const OfertasPage = ({
     rj: false,
     mg: false
   });
-
+  
   // ========== NOVO: DADOS DE DIAS DE ENTREGA ========== //
   const [deliveryDaysData, setDeliveryDaysData] = useState({});
   const [loadingDeliveryData, setLoadingDeliveryData] = useState(true);
@@ -389,7 +389,7 @@ const DeliveryDaysDisplay = ({ days }) => {
     </div>
   );
 };  
-
+  
   const dynamicSEO = generateDynamicSEO(featuredProducts);
   
   // Estados LOCAIS apenas para controle da página (não do carrinho)
@@ -434,57 +434,17 @@ useEffect(() => {
   loadDeliveryData();
 }, []);
 
-  // ✅ EFETO PARA VERIFICAR USUÁRIO LOGADO - APENAS PARA MENSAGEM DE BOAS-VINDAS
-  useEffect(() => {
-    const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        setUser(user);
-        
-        // Pegar os dados do usuário
-        const fullName = user.user_metadata?.full_name || '';
-        const avatarUrl = user.user_metadata?.avatar_url || '';
-        
-        setUserName(fullName);
-        setUserAvatar(avatarUrl);
-      }
-    };
-    
-    // Adicionar listener para mudanças de autenticação
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_IN') {
-        if (session?.user) {
-          setUser(session.user);
-          const fullName = session.user.user_metadata?.full_name || '';
-          const avatarUrl = session.user.user_metadata?.avatar_url || '';
-          setUserName(fullName);
-          setUserAvatar(avatarUrl);
-        }
-      } else if (event === 'SIGNED_OUT') {
-        setUser(null);
-        setUserName('');
-        setUserAvatar('');
-      }
-    });
-    
-    checkUser();
-    
-    return () => {
-      if (subscription) subscription.unsubscribe();
-    };
-  }, []);
-
-// ========== CARREGAR NOME DO USUÁRIO DA TABELA ========== //
+// ========== CARREGAR DADOS DO USUÁRIO DA TABELA ========== //
 useEffect(() => {
-  const carregarNomeUsuario = async () => {
+  const carregarDadosUsuario = async () => {
     const { data: { user } } = await supabase.auth.getUser();
     if (user) {
       setUser(user);
       
-      // Busca o nome na tabela usuarios (prioridade)
+      // Busca os dados na tabela usuarios
       const { data: usuarioData } = await supabase
         .from('usuarios')
-        .select('nome')
+        .select('nome, avatar_url')
         .eq('id', user.id)
         .single();
       
@@ -494,14 +454,22 @@ useEffect(() => {
         // Fallback para o nome do Google
         setUserName(user.user_metadata?.full_name || user.email);
       }
+      
+      // Atualiza o avatar
+      if (usuarioData?.avatar_url) {
+        setUserAvatar(usuarioData.avatar_url);
+      } else {
+        setUserAvatar(user.user_metadata?.avatar_url || '');
+      }
     }
   };
   
-  carregarNomeUsuario();
+  // Executa ao carregar
+  carregarDadosUsuario();
   
-  // Listener para mudanças de autenticação
+  // Listener para mudanças de autenticação (login/logout)
   const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
-    carregarNomeUsuario();
+    carregarDadosUsuario();
   });
   
   return () => subscription?.unsubscribe();
