@@ -2502,16 +2502,15 @@ export default function ProductPage({
   const router = useRouter();
   const { id } = router.query;
   const [product, setProduct] = useState(initialProduct);
-  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(!initialProduct);
   const [isMobile, setIsMobile] = useState(false);
   const [openRegions, setOpenRegions] = useState({});
   const [showAddedFeedback, setShowAddedFeedback] = useState(false);
-  const [userName, setUserName] = useState('');
   const [showWithdrawalModal, setShowWithdrawalModal] = useState(false);
   const { dadosValidade, loading: loadingValidade } = useProdutoValidade();
+  const [userName, setUserName] = useState('');
+  const [user, setUser] = useState(null);
 
-  
   useTrackUser();
 
   // ========== FUNÇÕES DE DISPONIBILIDADE (MESMA LÓGICA DA PÁGINA DE PRODUTOS) ========== //
@@ -2621,6 +2620,39 @@ const getPrecoComOferta = (produto) => {
     
     loadDeliveryData();
   }, []);
+
+// ========== CARREGAR NOME DO USUÁRIO DA TABELA ========== //
+useEffect(() => {
+  const carregarNomeUsuario = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      setUser(user);
+      
+      // Busca o nome na tabela usuarios (prioridade)
+      const { data: usuarioData } = await supabase
+        .from('usuarios')
+        .select('nome')
+        .eq('id', user.id)
+        .single();
+      
+      if (usuarioData?.nome) {
+        setUserName(usuarioData.nome);
+      } else {
+        // Fallback para o nome do Google
+        setUserName(user.user_metadata?.full_name || user.email);
+      }
+    }
+  };
+  
+  carregarNomeUsuario();
+  
+  // Listener para mudanças de autenticação
+  const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+    carregarNomeUsuario();
+  });
+  
+  return () => subscription?.unsubscribe();
+}, []);
 
   useEffect(() => {
     const checkMobile = () => {
