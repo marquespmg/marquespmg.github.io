@@ -2666,32 +2666,6 @@ useEffect(() => {
   }, []);
 
   useEffect(() => {
-    const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        setUser(user);
-        const fullName = user.user_metadata?.full_name || '';
-        setUserName(fullName);
-      }
-    };
-    
-    checkUser();
-    
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session?.user) {
-        setUser(session.user);
-        const fullName = session.user.user_metadata?.full_name || '';
-        setUserName(fullName);
-      } else {
-        setUser(null);
-        setUserName('');
-      }
-    });
-    
-    return () => subscription.unsubscribe();
-  }, []);
-
-  useEffect(() => {
     if (!initialProduct && id) {
       const productId = parseInt(id.split('-')[0]);
       const foundProduct = products.find(p => p.id === productId);
