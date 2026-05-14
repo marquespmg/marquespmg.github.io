@@ -11,6 +11,53 @@ export default function Document() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <meta name="description" content="Distribuidora autorizada com os melhores produtos para seu negócio. Qualidade garantida e atendimento especializado." />
         
+        {/* ========== CORREÇÃO DE LAYOUT PARA CELULARES ANTIGOS ========== */}
+        <style>{`
+          /* Força grid de produtos em celulares antigos */
+          .products-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+            gap: 15px !important;
+          }
+          
+          /* Para telas muito pequenas (celulares antigos) */
+          @media screen and (max-width: 480px) {
+            .products-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 10px !important;
+            }
+          }
+          
+          /* Correção para cards de produtos */
+          .product-card {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+          }
+          
+          /* Correção para imagens dos produtos */
+          .product-card .product-image {
+            width: 100% !important;
+            height: auto !important;
+            object-fit: cover !important;
+          }
+          
+          /* Correção para avaliações de clientes */
+          .review-card, 
+          .avaliacao-card,
+          .cliente-avaliacao {
+            width: 100% !important;
+            margin-bottom: 15px !important;
+            display: block !important;
+          }
+          
+          /* Força box-sizing correto para todos */
+          * {
+            box-sizing: border-box !important;
+          }
+        `}</style>
+        {/* ========== FIM CORREÇÃO ========== */}
+        
         {/* ========== FORÇAR TEMA CLARO NO ANDROID ========== */}
         <meta name="color-scheme" content="light only" />
         <meta name="supported-color-schemes" content="light" />
