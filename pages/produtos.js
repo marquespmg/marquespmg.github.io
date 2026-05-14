@@ -3804,12 +3804,12 @@ const filteredProducts = uniqueProducts
       backgroundColor: '#095400',
       color: '#fff'
     },
-    productsGrid: {
-      display: 'grid',
-      gridTemplateColumns: windowWidth > 768 ? 'repeat(auto-fill, minmax(250px, 1fr))' : 'repeat(auto-fill, minmax(150px, 1fr))',
-      gap: windowWidth > 768 ? '25px' : '15px',
-      margin: windowWidth > 768 ? '30px 0' : '15px 0'
-    },
+productsGrid: {
+  display: 'grid',
+  gridTemplateColumns: windowWidth > 768 ? 'repeat(4, 1fr)' : 'repeat(2, 1fr)',
+  gap: windowWidth > 768 ? '25px' : '15px',
+  margin: windowWidth > 768 ? '30px 0' : '15px 0'
+},
     productCard: {
       backgroundColor: '#fff',
       borderRadius: '12px',
