@@ -2814,6 +2814,24 @@ const abrirModalConta = async () => {
     return () => subscription?.unsubscribe();
   }, []);
   // ========== FIM DO CONTADOR DE PEDIDOS ========== //
+
+  // ========== DETECTAR SE ESTÁ RODANDO DENTRO DO APP ==========
+const isRunningInApp = () => {
+  if (typeof window === 'undefined') return false;
+  
+  const ua = navigator.userAgent.toLowerCase();
+  
+  // Detecta WebView do Android
+  const isWebView = ua.includes('wv') || 
+                    ua.includes('androidwebview') ||
+                    (ua.includes('android') && !ua.includes('chrome'));
+  
+  // Detecta PWA (app instalado)
+  const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
+                window.navigator.standalone === true;
+  
+  return isWebView || isPWA;
+};	
   
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState('');
@@ -2835,8 +2853,8 @@ const abrirModalConta = async () => {
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const citiesButtonRef = useRef(null);
   const [showWithdrawalModal, setShowWithdrawalModal] = useState(false);
-
-  
+  const [showGoogleLogin, setShowGoogleLogin] = useState(true);
+	
   useTrackUser(); // ← ADICIONE ESTA LINHA
 
 // ========== ESTADOS PARA EDIÇÃO DE TELEFONE E CPF ========== //
@@ -3029,6 +3047,17 @@ const DeliveryDaysDisplay = ({ days }) => {
 
     checkAndRedirectAfterLogin();
   }, [router]);
+
+
+// ========== DETECTAR APP E ESCONDER GOOGLE LOGIN ==========
+useEffect(() => {
+  const inApp = isRunningInApp();
+  setShowGoogleLogin(!inApp);
+  
+  if (inApp) {
+    console.log('📱 App detectado - Google Login escondido');
+  }
+}, []);
 
 // ========== NOVO: CARREGAR DIAS DE ENTREGA ========== //
 useEffect(() => {
@@ -6046,47 +6075,38 @@ productsGrid: {
                   </p>
                 </form>
                 
-                {/* Adicionar o botão de login com Google */}
-                <div style={{ 
-                  marginTop: '20px', 
-                  textAlign: 'center',
-                  position: 'relative'
-                }}>
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '15px 0',
-                    color: '#757575'
-                  }}>
-                    <div style={{ 
-                      flex: 1, 
-                      height: '1px', 
-                      backgroundColor: '#ddd' 
-                    }}></div>
-                    <span style={{ 
-                      padding: '0 10px', 
-                      fontSize: '14px' 
-                    }}>ou</span>
-                    <div style={{ 
-                      flex: 1, 
-                      height: '1px', 
-                      backgroundColor: '#ddd' 
-                    }}></div>
-                  </div>
-                  
-                  <button
-                    onClick={handleGoogleLogin}
-                    style={styles.googleLoginButton}
-                  >
-                    <img 
-                      src="https://i.imgur.com/TcCOJPO.png" 
-                      alt="Google logo" 
-                      style={styles.googleLogo} 
-                    />
-                    Entrar com Google
-                  </button>
-                </div>
+{/* Adicionar o botão de login com Google - Só aparece se NÃO for app */}
+{showGoogleLogin && (
+  <div style={{ 
+    marginTop: '20px', 
+    textAlign: 'center',
+    position: 'relative'
+  }}>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '15px 0',
+      color: '#757575'
+    }}>
+      <div style={{ flex: 1, height: '1px', backgroundColor: '#ddd' }}></div>
+      <span style={{ padding: '0 10px', fontSize: '14px' }}>ou</span>
+      <div style={{ flex: 1, height: '1px', backgroundColor: '#ddd' }}></div>
+    </div>
+    
+    <button
+      onClick={handleGoogleLogin}
+      style={styles.googleLoginButton}
+    >
+      <img 
+        src="https://i.imgur.com/TcCOJPO.png" 
+        alt="Google logo" 
+        style={styles.googleLogo} 
+      />
+      Entrar com Google
+    </button>
+  </div>
+)}
               </div>
             </div>
           )}
