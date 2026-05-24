@@ -251,7 +251,7 @@ const avaliacoes = [
   <meta name="description" content="Distribuidora autorizada Marques Vendas PMG - Atacadista food service com produtos de qualidade para restaurantes, bares e mercados. Entrega rápida na região. Atendimento especializado." />
   
   {/* Viewport */}
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   
   {/* Charset */}
   <meta charSet="utf-8" />
@@ -821,75 +821,81 @@ const avaliacoes = [
 </Link>
 </header>
 
-        {/* Destaques de Credibilidade - CORRIGIDO PARA 2 POR LINHA NO APP */}
+        {/* Destaques de Credibilidade - Adaptado para mobile */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
+          display: 'flex',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
           gap: isMobile ? '10px' : '15px',
           margin: isMobile ? '20px 0' : '30px 0',
           padding: isMobile ? '0 10px' : '0'
         }}>
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: isMobile ? '12px 8px' : '15px 20px',
+            padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: '8px'}}>🚚</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🚚</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.9rem'}}>Entrega Rápida</div>
-              <div style={{fontSize: isMobile ? '0.6rem' : '0.8rem', color: '#666'}}>Para toda região</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Entrega Rápida</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Para toda região</div>
             </div>
           </div>
           
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: isMobile ? '12px 8px' : '15px 20px',
+            padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: '8px'}}>🏷️</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🏷️</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.9rem'}}>Preço Competitivo</div>
-              <div style={{fontSize: isMobile ? '0.6rem' : '0.8rem', color: '#666'}}>Melhores condições</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Preço Competitivo</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Melhores condições</div>
             </div>
           </div>
           
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: isMobile ? '12px 8px' : '15px 20px',
+            padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: '8px'}}>🛡️</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🛡️</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.9rem'}}>Garantia</div>
-              <div style={{fontSize: isMobile ? '0.6rem' : '0.8rem', color: '#666'}}>Produtos certificados</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Garantia</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Produtos certificados</div>
             </div>
           </div>
 
+          {/* NOVO DESTAQUE - Atendimento Personalizado */}
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: isMobile ? '12px 8px' : '15px 20px',
+            padding: isMobile ? '10px 15px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            minWidth: isMobile ? 'unset' : '200px',
+            flex: isMobile ? '1 1 120px' : '0 0 auto',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: '8px'}}>👨‍💼</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>👨‍💼</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.9rem'}}>Atendimento</div>
-              <div style={{fontSize: isMobile ? '0.6rem' : '0.8rem', color: '#666'}}>Personalizado</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.8rem' : '0.9rem'}}>Atendimento Personalizado</div>
+              <div style={{fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#666'}}>Especializado no seu negócio</div>
             </div>
           </div>
         </div>
@@ -1204,63 +1210,111 @@ const avaliacoes = [
 </section>
 
         {/* Seção de Avaliações */}
-        {/* Seção de Avaliações - CORRIGIDA COM LARGURA FIXA */}
-        <section style={{
-          margin: isMobile ? '20px 0' : '40px 0',
-          padding: isMobile ? '0 10px' : '0 20px',
-          width: '100%'
-        }}>
-          <h2 style={{
-            color: '#095400',
-            fontSize: isMobile ? '1.3rem' : '1.5rem',
-            fontWeight: '600',
-            textAlign: 'center',
-            marginBottom: isMobile ? '15px' : '25px'
-          }}>
-            O que nossos clientes dizem
-          </h2>
+{/* Seção de Avaliações - Versão Otimizada */}
+<section style={{
+  margin: isMobile ? '20px 0' : '40px 0',
+  padding: isMobile ? '0 10px' : '0 20px',
+  width: '100%',
+  overflow: 'hidden'
+}}>
+  <h2 style={{
+    color: '#095400',
+    fontSize: isMobile ? '1.3rem' : '1.5rem',
+    fontWeight: '600',
+    textAlign: 'center',
+    marginBottom: isMobile ? '15px' : '25px',
+    padding: '0 15px'
+  }}>
+    O que nossos clientes dizem
+  </h2>
 
-          <div style={{
-            width: '100%',
-            overflowX: 'auto',
-            WebkitOverflowScrolling: 'touch',
-            scrollbarWidth: 'thin'
+  <div style={{
+    position: 'relative',
+    maxWidth: '100%',
+    margin: '0 auto'
+  }}>
+    <div 
+      ref={avaliacoesRef}
+      style={{
+        display: 'flex',
+        overflowX: 'auto',
+        scrollBehavior: 'smooth',
+        gap: '15px',
+        padding: '10px',
+        scrollbarWidth: 'none', /* Firefox */
+        msOverflowStyle: 'none', /* IE/Edge */
+        '&::-webkit-scrollbar': {
+          display: 'none' /* Chrome/Safari */
+        }
+      }}
+    >
+      {avaliacoes.map((avaliacao, index) => (
+        <div key={index} style={{
+          minWidth: isMobile ? '85vw' : '28vw',
+          maxWidth: isMobile ? '85vw' : '28vw',
+          padding: '20px',
+          background: '#fff',
+          borderRadius: '10px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          flexShrink: 0,
+          boxSizing: 'border-box'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            marginBottom: '12px',
+            flexWrap: 'wrap'
           }}>
-            <div style={{
-              display: 'flex',
-              gap: '12px',
-              padding: '10px 5px',
-              minWidth: 'min-content'
-            }}>
-              {avaliacoes.map((avaliacao, index) => (
-                <div key={index} style={{
-                  width: isMobile ? '280px' : '300px',
-                  flexShrink: 0,
-                  padding: '15px',
-                  background: '#fff',
-                  borderRadius: '12px',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                  border: '1px solid #eee'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                    <img 
-                      src={avaliacao.foto} 
-                      alt={avaliacao.nome} 
-                      style={{ width: '45px', height: '45px', borderRadius: '50%', marginRight: '12px', objectFit: 'cover' }} 
-                    />
-                    <div>
-                      <h3 style={{ color: '#095400', fontSize: '1rem', margin: '0 0 4px 0', fontWeight: '600' }}>{avaliacao.nome}</h3>
-                      <div style={{ display: 'flex', gap: '2px' }}>
-                        {[...Array(5)].map((_, i) => (
-                          <span key={i} style={{ color: i < avaliacao.estrelas ? '#FFD700' : '#e0e0e0', fontSize: '14px' }}>★</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p style={{ color: '#555', fontSize: '0.85rem', lineHeight: '1.4', margin: 0, wordBreak: 'break-word' }}>
-                    "{avaliacao.texto}"
-                  </p>
-                </div>
+            <img 
+              src={avaliacao.foto} 
+              alt={avaliacao.nome} 
+              style={{ 
+                width: '45px', 
+                height: '45px', 
+                borderRadius: '50%', 
+                objectFit: 'cover',
+                marginRight: '10px'
+              }} 
+            />
+            <div>
+              <h3 style={{ 
+                color: '#095400', 
+                fontSize: isMobile ? '0.95rem' : '1rem',
+                margin: '0 0 3px 0',
+                fontWeight: '600'
+              }}>
+                {avaliacao.nome}
+              </h3>
+              <div style={{ 
+                display: 'flex',
+                gap: '2px'
+              }}>
+                {[...Array(5)].map((_, i) => (
+                  <span 
+                    key={i} 
+                    style={{ 
+                      color: i < avaliacao.estrelas ? '#FFD700' : '#e0e0e0',
+                      fontSize: isMobile ? '16px' : '18px',
+                      lineHeight: '1'
+                    }}
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <p style={{ 
+            color: '#555', 
+            fontSize: isMobile ? '0.88rem' : '0.92rem',
+            lineHeight: '1.5',
+            margin: 0,
+            wordBreak: 'break-word',
+            hyphens: 'auto'
+          }}>
+            "{avaliacao.texto}"
+          </p>
+        </div>
       ))}
     </div>
 
