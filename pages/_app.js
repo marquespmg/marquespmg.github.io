@@ -1,16 +1,9 @@
-// pages/_app.js
-import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
+import Markito from '../pages/Markito';
 import SeasonalOverlay from '@/components/SeasonalOverlay/SeasonalOverlay';
 import '../styles/globals.css';
-
-// Carrega o Markito APENAS no cliente (fora do SSR)
-const Markito = dynamic(() => import('../pages/Markito'), {
-  ssr: false,
-  loading: () => null
-});
 
 // ========== LIMPEZA TOTAL DE CACHE (RADICAL) ==========
 if (typeof window !== 'undefined') {
@@ -262,7 +255,6 @@ function MyApp({ Component, pageProps }) {
         clearCart={clearCart}
       />
       
-      {/* Markito carregado apenas no cliente */}
       <Markito />
     </>
   );
