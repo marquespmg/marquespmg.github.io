@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import useTrackUser from '../hook/useTrackUser';
 
 export default function Home() {
-  useTrackUser(); // ← ADICIONE ESTA LINHA
+  useTrackUser();
   
   const banners = [
     { 
@@ -41,7 +41,6 @@ export default function Home() {
 
   // Dados das avaliações
   const avaliacoes = [
-    // Femininas (8 avaliações)
     { 
       foto: "https://i.imgur.com/R4MCf34.png", 
       nome: "Ana", 
@@ -90,7 +89,6 @@ export default function Home() {
       texto: "Preço justo e produto de qualidade. Virei cliente fiel!", 
       estrelas: 5 
     },
-    // Masculinas (7 avaliações)
     { 
       foto: "https://i.imgur.com/CL3oucA.png", 
       nome: "Carlos", 
@@ -135,20 +133,16 @@ export default function Home() {
     }
   ];
 
-  // Estado do carrossel
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 1200, height: 400 });
   const slideInterval = useRef(null);
   const carouselRef = useRef(null);
   const avaliacoesRef = useRef(null);
-
-  // Estados para as notificações
   const [showFreteToast, setShowFreteToast] = useState(false);
   const [showWhatsappToast, setShowWhatsappToast] = useState(false);
   const toastTimers = useRef([]);
 
-  // Verifica o tamanho da tela e calcula proporções
   useEffect(() => {
     const checkScreenSize = () => {
       const mobile = window.innerWidth <= 768;
@@ -156,7 +150,6 @@ export default function Home() {
       
       if (carouselRef.current) {
         const width = carouselRef.current.offsetWidth;
-        // CORREÇÃO 1: Altura mínima para evitar espaço branco no app
         const height = mobile ? Math.min(width / 2, 250) : Math.min(width / 3, 400);
         setDimensions({ width, height });
       }
@@ -170,7 +163,6 @@ export default function Home() {
     };
   }, []);
 
-  // Navegação do carrossel
   const goToNextSlide = () => {
     setCurrentSlide((prev) => (prev === banners.length - 1 ? 0 : prev + 1));
     resetInterval();
@@ -186,7 +178,6 @@ export default function Home() {
     resetInterval();
   };
 
-  // Controle do intervalo automático
   const resetInterval = () => {
     clearInterval(slideInterval.current);
     startInterval();
@@ -198,7 +189,6 @@ export default function Home() {
     }, 5000);
   };
 
-  // Configuração das notificações
   const showToast = (toastType) => {
     if (toastType === 'frete') {
       setShowFreteToast(true);
@@ -215,15 +205,6 @@ export default function Home() {
     }
   };
 
-  const hideToast = (toastType) => {
-    if (toastType === 'frete') {
-      setShowFreteToast(false);
-    } else if (toastType === 'whatsapp') {
-      setShowWhatsappToast(false);
-    }
-  };
-
-  // Iniciar temporizadores das notificações
   useEffect(() => {
     const freteTimer = setTimeout(() => {
       showToast('frete');
@@ -244,22 +225,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        {/* Título Otimizado */}
         <title>Marques Vendas PMG - Distribuidora Food Service | Atacadista em Itapecerica da Serra</title>
-        
-        {/* Meta Description Otimizada */}
         <meta name="description" content="Distribuidora autorizada Marques Vendas PMG - Atacadista food service com produtos de qualidade para restaurantes, bares e mercados. Entrega rápida na região. Atendimento especializado." />
-        
-        {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        
-        {/* Charset */}
         <meta charSet="utf-8" />
-        
-        {/* Google Verification */}
         <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
-        
-        {/* ========== OPEN GRAPH (Facebook/WhatsApp) ========== */}
         <meta property="og:title" content="Marques Vendas PMG - Distribuidora Food Service | Atacadista Autorizado" />
         <meta property="og:description" content="Distribuidora autorizada com produtos de qualidade para seu negócio. Entrega rápida e atendimento especializado." />
         <meta property="og:image" content="https://i.imgur.com/pBH5WpZ.png" />
@@ -267,22 +237,17 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Marques Vendas PMG" />
         <meta property="og:locale" content="pt_BR" />
-        
-        {/* Open Graph para o Vídeo */}
         <meta property="og:video" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
         <meta property="og:video:type" content="text/html" />
         <meta property="og:video:width" content="1280" />
         <meta property="og:video:height" content="720" />
         <meta property="og:video:secure_url" content="https://www.youtube.com/embed/xOPT4YXLV2E" />
-        
-        {/* ========== TWITTER CARD ========== */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Marques Vendas PMG - Distribuidora Food Service" />
         <meta name="twitter:description" content="Distribuidora autorizada com produtos de qualidade para restaurantes, bares e mercados." />
         <meta name="twitter:image" content="https://i.imgur.com/pBH5WpZ.png" />
         <meta name="twitter:site" content="@marquesvendaspmg" />
         
-        {/* ========== SCHEMA.ORG (Google Rich Results) ========== */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -316,103 +281,14 @@ export default function Home() {
           })}
         </script>
         
-        {/* Schema para Vídeo */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "VideoObject",
-            "name": "PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados",
-            "description": "Há 30 anos a PMG Atacadista conecta negócios com confiança e resultados sólidos. Distribuidora food service em Itapecerica da Serra.",
-            "thumbnailUrl": "https://img.youtube.com/vi/xOPT4YXLV2E/maxresdefault.jpg",
-            "uploadDate": "2025-10-08T19:10:00-03:00",
-            "duration": "PT3M20S",
-            "contentUrl": "https://www.youtube.com/watch?v=xOPT4YXLV2E",
-            "embedUrl": "https://www.youtube.com/embed/xOPT4YXLV2E",
-            "publisher": {
-              "@type": "Organization",
-              "name": "Marques Vendas PMG",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://i.imgur.com/pBH5WpZ.png"
-              }
-            }
-          })}
-        </script>
-
-        {/* Schema - Products */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Product",
-                "name": "MUÇARELA BARI 4 KG",
-                "description": "Queijo Muçarela Bari 4kg - Produto de alta qualidade para restaurantes, bares e mercados.",
-                "category": "Derivados de Leite",
-                "image": "https://i.imgur.com/J3OqbkZ.png",
-                "brand": {
-                  "@type": "Brand",
-                  "name": "Bari"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.9",
-                  "reviewCount": "37"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "price": "27.63",
-                  "priceCurrency": "BRL",
-                  "availability": "https://schema.org/InStock",
-                  "priceValidUntil": "2026-01-25"
-                }
-              },
-              {
-                "@type": "Product",
-                "name": "MUÇARELA TRÊS MARIAS RONDÔNIA OURO PRETO 4 KG",
-                "description": "Queijo Muçarela Três Marias Rondônia Ouro Preto 4kg - Qualidade premium para food service.",
-                "category": "Derivados de Leite",
-                "image": "https://i.imgur.com/6I3X8vV.png",
-                "brand": {
-                  "@type": "Brand",
-                  "name": "Três Marias"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.8",
-                  "reviewCount": "25"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "price": "35.28",
-                  "priceCurrency": "BRL",
-                  "availability": "https://schema.org/InStock",
-                  "priceValidUntil": "2026-01-25"
-                }
-              }
-            ]
-          })}
-        </script>
-        
-        {/* ========== KEYWORDS E OTIMIZAÇÕES EXTRAS ========== */}
         <meta name="keywords" content="distribuidora food service, atacadista itapecerica, produtos para restaurante, atacado bebidas, alimentos atacado, marques vendas pmg, distribuidora autorizada, atacadista grande sp" />
         <meta name="author" content="Marques Vendas PMG" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        
-        {/* Canonical URL */}
         <link rel="canonical" href="https://www.marquesvendaspmg.shop" />
-        
-        {/* Sitemap */}
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-        
-        {/* Favicon */}
         <link rel="icon" href="https://i.imgur.com/pBH5WpZ.png" />
-        
-        {/* Theme Color para Mobile */}
         <meta name="theme-color" content="#095400" />
         <meta name="msapplication-TileColor" content="#095400" />
-        
-        {/* Apple Touch Icon */}
         <link rel="apple-touch-icon" href="https://i.imgur.com/pBH5WpZ.png" />
       </Head>
 
@@ -425,7 +301,7 @@ export default function Home() {
         fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
         position: 'relative'
       }}>
-        {/* Cabeçalho Premium - Adaptado para mobile */}
+        {/* Cabeçalho */}
         <header style={{
           display: 'flex',
           flexDirection: 'column',
@@ -480,7 +356,6 @@ export default function Home() {
             Produtos de qualidade com garantia e procedência. Atendimento personalizado para revendedores e estabelecimentos comerciais.
           </p>
 
-          {/* BOTÃO DE OFERTAS */}
           <Link href="/ofertas" passHref legacyBehavior>
             <a style={{
               display: 'inline-block',
@@ -502,7 +377,6 @@ export default function Home() {
             </a>
           </Link>
 
-          {/* BOTÃO FOOD NEWS */}
           <Link href="/food-news" passHref legacyBehavior>
             <a style={{
               display: 'inline-block',
@@ -525,85 +399,80 @@ export default function Home() {
           </Link>
         </header>
 
-        {/* CORREÇÃO 2: Destaques de Credibilidade - SEM QUEBRA DE LINHA */}
+        {/* CORREÇÃO: Destaques - AGORA FICA 2 POR LINHA NO MOBILE */}
         <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          gap: isMobile ? '8px' : '15px',
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
+          gap: isMobile ? '10px' : '15px',
           margin: isMobile ? '15px 0' : '30px 0',
           padding: isMobile ? '0 8px' : '0'
         }}>
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: isMobile ? '8px 12px' : '15px 20px',
+            padding: isMobile ? '10px 8px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            flex: isMobile ? '1 1 auto' : '0 0 auto',
-            minWidth: isMobile ? 'auto' : '200px',
+            justifyContent: 'center',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: isMobile ? '1rem' : '1.5rem', marginRight: isMobile ? '6px' : '10px'}}>🚚</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🚚</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.75rem' : '0.9rem'}}>Entrega Rápida</div>
-              <div style={{fontSize: isMobile ? '0.65rem' : '0.8rem', color: '#666'}}>Para toda região</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.9rem'}}>Entrega Rápida</div>
+              <div style={{fontSize: isMobile ? '0.6rem' : '0.8rem', color: '#666'}}>Para toda região</div>
             </div>
           </div>
           
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: isMobile ? '8px 12px' : '15px 20px',
+            padding: isMobile ? '10px 8px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            flex: isMobile ? '1 1 auto' : '0 0 auto',
-            minWidth: isMobile ? 'auto' : '200px',
+            justifyContent: 'center',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: isMobile ? '1rem' : '1.5rem', marginRight: isMobile ? '6px' : '10px'}}>🏷️</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🏷️</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.75rem' : '0.9rem'}}>Preço Competitivo</div>
-              <div style={{fontSize: isMobile ? '0.65rem' : '0.8rem', color: '#666'}}>Melhores condições</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.9rem'}}>Preço Competitivo</div>
+              <div style={{fontSize: isMobile ? '0.6rem' : '0.8rem', color: '#666'}}>Melhores condições</div>
             </div>
           </div>
           
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: isMobile ? '8px 12px' : '15px 20px',
+            padding: isMobile ? '10px 8px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            flex: isMobile ? '1 1 auto' : '0 0 auto',
-            minWidth: isMobile ? 'auto' : '200px',
+            justifyContent: 'center',
             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: isMobile ? '1rem' : '1.5rem', marginRight: isMobile ? '6px' : '10px'}}>🛡️</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>🛡️</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.75rem' : '0.9rem'}}>Garantia</div>
-              <div style={{fontSize: isMobile ? '0.65rem' : '0.8rem', color: '#666'}}>Produtos certificados</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.9rem'}}>Garantia</div>
+              <div style={{fontSize: isMobile ? '0.6rem' : '0.8rem', color: '#666'}}>Produtos certificados</div>
             </div>
           </div>
 
           <div style={{
             backgroundColor: '#f8f8f8',
-            padding: isMobile ? '8px 12px' : '15px 20px',
+            padding: isMobile ? '10px 8px' : '15px 20px',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
-            flex: isMobile ? '1 1 auto' : '0 0 auto',
-            minWidth: isMobile ? 'auto' : '200px',
-            boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
+            justifyContent: 'center',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
           }}>
-            <span style={{fontSize: isMobile ? '1rem' : '1.5rem', marginRight: isMobile ? '6px' : '10px'}}>👨‍💼</span>
+            <span style={{fontSize: isMobile ? '1.2rem' : '1.5rem', marginRight: isMobile ? '8px' : '10px'}}>👨‍💼</span>
             <div>
-              <div style={{fontWeight: '600', fontSize: isMobile ? '0.75rem' : '0.9rem'}}>Atendimento</div>
-              <div style={{fontSize: isMobile ? '0.65rem' : '0.8rem', color: '#666'}}>Personalizado</div>
+              <div style={{fontWeight: '600', fontSize: isMobile ? '0.7rem' : '0.9rem'}}>Atendimento</div>
+              <div style={{fontSize: isMobile ? '0.6rem' : '0.8rem', color: '#666'}}>Personalizado</div>
             </div>
           </div>
         </div>
 
-        {/* CORREÇÃO 3: Carrossel - ESPAÇO BRANCO CORRIGIDO */}
+        {/* Carrossel */}
         <div 
           ref={carouselRef}
           style={{
@@ -653,7 +522,6 @@ export default function Home() {
             ))}
           </div>
           
-          {/* Botões de navegação */}
           <button 
             onClick={goToPrevSlide}
             style={{
@@ -702,7 +570,6 @@ export default function Home() {
             <span style={{ fontSize: isMobile ? '16px' : '20px', color: '#095400' }}>❯</span>
           </button>
           
-          {/* Indicadores de slide */}
           <div style={{
             position: 'absolute',
             bottom: isMobile ? '10px' : '15px',
@@ -751,7 +618,6 @@ export default function Home() {
             Conheça Nossa Operação
           </h2>
           
-          {/* Vídeo do YouTube */}
           <div style={{
             width: '100%',
             maxWidth: isMobile ? '100%' : '900px',
@@ -776,19 +642,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Texto descritivo para SEO - ESCONDIDO */}
-          <div style={{ 
-            maxWidth: '800px',
-            marginTop: '20px',
-            opacity: '0',
-            height: '0',
-            overflow: 'hidden',
-            position: 'absolute'
-          }}>
-            <h3>PMG Atacadista 2025 | 30 Anos Conectando Negócios, Confiança e Resultados</h3>
-            <p>Há 30 anos a PMG Atacadista conecta negócios com confiança e resultados sólidos. Distribuidora food service especializada em atacado para restaurantes, bares, mercados e estabelecimentos comerciais. Localizada em Itapecerica da Serra, atendemos toda a Grande São Paulo com entrega rápida e condições especiais para compras em atacado.</p>
-          </div>
-          
           <p style={{
             color: '#666',
             fontSize: isMobile ? '0.85rem' : '1rem',
@@ -800,21 +653,6 @@ export default function Home() {
             Nossa estrutura preparada para atender sua demanda com agilidade e qualidade.
           </p>
         </section>
-
-        {/* Conteúdo SEO - ESCONDIDO */}
-        <div style={{
-          opacity: '0',
-          height: '0',
-          overflow: 'hidden',
-          position: 'absolute',
-          pointerEvents: 'none'
-        }}>
-          <h1>PMG Atacadista - Distribuidora e Atacadista em Itapecerica da Serra</h1>
-          <h2>PMG Atacadista - 30 Anos no Mercado</h2>
-          <p>A PMG Atacadista é uma distribuidora e atacadista localizada em Itapecerica da Serra, atendendo toda a Grande São Paulo.</p>
-          <h3>PMG Atacadista Telefone e Contato</h3>
-          <p>Telefone da PMG Atacadista: (11) 91357-2902. Endereço: Estrada Ferreira Guedes, 784 - Potuverá, Itapecerica da Serra - SP, CEP 06885-150.</p>
-        </div>
 
         {/* Seção CTA */}
         <section style={{
@@ -886,7 +724,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CORREÇÃO 4: Seção de Avaliações - QUEBRA DE LINHA CORRIGIDA */}
+        {/* CORREÇÃO: Avaliações - LARGURA FIXA CORRETA */}
         <section style={{
           margin: isMobile ? '20px 0' : '40px 0',
           padding: isMobile ? '0 8px' : '0 20px',
@@ -923,8 +761,8 @@ export default function Home() {
             >
               {avaliacoes.map((avaliacao, index) => (
                 <div key={index} style={{
-                  minWidth: isMobile ? '280px' : '320px',
-                  maxWidth: isMobile ? '280px' : '320px',
+                  minWidth: isMobile ? '260px' : '300px',
+                  maxWidth: isMobile ? '260px' : '300px',
                   padding: '15px',
                   background: '#fff',
                   borderRadius: '10px',
@@ -986,10 +824,9 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Botões de navegação */}
             <button 
               onClick={() => {
-                const scrollAmount = isMobile ? 292 : 332;
+                const scrollAmount = isMobile ? 272 : 312;
                 if (avaliacoesRef.current) {
                   avaliacoesRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
                 }
@@ -997,7 +834,7 @@ export default function Home() {
               style={{
                 position: 'absolute',
                 top: '50%',
-                left: '5px',
+                left: '0px',
                 transform: 'translateY(-50%)',
                 background: 'rgba(255,255,255,0.9)',
                 border: '1px solid #e0e0e0',
@@ -1020,7 +857,7 @@ export default function Home() {
             </button>
             <button 
               onClick={() => {
-                const scrollAmount = isMobile ? 292 : 332;
+                const scrollAmount = isMobile ? 272 : 312;
                 if (avaliacoesRef.current) {
                   avaliacoesRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                 }
@@ -1028,7 +865,7 @@ export default function Home() {
               style={{
                 position: 'absolute',
                 top: '50%',
-                right: '5px',
+                right: '0px',
                 transform: 'translateY(-50%)',
                 background: 'rgba(255,255,255,0.9)',
                 border: '1px solid #e0e0e0',
@@ -1076,7 +913,7 @@ export default function Home() {
           <div style={{
             display: 'grid',
             gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
-            gap: isMobile ? '15px' : '20px',
+            gap: isMobile ? '10px' : '20px',
             marginBottom: '25px',
             maxWidth: '600px',
             margin: '0 auto 25px auto'
@@ -1085,17 +922,15 @@ export default function Home() {
               color: '#095400', 
               textDecoration: 'none',
               fontWeight: '600',
-              fontSize: isMobile ? '0.8rem' : '0.85rem',
-              padding: '12px 8px',
+              fontSize: isMobile ? '0.7rem' : '0.85rem',
+              padding: '10px 5px',
               borderRadius: '8px',
-              transition: 'all 0.3s ease',
               backgroundColor: 'white',
               border: '1px solid #e0e0e0',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '8px',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              gap: '5px'
             }}>
               <span>🔒</span>
               {isMobile ? 'Privacidade' : 'Política de Privacidade'}
@@ -1106,17 +941,15 @@ export default function Home() {
                 color: '#095400', 
                 textDecoration: 'none',
                 fontWeight: '600',
-                fontSize: isMobile ? '0.8rem' : '0.85rem',
-                padding: '12px 8px',
+                fontSize: isMobile ? '0.7rem' : '0.85rem',
+                padding: '10px 5px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+                gap: '5px'
               }}>
                 <span>🔄</span>
                 {isMobile ? 'Devolução' : 'Política de Devolução'}
@@ -1128,17 +961,15 @@ export default function Home() {
                 color: '#095400', 
                 textDecoration: 'none',
                 fontWeight: '600',
-                fontSize: isMobile ? '0.8rem' : '0.85rem',
-                padding: '12px 8px',
+                fontSize: isMobile ? '0.7rem' : '0.85rem',
+                padding: '10px 5px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+                gap: '5px'
               }}>
                 <span>📄</span>
                 {isMobile ? 'Termos' : 'Termos de Uso'}
@@ -1150,17 +981,15 @@ export default function Home() {
                 color: '#095400', 
                 textDecoration: 'none',
                 fontWeight: '600',
-                fontSize: isMobile ? '0.8rem' : '0.85rem',
-                padding: '12px 8px',
+                fontSize: isMobile ? '0.7rem' : '0.85rem',
+                padding: '10px 5px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+                gap: '5px'
               }}>
                 <span>👥</span>
                 {isMobile ? 'Sobre' : 'Quem Somos'}
@@ -1188,73 +1017,24 @@ export default function Home() {
               gap: isMobile ? '20px' : '25px',
               alignItems: 'center'
             }}>
-              <a href="https://www.facebook.com/MarquesVendaspmg" target="_blank" rel="noopener noreferrer" style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '32px',
-                height: '32px',
-                borderRadius: '4px',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none',
-                padding: '6px'
-              }}>
-                <img src="https://i.imgur.com/prULUUA.png" alt="Facebook" style={{ width: '20px', height: '20px' }} />
+              <a href="https://www.facebook.com/MarquesVendaspmg" target="_blank" rel="noopener noreferrer">
+                <img src="https://i.imgur.com/prULUUA.png" alt="Facebook" style={{ width: '24px', height: '24px' }} />
               </a>
-              <a href="https://www.instagram.com/marquesvendaspmg" target="_blank" rel="noopener noreferrer" style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '32px',
-                height: '32px',
-                borderRadius: '4px',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none',
-                padding: '6px'
-              }}>
-                <img src="https://i.imgur.com/I0ZZLjG.png" alt="Instagram" style={{ width: '20px', height: '20px' }} />
+              <a href="https://www.instagram.com/marquesvendaspmg" target="_blank" rel="noopener noreferrer">
+                <img src="https://i.imgur.com/I0ZZLjG.png" alt="Instagram" style={{ width: '24px', height: '24px' }} />
               </a>
-              <a href="https://www.youtube.com/@MarquesVendasPMG" target="_blank" rel="noopener noreferrer" style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '32px',
-                height: '32px',
-                borderRadius: '4px',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none',
-                padding: '6px'
-              }}>
-                <img src="https://i.imgur.com/WfpZ8Gg.png" alt="YouTube" style={{ width: '20px', height: '20px' }} />
+              <a href="https://www.youtube.com/@MarquesVendasPMG" target="_blank" rel="noopener noreferrer">
+                <img src="https://i.imgur.com/WfpZ8Gg.png" alt="YouTube" style={{ width: '24px', height: '24px' }} />
               </a>
             </div>
 
             <div style={{ textAlign: 'center' }}>
-              <div style={{
-                maxWidth: '800px',
-                margin: '15px auto 20px auto',
-                padding: '0 15px'
-              }}>
-                <p style={{
-                  color: '#666',
-                  fontSize: isMobile ? '0.75rem' : '0.85rem',
-                  lineHeight: '1.5',
-                  textAlign: 'center',
-                  fontStyle: 'italic',
-                  margin: '0 0 15px 0'
-                }}>
-                  <strong>PMG Atacadista</strong> - Seu fornecedor de confiança em <strong>São Paulo</strong>. 
-                  Especializados em <strong>atacado food service</strong> para restaurantes, bares e mercados. 
-                  Atendemos <strong>Itapecerica da Serra, Grande SP, Sul de Minas Gerais e Sul do Rio de Janeiro</strong>.
-                </p>
-              </div>
-
-              <p style={{ margin: '5px 0', fontSize: isMobile ? '0.8rem' : '0.85rem', color: '#666' }}>
+              <p style={{ margin: '5px 0', fontSize: isMobile ? '0.75rem' : '0.85rem', color: '#666' }}>
                 © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.
               </p>
               
-              <p style={{ margin: '5px 0', fontSize: isMobile ? '0.7rem' : '0.8rem', color: '#999', lineHeight: '1.4' }}>
-                • Endereço: Estrada Ferreira Guedes, 784 - Potuverá CEP: 06885-150 - Itapecerica da Serra - SP
+              <p style={{ margin: '5px 0', fontSize: isMobile ? '0.65rem' : '0.8rem', color: '#999', lineHeight: '1.4' }}>
+                Endereço: Estrada Ferreira Guedes, 784 - Potuverá - Itapecerica da Serra - SP | CEP: 06885-150
               </p>
             </div>
           </div>
