@@ -1,13 +1,38 @@
 import React, { useState, useEffect } from 'react';
 
-// ========== DETECTAR SE ESTÁ RODANDO NO APP ==========
+// ========== DETECÇÃO DE APP COM LOGS ==========
 const isRunningInApp = () => {
   if (typeof window === 'undefined') return false;
+  
   const ua = navigator.userAgent.toLowerCase();
-  const isWebView = ua.includes('wv') || ua.includes('androidwebview');
-  const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
-                window.navigator.standalone === true;
-  return isWebView || isPWA;
+  
+  // Método 1: WebView
+  const isWebView = ua.includes('wv') || 
+                    ua.includes('androidwebview') ||
+                    ua.includes('; wv)');
+  
+  // Método 2: PWA standalone
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+  
+  // Método 3: PWA iOS
+  const isIOSStandalone = window.navigator.standalone === true;
+  
+  // Método 4: Verifica se tem 'marques' no user agent
+  const isAppUserAgent = ua.includes('marques') || ua.includes('pmg');
+  
+  const result = isWebView || isStandalone || isIOSStandalone || isAppUserAgent;
+  
+  // 🔍 LOGS PARA DEBUG
+  console.log('🔍===== MARKITO - DETECÇÃO DE APP =====');
+  console.log('User Agent:', navigator.userAgent);
+  console.log('isWebView:', isWebView);
+  console.log('isStandalone:', isStandalone);
+  console.log('isIOSStandalone:', isIOSStandalone);
+  console.log('isAppUserAgent:', isAppUserAgent);
+  console.log('RESULTADO FINAL - Está no app?', result);
+  console.log('🔍=====================================');
+  
+  return result;
 };
 // ========== FIM ==========
 
@@ -20,8 +45,19 @@ const Markito = () => {
   const [queue, setQueue] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
-  // Configuração da API - substitua pela sua URL do Vercel
-  const API_BASE_URL = '/api'; // Usará o mesmo domínio do site
+  // 🔍 VERIFICAÇÃO DO APP
+  const inApp = isRunningInApp();
+  
+  // Se estiver no app, NÃO renderiza o chat
+  if (inApp) {
+    console.log('❌ Markito: App detectado - Chat NÃO será renderizado');
+    return null;
+  }
+  
+  console.log('✅ Markito: Site normal - Chat será renderizado');
+
+  // Configuração da API
+  const API_BASE_URL = '/api';
 
   const fetchProdutos = async () => {
     try {
@@ -135,13 +171,6 @@ const Markito = () => {
   const renderMessage = (text) => {
     return <div dangerouslySetInnerHTML={{ __html: text.replace(/\n/g, '<br/>') }} />;
   };
-
-  // ========== VERIFICAÇÃO DO APP (SÓ NO FINAL) ==========
-  // Se estiver no app, NÃO renderiza o chat
-  if (isRunningInApp()) {
-    return null;
-  }
-  // ====================================================
 
   return (
     <>
