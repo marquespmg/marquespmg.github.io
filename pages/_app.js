@@ -5,17 +5,6 @@ import Markito from '../pages/Markito';
 import SeasonalOverlay from '@/components/SeasonalOverlay/SeasonalOverlay';
 import '../styles/globals.css';
 
-// ========== DETECTAR SE ESTÁ RODANDO NO APP ==========
-const isRunningInApp = () => {
-  if (typeof window === 'undefined') return false;
-  const ua = navigator.userAgent.toLowerCase();
-  const isWebView = ua.includes('wv') || ua.includes('androidwebview');
-  const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
-                window.navigator.standalone === true;
-  return isWebView || isPWA;
-};
-// ========== FIM ==========
-
 // ========== LIMPEZA TOTAL DE CACHE (RADICAL) ==========
 if (typeof window !== 'undefined') {
   const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
@@ -58,9 +47,6 @@ if (typeof window !== 'undefined') {
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
-  
-  // Detecta se está no app (para esconder elementos)
-  const isApp = isRunningInApp();
 
   useEffect(() => {
     const loadCartFromStorage = () => {
@@ -256,8 +242,7 @@ function MyApp({ Component, pageProps }) {
         `
       }} />
 
-      {/* Só mostra SeasonalOverlay se NÃO for app */}
-      {!isApp && <SeasonalOverlay />}
+      <SeasonalOverlay />
 
       <Component 
         {...pageProps} 
@@ -270,8 +255,7 @@ function MyApp({ Component, pageProps }) {
         clearCart={clearCart}
       />
       
-      {/* Só mostra Markito se NÃO for app */}
-      {!isApp && <Markito />}
+      <Markito />
     </>
   );
 }
