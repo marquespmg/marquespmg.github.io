@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
+// ========== DETECTAR SE ESTÁ RODANDO NO APP ==========
+const isRunningInApp = () => {
+  if (typeof window === 'undefined') return false;
+  const ua = navigator.userAgent.toLowerCase();
+  const isWebView = ua.includes('wv') || ua.includes('androidwebview');
+  const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
+                window.navigator.standalone === true;
+  return isWebView || isPWA;
+};
+// ========== FIM ==========
+
 const Markito = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -9,10 +20,8 @@ const Markito = () => {
   const [queue, setQueue] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
-   // Configuração da API - substitua pela sua URL do Vercel
+  // Configuração da API - substitua pela sua URL do Vercel
   const API_BASE_URL = '/api'; // Usará o mesmo domínio do site
-
-  const toggleChat = () => setIsOpen(!isOpen);
 
   const fetchProdutos = async () => {
     try {
@@ -107,6 +116,8 @@ const Markito = () => {
     return () => clearTimeout(timer);
   }, [queue]);
 
+  const toggleChat = () => setIsOpen(!isOpen);
+
   const handleSend = () => {
     if (!input.trim()) return;
     const newMessage = input.trim();
@@ -124,6 +135,13 @@ const Markito = () => {
   const renderMessage = (text) => {
     return <div dangerouslySetInnerHTML={{ __html: text.replace(/\n/g, '<br/>') }} />;
   };
+
+  // ========== VERIFICAÇÃO DO APP (SÓ NO FINAL) ==========
+  // Se estiver no app, NÃO renderiza o chat
+  if (isRunningInApp()) {
+    return null;
+  }
+  // ====================================================
 
   return (
     <>
