@@ -3,6 +3,17 @@
 import React, { useState, useEffect } from 'react';
 import maioTheme from './themes/maio';
 
+// ========== DETECTAR SE ESTÁ RODANDO NO APP ==========
+const isRunningInApp = () => {
+  if (typeof window === 'undefined') return false;
+  const ua = navigator.userAgent.toLowerCase();
+  const isWebView = ua.includes('wv') || ua.includes('androidwebview');
+  const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
+                window.navigator.standalone === true;
+  return isWebView || isPWA;
+};
+// ========== FIM ==========
+
 const SeasonalOverlay = () => {
   const theme = maioTheme;
   const [showModal, setShowModal] = useState(false);
@@ -11,6 +22,14 @@ const SeasonalOverlay = () => {
   const [currentEmoji, setCurrentEmoji] = useState({});
   const [currentMessage, setCurrentMessage] = useState('');
   
+  // Verifica se está no app (para não mostrar nada)
+  const isApp = isRunningInApp();
+
+  // Se estiver no app, NÃO RENDERIZA NADA
+  if (isApp) {
+    return null;
+  }
+
   if (!theme.ativo) return null;
 
   // Verifica se é dia especial (Dia das Mães)
@@ -343,7 +362,7 @@ const SeasonalOverlay = () => {
           
           .emoji-message {
             font-size: 11px !important;
-            max-width: 130px !important;
+            maxWidth: 130px !important;
             padding: 6px 10px !important;
           }
           
@@ -363,7 +382,7 @@ const SeasonalOverlay = () => {
           
           .emoji-message {
             font-size: 10px !important;
-            max-width: 110px !important;
+            maxWidth: 110px !important;
             white-space: normal !important;
           }
         }
