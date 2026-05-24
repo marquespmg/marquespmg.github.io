@@ -1,39 +1,34 @@
 import React, { useState, useEffect } from 'react';
 
-// ========== DETECÇÃO DE APP (CORREÇÃO) ==========
-// Isso precisa ser a PRIMEIRA coisa que executa
-const isRunningInApp = () => {
-  if (typeof window === 'undefined') return false;
+// ========== DETECÇÃO DE APP ==========
+const isAppEnvironment = () => {
+  if (typeof window === 'undefined') return true;
   
-  // Método 1: Verifica se está em modo standalone (PWA instalado)
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-  
-  // Método 2: Verifica se é WebView (app)
   const ua = navigator.userAgent.toLowerCase();
-  const isWebView = ua.includes('wv') || 
-                    ua.includes('androidwebview') ||
-                    (ua.includes('android') && !ua.includes('chrome'));
   
-  // Método 3: iOS standalone
+  const appIndicators = [
+    'wv', 'androidwebview', '; wv)', 'webview',
+    'electron', 'capacitor', 'cordova', 'ionic',
+    'mobileapp', '; version/', 'version/.* chrome/.* wv'
+  ];
+  
+  const isWebView = appIndicators.some(indicator => {
+    if (indicator.includes('.*')) {
+      return new RegExp(indicator).test(ua);
+    }
+    return ua.includes(indicator);
+  });
+  
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
   const isIOSStandalone = window.navigator.standalone === true;
+  const isPWA = isStandalone || isIOSStandalone;
   
-  // Resultado final
-  const isApp = isStandalone || isWebView || isIOSStandalone;
-  
-  // Log para debug (opcional - pode remover depois)
-  console.log('🔍 Markito - App detectado?', isApp);
-  
-  return isApp;
+  return isWebView || isPWA;
 };
 // ========== FIM ==========
 
 const Markito = () => {
-  // ========== VERIFICAÇÃO: SE FOR APP, NÃO RENDERIZA ==========
-  if (isRunningInApp()) {
-    return null;  // Chat não aparece no app
-  }
-  // ========== FIM ==========
-
+  // 🔥 TODOS OS HOOKS VÊM PRIMEIRO, ANTES DE QUALQUER RETURN CONDICIONAL
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { sender: 'bot', text: '👋 Olá! Eu sou o Markito, seu assistente da Marques Vendas PMG. Me pergunte sobre frete, pagamento ou produtos!' }
@@ -41,20 +36,37 @@ const Markito = () => {
   const [input, setInput] = useState('');
   const [queue, setQueue] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
+  
+  // Estado para controlar se deve renderizar
+  const [shouldRender, setShouldRender] = useState(true);
 
-   // Configuração da API - substitua pela sua URL do Vercel
-  const API_BASE_URL = '/api'; // Usará o mesmo domínio do site
-
+  const API_BASE_URL = '/api';
   const toggleChat = () => setIsOpen(!isOpen);
+
+  // ========== DETECÇÃO NO useEffect (depois dos hooks) ==========
+  useEffect(() => {
+    const isApp = isAppEnvironment();
+    
+    if (isApp) {
+      setShouldRender(false);
+      // Tenta remover do DOM também
+      const chatDiv = document.querySelector('[style*="position: fixed"][style*="bottom: 20px"]');
+      if (chatDiv && chatDiv.parentNode) {
+        chatDiv.parentNode.removeChild(chatDiv);
+      }
+    }
+  }, []);
+
+  // Se for app, não renderiza (mas depois de todos os hooks)
+  if (!shouldRender) {
+    return null;
+  }
 
   const fetchProdutos = async () => {
     try {
       const res = await fetch(`${API_BASE_URL}/produtos`, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
+        headers: { 'Content-Type': 'application/json' }
       });
-      
       if (!res.ok) {
         const errorText = await res.text();
         if (errorText.startsWith('<!DOCTYPE')) {
@@ -62,7 +74,6 @@ const Markito = () => {
         }
         throw new Error(errorText || 'Erro ao carregar produtos');
       }
-
       return await res.json();
     } catch (err) {
       console.error('Erro ao buscar produtos:', err);
@@ -72,17 +83,14 @@ const Markito = () => {
 
   const processQueue = async () => {
     if (queue.length === 0) return;
-
     const combinedMessage = queue.join('. ');
     setQueue([]);
     setIsTyping(true);
-
     try {
       const produtos = await fetchProdutos();
       const matchedProdutos = produtos.filter(produto =>
         combinedMessage.toLowerCase().includes(produto.name.toLowerCase())
       );
-
       let produtosResposta = '';
       if (matchedProdutos.length > 0) {
         produtosResposta = '🔍 Produtos encontrados:\n\n';
@@ -98,31 +106,25 @@ const Markito = () => {
 `;
         });
       }
-
       const response = await fetch(`${API_BASE_URL}/chat`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: combinedMessage,
           produtos: produtosResposta
         })
       });
-
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.error || 'Erro ao processar sua mensagem');
       }
-
       const data = await response.json();
       const botReply = data.reply || '❌ Desculpe, não consegui entender.';
-
       setMessages(prev => [...prev, { sender: 'bot', text: botReply }]);
     } catch (error) {
       console.error('Erro no processamento:', error);
-      setMessages(prev => [...prev, { 
-        sender: 'bot', 
+      setMessages(prev => [...prev, {
+        sender: 'bot',
         text: `⚠️ Ocorreu um erro: ${error.message || 'Por favor, tente novamente mais tarde.'}`
       }]);
     } finally {
@@ -132,18 +134,13 @@ const Markito = () => {
 
   useEffect(() => {
     if (queue.length === 0) return;
-
-    const timer = setTimeout(() => {
-      processQueue();
-    }, 15000);
-
+    const timer = setTimeout(() => processQueue(), 15000);
     return () => clearTimeout(timer);
   }, [queue]);
 
   const handleSend = () => {
     if (!input.trim()) return;
     const newMessage = input.trim();
-
     setMessages(prev => [...prev, { sender: 'user', text: newMessage }]);
     setQueue(prev => [...prev, newMessage]);
     setInput('');
@@ -315,41 +312,17 @@ const Markito = () => {
           animation: typing 1s infinite;
           opacity: 0;
         }
-        
-        .typing-indicator span:nth-child(1) {
-          animation-delay: 0s;
-        }
-        
-        .typing-indicator span:nth-child(2) {
-          animation-delay: 0.2s;
-        }
-        
-        .typing-indicator span:nth-child(3) {
-          animation-delay: 0.4s;
-        }
-        
+        .typing-indicator span:nth-child(1) { animation-delay: 0s; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
         @keyframes typing {
           0% { opacity: 0; }
           50% { opacity: 1; }
           100% { opacity: 0; }
         }
-
-        .product-image {
-          max-width: 200px;
-          border-radius: 8px;
-          margin-top: 8px;
-          display: block;
-        }
-
-        a {
-          color: #095400;
-          text-decoration: none;
-          font-weight: bold;
-        }
-
-        a:hover {
-          text-decoration: underline;
-        }
+        .product-image { max-width: 200px; border-radius: 8px; margin-top: 8px; display: block; }
+        a { color: #095400; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
       `}</style>
     </>
   );
