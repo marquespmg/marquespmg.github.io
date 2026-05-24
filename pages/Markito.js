@@ -1,42 +1,39 @@
 import React, { useState, useEffect } from 'react';
 
-// ========== DETECÇÃO DE APP COM LOGS ==========
+// ========== DETECÇÃO DE APP (CORREÇÃO) ==========
+// Isso precisa ser a PRIMEIRA coisa que executa
 const isRunningInApp = () => {
   if (typeof window === 'undefined') return false;
   
-  const ua = navigator.userAgent.toLowerCase();
-  
-  // Método 1: WebView
-  const isWebView = ua.includes('wv') || 
-                    ua.includes('androidwebview') ||
-                    ua.includes('; wv)');
-  
-  // Método 2: PWA standalone
+  // Método 1: Verifica se está em modo standalone (PWA instalado)
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
   
-  // Método 3: PWA iOS
+  // Método 2: Verifica se é WebView (app)
+  const ua = navigator.userAgent.toLowerCase();
+  const isWebView = ua.includes('wv') || 
+                    ua.includes('androidwebview') ||
+                    (ua.includes('android') && !ua.includes('chrome'));
+  
+  // Método 3: iOS standalone
   const isIOSStandalone = window.navigator.standalone === true;
   
-  // Método 4: Verifica se tem 'marques' no user agent
-  const isAppUserAgent = ua.includes('marques') || ua.includes('pmg');
+  // Resultado final
+  const isApp = isStandalone || isWebView || isIOSStandalone;
   
-  const result = isWebView || isStandalone || isIOSStandalone || isAppUserAgent;
+  // Log para debug (opcional - pode remover depois)
+  console.log('🔍 Markito - App detectado?', isApp);
   
-  // 🔍 LOGS PARA DEBUG
-  console.log('🔍===== MARKITO - DETECÇÃO DE APP =====');
-  console.log('User Agent:', navigator.userAgent);
-  console.log('isWebView:', isWebView);
-  console.log('isStandalone:', isStandalone);
-  console.log('isIOSStandalone:', isIOSStandalone);
-  console.log('isAppUserAgent:', isAppUserAgent);
-  console.log('RESULTADO FINAL - Está no app?', result);
-  console.log('🔍=====================================');
-  
-  return result;
+  return isApp;
 };
 // ========== FIM ==========
 
 const Markito = () => {
+  // ========== VERIFICAÇÃO: SE FOR APP, NÃO RENDERIZA ==========
+  if (isRunningInApp()) {
+    return null;  // Chat não aparece no app
+  }
+  // ========== FIM ==========
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { sender: 'bot', text: '👋 Olá! Eu sou o Markito, seu assistente da Marques Vendas PMG. Me pergunte sobre frete, pagamento ou produtos!' }
@@ -45,19 +42,10 @@ const Markito = () => {
   const [queue, setQueue] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
-  // 🔍 VERIFICAÇÃO DO APP
-  const inApp = isRunningInApp();
-  
-  // Se estiver no app, NÃO renderiza o chat
-  if (inApp) {
-    console.log('❌ Markito: App detectado - Chat NÃO será renderizado');
-    return null;
-  }
-  
-  console.log('✅ Markito: Site normal - Chat será renderizado');
+   // Configuração da API - substitua pela sua URL do Vercel
+  const API_BASE_URL = '/api'; // Usará o mesmo domínio do site
 
-  // Configuração da API
-  const API_BASE_URL = '/api';
+  const toggleChat = () => setIsOpen(!isOpen);
 
   const fetchProdutos = async () => {
     try {
@@ -151,8 +139,6 @@ const Markito = () => {
 
     return () => clearTimeout(timer);
   }, [queue]);
-
-  const toggleChat = () => setIsOpen(!isOpen);
 
   const handleSend = () => {
     if (!input.trim()) return;
