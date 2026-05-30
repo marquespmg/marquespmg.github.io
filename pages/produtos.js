@@ -183,7 +183,7 @@ const categories = [
 ];
 
 const products = [
-  { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 837.43, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg' },
+  { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 83.43, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg' },
   { id: 8, name: 'AVENTAL EMBORRACHADO BRANCO TAMANHO ÚNICO', category: 'Acessórios', price: 20.67, image: 'https://www.marquesvendaspmg.shop/images/avental-emborrachado-branco-tamanho-unico-pmg-atacadista.jpg' },
   { id: 9, name: 'AVENTAL EMBORRACHADO PRETO TAMANHO ÚNICO', category: 'Acessórios', price: 20.67, image: 'https://www.marquesvendaspmg.shop/images/avental-emborrachado-preto-tamanho-unico-pmg-atacadista.jpg' },
   { id: 10, name: 'AVENTAL TERGAL BRANCO TAMANHO ÚNICO', category: 'Acessórios', price: 20.34, image: 'https://www.marquesvendaspmg.shop/images/avental-tergal-branco-tamanho-unico-pmg-atacadista.jpg' },
