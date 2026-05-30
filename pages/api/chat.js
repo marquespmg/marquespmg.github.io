@@ -37,7 +37,7 @@ Responda de forma simpática, objetiva e comercial, como um vendedor treinado e 
     const apiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer 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',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
