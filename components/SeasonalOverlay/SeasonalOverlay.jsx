@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import junhoTheme from './themes/junho';
-import fechaMesTheme from './themes/fechaMes'
+import fechaMesTheme from './themes/fechaMes';
 
 // ========== FUNÇÃO PARA ESCOLHER O TEMA ATIVO (PRIORIDADE MANUAL) ==========
 const getThemeAtivo = () => {
