@@ -1,7 +1,19 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import maioTheme from './themes/maio';
+import junhoTheme from './themes/junho';
+import fechaMesTheme from './themes/fechaMes';
+
+// ========== FUNÇÃO PARA ESCOLHER O TEMA ATIVO (PRIORIDADE MANUAL) ==========
+const getThemeAtivo = () => {
+  // PRIORIDADE MÁXIMA: Se Fecha Mês estiver ativo MANUALMENTE, usa ele
+  if (fechaMesTheme.ativo) {
+    return fechaMesTheme;
+  }
+  // Senão, usa o tema normal do mês
+  return junhoTheme;
+};
+// ========== FIM ==========
 
 // ========== DETECTAR SE ESTÁ RODANDO NO APP ==========
 const isRunningInApp = () => {
@@ -15,7 +27,8 @@ const isRunningInApp = () => {
 // ========== FIM ==========
 
 const SeasonalOverlay = () => {
-  const theme = maioTheme;
+  // Escolhe o tema automaticamente (prioridade para Fecha Mês se ativo)
+  const theme = getThemeAtivo();
   const [showModal, setShowModal] = useState(false);
   const [showEmoji, setShowEmoji] = useState(false);
   const [emojiPosition, setEmojiPosition] = useState({});
@@ -32,9 +45,41 @@ const SeasonalOverlay = () => {
 
   if (!theme.ativo) return null;
 
-  // Verifica se é dia especial (Dia das Mães)
+  // Verifica se é dia especial (apenas para temas que têm essa propriedade)
   const hoje = new Date().toISOString().split('T')[0];
-  const isDiaEspecial = theme.diaMaes && (hoje === theme.diaMaes.data);
+  const hasDiaEspecial = theme.diaSaoJoao || theme.diaMaes || theme.diaPascoa;
+  const isDiaEspecial = hasDiaEspecial && (hoje === (theme.diaSaoJoao?.data || theme.diaMaes?.data || theme.diaPascoa?.data));
+
+  // Pega a cor de destaque se for dia especial
+  const getCorDestaque = () => {
+    if (theme.diaSaoJoao && isDiaEspecial) return theme.diaSaoJoao.corDestaque;
+    if (theme.diaMaes && isDiaEspecial) return theme.diaMaes.corDestaque;
+    if (theme.diaPascoa && isDiaEspecial) return theme.diaPascoa.corDestaque;
+    return null;
+  };
+
+  // Pega a mensagem especial se for dia especial
+  const getMensagemEspecial = () => {
+    if (theme.diaSaoJoao && isDiaEspecial) return theme.diaSaoJoao.mensagemEspecial;
+    if (theme.diaMaes && isDiaEspecial) return theme.diaMaes.mensagemEspecial;
+    if (theme.diaPascoa && isDiaEspecial) return theme.diaPascoa.mensagemEspecial;
+    return null;
+  };
+
+  // Pega a oferta especial se for dia especial
+  const getOfertaEspecial = () => {
+    if (theme.diaSaoJoao && isDiaEspecial) return theme.diaSaoJoao.ofertaEspecial;
+    if (theme.diaMaes && isDiaEspecial) return theme.diaMaes.ofertaEspecial;
+    if (theme.diaPascoa && isDiaEspecial) return theme.diaPascoa.ofertaEspecial;
+    return null;
+  };
+
+  const corDestaqueEspecial = getCorDestaque();
+  const mensagemEspecial = getMensagemEspecial();
+  const ofertaEspecial = getOfertaEspecial();
+
+  // Define a cor principal do tema
+  const corPrincipal = theme.cores.vermelho || theme.cores.rosa || theme.cores.verdeEscuro || theme.cores.roxo;
 
   // Controla modal
   useEffect(() => {
@@ -114,7 +159,7 @@ const SeasonalOverlay = () => {
 
   return (
     <>
-      {/* MODAL DE BOAS-VINDAS COM MENSAGEM ESPECIAL DO DIA DAS MÃES */}
+      {/* MODAL DE BOAS-VINDAS */}
       {showModal && (
         <div style={{
           position: 'fixed',
@@ -140,40 +185,40 @@ const SeasonalOverlay = () => {
             position: 'relative',
             animation: 'slideUp 0.6s ease'
           }}>
-            {/* TÍTULO - Especial se for Dia das Mães */}
+            {/* TÍTULO */}
             <h2 style={{
-              color: isDiaEspecial ? theme.diaMaes.corDestaque : theme.cores.rosa,
+              color: isDiaEspecial && corDestaqueEspecial ? corDestaqueEspecial : corPrincipal,
               fontSize: '28px',
               marginBottom: '10px',
               fontWeight: '600'
             }}>
-              {isDiaEspecial ? '🌹 FELIZ DIA DAS MÃES! 🌹' : theme.modal.titulo}
+              {isDiaEspecial ? `🔥 ${mensagemEspecial?.split('!')[0]}! 🔥` : theme.modal.titulo}
             </h2>
             
-            {/* MENSAGEM - Especial se for Dia das Mães */}
+            {/* MENSAGEM */}
             <p style={{
               fontSize: '18px',
               color: '#333',
               marginBottom: '15px',
               lineHeight: '1.4'
             }}>
-              {isDiaEspecial ? theme.diaMaes.mensagemEspecial : theme.modal.mensagem}
+              {isDiaEspecial ? mensagemEspecial : theme.modal.mensagem}
             </p>
             
-            {/* SUBTÍTULO - Especial se for Dia das Mães */}
+            {/* SUBTÍTULO / OFERTA */}
             <p style={{
               fontSize: '14px',
               color: '#666',
               marginBottom: '25px',
               fontStyle: 'italic'
             }}>
-              {isDiaEspecial ? theme.diaMaes.ofertaEspecial : theme.modal.subtitulo}
+              {isDiaEspecial ? ofertaEspecial : theme.modal.subtitulo}
             </p>
             
             <button
               onClick={() => setShowModal(false)}
               style={{
-                backgroundColor: isDiaEspecial ? theme.diaMaes.corDestaque : theme.cores.rosa,
+                backgroundColor: isDiaEspecial && corDestaqueEspecial ? corDestaqueEspecial : corPrincipal,
                 color: 'white',
                 border: 'none',
                 padding: '12px 30px',
@@ -204,13 +249,13 @@ const SeasonalOverlay = () => {
               fontSize: '50px',
               animation: 'bounce 3s infinite'
             }}>
-              {isDiaEspecial ? '💖' : theme.emojis[0].emoji}
+              {isDiaEspecial ? '🎉' : theme.emojis[0]?.emoji || '🎉'}
             </div>
           </div>
         </div>
       )}
       
-      {/* EMOJI FLUTUANTE ALEATÓRIO (SEMPRE COM MENSAGENS NORMAIS) */}
+      {/* EMOJI FLUTUANTE ALEATÓRIO */}
       {showEmoji && currentEmoji.emoji && (
         <div
           style={{
@@ -237,11 +282,11 @@ const SeasonalOverlay = () => {
               {currentEmoji.emoji}
             </div>
             
-            {/* Balão de mensagem (sempre mensagens normais, curtas) */}
+            {/* Balão de mensagem */}
             {currentMessage && (
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                color: theme.cores.rosa,
+                color: corPrincipal,
                 padding: '8px 12px',
                 borderRadius: '12px',
                 fontSize: '12px',
@@ -252,7 +297,7 @@ const SeasonalOverlay = () => {
                 animation: 'messageFloat 5s ease-out',
                 maxWidth: '160px',
                 textAlign: 'center',
-                border: `1px solid ${theme.cores.rosa}20`
+                border: `1px solid ${corPrincipal}20`
               }}>
                 {currentMessage}
                 
@@ -362,7 +407,7 @@ const SeasonalOverlay = () => {
           
           .emoji-message {
             font-size: 11px !important;
-            maxWidth: 130px !important;
+            max-width: 130px !important;
             padding: 6px 10px !important;
           }
           
@@ -382,7 +427,7 @@ const SeasonalOverlay = () => {
           
           .emoji-message {
             font-size: 10px !important;
-            maxWidth: 110px !important;
+            max-width: 110px !important;
             white-space: normal !important;
           }
         }
