@@ -6,7 +6,6 @@ export default async function handler(req, res) {
   try {
     const { message, produtos } = req.body;
 
-    // Verifique se a mensagem existe
     if (!message) {
       return res.status(400).json({ error: 'Mensagem é obrigatória' });
     }
@@ -37,7 +36,7 @@ Responda de forma simpática, objetiva e comercial, como um vendedor treinado e 
     const apiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer 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',
+        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -46,7 +45,6 @@ Responda de forma simpática, objetiva e comercial, como um vendedor treinado e 
       })
     });
 
-    // Verifique se a resposta da API é válida
     if (!apiResponse.ok) {
       const errorText = await apiResponse.text();
       console.error('Erro na API OpenRouter:', errorText);
