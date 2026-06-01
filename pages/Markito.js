@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Markito = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,10 +9,22 @@ const Markito = () => {
   const [queue, setQueue] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
 
-   // Configuração da API - substitua pela sua URL do Vercel
-  const API_BASE_URL = '/api'; // Usará o mesmo domínio do site
+  // REF PARA SCROLL AUTOMÁTICO
+  const messagesEndRef = useRef(null);
+
+  // Configuração da API
+  const API_BASE_URL = '/api';
 
   const toggleChat = () => setIsOpen(!isOpen);
+
+  // SCROLL AUTOMÁTICO
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isTyping]);
 
   const fetchProdutos = async () => {
     try {
@@ -85,12 +97,13 @@ const Markito = () => {
       const data = await response.json();
       const botReply = data.reply || '❌ Desculpe, não consegui entender.';
 
-      setMessages(prev => [...prev, { sender: 'bot', text: botReply }]);
+      setMessages(prev => [...prev, { sender: 'bot', text: botReply, time: new Date() }]);
     } catch (error) {
       console.error('Erro no processamento:', error);
       setMessages(prev => [...prev, { 
         sender: 'bot', 
-        text: `⚠️ Ocorreu um erro: ${error.message || 'Por favor, tente novamente mais tarde.'}`
+        text: `😅 Ops! O Markito está com um pequeno problema técnico. Tente novamente em alguns segundos.`,
+        time: new Date()
       }]);
     } finally {
       setIsTyping(false);
@@ -111,7 +124,7 @@ const Markito = () => {
     if (!input.trim()) return;
     const newMessage = input.trim();
 
-    setMessages(prev => [...prev, { sender: 'user', text: newMessage }]);
+    setMessages(prev => [...prev, { sender: 'user', text: newMessage, time: new Date() }]);
     setQueue(prev => [...prev, newMessage]);
     setInput('');
     setIsTyping(true);
@@ -121,8 +134,20 @@ const Markito = () => {
     if (e.key === 'Enter') handleSend();
   };
 
+  // Limpar conversa
+  const clearChat = () => {
+    setMessages([{ sender: 'bot', text: '👋 Conversa limpa! Como posso ajudar?', time: new Date() }]);
+    setQueue([]);
+  };
+
   const renderMessage = (text) => {
     return <div dangerouslySetInnerHTML={{ __html: text.replace(/\n/g, '<br/>') }} />;
+  };
+
+  // Formatar hora
+  const formatTime = (date) => {
+    if (!date) return '';
+    return new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
   return (
@@ -166,21 +191,37 @@ const Markito = () => {
                 }} 
               />
               Markito - Chat de Vendas
-              <button onClick={toggleChat} style={{
-                marginLeft: 'auto',
-                background: 'transparent',
-                border: 'none',
-                color: '#fff',
-                fontWeight: 'bold',
-                cursor: 'pointer'
-              }}>X</button>
+              <div style={{ marginLeft: 'auto', display: 'flex', gap: '8px' }}>
+                <button 
+                  onClick={clearChat}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    color: '#fff',
+                    cursor: 'pointer',
+                    fontSize: '14px'
+                  }}
+                  title="Limpar conversa"
+                >
+                  🗑️
+                </button>
+                <button onClick={toggleChat} style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#fff',
+                  fontWeight: 'bold',
+                  cursor: 'pointer'
+                }}>X</button>
+              </div>
             </div>
 
             <div style={{
               flex: 1,
               padding: '10px',
               overflowY: 'auto',
-              background: '#f9f9f9'
+              background: '#f9f9f9',
+              display: 'flex',
+              flexDirection: 'column'
             }}>
               {messages.map((msg, idx) => (
                 <div key={idx} style={{
@@ -189,13 +230,21 @@ const Markito = () => {
                 }}>
                   <div style={{
                     display: 'inline-block',
-                    backgroundColor: msg.sender === 'user' ? '#e03f3e' : '#e0e0e0',
+                    backgroundColor: msg.sender === 'user' ? '#095400' : '#e0e0e0',
                     color: msg.sender === 'user' ? '#fff' : '#000',
                     padding: '8px 12px',
                     borderRadius: '20px',
                     maxWidth: '80%'
                   }}>
                     {renderMessage(msg.text)}
+                  </div>
+                  <div style={{
+                    fontSize: '10px',
+                    color: '#999',
+                    marginTop: '3px',
+                    textAlign: msg.sender === 'user' ? 'right' : 'left'
+                  }}>
+                    {formatTime(msg.time)}
                   </div>
                 </div>
               ))}
@@ -212,13 +261,15 @@ const Markito = () => {
                     borderRadius: '20px'
                   }}>
                     <span className="typing-indicator">
-                      <span>.</span>
-                      <span>.</span>
-                      <span>.</span>
+                      <span>●</span>
+                      <span>●</span>
+                      <span>●</span>
                     </span>
+                    <span style={{ fontSize: '12px', marginLeft: '5px' }}>Markito digitando...</span>
                   </div>
                 </div>
               )}
+              <div ref={messagesEndRef} />
             </div>
 
             <div style={{ display: 'flex', padding: '8px' }}>
@@ -279,8 +330,11 @@ const Markito = () => {
 
       <style jsx>{`
         .typing-indicator span {
-          animation: typing 1s infinite;
+          animation: typing 1.5s infinite;
+          display: inline-block;
           opacity: 0;
+          margin: 0 1px;
+          font-size: 16px;
         }
         
         .typing-indicator span:nth-child(1) {
@@ -288,11 +342,11 @@ const Markito = () => {
         }
         
         .typing-indicator span:nth-child(2) {
-          animation-delay: 0.2s;
+          animation-delay: 0.3s;
         }
         
         .typing-indicator span:nth-child(3) {
-          animation-delay: 0.4s;
+          animation-delay: 0.6s;
         }
         
         @keyframes typing {
