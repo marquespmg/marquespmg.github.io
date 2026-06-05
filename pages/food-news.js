@@ -29248,9 +29248,322 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
       </p>
     </div>
   `
+},
+{
+  "id": 117,
+  "title": "MOZZANA É QUEIJO? Entenda a Verdade sobre a Muçarela de Cobertura para Pizza",
+  "description": "Mozzana é queijo? Entenda a verdade sobre a cobertura sabor mussarela da Alibra. Composição, diferença para muçarela tradicional e como usar corretamente para economizar. Entrega em SP!",
+  "image": "https://i.imgur.com/FoYEP2U.png",
+  "category": "Queijos e Derivados",
+  "section": "produtos-especiais",
+  "readTime": "6 min de leitura",
+  "date": "2026-06-05",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🧀 MOZZANA É QUEIJO? Entenda a Verdade sobre a Muçarela de Cobertura para Pizza</h1>
+      <p>Um <strong>influenciador de São Paulo</strong> viralizou ao dizer que a <strong>Mozzana</strong> "não é queijo e nem muçarela". O vídeo gerou polêmica e deixou muitos pizzaiolos e donos de pizzaria confusos. Mas afinal: <strong>Mozzana é queijo? É muçarela? Pode ser usada na pizza?</strong></p>
+      
+      <p>Neste artigo, vamos explicar <strong>toda a verdade sobre a Mozzana Pizza</strong>, da fabricante <strong>Alibra Ingredientes S.A.</strong> Vamos mostrar sua <strong>composição, diferença para a muçarela tradicional, como usar corretamente</strong> e, principalmente, <strong>por que ela é uma excelente opção para reduzir custos sem perder qualidade</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai aprender neste artigo:</h3>
+        <p style="margin: 0; font-weight: 600;">🧀 Mozzana é queijo? • 📋 Composição do produto • ⚖️ Diferença para muçarela tradicional • 🍕 Como usar corretamente (proporção ideal) • 💰 Vantagem econômica • 🛒 Onde comprar • 📞 Fale conosco</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produto/724" style="background: #095400; color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">🧀 VER MOZZANA PIZZA</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega em SP e região em 1-2 dias úteis | Frota própria refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/FoYEP2U.png" alt="Mozzana Pizza - cobertura sabor mussarela - é queijo?" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Mozzana Pizza da Alibra: cobertura sabor mussarela para pizza - entenda o que é e como usar</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📌 Mozzana é queijo? A resposta direta</h2>
+      <p><strong>Não, a Mozzana NÃO é queijo e nem muçarela tradicional.</strong></p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Pergunta</th>
+            <th style="padding: 12px; text-align: left;">Resposta</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Mozzana é queijo?</strong></td>
+            <td style="padding: 10px;"><strong>NÃO</strong>. É um produto lácteo misto, classificado como "cobertura sabor mussarela".</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Mozzana é muçarela?</strong></td>
+            <td style="padding: 10px;"><strong>NÃO</strong>. A muçarela tradicional é feita exclusivamente de leite.</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Pode ser usada na pizza?</strong></td>
+            <td style="padding: 10px;"><strong>SIM</strong>, mas com recomendações específicas (veja abaixo).</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 A verdade:</p>
+        <p style="margin: 5px 0 0 0;">O influenciador está <strong>tecnicamente correto</strong>. A Mozzana não é queijo e nem muçarela. Porém, o produto NUNCA foi vendido como queijo puro — sua embalagem já diz "Cobertura Sabor Mussarela".</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 O que é a Mozzana Pizza? Composição do produto</h2>
+      <p>A <strong>Mozzana Pizza da Alibra</strong> é um <strong>produto lácteo misto</strong>, desenvolvido para <strong>substituir parcialmente a muçarela tradicional</strong> em pizzas e preparações culinárias, reduzindo custos sem comprometer totalmente a qualidade.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Componente</th>
+            <th style="padding: 12px; text-align: left;">Presente na Mozzana?</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Leite</strong></td>
+            <td style="padding: 10px;">✅ Sim (derivados de leite, soro de leite)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Gordura vegetal (palma)</strong></td>
+            <td style="padding: 10px;">✅ Sim (substitui parte da gordura do leite)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Amido modificado</strong></td>
+            <td style="padding: 10px;">✅ Sim (ajuda na textura e reduz custo)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Caseína</strong></td>
+            <td style="padding: 10px;">✅ Sim (proteína do leite)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Corantes e aromatizantes</strong></td>
+            <td style="padding: 10px;">✅ Sim (para imitar a muçarela)</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <p><strong>Alérgicos:</strong> Contém derivados de leite e lactose. <strong>Não contém glúten.</strong></p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">⚖️ Diferença entre Mozzana e Muçarela Tradicional</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Característica</th>
+            <th style="padding: 12px; text-align: left;">Muçarela Tradicional (Bari)</th>
+            <th style="padding: 12px; text-align: left;">Mozzana Pizza</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Matéria-prima</strong></td>
+            <td style="padding: 10px;">100% leite de vaca</strong></td>
+            <td style="padding: 10px;">Leite + gordura vegetal + amido</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Teor de gordura</strong></td>
+            <td style="padding: 10px;">Gordura láctea</strong></td>
+            <td style="padding: 10px;">Gordura vegetal de palma</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Preço por kg</strong></td>
+            <td style="padding: 10px;">Mais alto</strong></td>
+            <td style="padding: 10px;">Mais baixo (redução de custo)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Pode ser usado puro?</strong></td>
+            <td style="padding: 10px;">✅ Sim</strong></td>
+            <td style="padding: 10px;">❌ Não recomendado (misturar com muçarela)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabor</strong></td>
+            <td style="padding: 10px;">Lácteo, característico</strong></td>
+            <td style="padding: 10px;">Similar à muçarela (aromatizado)</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Como usar a Mozzana corretamente na pizza</h2>
+      <p>A <strong>Mozzana NÃO foi desenvolvida para ser usada pura</strong>. O fabricante (Alibra) recomenda <strong>misturar com muçarela tradicional</strong>. Veja as proporções sugeridas:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Proporção</th>
+            <th style="padding: 12px; text-align: left;">Resultado</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">30% Mozzana + 70% Muçarela</strong></td>
+            <td style="padding: 10px;">Recomendado pela Alibra. Economia leve, sabor próximo ao original.</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">50% Mozzana + 50% Muçarela</strong></td>
+            <td style="padding: 10px;">Economia média, qualidade ainda boa. Ideal para pizzarias de volume.</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">70% Mozzana + 30% Muçarela</strong></td>
+            <td style="padding: 10px;">Economia alta. Sabor ainda aceitável, mas o diferencial da muçarela é menor.</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Dica de ouro:</p>
+        <p style="margin: 5px 0 0 0;"><strong>NUNCA use a Mozzana pura!</strong> A ficha técnica da própria Alibra diz: "misturar ao queijo mussarela". O produto não foi feito para ser usado sozinho.</p>
+      </div>
+      
+      <p><strong>Passo a passo:</strong></p>
+      <ul>
+        <li>1. Ralar a Mozzana</li>
+        <li>2. Misturar com muçarela ralada na proporção desejada</li>
+        <li>3. Aplicar sobre a pizza</li>
+        <li>4. Fornear normalmente</li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">💰 Por que a Mozzana existe? Para reduzir custos</h2>
+      <p>A Mozzana foi desenvolvida com um propósito claro: <strong>permitir que pizzarias reduzam o custo da muçarela sem perder completamente a qualidade</strong>. Como a muçarela tradicional (100% leite) é um dos insumos mais caros da pizza, a Mozzana entra como uma alternativa econômica.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens de usar Mozzana:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Redução de custo</strong> - Pode cortar até 30-50% do gasto com queijo</li>
+          <li>✓ <strong>Derretimento uniforme</strong> - Similar à muçarela tradicional</li>
+          <li>✓ <strong>Formação de fio</strong> - Característico de muçarela</li>
+          <li>✓ <strong>Estável ao forneamento</strong> - Não queima facilmente</li>
+          <li>✓ <strong>Textura similar</strong> - Mastigabilidade parecida com muçarela</li>
+        </ul>
+      </div>
+      
+      <div style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">⚠️ Atenção:</p>
+        <p style="margin: 5px 0 0 0;">A Mozzana não é um produto para ser vendido como "queijo puro" para o consumidor final. É um <strong>insumo industrial</strong> para pizzarias que buscam equilibrar qualidade e custo.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Para quem a Mozzana é indicada?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍕 Pizzarias de alto volume</h4>
+          <p>Que produzem muitas pizzas e precisam reduzir o custo do queijo sem perder qualidade.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍽️ Restaurantes e lanchonetes</h4>
+          <p>Que usam muçarela em lasanhas, pastéis, salgados e outras preparações.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🏭 Indústria alimentícia</h4>
+          <p>Produção de congelados, massas recheadas e produtos de panificação.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📋 Ficha técnica resumida (Mozzana Pizza)</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Especificação</th>
+            <th style="padding: 12px; text-align: left;">Dado</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Fabricante</strong></td>
+            <td style="padding: 10px;">Alibra Ingredientes S.A. (Campinas/SP)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Validade</strong></td>
+            <td style="padding: 10px;">6 meses (refrigerado)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Após aberto</strong></td>
+            <td style="padding: 10px;">Consumir em até 5 dias</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Armazenamento</strong></td>
+            <td style="padding: 10px;">1°C a 10°C</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Embalagem</strong></td>
+            <td style="padding: 10px;">Invólucro plástico de 2kg</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <p><strong>Informação Nutricional (porção de 30g - 3 fatias):</strong><br>
+      • Valor energético: 91 kcal (5% VD*)<br>
+      • Gorduras totais: 7,2g (11% VD*)<br>
+      • Gorduras saturadas: 3,9g (20% VD*)<br>
+      • Sódio: 318mg (16% VD*)<br>
+      • Cálcio: 80mg (8% VD*)<br>
+      *% Valores Diários com base em uma dieta de 2.000 kcal.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏪 Onde comprar Mozzana Pizza com segurança?</h2>
+      <p>A <strong>PMG Atacadista</strong> é fornecedora oficial da <strong>Mozzana Pizza da Alibra</strong>. Vendemos o produto pelo que ele é: uma <strong>cobertura sabor mussarela</strong> para pizzarias, com <strong>transparência total sobre sua composição e uso correto</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens de comprar conosco:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Produto original Alibra</strong> - Garantia de qualidade</li>
+          <li>✓ <strong>Entrega refrigerada</strong> - Produto chega nas condições ideais</li>
+          <li>✓ <strong>Entrega rápida</strong> - 1-2 dias úteis para SP e região</li>
+          <li>✓ <strong>Atendimento especializado</strong> - Tiramos todas as suas dúvidas</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Especialista</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Tem dúvidas sobre a Mozzana? Quer saber a proporção ideal para sua pizzaria? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Pizzarias</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Compre Mozzana Pizza Agora</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Adquira a Mozzana Pizza da Alibra com entrega rápida e atendimento especializado.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produto/724" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         🛒 COMPRAR MOZZANA PIZZA
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Embalagem:</strong> 2kg | <strong>Validade:</strong> 6 meses | <strong>Fabricante:</strong> Alibra
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> mozzana é queijo, muçarela mozzana é queijo, cobertura sabor mussarela, mozzana pizza vale a pena, diferença entre mozzana e muçarela, onde comprar mozzana, mozzana alibra, muçarela de cobertura para pizza, mozzana como usar, proporção mozzana e muçarela, PMG Atacadista Mozzana, marques vendas pmg.
+      </p>
+    </div>
+  `
 }
   ];
-
 // ⬇️⬇️⬇️ ESTA FUNÇÃO VAI AQUI (FORA DO COMPONENTE) ⬇️⬇️⬇️ //
 export async function getServerSideProps(context) {
   const { query } = context;
