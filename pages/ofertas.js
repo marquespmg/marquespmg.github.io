@@ -122,13 +122,18 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 507, name: 'PEITO DE FRANGO CONGELADO COZIDO DESFIADO ALFAMA 1 KILO (CX 6 PCT)', category: 'Ofertas', price: 189.00, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-cozido-desfiado-alfama-1-kilo-cx-6-pct-pmg-atacadista.jpg' },
-  { id: 527, name: 'CARNE DE SOL BOVINA CONGELADA DESFIADA ALFAMA 1 KG', category: 'Ofertas', price: 58.69, image: 'https://www.marquesvendaspmg.shop/images/carne-de-sol-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
-  { id: 529, name: 'CARNE MOÍDA BOVINA CONGELADA ALFAMA 1 KILO', category: 'Ofertas', price: 28.50, image: 'https://www.marquesvendaspmg.shop/images/carne-moida-bovina-congelada-alfama-1-kg-pmg-atacadista.jpg' },
-  { id: 533, name: 'CARNE SECA BOVINA CONGELADA DESFIADA ALFAMA 1 KILO', category: 'Ofertas', price: 64.99, image: 'https://www.marquesvendaspmg.shop/images/carne-seca-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
-  { id: 546, name: 'COSTELA BOVINA CONGELADA DESFIADA ALFAMA 1 KILO', category: 'Ofertas', price: 64.99, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
-  { id: 556, name: 'CUPIM BOVINO CONGELADO DESFIADO ALFAMA 1 KILO', category: 'Ofertas', price: 64.99, image: 'https://www.marquesvendaspmg.shop/images/cupim-bovino-congelado-desfiado-alfama-1-kg-pmg-atacadista.jpg' },
-  { id: 1052, name: 'PERNIL SUÍNO CONGELADO DESFIADO ALFAMA 1 KILO PCT', category: 'Ofertas', price: 35.70, image: 'https://www.marquesvendaspmg.shop/images/pernil-suino-congelado-desfiado-alfama-1-kilo-pct-pmg-atacadista.jpg' },
+  { id: 653, name: 'GORGONZOLA FRACIONADO QUATÁ 180 G', category: 'Ofertas', price: 14.96, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-quata-180-g-pmg-atacadista.jpg' },
+  { id: 658, name: 'GORGONZOLA QUATÁ 3 KG', category: 'Ofertas', price: 66.50, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-quata-3-kg-pmg-atacadista.jpg' },
+  { id: 825, name: 'QUEIJO COALHO BARRA QUATÁ 7 KG', category: 'Ofertas', price: 65.00, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-barra-quata-7-kg-pmg-atacadista.jpg' },
+  { id: 829, name: 'QUEIJO COALHO ESPETO QUATÁ PCT 7 UN', category: 'Ofertas', price: 21.38, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-espeto-quata-pct-7-un-pmg-atacadista.jpg' },
+  { id: 842, name: 'QUEIJO GOUDA QUATÁ 3 KG', category: 'Ofertas', price: 81.00, image: 'https://www.marquesvendaspmg.shop/images/queijo-gouda-quata-3-kg-pmg-atacadista.jpg' },
+  { id: 902, name: 'REQUEIJÃO QUATÁ SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 42.30, image: 'https://www.marquesvendaspmg.shop/images/requeijao-quata-sem-amido-15-kilo-pmg-atacadista.jpg' },
+  { id: 2065, name: 'PARMESÃO 6 MESES QUATÁ 5.5 KG', category: 'Ofertas', price: 83.55, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-quata.png' },
+  { id: 383, name: 'EXTRATO DE TOMATE ELEFANTE 1,7 KILO', category: 'Ofertas', price: 28.00, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-elefante-17-kilo-pmg-atacadista.jpg' },
+  { id: 1928, name: 'EXTRATO DE TOMATE GRANDE ELEFANTE 4,08 KILO', category: 'Ofertas', price: 70.50, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-grande-elefante-408-kilo.png' },
+  { id: 1290, name: 'MAIONESE GRANDE MARIANA 3 KILO', category: 'Ofertas', price: 24.50, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-mariana-3-kilo-pmg-atacadista.jpg' },
+  { id: 1356, name: 'ÓLEO DE ALGODÃO LIZA (BD 15,8 L)', category: 'Ofertas', price: 195.00, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-bd-158-l-pmg-atacadista.jpg' },
+  { id: 1364, name: 'ÓLEO DE SOJA LIZA 900 ML (PCT 6 FR)', category: 'Ofertas', price: 47.80, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-liza-900-ml-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
