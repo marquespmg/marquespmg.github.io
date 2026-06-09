@@ -9,7 +9,7 @@ import { produtosArray } from './produtos'; // ← Nome corrigido!
 import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 
 // ✅ Array com IDs dos produtos em oferta
-const PRODUTOS_EM_OFERTA = [507, 527, 529, 533, 546, 556, 1052];
+const PRODUTOS_EM_OFERTA = [653, 658, 825, 829, 842, 902, 2065, 383, 1928, 1290, 1356, 1364];
 
 // ✅ NOVO: Configuração dos cupons
 const CUPONS = {
