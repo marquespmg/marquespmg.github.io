@@ -10,7 +10,7 @@ export const featuredProducts = [
   { id: 383, name: 'EXTRATO DE TOMATE ELEFANTE 1,7 KILO', category: 'Ofertas', price: 28.00, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-elefante-17-kilo-pmg-atacadista.jpg' },
   { id: 1928, name: 'EXTRATO DE TOMATE GRANDE ELEFANTE 4,08 KILO', category: 'Ofertas', price: 70.50, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-grande-elefante-408-kilo.png' },
   { id: 1290, name: 'MAIONESE GRANDE MARIANA 3 KILO', category: 'Ofertas', price: 24.50, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-mariana-3-kilo-pmg-atacadista.jpg' },
-  { id: 1356, name: 'ÓLEO DE ALGODÃO LIZA (BD 15,8 L)', category: 'Ofertas', price: 195.00, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-bd-158-l-pmg-atacadista.jpg' },
+  { id: 1356, name: 'ÓLEO DE ALGODÃO LIZA (BD 15,8 L)', category: 'Ofertas', price: 205.00, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-bd-158-l-pmg-atacadista.jpg' },
   { id: 1364, name: 'ÓLEO DE SOJA LIZA 900 ML (PCT 6 FR)', category: 'Ofertas', price: 47.80, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-liza-900-ml-pmg-atacadista.jpg' },
 ];
 
