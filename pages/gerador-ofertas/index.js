@@ -356,7 +356,7 @@ export default function GeradorOfertas() {
       ctx.fillText("OFERTAS DO DIA PMG", canvas.width / 2, canvas.height - 40);
       ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
       ctx.font = "14px 'Open Sans', sans-serif";
-      ctx.fillText(`Validade: ${new Date().toLocaleDateString('pt-BR')} | pedido minimo R$ 750`, canvas.width / 2, canvas.height - 15);
+      ctx.fillText(`Validade: ${new Date().toLocaleDateString('pt-BR')} | pedido minimo R$ 900`, canvas.width / 2, canvas.height - 15);
 
       canvas.toBlob(async (blob) => {
         try {
@@ -642,7 +642,7 @@ export default function GeradorOfertas() {
         
         ctx.fillStyle = "#FFFFFF";
         ctx.font = `${modoExibicao === 'story' ? '14px' : '12px'} 'Open Sans', sans-serif`;
-        ctx.fillText(`Pedido mínimo R$ 750 | ${new Date().toLocaleDateString('pt-BR')}`, canvasWidth / 2, rodapeY + 55);
+        ctx.fillText(`Pedido mínimo R$ 900 | ${new Date().toLocaleDateString('pt-BR')}`, canvasWidth / 2, rodapeY + 55);
 
         setProgressoIA(`💾 Salvando página ${pagina + 1}...`);
         
