@@ -35138,6 +35138,1397 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
       </p>
     </div>
   `
+},
+{
+  "id": 138,
+  "title": "ATACADISTA DE ALIMENTOS EM OSASCO: PMG Entregando Qualidade para seu Negócio",
+  "description": "Atacadista de alimentos em Osasco: PMG Atacadista entrega mais de 2000 produtos para restaurantes, pizzarias e lanchonetes. Frota própria refrigerada. Entregamos em 1-2 dias úteis em Osasco!",
+  "image": "https://i.imgur.com/OnyaPpF.png",
+  "category": "Atacadista Regional",
+  "section": "atacadista-osasco",
+  "readTime": "7 min de leitura",
+  "date": "2026-06-16",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🏪 ATACADISTA DE ALIMENTOS EM OSASCO: PMG Entregando Qualidade para seu Negócio</h1>
+      <p>Se você tem um <strong>restaurante, pizzaria, lanchonete, hamburgueria ou qualquer negócio de food service em Osasco</strong>, sabe que a escolha do fornecedor certo faz toda diferença. <strong>Preço, qualidade, variedade de produtos e prazo de entrega</strong> são fatores que impactam diretamente no sucesso do seu negócio.</p>
+      
+      <p>Osasco é um dos <strong>maiores polos comerciais e industriais da Grande São Paulo</strong>, com uma economia forte e diversificada. São mais de <strong>700 mil habitantes</strong> e uma região que se beneficia da proximidade com a capital e com importantes rodovias.</p>
+      
+      <p>A <strong>PMG Atacadista</strong> é referência como <strong>atacadista de alimentos em Osasco</strong>, atendendo a região com mais de <strong>2000 produtos em estoque</strong>, frota própria refrigerada e entregas em <strong>1-2 dias úteis</strong>. Neste guia, você vai conhecer tudo que oferecemos para Osasco e região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🏪 Atacadista em Osasco • 📍 Bairros atendidos • 🍕 Produtos para pizzarias • 🍔 Itens para lanchonetes • 🍽️ Soluções para restaurantes • 🚚 Entrega rápida • 📞 Contato direto</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop" style="background: #095400; color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">🛒 CONSULTAR PREÇOS</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega em Osasco em 1-2 dias úteis | Frota própria refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/OnyaPpF.png" alt="Atacadista de alimentos em Osasco - PMG Atacadista" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Atacadista de alimentos em Osasco: mais de 2000 produtos com entrega rápida para seu negócio</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📌 Por que Osasco é um mercado estratégico para food service?</h2>
+      <p>Osasco é um dos <strong>maiores polos econômicos da Grande São Paulo</strong>. Com uma economia forte, puxada pela indústria, comércio e serviços, a cidade tem um mercado de food service extremamente aquecido.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Indicador</th>
+            <th style="padding: 12px; text-align: left;">Dados</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">População</strong></td>
+            <td style="padding: 10px;">700.000+ habitantes (IBGE)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Região</strong></td>
+            <td style="padding: 10px;">Grande São Paulo</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Distância de SP</strong></td>
+            <td style="padding: 10px;">Aproximadamente 20 km</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Característica econômica</strong></td>
+            <td style="padding: 10px;">Forte polo industrial e comercial</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Estimativa de restaurantes</strong></td>
+            <td style="padding: 10px;">Mais de 2.000 estabelecimentos</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <p>Osasco também é um <strong>importante centro logístico</strong>, com fácil acesso às principais rodovias que conectam a capital ao interior. Isso facilita o abastecimento e a distribuição de produtos para toda a região.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros atendidos em Osasco</h2>
+      <p>Atendemos <strong>toda a região de Osasco</strong>, incluindo os principais bairros e distritos. Confira se o seu negócio está na nossa área de entrega:</p>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;">
+          <div>✅ Centro</div>
+          <div>✅ Jardim das Flores</div>
+          <div>✅ Vila Yara</div>
+          <div>✅ Bela Vista</div>
+          <div>✅ Presidente Altino</div>
+          <div>✅ Vila Osasco</div>
+          <div>✅ Rochdale</div>
+          <div>✅ Vila Campesina</div>
+          <div>✅ Km 18</div>
+          <div>✅ Quitaúna</div>
+          <div>✅ Jardim Veloso</div>
+          <div>✅ Vila Menck</div>
+          <div>✅ Jardim Conceição</div>
+          <div>✅ Vila Santa Maria</div>
+          <div>✅ Jardim D'Abril</div>
+          <div>✅ Cidade das Flores</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda Osasco e região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Produtos mais procurados em Osasco</h2>
+      <p>Com base no conhecimento do mercado de Osasco, separamos os <strong>produtos mais procurados</strong> pelos comerciantes da região:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Produtos Mais Vendidos</th>
+            <th style="padding: 12px; text-align: left;">Marcas</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Laticínios</strong></td>
+            <td style="padding: 10px;">Muçarela, cheddar, requeijão</strong></td>
+            <td style="padding: 10px;">Bari, Vigor</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carnes</strong></td>
+            <td style="padding: 10px;">Carne seca, frango desfiado, calabresa</strong></td>
+            <td style="padding: 10px;">Alfama, Aurora</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Óleos</strong></td>
+            <td style="padding: 10px;">Óleo de algodão</strong></td>
+            <td style="padding: 10px;">Liza, Soya, Traviú</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Manteigas</strong></td>
+            <td style="padding: 10px;">Manteiga sem sal 5kg</strong></td>
+            <td style="padding: 10px;">Tirolez, Scala, Frizzo</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Batatas Congeladas</strong></td>
+            <td style="padding: 10px;">Palito, rústica, canoa</strong></td>
+            <td style="padding: 10px;">Lamb Weston</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Bebidas</strong></td>
+            <td style="padding: 10px;">Refrigerantes, águas, cervejas</strong></td>
+            <td style="padding: 10px;">Coca-Cola, Heineken, Spaten</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 Diferencial Osasco: Polo comercial e industrial</h2>
+      <p>Osasco é um dos <strong>municípios mais importantes da Grande São Paulo</strong>, com forte presença de indústrias, centros comerciais e serviços. A cidade é sede de grandes empresas e centros logísticos, o que gera uma demanda intensa por alimentação.</p>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Diferencial competitivo:</p>
+        <p style="margin: 5px 0 0 0;">Restaurantes e bares de Osasco atendem não só a população local, mas também trabalhadores e executivos das indústrias e centros comerciais da região. A PMG está pronta para atender essa demanda com produtos de qualidade.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚚 Vantagens de escolher a PMG como seu atacadista em Osasco</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>+280 veículos refrigerados garantindo entregas seguras e pontuais em Osasco.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>+2000 itens das melhores marcas, sempre disponíveis para seu negócio.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para Osasco, com horários flexíveis para sua operação.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio para compradores de Osasco.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Para quem a PMG é atacadista em Osasco?</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍕</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Pizzarias</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Muçarela, calabresa, cheddar</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍔</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Restaurantes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Carnes, laticínios, óleos</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🥤</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Lanchonetes</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Hambúrgueres, batatas, bebidas</p>
+        </div>
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center;">
+          <div style="font-size: 2rem;">🍺</div>
+          <h4 style="color: #095400; margin: 10px 0 5px;">Bares</h4>
+          <p style="margin: 0; font-size: 0.9rem;">Bebidas, petiscos, congelados</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Representante em Osasco</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de um atacadista de alimentos em Osasco? Me chama no WhatsApp para cotação e atendimento personalizado!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Osasco</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo Completo</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu negócio em Osasco.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos em Osasco:</strong> Centro • Jardim das Flores • Vila Yara • Presidente Altino • e todos os bairros
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> atacadista de alimentos em Osasco, fornecedor para restaurantes Osasco, distribuidora de alimentos Osasco, atacado de alimentos para pizzaria Osasco, fornecedor para lanchonetes Osasco, onde comprar insumos para pizzaria em Osasco, PMG Atacadista Osasco, marques vendas pmg.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 139,
+  "title": "FORNECEDOR PARA PIZZARIA EM OSASCO: Ingredientes de Qualidade para sua Pizzaria",
+  "description": "Fornecedor para pizzaria em Osasco: muçarela Bari, calabresa Aurora, cheddar Vigor e muito mais. Entregamos em 1-2 dias úteis para sua pizzaria. Atendemos Centro, Jardim das Flores, Vila Yara e toda Osasco!",
+  "image": "https://i.imgur.com/8n8Hcfq.png",
+  "category": "Fornecedor Regional",
+  "section": "fornecedor-osasco",
+  "readTime": "7 min de leitura",
+  "date": "2026-06-16",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🍕 FORNECEDOR PARA PIZZARIA EM OSASCO: Ingredientes de Qualidade para sua Pizzaria</h1>
+      <p>Osasco é um dos <strong>maiores polos gastronômicos da Grande São Paulo</strong>. Com uma população de mais de <strong>700 mil habitantes</strong> e localizada a apenas <strong>20 km da capital</strong>, a cidade tem dezenas de <strong>pizzarias tradicionais, delivery, rodízios e esfiharias</strong> que disputam a preferência de um público exigente.</p>
+      
+      <p>Conhecida como um <strong>importante centro comercial e industrial</strong>, Osasco tem bairros movimentados como <strong>Centro, Jardim das Flores e Vila Yara</strong>, onde as pizzarias são muito procuradas por moradores e trabalhadores da região.</p>
+      
+      <p>A <strong>PMG Atacadista</strong> é o <strong>fornecedor para pizzaria em Osasco</strong> que você procura. Com mais de <strong>2000 produtos em estoque</strong>, incluindo <strong>muçarela Bari, calabresa Aurora, cheddar Vigor e muito mais</strong>, entregamos em <strong>1-2 dias úteis</strong> para toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🍕 Insumos para pizzaria • 🧀 Muçarela Bari • 🌭 Calabresa Aurora • 🧀 Cheddar Vigor • 📍 Entregamos em Osasco • 🚚 Entrega rápida • 📞 Fale conosco</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Queijos%20e%20Derivados" style="background: #095400; color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">🍕 VER PRODUTOS PARA PIZZARIA</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega em Osasco em 1-2 dias úteis | Frota própria refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/8n8Hcfq.png" alt="Fornecedor para pizzaria em Osasco - ingredientes de qualidade" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Fornecedor para pizzaria em Osasco: muçarela, calabresa, cheddar e muito mais</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📌 O mercado de pizzarias em Osasco</h2>
+      <p>Osasco tem uma das <strong>cenas gastronômicas mais movimentadas da Grande São Paulo</strong>. Com uma população diversa e uma forte atividade comercial, a cidade concentra pizzarias que atendem desde o público mais tradicional até o mais exigente.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Indicador</th>
+            <th style="padding: 12px; text-align: left;">Dados</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Estimativa de pizzarias em Osasco</strong></td>
+            <td style="padding: 10px;">Mais de 250 estabelecimentos</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabores mais pedidos</strong></td>
+            <td style="padding: 10px;">Muçarela, Calabresa, Frango com Catupiry, Portuguesa</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Produtos mais consumidos</strong></td>
+            <td style="padding: 10px;">Muçarela, calabresa, cheddar, frango desfiado</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Característica local:</p>
+        <p style="margin: 5px 0 0 0;">Osasco tem forte presença comercial e industrial, o que movimenta as pizzarias da cidade durante o almoço e também no período noturno, com trabalhadores e executivos de diversas empresas.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Produtos essenciais para sua pizzaria</h2>
+      <p>Na PMG Atacadista, você encontra os <strong>principais insumos para pizzaria</strong> que não podem faltar no seu negócio:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 650px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Uso na pizzaria</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela</strong></td>
+            <td style="padding: 10px;">Bari</strong></td>
+            <td style="padding: 10px;">Peça 4kg</strong></td>
+            <td style="padding: 10px;">Cobertura principal de pizzas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Calabresa</strong></td>
+            <td style="padding: 10px;">Aurora</strong></td>
+            <td style="padding: 10px;">Pacote 5kg</strong></td>
+            <td style="padding: 10px;">Sabor tradicional, fatiada ou em rodelas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</strong></td>
+            <td style="padding: 10px;">Vigor</strong></td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</strong></td>
+            <td style="padding: 10px;">Pizzas especiais, hambúrgueres</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</strong></td>
+            <td style="padding: 10px;">Alfama</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</strong></td>
+            <td style="padding: 10px;">Pizza de frango com catupiry</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</strong></td>
+            <td style="padding: 10px;">Alfama</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</strong></td>
+            <td style="padding: 10px;">Pizza nordestina, esfihas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Manteiga sem sal</strong></td>
+            <td style="padding: 10px;">Tirolez, Scala, Frizzo</strong></td>
+            <td style="padding: 10px;">Caixa 5kg</strong></td>
+            <td style="padding: 10px;">Massas e preparos especiais</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧀 Muçarela Bari 4kg: A preferida das pizzarias de Osasco</h2>
+      <p>A <strong>muçarela Bari</strong> é uma das marcas mais respeitadas no mercado de food service e está presente nas principais pizzarias de Osasco. A embalagem de <strong>4kg</strong> é o tamanho comercial ideal para alto volume de produção.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Por que a muçarela Bari é a preferida:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Derretimento uniforme</strong> - Cobertura perfeita para pizzas</li>
+          <li>✓ <strong>Sabor equilibrado</strong> - Não compete com outros ingredientes</li>
+          <li>✓ <strong>Registro SIF</strong> - Atende à fiscalização sanitária</li>
+          <li>✓ <strong>Embalagem 4kg</strong> - Ideal para alto volume de produção</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌭 Calabresa Aurora 5kg: O sabor tradicional</h2>
+      <p>A <strong>calabresa Aurora</strong> na embalagem de <strong>5kg</strong> é a preferida das pizzarias de Osasco. O tamanho comercial facilita o armazenamento e o custo por quilo é muito competitivo.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Por que escolher a calabresa Aurora:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Sabor tradicional</strong> - O padrão que o consumidor reconhece</li>
+          <li>✓ <strong>Embalagem 5kg</strong> - Ideal para alto volume</li>
+          <li>✓ <strong>Marca Aurora</strong> - Confiança e tradição no mercado</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍗 Alfama: A marca de desfiados mais usada em pizzarias</h2>
+      <p>A <strong>Alfama</strong> é a marca mais respeitada no segmento de carnes desfiadas para food service. Seus produtos são os preferidos para pizzas de frango, carne seca e esfihas.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Aplicação</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</strong></td>
+            <td style="padding: 10px;">Pizza de frango com catupiry</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</strong></td>
+            <td style="padding: 10px;">Pizza nordestina, esfihas</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros de Osasco que atendemos</h2>
+      <p>Entregamos para <strong>pizzarias em toda Osasco</strong>, incluindo:</p>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;">
+          <div>✅ Centro</div>
+          <div>✅ Jardim das Flores</div>
+          <div>✅ Vila Yara</div>
+          <div>✅ Bela Vista</div>
+          <div>✅ Presidente Altino</div>
+          <div>✅ Vila Osasco</div>
+          <div>✅ Rochdale</div>
+          <div>✅ Vila Campesina</div>
+          <div>✅ Km 18</div>
+          <div>✅ Quitaúna</div>
+          <div>✅ Jardim Veloso</div>
+          <div>✅ Vila Menck</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda Osasco e região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 Diferencial: Atendimento a pizzarias no centro comercial de Osasco</h2>
+      <p>Osasco tem forte presença comercial e industrial, com bairros movimentados como o <strong>Centro, Jardim das Flores e Presidente Altino</strong>. Essas regiões concentram pizzarias que atendem trabalhadores e executivos durante o almoço e happy hour. A PMG entende essa necessidade e oferece produtos de qualidade para atender essa demanda.</p>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Diferencial competitivo:</p>
+        <p style="margin: 5px 0 0 0;">Pizzarias de Osasco atendem uma população diversa, desde trabalhadores da indústria até executivos de grandes empresas. A PMG tem produtos para todos os perfis, desde o custo-benefício até o premium.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚚 Vantagens de ter a PMG como fornecedor para sua pizzaria</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>Seus produtos chegam na temperatura certa, garantindo qualidade para suas pizzas.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>Muçarela, calabresa, cheddar, desfiados — tudo que sua pizzaria precisa em um só lugar.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para Osasco — não vai faltar ingrediente no seu fim de semana.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio para pizzarias de Osasco.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Fornecedor de Pizzarias</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de ingredientes para sua pizzaria em Osasco? Me chama no WhatsApp para cotação e entrega rápida!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Fornecedor para Pizzarias</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo para Pizzarias</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para sua pizzaria.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos pizzarias em:</strong> Centro • Jardim das Flores • Vila Yara • Presidente Altino • e toda Osasco
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> fornecedor para pizzaria em Osasco, insumos para pizzaria Osasco, muçarela Bari Osasco, calabresa Aurora Osasco, cheddar Vigor Osasco, onde comprar ingredientes para pizzaria em Osasco, distribuidora de alimentos para pizzaria Osasco, PMG Atacadista Osasco, marques vendas pmg.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 140,
+  "title": "DISTRIBUIDORA DE ALIMENTOS PARA RESTAURANTES EM OSASCO: Variedade e Preço para seu Negócio",
+  "description": "Distribuidora de alimentos para restaurantes em Osasco: mais de 2000 produtos, carnes, laticínios, óleos, manteigas e muito mais. Entrega em 1-2 dias úteis para restaurantes em Osasco. Consulte preços!",
+  "image": "https://i.imgur.com/tM0sB4F.png",
+  "category": "Distribuidora Regional",
+  "section": "distribuidora-osasco",
+  "readTime": "7 min de leitura",
+  "date": "2026-06-16",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🍽️ DISTRIBUIDORA DE ALIMENTOS PARA RESTAURANTES EM OSASCO: Variedade e Preço para seu Negócio</h1>
+      <p>Administrar um <strong>restaurante em Osasco</strong> é um desafio que exige planejamento, qualidade e fornecedores confiáveis. A cidade é um dos <strong>maiores polos gastronômicos da Grande São Paulo</strong>, atendendo uma população de mais de <strong>700 mil habitantes</strong> e uma região que se beneficia da proximidade com a capital.</p>
+      
+      <p>Osasco é um <strong>importante centro comercial e industrial</strong>, com forte presença de empresas, centros logísticos e comércio. Isso gera uma demanda intensa por restaurantes que atendam trabalhadores, executivos e moradores da região.</p>
+      
+      <p>A <strong>PMG Atacadista</strong> é a <strong>distribuidora de alimentos para restaurantes em Osasco</strong> que você procura. Com mais de <strong>2000 produtos em estoque</strong>, incluindo <strong>carnes, laticínios, óleos, manteigas, farináceos e muito mais</strong>, entregamos em <strong>1-2 dias úteis</strong> para toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🍽️ Distribuidora de alimentos em Osasco • 🥩 Carnes bovinas e suínas • 🧀 Laticínios e queijos • 🛢️ Óleos e manteigas • 📍 Bairros atendidos • 🚚 Entrega rápida • 📞 Fale conosco</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" style="background: #095400; color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">🍽️ VER PRODUTOS PARA RESTAURANTE</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega em Osasco em 1-2 dias úteis | Frota própria refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/tM0sB4F.png" alt="Distribuidora de alimentos para restaurantes em Osasco" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Distribuidora de alimentos para restaurantes em Osasco: variedade, qualidade e entrega rápida</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📌 Restaurantes em Osasco: um mercado em expansão</h2>
+      <p>Osasco é um dos <strong>maiores polos gastronômicos da Grande São Paulo</strong>. Com uma economia forte, puxada pela indústria, comércio e serviços, a cidade conta com centenas de restaurantes de todos os tipos.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Indicador</th>
+            <th style="padding: 12px; text-align: left;">Dados</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Estimativa de restaurantes em Osasco</strong></td>
+            <td style="padding: 10px;">Mais de 2.000 estabelecimentos</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Tipos predominantes</strong></td>
+            <td style="padding: 10px;">Self-service, comida por quilo, executivo, a la carte</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Produtos mais consumidos</strong></td>
+            <td style="padding: 10px;">Carnes, laticínios, óleos, hortifrúti</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Característica local:</p>
+        <p style="margin: 5px 0 0 0;">Osasco é um importante centro comercial e industrial, com grande circulação de trabalhadores e executivos. Isso gera uma demanda intensa por alimentação de qualidade durante todo o dia.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍽️ Produtos para restaurantes disponíveis na PMG</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 650px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Categoria</th>
+            <th style="padding: 12px; text-align: left;">Produtos</th>
+            <th style="padding: 12px; text-align: left;">Marcas</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carnes Bovinas</strong></td>
+            <td style="padding: 10px;">Cortes especiais, hambúrgueres, carne moída</strong></td>
+            <td style="padding: 10px;">Frigonosso, Boi Brasil</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carnes Suínas</strong></td>
+            <td style="padding: 10px;">Pernil, lombo, costelinha, linguíça</strong></td>
+            <td style="padding: 10px;">My Pork, Pamplona</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Aves</strong></td>
+            <td style="padding: 10px;">Peito, coxa, sobrecoxa, frango desfiado</strong></td>
+            <td style="padding: 10px;">Adoro, Jaguá, Alfama</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Laticínios</strong></td>
+            <td style="padding: 10px;">Muçarela, cheddar, requeijão, manteiga</strong></td>
+            <td style="padding: 10px;">Bari, Vigor, Tirolez, Scala</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Óleos e Gorduras</strong></td>
+            <td style="padding: 10px;">Óleo de algodão, óleo de soja</strong></td>
+            <td style="padding: 10px;">Liza, Soya, Traviú</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Desfiados</strong></td>
+            <td style="padding: 10px;">Carne seca, frango, costela</strong></td>
+            <td style="padding: 10px;">Alfama</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥩 Carnes de qualidade para seu restaurante em Osasco</h2>
+      <p>Seu restaurante merece as <strong>melhores carnes</strong>. Trabalhamos com marcas consolidadas que garantem <strong>padronização, suculência e sabor</strong> em todos os pratos.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🥩 Cortes Bovinos</h4>
+          <p>Contrafilé, alcatra, maminha, fraldinha — cortes nobres para pratos especiais e churrascos.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🐷 Cortes Suínos</h4>
+          <p>Pernil suíno para pratos principais, lombo para grelhas, costelinha suína para petiscos.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍗 Frango</h4>
+          <p>Peito de frango para filés, coxa e sobrecoxa para pratos do dia.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🍔 Hambúrguer</h4>
+          <p>Hambúrgueres porcionados para seu cardápio de lanches.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧀 Laticínios e manteigas para restaurantes</h2>
+      <p>Os <strong>laticínios</strong> estão presentes em diversos pratos do seu cardápio. Oferecemos as melhores marcas para seu restaurante.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Aplicação</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela</strong></td>
+            <td style="padding: 10px;">Bari</strong></td>
+            <td style="padding: 10px;">4kg</strong></td>
+            <td style="padding: 10px;">Pizzas, lasanhas, pratos gratinados</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</strong></td>
+            <td style="padding: 10px;">Vigor</strong></td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</strong></td>
+            <td style="padding: 10px;">Sanduíches, batatas, molhos</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Manteiga sem sal</strong></td>
+            <td style="padding: 10px;">Tirolez, Scala, Frizzo</strong></td>
+            <td style="padding: 10px;">Caixa 5kg</strong></td>
+            <td style="padding: 10px;">Preparo de massas, molhos, sobremesas</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🛢️ Óleo de algodão: o preferido dos restaurantes de Osasco</h2>
+      <p>O <strong>óleo de algodão</strong> é amplamente utilizado em restaurantes por sua <strong>alta estabilidade oxidativa</strong> e <strong>resistência ao aquecimento</strong>. Ideal para frituras em geral.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens do óleo de algodão para restaurantes:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Alto ponto de fumaça</strong> (218-228°C) - ideal para frituras</li>
+          <li>✓ <strong>Maior durabilidade</strong> - não precisa trocar o óleo com tanta frequência</li>
+          <li>✓ <strong>Baixa absorção</strong> - frituras menos gordurosas</li>
+          <li>✓ <strong>Sabor neutro</strong> - não interfere no gosto dos alimentos</li>
+        </ul>
+      </div>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Marcas disponíveis:</p>
+        <p style="margin: 5px 0 0 0;">Liza (Cargill) • Soya (Bunge) • Traviú • Elogiata • Fry Sina — todas em balde de 15,8L/15,7L.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros de Osasco que atendemos</h2>
+      <p>Entregamos para <strong>restaurantes em toda Osasco</strong>, incluindo:</p>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;">
+          <div>✅ Centro</div>
+          <div>✅ Jardim das Flores</div>
+          <div>✅ Vila Yara</div>
+          <div>✅ Bela Vista</div>
+          <div>✅ Presidente Altino</div>
+          <div>✅ Vila Osasco</div>
+          <div>✅ Rochdale</div>
+          <div>✅ Vila Campesina</div>
+          <div>✅ Km 18</div>
+          <div>✅ Quitaúna</div>
+          <div>✅ Jardim Veloso</div>
+          <div>✅ Vila Menck</div>
+          <div>✅ Jardim Conceição</div>
+          <div>✅ Vila Santa Maria</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda Osasco e região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 Diferencial: Atendimento a restaurantes no centro comercial de Osasco</h2>
+      <p>Osasco tem forte presença comercial e industrial, com bairros movimentados como o <strong>Centro, Jardim das Flores e Presidente Altino</strong>. Restaurantes dessas regiões atendem trabalhadores e executivos durante o almoço e happy hour, exigindo agilidade e qualidade.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚚 Vantagens de escolher a PMG como distribuidora para seu restaurante</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>Seus produtos chegam na temperatura certa, garantindo qualidade para seus pratos.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>Carnes, laticínios, óleos, manteigas — tudo que seu restaurante precisa em um só lugar.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para Osasco — seu restaurante sempre abastecido.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio para restaurantes de Osasco.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Atendimento para Restaurantes</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de uma distribuidora de alimentos confiável para seu restaurante em Osasco? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Distribuidora para Restaurantes</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo para Restaurantes</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para seu restaurante.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos restaurantes em:</strong> Centro • Jardim das Flores • Vila Yara • Presidente Altino • e toda Osasco
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> distribuidora de alimentos para restaurantes em Osasco, fornecedor de alimentos para restaurantes Osasco, atacado de carnes Osasco, laticínios para restaurantes Osasco, óleo de algodão para restaurantes, manteiga para restaurantes, distribuidora de alimentos Osasco, PMG Atacadista Osasco, marques vendas pmg.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 141,
+  "title": "DISTRIBUIDORA PARA LANCHONETES EM OSASCO: Produtos para Fast Food e Delivery",
+  "description": "Distribuidora para lanchonetes em Osasco: hambúrgueres, batatas congeladas, cheddar, bebidas e muito mais. Entregamos em 1-2 dias úteis para lanchonetes em Osasco. Consulte preços!",
+  "image": "https://i.imgur.com/Rpv5d79.png",
+  "category": "Distribuidora Regional",
+  "section": "distribuidora-osasco",
+  "readTime": "7 min de leitura",
+  "date": "2026-06-16",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🥤 DISTRIBUIDORA PARA LANCHONETES EM OSASCO: Produtos para Fast Food e Delivery</h1>
+      <p>O mercado de <strong>lanchonetes em Osasco</strong> é um dos mais aquecidos da Grande São Paulo. Com uma população de mais de <strong>700 mil habitantes</strong> e uma forte atividade comercial e industrial, a demanda por fast food é constante e crescente.</p>
+      
+      <p>Osasco é um <strong>importante centro comercial e industrial</strong>, com grande circulação de trabalhadores e executivos que buscam alimentação rápida e de qualidade durante o almoço e happy hour.</p>
+      
+      <p>Seja no <strong>atendimento local, delivery ou iFood</strong>, as lanchonetes precisam de produtos de qualidade, preço competitivo e entregas rápidas para não parar a operação. A <strong>PMG Atacadista</strong> é a <strong>distribuidora para lanchonetes em Osasco</strong> que você procura.</p>
+      
+      <p>Com mais de <strong>2000 produtos em estoque</strong>, incluindo <strong>hambúrgueres, batatas congeladas, cheddar fatiado, bebidas e muito mais</strong>, entregamos em <strong>1-2 dias úteis</strong> para toda a região.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🥤 Distribuidora para lanchonetes • 🍔 Hambúrgueres • 🍟 Batatas congeladas • 🧀 Cheddar fatiado • 🥤 Bebidas em volume • 📍 Bairros atendidos • 🚚 Entrega rápida • 📞 Fale conosco</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos" style="background: #095400; color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">🥤 VER PRODUTOS PARA LANCHONETE</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega em Osasco em 1-2 dias úteis | Frota própria refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/Rpv5d79.png" alt="Distribuidora para lanchonetes em Osasco" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Distribuidora para lanchonetes em Osasco: hambúrgueres, batatas, cheddar, bebidas e muito mais</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📌 O mercado de lanchonetes em Osasco</h2>
+      <p>Osasco tem um dos <strong>mercados de fast food mais aquecidos da Grande São Paulo</strong>. Com bairros movimentados e forte presença comercial, a cidade concentra lanchonetes e hamburguerias que atendem um público diverso, desde trabalhadores até executivos.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Indicador</th>
+            <th style="padding: 12px; text-align: left;">Dados</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Estimativa de lanchonetes em Osasco</strong></td>
+            <td style="padding: 10px;">Mais de 400 estabelecimentos</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Produtos mais consumidos</strong></td>
+            <td style="padding: 10px;">Hambúrguer, batata frita, cheddar, refrigerante</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Crescimento do delivery</strong></td>
+            <td style="padding: 10px;">Alta (iFood e outros apps)</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Característica local:</p>
+        <p style="margin: 5px 0 0 0;">Osasco tem forte presença de trabalhadores do comércio e indústria, o que movimenta as lanchonetes durante o almoço rápido e também no período noturno.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍔 Produtos essenciais para sua lanchonete</h2>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 650px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Uso na lanchonete</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Hambúrguer</strong></td>
+            <td style="padding: 10px;">Frigonosso, Boi Brasil</strong></td>
+            <td style="padding: 10px;">Porcionado congelado</strong></td>
+            <td style="padding: 10px;">Hambúrguer do cardápio</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</strong></td>
+            <td style="padding: 10px;">Vigor</strong></td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</strong></td>
+            <td style="padding: 10px;">Cobertura do hambúrguer</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Batata Palito</strong></td>
+            <td style="padding: 10px;">Lamb Weston</strong></td>
+            <td style="padding: 10px;">2,25kg / 2,5kg</strong></td>
+            <td style="padding: 10px;">Acompanhamento principal</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Batata Stealth</strong></td>
+            <td style="padding: 10px;">Lamb Weston</strong></td>
+            <td style="padding: 10px;">2,25kg / 2,5kg</strong></td>
+            <td style="padding: 10px;">Delivery (crocância prolongada)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Refrigerante</strong></td>
+            <td style="padding: 10px;">Coca-Cola, Guaraná, Fanta</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+            <td style="padding: 10px;">Bebidas do combo</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</strong></td>
+            <td style="padding: 10px;">Alfama</strong></td>
+            <td style="padding: 10px;">1kg</strong></td>
+            <td style="padding: 10px;">Sanduíches de frango</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍔 Hambúrgueres para sua lanchonete em Osasco</h2>
+      <p>O <strong>hambúrguer</strong> é o carro-chefe da maioria das lanchonetes. Oferecemos hambúrgueres de qualidade das marcas <strong>Frigonosso e Boi Brasil</strong>, com padronização e suculência garantidas.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Vantagens dos nossos hambúrgueres:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Padronização de peso e tamanho</strong> - controle de custo preciso por lanche</li>
+          <li>✓ <strong>Suculência garantida</strong> - carne de qualidade com ponto certo de gordura</li>
+          <li>✓ <strong>Embalagem prática</strong> - porcionado e congelado, fácil armazenamento</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍟 Batatas congeladas para lanchonete em Osasco</h2>
+      <p>A <strong>batata frita</strong> é o acompanhamento mais vendido em lanchonetes. Oferecemos a linha completa <strong>Lamb Weston</strong>, a melhor do mercado.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+            <th style="padding: 12px; text-align: left;">Diferencial</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Batata Palito Butler</strong></td>
+            <td style="padding: 10px;">Consumo local</strong></td>
+            <td style="padding: 10px;">Clássica, crocante, agrada todos</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Batata Stealth</strong></td>
+            <td style="padding: 10px;">Delivery / iFood</strong></td>
+            <td style="padding: 10px;">Cobertura crocante, mantém a textura</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Batata Dippers Canoa</strong></td>
+            <td style="padding: 10px;">Cardápio diferenciado</strong></td>
+            <td style="padding: 10px;">Corte canoa temperado, visual bonito</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Dica especial para lanchonetes:</p>
+        <p style="margin: 5px 0 0 0;">Para lanchonetes com delivery em Osasco, invista na <strong>batata Stealth</strong>. A cobertura crocante mantém a textura mesmo dentro da embalagem fechada, garantindo que o cliente receba a batata crocante.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧀 Cheddar Vigor Fatiado: o padrão das lanchonetes de Osasco</h2>
+      <p>O <strong>cheddar Vigor fatiado</strong> é o queridinho das lanchonetes de Osasco. A embalagem de <strong>2,24kg com 160 fatias</strong> já vem porcionada, facilitando o controle de custo e o preparo rápido.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Por que o cheddar Vigor é o preferido:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>160 fatias por embalagem</strong> - controle de custo preciso por lanche</li>
+          <li>✓ <strong>Derretimento rápido</strong> - ideal para chapas e churrasqueiras</li>
+          <li>✓ <strong>Sabor cremoso</strong> - padrão das grandes redes</li>
+          <li>✓ <strong>Embalagem prática</strong> - fácil armazenamento e manuseio</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🥤 Bebidas para lanchonete em volume</h2>
+      <p>As <strong>bebidas</strong> são parte essencial do combo da lanchonete. Oferecemos as principais marcas em embalagens ideais para food service.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Indicado para</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Refrigerante Coca-Cola, Guaraná, Fanta, Sprite</strong></td>
+            <td style="padding: 10px;">Lata 350ml / PET 2L</strong></td>
+            <td style="padding: 10px;">Combo e revenda</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Água Mineral</strong></td>
+            <td style="padding: 10px;">Garrafa 500ml</strong></td>
+            <td style="padding: 10px;">Acompanhamento</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Energético Red Bull, Monster</strong></td>
+            <td style="padding: 10px;">Lata 250ml / 473ml</strong></td>
+            <td style="padding: 10px;">Drinks e público jovem</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros de Osasco que atendemos</h2>
+      <p>Entregamos para <strong>lanchonetes em toda Osasco</strong>, incluindo:</p>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;">
+          <div>✅ Centro</div>
+          <div>✅ Jardim das Flores</div>
+          <div>✅ Vila Yara</div>
+          <div>✅ Bela Vista</div>
+          <div>✅ Presidente Altino</div>
+          <div>✅ Vila Osasco</div>
+          <div>✅ Rochdale</div>
+          <div>✅ Vila Campesina</div>
+          <div>✅ Km 18</div>
+          <div>✅ Quitaúna</div>
+          <div>✅ Jardim Veloso</div>
+          <div>✅ Vila Menck</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda Osasco e região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 Diferencial: Atendimento a lanchonetes no centro comercial de Osasco</h2>
+      <p>Osasco tem forte presença comercial e industrial, com bairros movimentados como o <strong>Centro, Jardim das Flores e Presidente Altino</strong>. As lanchonetes dessas regiões atendem trabalhadores e executivos durante o almoço e happy hour, exigindo agilidade e qualidade.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚚 Vantagens de escolher a PMG como distribuidora para sua lanchonete</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria</h4>
+          <p>Seus produtos chegam no prazo, sem atrasos, para sua lanchonete não parar.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Estoque Completo</h4>
+          <p>Hambúrgueres, batatas, cheddar, bebidas — tudo em um só lugar.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para Osasco — ideal para quem trabalha com delivery.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Dedicado</h4>
+          <p>Atendimento personalizado com Marques Antonio para lanchonetes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Atendimento para Lanchonetes</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de uma distribuidora confiável para sua lanchonete em Osasco? Me chama no WhatsApp!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Distribuidora para Lanchonetes</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo para Lanchonetes</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os produtos disponíveis para sua lanchonete.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos lanchonetes em:</strong> Centro • Jardim das Flores • Vila Yara • Presidente Altino • e toda Osasco
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> distribuidora para lanchonetes em Osasco, fornecedor de hambúrguer Osasco, batata congelada para lanchonete Osasco, cheddar para lanchonete Osasco, bebidas para lanchonete, distribuidora de alimentos para fast food Osasco, PMG Atacadista Osasco, marques vendas pmg.
+      </p>
+    </div>
+  `
+},
+{
+  "id": 142,
+  "title": "ONDE COMPRAR INSUMOS PARA PIZZARIA EM OSASCO: Muçarela, Calabresa, Cheddar e Mais",
+  "description": "Onde comprar insumos para pizzaria em Osasco: muçarela Bari, calabresa Aurora, cheddar Vigor, desfiados Alfama e muito mais. Entrega rápida em Osasco. Consulte preços!",
+  "image": "https://i.imgur.com/tFYBAgL.png",
+  "category": "Fornecedor Regional",
+  "section": "fornecedor-osasco",
+  "readTime": "7 min de leitura",
+  "date": "2026-06-16",
+  "author": "Marques Vendas PMG Atacadista",
+  "featured": true,
+  "content": `
+    <section style="margin-bottom: 30px;">
+      <h1 style="color: #095400; font-size: 1.6rem; margin-bottom: 15px;">🍕 ONDE COMPRAR INSUMOS PARA PIZZARIA EM OSASCO: Muçarela, Calabresa, Cheddar e Mais</h1>
+      <p>Se você tem uma <strong>pizzaria em Osasco</strong>, sabe que a qualidade dos ingredientes é o que fideliza o cliente. A cidade é um dos <strong>maiores polos gastronômicos da Grande São Paulo</strong>, com pizzarias que atendem um público exigente e diverso.</p>
+      
+      <p>Muçarela que derrete na medida certa, calabresa saborosa, cheddar cremoso — tudo isso faz a diferença no resultado final. Com mais de <strong>250 pizzarias espalhadas pela cidade</strong> e uma região que inclui toda a Grande São Paulo, a concorrência é grande, e a qualidade dos insumos é seu principal diferencial.</p>
+      
+      <p>Osasco é um <strong>importante centro comercial e industrial</strong>, com bairros movimentados como o <strong>Centro, Jardim das Flores e Presidente Altino</strong>, onde as pizzarias são muito procuradas por moradores e trabalhadores da região.</p>
+      
+      <p>Mas você sabe <strong>onde comprar insumos para pizzaria em Osasco</strong> com qualidade, preço justo e entrega rápida? A resposta é a <strong>PMG Atacadista</strong>. Com mais de <strong>2000 produtos em estoque</strong>, incluindo as principais marcas do mercado, entregamos em <strong>1-2 dias úteis</strong> para toda Osasco.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">🎯 O que você vai encontrar neste guia:</h3>
+        <p style="margin: 0; font-weight: 600;">🍕 Onde comprar insumos para pizzaria • 🧀 Muçarela Bari • 🌭 Calabresa Aurora • 🧀 Cheddar Vigor • 🍗 Desfiados Alfama • 📍 Bairros atendidos • 🚚 Entrega rápida • 📞 Fale conosco</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://www.marquesvendaspmg.shop/produtos?categoria=Queijos%20e%20Derivados" style="background: #095400; color: white; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">🍕 VER INSUMOS PARA PIZZARIA</a>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">Entrega em Osasco em 1-2 dias úteis | Frota própria refrigerada</p>
+      </div>
+      <img src="https://i.imgur.com/tFYBAgL.png" alt="Insumos para pizzaria em Osasco - muçarela, calabresa, cheddar" style="width: 100%; border-radius: 10px; margin: 20px 0;" />
+      <p style="text-align: center; color: #666; font-style: italic; font-size: 0.9rem;">Insumos para pizzaria em Osasco: muçarela Bari, calabresa Aurora, cheddar Vigor e muito mais</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 O mercado de pizzarias em Osasco</h2>
+      <p>Osasco é um dos <strong>maiores polos de pizzarias da Grande São Paulo</strong>. Com uma população de mais de 700 mil habitantes e uma economia forte, a cidade concentra pizzarias tradicionais, rodízios e delivery que disputam a preferência de um público exigente.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Indicador</th>
+            <th style="padding: 12px; text-align: left;">Dados</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Estimativa de pizzarias em Osasco</strong></td>
+            <td style="padding: 10px;">Mais de 250 estabelecimentos</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Sabores mais pedidos</strong></td>
+            <td style="padding: 10px;">Muçarela, Calabresa, Frango com Catupiry, Portuguesa</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Produtos mais consumidos</strong></td>
+            <td style="padding: 10px;">Muçarela, calabresa, cheddar, frango desfiado</strong></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Característica local:</p>
+        <p style="margin: 5px 0 0 0;">Osasco tem forte presença comercial e industrial, o que movimenta as pizzarias da cidade durante o almoço e também no período noturno, com trabalhadores e executivos de diversas empresas.</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍕 Quais insumos não podem faltar na sua pizzaria?</h2>
+      <p>Toda pizzaria de sucesso precisa de uma lista básica de insumos de qualidade. Veja os principais:</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 650px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Insumo</th>
+            <th style="padding: 12px; text-align: left;">Marca</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Para qual pizza?</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Muçarela</strong></td>
+            <td style="padding: 10px;">Bari</strong></td>
+            <td style="padding: 10px;">Peça 4kg</strong></td>
+            <td style="padding: 10px;">Todas as pizzas (base)</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Calabresa</strong></td>
+            <td style="padding: 10px;">Aurora</strong></td>
+            <td style="padding: 10px;">Pacote 5kg</strong></td>
+            <td style="padding: 10px;">Pizza de calabresa</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Cheddar Fatiado</strong></td>
+            <td style="padding: 10px;">Vigor</strong></td>
+            <td style="padding: 10px;">2,24kg (160 fatias)</strong></td>
+            <td style="padding: 10px;">Pizza de cheddar, hambúrgueres</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</strong></td>
+            <td style="padding: 10px;">Alfama</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</strong></td>
+            <td style="padding: 10px;">Pizza de frango com catupiry</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</strong></td>
+            <td style="padding: 10px;">Alfama</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</strong></td>
+            <td style="padding: 10px;">Pizza nordestina, esfihas</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Manteiga sem sal</strong></td>
+            <td style="padding: 10px;">Tirolez, Scala, Frizzo</strong></td>
+            <td style="padding: 10px;">Caixa 5kg</strong></td>
+            <td style="padding: 10px;">Massas e preparos especiais</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧀 Muçarela Bari 4kg: A campeã das pizzarias de Osasco</h2>
+      <p>A <strong>muçarela Bari</strong> é disparada a mais vendida entre as pizzarias de Osasco. O motivo é simples: <strong>qualidade consistente, derretimento perfeito e sabor equilibrado</strong>.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Por que escolher a muçarela Bari:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Derretimento uniforme</strong> - Cobertura perfeita, sem separação de gordura</li>
+          <li>✓ <strong>Sabor equilibrado</strong> - Não compete com os outros ingredientes</li>
+          <li>✓ <strong>Registro SIF</strong> - Produto inspecionado e aprovado</li>
+          <li>✓ <strong>Embalagem 4kg</strong> - Tamanho ideal para alto volume</li>
+        </ul>
+      </div>
+      
+      <div class="highlight" style="background-color: #fff8e0; padding: 15px; border-left: 5px solid #ff8c00; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600;">💡 Dica:</p>
+        <p style="margin: 5px 0 0 0;">Para uma pizza perfeita, use <strong>250g a 300g de muçarela</strong> por pizza tamanho grande (8 fatias).</p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🌭 Calabresa Aurora 5kg: O sabor tradicional</h2>
+      <p>A <strong>calabresa Aurora</strong> é a preferida das pizzarias para o sabor mais tradicional do Brasil. A embalagem de <strong>5kg</strong> é perfeita para quem tem alto volume de vendas.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Por que escolher a calabresa Aurora:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>Sabor tradicional</strong> - O cliente reconhece e aprova</li>
+          <li>✓ <strong>Embalagem 5kg</strong> - Ótimo custo-benefício</li>
+          <li>✓ <strong>Fácil de fatiar</strong> - Praticidade na cozinha</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🧀 Cheddar Vigor Fatiado: O queridinho das pizzarias especiais</h2>
+      <p>O <strong>cheddar Vigor fatiado</strong> é usado em pizzas especiais, hambúrgueres e batatas. A embalagem com <strong>160 fatias</strong> já vem porcionada, facilitando o preparo.</p>
+      
+      <div style="background: #f0f8f0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #095400; margin: 0 0 10px 0;">✅ Por que escolher o cheddar Vigor:</h3>
+        <ul style="margin-bottom: 0;">
+          <li>✓ <strong>160 fatias por embalagem</strong> - Controle de custo preciso</li>
+          <li>✓ <strong>Derretimento rápido</strong> - Ideal para forno e chapa</li>
+          <li>✓ <strong>Sabor cremoso</strong> - Padrão das grandes redes</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🍗 Alfama: A marca de desfiados mais usada em pizzarias de Osasco</h2>
+      <p>A <strong>Alfama</strong> é líder no segmento de carnes desfiadas. Seus produtos são os preferidos para pizzas de frango e carne seca.</p>
+      
+      <div style="background: #fff; border: 2px solid #095400; border-radius: 10px; padding: 0; overflow-x: auto; margin: 20px 0;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+          <tr style="background: #095400; color: white;">
+            <th style="padding: 12px; text-align: left;">Produto</th>
+            <th style="padding: 12px; text-align: left;">Embalagem</th>
+            <th style="padding: 12px; text-align: left;">Aplicação</th>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Peito de Frango Desfiado</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</strong></td>
+            <td style="padding: 10px;">Pizza de frango com catupiry</strong></td>
+          </tr>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 10px;">Carne Seca Desfiada</strong></td>
+            <td style="padding: 10px;">Pacote 1kg</strong></td>
+            <td style="padding: 10px;">Pizza nordestina, esfihas</strong></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">📍 Bairros de Osasco que atendemos</h2>
+      <p>Entregamos insumos para <strong>pizzarias em toda Osasco</strong>, incluindo:</p>
+      
+      <div style="background: #f8f8f8; padding: 20px; border-radius: 8px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;">
+          <div>✅ Centro</div>
+          <div>✅ Jardim das Flores</div>
+          <div>✅ Vila Yara</div>
+          <div>✅ Bela Vista</div>
+          <div>✅ Presidente Altino</div>
+          <div>✅ Vila Osasco</div>
+          <div>✅ Rochdale</div>
+          <div>✅ Vila Campesina</div>
+          <div>✅ Km 18</div>
+          <div>✅ Quitaúna</div>
+          <div>✅ Jardim Veloso</div>
+          <div>✅ Vila Menck</div>
+        </div>
+        <p style="margin-bottom: 0; margin-top: 15px;"><strong>🚚 Entregamos em toda Osasco e região!</strong></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🏭 Diferencial: Atendimento a pizzarias no centro comercial de Osasco</h2>
+      <p>Osasco tem forte presença comercial e industrial, com bairros movimentados como o <strong>Centro, Jardim das Flores e Presidente Altino</strong>. As pizzarias dessas regiões atendem trabalhadores e executivos durante o almoço e happy hour, exigindo agilidade e qualidade. A PMG tem produtos para todos os perfis, desde o custo-benefício até o premium.</p>
+    </section>
+
+    <section style="margin-bottom: 30px;">
+      <h2 style="color: #095400; font-size: 1.4rem; margin-bottom: 15px;">🚚 Vantagens de comprar insumos para pizzaria na PMG</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🚚 Frota Própria Refrigerada</h4>
+          <p>Seus queijos e carnes chegam na temperatura ideal, garantindo qualidade para suas pizzas.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">📦 Marcas Consolidadas</h4>
+          <p>Bari, Aurora, Vigor, Alfama, Tirolez — tudo em um só lugar.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">⏱️ Entrega Rápida</h4>
+          <p>1-2 dias úteis para Osasco — não vai faltar insumo no seu fim de semana.</p>
+        </div>
+        
+        <div style="background: #f0f8f0; padding: 20px; border-radius: 8px;">
+          <h4 style="color: #095400; margin: 0 0 10px 0;">🤝 Representante Especializado</h4>
+          <p>Atendimento personalizado com Marques Antonio para pizzarias de Osasco.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #095400; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: white; margin: 0 0 15px 0; font-size: 1.5rem;">📞 Fale com o Especialista</h3>
+      <p style="color: #e0f7e0; margin: 0 0 20px 0; font-size: 1.1rem;">
+        Precisa de insumos para sua pizzaria em Osasco? Me chama no WhatsApp para cotação e entrega rápida!
+      </p>
+      
+      <div style="display: inline-block; background: white; padding: 20px; border-radius: 8px; margin-top: 10px;">
+        <p style="margin: 0; color: #095400; font-weight: 600; font-size: 1.2rem;">
+          ✆ WhatsApp Direto:<br>
+          <span style="font-size: 1.4rem;">(11) 91357-2902</span>
+        </p>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 0.9rem;">Marques Antonio - Atendimento Pizzarias Osasco</p>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 30px; background: #f0f8f0; border-radius: 10px; margin-bottom: 30px;">
+      <h3 style="color: #095400; margin: 0 0 15px 0;">🛒 Acesse Nosso Catálogo</h3>
+      <p style="color: #555; margin: 0 0 20px 0;">
+        Cadastre-se em <strong>menos de 2 minutos</strong> e veja todos os insumos disponíveis para sua pizzaria.
+      </p>
+      
+      <a href="https://www.marquesvendaspmg.shop/produtos" 
+         style="background: #095400; color: white; padding: 15px 40px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 1.2rem; display: inline-block; margin-bottom: 15px;">
+         👉 ACESSAR CATÁLOGO
+      </a>
+      
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+        <strong>Atendemos pizzarias em:</strong> Centro • Jardim das Flores • Vila Yara • Presidente Altino • e toda Osasco
+      </p>
+    </section>
+
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 6px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 0.9rem; color: #666;">
+        <strong>Palavras-chave:</strong> onde comprar insumos para pizzaria em Osasco, muçarela Bari Osasco, calabresa Aurora Osasco, cheddar Vigor Osasco, desfiados Alfama Osasco, fornecedor de insumos para pizzaria, distribuidora de alimentos para pizzaria Osasco, PMG Atacadista Osasco, marques vendas pmg.
+      </p>
+    </div>
+  `
 }
   ];
 
