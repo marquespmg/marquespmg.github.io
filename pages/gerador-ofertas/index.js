@@ -24,6 +24,9 @@ export default function GeradorOfertas() {
   const [formatoIA, setFormatoIA] = useState('story');
   const [copiandoTextoIA, setCopiandoTextoIA] = useState(false);
 
+  // ✅ SENHA VINDA DO .ENV.LOCAL - NÃO APARECE NO F12
+  const SENHA_CORRETA = process.env.NEXT_PUBLIC_SENHA_PMG || 'PMG@2024';
+
   const coresPMG = {
     primaria: '#095400',
     secundaria: '#ff0000',
@@ -32,7 +35,7 @@ export default function GeradorOfertas() {
   };
 
   const verificarSenha = () => {
-    if (senha === "PMG@2024") {
+    if (senha === SENHA_CORRETA) {
       setAcessoPermitido(true);
       carregarImagens();
     } else {
@@ -712,169 +715,38 @@ export default function GeradorOfertas() {
     return linhas;
   }
 
-const copiarTextoOfertas = () => {
-  if (produtosSelecionados.length === 0) {
-    alert('Selecione pelo menos um produto!');
-    return;
-  }
-
-  const dataAtual = new Date().toLocaleDateString('pt-BR');
-  
-  let texto = `🏷️ *${temaPromocao.toUpperCase()}* 🏷️\n`;
-  texto += `📅 ${dataAtual}\n\n`;
-  
-  produtosSelecionados.forEach((produto, index) => {
-    const unidade = produto.unit.toLowerCase();
-    let unidadeTexto = '';
-    
-    if (unidade === 'cx') unidadeTexto = 'caixa';
-    else if (unidade === 'fd') unidadeTexto = 'fardo';
-    else if (unidade === 'kg') unidadeTexto = 'kg';
-    else if (unidade === 'un') unidadeTexto = 'unidade';
-    else unidadeTexto = unidade;
-    
-    texto += `${index + 1}️⃣ *${produto.name}*\n`;
-    texto += `💰 ${produto.formattedPrice} / ${unidadeTexto}\n\n`;
-  });
-  
-  texto += `⏰ *OFERTA VÁLIDA APENAS HOJE (${dataAtual})*\n`;
-  texto += `📞 *FAÇA SEU PEDIDO:* (31) 99999-9999\n`;
-  texto += `🚚 Entregamos em toda região!`;
-  
-  // Usa textarea para copiar
-  const textarea = document.createElement('textarea');
-  textarea.value = texto;
-  textarea.style.position = 'fixed';
-  textarea.style.top = '0';
-  textarea.style.left = '0';
-  textarea.style.width = '1px';
-  textarea.style.height = '1px';
-  textarea.style.opacity = '0';
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand('copy');
-  document.body.removeChild(textarea);
-  
-  alert('✅ Texto copiado!');
-};
-
-// Função para gerar texto simples (fallback) com cálculo correto
-function gerarTextoSimples(produtos, tema) {
-  const dataAtual = new Date().toLocaleDateString('pt-BR');
-  
-  let texto = `🏷️ *${tema.toUpperCase()}* 🏷️\n`;
-  texto += `📅 ${dataAtual}\n\n`;
-  
-  produtos.forEach((produto, index) => {
-    const unidade = produto.unit.toLowerCase();
-    let unidadeTexto = '';
-    let valorUnitario = null;
-    let unidadeUnitario = '';
-    
-    // Extrai quantidade e tipo do nome do produto
-    let quantidade = null;
-    let tipoQuantidade = '';
-    
-    // Procura padrões como (CX 12 UN), (FDO 6 PCT), (CX 10 PCT)
-    // Padrão: (CX 12 UN) ou (CX 10 PCT) ou (FDO 6 PCT)
-    const match = produto.name.match(/\([A-Z]+\s+(\d+)\s+(UN|PCT|KG|PACOTE)/i);
-    if (match) {
-      quantidade = parseInt(match[1]);
-      tipoQuantidade = match[2].toUpperCase();
+  const copiarTextoOfertas = () => {
+    if (produtosSelecionados.length === 0) {
+      alert('Selecione pelo menos um produto!');
+      return;
     }
+
+    const dataAtual = new Date().toLocaleDateString('pt-BR');
     
-    if (unidade === 'cx') {
-      unidadeTexto = 'caixa';
-      if (quantidade) {
-        valorUnitario = produto.price / quantidade;
-        // Define o que mostrar baseado no tipo
-        if (tipoQuantidade === 'UN') {
-          unidadeUnitario = 'unidade';
-        } else if (tipoQuantidade === 'PCT' || tipoQuantidade === 'PACOTE') {
-          unidadeUnitario = 'pacote';
-        } else if (tipoQuantidade === 'KG') {
-          unidadeUnitario = 'kg';
-        }
-      }
-    } 
-    else if (unidade === 'fd') {
-      unidadeTexto = 'fardo';
-      if (quantidade && (tipoQuantidade === 'PCT' || tipoQuantidade === 'PACOTE')) {
-        valorUnitario = produto.price / quantidade;
-        unidadeUnitario = 'pacote';
-      }
-    }
-    else if (unidade === 'kg') {
-      unidadeTexto = 'kg';
-    }
-    else if (unidade === 'un') {
-      unidadeTexto = 'unidade';
-    }
-    else {
-      unidadeTexto = unidade;
-    }
+    let texto = `🏷️ *${temaPromocao.toUpperCase()}* 🏷️\n`;
+    texto += `📅 ${dataAtual}\n\n`;
     
-    // Monta a linha do produto
-    texto += `${index + 1}️⃣ *${produto.name}*\n`;
-    
-    if (valorUnitario && unidadeUnitario) {
-      texto += `   💰 ${produto.formattedPrice} / ${unidadeTexto} (≈ ${formatarPreco(valorUnitario)} / ${unidadeUnitario})\n\n`;
-    } else {
-      texto += `   💰 ${produto.formattedPrice} / ${unidadeTexto}\n\n`;
-    }
-  });
-  
-  texto += `⏰ *OFERTA VÁLIDA APENAS HOJE (${dataAtual})*\n`;
-  texto += `📞 *FAÇA SEU PEDIDO:* (31) 99999-9999\n`;
-  texto += `🚚 Entregamos em toda região!`;
-  
-  return texto;
-}
-
-// Função para copiar texto com IA - CORRIGIDA (sem overlay bloqueando)
-const copiarTextoComIA = async () => {
-  if (produtosSelecionados.length === 0) {
-    alert("Selecione pelo menos um produto!");
-    return;
-  }
-
-  if (!temaPromocao.trim()) {
-    alert("Digite um tema para a promoção antes de gerar o texto!");
-    return;
-  }
-
-  // Não mostra overlay para não bloquear o foco
-  setCopiandoTextoIA(true);
-
-  try {
-    const response = await fetch('/api/gerar-texto-ia', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        produtos: produtosSelecionados,
-        temaPromocao: temaPromocao
-      })
+    produtosSelecionados.forEach((produto, index) => {
+      const unidade = produto.unit.toLowerCase();
+      let unidadeTexto = '';
+      
+      if (unidade === 'cx') unidadeTexto = 'caixa';
+      else if (unidade === 'fd') unidadeTexto = 'fardo';
+      else if (unidade === 'kg') unidadeTexto = 'kg';
+      else if (unidade === 'un') unidadeTexto = 'unidade';
+      else unidadeTexto = unidade;
+      
+      texto += `${index + 1}️⃣ *${produto.name}*\n`;
+      texto += `💰 ${produto.formattedPrice} / ${unidadeTexto}\n\n`;
     });
-
-    const data = await response.json();
     
-    let textoParaCopiar = '';
+    texto += `⏰ *OFERTA VÁLIDA APENAS HOJE (${dataAtual})*\n`;
+    texto += `📞 *FAÇA SEU PEDIDO:* (31) 99999-9999\n`;
+    texto += `🚚 Entregamos em toda região!`;
     
-    if (data.success && data.texto && data.texto.length > 50) {
-      textoParaCopiar = data.texto;
-    } else {
-      textoParaCopiar = gerarTextoSimples(produtosSelecionados, temaPromocao);
-    }
-    
-    // Fecha o loading ANTES de copiar
-    setCopiandoTextoIA(false);
-    
-    // Delay curto para garantir que o estado mudou
-    await new Promise(resolve => setTimeout(resolve, 50));
-    
-    // Usa textarea (funciona SEMPRE)
+    // Usa textarea para copiar
     const textarea = document.createElement('textarea');
-    textarea.value = textoParaCopiar;
+    textarea.value = texto;
     textarea.style.position = 'fixed';
     textarea.style.top = '0';
     textarea.style.left = '0';
@@ -882,52 +754,183 @@ const copiarTextoComIA = async () => {
     textarea.style.height = '1px';
     textarea.style.opacity = '0';
     document.body.appendChild(textarea);
-    textarea.focus();
     textarea.select();
-    
-    const sucesso = document.execCommand('copy');
+    document.execCommand('copy');
     document.body.removeChild(textarea);
     
-    if (sucesso) {
-      alert(`✅ Texto promocional copiado!\n\nTema: "${temaPromocao}"\nProdutos: ${produtosSelecionados.length} itens`);
-    } else {
-      throw new Error('Falha ao copiar');
-    }
+    alert('✅ Texto copiado!');
+  };
+
+  // Função para gerar texto simples (fallback) com cálculo correto
+  function gerarTextoSimples(produtos, tema) {
+    const dataAtual = new Date().toLocaleDateString('pt-BR');
     
-  } catch (error) {
-    console.error('Erro:', error);
-    setCopiandoTextoIA(false);
+    let texto = `🏷️ *${tema.toUpperCase()}* 🏷️\n`;
+    texto += `📅 ${dataAtual}\n\n`;
     
-    // Fallback: mostra o texto para copiar manualmente
-    const textoFallback = gerarTextoSimples(produtosSelecionados, temaPromocao);
+    produtos.forEach((produto, index) => {
+      const unidade = produto.unit.toLowerCase();
+      let unidadeTexto = '';
+      let valorUnitario = null;
+      let unidadeUnitario = '';
+      
+      // Extrai quantidade e tipo do nome do produto
+      let quantidade = null;
+      let tipoQuantidade = '';
+      
+      // Procura padrões como (CX 12 UN), (FDO 6 PCT), (CX 10 PCT)
+      // Padrão: (CX 12 UN) ou (CX 10 PCT) ou (FDO 6 PCT)
+      const match = produto.name.match(/\([A-Z]+\s+(\d+)\s+(UN|PCT|KG|PACOTE)/i);
+      if (match) {
+        quantidade = parseInt(match[1]);
+        tipoQuantidade = match[2].toUpperCase();
+      }
+      
+      if (unidade === 'cx') {
+        unidadeTexto = 'caixa';
+        if (quantidade) {
+          valorUnitario = produto.price / quantidade;
+          // Define o que mostrar baseado no tipo
+          if (tipoQuantidade === 'UN') {
+            unidadeUnitario = 'unidade';
+          } else if (tipoQuantidade === 'PCT' || tipoQuantidade === 'PACOTE') {
+            unidadeUnitario = 'pacote';
+          } else if (tipoQuantidade === 'KG') {
+            unidadeUnitario = 'kg';
+          }
+        }
+      } 
+      else if (unidade === 'fd') {
+        unidadeTexto = 'fardo';
+        if (quantidade && (tipoQuantidade === 'PCT' || tipoQuantidade === 'PACOTE')) {
+          valorUnitario = produto.price / quantidade;
+          unidadeUnitario = 'pacote';
+        }
+      }
+      else if (unidade === 'kg') {
+        unidadeTexto = 'kg';
+      }
+      else if (unidade === 'un') {
+        unidadeTexto = 'unidade';
+      }
+      else {
+        unidadeTexto = unidade;
+      }
+      
+      // Monta a linha do produto
+      texto += `${index + 1}️⃣ *${produto.name}*\n`;
+      
+      if (valorUnitario && unidadeUnitario) {
+        texto += `   💰 ${produto.formattedPrice} / ${unidadeTexto} (≈ ${formatarPreco(valorUnitario)} / ${unidadeUnitario})\n\n`;
+      } else {
+        texto += `   💰 ${produto.formattedPrice} / ${unidadeTexto}\n\n`;
+      }
+    });
     
-    // Cria um popup com o texto
-    const popup = window.open('', '_blank', 'width=500,height=400');
-    if (popup) {
-      popup.document.write(`
-        <html>
-          <head><title>Texto Promocional</title></head>
-          <body style="font-family: monospace; padding: 20px;">
-            <h3>Copie o texto abaixo:</h3>
-            <textarea style="width:100%; height:300px;" id="texto" readonly>${textoFallback}</textarea>
-            <br><br>
-            <button onclick="copyText()">Copiar</button>
-            <script>
-              function copyText() {
-                const textarea = document.getElementById('texto');
-                textarea.select();
-                document.execCommand('copy');
-                alert('Texto copiado!');
-              }
-            <\/script>
-          </body>
-        </html>
-      `);
-    } else {
-      alert(`📝 Copie manualmente:\n\n${textoFallback}`);
-    }
+    texto += `⏰ *OFERTA VÁLIDA APENAS HOJE (${dataAtual})*\n`;
+    texto += `📞 *FAÇA SEU PEDIDO:* (31) 99999-9999\n`;
+    texto += `🚚 Entregamos em toda região!`;
+    
+    return texto;
   }
-};
+
+  // Função para copiar texto com IA - CORRIGIDA (sem overlay bloqueando)
+  const copiarTextoComIA = async () => {
+    if (produtosSelecionados.length === 0) {
+      alert("Selecione pelo menos um produto!");
+      return;
+    }
+
+    if (!temaPromocao.trim()) {
+      alert("Digite um tema para a promoção antes de gerar o texto!");
+      return;
+    }
+
+    // Não mostra overlay para não bloquear o foco
+    setCopiandoTextoIA(true);
+
+    try {
+      const response = await fetch('/api/gerar-texto-ia', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          produtos: produtosSelecionados,
+          temaPromocao: temaPromocao
+        })
+      });
+
+      const data = await response.json();
+      
+      let textoParaCopiar = '';
+      
+      if (data.success && data.texto && data.texto.length > 50) {
+        textoParaCopiar = data.texto;
+      } else {
+        textoParaCopiar = gerarTextoSimples(produtosSelecionados, temaPromocao);
+      }
+      
+      // Fecha o loading ANTES de copiar
+      setCopiandoTextoIA(false);
+      
+      // Delay curto para garantir que o estado mudou
+      await new Promise(resolve => setTimeout(resolve, 50));
+      
+      // Usa textarea (funciona SEMPRE)
+      const textarea = document.createElement('textarea');
+      textarea.value = textoParaCopiar;
+      textarea.style.position = 'fixed';
+      textarea.style.top = '0';
+      textarea.style.left = '0';
+      textarea.style.width = '1px';
+      textarea.style.height = '1px';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      
+      const sucesso = document.execCommand('copy');
+      document.body.removeChild(textarea);
+      
+      if (sucesso) {
+        alert(`✅ Texto promocional copiado!\n\nTema: "${temaPromocao}"\nProdutos: ${produtosSelecionados.length} itens`);
+      } else {
+        throw new Error('Falha ao copiar');
+      }
+      
+    } catch (error) {
+      console.error('Erro:', error);
+      setCopiandoTextoIA(false);
+      
+      // Fallback: mostra o texto para copiar manualmente
+      const textoFallback = gerarTextoSimples(produtosSelecionados, temaPromocao);
+      
+      // Cria um popup com o texto
+      const popup = window.open('', '_blank', 'width=500,height=400');
+      if (popup) {
+        popup.document.write(`
+          <html>
+            <head><title>Texto Promocional</title></head>
+            <body style="font-family: monospace; padding: 20px;">
+              <h3>Copie o texto abaixo:</h3>
+              <textarea style="width:100%; height:300px;" id="texto" readonly>${textoFallback}</textarea>
+              <br><br>
+              <button onclick="copyText()">Copiar</button>
+              <script>
+                function copyText() {
+                  const textarea = document.getElementById('texto');
+                  textarea.select();
+                  document.execCommand('copy');
+                  alert('Texto copiado!');
+                }
+              <\/script>
+            </body>
+          </html>
+        `);
+      } else {
+        alert(`📝 Copie manualmente:\n\n${textoFallback}`);
+      }
+    }
+  };
 
   const PriceBandSelector = () => (
     <select 
@@ -978,8 +981,15 @@ const copiarTextoComIA = async () => {
         <div style={styles.authBox}>
           <h2 style={{ color: coresPMG.primaria }}>🔒 ACESSO RESTRITO</h2>
           <p style={styles.authText}>Gerador de encartes PMG</p>
-          <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="Digite a senha" style={styles.authInput} />
-          <button onClick={() => verificarSenha()} style={styles.authButton}>ENTRAR</button>
+          <input 
+            type="password" 
+            value={senha} 
+            onChange={(e) => setSenha(e.target.value)} 
+            placeholder="Digite a senha" 
+            style={styles.authInput} 
+            onKeyPress={(e) => e.key === 'Enter' && verificarSenha()}
+          />
+          <button onClick={verificarSenha} style={styles.authButton}>ENTRAR</button>
         </div>
       </div>
     );
