@@ -3,26 +3,34 @@ import { supabase } from '../lib/supabaseClient';
 // ==============================================
 // ✅ IMPORTA SOMENTE O ARRAY DE PRODUTOS
 // ==============================================
-import { produtosArray } from './produtos'; // ← Nome corrigido!
+import { produtosArray } from './produtos';
 
 // ✅ IMPORTA O HOOK DE VALIDADE
 import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 
+// ==============================================
+// 🔥 CONTROLE MANUAL DE CAMPANHA
+// ==============================================
+// ✅ MUDE ESTA LINHA para TRUE quando for campanha (1,5% ou 2%)
+// ✅ MUDE para FALSE quando voltar ao normal
+const CAMPANHA_ATIVA = false;   // <-- MUDAR AQUI MANUALMENTE (true = campanha ativa / false = normal)
+// ==============================================
+
 // ✅ Array com IDs dos produtos em oferta
 const PRODUTOS_EM_OFERTA = [653, 658, 825, 829, 842, 902, 2065, 383, 1928, 1290, 1356, 1364];
 
-// ✅ NOVO: Configuração dos cupons
+// ✅ Configuração dos cupons
 const CUPONS = {
   PEDIDO1000: {
     nome: 'PEDIDO1000',
     minimo: 1000,
-    desconto: 1.5, // percentual
+    desconto: 1.5,
     descricao: '1.5% de desconto para pedidos acima de R$ 1.000'
   },
   PEDIDO2000: {
     nome: 'PEDIDO2000',
     minimo: 2000,
-    desconto: 2, // percentual
+    desconto: 2,
     descricao: '2% de desconto para pedidos acima de R$ 2.000'
   }
 };
@@ -38,164 +46,154 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isSyncing, setIsSyncing] = useState(false);
   const [cupomExpanded, setCupomExpanded] = useState(false);
-  const [finalizando, setFinalizando] = useState(false); // ✅ NOVO: estado para loading
+  const [finalizando, setFinalizando] = useState(false);
 
-  // ✅ NOVO: Estados para cupom
+  // Estados para cupom
   const [cupomInput, setCupomInput] = useState('');
   const [cupomAplicado, setCupomAplicado] = useState(null);
-  const [mensagemCupom, setMensagemCupom] = useState({ texto: '', tipo: '' }); // tipo: 'sucesso', 'erro', 'info'
+  const [mensagemCupom, setMensagemCupom] = useState({ texto: '', tipo: '' });
 
-  // ✅ NOVO: Hook para validade dos produtos
-const { getIdPmg, loading: loadingIdPmg } = useProdutoIdPmg();
-
-// ==============================================
-// ✅ Função para calcular desconto do cupom (CORRIGIDA)
-// ==============================================
-const calcularDescontoCupom = (cartItems, cupom) => {
-  if (!cupom || !cartItems || cartItems.length === 0) {
-    return { 
-      totalComDesconto: 0, 
-      itensComDesconto: [], 
-      totalDesconto: 0,
-      totalElegivel: 0 
-    };
-  }
-
-  // Agrupa itens iguais para cálculo correto
-  const groupedItems = cartItems.reduce((acc, item) => {
-    const existing = acc.find(p => p.id === item.id);
-    const calculated = calculateProductPrice(item);
-    const totalPrice = calculated.totalPrice * (item.quantity || 1);
-    
-    if (existing) {
-      existing.quantity += (item.quantity || 1);
-      existing.totalPrice += totalPrice;
-    } else {
-      acc.push({
-        ...item,
-        quantity: item.quantity || 1,
-        totalPrice: totalPrice,
-        unitPrice: calculated.unitPrice,
-        weight: calculated.weight,
-        isBox: calculated.isBox
-      });
-    }
-    return acc;
-  }, []);
-
-  // Filtra apenas itens que NÃO estão em oferta
-  const itensElegiveis = groupedItems.filter(
-    item => !PRODUTOS_EM_OFERTA.includes(item.id)
-  );
-
-  // ✅ Se não há itens elegíveis, retorna desconto zero
-  if (itensElegiveis.length === 0) {
-    return {
-      itensComDesconto: {},
-      totalDesconto: 0,
-      totalElegivel: 0,
-      percentualAplicado: 0,
-      mensagem: 'Nenhum item elegível para desconto (todos estão em oferta)'
-    };
-  }
-
-  const totalElegivel = itensElegiveis.reduce((sum, item) => sum + item.totalPrice, 0);
-  const percentualDesconto = cupom.desconto / 100;
-  const descontoTotal = totalElegivel * percentualDesconto;
-
-  // Cria um mapa dos itens com desconto
-  const itensComDesconto = {};
-  itensElegiveis.forEach(item => {
-    itensComDesconto[item.id] = {
-      totalPrice: item.totalPrice,
-      quantidade: item.quantity,
-      proporcao: item.totalPrice / totalElegivel,
-      descontoAplicado: descontoTotal * (item.totalPrice / totalElegivel)
-    };
-  });
-
-  return {
-    itensComDesconto,
-    totalDesconto: descontoTotal,
-    totalElegivel,
-    percentualAplicado: cupom.desconto
-  };
-};
-
-// ==============================================
-// ✅ Função para aplicar cupom (CORRIGIDA - valida itens elegíveis)
-// ==============================================
-const aplicarCupom = () => {
-  const cupomUpper = cupomInput.toUpperCase().trim();
-  const cupom = CUPONS[cupomUpper];
-
-  // Limpa mensagem anterior
-  setMensagemCupom({ texto: '', tipo: '' });
-
-  // Valida se cupom existe
-  if (!cupom) {
-    setMensagemCupom({
-      texto: '❌ Cupom inválido!',
-      tipo: 'erro'
-    });
-    setCupomAplicado(null);
-    return;
-  }
-
-  // Verifica se existem itens elegíveis no carrinho
-  const itensElegiveis = cart.filter(item => !PRODUTOS_EM_OFERTA.includes(item.id));
-  
-  if (itensElegiveis.length === 0) {
-    setMensagemCupom({
-      texto: `❌ Cupom ${cupom.nome} não é válido para carrinhos com apenas produtos em oferta`,
-      tipo: 'erro'
-    });
-    setCupomAplicado(null);
-    return;
-  }
-
-  // Calcula total do carrinho (sem desconto)
-  const groupedCart = cart.reduce((acc, product) => {
-    const existing = acc.find(p => p.id === product.id);
-    const calculated = calculateProductPrice(product);
-    const quantity = product.quantity || 1;
-    
-    if (existing) {
-      existing.quantity += quantity;
-      existing.totalPrice += calculated.totalPrice * quantity;
-    } else {
-      acc.push({
-        ...product,
-        quantity: quantity,
-        totalPrice: calculated.totalPrice * quantity
-      });
-    }
-    return acc;
-  }, []);
-
-  const totalCarrinho = groupedCart.reduce((sum, item) => sum + item.totalPrice, 0);
-
-  // Valida valor mínimo
-  if (totalCarrinho < cupom.minimo) {
-    setMensagemCupom({
-      texto: `❌ Cupom ${cupom.nome} válido apenas para pedidos ACIMA de R$ ${cupom.minimo.toFixed(2)}. Seu pedido atual é R$ ${totalCarrinho.toFixed(2)}`,
-      tipo: 'erro'
-    });
-    setCupomAplicado(null);
-    return;
-  }
-
-  // Aplica o cupom
-  setCupomAplicado(cupom);
-  setMensagemCupom({
-    texto: `✅ Cupom ${cupom.nome} aplicado! ${cupom.desconto}% de desconto distribuído entre os itens`,
-    tipo: 'sucesso'
-  });
-  setCupomInput(''); // Limpa o input
-};
+  // Hook para validade dos produtos
+  const { getIdPmg, loading: loadingIdPmg } = useProdutoIdPmg();
 
   // ==============================================
-  // ✅ NOVO: Função para remover cupom
+  // ✅ Função para calcular desconto do cupom
+  // ==============================================
+  const calcularDescontoCupom = (cartItems, cupom) => {
+    if (!cupom || !cartItems || cartItems.length === 0) {
+      return { 
+        totalComDesconto: 0, 
+        itensComDesconto: [], 
+        totalDesconto: 0,
+        totalElegivel: 0 
+      };
+    }
+
+    const groupedItems = cartItems.reduce((acc, item) => {
+      const existing = acc.find(p => p.id === item.id);
+      const calculated = calculateProductPrice(item);
+      const totalPrice = calculated.totalPrice * (item.quantity || 1);
+      
+      if (existing) {
+        existing.quantity += (item.quantity || 1);
+        existing.totalPrice += totalPrice;
+      } else {
+        acc.push({
+          ...item,
+          quantity: item.quantity || 1,
+          totalPrice: totalPrice,
+          unitPrice: calculated.unitPrice,
+          weight: calculated.weight,
+          isBox: calculated.isBox
+        });
+      }
+      return acc;
+    }, []);
+
+    const itensElegiveis = groupedItems.filter(
+      item => !PRODUTOS_EM_OFERTA.includes(item.id)
+    );
+
+    if (itensElegiveis.length === 0) {
+      return {
+        itensComDesconto: {},
+        totalDesconto: 0,
+        totalElegivel: 0,
+        percentualAplicado: 0,
+        mensagem: 'Nenhum item elegível para desconto (todos estão em oferta)'
+      };
+    }
+
+    const totalElegivel = itensElegiveis.reduce((sum, item) => sum + item.totalPrice, 0);
+    const percentualDesconto = cupom.desconto / 100;
+    const descontoTotal = totalElegivel * percentualDesconto;
+
+    const itensComDesconto = {};
+    itensElegiveis.forEach(item => {
+      itensComDesconto[item.id] = {
+        totalPrice: item.totalPrice,
+        quantidade: item.quantity,
+        proporcao: item.totalPrice / totalElegivel,
+        descontoAplicado: descontoTotal * (item.totalPrice / totalElegivel)
+      };
+    });
+
+    return {
+      itensComDesconto,
+      totalDesconto: descontoTotal,
+      totalElegivel,
+      percentualAplicado: cupom.desconto
+    };
+  };
+
+  // ==============================================
+  // ✅ Função para aplicar cupom
+  // ==============================================
+  const aplicarCupom = () => {
+    const cupomUpper = cupomInput.toUpperCase().trim();
+    const cupom = CUPONS[cupomUpper];
+
+    setMensagemCupom({ texto: '', tipo: '' });
+
+    if (!cupom) {
+      setMensagemCupom({
+        texto: '❌ Cupom inválido!',
+        tipo: 'erro'
+      });
+      setCupomAplicado(null);
+      return;
+    }
+
+    const itensElegiveis = cart.filter(item => !PRODUTOS_EM_OFERTA.includes(item.id));
+    
+    if (itensElegiveis.length === 0) {
+      setMensagemCupom({
+        texto: `❌ Cupom ${cupom.nome} não é válido para carrinhos com apenas produtos em oferta`,
+        tipo: 'erro'
+      });
+      setCupomAplicado(null);
+      return;
+    }
+
+    const groupedCart = cart.reduce((acc, product) => {
+      const existing = acc.find(p => p.id === product.id);
+      const calculated = calculateProductPrice(product);
+      const quantity = product.quantity || 1;
+      
+      if (existing) {
+        existing.quantity += quantity;
+        existing.totalPrice += calculated.totalPrice * quantity;
+      } else {
+        acc.push({
+          ...product,
+          quantity: quantity,
+          totalPrice: calculated.totalPrice * quantity
+        });
+      }
+      return acc;
+    }, []);
+
+    const totalCarrinho = groupedCart.reduce((sum, item) => sum + item.totalPrice, 0);
+
+    if (totalCarrinho < cupom.minimo) {
+      setMensagemCupom({
+        texto: `❌ Cupom ${cupom.nome} válido apenas para pedidos ACIMA de R$ ${cupom.minimo.toFixed(2)}. Seu pedido atual é R$ ${totalCarrinho.toFixed(2)}`,
+        tipo: 'erro'
+      });
+      setCupomAplicado(null);
+      return;
+    }
+
+    setCupomAplicado(cupom);
+    setMensagemCupom({
+      texto: `✅ Cupom ${cupom.nome} aplicado! ${cupom.desconto}% de desconto distribuído entre os itens`,
+      tipo: 'sucesso'
+    });
+    setCupomInput('');
+  };
+
+  // ==============================================
+  // ✅ Função para remover cupom
   // ==============================================
   const removerCupom = () => {
     setCupomAplicado(null);
@@ -207,13 +205,12 @@ const aplicarCupom = () => {
   };
 
   // ==============================================
-  // ✅ FUNÇÃO CORRIGIDA - USA produtosArray
+  // ✅ FUNÇÃO - USA produtosArray
   // ==============================================
   const updateCartPrices = (currentCart) => {
     if (!currentCart || currentCart.length === 0) return currentCart;
 
     try {
-      // Verifica se produtosArray existe e é um array
       if (!produtosArray || !Array.isArray(produtosArray)) {
         console.error('❌ produtosArray não está disponível ou não é um array');
         return currentCart;
@@ -250,7 +247,6 @@ const aplicarCupom = () => {
 
       if (mudou) {
         console.log('✅ Preços atualizados com sucesso!');
-        // Se tinha cupom aplicado, precisa reavaliar
         if (cupomAplicado) {
           setMensagemCupom({
             texto: '⚠️ Preços atualizados, verifique se o cupom ainda é válido',
@@ -288,7 +284,7 @@ const aplicarCupom = () => {
     initializeCart();
   }, []);
 
-  // ✅ 1. Verificação de mobile (SEU CÓDIGO ORIGINAL)
+  // Verificação de mobile
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth <= 768;
@@ -300,7 +296,7 @@ const aplicarCupom = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // ✅ 2. Verifica usuário logado + ATUALIZA PREÇOS AO LOGAR
+  // Verifica usuário logado
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
@@ -320,37 +316,37 @@ const aplicarCupom = () => {
     return () => subscription.unsubscribe();
   }, [cart]);
 
-// ✅ 2.1 ATUALIZA PREÇOS QUANDO ABRE O CARRINHO - NOVO!
-useEffect(() => {
-  const isCartOpen = isMobile ? isOpen : !isCollapsed;
-  
-  if (isCartOpen && cart.length > 0) {
-    console.log('🛒 Carrinho aberto, verificando preços...');
-    const updatedCart = updateCartPrices(cart);
+  // Atualiza preços quando abre o carrinho
+  useEffect(() => {
+    const isCartOpen = isMobile ? isOpen : !isCollapsed;
     
-    if (updatedCart !== cart) {
-      console.log('💰 Preços atualizados ao abrir o carrinho!');
-      setCart(updatedCart);
-      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedCart));
+    if (isCartOpen && cart.length > 0) {
+      console.log('🛒 Carrinho aberto, verificando preços...');
+      const updatedCart = updateCartPrices(cart);
       
-      if (user) {
-        setTimeout(() => {
-          supabase
-            .from('user_carts')
-            .upsert({
-              user_id: user.id,
-              cart_items: updatedCart,
-              updated_at: new Date().toISOString()
-            })
-            .then(() => console.log('✅ Carrinho sincronizado com Supabase'))
-            .catch(err => console.error('❌ Erro ao sincronizar:', err));
-        }, 500);
+      if (updatedCart !== cart) {
+        console.log('💰 Preços atualizados ao abrir o carrinho!');
+        setCart(updatedCart);
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedCart));
+        
+        if (user) {
+          setTimeout(() => {
+            supabase
+              .from('user_carts')
+              .upsert({
+                user_id: user.id,
+                cart_items: updatedCart,
+                updated_at: new Date().toISOString()
+              })
+              .then(() => console.log('✅ Carrinho sincronizado com Supabase'))
+              .catch(err => console.error('❌ Erro ao sincronizar:', err));
+          }, 500);
+        }
       }
     }
-  }
-}, [isOpen, isCollapsed, isMobile, cart, user]); // Dependências completas
+  }, [isOpen, isCollapsed, isMobile, cart, user]);
 
-  // ✅ 3. Sincroniza com Supabase (SEU CÓDIGO ORIGINAL)
+  // Sincroniza com Supabase
   useEffect(() => {
     const syncWithSupabase = async () => {
       if (!user || cart.length === 0 || isSyncing) return;
@@ -374,7 +370,7 @@ useEffect(() => {
     return () => clearTimeout(timeoutId);
   }, [cart, user]);
 
-  // ✅ 4. Feedback visual (SEU CÓDIGO ORIGINAL)
+  // Feedback visual
   useEffect(() => {
     if (cart.length > 0) {
       setShowAddedFeedback(true);
@@ -383,13 +379,13 @@ useEffect(() => {
     }
   }, [cart.length]);
 
-  // ✅ 5. Função para alternar carrinho (SEU CÓDIGO ORIGINAL)
+  // Função para alternar carrinho
   const toggleCart = () => {
     if (isMobile) setIsOpen(!isOpen);
     else setIsCollapsed(!isCollapsed);
   };
 
-  // ✅ 6. Funções de cálculo (SEU CÓDIGO ORIGINAL)
+  // Funções de cálculo
   const isBoxProduct = (productName) => {
     return /\(?\s*CX\s*\d+\.?\d*\s*KG\s*\)?/i.test(productName);
   };
@@ -428,7 +424,7 @@ useEffect(() => {
     return weightMatch ? parseFloat(weightMatch[1]) : null;
   };
 
-  // ✅ 7. Agrupa itens do carrinho (SEU CÓDIGO ORIGINAL) - AGORA COM DESCONTO
+  // Agrupa itens do carrinho
   const groupedCart = cart.reduce((acc, product) => {
     const existing = acc.find(p => p.id === product.id);
     const calculated = calculateProductPrice(product);
@@ -452,20 +448,20 @@ useEffect(() => {
     return acc;
   }, []);
 
-  // ✅ 7.1 NOVO: Calcula totais com cupom (desconto DISTRIBUÍDO)
+  // Calcula totais com cupom
   const totalSemDesconto = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   
   let totalComDesconto = totalSemDesconto;
   let dadosDesconto = null;
   
-  if (cupomAplicado) {
+  if (cupomAplicado && !CAMPANHA_ATIVA) {
     dadosDesconto = calcularDescontoCupom(cart, cupomAplicado);
     totalComDesconto = totalSemDesconto - dadosDesconto.totalDesconto;
   }
 
   const isTotalValid = totalComDesconto >= 900;
 
-  // ✅ 7.2 NOVO: Função para calcular preço com desconto de um item
+  // Função para calcular preço com desconto de um item
   const getPrecoComDesconto = (productId, precoOriginal) => {
     if (!cupomAplicado || !dadosDesconto || !dadosDesconto.itensComDesconto[productId]) {
       return precoOriginal;
@@ -474,228 +470,191 @@ useEffect(() => {
     return precoOriginal - itemDesconto.descontoAplicado;
   };
 
-// ✅ 8. Função para ajustar quantidade (SEU CÓDIGO ORIGINAL)
-const adjustQuantity = (productId, adjustment) => {
-  const newCart = [...cart];
-  let productFound = false;
+  // Função para ajustar quantidade
+  const adjustQuantity = (productId, adjustment) => {
+    const newCart = [...cart];
+    let productFound = false;
 
-  for (let i = 0; i < newCart.length; i++) {
-    if (newCart[i].id === productId) {
-      const newQuantity = (newCart[i].quantity || 1) + adjustment;
-      if (newQuantity <= 0) newCart.splice(i, 1);
-      else newCart[i] = { ...newCart[i], quantity: newQuantity };
-      productFound = true;
-      break;
+    for (let i = 0; i < newCart.length; i++) {
+      if (newCart[i].id === productId) {
+        const newQuantity = (newCart[i].quantity || 1) + adjustment;
+        if (newQuantity <= 0) newCart.splice(i, 1);
+        else newCart[i] = { ...newCart[i], quantity: newQuantity };
+        productFound = true;
+        break;
+      }
     }
-  }
 
-  if (!productFound && adjustment > 0) {
-    const productToAdd = groupedCart.find(p => p.id === productId);
-    if (productToAdd) newCart.push({ ...productToAdd, quantity: 1 });
-  }
+    if (!productFound && adjustment > 0) {
+      const productToAdd = groupedCart.find(p => p.id === productId);
+      if (productToAdd) newCart.push({ ...productToAdd, quantity: 1 });
+    }
 
-  setCart(newCart);
-  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(newCart));
-  
-  // ✅ CORRIGIDO: Se tinha cupom, valida se o pedido ainda está acima do valor mínimo
-  if (cupomAplicado) {
-    // Recalcula total para verificar valor mínimo
-    const newGrouped = newCart.reduce((acc, product) => {
-      const existing = acc.find(p => p.id === product.id);
-      const calculated = calculateProductPrice(product);
-      const quantity = product.quantity || 1;
+    setCart(newCart);
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(newCart));
+    
+    if (cupomAplicado && !CAMPANHA_ATIVA) {
+      const newGrouped = newCart.reduce((acc, product) => {
+        const existing = acc.find(p => p.id === product.id);
+        const calculated = calculateProductPrice(product);
+        const quantity = product.quantity || 1;
+        
+        if (existing) {
+          existing.quantity += quantity;
+          existing.totalPrice += calculated.totalPrice * quantity;
+        } else {
+          acc.push({
+            ...product,
+            quantity: quantity,
+            totalPrice: calculated.totalPrice * quantity
+          });
+        }
+        return acc;
+      }, []);
       
-      if (existing) {
-        existing.quantity += quantity;
-        existing.totalPrice += calculated.totalPrice * quantity;
-      } else {
-        acc.push({
-          ...product,
-          quantity: quantity,
-          totalPrice: calculated.totalPrice * quantity
+      const novoTotal = newGrouped.reduce((sum, item) => sum + item.totalPrice, 0);
+      
+      if (novoTotal < cupomAplicado.minimo) {
+        setMensagemCupom({
+          texto: `⚠️ Cupom ${cupomAplicado.nome} removido: pedido abaixo de R$ ${cupomAplicado.minimo.toFixed(2)}`,
+          tipo: 'info'
         });
+        setCupomAplicado(null);
       }
-      return acc;
-    }, []);
-    
-    const novoTotal = newGrouped.reduce((sum, item) => sum + item.totalPrice, 0);
-    
-    // ✅ Remove o cupom se o total ficar abaixo do mínimo exigido
-    if (novoTotal < cupomAplicado.minimo) {
-      setMensagemCupom({
-        texto: `⚠️ Cupom ${cupomAplicado.nome} removido: pedido abaixo de R$ ${cupomAplicado.minimo.toFixed(2)}`,
-        tipo: 'info'
-      });
-      setCupomAplicado(null);
     }
-  }
-};
+  };
 
-// ✅ 9. Gerar mensagem do WhatsApp (com idPMG correto via mapa.json)
-const generateWhatsAppMessage = () => {
-  const itemsText = groupedCart.map(product => {
-    const precoFinal = getPrecoComDesconto(product.id, product.totalPrice);
-    const precoExibir = precoFinal !== product.totalPrice ? precoFinal : product.totalPrice;
-    
-    // PEGA O ID PMG ATRAVÉS DO MAPA (idSite -> idPMG)
-    const idPMG = getIdPmg(product.id);
-    
-    // Texto base com ID da PMG
-    const baseText = `- (ID ${idPMG}) ${product.name}`;
-    
-    let linhaProduto;
-    if (product.isBox && product.boxWeight) {
-      linhaProduto = `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${precoExibir.toFixed(2)}`;
-    } else if (product.weight) {
-      linhaProduto = `${baseText} (${product.quantity}x ${product.weight}KG) - R$ ${product.unitPrice.toFixed(2)}/KG = R$ ${precoExibir.toFixed(2)}`;
-    } else {
-      linhaProduto = `${baseText} (${product.quantity}x) - R$ ${precoExibir.toFixed(2)}`;
-    }
-    
-    return linhaProduto;
-  }).join('\n\n');  // ✅ DOIS PULAR LINHA entre os produtos
-
-  // ✅ Linha do cupom - FORMATO ORIGINAL
-  const cupomText = cupomAplicado && dadosDesconto
-    ? `\n *Pedido usando cupom ${cupomAplicado.nome}*\n`
-    : '';
-
-  // ✅ CORREÇÃO: Texto do pagamento baseado no método escolhido
-  let paymentText = paymentMethod;
-  if (paymentMethod === 'Solicitar Link de Pagamento Online') {
-    paymentText = 'Link de Pagamento Online';
-  }
-
-  // DETECTA SE É CELULAR OU PC
-  const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  
-  let mensagemTexto;
-  
-  if (isMobileDevice) {
-    // VERSÃO COM EMOJIS (para celular)
-    mensagemTexto = 
-      `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
-      `💰 *TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
-      `${cupomText}` +
-      `💳 *Pagamento:* ${paymentText}\n` +
-      `📦 *Entrega:* Frete grátis\n\n` +
-      `Por favor, confirme meu pedido!`;
-  } else {
-    // VERSÃO SEM EMOJIS (para PC - funciona 100%)
-    mensagemTexto = 
-      `*PEDIDO*\n\n${itemsText}\n\n` +
-      `*TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
-      `${cupomText}` +
-      `*Pagamento:* ${paymentText}\n` +
-      `*Entrega:* Frete grátis\n\n` +
-      `Por favor, confirme meu pedido!`;
-  }
-
-  return `https://wa.me/5511913572902?text=${encodeURIComponent(mensagemTexto)}`;
-};
-
-// ==============================================
-// ✅ FUNÇÃO CORRIGIDA: Finalizar pedido (iOS + Android)
-// ==============================================
-const finalizarPedido = async () => {
-  if (!isTotalValid || !paymentMethod) {
-    alert('⚠️ Verifique o valor mínimo (R$ 900) e selecione a forma de pagamento');
-    return;
-  }
-
-  // Verificar se usuário está logado
-  const { data: { user: currentUser } } = await supabase.auth.getUser();
-  if (!currentUser) {
-    alert('❌ Faça login para finalizar o pedido');
-    return;
-  }
-
-  setFinalizando(true);
-
-  try {
-    // 1. Preparar dados do pedido
-    const orderItems = groupedCart.map(product => ({
-      id: product.id,
-      name: product.name,
-      price: product.unitPrice || product.price,
-      quantity: product.quantity,
-      image: product.image,
-      totalPrice: product.totalPrice
-    }));
-
-    const orderData = {
-      user_id: currentUser.id,
-      order_items: orderItems,
-      total_amount: totalComDesconto,
-      payment_method: paymentMethod,
-      cupom_applied: cupomAplicado?.nome || null,
-      discount_amount: cupomAplicado?.desconto || 0,
-      status: 'completed'
-    };
-
-    // ✅ 2. PRIMEIRO: Gerar URL do WhatsApp
-    const whatsappUrl = generateWhatsAppMessage();
-    
-    // ✅ 3. Detectar se é iOS (iPhone)
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    
-    // ✅ 4. Abrir WhatsApp (jeito certo para cada sistema)
-    if (isIOS) {
-      // Para iPhone: usa window.location.href (abre na mesma página)
-      window.location.href = whatsappUrl;
-    } else {
-      // Para Android/Desktop: abre em nova aba
-      window.open(whatsappUrl, '_blank');
-    }
-
-    // ✅ 5. Salvar pedido no Supabase (em background, sem esperar)
-    fetch('/api/finalizar-pedido', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(orderData)
-    }).then(async (response) => {
-      const result = await response.json();
-      if (response.ok) {
-        console.log(`✅ Pedido ${result.order_number} salvo com sucesso!`);
+  // Gerar mensagem do WhatsApp
+  const generateWhatsAppMessage = () => {
+    const itemsText = groupedCart.map(product => {
+      const precoFinal = getPrecoComDesconto(product.id, product.totalPrice);
+      const precoExibir = precoFinal !== product.totalPrice ? precoFinal : product.totalPrice;
+      
+      const idPMG = getIdPmg(product.id);
+      
+      const baseText = `- (ID ${idPMG}) ${product.name}`;
+      
+      let linhaProduto;
+      if (product.isBox && product.boxWeight) {
+        linhaProduto = `${baseText} (${product.quantity}x CX ${product.boxWeight}KG) - R$ ${precoExibir.toFixed(2)}`;
+      } else if (product.weight) {
+        linhaProduto = `${baseText} (${product.quantity}x ${product.weight}KG) - R$ ${product.unitPrice.toFixed(2)}/KG = R$ ${precoExibir.toFixed(2)}`;
       } else {
-        console.error('Erro ao salvar pedido:', result.error);
+        linhaProduto = `${baseText} (${product.quantity}x) - R$ ${precoExibir.toFixed(2)}`;
       }
-    }).catch(error => {
-      console.error('❌ Erro ao salvar pedido:', error);
-    });
+      
+      return linhaProduto;
+    }).join('\n\n');
 
-    // ✅ 6. ZERAR CARRINHO
-    setCart([]);
-    localStorage.removeItem(CART_STORAGE_KEY);
+    const cupomText = cupomAplicado && dadosDesconto && !CAMPANHA_ATIVA
+      ? `\n *Pedido usando cupom ${cupomAplicado.nome}*\n`
+      : '';
+
+    const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
-    // ✅ 7. Limpar carrinho no Supabase
-    await supabase
-      .from('user_carts')
-      .upsert({
+    let mensagemTexto;
+    
+    if (isMobileDevice) {
+      mensagemTexto = 
+        `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
+        `💰 *TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
+        `${cupomText}` +
+        `💳 *Pagamento:* ${paymentMethod}\n` +
+        `📦 *Entrega:* Frete grátis\n\n` +
+        `Por favor, confirme meu pedido!`;
+    } else {
+      mensagemTexto = 
+        `*PEDIDO*\n\n${itemsText}\n\n` +
+        `*TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
+        `${cupomText}` +
+        `*Pagamento:* ${paymentMethod}\n` +
+        `*Entrega:* Frete grátis\n\n` +
+        `Por favor, confirme meu pedido!`;
+    }
+
+    return `https://wa.me/5511913572902?text=${encodeURIComponent(mensagemTexto)}`;
+  };
+
+  // Função para finalizar pedido
+  const finalizarPedido = async () => {
+    if (!isTotalValid || !paymentMethod) {
+      alert('⚠️ Verifique o valor mínimo (R$ 900) e selecione a forma de pagamento');
+      return;
+    }
+
+    const { data: { user: currentUser } } = await supabase.auth.getUser();
+    if (!currentUser) {
+      alert('❌ Faça login para finalizar o pedido');
+      return;
+    }
+
+    setFinalizando(true);
+
+    try {
+      const orderItems = groupedCart.map(product => ({
+        id: product.id,
+        name: product.name,
+        price: product.unitPrice || product.price,
+        quantity: product.quantity,
+        image: product.image,
+        totalPrice: product.totalPrice
+      }));
+
+      const orderData = {
         user_id: currentUser.id,
-        cart_items: [],
-        updated_at: new Date().toISOString()
+        order_items: orderItems,
+        total_amount: totalComDesconto,
+        payment_method: paymentMethod,
+        cupom_applied: cupomAplicado?.nome || null,
+        discount_amount: cupomAplicado?.desconto || 0,
+        status: 'completed'
+      };
+      
+      const whatsappUrl = generateWhatsAppMessage();
+      
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      
+      if (isIOS) {
+        window.location.href = whatsappUrl;
+      } else {
+        window.open(whatsappUrl, '_blank');
+      }
+
+      fetch('/api/finalizar-pedido', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      }).catch(error => {
+        console.error('❌ Erro ao salvar pedido:', error);
       });
 
-    // ✅ 8. Limpar cupom e pagamento
-    setCupomAplicado(null);
-    setPaymentMethod('');
-    
-    // ✅ 9. Fechar carrinho
-    toggleCart();
+      setCart([]);
+      localStorage.removeItem(CART_STORAGE_KEY);
+      
+      await supabase
+        .from('user_carts')
+        .upsert({
+          user_id: currentUser.id,
+          cart_items: [],
+          updated_at: new Date().toISOString()
+        });
 
-  } catch (error) {
-    console.error('❌ Erro ao finalizar pedido:', error);
-    alert('❌ Erro ao finalizar pedido. Tente novamente.');
-  } finally {
-    setFinalizando(false);
-  }
-};
+      setCupomAplicado(null);
+      setPaymentMethod('');
+      toggleCart();
 
-  // ✅ 10. JSX (SEU CÓDIGO ORIGINAL 100% + seção de cupom NOVA + botão finalizar atualizado)
+    } catch (error) {
+      console.error('❌ Erro ao finalizar pedido:', error);
+      alert('❌ Erro ao finalizar pedido. Tente novamente.');
+    } finally {
+      setFinalizando(false);
+    }
+  };
+
+  // JSX
   return (
     <>
-      {/* Botão flutuante do carrinho - SEMPRE VISÍVEL */}
+      {/* Botão flutuante do carrinho */}
       <div style={{
         position: 'fixed',
         right: isMobile ? '20px' : '15px',
@@ -805,7 +764,6 @@ const finalizarPedido = async () => {
         transition: isMobile ? 'transform 0.3s ease-out' : 'right 0.3s ease-in-out',
         boxSizing: 'border-box',
         transform: isMobile ? (isOpen ? 'translateY(0)' : 'translateY(100%)') : 'none',
-        WebkitOverflowScrolling: 'touch',
         opacity: isMobile ? (isOpen ? 1 : 0) : (isCollapsed ? 0 : 1),
         pointerEvents: isMobile ? (isOpen ? 'auto' : 'none') : (isCollapsed ? 'none' : 'auto')
       }}>
@@ -906,10 +864,9 @@ const finalizarPedido = async () => {
                       backgroundColor: '#fff',
                       borderRadius: '6px',
                       marginBottom: '6px',
-                      opacity: cupomAplicado && !isElegivel ? 0.7 : 1
+                      opacity: cupomAplicado && !isElegivel && !CAMPANHA_ATIVA ? 0.7 : 1
                     }}
                   >
-                    {/* Layout do produto */}
                     <div style={{ 
                       display: 'flex', 
                       alignItems: 'flex-start', 
@@ -942,7 +899,6 @@ const finalizarPedido = async () => {
                           wordWrap: 'break-word'
                         }}>
                           {product.name}
-                          {/* ✅ Tag de "Em Oferta" */}
                           {!isElegivel && (
                             <span style={{
                               display: 'inline-block',
@@ -957,8 +913,7 @@ const finalizarPedido = async () => {
                               OFERTA
                             </span>
                           )}
-                          {/* ✅ Tag de "Com Desconto" */}
-                          {temDesconto && isElegivel && (
+                          {temDesconto && isElegivel && !CAMPANHA_ATIVA && (
                             <span style={{
                               display: 'inline-block',
                               marginLeft: '6px',
@@ -1076,7 +1031,7 @@ const finalizarPedido = async () => {
                         gap: isMobile ? '12px' : '8px' 
                       }}>
                         <div style={{ textAlign: 'right' }}>
-                          {temDesconto ? (
+                          {temDesconto && !CAMPANHA_ATIVA ? (
                             <>
                               <p style={{ 
                                 fontWeight: 700, 
@@ -1129,8 +1084,8 @@ const finalizarPedido = async () => {
                       </div>
                     </div>
 
-                    {/* ✅ Mostra o desconto distribuído */}
-                    {cupomAplicado && dadosDesconto && isElegivel && dadosDesconto.itensComDesconto[product.id] && (
+                    {/* Mostra o desconto distribuído do cupom */}
+                    {cupomAplicado && dadosDesconto && isElegivel && dadosDesconto.itensComDesconto[product.id] && !CAMPANHA_ATIVA && (
                       <div style={{
                         marginTop: '8px',
                         padding: '5px 10px',
@@ -1154,7 +1109,7 @@ const finalizarPedido = async () => {
               })}
             </div>
 
-            {/* Aviso de pagamento */}
+            {/* ✅ PRIMEIRO AVISO DE PAGAMENTO (antes do resumo) */}
             <div style={{ 
               backgroundColor: '#FFF3E0', 
               color: '#E65100', 
@@ -1169,345 +1124,327 @@ const finalizarPedido = async () => {
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
-{/* Resumo do pedido */}
-<div style={{ 
-  backgroundColor: '#F8F9FA', 
-  padding: isMobile ? '15px' : '12px', 
-  borderRadius: '10px', 
-  marginBottom: '15px', 
-  border: '2px solid #E9ECEF' 
-}}>
-  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-    <span style={{ color: '#495057', fontSize: isMobile ? '14px' : '13px' }}>Subtotal:</span>
-    <span style={{ fontWeight: 600, fontSize: isMobile ? '14px' : '13px' }}>R$ {totalSemDesconto.toFixed(2)}</span>
-  </div>
-  
-  {/* ✅ Linha de desconto */}
-  {cupomAplicado && dadosDesconto && (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'space-between', 
-      marginBottom: '10px',
-      color: '#27AE60',
-      fontSize: isMobile ? '12px' : '11px'
-    }}>
-      <span style={{ 
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        maxWidth: '220px'
-      }}>
-        🏷️ Desconto ({cupomAplicado.nome} - {cupomAplicado.desconto}% ):
-      </span>
-      <span style={{ 
-        fontWeight: 600, 
-        marginLeft: '8px',
-        whiteSpace: 'nowrap'
-      }}>
-        - R$ {dadosDesconto.totalDesconto.toFixed(2)}
-      </span>
-    </div>
-  )}
+            {/* Resumo do pedido */}
+            <div style={{ 
+              backgroundColor: '#F8F9FA', 
+              padding: isMobile ? '15px' : '12px', 
+              borderRadius: '10px', 
+              marginBottom: '15px', 
+              border: '2px solid #E9ECEF' 
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                <span style={{ color: '#495057', fontSize: isMobile ? '14px' : '13px' }}>Subtotal:</span>
+                <span style={{ fontWeight: 600, fontSize: isMobile ? '14px' : '13px' }}>R$ {totalSemDesconto.toFixed(2)}</span>
+              </div>
+              
+              {/* Linha de desconto do cupom */}
+              {cupomAplicado && dadosDesconto && !CAMPANHA_ATIVA && (
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between', 
+                  marginBottom: '10px',
+                  color: '#27AE60',
+                  fontSize: isMobile ? '12px' : '11px'
+                }}>
+                  <span style={{ 
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    maxWidth: '220px'
+                  }}>
+                    🏷️ Desconto ({cupomAplicado.nome} - {cupomAplicado.desconto}% ):
+                  </span>
+                  <span style={{ 
+                    fontWeight: 600, 
+                    marginLeft: '8px',
+                    whiteSpace: 'nowrap'
+                  }}>
+                    - R$ {dadosDesconto.totalDesconto.toFixed(2)}
+                  </span>
+                </div>
+              )}
 
-  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-    <span style={{ color: '#495057', fontSize: isMobile ? '14px' : '13px' }}>Frete:</span>
-    <span style={{ color: '#27AE60', fontWeight: 600, fontSize: isMobile ? '14px' : '13px' }}>Grátis</span>
-  </div>
-  <div style={{ 
-    display: 'flex', 
-    justifyContent: 'space-between', 
-    paddingTop: '12px', 
-    borderTop: '2px solid #DEE2E6' 
-  }}>
-    <span style={{ fontWeight: 700, fontSize: isMobile ? '15px' : '14px' }}>Total:</span>
-    <span style={{ 
-      fontWeight: 700, 
-      color: cupomAplicado ? '#27AE60' : '#E74C3C', 
-      fontSize: isMobile ? '16px' : '15px' 
-    }}>
-      R$ {totalComDesconto.toFixed(2)}
-    </span>
-  </div>
-</div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <span style={{ color: '#495057', fontSize: isMobile ? '14px' : '13px' }}>Frete:</span>
+                <span style={{ color: '#27AE60', fontWeight: 600, fontSize: isMobile ? '14px' : '13px' }}>Grátis</span>
+              </div>
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                paddingTop: '12px', 
+                borderTop: '2px solid #DEE2E6' 
+              }}>
+                <span style={{ fontWeight: 700, fontSize: isMobile ? '15px' : '14px' }}>Total:</span>
+                <span style={{ 
+                  fontWeight: 700, 
+                  color: cupomAplicado && !CAMPANHA_ATIVA ? '#27AE60' : '#E74C3C', 
+                  fontSize: isMobile ? '16px' : '15px' 
+                }}>
+                  R$ {totalComDesconto.toFixed(2)}
+                </span>
+              </div>
+            </div>
 
-{/* ✅ Seção do Cupom - AGORA EM ACCORDION (movido para depois do resumo) */}
-<div style={{
-  backgroundColor: '#F8F9FA',
-  borderRadius: '10px',
-  marginBottom: '15px',
-  border: '2px solid #E9ECEF',
-  overflow: 'hidden'
-}}>
-  {/* Cabeçalho clicável */}
-  <div 
-    onClick={() => setCupomExpanded(!cupomExpanded)}
-    style={{
-      padding: '12px 15px',
-      backgroundColor: cupomAplicado ? '#E8F5E8' : '#F8F9FA',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      borderBottom: cupomExpanded ? '2px solid #E9ECEF' : 'none',
-      transition: 'all 0.2s'
-    }}
-  >
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-      <span style={{ 
-        fontSize: isMobile ? '16px' : '15px',
-        color: cupomAplicado ? '#27AE60' : '#2C3E50',
-        fontWeight: 600
-      }}>
-        {cupomAplicado ? (
-          <>🏷️ Cupom aplicado: <span style={{ color: '#27AE60' }}>{cupomAplicado.nome}</span></>
-        ) : (
-          '🏷️ Aplicar Desconto'
-        )}
-      </span>
-      {cupomAplicado && (
-        <span style={{
-          backgroundColor: '#27AE60',
-          color: 'white',
-          padding: '2px 8px',
-          borderRadius: '12px',
-          fontSize: '11px',
-          fontWeight: 600
-        }}>
-          {cupomAplicado.desconto}% OFF
-        </span>
-      )}
-    </div>
-    <span style={{
-      fontSize: '18px',
-      color: '#095400',
-      transform: cupomExpanded ? 'rotate(180deg)' : 'rotate(0)',
-      transition: 'transform 0.3s'
-    }}>
-      ▼
-    </span>
-  </div>
+            {/* ✅ SEÇÃO DE CUPOM - SÓ APARECE QUANDO CAMPANHA_ATIVA = FALSE */}
+            {!CAMPANHA_ATIVA && (
+              <div style={{
+                backgroundColor: '#F8F9FA',
+                borderRadius: '10px',
+                marginBottom: '15px',
+                border: '2px solid #E9ECEF',
+                overflow: 'hidden'
+              }}>
+                {/* Cabeçalho clicável */}
+                <div 
+                  onClick={() => setCupomExpanded(!cupomExpanded)}
+                  style={{
+                    padding: '12px 15px',
+                    backgroundColor: cupomAplicado ? '#E8F5E8' : '#F8F9FA',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    borderBottom: cupomExpanded ? '2px solid #E9ECEF' : 'none',
+                    transition: 'all 0.2s'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ 
+                      fontSize: isMobile ? '16px' : '15px',
+                      color: cupomAplicado ? '#27AE60' : '#2C3E50',
+                      fontWeight: 600
+                    }}>
+                      {cupomAplicado ? (
+                        <>🏷️ Cupom aplicado: <span style={{ color: '#27AE60' }}>{cupomAplicado.nome}</span></>
+                      ) : (
+                        '🏷️ Aplicar Desconto'
+                      )}
+                    </span>
+                    {cupomAplicado && (
+                      <span style={{
+                        backgroundColor: '#27AE60',
+                        color: 'white',
+                        padding: '2px 8px',
+                        borderRadius: '12px',
+                        fontSize: '11px',
+                        fontWeight: 600
+                      }}>
+                        {cupomAplicado.desconto}% OFF
+                      </span>
+                    )}
+                  </div>
+                  <span style={{
+                    fontSize: '18px',
+                    color: '#095400',
+                    transform: cupomExpanded ? 'rotate(180deg)' : 'rotate(0)',
+                    transition: 'transform 0.3s'
+                  }}>
+                    ▼
+                  </span>
+                </div>
 
-  {/* Conteúdo expansível */}
-  <div style={{
-    maxHeight: cupomExpanded ? '300px' : '0',
-    padding: cupomExpanded ? '15px' : '0 15px',
-    overflow: 'hidden',
-    transition: 'all 0.3s ease-in-out',
-    opacity: cupomExpanded ? 1 : 0
-  }}>
-    
-    {!cupomAplicado ? (
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '15px' }}>
-        <input
-          type="text"
-          value={cupomInput}
-          onChange={(e) => setCupomInput(e.target.value)}
-          placeholder="Digite PEDIDO1000 ou PEDIDO2000"
-          style={{
-            flex: 1,
-            padding: isMobile ? '12px' : '10px',
-            border: '2px solid #E9ECEF',
-            borderRadius: '8px',
-            fontSize: isMobile ? '14px' : '13px',
-            outline: 'none',
-            transition: 'border 0.2s',
-            textTransform: 'uppercase',
-            backgroundColor: '#fff'
-          }}
-          onFocus={(e) => e.target.style.borderColor = '#095400'}
-          onBlur={(e) => e.target.style.borderColor = '#E9ECEF'}
-          onKeyPress={(e) => e.key === 'Enter' && aplicarCupom()}
-        />
-        <button
-          onClick={aplicarCupom}
-          style={{
-            backgroundColor: '#095400',
-            color: 'white',
-            border: 'none',
-            borderRadius: '8px',
-            padding: isMobile ? '0 15px' : '0 12px',
-            fontSize: isMobile ? '14px' : '13px',
-            fontWeight: 600,
-            cursor: 'pointer',
-            transition: 'all 0.2s',
-            whiteSpace: 'nowrap'
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#0a6d00'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#095400'}
-        >
-          Aplicar
-        </button>
-      </div>
-    ) : (
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        backgroundColor: '#E8F5E8',
-        padding: '10px',
-        borderRadius: '8px',
-        border: '1px solid #C8E6C9',
-        marginBottom: '15px'
-      }}>
-        <div>
-          <span style={{ 
-            fontWeight: 700, 
-            color: '#27AE60',
-            fontSize: isMobile ? '14px' : '13px'
-          }}>
-            {cupomAplicado.nome}
-          </span>
-          <span style={{ 
-            display: 'block',
-            fontSize: isMobile ? '12px' : '11px',
-            color: '#1B5E20'
-          }}>
-            {cupomAplicado.desconto}% distribuído entre os itens
-          </span>
-        </div>
-        <button
-          onClick={removerCupom}
-          style={{
-            backgroundColor: '#E74C3C',
-            color: 'white',
-            border: 'none',
-            borderRadius: '6px',
-            padding: '5px 10px',
-            fontSize: '12px',
-            cursor: 'pointer',
-            transition: 'all 0.2s'
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#C0392B'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#E74C3C'}
-        >
-          Remover
-        </button>
-      </div>
-    )}
+                {/* Conteúdo expansível */}
+                <div style={{
+                  maxHeight: cupomExpanded ? '300px' : '0',
+                  padding: cupomExpanded ? '15px' : '0 15px',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s ease-in-out',
+                  opacity: cupomExpanded ? 1 : 0
+                }}>
+                  
+                  {!cupomAplicado ? (
+                    <div style={{ display: 'flex', gap: '8px', marginBottom: '15px' }}>
+                      <input
+                        type="text"
+                        value={cupomInput}
+                        onChange={(e) => setCupomInput(e.target.value)}
+                        placeholder="Digite PEDIDO1000 ou PEDIDO2000"
+                        style={{
+                          flex: 1,
+                          padding: isMobile ? '12px' : '10px',
+                          border: '2px solid #E9ECEF',
+                          borderRadius: '8px',
+                          fontSize: isMobile ? '14px' : '13px',
+                          outline: 'none',
+                          transition: 'border 0.2s',
+                          textTransform: 'uppercase',
+                          backgroundColor: '#fff'
+                        }}
+                        onFocus={(e) => e.target.style.borderColor = '#095400'}
+                        onBlur={(e) => e.target.style.borderColor = '#E9ECEF'}
+                        onKeyPress={(e) => e.key === 'Enter' && aplicarCupom()}
+                      />
+                      <button
+                        onClick={aplicarCupom}
+                        style={{
+                          backgroundColor: '#095400',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '8px',
+                          padding: isMobile ? '0 15px' : '0 12px',
+                          fontSize: isMobile ? '14px' : '13px',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s',
+                          whiteSpace: 'nowrap'
+                        }}
+                        onMouseOver={(e) => e.target.style.backgroundColor = '#0a6d00'}
+                        onMouseOut={(e) => e.target.style.backgroundColor = '#095400'}
+                      >
+                        Aplicar
+                      </button>
+                    </div>
+                  ) : (
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      backgroundColor: '#E8F5E8',
+                      padding: '10px',
+                      borderRadius: '8px',
+                      border: '1px solid #C8E6C9',
+                      marginBottom: '15px'
+                    }}>
+                      <div>
+                        <span style={{ 
+                          fontWeight: 700, 
+                          color: '#27AE60',
+                          fontSize: isMobile ? '14px' : '13px'
+                        }}>
+                          {cupomAplicado.nome}
+                        </span>
+                        <span style={{ 
+                          display: 'block',
+                          fontSize: isMobile ? '12px' : '11px',
+                          color: '#1B5E20'
+                        }}>
+                          {cupomAplicado.desconto}% distribuído entre os itens
+                        </span>
+                      </div>
+                      <button
+                        onClick={removerCupom}
+                        style={{
+                          backgroundColor: '#E74C3C',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '6px',
+                          padding: '5px 10px',
+                          fontSize: '12px',
+                          cursor: 'pointer',
+                          transition: 'all 0.2s'
+                        }}
+                        onMouseOver={(e) => e.target.style.backgroundColor = '#C0392B'}
+                        onMouseOut={(e) => e.target.style.backgroundColor = '#E74C3C'}
+                      >
+                        Remover
+                      </button>
+                    </div>
+                  )}
 
-    {/* Mensagem do cupom */}
-    {mensagemCupom.texto && (
-      <div style={{
-        marginBottom: '15px',
-        padding: '8px',
-        borderRadius: '6px',
-        fontSize: isMobile ? '12px' : '11px',
-        backgroundColor: 
-          mensagemCupom.tipo === 'sucesso' ? '#E8F5E8' :
-          mensagemCupom.tipo === 'erro' ? '#FFEBEE' : '#F8F9FA',
-        color: 
-          mensagemCupom.tipo === 'sucesso' ? '#27AE60' :
-          mensagemCupom.tipo === 'erro' ? '#E74C3C' : '#2C3E50',
-        border: `1px solid ${
-          mensagemCupom.tipo === 'sucesso' ? '#C8E6C9' :
-          mensagemCupom.tipo === 'erro' ? '#FFCDD2' : '#E9ECEF'
-        }`
-      }}>
-        {mensagemCupom.texto}
-      </div>
-    )}
+                  {/* Mensagem do cupom */}
+                  {mensagemCupom.texto && (
+                    <div style={{
+                      marginBottom: '15px',
+                      padding: '8px',
+                      borderRadius: '6px',
+                      fontSize: isMobile ? '12px' : '11px',
+                      backgroundColor: 
+                        mensagemCupom.tipo === 'sucesso' ? '#E8F5E8' :
+                        mensagemCupom.tipo === 'erro' ? '#FFEBEE' : '#F8F9FA',
+                      color: 
+                        mensagemCupom.tipo === 'sucesso' ? '#27AE60' :
+                        mensagemCupom.tipo === 'erro' ? '#E74C3C' : '#2C3E50',
+                      border: `1px solid ${
+                        mensagemCupom.tipo === 'sucesso' ? '#C8E6C9' :
+                        mensagemCupom.tipo === 'erro' ? '#FFCDD2' : '#E9ECEF'
+                      }`
+                    }}>
+                      {mensagemCupom.texto}
+                    </div>
+                  )}
 
-    {/* Info dos cupons disponíveis */}
-    <div style={{
-      fontSize: isMobile ? '11px' : '10px',
-      color: '#666',
-      borderTop: '2px dashed #E9ECEF',
-      paddingTop: '10px'
-    }}>
-      <div style={{ fontWeight: 600, marginBottom: '5px', color: '#2C3E50' }}>Cupons disponíveis:</div>
-      {Object.values(CUPONS).map(cupom => (
-        <div key={cupom.nome} style={{ marginBottom: '3px' }}>
-          <strong style={{ color: '#095400' }}>{cupom.nome}</strong>: {cupom.descricao}
-        </div>
-      ))}
-      <div style={{ marginTop: '5px', color: '#999' }}>
-        * Desconto não aplicado para produtos em ofertas
-      </div>
-    </div>
-  </div>
-</div>
+                  {/* Info dos cupons disponíveis */}
+                  <div style={{
+                    fontSize: isMobile ? '11px' : '10px',
+                    color: '#666',
+                    borderTop: '2px dashed #E9ECEF',
+                    paddingTop: '10px'
+                  }}>
+                    <div style={{ fontWeight: 600, marginBottom: '5px', color: '#2C3E50' }}>Cupons disponíveis:</div>
+                    {Object.values(CUPONS).map(cupom => (
+                      <div key={cupom.nome} style={{ marginBottom: '3px' }}>
+                        <strong style={{ color: '#095400' }}>{cupom.nome}</strong>: {cupom.descricao}
+                      </div>
+                    ))}
+                    <div style={{ marginTop: '5px', color: '#999' }}>
+                      * Desconto não aplicado para produtos em ofertas
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
-{/* Aviso de pagamento */}
-<div style={{ 
-  backgroundColor: '#FFF3E0', 
-  color: '#E65100', 
-  padding: isMobile ? '12px' : '10px', 
-  borderRadius: '8px', 
-  marginBottom: '15px', 
-  textAlign: 'center',
-  border: '1px solid #FFE0B2',
-  fontSize: isMobile ? '12px' : '11px',
-  fontWeight: 500
-}}>
-  ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
-</div>
+            {/* ✅ SEGUNDO AVISO DE PAGAMENTO (antes da forma de pagamento) */}
+            <div style={{ 
+              backgroundColor: '#FFF3E0', 
+              color: '#E65100', 
+              padding: isMobile ? '12px' : '10px', 
+              borderRadius: '8px', 
+              marginBottom: '15px', 
+              textAlign: 'center',
+              border: '1px solid #FFE0B2',
+              fontSize: isMobile ? '12px' : '11px',
+              fontWeight: 500
+            }}>
+              ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
+            </div>
 
-{/* ✅ Seleção de pagamento - COM NOVA OPÇÃO */}
-<div style={{ marginBottom: '20px' }}>
-  <h3 style={{ 
-    fontSize: isMobile ? '15px' : '14px', 
-    fontWeight: 700, 
-    marginBottom: '12px', 
-    color: '#2C3E50' 
-  }}>
-    💳 Forma de Pagamento
-  </h3>
-  <div style={{ display: 'grid', gap: '8px' }}>
-    {['Dinheiro', 'Cartão de Débito', 'Cartão de Crédito', 'Solicitar Link de Pagamento Online'].map(method => (
-      <label 
-        key={method} 
-        style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          padding: isMobile ? '12px 10px' : '10px 12px', 
-          borderRadius: '8px', 
-          background: paymentMethod === method ? '#E8F5E9' : '#FAFAFA', 
-          border: `2px solid ${paymentMethod === method ? '#2ECC71' : '#EEE'}`, 
-          cursor: 'pointer',
-          transition: 'all 0.2s',
-          fontSize: isMobile ? '14px' : '13px'
-        }}
-      >
-        <input 
-          type="radio" 
-          name="payment" 
-          value={method} 
-          checked={paymentMethod === method} 
-          onChange={() => setPaymentMethod(method)} 
-          style={{ 
-            marginRight: '12px', 
-            accentColor: '#2ECC71',
-            width: isMobile ? '16px' : '14px',
-            height: isMobile ? '16px' : '14px'
-          }} 
-        />
-        {method}
-      </label>
-    ))}
-  </div>
-  
-  {/* ✅ Aviso condicional para Link de Pagamento Online */}
-  {paymentMethod === 'Solicitar Link de Pagamento Online' && (
-    <div style={{
-      marginTop: '12px',
-      padding: isMobile ? '12px' : '10px',
-      backgroundColor: '#E3F2FD',
-      border: '1px solid #90CAF9',
-      borderRadius: '8px',
-      fontSize: isMobile ? '13px' : '12px',
-      color: '#0D47A1',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      fontWeight: 500
-    }}>
-      <span style={{ fontSize: '16px' }}>🔒</span>
-      O pedido será liberado após a confirmação do pagamento via link enviado ao Finalizar o Pedido.
-    </div>
-  )}
-</div>
+            {/* Seleção de pagamento */}
+            <div style={{ marginBottom: '20px' }}>
+              <h3 style={{ 
+                fontSize: isMobile ? '15px' : '14px', 
+                fontWeight: 700, 
+                marginBottom: '12px', 
+                color: '#2C3E50' 
+              }}>
+                💳 Forma de Pagamento
+              </h3>
+              <div style={{ display: 'grid', gap: '8px' }}>
+                {['Dinheiro', 'Cartão de Débito', 'Cartão de Crédito'].map(method => (
+                  <label 
+                    key={method} 
+                    style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      padding: isMobile ? '12px 10px' : '10px 12px', 
+                      borderRadius: '8px', 
+                      background: paymentMethod === method ? '#E8F5E9' : '#FAFAFA', 
+                      border: `2px solid ${paymentMethod === method ? '#2ECC71' : '#EEE'}`, 
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                      fontSize: isMobile ? '14px' : '13px'
+                    }}
+                  >
+                    <input 
+                      type="radio" 
+                      name="payment" 
+                      value={method} 
+                      checked={paymentMethod === method} 
+                      onChange={() => setPaymentMethod(method)} 
+                      style={{ 
+                        marginRight: '12px', 
+                        accentColor: '#2ECC71',
+                        width: isMobile ? '16px' : '14px',
+                        height: isMobile ? '16px' : '14px'
+                      }} 
+                    />
+                    {method}
+                  </label>
+                ))}
+              </div>
+            </div>
 
-            {/* ✅ Botão finalizar ATUALIZADO - Agora chama finalizarPedido() */}
+            {/* Botão finalizar */}
             <button
               onClick={finalizarPedido}
               disabled={!isTotalValid || !paymentMethod || finalizando}
