@@ -1,17 +1,15 @@
 // constants/ofertas.js
 export const featuredProducts = [
-  { id: 653, name: 'GORGONZOLA FRACIONADO QUATÁ 180 G', category: 'Ofertas', price: 14.96, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-fracionado-quata-180-g-pmg-atacadista.jpg' },
-  { id: 658, name: 'GORGONZOLA QUATÁ 3 KG', category: 'Ofertas', price: 66.50, image: 'https://www.marquesvendaspmg.shop/images/gorgonzola-quata-3-kg-pmg-atacadista.jpg' },
-  { id: 825, name: 'QUEIJO COALHO BARRA QUATÁ 7 KG', category: 'Ofertas', price: 65.00, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-barra-quata-7-kg-pmg-atacadista.jpg' },
-  { id: 829, name: 'QUEIJO COALHO ESPETO QUATÁ PCT 7 UN', category: 'Ofertas', price: 21.38, image: 'https://www.marquesvendaspmg.shop/images/queijo-coalho-espeto-quata-pct-7-un-pmg-atacadista.jpg' },
-  { id: 842, name: 'QUEIJO GOUDA QUATÁ 3 KG', category: 'Ofertas', price: 81.00, image: 'https://www.marquesvendaspmg.shop/images/queijo-gouda-quata-3-kg-pmg-atacadista.jpg' },
-  { id: 902, name: 'REQUEIJÃO QUATÁ SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 42.30, image: 'https://www.marquesvendaspmg.shop/images/requeijao-quata-sem-amido-15-kilo-pmg-atacadista.jpg' },
-  { id: 2065, name: 'PARMESÃO 6 MESES QUATÁ 5.5 KG', category: 'Ofertas', price: 83.55, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-quata.png' },
-  { id: 383, name: 'EXTRATO DE TOMATE ELEFANTE 1,7 KILO', category: 'Ofertas', price: 28.00, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-elefante-17-kilo-pmg-atacadista.jpg' },
-  { id: 1928, name: 'EXTRATO DE TOMATE GRANDE ELEFANTE 4,08 KILO', category: 'Ofertas', price: 70.50, image: 'https://www.marquesvendaspmg.shop/images/extrato-de-tomate-grande-elefante-408-kilo.png' },
-  { id: 1290, name: 'MAIONESE GRANDE MARIANA 3 KILO', category: 'Ofertas', price: 24.50, image: 'https://www.marquesvendaspmg.shop/images/maionese-grande-mariana-3-kilo-pmg-atacadista.jpg' },
-  { id: 1356, name: 'ÓLEO DE ALGODÃO LIZA (BD 15,8 L)', category: 'Ofertas', price: 205.00, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-algodao-liza-bd-158-l-pmg-atacadista.jpg' },
-  { id: 1364, name: 'ÓLEO DE SOJA LIZA 900 ML (PCT 6 FR)', category: 'Ofertas', price: 47.80, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-liza-900-ml-pmg-atacadista.jpg' },
+  { id: 421, name: 'MOLHO DE TOMATE TRADICIONAL POMAROLA 1,7 KILO (CX 6 BAG)', category: 'Ofertas', price: 79.00, image: 'https://www.marquesvendaspmg.shop/images/molho-de-tomate-tradicional-pomarola-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
+  { id: 1416, name: 'TOMATE TRITURADO POMAROLA 1,7 KILO (CX 6 BAG)', category: 'Ofertas', price: 93.39, image: 'https://www.marquesvendaspmg.shop/images/tomate-triturado-pomarola-17-kilo-cx-6-bag-pmg-atacadista.jpg' },
+  { id: 1118, name: 'AZEITE COMPOSTO 12% OLIVA E 88% SOJA MARIA 500 ML', category: 'Ofertas', price: 17.00, image: 'https://www.marquesvendaspmg.shop/images/azeite-composto-oliva-e-soja-maria-500-ml-pmg-atacadista.jpg' },
+  { id: 1365, name: 'ÓLEO DE SOJA VILA VELHA (GL 18 L)', category: 'Ofertas', price: 150.50, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-vila-velha-gl-18-l-pmg-atacadista.jpg' },
+  { id: 353, name: 'WHISKY JOHNNIE WALKER BLUE LABEL 750 ML', category: 'Ofertas', price: 1090.52, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-blue-label-750-ml-pmg-atacadista.jpg' },
+  { id: 352, name: 'WHISKY JOHNNIE WALKER BLACK LABEL 12 ANOS 1 L', category: 'Ofertas', price: 174.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-black-label-12-anos-1-l-pmg-atacadista.jpg' },
+  { id: 354, name: 'WHISKY JOHNNIE WALKER DOUBLE BLACK 1 L', category: 'Ofertas', price: 200.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-double-black-1-l-pmg-atacadista.jpg' },
+  { id: 356, name: 'WHISKY JOHNNIE WALKER RED LABEL 1 L', category: 'Ofertas', price: 85.50, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-red-label-1-l-pmg-atacadista.jpg' },
+  { id: 355, name: 'WHISKY JOHNNIE WALKER GOLD LABEL RESERVE 750 ML', category: 'Ofertas', price: 232.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-gold-label-reserve-750-ml-pmg-atacadista.jpg' },
+  { id: 349, name: 'WHISKY JACK DANIEL´S TENNESSEE OLD No.7 1 L', category: 'Ofertas', price: 141.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-old-no7-1-l-pmg-atacadista.jpg' },
 ];
 
 // Array com os IDs em oferta (fácil de verificar)
