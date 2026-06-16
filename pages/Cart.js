@@ -9,15 +9,28 @@ import { produtosArray } from './produtos';
 import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 
 // ==============================================
-// 🔥 CONTROLE MANUAL DE CAMPANHA
+// 🎁 CONFIGURAÇÃO DA CAMPANHA "COMPRE E GANHE"
 // ==============================================
-// ✅ MUDE ESTA LINHA para TRUE quando for campanha (1,5% ou 2%)
-// ✅ MUDE para FALSE quando voltar ao normal
-const CAMPANHA_ATIVA = false;   // <-- MUDAR AQUI MANUALMENTE (true = campanha ativa / false = normal)
+const CAMPANHA_CONFIG = {
+  ativa: true,  // MUDAR PARA false quando quiser desativar
+  marcas: {
+    quata: {
+      nome: "Quatá",
+      ids: [653, 658, 825, 829, 842, 902, 2065], // ⚠️ COLOQUE OS IDs REAIS AQUI
+      minimo: 2
+    },
+    cargill: {
+      nome: "Cargill", 
+      ids: [383, 1928, 1290, 1356, 1364], // ⚠️ COLOQUE OS IDs REAIS AQUI
+      minimo: 2
+    }
+  },
+  desconto: 2 // percentual
+};
 // ==============================================
 
 // ✅ Array com IDs dos produtos em oferta
-const PRODUTOS_EM_OFERTA = [653, 658, 825, 829, 842, 902, 2065, 383, 1928, 1290, 1356, 1364];
+const PRODUTOS_EM_OFERTA = [421, 1416, 1118, 1365, 353, 352, 354, 356, 355, 349];
 
 // ✅ Configuração dos cupons
 const CUPONS = {
@@ -36,6 +49,86 @@ const CUPONS = {
 };
 
 const CART_STORAGE_KEY = 'cart_data';
+
+// ==============================================
+// ✅ FUNÇÃO PARA VERIFICAR CAMPANHA
+// ==============================================
+const verificarCampanha = (cartItems) => {
+  if (!CAMPANHA_CONFIG.ativa) {
+    return {
+      qualificada: false,
+      progresso: {},
+      desconto: 0
+    };
+  }
+
+  const progresso = {};
+  let qualificada = true;
+
+  Object.keys(CAMPANHA_CONFIG.marcas).forEach(key => {
+    const marca = CAMPANHA_CONFIG.marcas[key];
+    const quantidade = cartItems
+      .filter(item => marca.ids.includes(item.id))
+      .reduce((sum, item) => sum + (item.quantity || 1), 0);
+    
+    progresso[key] = {
+      ...marca,
+      atual: quantidade,
+      atingido: quantidade >= marca.minimo
+    };
+    
+    if (!progresso[key].atingido) {
+      qualificada = false;
+    }
+  });
+
+  return {
+    qualificada,
+    progresso,
+    desconto: qualificada ? CAMPANHA_CONFIG.desconto : 0
+  };
+};
+
+// ==============================================
+// ✅ FUNÇÃO PARA CALCULAR DESCONTO DA CAMPANHA
+// ==============================================
+const calcularDescontoCampanha = (cartItems, groupedItems) => {
+  if (!CAMPANHA_CONFIG.ativa) return { totalDesconto: 0, itensComDesconto: {} };
+
+  const campanhaInfo = verificarCampanha(cartItems);
+  
+  if (!campanhaInfo.qualificada) {
+    return { totalDesconto: 0, itensComDesconto: {} };
+  }
+
+  // Pega os itens elegíveis (que NÃO estão em oferta)
+  const itensElegiveis = groupedItems.filter(
+    item => !PRODUTOS_EM_OFERTA.includes(item.id)
+  );
+
+  if (itensElegiveis.length === 0) {
+    return { totalDesconto: 0, itensComDesconto: {} };
+  }
+
+  const totalElegivel = itensElegiveis.reduce((sum, item) => sum + item.totalPrice, 0);
+  const percentualDesconto = CAMPANHA_CONFIG.desconto / 100;
+  const descontoTotal = totalElegivel * percentualDesconto;
+
+  const itensComDesconto = {};
+  itensElegiveis.forEach(item => {
+    itensComDesconto[item.id] = {
+      totalPrice: item.totalPrice,
+      proporcao: item.totalPrice / totalElegivel,
+      descontoAplicado: descontoTotal * (item.totalPrice / totalElegivel)
+    };
+  });
+
+  return {
+    totalDesconto: descontoTotal,
+    itensComDesconto,
+    percentualAplicado: CAMPANHA_CONFIG.desconto
+  };
+};
 
 const Cart = ({ cart, setCart, removeFromCart }) => {
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -448,22 +541,37 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     return acc;
   }, []);
 
-  // Calcula totais com cupom
+  // ==============================================
+  // ✅ CÁLCULO DE TOTAIS COM CUPOM E CAMPANHA
+  // ==============================================
   const totalSemDesconto = groupedCart.reduce((sum, product) => sum + product.totalPrice, 0);
   
   let totalComDesconto = totalSemDesconto;
   let dadosDesconto = null;
+  let cupomAtivo = false;
+  let campanhaAtiva = false;
   
-  if (cupomAplicado && !CAMPANHA_ATIVA) {
-    dadosDesconto = calcularDescontoCupom(cart, cupomAplicado);
-    totalComDesconto = totalSemDesconto - dadosDesconto.totalDesconto;
-  }
+  // 1️⃣ VERIFICA CAMPANHA
+  const campanhaInfo = verificarCampanha(cart);
+  const dadosCampanha = calcularDescontoCampanha(cart, groupedCart);
+  
+// 2️⃣ DECIDE QUAL DESCONTO APLICAR (CUPOM OU CAMPANHA)
+if (cupomAplicado) {
+  cupomAtivo = true;
+  dadosDesconto = calcularDescontoCupom(cart, cupomAplicado);
+  totalComDesconto = totalSemDesconto - dadosDesconto.totalDesconto;
+} else if (campanhaInfo.qualificada && CAMPANHA_CONFIG.ativa) { // ← USA O .ativa
+  campanhaAtiva = true;
+  dadosDesconto = dadosCampanha;
+  totalComDesconto = totalSemDesconto - dadosCampanha.totalDesconto;
+}
 
   const isTotalValid = totalComDesconto >= 900;
 
   // Função para calcular preço com desconto de um item
   const getPrecoComDesconto = (productId, precoOriginal) => {
-    if (!cupomAplicado || !dadosDesconto || !dadosDesconto.itensComDesconto[productId]) {
+    // Verifica se tem desconto (cupom ou campanha)
+    if (!dadosDesconto || !dadosDesconto.itensComDesconto[productId]) {
       return precoOriginal;
     }
     const itemDesconto = dadosDesconto.itensComDesconto[productId];
@@ -493,7 +601,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     setCart(newCart);
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(newCart));
     
-    if (cupomAplicado && !CAMPANHA_ATIVA) {
+    if (cupomAplicado) {
       const newGrouped = newCart.reduce((acc, product) => {
         const existing = acc.find(p => p.id === product.id);
         const calculated = calculateProductPrice(product);
@@ -546,8 +654,12 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
       return linhaProduto;
     }).join('\n\n');
 
-    const cupomText = cupomAplicado && dadosDesconto && !CAMPANHA_ATIVA
+    const cupomText = cupomAtivo
       ? `\n *Pedido usando cupom ${cupomAplicado.nome}*\n`
+      : '';
+
+    const campanhaText = campanhaAtiva
+      ? `\n *Campanha aplicada: Quatá + Cargill (2% de desconto)*\n`
       : '';
 
     const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -559,6 +671,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         `🛒 *PEDIDO* 🛒\n\n${itemsText}\n\n` +
         `💰 *TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
         `${cupomText}` +
+        `${campanhaText}` +
         `💳 *Pagamento:* ${paymentMethod}\n` +
         `📦 *Entrega:* Frete grátis\n\n` +
         `Por favor, confirme meu pedido!`;
@@ -567,6 +680,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         `*PEDIDO*\n\n${itemsText}\n\n` +
         `*TOTAL: R$ ${totalComDesconto.toFixed(2)}*\n` +
         `${cupomText}` +
+        `${campanhaText}` +
         `*Pagamento:* ${paymentMethod}\n` +
         `*Entrega:* Frete grátis\n\n` +
         `Por favor, confirme meu pedido!`;
@@ -606,7 +720,8 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
         total_amount: totalComDesconto,
         payment_method: paymentMethod,
         cupom_applied: cupomAplicado?.nome || null,
-        discount_amount: cupomAplicado?.desconto || 0,
+        campanha_applied: campanhaAtiva ? 'Quatá + Cargill (2%)' : null,
+        discount_amount: cupomAplicado?.desconto || (campanhaAtiva ? CAMPANHA_CONFIG.desconto : 0),
         status: 'completed'
       };
       
@@ -864,7 +979,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       backgroundColor: '#fff',
                       borderRadius: '6px',
                       marginBottom: '6px',
-                      opacity: cupomAplicado && !isElegivel && !CAMPANHA_ATIVA ? 0.7 : 1
+                      opacity: cupomAtivo && !isElegivel ? 0.7 : 1
                     }}
                   >
                     <div style={{ 
@@ -913,7 +1028,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                               OFERTA
                             </span>
                           )}
-                          {temDesconto && isElegivel && !CAMPANHA_ATIVA && (
+                          {temDesconto && isElegivel && (cupomAtivo || campanhaAtiva) && (
                             <span style={{
                               display: 'inline-block',
                               marginLeft: '6px',
@@ -924,7 +1039,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                               fontSize: '10px',
                               fontWeight: 700
                             }}>
-                              {cupomAplicado?.desconto}% OFF
+                              {cupomAtivo ? `${cupomAplicado?.desconto}% OFF` : `${CAMPANHA_CONFIG.desconto}% OFF`}
                             </span>
                           )}
                         </p>
@@ -1031,7 +1146,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                         gap: isMobile ? '12px' : '8px' 
                       }}>
                         <div style={{ textAlign: 'right' }}>
-                          {temDesconto && !CAMPANHA_ATIVA ? (
+                          {temDesconto && (cupomAtivo || campanhaAtiva) ? (
                             <>
                               <p style={{ 
                                 fontWeight: 700, 
@@ -1084,8 +1199,8 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       </div>
                     </div>
 
-                    {/* Mostra o desconto distribuído do cupom */}
-                    {cupomAplicado && dadosDesconto && isElegivel && dadosDesconto.itensComDesconto[product.id] && !CAMPANHA_ATIVA && (
+                    {/* Mostra o desconto distribuído */}
+                    {dadosDesconto && dadosDesconto.itensComDesconto[product.id] && (
                       <div style={{
                         marginTop: '8px',
                         padding: '5px 10px',
@@ -1097,7 +1212,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                         border: '1px solid #C8E6C9'
                       }}>
                         <span style={{ color: '#27AE60' }}>
-                          Desconto distribuído ({dadosDesconto.percentualAplicado}% do total):
+                          Desconto distribuído ({dadosDesconto.percentualAplicado}%):
                         </span>
                         <span style={{ fontWeight: 600, color: '#27AE60' }}>
                           - R$ {dadosDesconto.itensComDesconto[product.id].descontoAplicado.toFixed(2)}
@@ -1124,6 +1239,28 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
+{/* ⭐ AVISO DA CAMPANHA ATIVA - SÓ MOSTRA SE ATIVA */}
+{CAMPANHA_CONFIG.ativa && campanhaAtiva && (
+  <div style={{
+    backgroundColor: '#E8F5E8',
+    padding: '12px',
+    borderRadius: '8px',
+    marginBottom: '15px',
+    border: '2px solid #66BB6A',
+    textAlign: 'center'
+  }}>
+    <div style={{ fontSize: '20px', marginBottom: '4px' }}>🎉</div>
+    <p style={{ margin: 0, color: '#1B5E20', fontWeight: 600, fontSize: '14px' }}>
+      Parabéns! Você ganhou 2% de desconto através da campanha Quatá + Cargill.
+    </p>
+<p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '12px' }}>
+  Desconto distribuído entre os itens
+  <br />
+  ( Não aplicado para produtos em oferta )
+</p>
+  </div>
+)}
+
             {/* Resumo do pedido */}
             <div style={{ 
               backgroundColor: '#F8F9FA', 
@@ -1137,8 +1274,8 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                 <span style={{ fontWeight: 600, fontSize: isMobile ? '14px' : '13px' }}>R$ {totalSemDesconto.toFixed(2)}</span>
               </div>
               
-              {/* Linha de desconto do cupom */}
-              {cupomAplicado && dadosDesconto && !CAMPANHA_ATIVA && (
+              {/* Linha de desconto do cupom ou campanha */}
+              {dadosDesconto && dadosDesconto.totalDesconto > 0 && (
                 <div style={{ 
                   display: 'flex', 
                   justifyContent: 'space-between', 
@@ -1152,7 +1289,11 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                     textOverflow: 'ellipsis',
                     maxWidth: '220px'
                   }}>
-                    🏷️ Desconto ({cupomAplicado.nome} - {cupomAplicado.desconto}% ):
+                    {cupomAtivo ? (
+                      <>🏷️ Desconto ({cupomAplicado.nome} - {cupomAplicado.desconto}%):</>
+                    ) : campanhaAtiva ? (
+                      <>🎁 Desconto Campanha ({CAMPANHA_CONFIG.desconto}%):</>
+                    ) : null}
                   </span>
                   <span style={{ 
                     fontWeight: 600, 
@@ -1177,7 +1318,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                 <span style={{ fontWeight: 700, fontSize: isMobile ? '15px' : '14px' }}>Total:</span>
                 <span style={{ 
                   fontWeight: 700, 
-                  color: cupomAplicado && !CAMPANHA_ATIVA ? '#27AE60' : '#E74C3C', 
+                  color: (cupomAtivo || campanhaAtiva) ? '#27AE60' : '#E74C3C', 
                   fontSize: isMobile ? '16px' : '15px' 
                 }}>
                   R$ {totalComDesconto.toFixed(2)}
@@ -1185,15 +1326,18 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               </div>
             </div>
 
-            {/* ✅ SEÇÃO DE CUPOM - SÓ APARECE QUANDO CAMPANHA_ATIVA = FALSE */}
-            {!CAMPANHA_ATIVA && (
-              <div style={{
-                backgroundColor: '#F8F9FA',
-                borderRadius: '10px',
-                marginBottom: '15px',
-                border: '2px solid #E9ECEF',
-                overflow: 'hidden'
-              }}>
+{/* ✅ SEÇÃO DE CUPOM - APARECE QUANDO:
+    1. Campanha DESATIVADA (ativa: false) OU
+    2. Campanha ATIVA mas NÃO QUALIFICADA (cliente não atingiu requisitos)
+*/}
+{(!CAMPANHA_CONFIG.ativa || !campanhaAtiva) && (
+  <div style={{
+    backgroundColor: '#F8F9FA',
+    borderRadius: '10px',
+    marginBottom: '15px',
+    border: '2px solid #E9ECEF',
+    overflow: 'hidden'
+  }}>
                 {/* Cabeçalho clicável */}
                 <div 
                   onClick={() => setCupomExpanded(!cupomExpanded)}
@@ -1384,6 +1528,22 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
               </div>
             )}
 
+{/* ✅ AVISO QUANDO CAMPANHA ESTÁ ATIVA E QUALIFICADA (CUPONS BLOQUEADOS) */}
+{CAMPANHA_CONFIG.ativa && campanhaAtiva && (
+  <div style={{
+    padding: '10px',
+    backgroundColor: '#FFF3E0',
+    borderRadius: '8px',
+    marginBottom: '15px',
+    border: '1px solid #FFE0B2',
+    textAlign: 'center',
+    fontSize: isMobile ? '12px' : '11px',
+    color: '#E65100'
+  }}>
+    ⚠️ Cupons indisponíveis enquanto a campanha estiver ativa
+  </div>
+)}
+
             {/* ✅ SEGUNDO AVISO DE PAGAMENTO (antes da forma de pagamento) */}
             <div style={{ 
               backgroundColor: '#FFF3E0', 
@@ -1490,7 +1650,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                 fontWeight: 500
               }}>
                 ❌ O pedido mínimo é R$ 900.00
-                {cupomAplicado && ` (com desconto aplicado)`}
+                {(cupomAtivo || campanhaAtiva) && ` (com desconto aplicado)`}
               </p>
             )}
           </>
