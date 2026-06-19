@@ -3007,38 +3007,276 @@ const DeliveryDaysDisplay = ({ days }) => {
     }));
   };
 
-  // SUBSTITUA O USEEFFECT EXISTENTE POR ESTE:
-  useEffect(() => {
-    const checkAndRedirectAfterLogin = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+// ==============================================
+// 🔑 GERENCIAMENTO DE REDIRECIONAMENTO PÓS-LOGIN
+// ==============================================
+useEffect(() => {
+  const handleRedirectAfterLogin = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (user) {
+      // Verifica se há parâmetro de redirecionamento na URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const returnTo = urlParams.get('returnTo');
+      const login = urlParams.get('login');
+      const redirect = urlParams.get('redirect');
       
-      if (user) {
-        // Verifica se há parâmetro de redirecionamento na URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const returnTo = urlParams.get('returnTo');
+      // ==========================================
+      // CASO 1: Veio da página de ofertas ou produto (login=required)
+      // ==========================================
+      if (login === 'required') {
+        // 🔥 DETERMINA PARA ONDE VAI VOLTAR
+        let destinoTexto = 'para a página de ofertas';
+        let destinoEmoji = '🛍️';
         
-        if (returnTo) {
-          // Decodifica a URL
-          const decodedUrl = decodeURIComponent(returnTo);
-          
-          // Verifica se é uma URL válida (produto ou outra página)
-          if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
-            // Mostra mensagem centralizada
-            setRedirectDestination(decodedUrl);
-            setShowRedirectMessage(true);
-            
-            // Redireciona após 2 segundos (tempo para usuário ver a mensagem)
-            setTimeout(() => {
-              router.push(decodedUrl);
-            }, 2000);
+        // Verifica se é uma página de produto
+        if (redirect && redirect.includes('/produto/')) {
+          destinoTexto = 'para o produto que você estava vendo';
+          destinoEmoji = '📦';
+        } else if (returnTo && returnTo.includes('/produto/')) {
+          destinoTexto = 'para o produto que você estava vendo';
+          destinoEmoji = '📦';
+        }
+        
+        // Mostra mensagem informativa DINÂMICA
+        const messageDiv = document.createElement('div');
+        messageDiv.style.cssText = `
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #fff3cd;
+          color: #856404;
+          padding: 15px 25px;
+          border-radius: 8px;
+          z-index: 9999;
+          border: 2px solid #ffeeba;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+          font-weight: 600;
+          font-size: 15px;
+          max-width: 90%;
+          text-align: center;
+          animation: slideDown 0.5s ease-out;
+        `;
+        messageDiv.innerHTML = `
+          🔑 Para finalizar o pedido, faça login primeiro
+          <br />
+          <span style="font-weight: normal; font-size: 13px;">
+            ${destinoEmoji} Após o login você será redirecionado ${destinoTexto}
+          </span>
+        `;
+        document.body.appendChild(messageDiv);
+        
+        setTimeout(() => {
+          if (messageDiv.parentNode) {
+            messageDiv.parentNode.removeChild(messageDiv);
           }
+        }, 4000);
+      }
+      
+      // ==========================================
+      // CASO 2: Redirecionamento para página específica (ex: /produto/xxx)
+      // ==========================================
+      if (returnTo) {
+        const decodedUrl = decodeURIComponent(returnTo);
+        if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
+          setRedirectDestination(decodedUrl);
+          setShowRedirectMessage(true);
+          setTimeout(() => {
+            router.push(decodedUrl);
+          }, 2000);
+          return;
         }
       }
-    };
+      
+      // ==========================================
+      // CASO 3: Redirecionamento padrão (voltar para ofertas)
+      // ==========================================
+      if (redirect) {
+        const decodedRedirect = decodeURIComponent(redirect);
+        if (decodedRedirect.startsWith('/')) {
+          router.replace(`${decodedRedirect}?login_success=true`);
+          return;
+        }
+      }
+    }
+  };
 
-    checkAndRedirectAfterLogin();
-  }, [router]);
+  handleRedirectAfterLogin();
+}, [router]);
 
+// ==============================================
+// 🔑 ESCUTA MUDANÇAS DE AUTENTICAÇÃO (LOGIN/LOGOUT)
+// ==============================================
+useEffect(() => {
+  const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirect = urlParams.get('redirect');
+      const returnTo = urlParams.get('returnTo');
+      
+      // Prioridade: returnTo (produto) > redirect (ofertas)
+      if (returnTo) {
+        const decodedUrl = decodeURIComponent(returnTo);
+        if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
+          setRedirectDestination(decodedUrl);
+          setShowRedirectMessage(true);
+          setTimeout(() => {
+            router.push(decodedUrl);
+          }, 2000);
+          return;
+        }
+      }
+      
+      if (redirect) {
+        const decodedRedirect = decodeURIComponent(redirect);
+        if (decodedRedirect.startsWith('/')) {
+          router.replace(`${decodedRedirect}?login_success=true`);
+          return;
+        }
+      }
+    }
+  });
+
+  return () => {
+    subscription?.unsubscribe();
+  };
+}, [router]);
+// ==============================================
+// 🔑 GERENCIAMENTO DE REDIRECIONAMENTO PÓS-LOGIN
+// ==============================================
+useEffect(() => {
+  const handleRedirectAfterLogin = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (user) {
+      // Verifica se há parâmetro de redirecionamento na URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const returnTo = urlParams.get('returnTo');
+      const login = urlParams.get('login');
+      const redirect = urlParams.get('redirect');
+      
+      // ==========================================
+      // CASO 1: Veio da página de ofertas ou produto (login=required)
+      // ==========================================
+      if (login === 'required') {
+        // 🔥 DETERMINA PARA ONDE VAI VOLTAR
+        let destinoTexto = 'para a página de ofertas';
+        let destinoEmoji = '🛍️';
+        
+        // Verifica se é uma página de produto
+        if (redirect && redirect.includes('/produto/')) {
+          destinoTexto = 'para o produto que você estava vendo';
+          destinoEmoji = '📦';
+        } else if (returnTo && returnTo.includes('/produto/')) {
+          destinoTexto = 'para o produto que você estava vendo';
+          destinoEmoji = '📦';
+        }
+        
+        // Mostra mensagem informativa DINÂMICA
+        const messageDiv = document.createElement('div');
+        messageDiv.style.cssText = `
+          position: fixed;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #fff3cd;
+          color: #856404;
+          padding: 15px 25px;
+          border-radius: 8px;
+          z-index: 9999;
+          border: 2px solid #ffeeba;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+          font-weight: 600;
+          font-size: 15px;
+          max-width: 90%;
+          text-align: center;
+          animation: slideDown 0.5s ease-out;
+        `;
+        messageDiv.innerHTML = `
+          🔑 Para finalizar o pedido, faça login primeiro
+          <br />
+          <span style="font-weight: normal; font-size: 13px;">
+            ${destinoEmoji} Após o login você será redirecionado ${destinoTexto}
+          </span>
+        `;
+        document.body.appendChild(messageDiv);
+        
+        setTimeout(() => {
+          if (messageDiv.parentNode) {
+            messageDiv.parentNode.removeChild(messageDiv);
+          }
+        }, 4000);
+      }
+      
+      // ==========================================
+      // CASO 2: Redirecionamento para página específica (ex: /produto/xxx)
+      // ==========================================
+      if (returnTo) {
+        const decodedUrl = decodeURIComponent(returnTo);
+        if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
+          setRedirectDestination(decodedUrl);
+          setShowRedirectMessage(true);
+          setTimeout(() => {
+            router.push(decodedUrl);
+          }, 2000);
+          return;
+        }
+      }
+      
+      // ==========================================
+      // CASO 3: Redirecionamento padrão (voltar para ofertas)
+      // ==========================================
+      if (redirect) {
+        const decodedRedirect = decodeURIComponent(redirect);
+        if (decodedRedirect.startsWith('/')) {
+          router.replace(`${decodedRedirect}?login_success=true`);
+          return;
+        }
+      }
+    }
+  };
+
+  handleRedirectAfterLogin();
+}, [router]);
+
+// ==============================================
+// 🔑 ESCUTA MUDANÇAS DE AUTENTICAÇÃO (LOGIN/LOGOUT)
+// ==============================================
+useEffect(() => {
+  const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirect = urlParams.get('redirect');
+      const returnTo = urlParams.get('returnTo');
+      
+      // Prioridade: returnTo (produto) > redirect (ofertas)
+      if (returnTo) {
+        const decodedUrl = decodeURIComponent(returnTo);
+        if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
+          setRedirectDestination(decodedUrl);
+          setShowRedirectMessage(true);
+          setTimeout(() => {
+            router.push(decodedUrl);
+          }, 2000);
+          return;
+        }
+      }
+      
+      if (redirect) {
+        const decodedRedirect = decodeURIComponent(redirect);
+        if (decodedRedirect.startsWith('/')) {
+          router.replace(`${decodedRedirect}?login_success=true`);
+          return;
+        }
+      }
+    }
+  });
+
+  return () => {
+    subscription?.unsubscribe();
+  };
+}, [router]);
 
 // ========== DETECTAR APP E ESCONDER GOOGLE LOGIN ==========
 useEffect(() => {
