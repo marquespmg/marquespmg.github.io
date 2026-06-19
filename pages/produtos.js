@@ -5523,116 +5523,118 @@ productsGrid: {
     </div>
   )}
 
-  {/* PRODUTOS DA CAMPANHA */}
-  {currentProducts.map(product => {
-    const seo = generateImageSEO(product);
-    
-    return (
-      <div 
-        key={product.id} 
-        style={{
-          ...styles.productCard,
-          ...(product.price === 0 && { opacity: 0.7 })
+{/* PRODUTOS DA CAMPANHA */}
+{currentProducts.map(product => {
+  const seo = generateImageSEO(product);
+  
+  return (
+    <div 
+      key={product.id} 
+      style={{
+        ...styles.productCard,
+        ...(product.price === 0 && { opacity: 0.7 })
+      }}
+    >
+      {/* BOTÃO LUPA */}
+      <button
+        onClick={() => redirectToProductDetails(product.id)}
+        style={styles.productDetailsButton}
+        onMouseOver={(e) => {
+          e.target.style.backgroundColor = '#c62828';
+          e.target.style.transform = 'scale(1.1)';
         }}
+        onMouseOut={(e) => {
+          e.target.style.backgroundColor = '#e53935';
+          e.target.style.transform = 'scale(1)';
+        }}
+        title="Ver detalhes do produto"
       >
-        {/* BOTÃO LUPA */}
-        <button
-          onClick={() => redirectToProductDetails(product.id)}
-          style={styles.productDetailsButton}
-          onMouseOver={(e) => {
-            e.target.style.backgroundColor = '#c62828';
-            e.target.style.transform = 'scale(1.1)';
-          }}
-          onMouseOut={(e) => {
-            e.target.style.backgroundColor = '#e53935';
-            e.target.style.transform = 'scale(1)';
-          }}
-          title="Ver detalhes do produto"
-        >
-          🔍
-        </button>
-        
-        <img 
-          src={product.image} 
-          alt={seo.alt}
-          title={seo.title}
-          style={styles.productImage}
-          onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
-          }}
-        />
-        <div style={styles.productInfo}>
-          <div style={styles.productNameContainer}>
-            <h3 style={styles.productName}>
-              {product.name}
-            </h3>
-            {product.name.length > (windowWidth > 768 ? 40 : 30) && (
-              <button 
-                onClick={() => toggleDescription(product.id)}
-                style={styles.showMoreButton}
-              >
-                {expandedDescriptions[product.id] ? 'Mostrar menos' : 'Mostrar mais'}
-              </button>
-            )}
-          </div>
-          
-          {user ? (
-            <p style={product.price > 0 ? styles.productPrice : styles.unavailablePrice}>
-              {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
-            </p>
-          ) : (
-            <p style={{ color: '#666', fontStyle: 'italic' }}>
-              Faça login para ver o preço
-            </p>
-          )}
-
-          {user && (
-            <button
-              onClick={() => addToCart(product)}
-              disabled={product.price === 0}
-              style={{
-                ...styles.addButton,
-                ...(product.price === 0 && styles.disabledButton)
-              }}
+        🔍
+      </button>
+      
+      <img 
+        src={product.image} 
+        alt={seo.alt}
+        title={seo.title}
+        style={styles.productImage}
+        onError={(e) => {
+          e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
+        }}
+      />
+      
+      <div style={styles.productInfo}>
+        <div style={styles.productNameContainer}>
+          <h3 style={styles.productName}>
+            {product.name}
+          </h3>
+          {/* ✅ MOSTRA "MOSTRAR MAIS" APENAS NO DESKTOP (tela > 768px) */}
+          {windowWidth > 768 && product.name.length > 40 && (
+            <button 
+              onClick={() => toggleDescription(product.id)}
+              style={styles.showMoreButton}
             >
-              {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
+              {expandedDescriptions[product.id] ? 'Mostrar menos' : 'Mostrar mais'}
             </button>
           )}
+        </div>
+        
+        {user ? (
+          <p style={product.price > 0 ? styles.productPrice : styles.unavailablePrice}>
+            {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
+          </p>
+        ) : (
+          <p style={{ color: '#666', fontStyle: 'italic' }}>
+            Faça login para ver o preço
+          </p>
+        )}
 
-          {/* ========== VALIDADE E LOTE ========== */}
-          {user && dadosValidade[product.id] && (
-            <div style={{
-              marginTop: '10px',
-              paddingTop: '8px',
-              fontSize: '11px',
-              color: '#6c757d',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '15px',
-              flexWrap: 'wrap',
-              borderTop: '1px solid #f0f0f0'
-            }}>
+        {user && (
+          <button
+            onClick={() => addToCart(product)}
+            disabled={product.price === 0}
+            style={{
+              ...styles.addButton,
+              ...(product.price === 0 && styles.disabledButton)
+            }}
+          >
+            {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
+          </button>
+        )}
+
+        {/* ========== VALIDADE E LOTE ========== */}
+        {user && dadosValidade[product.id] && (
+          <div style={{
+            marginTop: '10px',
+            paddingTop: '8px',
+            fontSize: '11px',
+            color: '#6c757d',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '15px',
+            flexWrap: 'wrap',
+            borderTop: '1px solid #f0f0f0'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <span>📅</span>
+              <span style={{ color: '#495057' }}>
+                <strong>Validade:</strong> {dadosValidade[product.id]?.validade || 'Não informado'}
+              </span>
+            </div>
+            
+            {dadosValidade[product.id]?.lote && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <span>📅</span>
+                <span>🏷️</span>
                 <span style={{ color: '#495057' }}>
-                  <strong>Validade:</strong> {dadosValidade[product.id]?.validade || 'Não informado'}
+                  <strong>Lote:</strong> {dadosValidade[product.id].lote}
                 </span>
               </div>
-              
-              {dadosValidade[product.id]?.lote && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <span>🏷️</span>
-                  <span style={{ color: '#495057' }}>
-                    <strong>Lote:</strong> {dadosValidade[product.id].lote}
-                  </span>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
       </div>
-    );
-  })}
+    </div>
+  );
+})}
 </div>
 		
 {/* Script de dados estruturados Schema.org */}
