@@ -363,7 +363,59 @@ const DeliveryDaysDisplay = ({ days }) => {
   const [selectedFifoItem, setSelectedFifoItem] = useState(null);
   const [showAddedFeedback, setShowAddedFeedback] = useState(false);
 
-  // ✅ Estado para feedback visual ao adicionar produto
+  // ✅ Efeito para verificar se o usuário voltou do login
+  useEffect(() => {
+    // Verifica se há uma mensagem de "login realizado com sucesso"
+    const params = new URLSearchParams(window.location.search);
+    const loginSuccess = params.get('login_success');
+    
+    if (loginSuccess === 'true') {
+      // Remove o parâmetro da URL
+      router.replace('/ofertas', undefined, { shallow: true });
+      
+      // Mostra mensagem de boas-vindas/bem-vindo de volta
+      const messageDiv = document.createElement('div');
+      messageDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #d4edda;
+        color: #155724;
+        padding: 15px 30px;
+        border-radius: 8px;
+        z-index: 9999;
+        border: 2px solid #c3e6cb;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        font-weight: 600;
+        font-size: 16px;
+        max-width: 90%;
+        text-align: center;
+        animation: slideDown 0.5s ease-out;
+      `;
+      messageDiv.innerHTML = `
+        ✅ Login realizado com sucesso! 
+        <br />
+        <span style="font-weight: normal; font-size: 14px;">
+          Bem-vindo de volta à página de ofertas
+        </span>
+      `;
+      document.body.appendChild(messageDiv);
+      
+      // Remove a mensagem após 4 segundos
+      setTimeout(() => {
+        messageDiv.style.opacity = '0';
+        messageDiv.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => {
+          if (messageDiv.parentNode) {
+            messageDiv.parentNode.removeChild(messageDiv);
+          }
+        }, 500);
+      }, 4000);
+    }
+  }, [router]);
+
+  // ✅ Feedback visual ao adicionar produto
   useEffect(() => {
     if (showAddedFeedback) {
       const timer = setTimeout(() => {
@@ -2206,6 +2258,16 @@ useEffect(() => {
         @keyframes fadeInOut {
           0%, 100% { opacity: 0; transform: translateY(-10px); }
           10%, 90% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
         }
       `}</style>
     </div>
