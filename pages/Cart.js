@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
+import { useRouter } from 'next/router'; // ✅ ADICIONADO
 // ==============================================
 // ✅ IMPORTA SOMENTE O ARRAY DE PRODUTOS
 // ==============================================
@@ -131,6 +132,7 @@ const calcularDescontoCampanha = (cartItems, groupedItems) => {
 };
 
 const Cart = ({ cart, setCart, removeFromCart }) => {
+  const router = useRouter(); // ✅ ADICIONADO
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -141,6 +143,9 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   const [cupomExpanded, setCupomExpanded] = useState(false);
   const [finalizando, setFinalizando] = useState(false);
 
+  // ✅ NOVO: Estado para controle da mensagem de login
+  const [showLoginMessage, setShowLoginMessage] = useState(false);
+
   // Estados para cupom
   const [cupomInput, setCupomInput] = useState('');
   const [cupomAplicado, setCupomAplicado] = useState(null);
@@ -148,6 +153,127 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 
   // Hook para validade dos produtos
   const { getIdPmg, loading: loadingIdPmg } = useProdutoIdPmg();
+
+// ==============================================
+// ✅ FUNÇÃO MODIFICADA: verificarLoginERedirecionar
+// ==============================================
+const verificarLoginERedirecionar = async () => {
+  const { data: { user: currentUser } } = await supabase.auth.getUser();
+  
+  // Se NÃO estiver logado
+  if (!currentUser) {
+    // 🔥 SALVA A PÁGINA ATUAL (onde o cliente está)
+    const currentPath = window.location.pathname; // ex: /ofertas ou /produto/421
+    const currentUrl = window.location.href; // URL completa
+    
+    // Salva a página atual para redirecionar depois do login
+    sessionStorage.setItem('redirectAfterLogin', currentPath);
+    sessionStorage.setItem('redirectAfterLoginFull', currentUrl);
+    
+    // Mostra mensagem informativa
+    setShowLoginMessage(true);
+    
+    // 🔥 Redireciona para a página de login com a página atual como destino
+    setTimeout(() => {
+      router.push(`/produtos?login=required&redirect=${encodeURIComponent(currentPath)}`);
+    }, 1500);
+    
+    return false;
+  }
+  
+  // Se estiver logado, retorna true
+  return true;
+};
+
+  // ==============================================
+  // ✅ FUNÇÃO MODIFICADA: finalizarPedido com verificação de login
+  // ==============================================
+  const finalizarPedido = async () => {
+    if (!isTotalValid || !paymentMethod) {
+      alert('⚠️ Verifique o valor mínimo (R$ 900) e selecione a forma de pagamento');
+      return;
+    }
+
+    // 🔐 VERIFICA SE USUÁRIO ESTÁ LOGADO
+    const isLoggedIn = await verificarLoginERedirecionar();
+    if (!isLoggedIn) {
+      // Sai da função se não estiver logado (já vai redirecionar)
+      return;
+    }
+
+    // Se chegou aqui, usuário está logado
+    const { data: { user: currentUser } } = await supabase.auth.getUser();
+
+    setFinalizando(true);
+
+    try {
+      const orderItems = groupedCart.map(product => ({
+        id: product.id,
+        name: product.name,
+        price: product.unitPrice || product.price,
+        quantity: product.quantity,
+        image: product.image,
+        totalPrice: product.totalPrice
+      }));
+
+      const orderData = {
+        user_id: currentUser.id,
+        order_items: orderItems,
+        total_amount: totalComDesconto,
+        payment_method: paymentMethod,
+        cupom_applied: cupomAplicado?.nome || null,
+        campanha_applied: campanhaAtiva ? 'Quatá + Cargill (2%)' : null,
+        discount_amount: cupomAplicado?.desconto || (campanhaAtiva ? CAMPANHA_CONFIG.desconto : 0),
+        status: 'completed'
+      };
+      
+      const whatsappUrl = generateWhatsAppMessage();
+      
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      
+      if (isIOS) {
+        window.location.href = whatsappUrl;
+      } else {
+        window.open(whatsappUrl, '_blank');
+      }
+
+      fetch('/api/finalizar-pedido', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      }).catch(error => {
+        console.error('❌ Erro ao salvar pedido:', error);
+      });
+
+      setCart([]);
+      localStorage.removeItem(CART_STORAGE_KEY);
+      
+      await supabase
+        .from('user_carts')
+        .upsert({
+          user_id: currentUser.id,
+          cart_items: [],
+          updated_at: new Date().toISOString()
+        });
+
+      setCupomAplicado(null);
+      setPaymentMethod('');
+      toggleCart();
+
+    } catch (error) {
+      console.error('❌ Erro ao finalizar pedido:', error);
+      alert('❌ Erro ao finalizar pedido. Tente novamente.');
+    } finally {
+      setFinalizando(false);
+    }
+  };
+
+  // ==============================================
+  // ✅ FUNÇÃO PARA FECHAR A MENSAGEM DE LOGIN
+  // ==============================================
+  const dismissLoginMessage = () => {
+    setShowLoginMessage(false);
+  };
 
   // ==============================================
   // ✅ Função para calcular desconto do cupom
@@ -689,86 +815,62 @@ if (cupomAplicado) {
     return `https://wa.me/5511913572902?text=${encodeURIComponent(mensagemTexto)}`;
   };
 
-  // Função para finalizar pedido
-  const finalizarPedido = async () => {
-    if (!isTotalValid || !paymentMethod) {
-      alert('⚠️ Verifique o valor mínimo (R$ 900) e selecione a forma de pagamento');
-      return;
-    }
-
-    const { data: { user: currentUser } } = await supabase.auth.getUser();
-    if (!currentUser) {
-      alert('❌ Faça login para finalizar o pedido');
-      return;
-    }
-
-    setFinalizando(true);
-
-    try {
-      const orderItems = groupedCart.map(product => ({
-        id: product.id,
-        name: product.name,
-        price: product.unitPrice || product.price,
-        quantity: product.quantity,
-        image: product.image,
-        totalPrice: product.totalPrice
-      }));
-
-      const orderData = {
-        user_id: currentUser.id,
-        order_items: orderItems,
-        total_amount: totalComDesconto,
-        payment_method: paymentMethod,
-        cupom_applied: cupomAplicado?.nome || null,
-        campanha_applied: campanhaAtiva ? 'Quatá + Cargill (2%)' : null,
-        discount_amount: cupomAplicado?.desconto || (campanhaAtiva ? CAMPANHA_CONFIG.desconto : 0),
-        status: 'completed'
-      };
-      
-      const whatsappUrl = generateWhatsAppMessage();
-      
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      
-      if (isIOS) {
-        window.location.href = whatsappUrl;
-      } else {
-        window.open(whatsappUrl, '_blank');
-      }
-
-      fetch('/api/finalizar-pedido', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderData)
-      }).catch(error => {
-        console.error('❌ Erro ao salvar pedido:', error);
-      });
-
-      setCart([]);
-      localStorage.removeItem(CART_STORAGE_KEY);
-      
-      await supabase
-        .from('user_carts')
-        .upsert({
-          user_id: currentUser.id,
-          cart_items: [],
-          updated_at: new Date().toISOString()
-        });
-
-      setCupomAplicado(null);
-      setPaymentMethod('');
-      toggleCart();
-
-    } catch (error) {
-      console.error('❌ Erro ao finalizar pedido:', error);
-      alert('❌ Erro ao finalizar pedido. Tente novamente.');
-    } finally {
-      setFinalizando(false);
-    }
-  };
-
   // JSX
   return (
     <>
+{/* ✅ MENSAGEM INFORMATIVA DE LOGIN - ESTILO TOAST (DINÂMICA) */}
+{showLoginMessage && (
+  <div style={{
+    position: 'fixed',
+    top: '20px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    backgroundColor: '#fff3cd',
+    color: '#856404',
+    padding: '15px 25px',
+    borderRadius: '8px',
+    zIndex: 9999,
+    boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+    border: '2px solid #ffeeba',
+    maxWidth: '90%',
+    textAlign: 'center',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '15px',
+    animation: 'slideDown 0.5s ease-out'
+  }}>
+    <span style={{ fontSize: '24px' }}>🔑</span>
+    <div>
+      <strong style={{ fontSize: '16px', display: 'block' }}>
+        Você está sendo redirecionado para a página de login
+      </strong>
+      <span style={{ fontSize: '14px' }}>
+        {(() => {
+          // 🔥 DETECTA SE ESTÁ NA PÁGINA DE PRODUTO
+          const currentPath = window.location.pathname;
+          if (currentPath && currentPath.includes('/produto/')) {
+            return '📦 Após o login, você voltará para o produto que estava vendo';
+          }
+          return '🛍️ Após o login, você voltará para a página de ofertas';
+        })()}
+      </span>
+    </div>
+    <button
+      onClick={dismissLoginMessage}
+      style={{
+        background: 'none',
+        border: 'none',
+        fontSize: '20px',
+        cursor: 'pointer',
+        color: '#856404',
+        padding: '0 5px'
+      }}
+    >
+      ✕
+    </button>
+  </div>
+)}
+
       {/* Botão flutuante do carrinho */}
       <div style={{
         position: 'fixed',
@@ -1604,7 +1706,7 @@ if (cupomAplicado) {
               </div>
             </div>
 
-            {/* Botão finalizar */}
+            {/* ✅ BOTÃO FINALIZAR MODIFICADO - MOSTRA "FAZER LOGIN" QUANDO NÃO LOGADO */}
             <button
               onClick={finalizarPedido}
               disabled={!isTotalValid || !paymentMethod || finalizando}
@@ -1637,7 +1739,8 @@ if (cupomAplicado) {
               {finalizando ? (
                 '🔄 Finalizando...'
               ) : (
-                <>📲 {isMobile ? 'FINALIZAR PEDIDO' : 'Finalizar Pedido'}</>
+                // ✅ VERIFICA SE USUÁRIO ESTÁ LOGADO PARA MOSTRAR TEXTO DIFERENTE
+                user ? '📲 FINALIZAR PEDIDO' : '🔑 FAZER LOGIN PARA FINALIZAR'
               )}
             </button>
 
@@ -1667,6 +1770,16 @@ if (cupomAplicado) {
           20% { opacity: 1; transform: translateY(0); }
           80% { opacity: 1; transform: translateY(0); }
           100% { opacity: 0; transform: translateY(-10px); }
+        }
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
         }
         
         @media (max-width: 768px) {
