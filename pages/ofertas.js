@@ -5,6 +5,24 @@ import Link from 'next/link';
 import useTrackUser from '../hook/useTrackUser';
 import { useRouter } from 'next/router';
 
+// ========== DETECTAR SE ESTÁ RODANDO DENTRO DO APP ========== //
+const isRunningInApp = () => {
+  if (typeof window === 'undefined') return false;
+  
+  const ua = navigator.userAgent.toLowerCase();
+  
+  // Detecta WebView do Android
+  const isWebView = ua.includes('wv') || 
+                    ua.includes('androidwebview') ||
+                    (ua.includes('android') && !ua.includes('chrome'));
+  
+  // Detecta PWA (app instalado)
+  const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
+                window.navigator.standalone === true;
+  
+  return isWebView || isPWA;
+};
+
 // ========== DADOS DAS CIDADES ========== //
 const citiesData = {
 sp: {
@@ -306,6 +324,9 @@ const OfertasPage = ({
   const [loadingDeliveryData, setLoadingDeliveryData] = useState(true);
   const [expandedCity, setExpandedCity] = useState(null); // Qual cidade está expandida
   
+  // ========== ESTADO PARA DETECTAR APP ========== //
+  const [isApp, setIsApp] = useState(false);
+  
   // ========== NOVO: ALTERNAR EXPANSÃO DA CIDADE ========== //
 const toggleCityExpand = (cityName) => {
   setExpandedCity(expandedCity === cityName ? null : cityName);
@@ -539,6 +560,10 @@ useEffect(() => {
 
   // Efeitos
   useEffect(() => {
+    // Detecta se está no app
+    const inApp = isRunningInApp();
+    setIsApp(inApp);
+
     // Atualiza título da página dinamicamente
     document.title = dynamicSEO.title;
     
@@ -556,16 +581,22 @@ useEffect(() => {
       setCurrentBannerIndex(prev => (prev + 1) % banners.length);
     }, 10000);
 
-    // Popup FIFO após 27 segundos
-    const fifoTimer = setTimeout(() => {
-      const randomIndex = Math.floor(Math.random() * fifoImages.length);
-      setSelectedFifoItem(fifoImages[randomIndex]);
-      setShowFifoPopup(true);
-    }, 27000);
+    // ⭐ POPUP FIFO - SÓ MOSTRA SE NÃO FOR APP
+    if (!inApp) {
+      const fifoTimer = setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * fifoImages.length);
+        setSelectedFifoItem(fifoImages[randomIndex]);
+        setShowFifoPopup(true);
+      }, 27000);
+      
+      return () => {
+        clearInterval(bannerIntervalRef.current);
+        clearTimeout(fifoTimer);
+      };
+    }
 
     return () => {
       clearInterval(bannerIntervalRef.current);
-      clearTimeout(fifoTimer);
     };
   }, []);
 
@@ -1783,8 +1814,8 @@ useEffect(() => {
         </div>
       </div>
       
-      {/* Popup FIFO */}
-      {showFifoPopup && selectedFifoItem && (
+      {/* ⭐ Popup FIFO - SÓ MOSTRA SE NÃO FOR APP */}
+      {!isApp && showFifoPopup && selectedFifoItem && (
         <div style={styles.fifoPopupOverlay}>
           <div style={styles.fifoPopupContent}>
             <button 
