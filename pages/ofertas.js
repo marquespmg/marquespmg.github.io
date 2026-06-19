@@ -327,6 +327,9 @@ const OfertasPage = ({
   // ========== ESTADO PARA DETECTAR APP ========== //
   const [isApp, setIsApp] = useState(false);
   
+  // ========== ESTADO PARA DETECTAR SE O TEXTO ULTRAPASSOU 2 LINHAS ========== //
+  const [needsExpand, setNeedsExpand] = useState({});
+  
   // ========== NOVO: ALTERNAR EXPANSÃO DA CIDADE ========== //
 const toggleCityExpand = (cityName) => {
   setExpandedCity(expandedCity === cityName ? null : cityName);
@@ -373,6 +376,28 @@ const DeliveryDaysDisplay = ({ days }) => {
     </div>
   );
 };  
+
+// ========== FUNÇÃO PARA VERIFICAR SE O TEXTO ULTRAPASSOU 2 LINHAS ========== //
+const checkIfNeedsExpand = (productId, element) => {
+  if (!element || !isMobile) return;
+  
+  // Pega a altura de uma linha
+  const lineHeight = parseFloat(getComputedStyle(element).lineHeight) || 20;
+  
+  // Altura máxima para 2 linhas (2 * lineHeight + um pequeno buffer)
+  const maxHeight = lineHeight * 2.2;
+  
+  // Verifica se o texto ultrapassou 2 linhas
+  const needs = element.scrollHeight > maxHeight;
+  
+  // Só atualiza se mudou
+  setNeedsExpand(prev => {
+    if (prev[productId] !== needs) {
+      return { ...prev, [productId]: needs };
+    }
+    return prev;
+  });
+};
   
   const dynamicSEO = generateDynamicSEO(featuredProducts);
   
@@ -1650,13 +1675,22 @@ useEffect(() => {
               
               <div style={styles.productInfo}>
                 <div style={styles.productNameContainer}>
-                  <h4 style={{
-                    ...styles.productName,
-                    WebkitLineClamp: expandedDescriptions[product.id] ? 'unset' : (isMobile ? 3 : 3)
-                  }}>
+                  <h4 
+                    ref={(el) => {
+                      if (el && isMobile) {
+                        checkIfNeedsExpand(product.id, el);
+                      }
+                    }}
+                    style={{
+                      ...styles.productName,
+                      WebkitLineClamp: expandedDescriptions[product.id] ? 'unset' : (isMobile ? 2 : 5)
+                    }}
+                  >
                     {product.name}
                   </h4>
-                  {product.name.length > (isMobile ? 40 : 60) && (
+                  
+                  {/* ✅ MOSTRA "MOSTRAR MAIS" APENAS SE O TEXTO ULTRAPASSOU 2 LINHAS NO CELULAR */}
+                  {isMobile && needsExpand[product.id] && (
                     <button 
                       onClick={() => toggleDescription(product.id)}
                       style={styles.showMoreButton}
