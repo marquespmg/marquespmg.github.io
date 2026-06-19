@@ -331,43 +331,42 @@ function processarLinksConteudo(conteudoHTML, articlesArray) {
 export async function getServerSideProps(context) {
   const { query } = context;
   const slug = query.slug;
-  
-  // Carrega todos os artigos da pasta
+
   let allArticles = [];
+
   try {
-    allArticles = getAllArticles();
+    // 🔥 AGORA USA fetch PARA CARREGAR O index.json
+    const baseUrl = process.env.NODE_ENV === 'production'
+      ? 'https://marquespmg.github.io'  // ← SUBSTITUA PELA URL DO SEU SITE
+      : 'http://localhost:3000';
+
+    const response = await fetch(`${baseUrl}/index.json`);
+    if (response.ok) {
+      allArticles = await response.json();
+    } else {
+      console.error('❌ Erro ao carregar index.json:', response.status);
+    }
   } catch (error) {
-    console.error('Erro ao carregar artigos:', error);
-    // Fallback para array vazio
-    allArticles = [];
+    console.error('❌ Erro ao carregar artigos:', error);
   }
-  
+
   // Se tiver slug, busca o artigo específico
   if (slug && allArticles.length > 0) {
-    try {
-      const article = getArticleBySlug(slug);
-      if (article) {
-        return {
-          props: {
-            initialPage: article.id,
-            allArticles: allArticles,
-            currentSlug: slug
-          }
-        };
-      }
-    } catch (error) {
-      console.error('Erro ao buscar artigo por slug:', error);
-      // Se não encontrar, volta para o primeiro
+    const article = allArticles.find(a => {
+      const articleSlug = gerarSlug(a.title);
+      return articleSlug === slug;
+    });
+    if (article) {
       return {
         props: {
-          initialPage: allArticles[0]?.id || 1,
+          initialPage: article.id,
           allArticles: allArticles,
-          currentSlug: null
+          currentSlug: slug
         }
       };
     }
   }
-  
+
   // Se não tiver slug, carrega o primeiro artigo
   return {
     props: {
