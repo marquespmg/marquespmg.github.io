@@ -13,7 +13,7 @@ import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 // 🎁 CONFIGURAÇÃO DA CAMPANHA "COMPRE E GANHE"
 // ==============================================
 const CAMPANHA_CONFIG = {
-  ativa: true,  // MUDAR PARA false quando quiser desativar
+  ativa: false,  // MUDAR PARA false quando quiser desativar
   marcas: {
     quata: {
       nome: "Quatá",
