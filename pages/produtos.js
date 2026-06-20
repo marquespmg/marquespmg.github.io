@@ -10,7 +10,7 @@ import { useProdutoValidade } from '../hook/useProdutoValidade';
 
 // ========== CONFIGURAÇÃO DA CAMPANHA ========== // <-- ADICIONE ESTA SEÇÃO
 const CAMPANHA_COMPRE_E_GANHE = {
-  ativa: true,  // MUDAR PARA false quando quiser desativar
+  ativa: false,  // MUDAR PARA false quando quiser desativar
   marcas: {
     quata: {
       nome: "Quatá",
