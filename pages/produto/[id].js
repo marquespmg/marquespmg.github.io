@@ -8,6 +8,7 @@ import useTrackUser from '../../hook/useTrackUser';
 import WithdrawalModal from '../../components/WithdrawalModal';
 import { useProdutoValidade } from '../../hook/useProdutoValidade';
 import { IDs_EM_OFERTA, PRECO_OFERTA_POR_ID } from '../../constants/ofertas';
+import { useDescricaoAI } from '../../hook/useDescricaoAI'; // 🔥 NOVO IMPORT
 
 
 const products = [
@@ -2513,6 +2514,14 @@ export default function ProductPage({
 
   useTrackUser();
 
+  // 🔥 HOOK DA IA - DESCRIÇÃO INTELIGENTE
+  const produtoId = typeof id === 'string' ? parseInt(id.split('-')[0]) : id;
+  const { 
+    descricao: descricaoAI, 
+    loading: loadingAI, 
+    error: errorAI 
+  } = useDescricaoAI(produtoId);
+
   // ========== FUNÇÕES DE DISPONIBILIDADE (MESMA LÓGICA DA PÁGINA DE PRODUTOS) ========== //
   const isProductAvailable = (product) => {
     return product.price > 0;
@@ -3259,15 +3268,102 @@ useEffect(() => {
   </div>
 )}
 
-            {/* DESCRIÇÃO */}
-            <div style={styles.descriptionSection}>
-              <h2 style={styles.sectionTitle}>Descrição do Produto</h2>
-              <p style={styles.descriptionText}>
-                {product.name} - Produto de alta qualidade para food service, bares e restaurantes. 
-                PMG ATACADISTA oferece os melhores preços em {product.category.toLowerCase()} com 
-                garantia de procedência e qualidade.
-              </p>
-            </div>
+{/* 🔥🔥🔥 DESCRIÇÃO COM IA - SEM REFERÊNCIAS A IA 🔥🔥🔥 */}
+<div style={styles.descriptionSection}>
+  <h2 style={styles.sectionTitle}>
+    Descrição do Produto
+    {loadingAI && <span style={{ 
+      fontSize: '14px', 
+      color: '#999', 
+      marginLeft: '10px',
+      fontWeight: 'normal'
+    }}>
+      Carregando...
+    </span>}
+  </h2>
+  
+  {loadingAI ? (
+    // 🔥 Skeleton Loading
+    <div style={{ 
+      backgroundColor: '#f8f9fa', 
+      padding: '20px', 
+      borderRadius: '8px',
+      border: '1px solid #e9ecef'
+    }}>
+      <div style={{ 
+        height: '20px', 
+        backgroundColor: '#e9ecef', 
+        borderRadius: '4px',
+        marginBottom: '12px',
+        animation: 'pulse 1.5s ease-in-out infinite'
+      }}></div>
+      <div style={{ 
+        height: '20px', 
+        backgroundColor: '#e9ecef', 
+        borderRadius: '4px',
+        marginBottom: '12px',
+        width: '95%',
+        animation: 'pulse 1.5s ease-in-out infinite 0.2s'
+      }}></div>
+      <div style={{ 
+        height: '20px', 
+        backgroundColor: '#e9ecef', 
+        borderRadius: '4px',
+        marginBottom: '12px',
+        width: '88%',
+        animation: 'pulse 1.5s ease-in-out infinite 0.4s'
+      }}></div>
+      <div style={{ 
+        height: '20px', 
+        backgroundColor: '#e9ecef', 
+        borderRadius: '4px',
+        width: '75%',
+        animation: 'pulse 1.5s ease-in-out infinite 0.6s'
+      }}></div>
+    </div>
+  ) : descricaoAI ? (
+    // ✅ Descrição gerada (sem referências a IA)
+    <div style={{
+      backgroundColor: '#f8f9fa',
+      padding: '20px',
+      borderRadius: '8px',
+      border: '1px solid #e9ecef'
+    }}>
+      <p style={{
+        color: '#333',
+        lineHeight: '1.8',
+        fontSize: '15px',
+        margin: '0'
+      }}>
+        {descricaoAI}
+      </p>
+    </div>
+  ) : (
+    // 🔥 Fallback: descrição original
+    <div style={{
+      backgroundColor: '#f8f9fa',
+      padding: '20px',
+      borderRadius: '8px',
+      border: '1px solid #e9ecef'
+    }}>
+      <p style={styles.descriptionText}>
+        {product.name} - Produto de alta qualidade para food service, bares e restaurantes. 
+        PMG ATACADISTA oferece os melhores preços em {product.category.toLowerCase()} com 
+        garantia de procedência e qualidade.
+      </p>
+      {errorAI && (
+        <div style={{
+          marginTop: '10px',
+          fontSize: '12px',
+          color: '#999',
+          fontStyle: 'italic'
+        }}>
+          ⚠️ Erro ao carregar descrição
+        </div>
+      )}
+    </div>
+  )}
+</div>
 
             {/* CIDADES COM ENTREGA - AGORA COM DIAS DA SEMANA */}
             <div style={styles.deliveryInfo}>
