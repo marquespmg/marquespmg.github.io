@@ -30,7 +30,6 @@ export default async function handler(req, res) {
     }
 
     // 🔥 2. BUSCA O PRODUTO - USANDO O ARRAY DO SEU SITE
-    // IMPORTANTE: COPIE TODOS OS SEUS PRODUTOS AQUI
 const products = [
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 837.43, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg' },
   { id: 8, name: 'AVENTAL EMBORRACHADO BRANCO TAMANHO ÚNICO', category: 'Acessórios', price: 20.67, image: 'https://www.marquesvendaspmg.shop/images/avental-emborrachado-branco-tamanho-unico-pmg-atacadista.jpg' },
@@ -2295,7 +2294,7 @@ const products = [
       return res.status(404).json({ error: 'Produto não encontrado' });
     }
 
-    // 🔥 3. GERA DESCRIÇÃO COM GPT-5.3 (VERSÃO MELHORADA)
+    // 🔥 3. GERA DESCRIÇÃO COM GPT-5.3 (NOVO PROMPT)
     const descricao = await gerarDescricaoComIA(produto);
 
     // 🔥 4. SALVA NO SUPABASE
@@ -2310,7 +2309,6 @@ const products = [
 
     if (saveError) {
       console.error('Erro ao salvar descrição:', saveError);
-      // Mesmo com erro, retorna a descrição
     }
 
     // 🔥 5. RETORNA A DESCRIÇÃO GERADA
@@ -2328,12 +2326,12 @@ const products = [
   }
 }
 
-// 🔥 FUNÇÃO PARA GERAR DESCRIÇÃO COM GPT-5.3 (VERSÃO MELHORADA)
+// 🔥 FUNÇÃO PARA GERAR DESCRIÇÃO - NOVO PROMPT
 async function gerarDescricaoComIA(produto) {
   const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
   const MODELO = 'openai/gpt-5.3-chat';
 
-  // 🔥 DICIONÁRIO DE GÊNEROS PARA CORREÇÃO AUTOMÁTICA
+  // 🔥 DICIONÁRIO DE GÊNEROS
   const generos = {
     'MUÇARELA': 'feminino',
     'QUEIJO': 'masculino',
@@ -2364,35 +2362,34 @@ async function gerarDescricaoComIA(produto) {
     'default': 'masculino'
   };
 
-  // 🔥 DETECTA O GÊNERO DO PRODUTO
   const primeiraPalavra = produto.name.split(' ')[0];
   const genero = generos[primeiraPalavra] || generos.default;
   const artigo = genero === 'feminino' ? 'A' : 'O';
 
-  // 🔥 PROMPT MELHORADO COM CORREÇÃO DE GÊNERO
+  // 🔥 NOVO PROMPT - PRIORIZA INFORMAÇÕES TÉCNICAS + BENEFÍCIOS
   const prompt = `
-Você é um copywriter ESPECIALISTA EM VENDAS para food service (restaurantes, pizzarias, bares, mercados).
-
-CRIE UMA DESCRIÇÃO PERSUASIVA E AGRESSIVA para o produto abaixo:
+Você é um copywriter especialista em food service. Crie uma descrição para o produto abaixo.
 
 PRODUTO: ${produto.name}
 CATEGORIA: ${produto.category}
-ARTIGO CORRETO: "${artigo}" (use SEMPRE o artigo correto antes do nome)
+ARTIGO: "${artigo}" (use SEMPRE o artigo correto)
 
-REGRAS OBRIGATÓRIAS:
-1. ✅ Use o artigo correto: "${artigo} ${produto.name}" no início
-2. ✅ Seja AGRESSIVO na venda - use palavras de impacto
-3. ✅ Destaque 2-3 benefícios principais do produto
-4. ✅ Mencione "PMG Atacadista" como fornecedor confiável
-5. ✅ Máximo 80 palavras
-6. ✅ NÃO inclua preço
-7. ✅ NÃO mencione IA ou tecnologia
-8. ✅ Use tom de URGÊNCIA e NECESSIDADE
+ESTRUTURA OBRIGATÓRIA:
+1. 🔹 COMEÇO: O que é o produto + características técnicas (ex: tipo, formato, peso, composição)
+2. 🔹 MEIO: Benefícios práticos (o que ele faz, para que serve, vantagens)
+3. 🔹 FINAL: Chamada para ação + menção à PMG Atacadista
 
-EXEMPLO DE ESTILO (use como referência):
-"${artigo} ${produto.name} é a escolha NÚMERO 1 para quem exige o melhor. Com rendimento superior, textura perfeita e sabor que fideliza clientes, este produto da PMG Atacadista é indispensável no seu cardápio. Não perca mais vendas - tenha qualidade garantida todos os dias!"
+REGRAS:
+- Máximo 70 palavras
+- NÃO inclua preço
+- NÃO mencione IA ou tecnologia
+- Tom profissional e persuasivo
+- Seja objetivo, sem exageros
 
-AGORA CRIE UMA DESCRIÇÃO ÚNICA, PERSUASIVA E AGRESSIVA:
+EXEMPLO:
+"${artigo} ${produto.name} é um produto de alta qualidade, desenvolvido para atender as necessidades do food service. Com características que garantem durabilidade e desempenho, ele é ideal para uso diário em cozinhas profissionais. Oferece praticidade, eficiência e resultados consistentes. Adquira agora pela PMG Atacadista e tenha o melhor para seu negócio."
+
+AGORA CRIE UMA DESCRIÇÃO ÚNICA:
 `;
 
   try {
@@ -2409,12 +2406,12 @@ AGORA CRIE UMA DESCRIÇÃO ÚNICA, PERSUASIVA E AGRESSIVA:
         messages: [
           { 
             role: 'system', 
-            content: 'Você é um copywriter agressivo e persuasivo, especialista em vendas para food service. Suas descrições convencem o cliente a comprar imediatamente.' 
+            content: 'Você é um copywriter técnico e persuasivo, especialista em food service. Escreve descrições que informam e convencem.' 
           },
           { role: 'user', content: prompt }
         ],
-        max_tokens: 300,
-        temperature: 0.8,
+        max_tokens: 250,
+        temperature: 0.7,
         top_p: 0.9
       })
     });
@@ -2429,20 +2426,18 @@ AGORA CRIE UMA DESCRIÇÃO ÚNICA, PERSUASIVA E AGRESSIVA:
     let descricao = data.choices[0].message.content.trim();
     descricao = descricao.replace(/^["']|["']$/g, '');
     
-    // 🔥 GARANTE QUE O ARTIGO CORRETO ESTÁ SENDO USADO
-    // Se a descrição não começar com o artigo correto, força a correção
+    // 🔥 GARANTE O ARTIGO CORRETO
     const nomeProduto = produto.name;
     const regex = new RegExp(`^${artigo} ${nomeProduto}`, 'i');
     if (!regex.test(descricao)) {
-      // Tenta corrigir substituindo "O" por "A" ou vice-versa
       const artigoErrado = genero === 'feminino' ? 'O' : 'A';
       descricao = descricao.replace(new RegExp(`^${artigoErrado} ${nomeProduto}`, 'i'), `${artigo} ${nomeProduto}`);
     }
     
-    // 🔥 LIMITA A 80 PALAVRAS
+    // 🔥 LIMITA A 70 PALAVRAS
     const palavras = descricao.split(' ');
-    if (palavras.length > 80) {
-      return palavras.slice(0, 80).join(' ') + '...';
+    if (palavras.length > 70) {
+      return palavras.slice(0, 70).join(' ') + '...';
     }
 
     return descricao || gerarDescricaoFallback(produto, artigo);
@@ -2453,7 +2448,7 @@ AGORA CRIE UMA DESCRIÇÃO ÚNICA, PERSUASIVA E AGRESSIVA:
   }
 }
 
-// 🔥 FALLBACK MELHORADO
+// 🔥 FALLBACK
 function gerarDescricaoFallback(produto, artigo) {
   const categorias = {
     'Acessórios': 'acessório de qualidade para seu negócio',
