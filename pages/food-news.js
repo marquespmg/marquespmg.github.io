@@ -1265,7 +1265,7 @@ const ArticleIndex = () => {
         
         <meta property="og:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
         <meta property="og:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
-        <meta property="og:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
+        <meta property="og:image" content={currentArticle?.image ? `https://www.marquesvendaspmg.shop${currentArticle.image}` : "https://i.imgur.com/OnyaPpF.png"} />
         <meta property="og:url" content={`https://www.marquesvendaspmg.shop${getArticleUrl(currentArticle)}`} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Marques Vendas PMG" />
@@ -1273,7 +1273,7 @@ const ArticleIndex = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
         <meta name="twitter:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
-        <meta name="twitter:image" content={currentArticle ? currentArticle.image : "https://i.imgur.com/pBH5WpZ.png"} />
+        <meta  name="twitter:image"  content={currentArticle?.image ? `https://www.marquesvendaspmg.shop${currentArticle.image}` : "https://i.imgur.com/OnyaPpF.png"} />        
         
         {/* URL CANÔNICA COM SLUG AMIGÁVEL */}
         <link 
