@@ -1,16 +1,40 @@
-// hook/useTrackUser.js - VERSÃO COM NÚMEROS SEQUENCIAIS GLOBAIS
+// hook/useTrackUser.js
 import { useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
+
+// 🔍 FUNÇÃO PARA DETECTAR SE ESTÁ NO APP (WEBVIEW)
+function detectarWebView() {
+  // 1. Verifica pelo User Agent
+  const ua = navigator.userAgent.toLowerCase();
+  const isWebView = (
+    // Android WebView
+    (ua.includes('wv') || ua.includes('android') && !ua.includes('chrome')) ||
+    // iOS WebView (UIWebView ou WKWebView)
+    (/(iphone|ipod|ipad).*applewebkit(?!.*safari)/i.test(ua)) ||
+    // Pelo window.navigator.standalone (iOS)
+    window.navigator.standalone === true ||
+    // Pela presença de objetos específicos do React Native
+    (window.ReactNativeWebView && window.ReactNativeWebView.postMessage)
+  );
+  
+  console.log('📱 Detectado WebView:', isWebView);
+  return isWebView;
+}
 
 export default function useTrackUser() {
   useEffect(() => {
     console.log('🔍 HOOK useTrackUser INICIADO');
     
+    // 🔥 DETECTA SE É APP OU NAVEGADOR
+    const isApp = detectarWebView();
+    console.log('📲 Tipo de acesso:', isApp ? 'APP (WebView)' : 'Navegador');
+    
     const trackActivity = async () => {
       try {
         console.log('🔄 Executando trackActivity...');
         
-        // 1. Gera ou recupera visitor_id
+        // ... (seu código existente para visitorId) ...
+        
         let visitorId = localStorage.getItem('visitor_id');
         if (!visitorId) {
           visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
@@ -20,23 +44,23 @@ export default function useTrackUser() {
           console.log('🆔 Visitor ID recuperado:', visitorId);
         }
         
-        // 2. Verifica se tem usuário logado
+        // ... (seu código existente para usuário) ...
+        
         const { data: { user } } = await supabase.auth.getUser();
         console.log('👤 Estado do usuário:', user ? 'Logado - ' + user.email : 'Não logado');
         
-        // 3. BUSCA O PRÓXIMO NÚMERO SEQUENCIAL DO SUPABASE
+        // ... (seu código existente para visitorNumber) ...
+        
         let visitorNumber = 1;
         
-        if (!user) { // Só para visitantes anônimos
+        if (!user) {
           try {
-            // Busca o último número usado
             const { data: lastVisitor, error } = await supabase
               .from('contador_visitantes')
               .select('ultimo_numero')
               .single();
             
             if (error && error.code === 'PGRST116') {
-              // Tabela não existe ainda - cria
               console.log('📊 Criando contador de visitantes...');
               const { error: createError } = await supabase
                 .from('contador_visitantes')
@@ -52,10 +76,8 @@ export default function useTrackUser() {
               console.log('⚠️ Erro ao buscar contador:', error.message);
               visitorNumber = 1;
             } else {
-              // Incrementa o número
               visitorNumber = lastVisitor.ultimo_numero + 1;
               
-              // Atualiza no Supabase
               await supabase
                 .from('contador_visitantes')
                 .update({ ultimo_numero: visitorNumber })
@@ -69,7 +91,7 @@ export default function useTrackUser() {
           }
         }
         
-        // 4. Coleta dados básicos
+        // 4. Coleta dados básicos - 🔥 ADICIONEI O CAMPO tipo_acesso
         const dadosAtividade = {
           pagina_atual: window.location.pathname,
           url_completa: window.location.href,
@@ -79,7 +101,8 @@ export default function useTrackUser() {
           user_agent: navigator.userAgent,
           referrer: document.referrer || 'direto',
           tipo_visita: user ? 'logado' : 'anonimo',
-          // Número sequencial GLOBAL
+          // 🔥 NOVO CAMPO: Identifica se veio do APP
+          tipo_acesso: isApp ? 'app' : 'navegador',
           nome_usuario: user ? (user.email?.split('@')[0] || 'Usuário') : `Visitante ${visitorNumber}`,
           email_usuario: user ? user.email : `visitante${visitorNumber}@anonimo.com`,
           visitor_number: visitorNumber
@@ -105,6 +128,9 @@ export default function useTrackUser() {
         }
         
         console.log('📊 Dados coletados:', dadosAtividade);
+        console.log('📱 Origem:', dadosAtividade.tipo_acesso.toUpperCase()); // 🔥 LOG DA ORIGEM
+        
+        // ... (restante do seu código existente) ...
         
         // 5. VERIFICA SE JÁ EXISTE REGISTRO PARA ESTA SESSÃO NESTA PÁGINA
         console.log('🔎 Verificando registro para sessão:', visitorId, 'na página:', window.location.pathname);
@@ -117,7 +143,6 @@ export default function useTrackUser() {
           .single();
         
         if (checkError && checkError.code === 'PGRST116') {
-          // Nenhum registro encontrado para ESTA PÁGINA - INSERE NOVO
           console.log('📝 Nenhum registro encontrado para esta página - Inserindo novo...');
           
           const { error: insertError } = await supabase
@@ -128,22 +153,20 @@ export default function useTrackUser() {
             console.log('❌ ERRO ao inserir:', insertError.message);
           } else {
             console.log('✅ NOVO registro para esta página - Visitante:', visitorNumber);
+            console.log('📱 Origem:', isApp ? 'APP' : 'NAVEGADOR');
           }
           
         } else if (checkError) {
           console.log('⚠️ Erro ao verificar registro:', checkError.message);
           
         } else {
-          // Registro encontrado para ESTA PÁGINA - ATUALIZA EXISTENTE
           console.log('✏️ Registro encontrado para esta página (ID:', registroExistente.id, ') - Atualizando...');
           
-          // Calcula tempo nesta página específica
           const tempoConectado = new Date() - new Date(registroExistente.created_at);
           const segundos = Math.floor(tempoConectado / 1000);
           const minutos = Math.floor(segundos / 60);
           const horas = Math.floor(minutos / 60);
           
-          // Formata o tempo
           let tempoFormatado = `${segundos} segundos`;
           if (horas > 0) {
             tempoFormatado = `${horas}h ${minutos % 60}m`;
@@ -151,7 +174,6 @@ export default function useTrackUser() {
             tempoFormatado = `${minutos}m ${segundos % 60}s`;
           }
           
-          // Atualiza o registro existente
           const { error: updateError } = await supabase
             .from('clientes_online')
             .update({
@@ -164,6 +186,7 @@ export default function useTrackUser() {
             console.log('❌ ERRO ao atualizar:', updateError.message);
           } else {
             console.log('✅ Registro ATUALIZADO - Tempo nesta página:', tempoFormatado);
+            console.log('📱 Origem:', isApp ? 'APP' : 'NAVEGADOR');
           }
         }
         
