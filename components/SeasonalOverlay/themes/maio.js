@@ -1,7 +1,7 @@
 const maioTheme = {
   id: 'maio',
   nome: 'Mês das Mães PMG 2026',
-  ativo: true, // DEIXE false ATÉ 01/05/2026
+  ativo: false, // DEIXE false ATÉ 01/05/2026
   
   // Cores temáticas do Mês das Mães
   cores: {
