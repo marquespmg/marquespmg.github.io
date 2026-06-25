@@ -210,73 +210,105 @@ const SeasonalOverlay = () => {
               {isDiaEspecial ? mensagemEspecial : theme.modal.mensagem}
             </p>
             
-            {/* QR CODE - Centralizado com SELOS */}
-            {theme.modal.qrCodeImage && (
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                margin: '20px 0'
-              }}>
-                <div style={{
-                  padding: '16px',
-                  backgroundColor: '#f8f9fa',
-                  borderRadius: '16px'
-                }}>
-                  <img 
-                    src={theme.modal.qrCodeImage} 
-                    alt="QR Code App PMG" 
-                    className="qr-code-image"
-                    style={{
-                      width: '200px',
-                      height: '200px',
-                      borderRadius: '12px',
-                      border: '4px solid #e9ecef',
-                      backgroundColor: 'white'
-                    }}
-                  />
-                </div>
-                
-                {/* SELOS DAS LOJAS - Abaixo do QR Code */}
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  gap: '16px',
-                  marginTop: '16px',
-                  flexWrap: 'wrap'
-                }}>
-                  {/* Google Play - Disponível */}
-                  {theme.modal.googlePlayImage && (
-                    <img 
-                      src={theme.modal.googlePlayImage} 
-                      alt="Disponível na Google Play" 
-                      className="store-badge"
-                      style={{
-                        height: '55px',
-                        width: 'auto',
-                        borderRadius: '8px'
-                      }}
-                    />
-                  )}
-                  
-                  {/* App Store - Em breve */}
-                  {theme.modal.appStoreImage && (
-                    <img 
-                      src={theme.modal.appStoreImage} 
-                      alt="Em breve na App Store" 
-                      className="store-badge"
-                      style={{
-                        height: '55px',
-                        width: 'auto',
-                        borderRadius: '8px',
-                        opacity: '0.7'
-                      }}
-                    />
-                  )}
-                </div>
-              </div>
-            )}
+{/* QR CODE - Centralizado com LINK e SELOS */}
+{theme.modal.qrCodeImage && (
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    margin: '20px 0'
+  }}>
+    <div style={{
+      padding: '16px',
+      backgroundColor: '#f8f9fa',
+      borderRadius: '16px'
+    }}>
+      <img 
+        src={theme.modal.qrCodeImage} 
+        alt="QR Code App PMG" 
+        className="qr-code-image"
+        style={{
+          width: '200px',
+          height: '200px',
+          borderRadius: '12px',
+          border: '4px solid #e9ecef',
+          backgroundColor: 'white'
+        }}
+      />
+    </div>
+    
+    {/* LINK DO APP - Entre o QR Code e os selos */}
+    {theme.modal.appLink && (
+      <div style={{
+        marginTop: '12px',
+        marginBottom: '8px'
+      }}>
+        <a 
+          href={theme.modal.appLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: theme.cores.vermelho,
+            fontSize: '14px',
+            fontWeight: '500',
+            textDecoration: 'underline',
+            wordBreak: 'break-all'
+          }}
+        >
+          🔗 Clique aqui para baixar
+        </a>
+      </div>
+    )}
+    
+    {/* SELOS DAS LOJAS - Abaixo do link */}
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      gap: '16px',
+      marginTop: '8px',
+      flexWrap: 'wrap'
+    }}>
+      {/* Google Play - Disponível */}
+      {theme.modal.googlePlayImage && (
+        <a 
+          href={theme.modal.appLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img 
+            src={theme.modal.googlePlayImage} 
+            alt="Disponível na Google Play" 
+            className="store-badge"
+            style={{
+              height: '55px',
+              width: 'auto',
+              borderRadius: '8px',
+              cursor: 'pointer'
+            }}
+          />
+        </a>
+      )}
+      
+      {/* App Store - Em breve */}
+      {theme.modal.appStoreImage && (
+        <div>
+          <img 
+            src={theme.modal.appStoreImage} 
+            alt="Em breve na App Store" 
+            className="store-badge"
+            style={{
+              height: '55px',
+              width: 'auto',
+              borderRadius: '8px',
+              opacity: '0.7'
+            }}
+          />
+        </div>
+      )}
+    </div>
+  </div>
+)}
             
             {/* SUBTÍTULO / OFERTA */}
             <p style={{
