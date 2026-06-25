@@ -17,7 +17,7 @@ const appQrCodeTheme = {
   modal: {
     titulo: ' Baixe nosso app!',
     mensagem: '📱 Faça seu pedido em 1 minuto! Com o App PMG, você faz seu pedido rápido, sem filas e sem espera.',
-    subtitulo: 'Marques Vendas PMG - Facilidade que chega até você\nDisponível para Android (em breve iOS)',
+    subtitulo: 'Marques Vendas PMG - Trazendo facilidade pra você\nDisponível para Android (em breve iOS)',
     botao: 'Continuar para o site',
     mostrar: true,
     qrCodeImage: '/qrcodeapp.png',
@@ -25,12 +25,14 @@ const appQrCodeTheme = {
     googlePlayImage: '/google-play-badge.png',
     appStoreImage: '/app-store-badge.png',
     // Emoji decorativo do modal
-    emojiDecorativo: '✨'
+    emojiDecorativo: '✨',
+    // LINK DO APP NA GOOGLE PLAY
+    appLink: 'https://play.google.com/store/apps/details?id=com.marquesantonio.marquesvendaspmg'
   },
   
   // Emojis temáticos do App
   emojis: [
-    { emoji: '✨', nome: 'Smartphone' },
+    { emoji: '📱', nome: 'Smartphone' },
     { emoji: '📲', nome: 'Baixar App' },
     { emoji: '⭐', nome: 'Estrela' },
     { emoji: '✨', nome: 'Brilho' },
