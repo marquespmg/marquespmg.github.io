@@ -1,17 +1,21 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import junhoTheme from './themes/junho';
+import appQrCodeTheme from './themes/appQrCode';
 import fechaMesTheme from './themes/fechaMes';
 
 // ========== FUNÇÃO PARA ESCOLHER O TEMA ATIVO (PRIORIDADE MANUAL) ==========
 const getThemeAtivo = () => {
-  // PRIORIDADE MÁXIMA: Se Fecha Mês estiver ativo MANUALMENTE, usa ele
+  // PRIORIDADE 1: App QR Code (se ativo)
+  if (appQrCodeTheme.ativo) {
+    return appQrCodeTheme;
+  }
+  // PRIORIDADE 2: Fecha Mês (se ativo)
   if (fechaMesTheme.ativo) {
     return fechaMesTheme;
   }
-  // Senão, usa o tema normal do mês
-  return junhoTheme;
+  // PRIORIDADE 3: Se nenhum estiver ativo, retorna null (não mostra nada)
+  return null;
 };
 // ========== FIM ==========
 
@@ -27,7 +31,7 @@ const isRunningInApp = () => {
 // ========== FIM ==========
 
 const SeasonalOverlay = () => {
-  // Escolhe o tema automaticamente (prioridade para Fecha Mês se ativo)
+  // Escolhe o tema automaticamente (prioridade: App QR Code > Fecha Mês > Nada)
   const theme = getThemeAtivo();
   const [showModal, setShowModal] = useState(false);
   const [showEmoji, setShowEmoji] = useState(false);
@@ -43,7 +47,8 @@ const SeasonalOverlay = () => {
     return null;
   }
 
-  if (!theme.ativo) return null;
+  // Se não tiver tema ativo, NÃO RENDERIZA NADA
+  if (!theme || !theme.ativo) return null;
 
   // Verifica se é dia especial (apenas para temas que têm essa propriedade)
   const hoje = new Date().toISOString().split('T')[0];
@@ -159,7 +164,7 @@ const SeasonalOverlay = () => {
 
   return (
     <>
-      {/* MODAL DE BOAS-VINDAS */}
+      {/* MODAL DE BOAS-VINDAS COM QR CODE */}
       {showModal && (
         <div style={{
           position: 'fixed',
@@ -205,12 +210,81 @@ const SeasonalOverlay = () => {
               {isDiaEspecial ? mensagemEspecial : theme.modal.mensagem}
             </p>
             
+            {/* QR CODE - Centralizado com SELOS */}
+            {theme.modal.qrCodeImage && (
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                margin: '20px 0'
+              }}>
+                <div style={{
+                  padding: '16px',
+                  backgroundColor: '#f8f9fa',
+                  borderRadius: '16px'
+                }}>
+                  <img 
+                    src={theme.modal.qrCodeImage} 
+                    alt="QR Code App PMG" 
+                    className="qr-code-image"
+                    style={{
+                      width: '200px',
+                      height: '200px',
+                      borderRadius: '12px',
+                      border: '4px solid #e9ecef',
+                      backgroundColor: 'white'
+                    }}
+                  />
+                </div>
+                
+                {/* SELOS DAS LOJAS - Abaixo do QR Code */}
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '16px',
+                  marginTop: '16px',
+                  flexWrap: 'wrap'
+                }}>
+                  {/* Google Play - Disponível */}
+                  {theme.modal.googlePlayImage && (
+                    <img 
+                      src={theme.modal.googlePlayImage} 
+                      alt="Disponível na Google Play" 
+                      className="store-badge"
+                      style={{
+                        height: '55px',
+                        width: 'auto',
+                        borderRadius: '8px'
+                      }}
+                    />
+                  )}
+                  
+                  {/* App Store - Em breve */}
+                  {theme.modal.appStoreImage && (
+                    <img 
+                      src={theme.modal.appStoreImage} 
+                      alt="Em breve na App Store" 
+                      className="store-badge"
+                      style={{
+                        height: '55px',
+                        width: 'auto',
+                        borderRadius: '8px',
+                        opacity: '0.7'
+                      }}
+                    />
+                  )}
+                </div>
+              </div>
+            )}
+            
             {/* SUBTÍTULO / OFERTA */}
             <p style={{
               fontSize: '14px',
               color: '#666',
               marginBottom: '25px',
-              fontStyle: 'italic'
+              fontStyle: 'italic',
+              whiteSpace: 'pre-line'
             }}>
               {isDiaEspecial ? ofertaEspecial : theme.modal.subtitulo}
             </p>
@@ -249,7 +323,7 @@ const SeasonalOverlay = () => {
               fontSize: '50px',
               animation: 'bounce 3s infinite'
             }}>
-              {isDiaEspecial ? '🎉' : theme.emojis[0]?.emoji || '🎉'}
+              {isDiaEspecial ? '🎉' : theme.modal.emojiDecorativo || theme.emojis[0]?.emoji || '📱'}
             </div>
           </div>
         </div>
@@ -418,6 +492,15 @@ const SeasonalOverlay = () => {
           .modal-title {
             font-size: 24px !important;
           }
+          
+          .qr-code-image {
+            width: 150px !important;
+            height: 150px !important;
+          }
+          
+          .store-badge {
+            height: 45px !important;
+          }
         }
         
         @media (max-width: 480px) {
@@ -429,6 +512,15 @@ const SeasonalOverlay = () => {
             font-size: 10px !important;
             max-width: 110px !important;
             white-space: normal !important;
+          }
+          
+          .qr-code-image {
+            width: 120px !important;
+            height: 120px !important;
+          }
+          
+          .store-badge {
+            height: 38px !important;
           }
         }
       `}</style>
