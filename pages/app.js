@@ -26,7 +26,7 @@ export default function AppPage() {
     googlePlayBadge: '/google-play-badge.png',
     appStoreBadge: '/app-store-badge.png',
     cores: {
-      verde: '#1e5c3b',
+      verde: '#095400',
       vermelho: '#ff0000',
       dourado: '#ffd700',
       cinza: '#f5f5f5'
