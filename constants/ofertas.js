@@ -1,7 +1,5 @@
 // constants/ofertas.js
 export const featuredProducts = [
-  { id: 533, name: 'CARNE SECA BOVINA CONGELADA DESFIADA ALFAMA 1 KILO', category: 'Ofertas', price: 63.90, image: 'https://www.marquesvendaspmg.shop/images/carne-seca-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
-  { id: 546, name: 'COSTELA BOVINA CONGELADA DESFIADA ALFAMA 1 KILO', category: 'Ofertas', price: 63.90, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-desfiada-alfama-1-kg-pmg-atacadista.jpg' },
   { id: 2180, name: 'FEIJÃO CARIOCA TIPO 1 BIG VALLEY 1 KILO (FDO 10 PCT)', category: 'Ofertas', price: 84.99, image: 'https://www.marquesvendaspmg.shop/images/feijao-carioca-tipo-1-big-valley.png' },
   { id: 1487, name: 'AÇÚCAR REFINADO UNIÃO 1 KILO (FDO 10 PCT)', category: 'Ofertas', price: 39.00, image: 'https://www.marquesvendaspmg.shop/images/acucar-refinado-uniao-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
   { id: 1224, name: 'CAFÉ EXTRA FORTE ALMOFADA UNIÃO 500 G (CX 10 PCT)', category: 'Ofertas', price: 242.00, image: 'https://www.marquesvendaspmg.shop/images/cafe-extra-forte-almofada-uniao-500-g-cx-10-pct-pmg-atacadista.jpg' },
