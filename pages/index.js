@@ -9,18 +9,18 @@ export default function Home() {
   const banners = [
     { 
       id: 1,
+      desktop: 'https://i.imgur.com/5Xts5Ph.png',
+      mobile: 'https://i.imgur.com/5Xts5Ph.png'
+    },
+    { 
+      id: 2,
       desktop: 'https://i.imgur.com/MiXi0pu.png',
       mobile: 'https://i.imgur.com/MiXi0pu.png'
     },
     { 
-      id: 2,
-      desktop: 'https://i.imgur.com/ivorfK2.png',
-      mobile: 'https://i.imgur.com/ivorfK2.png'
-    },
-    { 
       id: 3,
-      desktop: 'https://i.imgur.com/ennvys5.png',
-      mobile: 'https://i.imgur.com/ennvys5.png'
+      desktop: 'https://i.imgur.com/6aEBScN.png',
+      mobile: 'https://i.imgur.com/6aEBScN.png'
     },
     { 
       id: 4,
@@ -29,13 +29,13 @@ export default function Home() {
     },
     { 
       id: 5,
-      desktop: 'https://i.imgur.com/fRuEjY3.png',
-      mobile: 'https://i.imgur.com/fRuEjY3.png'
+      desktop: 'https://i.imgur.com/CMQslCd.png',
+      mobile: 'https://i.imgur.com/CMQslCd.png'
     },
     { 
       id: 6,
-      desktop: 'https://i.imgur.com/JD4UqWo.png',
-      mobile: 'https://i.imgur.com/JD4UqWo.png'
+      desktop: 'https://i.imgur.com/QYaPsI8.png',
+      mobile: 'https://i.imgur.com/QYaPsI8.png'
     }
   ];
 
