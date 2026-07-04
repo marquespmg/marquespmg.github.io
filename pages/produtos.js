@@ -2912,6 +2912,9 @@ const ProductsPage = () => {
   
   // ========== NOVO: Estado para contar pedidos do usuário ========== //
   const [pedidosCount, setPedidosCount] = useState(0);
+  // ========== MAPA DE PRODUTOS (ID SITE -> ID PMG) ========== //
+  const [productMap, setProductMap] = useState({});
+  const [loadingMap, setLoadingMap] = useState(true);
   
   // Carrega o carrinho do localStorage quando a página monta
   useEffect(() => {
@@ -3633,6 +3636,31 @@ useEffect(() => {
   }
 }, []);
 
+// ========== CARREGAR MAPA DE PRODUTOS (ID SITE -> ID PMG) ========== //
+useEffect(() => {
+  const loadProductMap = async () => {
+    try {
+      const response = await fetch('/mapa.json');
+      if (response.ok) {
+        const data = await response.json();
+        const mapObj = {};
+        data.forEach(item => {
+          mapObj[item.idSite] = item.idPMG;
+        });
+        setProductMap(mapObj);
+        console.log('✅ Mapa carregado:', Object.keys(mapObj).length, 'itens');
+      } else {
+        console.warn('⚠️ mapa.json não encontrado');
+      }
+    } catch (error) {
+      console.error('❌ Erro ao carregar mapa:', error);
+    } finally {
+      setLoadingMap(false);
+    }
+  };
+  loadProductMap();
+}, []);
+
 // ========== NOVO: CARREGAR DIAS DE ENTREGA ========== //
 useEffect(() => {
   const loadDeliveryData = async () => {
@@ -4246,11 +4274,23 @@ const filteredProducts = uniqueProducts
   .filter(product => {
     const searchTermTrimmed = searchTerm.trim();
     
-    // 1. SE HÁ BUSCA: pesquisa em todos os produtos
+    // 1. SE HÁ BUSCA: pesquisa por NOME ou ID EXATO
     if (searchTermTrimmed !== '') {
       const searchLower = searchTermTrimmed.toLowerCase();
       const productNameLower = product.name.toLowerCase();
-      return productNameLower.includes(searchLower);
+      
+      // 🔥 BUSCA POR ID DO SITE - EXATO
+      const matchesIdSite = product.id.toString() === searchTermTrimmed;
+      
+      // 🔥 BUSCA POR ID PMG (via mapa) - EXATO
+      const idPMG = productMap[product.id];
+      const matchesIdPMG = idPMG && idPMG.toString() === searchTermTrimmed;
+      
+      // 🔥 BUSCA POR NOME (continua igual, com "contains")
+      const matchesName = productNameLower.includes(searchLower);
+      
+      // Retorna true se encontrar por ID EXATO ou por NOME
+      return matchesIdSite || matchesIdPMG || matchesName;
     }
     
     // 2. SE NÃO HÁ BUSCA: filtra por categoria
@@ -4261,12 +4301,10 @@ const filteredProducts = uniqueProducts
       return product.category === '⏳ Ofertas da Semana 🚨';
     }
     
-    // ⭐ SÓ FILTRA POR CAMPANHA SE ESTIVER ATIVA
     if (isCampanhaCategory && CAMPANHA_COMPRE_E_GANHE.ativa) {
       return PRODUTOS_CAMPANHA.includes(product.id);
     }
     
-    // ⭐ SE A CAMPANHA NÃO ESTIVER ATIVA, NÃO MOSTRA PRODUTOS DA CATEGORIA
     if (isCampanhaCategory && !CAMPANHA_COMPRE_E_GANHE.ativa) {
       return false;
     }
