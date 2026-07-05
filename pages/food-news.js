@@ -1259,34 +1259,42 @@ const ArticleIndex = () => {
 
   return (
     <>
-      <Head key={`page-${currentPage}`}>
-        <title>{currentArticle ? `${currentArticle.title} | PMG Atacadista` : 'Blog PMG Atacadista'}</title>
-        <meta name="description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
-        
-        <meta property="og:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
-        <meta property="og:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
-        <meta property="og:image" content={currentArticle?.image ? `https://www.marquesvendaspmg.shop${currentArticle.image}` : "https://i.imgur.com/OnyaPpF.png"} />
-        <meta property="og:url" content={`https://www.marquesvendaspmg.shop${getArticleUrl(currentArticle)}`} />
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Marques Vendas PMG" />
-        
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
-        <meta name="twitter:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
-        <meta  name="twitter:image"  content={currentArticle?.image ? `https://www.marquesvendaspmg.shop${currentArticle.image}` : "https://i.imgur.com/OnyaPpF.png"} />        
-        
-        {/* URL CANÔNICA COM SLUG AMIGÁVEL */}
-        <link 
-          rel="canonical" 
-          href={`https://www.marquesvendaspmg.shop${getArticleUrl(currentArticle)}`} 
-        />
-        
-        {/* SCHEMA MARKUP LOCALBUSINESS */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
-      </Head>
+<Head key={`page-${currentPage}`}>
+  <title>{currentArticle ? `${currentArticle.title} | PMG Atacadista` : 'Blog PMG Atacadista'}</title>
+  <meta name="description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
+  
+  <meta property="og:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
+  <meta property="og:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
+  
+  {/* 🔥 IMAGEM DO ARTIGO - SEM FALLBACK */}
+  <meta property="og:image" content={currentArticle?.image ? `https://www.marquesvendaspmg.shop${currentArticle.image}` : ""} />
+  
+  {/* 🔥 NOVAS TAGS OBRIGATÓRIAS PARA O WHATSAPP */}
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:secure_url" content={currentArticle?.image ? `https://www.marquesvendaspmg.shop${currentArticle.image}` : ""} />
+  
+  <meta property="og:url" content={`https://www.marquesvendaspmg.shop${getArticleUrl(currentArticle)}`} />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Marques Vendas PMG" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={currentArticle ? currentArticle.title : "Blog PMG Atacadista"} />
+  <meta name="twitter:description" content={currentArticle ? currentArticle.description : "Blog PMG Atacadista"} />
+  <meta name="twitter:image" content={currentArticle?.image ? `https://www.marquesvendaspmg.shop${currentArticle.image}` : ""} />
+  
+  {/* URL CANÔNICA COM SLUG AMIGÁVEL */}
+  <link 
+    rel="canonical" 
+    href={`https://www.marquesvendaspmg.shop${getArticleUrl(currentArticle)}`} 
+  />
+  
+  {/* SCHEMA MARKUP LOCALBUSINESS */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+  />
+</Head>
 
       {/* ESTILOS GLOBAIS LIMPOS */}
       <style jsx global>{`
