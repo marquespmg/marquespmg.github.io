@@ -31,7 +31,7 @@ const CAMPANHA_CONFIG = {
 // ==============================================
 
 // ✅ Array com IDs dos produtos em oferta
-const PRODUTOS_EM_OFERTA = [ 2180, 1487, 1224, 615, 1201, 1753, 922, 970];
+const PRODUTOS_EM_OFERTA = [1487, 615, 1753, 2368, 2485, 2549, 2649, 2662, 2666, 2667];
 
 // ✅ Configuração dos cupons
 const CUPONS = {
