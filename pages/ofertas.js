@@ -140,15 +140,16 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 1487, name: 'AÇÚCAR REFINADO UNIÃO 1 KILO (FDO 10 PCT)', category: 'Ofertas', price: 39.00, image: 'https://www.marquesvendaspmg.shop/images/acucar-refinado-uniao-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
-  { id: 615, name: 'CHEDDAR FATIADO PROCESSADO 160 FATIAS VIGOR 2,24 KILO', category: 'Ofertas', price: 88.13, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fatiado-processado-160-fatias-vigor-224-kilo-pmg-atacadista.jpg' },
-  { id: 1753, name: 'FARINHA DE TRIGO PIZZA SUPREMA BUNGE 5 KILO (FDO 25 KILO)', category: 'Ofertas', price: 75.20, image: 'https://www.marquesvendaspmg.shop/images/farinha-de-trigo-pizza-suprema-bunge-5-kilo-fdo-25-kilo-pmg-atacadista.jpg' },
-  { id: 2485, name: 'COSTELA BOVINA COM OSSO CONGELADA EM CUBOS ALFAMA 2 KILO', category: 'Ofertas', price: 72.37, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-com-osso-congelada-em-cubos-alfama-2-kg-cx-3-pct.webp' },
-  { id: 2549, name: 'FILÉ MIGNON BOVINO CONGELADO EM CUBOS ALFAMA 2 KILO', category: 'Ofertas', price: 195.98, image: 'https://www.marquesvendaspmg.shop/images/file-mignon-bovino-congelado-em-cubos-alfama-2-kg-cx-3-pct.webp' },
-  { id: 2649, name: 'PALETA BOVINA CONGELADA EM BIFE ALFAMA 2 KILO', category: 'Ofertas', price: 90.46, image: 'https://www.marquesvendaspmg.shop/images/paleta-bovina-congelada-em-bife-alfama-2-kg-cx-3-pct.webp' },
-  { id: 2662, name: 'PATINHO BOVINO CONGELADO EM CUBOS ALFAMA 2 KILO', category: 'Ofertas', price: 94.47, image: 'https://www.marquesvendaspmg.shop/images/patinho-bovino-congelado-em-cubos-alfama-2-kg-cx-3-pct.webp' },
-  { id: 2666, name: 'PEITO DE FRANGO CONGELADO EM CUBOS ALFAMA 2 KILO (CX 3 PCT)', category: 'Ofertas', price: 100.49, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-em-cubos-alfama-2-kg-cx-3-pct.webp' },
-  { id: 2667, name: 'PEITO DE FRANGO CONGELADO EM TIRAS ALFAMA 2 KILO (CX 3 PCT)', category: 'Ofertas', price: 100.49, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-em-tiras-alfama-2-kg-cx-3-pct.webp' },
+  { id: 2749, name: 'SUCO PEQUENO SUFRESH MARACUJÁ 200 ML (CX 27 UN)', category: 'Ofertas', price: 70.99, image: 'https://www.marquesvendaspmg.shop/images/suco-pequeno-sufresh-maracuja-200-ml-cx-27-un.webp' },
+  { id: 2750, name: 'SUCO PEQUENO SUFRESH UVA 200 ML (CX 27 UN)', category: 'Ofertas', price: 70.99, image: 'https://www.marquesvendaspmg.shop/images/suco-pequeno-sufresh-uva-200-ml-cx-27-un.webp' },
+  { id: 2751, name: 'SUCO SUFRESH MARACUJÁ LATA 265 ML (PCT 12 LT)', category: 'Ofertas', price: 53.67, image: 'https://www.marquesvendaspmg.shop/images/suco-sufresh-maracuja-lata-265-ml-pct-12-lt.webp' },
+  { id: 2752, name: 'SUCO SUFRESH UVA LATA 265 ML (PCT 12 LT)', category: 'Ofertas', price: 53.67, image: 'https://www.marquesvendaspmg.shop/images/suco-sufresh-uva-lata-265-ml-pct-12-lt.webp' },
+  { id: 2745, name: 'ÓLEO DE SOJA FRY 300 COAMO (BD 15,8 L)', category: 'Ofertas', price: 147, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-fry-300-coamo-bd-158-l.webp' },
+  { id: 1282, name: 'GORDURA VEGETAL FRY 400 COAMO (BD 14,5 KILO)', category: 'Ofertas', price: 159.99, image: 'https://www.marquesvendaspmg.shop/images/gordura-vegetal-fry-400-coamo-bd-145-kilo-pmg-atacadista.jpg' },
+  { id: 1124, name: 'AZEITE DE OLIVA GRANDE EXTRA VIRGEM GALLO 5 L', category: 'Ofertas', price: 263.00, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-grande-extra-virgem-gallo-5-l-cx-2-gl-pmg-atacadista.jpg' },
+  { id: 1571, name: 'CREME DE AVELÃ GRANDE COM CACAU FOOD SERVICE NUTELLA 3 KILO', category: 'Ofertas', price: 202.99, image: 'https://www.marquesvendaspmg.shop/images/creme-de-avela-grande-com-cacau-food-service-nutella-3-kilo-pmg-atacadista.jpg' },
+  { id: 1562, name: 'COBERTURA PARA SORVETE CHOCOLATE MARVI 1,01 KILO', category: 'Ofertas', price: 26.9, image: 'https://www.marquesvendaspmg.shop/images/cobertura-para-sorvete-chocolate-marvi-101-kilo-pmg-atacadista.jpg' },
+  { id: 1564, name: 'COBERTURA PARA SORVETE MORANGO MARVI 1 KILO', category: 'Ofertas', price: 19.40, image: 'https://www.marquesvendaspmg.shop/images/cobertura-para-sorvete-morango-marvi-1-kilo-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
