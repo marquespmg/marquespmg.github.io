@@ -45,13 +45,13 @@
     "success": true
   },
   "13": {
-    "validade": "10/09/2026",
-    "lote": null,
+    "validade": "28/09/2026",
+    "lote": "222",
     "success": true
   },
   "14": {
-    "validade": "27/08/2026",
-    "lote": "26",
+    "validade": "07/09/2026",
+    "lote": "07",
     "success": true
   },
   "16": {
@@ -66,7 +66,7 @@
   },
   "19": {
     "validade": "16/10/2026",
-    "lote": "2810",
+    "lote": "1610",
     "success": true
   },
   "20": {
@@ -85,13 +85,13 @@
     "success": true
   },
   "23": {
-    "validade": "30/10/2026",
-    "lote": "25",
+    "validade": "14/11/2026",
+    "lote": "14",
     "success": true
   },
   "24": {
-    "validade": "07/09/2026",
-    "lote": null,
+    "validade": "23/10/2026",
+    "lote": "2310",
     "success": true
   },
   "25": {
@@ -100,7 +100,7 @@
     "success": true
   },
   "27": {
-    "validade": "20/08/2026",
+    "validade": "02/09/2026",
     "lote": null,
     "success": true
   },
@@ -140,18 +140,18 @@
     "success": true
   },
   "42": {
-    "validade": "10/09/2026",
-    "lote": null,
+    "validade": "08/10/2026",
+    "lote": "6133",
     "success": true
   },
   "43": {
-    "validade": "25/08/2026",
-    "lote": "427270526",
+    "validade": "06/09/2026",
+    "lote": "427080626",
     "success": true
   },
   "48": {
-    "validade": "15/12/2026",
-    "lote": "260619",
+    "validade": "23/12/2026",
+    "lote": "4526062611",
     "success": true
   },
   "51": {
@@ -165,8 +165,8 @@
     "success": true
   },
   "61": {
-    "validade": "13/08/2026",
-    "lote": "3011",
+    "validade": "22/08/2026",
+    "lote": "0426060521",
     "success": true
   },
   "62": {
@@ -175,13 +175,13 @@
     "success": true
   },
   "66": {
-    "validade": "02/09/2026",
-    "lote": "20260604",
+    "validade": "17/09/2026",
+    "lote": "20260619",
     "success": true
   },
   "67": {
-    "validade": "08/09/2026",
-    "lote": "260610",
+    "validade": "10/09/2026",
+    "lote": "0126061231",
     "success": true
   },
   "68": {
@@ -210,8 +210,8 @@
     "success": true
   },
   "92": {
-    "validade": "14/10/2026",
-    "lote": "758",
+    "validade": "24/10/2026",
+    "lote": "770",
     "success": true
   },
   "97": {
@@ -225,8 +225,8 @@
     "success": true
   },
   "103": {
-    "validade": "18/10/2026",
-    "lote": "165",
+    "validade": "30/10/2026",
+    "lote": "177",
     "success": true
   },
   "105": {
@@ -245,8 +245,8 @@
     "success": true
   },
   "112": {
-    "validade": "20/09/2026",
-    "lote": "2306",
+    "validade": "27/09/2026",
+    "lote": "027",
     "success": true
   },
   "113": {
@@ -270,13 +270,13 @@
     "success": true
   },
   "130": {
-    "validade": null,
-    "lote": null,
+    "validade": "04/10/2026",
+    "lote": "040726",
     "success": true
   },
   "133": {
-    "validade": "29/07/2026",
-    "lote": "05",
+    "validade": "03/08/2026",
+    "lote": "07",
     "success": true
   },
   "138": {
@@ -290,13 +290,13 @@
     "success": true
   },
   "141": {
-    "validade": "06/11/2026",
-    "lote": "010906",
+    "validade": "10/11/2026",
+    "lote": "021306",
     "success": true
   },
   "142": {
-    "validade": "13/09/2026",
-    "lote": "192605",
+    "validade": "28/09/2026",
+    "lote": "4226061811",
     "success": true
   },
   "143": {
@@ -305,8 +305,8 @@
     "success": true
   },
   "144": {
-    "validade": "07/10/2026",
-    "lote": "260609",
+    "validade": "18/10/2026",
+    "lote": "05262011",
     "success": true
   },
   "145": {
@@ -330,8 +330,8 @@
     "success": true
   },
   "163": {
-    "validade": "27/07/2026",
-    "lote": null,
+    "validade": "11/08/2026",
+    "lote": "120626",
     "success": true
   },
   "164": {
@@ -345,8 +345,8 @@
     "success": true
   },
   "166": {
-    "validade": "30/07/2026",
-    "lote": null,
+    "validade": "11/10/2026",
+    "lote": "261011",
     "success": true
   },
   "167": {
@@ -361,17 +361,17 @@
   },
   "169": {
     "validade": "17/02/2027",
-    "lote": "72",
+    "lote": "85",
     "success": true
   },
   "172": {
-    "validade": "19/10/2026",
-    "lote": "260619",
+    "validade": "24/10/2026",
+    "lote": "3486",
     "success": true
   },
   "173": {
-    "validade": "18/02/2027",
-    "lote": "56",
+    "validade": "03/03/2027",
+    "lote": "66",
     "success": true
   },
   "174": {
@@ -385,8 +385,8 @@
     "success": true
   },
   "179": {
-    "validade": "02/09/2026",
-    "lote": "260605",
+    "validade": "03/09/2026",
+    "lote": "07",
     "success": true
   },
   "183": {
@@ -410,18 +410,18 @@
     "success": true
   },
   "193": {
-    "validade": "12/12/2026",
-    "lote": "02",
+    "validade": "07/12/2026",
+    "lote": "01",
     "success": true
   },
   "194": {
     "validade": "13/04/2027",
-    "lote": "130426",
+    "lote": "13042601",
     "success": true
   },
   "196": {
-    "validade": "13/04/2027",
-    "lote": "287",
+    "validade": "13/05/2027",
+    "lote": "306",
     "success": true
   },
   "201": {
@@ -430,8 +430,8 @@
     "success": true
   },
   "204": {
-    "validade": "07/02/2027",
-    "lote": null,
+    "validade": "16/01/2027",
+    "lote": "091205265",
     "success": true
   },
   "207": {
@@ -440,8 +440,8 @@
     "success": true
   },
   "208": {
-    "validade": "02/12/2026",
-    "lote": "0506",
+    "validade": "03/12/2026",
+    "lote": "0606",
     "success": true
   },
   "218": {
@@ -471,12 +471,12 @@
   },
   "229": {
     "validade": null,
-    "lote": "0807",
+    "lote": null,
     "success": true
   },
   "230": {
     "validade": null,
-    "lote": null,
+    "lote": "1307",
     "success": true
   },
   "231": {
@@ -545,13 +545,13 @@
     "success": true
   },
   "256": {
-    "validade": "16/06/2027",
-    "lote": "260616",
+    "validade": "18/06/2027",
+    "lote": "180626",
     "success": true
   },
   "257": {
-    "validade": "09/08/2026",
-    "lote": "0926",
+    "validade": "19/08/2026",
+    "lote": "060726",
     "success": true
   },
   "259": {
@@ -585,8 +585,8 @@
     "success": true
   },
   "271": {
-    "validade": "22/07/2026",
-    "lote": null,
+    "validade": "17/08/2026",
+    "lote": "811",
     "success": true
   },
   "274": {
@@ -611,7 +611,7 @@
   },
   "280": {
     "validade": "28/11/2027",
-    "lote": "281127",
+    "lote": "148126",
     "success": true
   },
   "307": {
@@ -625,8 +625,8 @@
     "success": true
   },
   "310": {
-    "validade": "04/01/2027",
-    "lote": "0401",
+    "validade": "06/01/2027",
+    "lote": "060125",
     "success": true
   },
   "311": {
@@ -640,8 +640,8 @@
     "success": true
   },
   "316": {
-    "validade": "01/11/2026",
-    "lote": "06",
+    "validade": "03/12/2026",
+    "lote": "26",
     "success": true
   },
   "318": {
@@ -650,8 +650,8 @@
     "success": true
   },
   "319": {
-    "validade": "08/08/2026",
-    "lote": "21",
+    "validade": "15/08/2026",
+    "lote": "413341",
     "success": true
   },
   "322": {
@@ -660,8 +660,8 @@
     "success": true
   },
   "326": {
-    "validade": "20/03/2028",
-    "lote": null,
+    "validade": "30/04/2028",
+    "lote": "5478",
     "success": true
   },
   "333": {
@@ -680,8 +680,8 @@
     "success": true
   },
   "342": {
-    "validade": "18/06/2027",
-    "lote": null,
+    "validade": "19/06/2027",
+    "lote": "119",
     "success": true
   },
   "351": {
@@ -711,7 +711,7 @@
   },
   "365": {
     "validade": null,
-    "lote": null,
+    "lote": "29526",
     "success": true
   },
   "368": {
@@ -720,8 +720,8 @@
     "success": true
   },
   "369": {
-    "validade": "21/12/2026",
-    "lote": "226044",
+    "validade": "31/12/2026",
+    "lote": "226046",
     "success": true
   },
   "370": {
@@ -730,8 +730,8 @@
     "success": true
   },
   "371": {
-    "validade": "28/07/2026",
-    "lote": "032904",
+    "validade": "06/09/2026",
+    "lote": "030806",
     "success": true
   },
   "372": {
@@ -815,8 +815,8 @@
     "success": true
   },
   "416": {
-    "validade": "27/12/2026",
-    "lote": "18626142",
+    "validade": "04/11/2027",
+    "lote": null,
     "success": true
   },
   "417": {
@@ -825,8 +825,8 @@
     "success": true
   },
   "419": {
-    "validade": "18/03/2027",
-    "lote": "262324",
+    "validade": "30/01/2027",
+    "lote": "3001",
     "success": true
   },
   "425": {
@@ -920,8 +920,8 @@
     "success": true
   },
   "473": {
-    "validade": "09/11/2026",
-    "lote": "2034",
+    "validade": "08/12/2026",
+    "lote": "110626",
     "success": true
   },
   "480": {
@@ -940,8 +940,8 @@
     "success": true
   },
   "496": {
-    "validade": "10/03/2028",
-    "lote": "1003",
+    "validade": "06/05/2028",
+    "lote": "0605",
     "success": true
   },
   "497": {
@@ -950,12 +950,12 @@
     "success": true
   },
   "499": {
-    "validade": "16/06/2027",
-    "lote": "26",
+    "validade": "03/07/2027",
+    "lote": "526000179",
     "success": true
   },
   "500": {
-    "validade": "16/06/2027",
+    "validade": "01/07/2027",
     "lote": "12024",
     "success": true
   },
@@ -966,7 +966,7 @@
   },
   "505": {
     "validade": "02/06/2027",
-    "lote": "85",
+    "lote": "25",
     "success": true
   },
   "506": {
@@ -975,8 +975,8 @@
     "success": true
   },
   "507": {
-    "validade": "12/06/2027",
-    "lote": "22",
+    "validade": "15/06/2027",
+    "lote": "46637",
     "success": true
   },
   "508": {
@@ -990,8 +990,8 @@
     "success": true
   },
   "519": {
-    "validade": "19/08/2026",
-    "lote": "111",
+    "validade": "01/09/2026",
+    "lote": "0126060311",
     "success": true
   },
   "523": {
@@ -1005,8 +1005,8 @@
     "success": true
   },
   "525": {
-    "validade": "09/09/2026",
-    "lote": "260611",
+    "validade": "15/09/2026",
+    "lote": "4226061811",
     "success": true
   },
   "529": {
@@ -1030,13 +1030,13 @@
     "success": true
   },
   "538": {
-    "validade": "17/08/2026",
-    "lote": "911190526",
+    "validade": "31/08/2026",
+    "lote": "911020626",
     "success": true
   },
   "539": {
-    "validade": "27/10/2026",
-    "lote": "5468",
+    "validade": "01/11/2026",
+    "lote": "505",
     "success": true
   },
   "541": {
@@ -1055,8 +1055,8 @@
     "success": true
   },
   "564": {
-    "validade": "21/05/2028",
-    "lote": "260522",
+    "validade": "24/05/2028",
+    "lote": "260525",
     "success": true
   },
   "568": {
@@ -1065,13 +1065,13 @@
     "success": true
   },
   "583": {
-    "validade": "03/08/2026",
-    "lote": "1176",
+    "validade": "09/08/2026",
+    "lote": "1179",
     "success": true
   },
   "584": {
-    "validade": "02/04/2027",
-    "lote": "09226062",
+    "validade": "24/03/2027",
+    "lote": "14826005",
     "success": true
   },
   "586": {
@@ -1080,7 +1080,7 @@
     "success": true
   },
   "587": {
-    "validade": "28/02/2028",
+    "validade": null,
     "lote": null,
     "success": true
   },
@@ -1100,8 +1100,8 @@
     "success": true
   },
   "595": {
-    "validade": "08/06/2027",
-    "lote": "2122",
+    "validade": "11/06/2027",
+    "lote": "222",
     "success": true
   },
   "597": {
@@ -1130,8 +1130,8 @@
     "success": true
   },
   "686": {
-    "validade": "16/05/2027",
-    "lote": "3226136",
+    "validade": "25/05/2027",
+    "lote": "5479",
     "success": true
   },
   "688": {
@@ -1180,8 +1180,8 @@
     "success": true
   },
   "716": {
-    "validade": "05/04/2027",
-    "lote": "40951325",
+    "validade": "11/03/2028",
+    "lote": "110326",
     "success": true
   },
   "721": {
@@ -1190,8 +1190,8 @@
     "success": true
   },
   "725": {
-    "validade": "27/05/2027",
-    "lote": "4091312022",
+    "validade": "09/06/2027",
+    "lote": "250609",
     "success": true
   },
   "735": {
@@ -1205,8 +1205,8 @@
     "success": true
   },
   "738": {
-    "validade": "31/07/2026",
-    "lote": "534",
+    "validade": "04/08/2026",
+    "lote": "579",
     "success": true
   },
   "741": {
@@ -1240,8 +1240,8 @@
     "success": true
   },
   "800": {
-    "validade": "21/12/2026",
-    "lote": "3510472",
+    "validade": "22/12/2026",
+    "lote": "3510759",
     "success": true
   },
   "802": {
@@ -1250,13 +1250,13 @@
     "success": true
   },
   "803": {
-    "validade": "09/12/2026",
-    "lote": "222",
+    "validade": "10/12/2026",
+    "lote": "22",
     "success": true
   },
   "804": {
-    "validade": "05/11/2026",
-    "lote": "0511",
+    "validade": "07/11/2026",
+    "lote": "060",
     "success": true
   },
   "805": {
@@ -1270,8 +1270,8 @@
     "success": true
   },
   "810": {
-    "validade": null,
-    "lote": null,
+    "validade": "01/05/2027",
+    "lote": "010726",
     "success": true
   },
   "829": {
@@ -1285,13 +1285,13 @@
     "success": true
   },
   "843": {
-    "validade": "04/09/2026",
+    "validade": "11/09/2026",
     "lote": "26",
     "success": true
   },
   "844": {
-    "validade": "06/05/2027",
-    "lote": "059",
+    "validade": "09/04/2027",
+    "lote": "081",
     "success": true
   },
   "846": {
@@ -1355,8 +1355,8 @@
     "success": true
   },
   "882": {
-    "validade": null,
-    "lote": null,
+    "validade": "15/10/2026",
+    "lote": "1508436",
     "success": true
   },
   "883": {
@@ -1375,8 +1375,8 @@
     "success": true
   },
   "886": {
-    "validade": "19/05/2027",
-    "lote": "2212",
+    "validade": "28/05/2027",
+    "lote": "287592",
     "success": true
   },
   "887": {
@@ -1415,8 +1415,8 @@
     "success": true
   },
   "910": {
-    "validade": "17/09/2026",
-    "lote": "190626",
+    "validade": "25/09/2026",
+    "lote": "2476",
     "success": true
   },
   "911": {
@@ -1535,8 +1535,8 @@
     "success": true
   },
   "992": {
-    "validade": "22/10/2026",
-    "lote": null,
+    "validade": "26/11/2026",
+    "lote": "0626",
     "success": true
   },
   "993": {
@@ -1560,8 +1560,8 @@
     "success": true
   },
   "1002": {
-    "validade": "22/09/2026",
-    "lote": "6160",
+    "validade": "28/08/2026",
+    "lote": "5486",
     "success": true
   },
   "1004": {
@@ -1590,18 +1590,18 @@
     "success": true
   },
   "1011": {
-    "validade": "10/05/2027",
+    "validade": "17/05/2027",
     "lote": "020526",
     "success": true
   },
   "1012": {
-    "validade": "05/04/2027",
-    "lote": "010426",
+    "validade": "20/04/2027",
+    "lote": "4864",
     "success": true
   },
   "1013": {
     "validade": "03/05/2027",
-    "lote": "5238",
+    "lote": "010526",
     "success": true
   },
   "1016": {
@@ -1625,8 +1625,8 @@
     "success": true
   },
   "1026": {
-    "validade": "14/11/2026",
-    "lote": "1411",
+    "validade": "16/11/2026",
+    "lote": "1611",
     "success": true
   },
   "1027": {
@@ -1640,8 +1640,8 @@
     "success": true
   },
   "1033": {
-    "validade": "03/02/2027",
-    "lote": "255",
+    "validade": "21/03/2027",
+    "lote": "22",
     "success": true
   },
   "1034": {
@@ -1650,8 +1650,8 @@
     "success": true
   },
   "1038": {
-    "validade": "12/02/2027",
-    "lote": "132",
+    "validade": "02/03/2027",
+    "lote": "153",
     "success": true
   },
   "1041": {
@@ -1671,7 +1671,7 @@
   },
   "1045": {
     "validade": "24/05/2027",
-    "lote": "5376",
+    "lote": null,
     "success": true
   },
   "1046": {
@@ -1700,8 +1700,8 @@
     "success": true
   },
   "1083": {
-    "validade": "19/12/2026",
-    "lote": "173",
+    "validade": "21/12/2026",
+    "lote": "175",
     "success": true
   },
   "1085": {
@@ -1710,8 +1710,8 @@
     "success": true
   },
   "1087": {
-    "validade": "28/07/2026",
-    "lote": "182",
+    "validade": "31/07/2026",
+    "lote": "191",
     "success": true
   },
   "1090": {
@@ -1725,8 +1725,8 @@
     "success": true
   },
   "1114": {
-    "validade": "26/05/2027",
-    "lote": "222",
+    "validade": "09/06/2027",
+    "lote": "22",
     "success": true
   },
   "1118": {
@@ -1740,8 +1740,8 @@
     "success": true
   },
   "1153": {
-    "validade": "05/12/2026",
-    "lote": "15608",
+    "validade": "24/12/2026",
+    "lote": "17511",
     "success": true
   },
   "1156": {
@@ -1780,7 +1780,7 @@
     "success": true
   },
   "1198": {
-    "validade": "29/11/2026",
+    "validade": "14/12/2026",
     "lote": null,
     "success": true
   },
@@ -1790,8 +1790,8 @@
     "success": true
   },
   "1203": {
-    "validade": "09/09/2026",
-    "lote": null,
+    "validade": "20/09/2026",
+    "lote": "1347",
     "success": true
   },
   "1211": {
@@ -1866,7 +1866,7 @@
   },
   "1262": {
     "validade": null,
-    "lote": "200425",
+    "lote": "130726",
     "success": true
   },
   "1264": {
@@ -1895,8 +1895,8 @@
     "success": true
   },
   "1275": {
-    "validade": "15/08/2026",
-    "lote": null,
+    "validade": "18/08/2026",
+    "lote": "01",
     "success": true
   },
   "1276": {
@@ -1940,8 +1940,8 @@
     "success": true
   },
   "1293": {
-    "validade": "04/10/2026",
-    "lote": null,
+    "validade": "13/10/2026",
+    "lote": "307269",
     "success": true
   },
   "1297": {
@@ -1965,8 +1965,8 @@
     "success": true
   },
   "1309": {
-    "validade": "14/04/2027",
-    "lote": "23",
+    "validade": "15/04/2027",
+    "lote": "394623",
     "success": true
   },
   "1319": {
@@ -2006,7 +2006,7 @@
   },
   "1342": {
     "validade": null,
-    "lote": "2026",
+    "lote": "8486",
     "success": true
   },
   "1347": {
@@ -2045,13 +2045,13 @@
     "success": true
   },
   "1383": {
-    "validade": "16/11/2026",
-    "lote": "2026",
+    "validade": "23/11/2026",
+    "lote": "122706",
     "success": true
   },
   "1384": {
     "validade": null,
-    "lote": "5456",
+    "lote": "100426",
     "success": true
   },
   "1385": {
@@ -2061,7 +2061,7 @@
   },
   "1387": {
     "validade": "23/04/2027",
-    "lote": "5476",
+    "lote": "5647",
     "success": true
   },
   "1396": {
@@ -2085,8 +2085,8 @@
     "success": true
   },
   "1409": {
-    "validade": "30/04/2027",
-    "lote": "3004",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "1413": {
@@ -2115,8 +2115,8 @@
     "success": true
   },
   "1424": {
-    "validade": "22/10/2026",
-    "lote": "260625",
+    "validade": "31/10/2026",
+    "lote": "030726",
     "success": true
   },
   "1448": {
@@ -2140,8 +2140,8 @@
     "success": true
   },
   "1456": {
-    "validade": "04/03/2027",
-    "lote": "040325",
+    "validade": "02/04/2027",
+    "lote": "02042026",
     "success": true
   },
   "1469": {
@@ -2160,8 +2160,8 @@
     "success": true
   },
   "1513": {
-    "validade": "25/12/2026",
-    "lote": "2512",
+    "validade": "06/02/2027",
+    "lote": "25",
     "success": true
   },
   "1514": {
@@ -2195,13 +2195,13 @@
     "success": true
   },
   "1525": {
-    "validade": "16/10/2027",
-    "lote": "1005627614",
+    "validade": "18/09/2027",
+    "lote": null,
     "success": true
   },
   "1526": {
-    "validade": "04/01/2027",
-    "lote": "0401",
+    "validade": "19/01/2027",
+    "lote": "5943",
     "success": true
   },
   "1530": {
@@ -2211,7 +2211,7 @@
   },
   "1531": {
     "validade": null,
-    "lote": "0106",
+    "lote": null,
     "success": true
   },
   "1532": {
@@ -2245,8 +2245,8 @@
     "success": true
   },
   "1545": {
-    "validade": "05/10/2026",
-    "lote": "0510",
+    "validade": "06/10/2026",
+    "lote": "20",
     "success": true
   },
   "1546": {
@@ -2271,7 +2271,7 @@
   },
   "1557": {
     "validade": null,
-    "lote": "2907",
+    "lote": "0106",
     "success": true
   },
   "1559": {
@@ -2311,7 +2311,7 @@
   },
   "1578": {
     "validade": null,
-    "lote": "250326",
+    "lote": "2503",
     "success": true
   },
   "1579": {
@@ -2330,13 +2330,13 @@
     "success": true
   },
   "1610": {
-    "validade": "30/08/2026",
-    "lote": "93360626",
+    "validade": "06/09/2026",
+    "lote": "332306226",
     "success": true
   },
   "1611": {
-    "validade": "08/09/2026",
-    "lote": "823100626",
+    "validade": "16/09/2026",
+    "lote": "593120",
     "success": true
   },
   "1612": {
@@ -2350,8 +2350,8 @@
     "success": true
   },
   "1619": {
-    "validade": "28/08/2026",
-    "lote": "28",
+    "validade": "29/08/2026",
+    "lote": "2908",
     "success": true
   },
   "1621": {
@@ -2381,7 +2381,7 @@
   },
   "1632": {
     "validade": null,
-    "lote": "126009",
+    "lote": null,
     "success": true
   },
   "1633": {
@@ -2520,8 +2520,8 @@
     "success": true
   },
   "1698": {
-    "validade": "10/06/2027",
-    "lote": "5787",
+    "validade": "03/07/2027",
+    "lote": "03",
     "success": true
   },
   "1699": {
@@ -2530,13 +2530,13 @@
     "success": true
   },
   "1700": {
-    "validade": "26/06/2027",
-    "lote": "26",
+    "validade": "03/07/2027",
+    "lote": "03",
     "success": true
   },
   "1701": {
-    "validade": "03/07/2027",
-    "lote": "03",
+    "validade": "14/07/2027",
+    "lote": "014",
     "success": true
   },
   "1702": {
@@ -2545,8 +2545,8 @@
     "success": true
   },
   "1703": {
-    "validade": "26/06/2027",
-    "lote": "26",
+    "validade": "03/07/2027",
+    "lote": "03",
     "success": true
   },
   "1704": {
@@ -2565,8 +2565,8 @@
     "success": true
   },
   "1713": {
-    "validade": "29/11/2026",
-    "lote": "5485",
+    "validade": "27/12/2026",
+    "lote": "06178",
     "success": true
   },
   "1714": {
@@ -2591,12 +2591,12 @@
   },
   "1722": {
     "validade": null,
-    "lote": "26084",
+    "lote": "22",
     "success": true
   },
   "1723": {
-    "validade": "22/09/2026",
-    "lote": "512",
+    "validade": "04/10/2026",
+    "lote": "1926060812",
     "success": true
   },
   "1725": {
@@ -2635,8 +2635,8 @@
     "success": true
   },
   "1800": {
-    "validade": "06/05/2027",
-    "lote": "210506226",
+    "validade": "16/06/2027",
+    "lote": "21",
     "success": true
   },
   "1803": {
@@ -2656,7 +2656,7 @@
   },
   "1815": {
     "validade": null,
-    "lote": "30225",
+    "lote": "8767",
     "success": true
   },
   "1818": {
@@ -2670,8 +2670,8 @@
     "success": true
   },
   "1840": {
-    "validade": "22/12/2026",
-    "lote": "25",
+    "validade": "07/01/2027",
+    "lote": "682",
     "success": true
   },
   "1843": {
@@ -2695,13 +2695,13 @@
     "success": true
   },
   "1856": {
-    "validade": "26/11/2026",
-    "lote": "26",
+    "validade": "24/11/2026",
+    "lote": "57897",
     "success": true
   },
   "1859": {
-    "validade": "12/09/2026",
-    "lote": "166",
+    "validade": "22/09/2026",
+    "lote": "176",
     "success": true
   },
   "1860": {
@@ -2775,8 +2775,8 @@
     "success": true
   },
   "2910": {
-    "validade": "05/05/2027",
-    "lote": "050526",
+    "validade": "04/07/2027",
+    "lote": "160",
     "success": true
   },
   "2914": {
@@ -2810,8 +2810,8 @@
     "success": true
   },
   "2934": {
-    "validade": "28/11/2026",
-    "lote": "152",
+    "validade": "14/12/2026",
+    "lote": "168",
     "success": true
   },
   "2938": {
@@ -2820,18 +2820,18 @@
     "success": true
   },
   "2939": {
-    "validade": "07/09/2026",
-    "lote": "260609",
+    "validade": "09/09/2026",
+    "lote": null,
     "success": true
   },
   "2940": {
     "validade": "02/01/2028",
-    "lote": "12917",
+    "lote": "12919",
     "success": true
   },
   "2941": {
-    "validade": "26/06/2027",
-    "lote": "26",
+    "validade": "03/07/2027",
+    "lote": "03",
     "success": true
   },
   "2945": {
@@ -2855,8 +2855,8 @@
     "success": true
   },
   "2976": {
-    "validade": "01/12/2026",
-    "lote": "3489",
+    "validade": "21/12/2026",
+    "lote": "626",
     "success": true
   },
   "2977": {
@@ -2875,8 +2875,8 @@
     "success": true
   },
   "2980": {
-    "validade": "01/01/2030",
-    "lote": "26085",
+    "validade": "10/05/2035",
+    "lote": "2608",
     "success": true
   },
   "2983": {
@@ -2920,8 +2920,8 @@
     "success": true
   },
   "3025": {
-    "validade": "08/09/2026",
-    "lote": "012",
+    "validade": "10/09/2026",
+    "lote": "260612",
     "success": true
   },
   "3032": {
@@ -2930,8 +2930,8 @@
     "success": true
   },
   "3033": {
-    "validade": "19/03/2027",
-    "lote": "0011740713",
+    "validade": "04/05/2027",
+    "lote": "0011885783",
     "success": true
   },
   "3041": {
@@ -2945,13 +2945,13 @@
     "success": true
   },
   "3055": {
-    "validade": "26/09/2026",
-    "lote": "290526",
+    "validade": "27/09/2026",
+    "lote": "260530",
     "success": true
   },
   "3061": {
-    "validade": "07/09/2026",
-    "lote": "70751",
+    "validade": "28/09/2026",
+    "lote": "71735",
     "success": true
   },
   "3062": {
@@ -2981,7 +2981,7 @@
   },
   "3080": {
     "validade": "06/04/2028",
-    "lote": null,
+    "lote": "122",
     "success": true
   },
   "3082": {
@@ -3031,7 +3031,7 @@
   },
   "3111": {
     "validade": "12/09/2026",
-    "lote": "2484",
+    "lote": "5476",
     "success": true
   },
   "3114": {
@@ -3045,8 +3045,8 @@
     "success": true
   },
   "3119": {
-    "validade": "24/10/2026",
-    "lote": "260624",
+    "validade": "29/10/2026",
+    "lote": "106",
     "success": true
   },
   "3131": {
@@ -3070,8 +3070,8 @@
     "success": true
   },
   "3145": {
-    "validade": "23/05/2027",
-    "lote": "1005514479",
+    "validade": "23/09/2027",
+    "lote": "1005608948",
     "success": true
   },
   "3147": {
@@ -3100,8 +3100,8 @@
     "success": true
   },
   "3174": {
-    "validade": "26/05/2030",
-    "lote": "06",
+    "validade": "11/06/2030",
+    "lote": "08",
     "success": true
   },
   "3175": {
@@ -3195,8 +3195,8 @@
     "success": true
   },
   "3259": {
-    "validade": "13/10/2026",
-    "lote": null,
+    "validade": "27/10/2026",
+    "lote": "131",
     "success": true
   },
   "3260": {
@@ -3206,12 +3206,12 @@
   },
   "3262": {
     "validade": null,
-    "lote": null,
+    "lote": "8709",
     "success": true
   },
   "3270": {
-    "validade": "07/04/2029",
-    "lote": "097",
+    "validade": "12/05/2029",
+    "lote": "132126",
     "success": true
   },
   "3273": {
@@ -3231,7 +3231,7 @@
   },
   "3296": {
     "validade": null,
-    "lote": "26078",
+    "lote": "25367",
     "success": true
   },
   "3299": {
@@ -3310,8 +3310,8 @@
     "success": true
   },
   "3338": {
-    "validade": "01/11/2026",
-    "lote": null,
+    "validade": "25/11/2026",
+    "lote": "2511",
     "success": true
   },
   "3339": {
@@ -3320,8 +3320,8 @@
     "success": true
   },
   "3342": {
-    "validade": "04/08/2026",
-    "lote": "126086",
+    "validade": "08/08/2026",
+    "lote": "126088",
     "success": true
   },
   "3343": {
@@ -3330,8 +3330,8 @@
     "success": true
   },
   "3345": {
-    "validade": "26/08/2026",
-    "lote": "067",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "3347": {
@@ -3340,8 +3340,8 @@
     "success": true
   },
   "3356": {
-    "validade": "07/11/2026",
-    "lote": "002",
+    "validade": "12/12/2026",
+    "lote": "005",
     "success": true
   },
   "3358": {
@@ -3365,13 +3365,13 @@
     "success": true
   },
   "3369": {
-    "validade": "23/04/2028",
-    "lote": "230426",
+    "validade": "30/05/2028",
+    "lote": "255",
     "success": true
   },
   "3372": {
-    "validade": "05/08/2026",
-    "lote": "61",
+    "validade": "11/08/2026",
+    "lote": "126064",
     "success": true
   },
   "3389": {
@@ -3380,8 +3380,8 @@
     "success": true
   },
   "3390": {
-    "validade": "11/06/2027",
-    "lote": "121",
+    "validade": "27/06/2027",
+    "lote": "721",
     "success": true
   },
   "3395": {
@@ -3395,8 +3395,8 @@
     "success": true
   },
   "3397": {
-    "validade": "08/06/2027",
-    "lote": "5778",
+    "validade": "01/07/2027",
+    "lote": "12024",
     "success": true
   },
   "3398": {
@@ -3445,8 +3445,8 @@
     "success": true
   },
   "3439": {
-    "validade": "10/05/2028",
-    "lote": "41311126",
+    "validade": "01/02/2028",
+    "lote": "30324",
     "success": true
   },
   "3442": {
@@ -3485,8 +3485,8 @@
     "success": true
   },
   "3500": {
-    "validade": "31/05/2028",
-    "lote": "22",
+    "validade": "30/06/2028",
+    "lote": "40317",
     "success": true
   },
   "3502": {
@@ -3520,18 +3520,18 @@
     "success": true
   },
   "3516": {
-    "validade": "19/10/2026",
-    "lote": "12",
+    "validade": "16/11/2026",
+    "lote": "126",
     "success": true
   },
   "3517": {
-    "validade": "01/06/2027",
-    "lote": "010626",
+    "validade": "23/06/2027",
+    "lote": "230626",
     "success": true
   },
   "3522": {
-    "validade": "07/12/2026",
-    "lote": "0712",
+    "validade": "13/10/2028",
+    "lote": "22",
     "success": true
   },
   "3525": {
@@ -3550,13 +3550,13 @@
     "success": true
   },
   "3549": {
-    "validade": "16/10/2026",
-    "lote": "126092",
+    "validade": "23/10/2026",
+    "lote": "98",
     "success": true
   },
   "3552": {
-    "validade": "15/08/2026",
-    "lote": "3548",
+    "validade": "29/08/2026",
+    "lote": null,
     "success": true
   },
   "3555": {
@@ -3570,18 +3570,18 @@
     "success": true
   },
   "3571": {
-    "validade": "01/04/2027",
-    "lote": "97",
+    "validade": "31/05/2027",
+    "lote": "0606",
     "success": true
   },
   "3572": {
-    "validade": "27/11/2026",
-    "lote": "2705",
+    "validade": "08/12/2026",
+    "lote": "163",
     "success": true
   },
   "3576": {
-    "validade": "08/10/2026",
-    "lote": "159",
+    "validade": "29/10/2026",
+    "lote": "182",
     "success": true
   },
   "3577": {
@@ -3610,13 +3610,13 @@
     "success": true
   },
   "3617": {
-    "validade": "10/10/2026",
+    "validade": "12/10/2026",
     "lote": "26",
     "success": true
   },
   "3619": {
-    "validade": null,
-    "lote": null,
+    "validade": "14/10/2027",
+    "lote": "11226245",
     "success": true
   },
   "3622": {
@@ -3625,8 +3625,8 @@
     "success": true
   },
   "3623": {
-    "validade": "01/02/2028",
-    "lote": "04226071",
+    "validade": "16/03/2028",
+    "lote": "260327",
     "success": true
   },
   "3625": {
@@ -3640,8 +3640,8 @@
     "success": true
   },
   "3646": {
-    "validade": "05/05/2027",
-    "lote": "61",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "3647": {
@@ -3675,8 +3675,8 @@
     "success": true
   },
   "3690": {
-    "validade": "04/02/2027",
-    "lote": "26",
+    "validade": "26/02/2027",
+    "lote": "2602",
     "success": true
   },
   "3694": {
@@ -3750,13 +3750,13 @@
     "success": true
   },
   "3755": {
-    "validade": "14/12/2026",
+    "validade": "26/12/2026",
     "lote": "054",
     "success": true
   },
   "3756": {
-    "validade": "30/08/2026",
-    "lote": "260601",
+    "validade": "10/09/2026",
+    "lote": null,
     "success": true
   },
   "3759": {
@@ -3775,8 +3775,8 @@
     "success": true
   },
   "3767": {
-    "validade": "06/12/2026",
-    "lote": "0612",
+    "validade": "14/12/2026",
+    "lote": "1412",
     "success": true
   },
   "3769": {
@@ -3815,8 +3815,8 @@
     "success": true
   },
   "3792": {
-    "validade": "26/09/2026",
-    "lote": null,
+    "validade": "06/10/2026",
+    "lote": "3006159",
     "success": true
   },
   "3793": {
@@ -3850,13 +3850,13 @@
     "success": true
   },
   "3829": {
-    "validade": "01/05/2027",
-    "lote": "286928",
+    "validade": "26/06/2027",
+    "lote": "288277",
     "success": true
   },
   "3834": {
-    "validade": "17/05/2027",
-    "lote": "17",
+    "validade": "20/05/2027",
+    "lote": "2005",
     "success": true
   },
   "3836": {
@@ -3870,8 +3870,8 @@
     "success": true
   },
   "3841": {
-    "validade": "17/02/2027",
-    "lote": "55789",
+    "validade": "14/03/2027",
+    "lote": "3646168",
     "success": true
   },
   "3842": {
@@ -3890,8 +3890,8 @@
     "success": true
   },
   "3847": {
-    "validade": "22/04/2028",
-    "lote": "2409",
+    "validade": "21/07/2028",
+    "lote": "2373",
     "success": true
   },
   "3849": {
@@ -3906,7 +3906,7 @@
   },
   "3852": {
     "validade": "15/08/2026",
-    "lote": "3578",
+    "lote": null,
     "success": true
   },
   "3853": {
@@ -3930,13 +3930,13 @@
     "success": true
   },
   "3922": {
-    "validade": null,
-    "lote": null,
+    "validade": "05/06/2027",
+    "lote": "72623",
     "success": true
   },
   "3924": {
-    "validade": "15/10/2026",
-    "lote": "111",
+    "validade": "28/10/2026",
+    "lote": "124",
     "success": true
   },
   "3935": {
@@ -3945,8 +3945,8 @@
     "success": true
   },
   "3948": {
-    "validade": "23/06/2027",
-    "lote": null,
+    "validade": "25/06/2027",
+    "lote": "402",
     "success": true
   },
   "3976": {
@@ -3970,8 +3970,8 @@
     "success": true
   },
   "3985": {
-    "validade": "14/11/2026",
-    "lote": "25318",
+    "validade": "02/03/2027",
+    "lote": "26061",
     "success": true
   },
   "3986": {
@@ -3981,7 +3981,7 @@
   },
   "3987": {
     "validade": "10/11/2026",
-    "lote": "54",
+    "lote": "52",
     "success": true
   },
   "3990": {
@@ -4030,23 +4030,23 @@
     "success": true
   },
   "4058": {
-    "validade": "18/07/2026",
-    "lote": "260603",
+    "validade": "09/08/2026",
+    "lote": null,
     "success": true
   },
   "4079": {
-    "validade": "20/04/2027",
-    "lote": "5728",
+    "validade": "23/11/2026",
+    "lote": "2311",
     "success": true
   },
   "4082": {
-    "validade": "19/02/2027",
-    "lote": "222",
+    "validade": "19/06/2027",
+    "lote": "46617",
     "success": true
   },
   "4085": {
-    "validade": "20/04/2027",
-    "lote": null,
+    "validade": "29/04/2027",
+    "lote": "0013",
     "success": true
   },
   "4090": {
@@ -4060,23 +4060,23 @@
     "success": true
   },
   "4092": {
-    "validade": "19/01/2027",
-    "lote": null,
+    "validade": "20/01/2027",
+    "lote": "864",
     "success": true
   },
   "4094": {
-    "validade": "27/08/2026",
-    "lote": "272",
+    "validade": "10/09/2026",
+    "lote": "120626",
     "success": true
   },
   "4095": {
-    "validade": "15/09/2026",
-    "lote": "226048",
+    "validade": "20/09/2026",
+    "lote": "226051",
     "success": true
   },
   "4098": {
-    "validade": "30/01/2030",
-    "lote": null,
+    "validade": "30/05/2030",
+    "lote": "125",
     "success": true
   },
   "4103": {
@@ -4090,8 +4090,8 @@
     "success": true
   },
   "4110": {
-    "validade": "20/02/2027",
-    "lote": null,
+    "validade": "12/03/2027",
+    "lote": "1203",
     "success": true
   },
   "4117": {
@@ -4100,8 +4100,8 @@
     "success": true
   },
   "4118": {
-    "validade": "24/04/2027",
-    "lote": "0009",
+    "validade": "04/05/2027",
+    "lote": "0401",
     "success": true
   },
   "4119": {
@@ -4120,8 +4120,8 @@
     "success": true
   },
   "4130": {
-    "validade": "18/04/2027",
-    "lote": "286208",
+    "validade": "30/04/2027",
+    "lote": "221",
     "success": true
   },
   "4134": {
@@ -4145,8 +4145,8 @@
     "success": true
   },
   "4148": {
-    "validade": "28/04/2027",
-    "lote": "118",
+    "validade": "03/06/2027",
+    "lote": "154",
     "success": true
   },
   "4151": {
@@ -4155,8 +4155,8 @@
     "success": true
   },
   "4152": {
-    "validade": "18/08/2026",
-    "lote": null,
+    "validade": "02/09/2026",
+    "lote": "29",
     "success": true
   },
   "4157": {
@@ -4190,8 +4190,8 @@
     "success": true
   },
   "4231": {
-    "validade": "30/07/2026",
-    "lote": "260",
+    "validade": "07/08/2026",
+    "lote": "155260",
     "success": true
   },
   "4237": {
@@ -4295,8 +4295,8 @@
     "success": true
   },
   "4311": {
-    "validade": "16/09/2026",
-    "lote": "190526",
+    "validade": "30/09/2026",
+    "lote": "12",
     "success": true
   },
   "4312": {
@@ -4305,8 +4305,8 @@
     "success": true
   },
   "4313": {
-    "validade": "31/03/2027",
-    "lote": "300126",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "4319": {
@@ -4325,8 +4325,8 @@
     "success": true
   },
   "4363": {
-    "validade": "18/10/2026",
-    "lote": "260618",
+    "validade": "23/10/2026",
+    "lote": "110",
     "success": true
   },
   "4364": {
@@ -4351,7 +4351,7 @@
   },
   "4375": {
     "validade": "20/02/2027",
-    "lote": "52",
+    "lote": "25",
     "success": true
   },
   "4376": {
@@ -4360,8 +4360,8 @@
     "success": true
   },
   "4377": {
-    "validade": "28/05/2027",
-    "lote": "148",
+    "validade": "09/06/2027",
+    "lote": "160",
     "success": true
   },
   "4378": {
@@ -4420,13 +4420,13 @@
     "success": true
   },
   "4446": {
-    "validade": "01/10/2026",
-    "lote": "5753",
+    "validade": "03/10/2026",
+    "lote": null,
     "success": true
   },
   "4447": {
-    "validade": "14/04/2027",
-    "lote": "3467",
+    "validade": "15/04/2027",
+    "lote": "3438",
     "success": true
   },
   "4450": {
@@ -4510,8 +4510,8 @@
     "success": true
   },
   "4560": {
-    "validade": "15/03/2027",
-    "lote": "226",
+    "validade": "30/03/2027",
+    "lote": "26",
     "success": true
   },
   "4561": {
@@ -4550,8 +4550,8 @@
     "success": true
   },
   "4597": {
-    "validade": "29/09/2026",
-    "lote": "260601",
+    "validade": "30/09/2026",
+    "lote": "260602",
     "success": true
   },
   "4606": {
@@ -4610,8 +4610,8 @@
     "success": true
   },
   "4672": {
-    "validade": "18/11/2027",
-    "lote": "222",
+    "validade": "03/12/2027",
+    "lote": "0312",
     "success": true
   },
   "4681": {
@@ -4635,33 +4635,33 @@
     "success": true
   },
   "4701": {
-    "validade": "03/11/2026",
-    "lote": "78904",
+    "validade": "26/11/2026",
+    "lote": "79282",
     "success": true
   },
   "4709": {
-    "validade": "19/12/2026",
-    "lote": "35325029",
+    "validade": "06/01/2027",
+    "lote": "1801",
     "success": true
   },
   "4710": {
-    "validade": "22/11/2027",
-    "lote": "3362",
+    "validade": "29/11/2027",
+    "lote": "5542",
     "success": true
   },
   "4712": {
-    "validade": "03/04/2027",
-    "lote": "28325225",
+    "validade": "27/05/2027",
+    "lote": "251203",
     "success": true
   },
   "4721": {
     "validade": "02/11/2026",
-    "lote": "402",
+    "lote": "204",
     "success": true
   },
   "4722": {
     "validade": null,
-    "lote": "26365",
+    "lote": "180526",
     "success": true
   },
   "4723": {
@@ -4685,8 +4685,8 @@
     "success": true
   },
   "4740": {
-    "validade": "16/08/2026",
-    "lote": "268",
+    "validade": "24/08/2026",
+    "lote": "272",
     "success": true
   },
   "4748": {
@@ -4725,8 +4725,8 @@
     "success": true
   },
   "4775": {
-    "validade": "07/08/2026",
-    "lote": "080626",
+    "validade": "08/08/2026",
+    "lote": "260609",
     "success": true
   },
   "4782": {
@@ -4795,8 +4795,8 @@
     "success": true
   },
   "4853": {
-    "validade": "08/09/2026",
-    "lote": "68",
+    "validade": "10/09/2026",
+    "lote": "117",
     "success": true
   },
   "4857": {
@@ -4835,8 +4835,8 @@
     "success": true
   },
   "4868": {
-    "validade": "26/09/2026",
-    "lote": "260529",
+    "validade": "30/09/2026",
+    "lote": "260602",
     "success": true
   },
   "4874": {
@@ -4846,7 +4846,7 @@
   },
   "4876": {
     "validade": "08/05/2027",
-    "lote": "260312",
+    "lote": "128126",
     "success": true
   },
   "4883": {
@@ -4855,18 +4855,18 @@
     "success": true
   },
   "4884": {
-    "validade": "22/08/2026",
-    "lote": "230626",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "4885": {
-    "validade": "27/11/2026",
-    "lote": "100",
+    "validade": "28/11/2026",
+    "lote": "337",
     "success": true
   },
   "4888": {
-    "validade": "29/09/2026",
-    "lote": "70514",
+    "validade": "13/10/2026",
+    "lote": "120289",
     "success": true
   },
   "4893": {
@@ -4875,8 +4875,8 @@
     "success": true
   },
   "4900": {
-    "validade": "24/03/2027",
-    "lote": "5758",
+    "validade": "10/03/2027",
+    "lote": "1003",
     "success": true
   },
   "4901": {
@@ -4885,8 +4885,8 @@
     "success": true
   },
   "4902": {
-    "validade": "14/12/2026",
-    "lote": "5728",
+    "validade": "30/10/2026",
+    "lote": "3010",
     "success": true
   },
   "4903": {
@@ -4900,8 +4900,8 @@
     "success": true
   },
   "4915": {
-    "validade": "03/02/2027",
-    "lote": "009",
+    "validade": "23/02/2027",
+    "lote": "19",
     "success": true
   },
   "4919": {
@@ -4935,8 +4935,8 @@
     "success": true
   },
   "4959": {
-    "validade": "20/08/2027",
-    "lote": null,
+    "validade": "25/12/2027",
+    "lote": "5478",
     "success": true
   },
   "4967": {
@@ -5100,8 +5100,8 @@
     "success": true
   },
   "5061": {
-    "validade": "23/08/2026",
-    "lote": "126067",
+    "validade": "28/08/2026",
+    "lote": "126069",
     "success": true
   },
   "5062": {
@@ -5125,8 +5125,8 @@
     "success": true
   },
   "5075": {
-    "validade": "09/11/2026",
-    "lote": "0046",
+    "validade": "07/12/2026",
+    "lote": null,
     "success": true
   },
   "5096": {
@@ -5135,8 +5135,8 @@
     "success": true
   },
   "5097": {
-    "validade": "15/09/2026",
-    "lote": null,
+    "validade": "01/10/2026",
+    "lote": "501030626",
     "success": true
   },
   "5102": {
@@ -5156,7 +5156,7 @@
   },
   "5117": {
     "validade": "08/02/2027",
-    "lote": "7748",
+    "lote": "5788",
     "success": true
   },
   "5124": {
@@ -5211,7 +5211,7 @@
   },
   "5158": {
     "validade": "05/05/2029",
-    "lote": "222",
+    "lote": null,
     "success": true
   },
   "5160": {
@@ -5250,13 +5250,13 @@
     "success": true
   },
   "5209": {
-    "validade": null,
-    "lote": null,
+    "validade": "06/07/2027",
+    "lote": "1606",
     "success": true
   },
   "5211": {
-    "validade": null,
-    "lote": null,
+    "validade": "09/06/2027",
+    "lote": "0906",
     "success": true
   },
   "5212": {
@@ -5310,8 +5310,8 @@
     "success": true
   },
   "5242": {
-    "validade": "27/09/2026",
-    "lote": "4389",
+    "validade": "03/10/2026",
+    "lote": "4393",
     "success": true
   },
   "5243": {
@@ -5365,7 +5365,7 @@
     "success": true
   },
   "5299": {
-    "validade": "20/10/2026",
+    "validade": "21/10/2026",
     "lote": "174",
     "success": true
   },
@@ -5405,8 +5405,8 @@
     "success": true
   },
   "5347": {
-    "validade": "13/05/2027",
-    "lote": "13326102",
+    "validade": "20/05/2027",
+    "lote": null,
     "success": true
   },
   "5348": {
@@ -5435,13 +5435,13 @@
     "success": true
   },
   "5376": {
-    "validade": "30/05/2028",
+    "validade": "30/06/2028",
     "lote": null,
     "success": true
   },
   "5377": {
-    "validade": "01/12/2027",
-    "lote": "08226",
+    "validade": "30/12/2027",
+    "lote": "08126",
     "success": true
   },
   "5378": {
@@ -5461,7 +5461,7 @@
   },
   "5386": {
     "validade": "10/09/2027",
-    "lote": "10320",
+    "lote": "100328",
     "success": true
   },
   "5388": {
@@ -5480,8 +5480,8 @@
     "success": true
   },
   "5409": {
-    "validade": "16/05/2027",
-    "lote": null,
+    "validade": "16/06/2027",
+    "lote": "1606",
     "success": true
   },
   "5412": {
@@ -5490,8 +5490,8 @@
     "success": true
   },
   "5418": {
-    "validade": null,
-    "lote": null,
+    "validade": "27/06/2027",
+    "lote": "2706",
     "success": true
   },
   "5419": {
@@ -5505,13 +5505,13 @@
     "success": true
   },
   "5424": {
-    "validade": "16/08/2026",
-    "lote": "106",
+    "validade": "21/10/2026",
+    "lote": "170",
     "success": true
   },
   "5425": {
-    "validade": "21/10/2026",
-    "lote": "170",
+    "validade": "27/10/2026",
+    "lote": "180",
     "success": true
   },
   "5429": {
@@ -5520,8 +5520,8 @@
     "success": true
   },
   "5430": {
-    "validade": "26/03/2028",
-    "lote": null,
+    "validade": "14/08/2027",
+    "lote": "2122625",
     "success": true
   },
   "5431": {
@@ -5536,7 +5536,7 @@
   },
   "5437": {
     "validade": null,
-    "lote": "01",
+    "lote": "1307",
     "success": true
   },
   "5441": {
@@ -5570,8 +5570,8 @@
     "success": true
   },
   "5468": {
-    "validade": "10/10/2026",
-    "lote": "03",
+    "validade": "11/10/2026",
+    "lote": "02",
     "success": true
   },
   "5469": {
@@ -5580,8 +5580,8 @@
     "success": true
   },
   "5470": {
-    "validade": "24/05/2027",
-    "lote": "240526",
+    "validade": "25/05/2027",
+    "lote": "250526",
     "success": true
   },
   "5471": {
@@ -5635,8 +5635,8 @@
     "success": true
   },
   "5494": {
-    "validade": "11/05/2027",
-    "lote": "1105",
+    "validade": "03/06/2027",
+    "lote": "2624",
     "success": true
   },
   "5495": {
@@ -5770,8 +5770,8 @@
     "success": true
   },
   "5690": {
-    "validade": "24/10/2028",
-    "lote": "5744",
+    "validade": "31/10/2028",
+    "lote": "25026",
     "success": true
   },
   "5691": {
@@ -5795,8 +5795,8 @@
     "success": true
   },
   "5712": {
-    "validade": "14/12/2026",
-    "lote": "5728",
+    "validade": "07/01/2027",
+    "lote": "26",
     "success": true
   },
   "5723": {
@@ -5810,13 +5810,13 @@
     "success": true
   },
   "5726": {
-    "validade": "20/09/2026",
-    "lote": "22",
+    "validade": "23/09/2026",
+    "lote": "25",
     "success": true
   },
   "5727": {
-    "validade": "14/09/2026",
-    "lote": "16",
+    "validade": "29/09/2026",
+    "lote": "01",
     "success": true
   },
   "5729": {
@@ -5835,8 +5835,8 @@
     "success": true
   },
   "5740": {
-    "validade": "29/09/2026",
-    "lote": "260601",
+    "validade": "09/10/2026",
+    "lote": "0112606",
     "success": true
   },
   "5741": {
@@ -5861,7 +5861,7 @@
   },
   "5774": {
     "validade": null,
-    "lote": "22",
+    "lote": "2004",
     "success": true
   },
   "5788": {
@@ -5915,13 +5915,13 @@
     "success": true
   },
   "5845": {
-    "validade": "01/08/2026",
-    "lote": "260619",
+    "validade": "17/08/2026",
+    "lote": "03",
     "success": true
   },
   "5847": {
-    "validade": "17/04/2029",
-    "lote": "26",
+    "validade": "30/04/2029",
+    "lote": null,
     "success": true
   },
   "5848": {
@@ -5955,8 +5955,8 @@
     "success": true
   },
   "5878": {
-    "validade": "09/08/2026",
-    "lote": "69889",
+    "validade": "29/08/2026",
+    "lote": "71873",
     "success": true
   },
   "5887": {
@@ -5965,13 +5965,13 @@
     "success": true
   },
   "5889": {
-    "validade": "17/02/2027",
-    "lote": "29085",
+    "validade": "28/02/2027",
+    "lote": "27",
     "success": true
   },
   "5908": {
-    "validade": "29/12/2026",
-    "lote": "180",
+    "validade": "10/01/2027",
+    "lote": "1007",
     "success": true
   },
   "5909": {
@@ -6070,8 +6070,8 @@
     "success": true
   },
   "5992": {
-    "validade": "30/10/2026",
-    "lote": "020626",
+    "validade": "27/11/2026",
+    "lote": "626",
     "success": true
   },
   "5993": {
@@ -6135,7 +6135,7 @@
     "success": true
   },
   "6044": {
-    "validade": "20/09/2026",
+    "validade": "07/10/2026",
     "lote": "001",
     "success": true
   },
@@ -6175,8 +6175,8 @@
     "success": true
   },
   "6097": {
-    "validade": "19/08/2026",
-    "lote": "162",
+    "validade": "21/08/2026",
+    "lote": "164",
     "success": true
   },
   "6103": {
@@ -6225,8 +6225,8 @@
     "success": true
   },
   "6147": {
-    "validade": "28/11/2026",
-    "lote": "260601",
+    "validade": "30/11/2026",
+    "lote": "260603",
     "success": true
   },
   "6148": {
@@ -6245,8 +6245,8 @@
     "success": true
   },
   "6153": {
-    "validade": "03/06/2027",
-    "lote": "26154",
+    "validade": "07/06/2027",
+    "lote": "168",
     "success": true
   },
   "6154": {
@@ -6265,8 +6265,8 @@
     "success": true
   },
   "6166": {
-    "validade": "11/09/2026",
-    "lote": "02",
+    "validade": "22/09/2026",
+    "lote": "555",
     "success": true
   },
   "6169": {
@@ -6335,8 +6335,8 @@
     "success": true
   },
   "6248": {
-    "validade": "22/09/2026",
-    "lote": "003",
+    "validade": "09/10/2026",
+    "lote": "03",
     "success": true
   },
   "6249": {
@@ -6361,7 +6361,7 @@
   },
   "6266": {
     "validade": "08/10/2026",
-    "lote": "3478",
+    "lote": "3179",
     "success": true
   },
   "6267": {
@@ -6375,8 +6375,8 @@
     "success": true
   },
   "6269": {
-    "validade": "16/12/2026",
-    "lote": "26",
+    "validade": "24/12/2026",
+    "lote": "22",
     "success": true
   },
   "6270": {
@@ -6415,8 +6415,8 @@
     "success": true
   },
   "6287": {
-    "validade": "14/09/2026",
-    "lote": "41",
+    "validade": "27/09/2026",
+    "lote": "454",
     "success": true
   },
   "6291": {
@@ -6470,8 +6470,8 @@
     "success": true
   },
   "6335": {
-    "validade": "01/05/2027",
-    "lote": "78518",
+    "validade": "30/05/2027",
+    "lote": "78",
     "success": true
   },
   "6336": {
@@ -6495,13 +6495,13 @@
     "success": true
   },
   "6362": {
-    "validade": "05/08/2026",
-    "lote": "18147",
+    "validade": "24/08/2026",
+    "lote": "17166",
     "success": true
   },
   "6363": {
-    "validade": "07/09/2026",
-    "lote": null,
+    "validade": "16/09/2026",
+    "lote": "08152",
     "success": true
   },
   "6367": {
@@ -6520,8 +6520,8 @@
     "success": true
   },
   "6377": {
-    "validade": null,
-    "lote": null,
+    "validade": "07/08/2026",
+    "lote": "159260",
     "success": true
   },
   "6381": {
@@ -6535,8 +6535,8 @@
     "success": true
   },
   "6387": {
-    "validade": "30/07/2027",
-    "lote": "122102",
+    "validade": "29/08/2027",
+    "lote": "131910",
     "success": true
   },
   "6388": {
@@ -6545,8 +6545,8 @@
     "success": true
   },
   "6392": {
-    "validade": "19/12/2026",
-    "lote": "241220",
+    "validade": "18/05/2027",
+    "lote": "250519",
     "success": true
   },
   "6393": {
@@ -6691,7 +6691,7 @@
   },
   "6487": {
     "validade": "30/06/2028",
-    "lote": "160",
+    "lote": null,
     "success": true
   },
   "6488": {
@@ -6750,8 +6750,8 @@
     "success": true
   },
   "6526": {
-    "validade": "14/05/2027",
-    "lote": "140526",
+    "validade": "04/06/2027",
+    "lote": "040626",
     "success": true
   },
   "6527": {
@@ -6770,13 +6770,13 @@
     "success": true
   },
   "6541": {
-    "validade": "15/09/2026",
-    "lote": "1582610",
+    "validade": "01/10/2026",
+    "lote": "101",
     "success": true
   },
   "6544": {
-    "validade": "19/08/2026",
-    "lote": "2940675",
+    "validade": "28/08/2026",
+    "lote": "2940678",
     "success": true
   },
   "6545": {
@@ -6795,8 +6795,8 @@
     "success": true
   },
   "6557": {
-    "validade": "21/09/2026",
-    "lote": "1212",
+    "validade": "26/09/2026",
+    "lote": "1217",
     "success": true
   },
   "6569": {
@@ -6810,8 +6810,8 @@
     "success": true
   },
   "6575": {
-    "validade": "01/03/2027",
-    "lote": null,
+    "validade": "14/03/2027",
+    "lote": "170626",
     "success": true
   },
   "6578": {
@@ -6840,13 +6840,13 @@
     "success": true
   },
   "6625": {
-    "validade": "03/12/2026",
+    "validade": "23/12/2026",
     "lote": "26",
     "success": true
   },
   "6636": {
-    "validade": "21/04/2027",
-    "lote": "5728",
+    "validade": "05/05/2027",
+    "lote": "26",
     "success": true
   },
   "6645": {
@@ -6855,8 +6855,8 @@
     "success": true
   },
   "6651": {
-    "validade": "19/10/2026",
-    "lote": "260622",
+    "validade": "21/10/2026",
+    "lote": "240626",
     "success": true
   },
   "6653": {
@@ -6970,8 +6970,8 @@
     "success": true
   },
   "6824": {
-    "validade": "17/08/2026",
-    "lote": "528",
+    "validade": "13/09/2026",
+    "lote": "13",
     "success": true
   },
   "6835": {
@@ -7015,8 +7015,8 @@
     "success": true
   },
   "6855": {
-    "validade": "26/10/2026",
-    "lote": "3687",
+    "validade": "27/10/2026",
+    "lote": "308",
     "success": true
   },
   "6861": {
@@ -7035,8 +7035,8 @@
     "success": true
   },
   "6904": {
-    "validade": "04/05/2027",
-    "lote": "22",
+    "validade": "17/06/2027",
+    "lote": "222",
     "success": true
   },
   "6907": {
@@ -7070,7 +7070,7 @@
     "success": true
   },
   "6923": {
-    "validade": "01/06/2028",
+    "validade": "30/06/2028",
     "lote": "26010706",
     "success": true
   },
@@ -7080,8 +7080,8 @@
     "success": true
   },
   "6925": {
-    "validade": "05/08/2026",
-    "lote": "226037",
+    "validade": "16/08/2026",
+    "lote": "226039",
     "success": true
   },
   "6934": {
@@ -7125,8 +7125,8 @@
     "success": true
   },
   "6976": {
-    "validade": "31/08/2026",
-    "lote": "020626",
+    "validade": "21/09/2026",
+    "lote": "4526062311",
     "success": true
   },
   "7005": {
@@ -7195,8 +7195,8 @@
     "success": true
   },
   "7064": {
-    "validade": "01/08/2026",
-    "lote": null,
+    "validade": "10/08/2026",
+    "lote": "16",
     "success": true
   },
   "7065": {
@@ -7205,8 +7205,8 @@
     "success": true
   },
   "7070": {
-    "validade": "13/10/2026",
-    "lote": "20260615",
+    "validade": "15/10/2026",
+    "lote": "20260617",
     "success": true
   },
   "7073": {
@@ -7275,8 +7275,8 @@
     "success": true
   },
   "7105": {
-    "validade": "19/01/2028",
-    "lote": null,
+    "validade": "04/05/2028",
+    "lote": "124172326",
     "success": true
   },
   "7108": {
@@ -7305,13 +7305,13 @@
     "success": true
   },
   "7121": {
-    "validade": "30/03/2027",
-    "lote": null,
+    "validade": "06/04/2027",
+    "lote": "0406",
     "success": true
   },
   "7126": {
     "validade": "18/06/2027",
-    "lote": "0618",
+    "lote": "061",
     "success": true
   },
   "7127": {
@@ -7365,13 +7365,13 @@
     "success": true
   },
   "7167": {
-    "validade": "31/10/2027",
-    "lote": "01102027",
+    "validade": "01/12/2027",
+    "lote": "26",
     "success": true
   },
   "7190": {
-    "validade": "02/09/2026",
-    "lote": "040726",
+    "validade": "06/09/2026",
+    "lote": "080726",
     "success": true
   },
   "7191": {
@@ -7385,8 +7385,8 @@
     "success": true
   },
   "7193": {
-    "validade": "22/10/2027",
-    "lote": "5126",
+    "validade": "09/12/2027",
+    "lote": null,
     "success": true
   },
   "7196": {
@@ -7450,8 +7450,8 @@
     "success": true
   },
   "7238": {
-    "validade": "30/12/2027",
-    "lote": "021",
+    "validade": "31/12/2027",
+    "lote": "21",
     "success": true
   },
   "7240": {
@@ -7490,8 +7490,8 @@
     "success": true
   },
   "7258": {
-    "validade": "09/03/2027",
-    "lote": "222",
+    "validade": "13/04/2027",
+    "lote": "150426",
     "success": true
   },
   "7259": {
@@ -7525,13 +7525,13 @@
     "success": true
   },
   "7285": {
-    "validade": "27/09/2026",
-    "lote": "30703",
+    "validade": "05/10/2026",
+    "lote": "3089",
     "success": true
   },
   "7288": {
-    "validade": "10/09/2026",
-    "lote": "3030",
+    "validade": "23/09/2026",
+    "lote": null,
     "success": true
   },
   "7294": {
@@ -7560,8 +7560,8 @@
     "success": true
   },
   "7304": {
-    "validade": "28/04/2027",
-    "lote": "1488",
+    "validade": "13/01/2027",
+    "lote": "1301",
     "success": true
   },
   "7308": {
@@ -7615,8 +7615,8 @@
     "success": true
   },
   "7337": {
-    "validade": "03/06/2027",
-    "lote": null,
+    "validade": "17/06/2027",
+    "lote": "260617",
     "success": true
   },
   "7338": {
@@ -7660,8 +7660,8 @@
     "success": true
   },
   "7374": {
-    "validade": "25/05/2027",
-    "lote": "250526",
+    "validade": "26/05/2027",
+    "lote": "260526",
     "success": true
   },
   "7382": {
@@ -7721,7 +7721,7 @@
   },
   "7428": {
     "validade": null,
-    "lote": "1203",
+    "lote": null,
     "success": true
   },
   "7433": {
@@ -7735,8 +7735,8 @@
     "success": true
   },
   "7436": {
-    "validade": "20/05/2027",
-    "lote": "0426",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "7437": {
@@ -7805,8 +7805,8 @@
     "success": true
   },
   "7565": {
-    "validade": "10/12/2026",
-    "lote": "10426",
+    "validade": "03/01/2027",
+    "lote": "12826521",
     "success": true
   },
   "7566": {
@@ -7830,18 +7830,18 @@
     "success": true
   },
   "7590": {
-    "validade": "10/04/2027",
-    "lote": "106",
+    "validade": "11/04/2027",
+    "lote": "192",
     "success": true
   },
   "7593": {
-    "validade": "27/12/2026",
-    "lote": "27042026",
+    "validade": "13/01/2027",
+    "lote": "13052026",
     "success": true
   },
   "7597": {
-    "validade": "27/05/2027",
-    "lote": "120",
+    "validade": "16/06/2027",
+    "lote": "12024",
     "success": true
   },
   "7598": {
@@ -7880,8 +7880,8 @@
     "success": true
   },
   "7625": {
-    "validade": "01/01/2027",
-    "lote": "06",
+    "validade": "30/12/2026",
+    "lote": "0629",
     "success": true
   },
   "7633": {
@@ -7905,8 +7905,8 @@
     "success": true
   },
   "7638": {
-    "validade": "07/08/2026",
-    "lote": "080626",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "7639": {
@@ -8010,8 +8010,8 @@
     "success": true
   },
   "7700": {
-    "validade": "20/04/2027",
-    "lote": "10149",
+    "validade": "01/06/2027",
+    "lote": "10302",
     "success": true
   },
   "7701": {
@@ -8030,8 +8030,8 @@
     "success": true
   },
   "7708": {
-    "validade": "11/05/2028",
-    "lote": "41381626",
+    "validade": "17/06/2028",
+    "lote": "0106",
     "success": true
   },
   "7710": {
@@ -8040,8 +8040,8 @@
     "success": true
   },
   "7713": {
-    "validade": "27/12/2027",
-    "lote": "2045",
+    "validade": "07/01/2028",
+    "lote": "2050",
     "success": true
   },
   "7714": {
@@ -8111,7 +8111,7 @@
   },
   "7734": {
     "validade": "28/02/2027",
-    "lote": "2802",
+    "lote": "280226",
     "success": true
   },
   "7735": {
@@ -8125,13 +8125,13 @@
     "success": true
   },
   "7737": {
-    "validade": "09/04/2027",
-    "lote": "6710",
+    "validade": "14/06/2027",
+    "lote": "1217",
     "success": true
   },
   "7738": {
-    "validade": null,
-    "lote": null,
+    "validade": "23/06/2027",
+    "lote": "2210",
     "success": true
   },
   "7739": {
@@ -8140,13 +8140,13 @@
     "success": true
   },
   "7740": {
-    "validade": "17/06/2027",
-    "lote": "5456",
+    "validade": "15/07/2027",
+    "lote": "61964612",
     "success": true
   },
   "7741": {
-    "validade": null,
-    "lote": null,
+    "validade": "17/08/2027",
+    "lote": "62586201",
     "success": true
   },
   "7742": {
@@ -8160,8 +8160,8 @@
     "success": true
   },
   "7746": {
-    "validade": "16/10/2026",
-    "lote": null,
+    "validade": "25/10/2026",
+    "lote": "405",
     "success": true
   },
   "7748": {
@@ -8185,8 +8185,8 @@
     "success": true
   },
   "7792": {
-    "validade": "09/08/2026",
-    "lote": "70999",
+    "validade": "24/08/2026",
+    "lote": "71718",
     "success": true
   },
   "7794": {
@@ -8210,7 +8210,7 @@
     "success": true
   },
   "7802": {
-    "validade": "02/08/2026",
+    "validade": "25/08/2026",
     "lote": null,
     "success": true
   },
@@ -8220,8 +8220,8 @@
     "success": true
   },
   "7805": {
-    "validade": "08/05/2027",
-    "lote": "080526",
+    "validade": "01/07/2027",
+    "lote": "010626",
     "success": true
   },
   "7815": {
@@ -8255,8 +8255,8 @@
     "success": true
   },
   "7855": {
-    "validade": "14/02/2027",
-    "lote": "0789",
+    "validade": "17/04/2027",
+    "lote": "5624",
     "success": true
   },
   "7856": {
@@ -8275,8 +8275,8 @@
     "success": true
   },
   "7871": {
-    "validade": "30/07/2027",
-    "lote": "3007",
+    "validade": "01/08/2027",
+    "lote": null,
     "success": true
   },
   "7873": {
@@ -8315,13 +8315,13 @@
     "success": true
   },
   "7888": {
-    "validade": "27/09/2026",
-    "lote": "02",
+    "validade": "05/10/2026",
+    "lote": "03",
     "success": true
   },
   "7889": {
-    "validade": "23/09/2026",
-    "lote": "5468",
+    "validade": "28/09/2026",
+    "lote": "02",
     "success": true
   },
   "7890": {
@@ -8425,8 +8425,8 @@
     "success": true
   },
   "7950": {
-    "validade": "27/07/2026",
-    "lote": "126025",
+    "validade": "11/08/2026",
+    "lote": "126027",
     "success": true
   },
   "7951": {
@@ -8460,8 +8460,8 @@
     "success": true
   },
   "7963": {
-    "validade": "18/04/2028",
-    "lote": null,
+    "validade": "19/04/2028",
+    "lote": "060726",
     "success": true
   },
   "7965": {
@@ -8470,8 +8470,8 @@
     "success": true
   },
   "7971": {
-    "validade": "04/10/2026",
-    "lote": null,
+    "validade": "21/10/2026",
+    "lote": "2306",
     "success": true
   },
   "7975": {
@@ -8495,7 +8495,7 @@
     "success": true
   },
   "7999": {
-    "validade": "18/11/2026",
+    "validade": "15/12/2026",
     "lote": "26",
     "success": true
   },
@@ -8520,8 +8520,8 @@
     "success": true
   },
   "8024": {
-    "validade": "24/09/2027",
-    "lote": "012138",
+    "validade": "20/11/2027",
+    "lote": "02",
     "success": true
   },
   "8034": {
@@ -8635,8 +8635,8 @@
     "success": true
   },
   "8182": {
-    "validade": "26/04/2027",
-    "lote": "010426",
+    "validade": "17/05/2027",
+    "lote": "010526",
     "success": true
   },
   "8183": {
@@ -8680,8 +8680,8 @@
     "success": true
   },
   "8194": {
-    "validade": "09/09/2027",
-    "lote": "8728",
+    "validade": "02/12/2027",
+    "lote": "020626",
     "success": true
   },
   "8196": {
@@ -8815,13 +8815,13 @@
     "success": true
   },
   "8279": {
-    "validade": "09/04/2027",
-    "lote": "2560",
+    "validade": "26/04/2027",
+    "lote": "2260",
     "success": true
   },
   "8280": {
-    "validade": "14/12/2026",
-    "lote": null,
+    "validade": "30/04/2027",
+    "lote": "07226",
     "success": true
   },
   "8284": {
@@ -8870,8 +8870,8 @@
     "success": true
   },
   "8312": {
-    "validade": "27/09/2026",
-    "lote": "5485",
+    "validade": "13/10/2026",
+    "lote": "5486",
     "success": true
   },
   "8314": {
@@ -8895,12 +8895,12 @@
     "success": true
   },
   "8321": {
-    "validade": "03/06/2027",
-    "lote": "03",
+    "validade": "30/06/2027",
+    "lote": null,
     "success": true
   },
   "8324": {
-    "validade": "22/11/2026",
+    "validade": "25/11/2026",
     "lote": null,
     "success": true
   },
@@ -8920,8 +8920,8 @@
     "success": true
   },
   "8332": {
-    "validade": "02/06/2027",
-    "lote": "06021",
+    "validade": "05/06/2027",
+    "lote": "0605",
     "success": true
   },
   "8335": {
@@ -8940,8 +8940,8 @@
     "success": true
   },
   "8343": {
-    "validade": "14/05/2027",
-    "lote": "134",
+    "validade": "01/07/2027",
+    "lote": "182",
     "success": true
   },
   "8344": {
@@ -8980,8 +8980,8 @@
     "success": true
   },
   "8363": {
-    "validade": "05/09/2026",
-    "lote": "3164",
+    "validade": "03/10/2026",
+    "lote": "0206",
     "success": true
   },
   "8364": {
@@ -9035,8 +9035,8 @@
     "success": true
   },
   "8380": {
-    "validade": "09/12/2026",
-    "lote": "260612",
+    "validade": "12/12/2026",
+    "lote": null,
     "success": true
   },
   "8381": {
@@ -9050,8 +9050,8 @@
     "success": true
   },
   "8383": {
-    "validade": "22/08/2026",
-    "lote": "2505",
+    "validade": "05/09/2026",
+    "lote": "1864",
     "success": true
   },
   "8386": {
@@ -9095,8 +9095,8 @@
     "success": true
   },
   "8404": {
-    "validade": "25/04/2027",
-    "lote": "250426",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "8407": {
@@ -9135,8 +9135,8 @@
     "success": true
   },
   "8423": {
-    "validade": "04/09/2026",
-    "lote": "260606",
+    "validade": "16/09/2026",
+    "lote": "260618",
     "success": true
   },
   "8425": {
@@ -9150,8 +9150,8 @@
     "success": true
   },
   "8428": {
-    "validade": "02/08/2026",
-    "lote": "0306",
+    "validade": "24/08/2026",
+    "lote": "25062026",
     "success": true
   },
   "8437": {
@@ -9210,7 +9210,7 @@
     "success": true
   },
   "8476": {
-    "validade": "01/08/2026",
+    "validade": null,
     "lote": null,
     "success": true
   },
@@ -9295,8 +9295,8 @@
     "success": true
   },
   "8527": {
-    "validade": "18/11/2026",
-    "lote": "180526",
+    "validade": "01/12/2026",
+    "lote": "011226",
     "success": true
   },
   "8532": {
@@ -9335,8 +9335,8 @@
     "success": true
   },
   "8560": {
-    "validade": "02/12/2026",
-    "lote": "13318",
+    "validade": "03/12/2026",
+    "lote": "0306",
     "success": true
   },
   "8562": {
@@ -9395,13 +9395,13 @@
     "success": true
   },
   "8584": {
-    "validade": "06/12/2026",
-    "lote": "157",
+    "validade": "17/12/2026",
+    "lote": "1706",
     "success": true
   },
   "8585": {
-    "validade": "10/11/2026",
-    "lote": "260514",
+    "validade": "14/11/2026",
+    "lote": "3646138",
     "success": true
   },
   "8586": {
@@ -9445,13 +9445,13 @@
     "success": true
   },
   "8604": {
-    "validade": null,
-    "lote": null,
+    "validade": "12/11/2026",
+    "lote": "14125219",
     "success": true
   },
   "8610": {
-    "validade": "15/07/2026",
-    "lote": "29242404",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "8613": {
@@ -9486,7 +9486,7 @@
   },
   "8636": {
     "validade": "27/05/2027",
-    "lote": "0001026",
+    "lote": null,
     "success": true
   },
   "8637": {
@@ -9520,8 +9520,8 @@
     "success": true
   },
   "8646": {
-    "validade": "12/11/2026",
-    "lote": "260516",
+    "validade": "13/11/2026",
+    "lote": "483",
     "success": true
   },
   "8648": {
@@ -9550,8 +9550,8 @@
     "success": true
   },
   "8660": {
-    "validade": "31/12/2026",
-    "lote": "64752",
+    "validade": "30/01/2027",
+    "lote": "653326",
     "success": true
   },
   "8661": {
@@ -9575,7 +9575,7 @@
     "success": true
   },
   "8671": {
-    "validade": "01/05/2036",
+    "validade": "30/06/2036",
     "lote": null,
     "success": true
   },
@@ -9600,8 +9600,8 @@
     "success": true
   },
   "8687": {
-    "validade": "20/05/2028",
-    "lote": "200526",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "8689": {
@@ -9630,8 +9630,8 @@
     "success": true
   },
   "8699": {
-    "validade": "27/05/2027",
-    "lote": "2226",
+    "validade": "17/06/2027",
+    "lote": "0606",
     "success": true
   },
   "8700": {
@@ -9680,8 +9680,8 @@
     "success": true
   },
   "8737": {
-    "validade": "21/05/2027",
-    "lote": "120",
+    "validade": "10/06/2027",
+    "lote": "12024",
     "success": true
   },
   "8744": {
@@ -9725,8 +9725,8 @@
     "success": true
   },
   "8753": {
-    "validade": "20/09/2026",
-    "lote": "22",
+    "validade": "22/09/2026",
+    "lote": "24",
     "success": true
   },
   "8755": {
@@ -9770,13 +9770,13 @@
     "success": true
   },
   "8775": {
-    "validade": "24/10/2026",
-    "lote": null,
+    "validade": "16/11/2026",
+    "lote": "1860",
     "success": true
   },
   "8779": {
-    "validade": "03/06/2027",
-    "lote": "5477",
+    "validade": "01/07/2027",
+    "lote": "12024",
     "success": true
   },
   "8781": {
@@ -9825,13 +9825,13 @@
     "success": true
   },
   "8813": {
-    "validade": "13/11/2026",
-    "lote": "130326",
+    "validade": "08/12/2026",
+    "lote": "6098046023",
     "success": true
   },
   "8815": {
-    "validade": "17/06/2027",
-    "lote": "01",
+    "validade": "06/07/2027",
+    "lote": "02",
     "success": true
   },
   "8817": {
@@ -9875,12 +9875,12 @@
     "success": true
   },
   "8845": {
-    "validade": "08/06/2027",
+    "validade": "09/06/2027",
     "lote": "222",
     "success": true
   },
   "8848": {
-    "validade": null,
+    "validade": "09/08/2026",
     "lote": null,
     "success": true
   },
@@ -9925,8 +9925,8 @@
     "success": true
   },
   "8874": {
-    "validade": "06/05/2027",
-    "lote": "0930",
+    "validade": "14/05/2027",
+    "lote": "140526",
     "success": true
   },
   "8875": {
@@ -10000,8 +10000,8 @@
     "success": true
   },
   "8898": {
-    "validade": "04/06/2027",
-    "lote": "155126",
+    "validade": "05/06/2027",
+    "lote": "156126",
     "success": true
   },
   "8904": {
@@ -10015,8 +10015,8 @@
     "success": true
   },
   "8910": {
-    "validade": "25/10/2026",
-    "lote": "260625",
+    "validade": "27/10/2026",
+    "lote": "290626",
     "success": true
   },
   "8914": {
@@ -10030,8 +10030,8 @@
     "success": true
   },
   "8917": {
-    "validade": "17/03/2027",
-    "lote": "6076102401",
+    "validade": "28/04/2027",
+    "lote": "6118102401",
     "success": true
   },
   "8918": {
@@ -10040,8 +10040,8 @@
     "success": true
   },
   "8920": {
-    "validade": "04/06/2030",
-    "lote": "55",
+    "validade": "24/06/2030",
+    "lote": "284",
     "success": true
   },
   "8926": {
@@ -10100,8 +10100,8 @@
     "success": true
   },
   "8939": {
-    "validade": null,
-    "lote": null,
+    "validade": "19/08/2027",
+    "lote": "12626",
     "success": true
   },
   "8942": {
@@ -10175,8 +10175,8 @@
     "success": true
   },
   "8964": {
-    "validade": "30/04/2028",
-    "lote": "3006",
+    "validade": "30/05/2028",
+    "lote": "6113126",
     "success": true
   },
   "8965": {
@@ -10185,8 +10185,8 @@
     "success": true
   },
   "8966": {
-    "validade": "30/04/2028",
-    "lote": null,
+    "validade": "30/06/2028",
+    "lote": "15226",
     "success": true
   },
   "8967": {
@@ -10220,8 +10220,8 @@
     "success": true
   },
   "8982": {
-    "validade": "10/08/2026",
-    "lote": null,
+    "validade": "18/08/2026",
+    "lote": "188",
     "success": true
   },
   "8983": {
@@ -10510,8 +10510,8 @@
     "success": true
   },
   "9107": {
-    "validade": null,
-    "lote": null,
+    "validade": "08/10/2027",
+    "lote": "10626224",
     "success": true
   },
   "9108": {
@@ -10556,7 +10556,7 @@
   },
   "9118": {
     "validade": "11/08/2026",
-    "lote": "6044",
+    "lote": null,
     "success": true
   },
   "9119": {
@@ -10635,8 +10635,8 @@
     "success": true
   },
   "9138": {
-    "validade": "24/08/2026",
-    "lote": "2605261",
+    "validade": "08/09/2026",
+    "lote": "10062601",
     "success": true
   },
   "9140": {
@@ -10665,8 +10665,8 @@
     "success": true
   },
   "9151": {
-    "validade": "10/09/2026",
-    "lote": "20260513",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "9152": {
@@ -10676,7 +10676,7 @@
   },
   "9162": {
     "validade": null,
-    "lote": "200",
+    "lote": "210526",
     "success": true
   },
   "9164": {
@@ -10711,7 +10711,7 @@
   },
   "9173": {
     "validade": "18/12/2027",
-    "lote": "5352010352",
+    "lote": null,
     "success": true
   },
   "9174": {
@@ -10750,8 +10750,8 @@
     "success": true
   },
   "9246": {
-    "validade": "29/07/2026",
-    "lote": "260614",
+    "validade": "05/08/2026",
+    "lote": "260621",
     "success": true
   },
   "9255": {
@@ -10811,7 +10811,7 @@
   },
   "9608": {
     "validade": "26/10/2026",
-    "lote": "260530",
+    "lote": "26125",
     "success": true
   },
   "9610": {
@@ -10825,8 +10825,8 @@
     "success": true
   },
   "9613": {
-    "validade": "10/05/2027",
-    "lote": "4302",
+    "validade": "11/06/2027",
+    "lote": "330",
     "success": true
   },
   "9627": {
@@ -10860,8 +10860,8 @@
     "success": true
   },
   "9638": {
-    "validade": "01/11/2026",
-    "lote": "52",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "9639": {
@@ -10875,8 +10875,8 @@
     "success": true
   },
   "9642": {
-    "validade": null,
-    "lote": null,
+    "validade": "24/05/2027",
+    "lote": "250526",
     "success": true
   },
   "9648": {
@@ -10890,8 +10890,8 @@
     "success": true
   },
   "9650": {
-    "validade": "12/06/2027",
-    "lote": "120626",
+    "validade": "18/06/2027",
+    "lote": "2004",
     "success": true
   },
   "9651": {
@@ -10955,8 +10955,8 @@
     "success": true
   },
   "9674": {
-    "validade": "25/11/2028",
-    "lote": "2505",
+    "validade": "30/12/2026",
+    "lote": "3006",
     "success": true
   },
   "9676": {
@@ -10970,8 +10970,8 @@
     "success": true
   },
   "9679": {
-    "validade": "12/03/2027",
-    "lote": "1203",
+    "validade": "27/03/2027",
+    "lote": "5877",
     "success": true
   },
   "9680": {
@@ -11005,8 +11005,8 @@
     "success": true
   },
   "9691": {
-    "validade": "09/10/2026",
-    "lote": null,
+    "validade": "22/10/2026",
+    "lote": "176",
     "success": true
   },
   "9692": {
@@ -11015,8 +11015,8 @@
     "success": true
   },
   "9695": {
-    "validade": "05/11/2028",
-    "lote": "222",
+    "validade": "30/08/2028",
+    "lote": "018",
     "success": true
   },
   "9696": {
@@ -11045,8 +11045,8 @@
     "success": true
   },
   "9724": {
-    "validade": "08/09/2026",
-    "lote": "100626",
+    "validade": "09/09/2026",
+    "lote": "260509",
     "success": true
   },
   "9726": {
@@ -11060,8 +11060,8 @@
     "success": true
   },
   "9733": {
-    "validade": "30/09/2026",
-    "lote": "3003",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "9740": {
@@ -11145,18 +11145,18 @@
     "success": true
   },
   "9761": {
-    "validade": null,
-    "lote": null,
+    "validade": "28/05/2027",
+    "lote": "33825157",
     "success": true
   },
   "9762": {
-    "validade": "19/05/2027",
-    "lote": "260409",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "9763": {
-    "validade": null,
-    "lote": null,
+    "validade": "29/03/2027",
+    "lote": "12626",
     "success": true
   },
   "9764": {
@@ -11165,8 +11165,8 @@
     "success": true
   },
   "9765": {
-    "validade": null,
-    "lote": null,
+    "validade": "19/08/2027",
+    "lote": "05626",
     "success": true
   },
   "9766": {
@@ -11195,8 +11195,8 @@
     "success": true
   },
   "9776": {
-    "validade": "28/02/2027",
-    "lote": "2526",
+    "validade": "02/03/2027",
+    "lote": "2626",
     "success": true
   },
   "9777": {
@@ -11260,8 +11260,8 @@
     "success": true
   },
   "9791": {
-    "validade": null,
-    "lote": null,
+    "validade": "01/11/2027",
+    "lote": "13026014",
     "success": true
   },
   "9792": {
@@ -11475,13 +11475,13 @@
     "success": true
   },
   "9843": {
-    "validade": null,
+    "validade": "01/10/2026",
     "lote": null,
     "success": true
   },
   "9844": {
-    "validade": null,
-    "lote": null,
+    "validade": "10/07/2027",
+    "lote": "22",
     "success": true
   },
   "9845": {
@@ -11500,7 +11500,7 @@
     "success": true
   },
   "9850": {
-    "validade": null,
+    "validade": "01/10/2026",
     "lote": null,
     "success": true
   },
@@ -11510,7 +11510,7 @@
     "success": true
   },
   "9858": {
-    "validade": null,
+    "validade": "01/10/2026",
     "lote": null,
     "success": true
   },
@@ -11520,7 +11520,7 @@
     "success": true
   },
   "9862": {
-    "validade": null,
+    "validade": "01/10/2026",
     "lote": null,
     "success": true
   },
@@ -11550,8 +11550,8 @@
     "success": true
   },
   "9868": {
-    "validade": "08/04/2028",
-    "lote": "2005",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "9869": {
@@ -11590,8 +11590,8 @@
     "success": true
   },
   "9877": {
-    "validade": "30/05/2027",
-    "lote": "260530",
+    "validade": "09/06/2027",
+    "lote": "0906",
     "success": true
   },
   "9883": {
@@ -11600,8 +11600,8 @@
     "success": true
   },
   "9894": {
-    "validade": "22/09/2026",
-    "lote": "1406",
+    "validade": null,
+    "lote": null,
     "success": true
   },
   "9895": {
@@ -11645,7 +11645,7 @@
     "success": true
   },
   "9909": {
-    "validade": null,
+    "validade": "01/10/2026",
     "lote": null,
     "success": true
   },
@@ -11676,7 +11676,7 @@
   },
   "9917": {
     "validade": "23/09/2026",
-    "lote": "25",
+    "lote": null,
     "success": true
   },
   "9918": {
