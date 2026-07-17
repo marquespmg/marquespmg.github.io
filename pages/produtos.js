@@ -8,19 +8,19 @@ import useTrackUser from '../hook/useTrackUser';
 import WithdrawalModal from '../components/WithdrawalModal';
 import { useProdutoValidade } from '../hook/useProdutoValidade';
 
-// ========== CONFIGURAÇÃO DA CAMPANHA ========== // <-- ADICIONE ESTA SEÇÃO
+// ========== CONFIGURAÇÃO DA CAMPANHA ========== //
 const CAMPANHA_COMPRE_E_GANHE = {
   ativa: false,  // MUDAR PARA false quando quiser desativar
   marcas: {
     quata: {
       nome: "Quatá",
-      ids: [653, 658, 825, 829, 842, 902, 2065], // ⚠️ COLOQUE OS IDs REAIS AQUI
+      ids: [653, 658, 825, 829, 842, 902, 2065],
       minimo: 2,
       icone: "🌾"
     },
     cargill: {
       nome: "Cargill", 
-      ids: [383, 1928, 1290, 1356, 1364], // ⚠️ COLOQUE OS IDs REAIS AQUI
+      ids: [383, 1928, 1290, 1356, 1364],
       minimo: 2,
       icone: "🌽"
     }
@@ -29,6 +29,33 @@ const CAMPANHA_COMPRE_E_GANHE = {
   mensagem: "🎉 Parabéns! Você ganhou 2% de desconto através da campanha Quatá + Cargill.",
   mensagemWhatsApp: "Campanha aplicada: Quatá + Cargill (2% de desconto)"
 };
+
+// ========== CONFIGURAÇÃO DA OFERTA RELÂMPAGO ========== //
+const OFERTA_RELAMPAGO = {
+  ativa: false,
+  
+  ids: [2059],
+  
+  duracao_horas: 3,
+  
+  // ⭐ É AQUI QUE VOCÊ MUDA O HORÁRIO!
+  data_inicio: '2026-07-17T19:46:00Z', // <--- MUDE AQUI!
+  
+  mensagem: '⚡ Aproveite os preços especiais por tempo limitado!',
+  mensagem_encerrada: '⏰ Oferta encerrada! Fique de olho na próxima.'
+};
+
+// ========== LISTA DE IDs PARA FILTRAR ==========
+const PRODUTOS_OFERTA = OFERTA_RELAMPAGO.ids;
+
+// ========== CALCULA DATA DE FIM ==========
+const calcularDataFim = () => {
+  if (!OFERTA_RELAMPAGO.ativa) return null;
+  const inicio = new Date(OFERTA_RELAMPAGO.data_inicio);
+  const fim = new Date(inicio.getTime() + (OFERTA_RELAMPAGO.duracao_horas * 60 * 60 * 1000));
+  return fim.toISOString();
+};
+const DATA_FIM_OFERTA = calcularDataFim();
 
 // IDs dos produtos da campanha (para exibir na categoria)
 const PRODUTOS_CAMPANHA = [
@@ -203,7 +230,7 @@ const generateImageSEO = (product) => {
   };
 };
 
-// ⭐ CATEGORIAS - FILTRA A CAMPANHA SE ESTIVER DESATIVADA
+// ⭐ CATEGORIAS
 const categories = [
   'Acessórios', 'Bebidas', 'Conservas/Enlatados', 'Derivados de Ave', 
   'Derivados de Bovino', 'Derivados de Leite', 'Derivados de Suíno', 
@@ -212,7 +239,12 @@ const categories = [
   '⏳ Ofertas da Semana 🚨'
 ];
 
-// ⭐ ADICIONA A CATEGORIA DA CAMPANHA SOMENTE SE ESTIVER ATIVA
+// ⭐ SÓ ADICIONA A OFERTA RELÂMPAGO SE ESTIVER ATIVA
+if (OFERTA_RELAMPAGO.ativa) {
+  categories.unshift('⚡ Oferta Relâmpago');  // unshift = coloca no início
+}
+
+// ⭐ SÓ ADICIONA A CATEGORIA DA CAMPANHA SE ESTIVER ATIVA
 if (CAMPANHA_COMPRE_E_GANHE.ativa) {
   categories.push('🎁 Compre e Ganhe');
 }
@@ -3213,6 +3245,9 @@ const isRunningInApp = () => {
   const citiesButtonRef = useRef(null);
   const [showWithdrawalModal, setShowWithdrawalModal] = useState(false);
   const [showGoogleLogin, setShowGoogleLogin] = useState(true);
+  const [showGoogleLogin, setShowGoogleLogin] = useState(true);
+  const [tempoRestante, setTempoRestante] = useState('--:--:--');
+  const [ofertaAtiva, setOfertaAtiva] = useState(OFERTA_RELAMPAGO.ativa);
 
   useTrackUser(); // ← ADICIONE ESTA LINHA
 
@@ -3472,6 +3507,34 @@ useEffect(() => {
 
   handleRedirectAfterLogin();
 }, [router]);
+
+// ========== EFECT DO CRONÔMETRO ========== //
+useEffect(() => {
+  if (!OFERTA_RELAMPAGO.ativa || !DATA_FIM_OFERTA) return;
+
+  const interval = setInterval(() => {
+    const agora = new Date().getTime();
+    const fim = new Date(DATA_FIM_OFERTA).getTime();
+    const diff = Math.max(0, fim - agora);
+    
+    // ⭐ SE ACABOU O TEMPO
+    if (diff === 0) {
+      setOfertaAtiva(false);
+      clearInterval(interval);
+      // ⭐ REMOVA OU COMENTE ESTA LINHA:
+      // window.location.reload();
+      return;
+    }
+    
+    const horas = String(Math.floor(diff / 3600000)).padStart(2, '0');
+    const minutos = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+    const segundos = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+    
+    setTempoRestante(`${horas}:${minutos}:${segundos}`);
+  }, 1000);
+  
+  return () => clearInterval(interval);
+}, []);
 
 // ==============================================
 // 🔑 ESCUTA MUDANÇAS DE AUTENTICAÇÃO (LOGIN/LOGOUT)
@@ -4311,6 +4374,14 @@ const filteredProducts = uniqueProducts
       
       // Retorna true se encontrar por ID EXATO ou por NOME
       return matchesIdSite || matchesIdPMG || matchesName;
+    }
+    
+    // ⭐ NOVO: OFERTA RELÂMPAGO
+    const isOfertaRelampagoCategory = selectedCategory === '⚡ Oferta Relâmpago';
+    
+    if (isOfertaRelampagoCategory) {
+      if (!OFERTA_RELAMPAGO.ativa) return false;
+      return PRODUTOS_OFERTA.includes(product.id);
     }
     
     // 2. SE NÃO HÁ BUSCA: filtra por categoria
@@ -5698,43 +5769,104 @@ productsGrid: {
         </div>
 
 <div style={styles.categoryMenu}>
-  {categories.map(category => (
-    <button
-      key={category}
-      onClick={() => {
-        setSelectedCategory(category);
-        setCurrentPage(1);
-      }}
-      style={{
-        ...styles.categoryButton,
-        ...(selectedCategory === category && styles.activeCategory)
-      }}
-    >
-      {category}
-    </button>
-  ))}
+  {categories.map(category => {
+    // ⭐ VERIFICA SE É A CATEGORIA OFERTA RELÂMPAGO
+    const isOfertaRelampago = category === '⚡ Oferta Relâmpago';
+    
+    // ⭐ RESPONSIVIDADE
+    const isMobile = windowWidth <= 768;
+    
+    return (
+      <button
+        key={category}
+        onClick={() => {
+          setSelectedCategory(category);
+          setCurrentPage(1);
+        }}
+        style={{
+          ...styles.categoryButton,
+          ...(selectedCategory === category && styles.activeCategory),
+          // ⭐ ESTILO ESPECIAL PARA OFERTA RELÂMPAGO - FUNDO PRETO
+          ...(isOfertaRelampago && {
+            backgroundColor: '#1a1a1a',
+            color: 'white',
+            fontWeight: '900',
+            fontSize: isMobile ? '13px' : '15px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.5px',
+            border: selectedCategory === category 
+              ? '2px solid #FF1744' 
+              : '2px solid #444',
+            boxShadow: selectedCategory === category 
+              ? '0 0 20px rgba(255, 23, 68, 0.3)' 
+              : 'none',
+            transition: 'all 0.3s ease'
+          })
+        }}
+      >
+        {category}
+      </button>
+    );
+  })}
 </div>
 
+{/* ========== CRONÔMETRO PEQUENO - SÓ APARECE QUANDO A CATEGORIA ESTIVER SELECIONADA ========== */}
+{OFERTA_RELAMPAGO.ativa && ofertaAtiva && selectedCategory === '⚡ Oferta Relâmpago' && (
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px',
+    backgroundColor: '#1a1a1a',
+    color: 'white',
+    padding: windowWidth > 768 ? '8px 16px' : '6px 12px',
+    borderRadius: '8px',
+    marginBottom: '20px',
+    border: '1px solid #FF1744',
+    width: 'fit-content',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    flexWrap: 'wrap'
+  }}>
+    <span style={{ fontSize: windowWidth > 768 ? '16px' : '14px' }}>⚡</span>
+    <span style={{
+      fontSize: windowWidth > 768 ? '14px' : '12px',
+      fontWeight: '600',
+      color: '#FF1744'
+    }}>
+      {tempoRestante}
+    </span>
+    <span style={{
+      fontSize: windowWidth > 768 ? '12px' : '10px',
+      color: '#aaa'
+    }}>
+      • Oferta por tempo limitado
+    </span>
+  </div>
+)}
+
+{/* ========== GRID DE PRODUTOS ========== */}
 <div style={styles.productsGrid}>
+  
   {/* ⭐ SÓ MOSTRA O BLOCO DA CAMPANHA SE ESTIVER ATIVA */}
   {CAMPANHA_COMPRE_E_GANHE.ativa && selectedCategory === '🎁 Compre e Ganhe' && (
     <div style={{
       gridColumn: '1 / -1',
       background: 'linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%)',
       borderRadius: '16px',
-      padding: '25px',
+      padding: windowWidth > 768 ? '25px' : '15px',
       marginBottom: '20px',
       border: '2px solid #095400',
       boxShadow: '0 4px 15px rgba(9, 84, 0, 0.15)'
     }}>
       {/* TÍTULO */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
-        <span style={{ fontSize: '40px' }}>🎁</span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px', flexWrap: 'wrap' }}>
+        <span style={{ fontSize: windowWidth > 768 ? '40px' : '30px' }}>🎁</span>
         <div>
-          <h2 style={{ margin: 0, color: '#095400', fontSize: '24px', fontWeight: 700 }}>
+          <h2 style={{ margin: 0, color: '#095400', fontSize: windowWidth > 768 ? '24px' : '18px', fontWeight: 700 }}>
             Compre e Ganhe!
           </h2>
-          <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '16px', fontWeight: 500 }}>
+          <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: windowWidth > 768 ? '16px' : '13px', fontWeight: 500 }}>
             Complete os requisitos e ganhe 2% de desconto
           </p>
         </div>
@@ -5744,15 +5876,15 @@ productsGrid: {
       <div style={{
         backgroundColor: 'rgba(255, 255, 255, 0.9)',
         borderRadius: '10px',
-        padding: '15px',
+        padding: windowWidth > 768 ? '15px' : '12px',
         marginBottom: '20px',
         border: '1px solid #A5D6A7'
       }}>
-        <p style={{ margin: '0 0 8px 0', fontWeight: 700, fontSize: '14px', color: '#095400' }}>
+        <p style={{ margin: '0 0 8px 0', fontWeight: 700, fontSize: windowWidth > 768 ? '14px' : '12px', color: '#095400' }}>
           📋 Como funciona:
         </p>
-        <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '13px', color: '#333' }}>
-          <li>Compre no mínimo <strong style={{ color: '#095400' }}>2 produtos Quatá</strong> e <strong style={{ color: '#095400' }}>2 produtos Cargill ( Elefante, Liza e Mariana) </strong></li>
+        <ul style={{ margin: 0, paddingLeft: '20px', fontSize: windowWidth > 768 ? '13px' : '12px', color: '#333' }}>
+          <li>Compre no mínimo <strong style={{ color: '#095400' }}>2 produtos Quatá</strong> e <strong style={{ color: '#095400' }}>2 produtos Cargill</strong></li>
           <li>Ganhe <strong style={{ color: '#095400' }}>2% de desconto</strong> distribuído entre os itens</li>
           <li style={{ color: '#E65100' }}>⚠️ Desconto não se aplica a produtos em oferta</li>
         </ul>
@@ -5769,12 +5901,12 @@ productsGrid: {
         <div style={{
           backgroundColor: '#fff',
           borderRadius: '10px',
-          padding: '15px',
+          padding: windowWidth > 768 ? '15px' : '12px',
           border: '2px solid #095400',
           boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-            <span style={{ fontWeight: 600, fontSize: '15px', color: '#095400' }}>🌾 Quatá</span>
+            <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>🌾 Quatá</span>
             <span style={{ fontWeight: 700, color: (() => {
               const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.quata.ids.includes(item.id))
                 .reduce((sum, item) => sum + (item.quantity || 1), 0);
@@ -5817,12 +5949,12 @@ productsGrid: {
         <div style={{
           backgroundColor: '#fff',
           borderRadius: '10px',
-          padding: '15px',
+          padding: windowWidth > 768 ? '15px' : '12px',
           border: '2px solid #095400',
           boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-            <span style={{ fontWeight: 600, fontSize: '15px', color: '#095400' }}>🌽 Cargill</span>
+            <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>🌽 Cargill</span>
             <span style={{ fontWeight: 700, color: (() => {
               const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.cargill.ids.includes(item.id))
                 .reduce((sum, item) => sum + (item.quantity || 1), 0);
@@ -5872,24 +6004,24 @@ productsGrid: {
 
         return qualificada ? (
           <div style={{
-            padding: '20px',
+            padding: windowWidth > 768 ? '20px' : '15px',
             backgroundColor: '#E8F5E9',
             borderRadius: '12px',
             border: '2px solid #095400',
             textAlign: 'center',
             animation: 'pulse-success 2s infinite'
           }}>
-            <div style={{ fontSize: '40px', marginBottom: '8px' }}>🎉</div>
-            <p style={{ margin: 0, color: '#095400', fontWeight: 700, fontSize: '20px' }}>
+            <div style={{ fontSize: windowWidth > 768 ? '40px' : '30px', marginBottom: '8px' }}>🎉</div>
+            <p style={{ margin: 0, color: '#095400', fontWeight: 700, fontSize: windowWidth > 768 ? '20px' : '16px' }}>
               Parabéns! Você ganhou 2% de desconto!
             </p>
-            <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '15px', fontWeight: 500 }}>
+            <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: windowWidth > 768 ? '15px' : '13px', fontWeight: 500 }}>
               Desconto aplicado automaticamente no carrinho
             </p>
           </div>
         ) : (
           <div style={{
-            padding: '15px',
+            padding: windowWidth > 768 ? '15px' : '12px',
             backgroundColor: '#FFF8E1',
             borderRadius: '10px',
             border: '2px solid #FFB74D',
@@ -5905,10 +6037,10 @@ productsGrid: {
       {/* AVISO SOBRE CUPONS */}
       <div style={{
         marginTop: '15px',
-        padding: '12px',
+        padding: windowWidth > 768 ? '12px' : '10px',
         backgroundColor: '#F5F5F5',
         borderRadius: '8px',
-        fontSize: '13px',
+        fontSize: windowWidth > 768 ? '13px' : '11px',
         color: '#666',
         border: '1px solid #E0E0E0',
         textAlign: 'center'
@@ -5925,119 +6057,175 @@ productsGrid: {
       `}</style>
     </div>
   )}
-
-{/* PRODUTOS DA CAMPANHA */}
-{currentProducts.map(product => {
-  const seo = generateImageSEO(product);
   
-  return (
-    <div 
-      key={product.id} 
-      style={{
-        ...styles.productCard,
-        ...(product.price === 0 && { opacity: 0.7 })
-      }}
-    >
-      {/* BOTÃO LUPA */}
-      <button
-        onClick={() => redirectToProductDetails(product.id)}
-        style={styles.productDetailsButton}
-        onMouseOver={(e) => {
-          e.target.style.backgroundColor = '#c62828';
-          e.target.style.transform = 'scale(1.1)';
+  {/* ========== PRODUTOS ========== */}
+  {currentProducts.map(product => {
+    const seo = generateImageSEO(product);
+    
+    // ⭐ VERIFICA SE É OFERTA RELÂMPAGO
+    const isOfertaRelampago = OFERTA_RELAMPAGO.ativa && 
+                              PRODUTOS_OFERTA.includes(product.id);
+    
+    return (
+      <div 
+        key={product.id} 
+        style={{
+          ...styles.productCard,
+          ...(product.price === 0 && { opacity: 0.7 }),
+          // ⭐ BORDA VERMELHA PARA PRODUTOS EM OFERTA
+          ...(isOfertaRelampago && {
+            border: '2px solid #FF1744',
+            boxShadow: '0 0 20px rgba(255, 23, 68, 0.15)'
+          })
         }}
-        onMouseOut={(e) => {
-          e.target.style.backgroundColor = '#e53935';
-          e.target.style.transform = 'scale(1)';
-        }}
-        title="Ver detalhes do produto"
       >
-        🔍
-      </button>
-      
-      <img 
-        src={product.image} 
-        alt={seo.alt}
-        title={seo.title}
-        style={styles.productImage}
-        onError={(e) => {
-          e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
-        }}
-      />
-      
-      <div style={styles.productInfo}>
-        <div style={styles.productNameContainer}>
-          <h3 style={styles.productName}>
-            {product.name}
-          </h3>
-          {/* ✅ MOSTRA "MOSTRAR MAIS" APENAS NO DESKTOP (tela > 768px) */}
-          {windowWidth > 768 && product.name.length > 40 && (
-            <button 
-              onClick={() => toggleDescription(product.id)}
-              style={styles.showMoreButton}
-            >
-              {expandedDescriptions[product.id] ? 'Mostrar menos' : 'Mostrar mais'}
-            </button>
-          )}
-        </div>
+        {/* BOTÃO LUPA */}
+        <button
+          onClick={() => redirectToProductDetails(product.id)}
+          style={styles.productDetailsButton}
+          onMouseOver={(e) => {
+            e.target.style.backgroundColor = '#c62828';
+            e.target.style.transform = 'scale(1.1)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.backgroundColor = '#e53935';
+            e.target.style.transform = 'scale(1)';
+          }}
+          title="Ver detalhes do produto"
+        >
+          🔍
+        </button>
         
-        {user ? (
-          <p style={product.price > 0 ? styles.productPrice : styles.unavailablePrice}>
-            {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
-          </p>
-        ) : (
-          <p style={{ color: '#666', fontStyle: 'italic' }}>
-            Faça login para ver o preço
-          </p>
-        )}
-
-        {user && (
-          <button
-            onClick={() => addToCart(product)}
-            disabled={product.price === 0}
-            style={{
-              ...styles.addButton,
-              ...(product.price === 0 && styles.disabledButton)
-            }}
-          >
-            {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
-          </button>
-        )}
-
-        {/* ========== VALIDADE E LOTE ========== */}
-        {user && dadosValidade[product.id] && (
+        {/* ⭐ SELO DE OFERTA RELÂMPAGO */}
+        {isOfertaRelampago && (
           <div style={{
-            marginTop: '10px',
-            paddingTop: '8px',
-            fontSize: '11px',
-            color: '#6c757d',
+            position: 'absolute',
+            top: '10px',
+            left: '10px',
+            backgroundColor: '#FF1744',
+            color: 'white',
+            padding: windowWidth > 768 ? '4px 12px' : '3px 8px',
+            borderRadius: '4px',
+            fontSize: windowWidth > 768 ? '12px' : '10px',
+            fontWeight: '900',
+            textTransform: 'uppercase',
+            boxShadow: '0 2px 10px rgba(255, 23, 68, 0.4)',
+            zIndex: 2,
             display: 'flex',
             alignItems: 'center',
-            gap: '15px',
-            flexWrap: 'wrap',
-            borderTop: '1px solid #f0f0f0'
+            gap: '4px'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <span>📅</span>
-              <span style={{ color: '#495057' }}>
-                <strong>Validade:</strong> {dadosValidade[product.id]?.validade || 'Não informado'}
-              </span>
-            </div>
-            
-            {dadosValidade[product.id]?.lote && (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <span>🏷️</span>
-                <span style={{ color: '#495057' }}>
-                  <strong>Lote:</strong> {dadosValidade[product.id].lote}
-                </span>
-              </div>
-            )}
+            ⚡ OFERTA
           </div>
         )}
+        
+        <img 
+          src={product.image} 
+          alt={seo.alt}
+          title={seo.title}
+          style={styles.productImage}
+          onError={(e) => {
+            e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
+          }}
+        />
+        
+        <div style={styles.productInfo}>
+          <div style={styles.productNameContainer}>
+            <h3 style={styles.productName}>
+              {product.name}
+            </h3>
+            {windowWidth > 768 && product.name.length > 40 && (
+              <button 
+                onClick={() => toggleDescription(product.id)}
+                style={styles.showMoreButton}
+              >
+                {expandedDescriptions[product.id] ? 'Mostrar menos' : 'Mostrar mais'}
+              </button>
+            )}
+          </div>
+          
+          {user ? (
+            isOfertaRelampago ? (
+              <div style={{ margin: '10px 0' }}>
+                <span style={{
+                  fontSize: windowWidth > 768 ? '20px' : '18px',
+                  fontWeight: '700',
+                  color: '#FF1744'
+                }}>
+                  R$ {product.price.toFixed(2)}
+                </span>
+                <span style={{
+                  backgroundColor: '#FF1744',
+                  color: 'white',
+                  padding: windowWidth > 768 ? '2px 10px' : '2px 6px',
+                  borderRadius: '4px',
+                  fontSize: windowWidth > 768 ? '12px' : '10px',
+                  fontWeight: '700',
+                  marginLeft: '8px'
+                }}>
+                  ⚡
+                </span>
+              </div>
+            ) : (
+              <p style={product.price > 0 ? styles.productPrice : styles.unavailablePrice}>
+                {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
+              </p>
+            )
+          ) : (
+            <p style={{ color: '#666', fontStyle: 'italic' }}>
+              Faça login para ver o preço
+            </p>
+          )}
+
+          {user && (
+            <button
+              onClick={() => addToCart(product)}
+              disabled={product.price === 0}
+              style={{
+                ...styles.addButton,
+                ...(product.price === 0 && styles.disabledButton),
+                ...(isOfertaRelampago && {
+                  backgroundColor: '#FF1744'
+                })
+              }}
+            >
+              {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
+            </button>
+          )}
+
+          {user && dadosValidade[product.id] && (
+            <div style={{
+              marginTop: '10px',
+              paddingTop: '8px',
+              fontSize: windowWidth > 768 ? '11px' : '10px',
+              color: '#6c757d',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '15px',
+              flexWrap: 'wrap',
+              borderTop: '1px solid #f0f0f0'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span>📅</span>
+                <span style={{ color: '#495057' }}>
+                  <strong>Validade:</strong> {dadosValidade[product.id]?.validade || 'Não informado'}
+                </span>
+              </div>
+              
+              {dadosValidade[product.id]?.lote && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span>🏷️</span>
+                  <span style={{ color: '#495057' }}>
+                    <strong>Lote:</strong> {dadosValidade[product.id].lote}
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-  );
-})}
+    );
+  })}
 </div>
 		
 {/* Script de dados estruturados Schema.org */}
