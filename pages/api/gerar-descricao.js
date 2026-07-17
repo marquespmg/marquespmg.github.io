@@ -2651,6 +2651,17 @@ const products = [
   { id: 2751, name: 'SUCO SUFRESH MARACUJÁ LATA 265 ML (PCT 12 LT)', category: 'Bebidas', price: 54.07, image: 'https://www.marquesvendaspmg.shop/images/suco-sufresh-maracuja-lata-265-ml-pct-12-lt.webp' },
   { id: 2752, name: 'SUCO SUFRESH UVA LATA 265 ML (PCT 12 LT)', category: 'Bebidas', price: 54.07, image: 'https://www.marquesvendaspmg.shop/images/suco-sufresh-uva-lata-265-ml-pct-12-lt.webp' },
   { id: 2753, name: 'WASABI EM PÓ PREMIUM HINATA 1,01 KILO', category: 'Orientais', price: 40.54, image: 'https://www.marquesvendaspmg.shop/images/wasabi-em-po-premium-hinata-101-kg-cx-10-pct.webp' },
+  { id: 2754, name: 'ALCATRA BOVINA CONGELADA EM BIFE ALFAMA 2 KILO', category: 'Derivados de Bovino', price: 118.24, image: 'https://www.marquesvendaspmg.shop/images/alcatra-bovina-congelada-em-bife-alfama-2-kg-cx-3-pct.webp' },
+  { id: 2755, name: 'ALGA MARINHA YAKI SUSHI NORI GREEN TAICHI 140 G', category: 'Orientais', price: 30.57, image: 'https://www.marquesvendaspmg.shop/images/alga-marinha-yaki-sushi-nori-green-taichi-140-g-cx-70-pct.webp' },
+  { id: 2756, name: 'ATUM RALADO EM ÓLEO CHICHARRO SAINT PAUL 410 G', category: 'Derivados do Mar', price: 12.67, image: 'https://www.marquesvendaspmg.shop/images/atum-ralado-em-oleo-chicharro-saint-paul-410-g-cx-24-lt.webp' },
+  { id: 2758, name: 'CORAÇÃO DE FRANGO CONGELADO AVELÍCIA (CX 20 KILO)', category: 'Derivados de Ave', price: 714.28, image: 'https://www.marquesvendaspmg.shop/images/coracao-de-frango-congelado-avelicia-cx-20-kg.webp' },
+  { id: 2759, name: 'COXAS E SOBRECOXAS DE FRANGO CONGELADAS COM OSSO C.VALE (CX 18 KILO)', category: 'Derivados de Ave', price: 130.31, image: 'https://www.marquesvendaspmg.shop/images/coxas-e-sobrecoxas-de-frango-congeladas-com-osso-cvale-cx-18-kg.webp' },
+  { id: 2763, name: 'FILÉ MIGNON SUÍNO CONGELADO TCHÊ ESTRELA 2 KG', category: 'Derivados de Suíno', price: 20.74, image: 'https://www.marquesvendaspmg.shop/images/file-mignon-suino-congelado-tche-estrela-2-kg-cx-19-kg.webp' },
+  { id: 2764, name: 'FRANGO A PASSARINHO CONGELADO TEMPERADO ADORO (CX 20 KILO)', category: 'Derivados de Ave', price: 154.44, image: 'https://www.marquesvendaspmg.shop/images/frango-a-passarinho-congelado-temperado-adoro-cx-20-kg.webp' },
+  { id: 2765, name: 'ITUBAÍNA TUTTI FRUTTI RETRÔ ZERO LATA 350 ML (PCT 12 LT)', category: 'Bebidas', price: 41.90, image: 'https://www.marquesvendaspmg.shop/images/itubaina-tutti-frutti-retro-zero-lata-350-ml-pct-12-lt.webp' },
+  { id: 2766, name: 'PIMENTA BIQUINHO PORTO BELLO 2 KILO', category: 'Conservas/Enlatados', price: 54.40, image: 'https://www.marquesvendaspmg.shop/images/pimenta-biquinho-porto-bello-2-kg-cx-6-bd.webp' },
+  { id: 2768, name: 'SOBRECOXAS DE FRANGO CONGELADAS COM OSSO NUTRIBEM (CX 20 KILO)', category: 'Derivados de Ave', price: 183.40, image: 'https://www.marquesvendaspmg.shop/images/sobrecoxas-de-frango-congeladas-com-osso-nutribem-cx-20-kg.webp' },
+  { id: 2769, name: 'TOMATE SECO PORTO BELLO 1,4 KILO', category: 'Conservas/Enlatados', price: 27.78, image: 'https://www.marquesvendaspmg.shop/images/tomate-seco-porto-bello-14-kg-cx-6-bd.webp' },
   // ... adicione todos os produtos até ID 1898
 ];
 
