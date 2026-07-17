@@ -30,9 +30,25 @@ const CAMPANHA_CONFIG = {
 };
 // ==============================================
 
-// ✅ Array com IDs dos produtos em oferta
+// ==============================================
+// ⚡ CONFIGURAÇÃO DA OFERTA RELÂMPAGO
+// ==============================================
+const OFERTA_RELAMPAGO_CART = {
+  ativa: false,  // ⚠️ MANTENHA IGUAL AO DO produtos.js
+  ids: [2059] // ⚠️ COLOQUE OS MESMOS IDs
+};
+
+// ✅ Array com IDs dos produtos em oferta (já existente)
 const PRODUTOS_EM_OFERTA = [2749, 2750, 2751, 2752, 2745, 1282, 1124, 1571, 1562, 1564];
 
+// ⭐ NOVO: Array com IDs da Oferta Relâmpago
+const PRODUTOS_OFERTA_RELAMPAGO = OFERTA_RELAMPAGO_CART.ids;
+
+// ⭐ FUNÇÃO PARA VERIFICAR SE É OFERTA RELÂMPAGO
+const isOfertaRelampago = (productId) => {
+  if (!OFERTA_RELAMPAGO_CART.ativa) return false;
+  return PRODUTOS_OFERTA_RELAMPAGO.includes(productId);
+};
 // ✅ Configuração dos cupons
 const CUPONS = {
   PEDIDO1000: {
@@ -52,7 +68,7 @@ const CUPONS = {
 const CART_STORAGE_KEY = 'cart_data';
 
 // ==============================================
-// ✅ FUNÇÃO PARA VERIFICAR CAMPANHA
+// ✅ FUNÇÃO PARA VERIFICAR CAMPANHA (ATUALIZADA)
 // ==============================================
 const verificarCampanha = (cartItems) => {
   if (!CAMPANHA_CONFIG.ativa) {
@@ -68,8 +84,9 @@ const verificarCampanha = (cartItems) => {
 
   Object.keys(CAMPANHA_CONFIG.marcas).forEach(key => {
     const marca = CAMPANHA_CONFIG.marcas[key];
+    // ⭐ FILTRA OS PRODUTOS QUE NÃO SÃO OFERTA RELÂMPAGO
     const quantidade = cartItems
-      .filter(item => marca.ids.includes(item.id))
+      .filter(item => marca.ids.includes(item.id) && !isOfertaRelampago(item.id))
       .reduce((sum, item) => sum + (item.quantity || 1), 0);
     
     progresso[key] = {
@@ -91,7 +108,7 @@ const verificarCampanha = (cartItems) => {
 };
 
 // ==============================================
-// ✅ FUNÇÃO PARA CALCULAR DESCONTO DA CAMPANHA
+// ✅ FUNÇÃO PARA CALCULAR DESCONTO DA CAMPANHA (ATUALIZADA)
 // ==============================================
 const calcularDescontoCampanha = (cartItems, groupedItems) => {
   if (!CAMPANHA_CONFIG.ativa) return { totalDesconto: 0, itensComDesconto: {} };
@@ -102,9 +119,9 @@ const calcularDescontoCampanha = (cartItems, groupedItems) => {
     return { totalDesconto: 0, itensComDesconto: {} };
   }
 
-  // Pega os itens elegíveis (que NÃO estão em oferta)
+  // ⭐ FILTRA OS ITENS ELEGÍVEIS (NÃO ESTÃO EM OFERTA E NÃO SÃO OFERTA RELÂMPAGO)
   const itensElegiveis = groupedItems.filter(
-    item => !PRODUTOS_EM_OFERTA.includes(item.id)
+    item => !PRODUTOS_EM_OFERTA.includes(item.id) && !isOfertaRelampago(item.id)
   );
 
   if (itensElegiveis.length === 0) {
@@ -276,140 +293,144 @@ const verificarLoginERedirecionar = async () => {
   };
 
   // ==============================================
-  // ✅ Função para calcular desconto do cupom
-  // ==============================================
-  const calcularDescontoCupom = (cartItems, cupom) => {
-    if (!cupom || !cartItems || cartItems.length === 0) {
-      return { 
-        totalComDesconto: 0, 
-        itensComDesconto: [], 
-        totalDesconto: 0,
-        totalElegivel: 0 
-      };
-    }
-
-    const groupedItems = cartItems.reduce((acc, item) => {
-      const existing = acc.find(p => p.id === item.id);
-      const calculated = calculateProductPrice(item);
-      const totalPrice = calculated.totalPrice * (item.quantity || 1);
-      
-      if (existing) {
-        existing.quantity += (item.quantity || 1);
-        existing.totalPrice += totalPrice;
-      } else {
-        acc.push({
-          ...item,
-          quantity: item.quantity || 1,
-          totalPrice: totalPrice,
-          unitPrice: calculated.unitPrice,
-          weight: calculated.weight,
-          isBox: calculated.isBox
-        });
-      }
-      return acc;
-    }, []);
-
-    const itensElegiveis = groupedItems.filter(
-      item => !PRODUTOS_EM_OFERTA.includes(item.id)
-    );
-
-    if (itensElegiveis.length === 0) {
-      return {
-        itensComDesconto: {},
-        totalDesconto: 0,
-        totalElegivel: 0,
-        percentualAplicado: 0,
-        mensagem: 'Nenhum item elegível para desconto (todos estão em oferta)'
-      };
-    }
-
-    const totalElegivel = itensElegiveis.reduce((sum, item) => sum + item.totalPrice, 0);
-    const percentualDesconto = cupom.desconto / 100;
-    const descontoTotal = totalElegivel * percentualDesconto;
-
-    const itensComDesconto = {};
-    itensElegiveis.forEach(item => {
-      itensComDesconto[item.id] = {
-        totalPrice: item.totalPrice,
-        quantidade: item.quantity,
-        proporcao: item.totalPrice / totalElegivel,
-        descontoAplicado: descontoTotal * (item.totalPrice / totalElegivel)
-      };
-    });
-
-    return {
-      itensComDesconto,
-      totalDesconto: descontoTotal,
-      totalElegivel,
-      percentualAplicado: cupom.desconto
+// ✅ Função para calcular desconto do cupom (ATUALIZADA)
+// ==============================================
+const calcularDescontoCupom = (cartItems, cupom) => {
+  if (!cupom || !cartItems || cartItems.length === 0) {
+    return { 
+      totalComDesconto: 0, 
+      itensComDesconto: [], 
+      totalDesconto: 0,
+      totalElegivel: 0 
     };
-  };
+  }
 
-  // ==============================================
-  // ✅ Função para aplicar cupom
-  // ==============================================
-  const aplicarCupom = () => {
-    const cupomUpper = cupomInput.toUpperCase().trim();
-    const cupom = CUPONS[cupomUpper];
-
-    setMensagemCupom({ texto: '', tipo: '' });
-
-    if (!cupom) {
-      setMensagemCupom({
-        texto: '❌ Cupom inválido!',
-        tipo: 'erro'
-      });
-      setCupomAplicado(null);
-      return;
-    }
-
-    const itensElegiveis = cart.filter(item => !PRODUTOS_EM_OFERTA.includes(item.id));
+  const groupedItems = cartItems.reduce((acc, item) => {
+    const existing = acc.find(p => p.id === item.id);
+    const calculated = calculateProductPrice(item);
+    const totalPrice = calculated.totalPrice * (item.quantity || 1);
     
-    if (itensElegiveis.length === 0) {
-      setMensagemCupom({
-        texto: `❌ Cupom ${cupom.nome} não é válido para carrinhos com apenas produtos em oferta`,
-        tipo: 'erro'
+    if (existing) {
+      existing.quantity += (item.quantity || 1);
+      existing.totalPrice += totalPrice;
+    } else {
+      acc.push({
+        ...item,
+        quantity: item.quantity || 1,
+        totalPrice: totalPrice,
+        unitPrice: calculated.unitPrice,
+        weight: calculated.weight,
+        isBox: calculated.isBox
       });
-      setCupomAplicado(null);
-      return;
     }
+    return acc;
+  }, []);
 
-    const groupedCart = cart.reduce((acc, product) => {
-      const existing = acc.find(p => p.id === product.id);
-      const calculated = calculateProductPrice(product);
-      const quantity = product.quantity || 1;
-      
-      if (existing) {
-        existing.quantity += quantity;
-        existing.totalPrice += calculated.totalPrice * quantity;
-      } else {
-        acc.push({
-          ...product,
-          quantity: quantity,
-          totalPrice: calculated.totalPrice * quantity
-        });
-      }
-      return acc;
-    }, []);
+  // ⭐ FILTRA OS ITENS ELEGÍVEIS (NÃO ESTÃO EM OFERTA E NÃO SÃO OFERTA RELÂMPAGO)
+  const itensElegiveis = groupedItems.filter(
+    item => !PRODUTOS_EM_OFERTA.includes(item.id) && !isOfertaRelampago(item.id)
+  );
 
-    const totalCarrinho = groupedCart.reduce((sum, item) => sum + item.totalPrice, 0);
+  if (itensElegiveis.length === 0) {
+    return {
+      itensComDesconto: {},
+      totalDesconto: 0,
+      totalElegivel: 0,
+      percentualAplicado: 0,
+      mensagem: 'Nenhum item elegível para desconto (todos estão em oferta ou oferta relâmpago)'
+    };
+  }
 
-    if (totalCarrinho < cupom.minimo) {
-      setMensagemCupom({
-        texto: `❌ Cupom ${cupom.nome} válido apenas para pedidos ACIMA de R$ ${cupom.minimo.toFixed(2)}. Seu pedido atual é R$ ${totalCarrinho.toFixed(2)}`,
-        tipo: 'erro'
-      });
-      setCupomAplicado(null);
-      return;
-    }
+  const totalElegivel = itensElegiveis.reduce((sum, item) => sum + item.totalPrice, 0);
+  const percentualDesconto = cupom.desconto / 100;
+  const descontoTotal = totalElegivel * percentualDesconto;
 
-    setCupomAplicado(cupom);
-    setMensagemCupom({
-      texto: `✅ Cupom ${cupom.nome} aplicado! ${cupom.desconto}% de desconto distribuído entre os itens`,
-      tipo: 'sucesso'
-    });
-    setCupomInput('');
+  const itensComDesconto = {};
+  itensElegiveis.forEach(item => {
+    itensComDesconto[item.id] = {
+      totalPrice: item.totalPrice,
+      quantidade: item.quantity,
+      proporcao: item.totalPrice / totalElegivel,
+      descontoAplicado: descontoTotal * (item.totalPrice / totalElegivel)
+    };
+  });
+
+  return {
+    itensComDesconto,
+    totalDesconto: descontoTotal,
+    totalElegivel,
+    percentualAplicado: cupom.desconto
   };
+};
+
+// ==============================================
+// ✅ Função para aplicar cupom (ATUALIZADA)
+// ==============================================
+const aplicarCupom = () => {
+  const cupomUpper = cupomInput.toUpperCase().trim();
+  const cupom = CUPONS[cupomUpper];
+
+  setMensagemCupom({ texto: '', tipo: '' });
+
+  if (!cupom) {
+    setMensagemCupom({
+      texto: '❌ Cupom inválido!',
+      tipo: 'erro'
+    });
+    setCupomAplicado(null);
+    return;
+  }
+
+  // ⭐ VERIFICA SE TEM ITENS ELEGÍVEIS (NÃO OFERTA E NÃO OFERTA RELÂMPAGO)
+  const itensElegiveis = cart.filter(
+    item => !PRODUTOS_EM_OFERTA.includes(item.id) && !isOfertaRelampago(item.id)
+  );
+  
+  if (itensElegiveis.length === 0) {
+    setMensagemCupom({
+      texto: `❌ Cupom ${cupom.nome} não é válido para carrinhos com apenas produtos em oferta`,
+      tipo: 'erro'
+    });
+    setCupomAplicado(null);
+    return;
+  }
+
+  const groupedCart = cart.reduce((acc, product) => {
+    const existing = acc.find(p => p.id === product.id);
+    const calculated = calculateProductPrice(product);
+    const quantity = product.quantity || 1;
+    
+    if (existing) {
+      existing.quantity += quantity;
+      existing.totalPrice += calculated.totalPrice * quantity;
+    } else {
+      acc.push({
+        ...product,
+        quantity: quantity,
+        totalPrice: calculated.totalPrice * quantity
+      });
+    }
+    return acc;
+  }, []);
+
+  const totalCarrinho = groupedCart.reduce((sum, item) => sum + item.totalPrice, 0);
+
+  if (totalCarrinho < cupom.minimo) {
+    setMensagemCupom({
+      texto: `❌ Cupom ${cupom.nome} válido apenas para pedidos ACIMA de R$ ${cupom.minimo.toFixed(2)}. Seu pedido atual é R$ ${totalCarrinho.toFixed(2)}`,
+      tipo: 'erro'
+    });
+    setCupomAplicado(null);
+    return;
+  }
+
+  setCupomAplicado(cupom);
+  setMensagemCupom({
+    texto: `✅ Cupom ${cupom.nome} aplicado! ${cupom.desconto}% de desconto distribuído entre os itens`,
+    tipo: 'sucesso'
+  });
+  setCupomInput('');
+};
 
   // ==============================================
   // ✅ Função para remover cupom
@@ -1108,43 +1129,64 @@ if (cupomAplicado) {
                         paddingRight: '5px'
                       }}>
                         <p style={{ 
-                          fontWeight: 600, 
-                          margin: '0 0 5px 0', 
-                          color: '#2C3E50', 
-                          fontSize: isMobile ? '14px' : '13px',
-                          lineHeight: '1.3',
-                          wordWrap: 'break-word'
-                        }}>
-                          {product.name}
-                          {!isElegivel && (
-                            <span style={{
-                              display: 'inline-block',
-                              marginLeft: '6px',
-                              padding: '2px 6px',
-                              backgroundColor: '#FF6B6B',
-                              color: 'white',
-                              borderRadius: '12px',
-                              fontSize: '10px',
-                              fontWeight: 700
-                            }}>
-                              OFERTA
-                            </span>
-                          )}
-                          {temDesconto && isElegivel && (cupomAtivo || campanhaAtiva) && (
-                            <span style={{
-                              display: 'inline-block',
-                              marginLeft: '6px',
-                              padding: '2px 6px',
-                              backgroundColor: '#27AE60',
-                              color: 'white',
-                              borderRadius: '12px',
-                              fontSize: '10px',
-                              fontWeight: 700
-                            }}>
-                              {cupomAtivo ? `${cupomAplicado?.desconto}% OFF` : `${CAMPANHA_CONFIG.desconto}% OFF`}
-                            </span>
-                          )}
-                        </p>
+  fontWeight: 600, 
+  margin: '0 0 5px 0', 
+  color: '#2C3E50', 
+  fontSize: isMobile ? '14px' : '13px',
+  lineHeight: '1.3',
+  wordWrap: 'break-word'
+}}>
+  {product.name}
+  
+  {/* ⭐ BADGE OFERTA RELÂMPAGO (VERMELHO) */}
+  {isOfertaRelampago(product.id) && (
+    <span style={{
+      display: 'inline-block',
+      marginLeft: '6px',
+      padding: '2px 8px',
+      backgroundColor: '#FF1744',
+      color: 'white',
+      borderRadius: '12px',
+      fontSize: '10px',
+      fontWeight: 700,
+      textTransform: 'uppercase'
+    }}>
+      ⚡ RELÂMPAGO
+    </span>
+  )}
+  
+  {/* ⭐ BADGE OFERTA NORMAL (LARANJA) */}
+  {!isOfertaRelampago(product.id) && PRODUTOS_EM_OFERTA.includes(product.id) && (
+    <span style={{
+      display: 'inline-block',
+      marginLeft: '6px',
+      padding: '2px 6px',
+      backgroundColor: '#FF6B6B',
+      color: 'white',
+      borderRadius: '12px',
+      fontSize: '10px',
+      fontWeight: 700
+    }}>
+      OFERTA
+    </span>
+  )}
+  
+  {/* ⭐ BADGE DE DESCONTO APLICADO */}
+  {temDesconto && !isOfertaRelampago(product.id) && !PRODUTOS_EM_OFERTA.includes(product.id) && (cupomAtivo || campanhaAtiva) && (
+    <span style={{
+      display: 'inline-block',
+      marginLeft: '6px',
+      padding: '2px 6px',
+      backgroundColor: '#27AE60',
+      color: 'white',
+      borderRadius: '12px',
+      fontSize: '10px',
+      fontWeight: 700
+    }}>
+      {cupomAtivo ? `${cupomAplicado?.desconto}% OFF` : `${CAMPANHA_CONFIG.desconto}% OFF`}
+    </span>
+  )}
+</p>
                         {product.isBox && product.boxWeight ? (
                           <p style={{ 
                             margin: '2px 0 0', 
