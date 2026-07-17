@@ -3245,7 +3245,6 @@ const isRunningInApp = () => {
   const citiesButtonRef = useRef(null);
   const [showWithdrawalModal, setShowWithdrawalModal] = useState(false);
   const [showGoogleLogin, setShowGoogleLogin] = useState(true);
-  const [showGoogleLogin, setShowGoogleLogin] = useState(true);
   const [tempoRestante, setTempoRestante] = useState('--:--:--');
   const [ofertaAtiva, setOfertaAtiva] = useState(OFERTA_RELAMPAGO.ativa);
 
