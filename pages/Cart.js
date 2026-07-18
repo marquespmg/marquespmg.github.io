@@ -13,22 +13,16 @@ import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 // 🎁 CONFIGURAÇÃO DA CAMPANHA "COMPRE E GANHE"
 // ==============================================
 const CAMPANHA_CONFIG = {
-  ativa: false,  // MUDAR PARA false quando quiser desativar
+  ativa: true, // MUDAR PARA true quando quiser ativar
   marcas: {
-    quata: {
-      nome: "Quatá",
-      ids: [653, 658, 825, 829, 842, 902, 2065], // ⚠️ COLOQUE OS IDs REAIS AQUI
-      minimo: 2
-    },
-    cargill: {
-      nome: "Cargill", 
-      ids: [383, 1928, 1290, 1356, 1364], // ⚠️ COLOQUE OS IDs REAIS AQUI
-      minimo: 2
+    Cepêra: {
+      nome: "Cepêra",
+      ids: [2597, 2599, 2616, 2620, 2621, 2632, 2633],
+      minimo: 5
     }
   },
   desconto: 2 // percentual
 };
-// ==============================================
 
 // ==============================================
 // ⚡ CONFIGURAÇÃO DA OFERTA RELÂMPAGO
@@ -49,6 +43,7 @@ const isOfertaRelampago = (productId) => {
   if (!OFERTA_RELAMPAGO_CART.ativa) return false;
   return PRODUTOS_OFERTA_RELAMPAGO.includes(productId);
 };
+
 // ✅ Configuração dos cupons
 const CUPONS = {
   PEDIDO1000: {
@@ -239,7 +234,7 @@ const verificarLoginERedirecionar = async () => {
         total_amount: totalComDesconto,
         payment_method: paymentMethod,
         cupom_applied: cupomAplicado?.nome || null,
-        campanha_applied: campanhaAtiva ? 'Quatá + Cargill (2%)' : null,
+        campanha_applied: campanhaAtiva ? 'Cepêra (2%)' : null,
         discount_amount: cupomAplicado?.desconto || (campanhaAtiva ? CAMPANHA_CONFIG.desconto : 0),
         status: 'completed'
       };
@@ -292,7 +287,7 @@ const verificarLoginERedirecionar = async () => {
     setShowLoginMessage(false);
   };
 
-  // ==============================================
+// ==============================================
 // ✅ Função para calcular desconto do cupom (ATUALIZADA)
 // ==============================================
 const calcularDescontoCupom = (cartItems, cupom) => {
@@ -806,7 +801,7 @@ if (cupomAplicado) {
       : '';
 
     const campanhaText = campanhaAtiva
-      ? `\n *Campanha aplicada: Quatá + Cargill (2% de desconto)*\n`
+      ? `\n *Campanha aplicada: Cepêra (2% de desconto)*\n`
       : '';
 
     const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -1128,7 +1123,7 @@ if (cupomAplicado) {
                         minWidth: 0,
                         paddingRight: '5px'
                       }}>
-                        <p style={{ 
+<p style={{ 
   fontWeight: 600, 
   margin: '0 0 5px 0', 
   color: '#2C3E50', 
@@ -1395,7 +1390,7 @@ if (cupomAplicado) {
   }}>
     <div style={{ fontSize: '20px', marginBottom: '4px' }}>🎉</div>
     <p style={{ margin: 0, color: '#1B5E20', fontWeight: 600, fontSize: '14px' }}>
-      Parabéns! Você ganhou 2% de desconto através da campanha Quatá + Cargill.
+      Parabéns! Você ganhou 2% de desconto através da campanha Cepêra
     </p>
 <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '12px' }}>
   Desconto distribuído entre os itens
