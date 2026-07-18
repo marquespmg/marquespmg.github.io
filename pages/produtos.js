@@ -8,26 +8,20 @@ import useTrackUser from '../hook/useTrackUser';
 import WithdrawalModal from '../components/WithdrawalModal';
 import { useProdutoValidade } from '../hook/useProdutoValidade';
 
-// ========== CONFIGURAÇÃO DA CAMPANHA ========== //
+// ========== CONFIGURAÇÃO DA CAMPANHA ==========
 const CAMPANHA_COMPRE_E_GANHE = {
-  ativa: false,  // MUDAR PARA false quando quiser desativar
+  ativa: true, // MUDAR PARA true quando quiser ativar
   marcas: {
-    quata: {
-      nome: "Quatá",
-      ids: [653, 658, 825, 829, 842, 902, 2065],
-      minimo: 2,
-      icone: "🌾"
-    },
-    cargill: {
-      nome: "Cargill", 
-      ids: [383, 1928, 1290, 1356, 1364],
-      minimo: 2,
-      icone: "🌽"
+    Cepêra: {
+      nome: "Cepêra",
+      ids: [2597, 2599, 2616, 2620, 2621, 2632, 2633],
+      minimo: 5,
+      icone: "🍅"
     }
   },
   desconto: 2,
-  mensagem: "🎉 Parabéns! Você ganhou 2% de desconto através da campanha Quatá + Cargill.",
-  mensagemWhatsApp: "Campanha aplicada: Quatá + Cargill (2% de desconto)"
+  mensagem: "🎉 Parabéns! Você ganhou 2% de desconto através da campanha Cepêra.",
+  mensagemWhatsApp: "Campanha aplicada: Cepêra (2% de desconto)"
 };
 
 // ========== CONFIGURAÇÃO DA OFERTA RELÂMPAGO ========== //
@@ -59,8 +53,7 @@ const DATA_FIM_OFERTA = calcularDataFim();
 
 // IDs dos produtos da campanha (para exibir na categoria)
 const PRODUTOS_CAMPANHA = [
-  ...CAMPANHA_COMPRE_E_GANHE.marcas.quata.ids,
-  ...CAMPANHA_COMPRE_E_GANHE.marcas.cargill.ids
+  ...CAMPANHA_COMPRE_E_GANHE.marcas.Cepêra.ids,
 ];
 
 // ========== DADOS DAS CIDADES ========== //
@@ -5858,215 +5851,162 @@ productsGrid: {
 {/* ========== GRID DE PRODUTOS ========== */}
 <div style={styles.productsGrid}>
   
-  {/* ⭐ SÓ MOSTRA O BLOCO DA CAMPANHA SE ESTIVER ATIVA */}
-  {CAMPANHA_COMPRE_E_GANHE.ativa && selectedCategory === '🎁 Compre e Ganhe' && (
-    <div style={{
-      gridColumn: '1 / -1',
-      background: 'linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%)',
-      borderRadius: '16px',
-      padding: windowWidth > 768 ? '25px' : '15px',
-      marginBottom: '20px',
-      border: '2px solid #095400',
-      boxShadow: '0 4px 15px rgba(9, 84, 0, 0.15)'
-    }}>
-      {/* TÍTULO */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px', flexWrap: 'wrap' }}>
-        <span style={{ fontSize: windowWidth > 768 ? '40px' : '30px' }}>🎁</span>
-        <div>
-          <h2 style={{ margin: 0, color: '#095400', fontSize: windowWidth > 768 ? '24px' : '18px', fontWeight: 700 }}>
-            Compre e Ganhe!
-          </h2>
-          <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: windowWidth > 768 ? '16px' : '13px', fontWeight: 500 }}>
-            Complete os requisitos e ganhe 2% de desconto
-          </p>
-        </div>
-      </div>
-
-      {/* REGRAS */}
-      <div style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        borderRadius: '10px',
-        padding: windowWidth > 768 ? '15px' : '12px',
-        marginBottom: '20px',
-        border: '1px solid #A5D6A7'
-      }}>
-        <p style={{ margin: '0 0 8px 0', fontWeight: 700, fontSize: windowWidth > 768 ? '14px' : '12px', color: '#095400' }}>
-          📋 Como funciona:
+{/* ========== BLOCO DA CAMPANHA CORRIGIDO ========== */}
+{CAMPANHA_COMPRE_E_GANHE.ativa && selectedCategory === '🎁 Compre e Ganhe' && (
+  <div style={{
+    gridColumn: '1 / -1',
+    background: 'linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%)',
+    borderRadius: '16px',
+    padding: windowWidth > 768 ? '25px' : '15px',
+    marginBottom: '20px',
+    border: '2px solid #095400',
+    boxShadow: '0 4px 15px rgba(9, 84, 0, 0.15)'
+  }}>
+    {/* TÍTULO */}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px', flexWrap: 'wrap' }}>
+      <span style={{ fontSize: windowWidth > 768 ? '40px' : '30px' }}>🎁</span>
+      <div>
+        <h2 style={{ margin: 0, color: '#095400', fontSize: windowWidth > 768 ? '24px' : '18px', fontWeight: 700 }}>
+          Compre e Ganhe!
+        </h2>
+        <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: windowWidth > 768 ? '16px' : '13px', fontWeight: 500 }}>
+          Complete os requisitos e ganhe 2% de desconto
         </p>
-        <ul style={{ margin: 0, paddingLeft: '20px', fontSize: windowWidth > 768 ? '13px' : '12px', color: '#333' }}>
-          <li>Compre no mínimo <strong style={{ color: '#095400' }}>2 produtos Quatá</strong> e <strong style={{ color: '#095400' }}>2 produtos Cargill</strong></li>
-          <li>Ganhe <strong style={{ color: '#095400' }}>2% de desconto</strong> distribuído entre os itens</li>
-          <li style={{ color: '#E65100' }}>⚠️ Desconto não se aplica a produtos em oferta</li>
-        </ul>
       </div>
-
-      {/* BARRAS DE PROGRESSO */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: windowWidth > 768 ? '1fr 1fr' : '1fr',
-        gap: '15px',
-        marginBottom: '20px'
-      }}>
-        {/* Quatá */}
-        <div style={{
-          backgroundColor: '#fff',
-          borderRadius: '10px',
-          padding: windowWidth > 768 ? '15px' : '12px',
-          border: '2px solid #095400',
-          boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
-        }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-            <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>🌾 Quatá</span>
-            <span style={{ fontWeight: 700, color: (() => {
-              const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.quata.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0);
-              return count >= 2 ? '#27AE60' : '#E74C3C';
-            })() }}>
-              {cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.quata.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0)}/2
-            </span>
-          </div>
-          <div style={{
-            width: '100%',
-            height: '12px',
-            backgroundColor: '#F5F5F5',
-            borderRadius: '10px',
-            overflow: 'hidden'
-          }}>
-            <div style={{
-              width: `${Math.min((cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.quata.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0) / 2) * 100, 100)}%`,
-              height: '100%',
-              background: (() => {
-                const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.quata.ids.includes(item.id))
-                  .reduce((sum, item) => sum + (item.quantity || 1), 0);
-                return count >= 2 ? '#27AE60' : '#095400';
-              })(),
-              borderRadius: '10px',
-              transition: 'width 0.8s ease-in-out'
-            }} />
-          </div>
-          <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#666' }}>
-            {(() => {
-              const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.quata.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0);
-              return count >= 2 ? '✅ Atingido!' : `Faltam ${2 - count} produto(s)`;
-            })()}
-          </p>
-        </div>
-
-        {/* Cargill */}
-        <div style={{
-          backgroundColor: '#fff',
-          borderRadius: '10px',
-          padding: windowWidth > 768 ? '15px' : '12px',
-          border: '2px solid #095400',
-          boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
-        }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-            <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>🌽 Cargill</span>
-            <span style={{ fontWeight: 700, color: (() => {
-              const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.cargill.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0);
-              return count >= 2 ? '#27AE60' : '#E74C3C';
-            })() }}>
-              {cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.cargill.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0)}/2
-            </span>
-          </div>
-          <div style={{
-            width: '100%',
-            height: '12px',
-            backgroundColor: '#F5F5F5',
-            borderRadius: '10px',
-            overflow: 'hidden'
-          }}>
-            <div style={{
-              width: `${Math.min((cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.cargill.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0) / 2) * 100, 100)}%`,
-              height: '100%',
-              background: (() => {
-                const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.cargill.ids.includes(item.id))
-                  .reduce((sum, item) => sum + (item.quantity || 1), 0);
-                return count >= 2 ? '#27AE60' : '#095400';
-              })(),
-              borderRadius: '10px',
-              transition: 'width 0.8s ease-in-out'
-            }} />
-          </div>
-          <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#666' }}>
-            {(() => {
-              const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.cargill.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0);
-              return count >= 2 ? '✅ Atingido!' : `Faltam ${2 - count} produto(s)`;
-            })()}
-          </p>
-        </div>
-      </div>
-
-      {/* STATUS DA CAMPANHA */}
-      {(() => {
-        const quataCount = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.quata.ids.includes(item.id))
-          .reduce((sum, item) => sum + (item.quantity || 1), 0);
-        const cargillCount = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.cargill.ids.includes(item.id))
-          .reduce((sum, item) => sum + (item.quantity || 1), 0);
-        const qualificada = quataCount >= 2 && cargillCount >= 2;
-
-        return qualificada ? (
-          <div style={{
-            padding: windowWidth > 768 ? '20px' : '15px',
-            backgroundColor: '#E8F5E9',
-            borderRadius: '12px',
-            border: '2px solid #095400',
-            textAlign: 'center',
-            animation: 'pulse-success 2s infinite'
-          }}>
-            <div style={{ fontSize: windowWidth > 768 ? '40px' : '30px', marginBottom: '8px' }}>🎉</div>
-            <p style={{ margin: 0, color: '#095400', fontWeight: 700, fontSize: windowWidth > 768 ? '20px' : '16px' }}>
-              Parabéns! Você ganhou 2% de desconto!
-            </p>
-            <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: windowWidth > 768 ? '15px' : '13px', fontWeight: 500 }}>
-              Desconto aplicado automaticamente no carrinho
-            </p>
-          </div>
-        ) : (
-          <div style={{
-            padding: windowWidth > 768 ? '15px' : '12px',
-            backgroundColor: '#FFF8E1',
-            borderRadius: '10px',
-            border: '2px solid #FFB74D',
-            textAlign: 'center',
-            color: '#E65100'
-          }}>
-            <span style={{ fontSize: '20px', marginRight: '8px' }}>📌</span>
-            Complete os requisitos para ativar o desconto de 2%
-          </div>
-        );
-      })()}
-
-      {/* AVISO SOBRE CUPONS */}
-      <div style={{
-        marginTop: '15px',
-        padding: windowWidth > 768 ? '12px' : '10px',
-        backgroundColor: '#F5F5F5',
-        borderRadius: '8px',
-        fontSize: windowWidth > 768 ? '13px' : '11px',
-        color: '#666',
-        border: '1px solid #E0E0E0',
-        textAlign: 'center'
-      }}>
-        ℹ️ A campanha não pode ser combinada com cupons de desconto
-      </div>
-
-      <style>{`
-        @keyframes pulse-success {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.02); }
-          100% { transform: scale(1); }
-        }
-      `}</style>
     </div>
-  )}
+
+    {/* REGRAS */}
+    <div style={{
+      backgroundColor: 'rgba(255, 255, 255, 0.9)',
+      borderRadius: '10px',
+      padding: windowWidth > 768 ? '15px' : '12px',
+      marginBottom: '20px',
+      border: '1px solid #A5D6A7'
+    }}>
+      <p style={{ margin: '0 0 8px 0', fontWeight: 700, fontSize: windowWidth > 768 ? '14px' : '12px', color: '#095400' }}>
+        📋 Como funciona:
+      </p>
+      <ul style={{ margin: 0, paddingLeft: '20px', fontSize: windowWidth > 768 ? '13px' : '12px', color: '#333' }}>
+        <li>Compre no mínimo <strong style={{ color: '#095400' }}>5 produtos Cepêra</strong></li>
+        <li>Ganhe <strong style={{ color: '#095400' }}>2% de desconto</strong> distribuído entre os itens</li>
+        <li style={{ color: '#E65100' }}>⚠️ Desconto não se aplica a produtos em oferta</li>
+      </ul>
+    </div>
+
+    {/* ========== BARRA DE PROGRESSO CEPÊRA (ÚNICA E CENTRALIZADA) ========== */}
+    <div style={{
+      maxWidth: '500px',
+      margin: '0 auto 20px auto',
+      backgroundColor: '#fff',
+      borderRadius: '10px',
+      padding: windowWidth > 768 ? '15px' : '12px',
+      border: '2px solid #095400',
+      boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+        <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>🌽 Cepêra</span>
+        <span style={{ 
+          fontWeight: 700, 
+          color: (() => {
+            const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.Cepêra.ids.includes(item.id))
+              .reduce((sum, item) => sum + (item.quantity || 1), 0);
+            return count >= 5 ? '#27AE60' : '#E74C3C';
+          })() 
+        }}>
+          {cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.Cepêra.ids.includes(item.id))
+            .reduce((sum, item) => sum + (item.quantity || 1), 0)}/5
+        </span>
+      </div>
+      <div style={{
+        width: '100%',
+        height: '12px',
+        backgroundColor: '#F5F5F5',
+        borderRadius: '10px',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          width: `${Math.min((cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.Cepêra.ids.includes(item.id))
+            .reduce((sum, item) => sum + (item.quantity || 1), 0) / 5) * 100, 100)}%`,
+          height: '100%',
+          background: (() => {
+            const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.Cepêra.ids.includes(item.id))
+              .reduce((sum, item) => sum + (item.quantity || 1), 0);
+            return count >= 5 ? '#27AE60' : '#095400';
+          })(),
+          borderRadius: '10px',
+          transition: 'width 0.8s ease-in-out'
+        }} />
+      </div>
+      <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#666', textAlign: 'center' }}>
+        {(() => {
+          const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.Cepêra.ids.includes(item.id))
+            .reduce((sum, item) => sum + (item.quantity || 1), 0);
+          return count >= 5 ? '✅ Atingido!' : `Faltam ${5 - count} produto(s)`;
+        })()}
+      </p>
+    </div>
+
+    {/* STATUS DA CAMPANHA */}
+    {(() => {
+      const cepêraCount = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.Cepêra.ids.includes(item.id))
+        .reduce((sum, item) => sum + (item.quantity || 1), 0);
+      const qualificada = cepêraCount >= 5;
+
+      return qualificada ? (
+        <div style={{
+          padding: windowWidth > 768 ? '20px' : '15px',
+          backgroundColor: '#E8F5E9',
+          borderRadius: '12px',
+          border: '2px solid #095400',
+          textAlign: 'center',
+          animation: 'pulse-success 2s infinite'
+        }}>
+          <div style={{ fontSize: windowWidth > 768 ? '40px' : '30px', marginBottom: '8px' }}>🎉</div>
+          <p style={{ margin: 0, color: '#095400', fontWeight: 700, fontSize: windowWidth > 768 ? '20px' : '16px' }}>
+            Parabéns! Você ganhou 2% de desconto!
+          </p>
+          <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: windowWidth > 768 ? '15px' : '13px', fontWeight: 500 }}>
+            Desconto aplicado automaticamente no carrinho
+          </p>
+        </div>
+      ) : (
+        <div style={{
+          padding: windowWidth > 768 ? '15px' : '12px',
+          backgroundColor: '#FFF8E1',
+          borderRadius: '10px',
+          border: '2px solid #FFB74D',
+          textAlign: 'center',
+          color: '#E65100'
+        }}>
+          <span style={{ fontSize: '20px', marginRight: '8px' }}>📌</span>
+          Complete os requisitos para ativar o desconto de 2%
+        </div>
+      );
+    })()}
+
+    {/* AVISO SOBRE CUPONS */}
+    <div style={{
+      marginTop: '15px',
+      padding: windowWidth > 768 ? '12px' : '10px',
+      backgroundColor: '#F5F5F5',
+      borderRadius: '8px',
+      fontSize: windowWidth > 768 ? '13px' : '11px',
+      color: '#666',
+      border: '1px solid #E0E0E0',
+      textAlign: 'center'
+    }}>
+      ℹ️ A campanha não pode ser combinada com cupons de desconto
+    </div>
+
+    <style>{`
+      @keyframes pulse-success {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+        100% { transform: scale(1); }
+      }
+    `}</style>
+  </div>
+)}
   
   {/* ========== PRODUTOS ========== */}
   {currentProducts.map(product => {
