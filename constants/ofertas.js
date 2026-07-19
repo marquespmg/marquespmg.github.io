@@ -1,15 +1,15 @@
 // constants/ofertas.js
 export const featuredProducts = [
-  { id: 2749, name: 'SUCO PEQUENO SUFRESH MARACUJÁ 200 ML (CX 27 UN)', category: 'Ofertas', price: 70.99, image: 'https://www.marquesvendaspmg.shop/images/suco-pequeno-sufresh-maracuja-200-ml-cx-27-un.webp' },
-  { id: 2750, name: 'SUCO PEQUENO SUFRESH UVA 200 ML (CX 27 UN)', category: 'Ofertas', price: 70.99, image: 'https://www.marquesvendaspmg.shop/images/suco-pequeno-sufresh-uva-200-ml-cx-27-un.webp' },
-  { id: 2751, name: 'SUCO SUFRESH MARACUJÁ LATA 265 ML (PCT 12 LT)', category: 'Ofertas', price: 53.67, image: 'https://www.marquesvendaspmg.shop/images/suco-sufresh-maracuja-lata-265-ml-pct-12-lt.webp' },
-  { id: 2752, name: 'SUCO SUFRESH UVA LATA 265 ML (PCT 12 LT)', category: 'Ofertas', price: 53.67, image: 'https://www.marquesvendaspmg.shop/images/suco-sufresh-uva-lata-265-ml-pct-12-lt.webp' },
-  { id: 2745, name: 'ÓLEO DE SOJA FRY 300 COAMO (BD 15,8 L)', category: 'Ofertas', price: 147, image: 'https://www.marquesvendaspmg.shop/images/oleo-de-soja-fry-300-coamo-bd-158-l.webp' },
-  { id: 1282, name: 'GORDURA VEGETAL FRY 400 COAMO (BD 14,5 KILO)', category: 'Ofertas', price: 159.99, image: 'https://www.marquesvendaspmg.shop/images/gordura-vegetal-fry-400-coamo-bd-145-kilo-pmg-atacadista.jpg' },
-  { id: 1124, name: 'AZEITE DE OLIVA GRANDE EXTRA VIRGEM GALLO 5 L', category: 'Ofertas', price: 263.00, image: 'https://www.marquesvendaspmg.shop/images/azeite-de-oliva-grande-extra-virgem-gallo-5-l-cx-2-gl-pmg-atacadista.jpg' },
-  { id: 1571, name: 'CREME DE AVELÃ GRANDE COM CACAU FOOD SERVICE NUTELLA 3 KILO', category: 'Ofertas', price: 202.99, image: 'https://www.marquesvendaspmg.shop/images/creme-de-avela-grande-com-cacau-food-service-nutella-3-kilo-pmg-atacadista.jpg' },
-  { id: 1562, name: 'COBERTURA PARA SORVETE CHOCOLATE MARVI 1,01 KILO', category: 'Ofertas', price: 26.9, image: 'https://www.marquesvendaspmg.shop/images/cobertura-para-sorvete-chocolate-marvi-101-kilo-pmg-atacadista.jpg' },
-  { id: 1564, name: 'COBERTURA PARA SORVETE MORANGO MARVI 1 KILO', category: 'Ofertas', price: 19.40, image: 'https://www.marquesvendaspmg.shop/images/cobertura-para-sorvete-morango-marvi-1-kilo-pmg-atacadista.jpg' },
+  { id: 2766, name: 'PIMENTA BIQUINHO PORTO BELLO 2 KILO', category: 'Ofertas', price: 53.00, image: 'https://www.marquesvendaspmg.shop/images/pimenta-biquinho-porto-bello-2-kg-cx-6-bd.webp' },
+  { id: 2769, name: 'TOMATE SECO PORTO BELLO 1,4 KILO', category: 'Ofertas', price: 27.30, image: 'https://www.marquesvendaspmg.shop/images/tomate-seco-porto-bello-14-kg-cx-6-bd.webp' },
+  { id: 2132, name: 'PRESUNTO FATIADO SEARA 180 G', category: 'Ofertas', price: 8.15, image: 'https://www.marquesvendaspmg.shop/images/presunto-fatiado-seara.png' },
+  { id: 2382, name: 'APRESUNTADO FATIADO PAMPLONA 500 G', category: 'Ofertas', price: 12.99, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-fatiado-pamplona-500-g-cx-24-pct.webp' },
+  { id: 750, name: 'MUÇARELA LA PAULINA 3.5 KG', category: 'Ofertas', price: 35.99, image: 'https://www.marquesvendaspmg.shop/images/mucarela-la-paulina-35-kg-pmg-atacadista.jpg' },
+  { id: 1202, name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL MAIS BATATA BEM BRASIL 2 KILO (CX 7 PCT)', category: 'Ofertas', price: 138.99, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-9-mm-corte-tradicional-mais-batata-bem-brasil-2-kilo-cx-7-pct-pmg-atacadista.jpg' },
+  { id: 1209, name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL UAI BEM BRASIL 2 KILO (CX 7 PCT)', category: 'Ofertas', price: 129.99, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-9-mm-corte-tradicional-uai-bem-brasil-2-kilo-cx-7-pct-pmg-atacadista.jpg' },
+  { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 21.10, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 16.30, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 999, name: 'CALABRESA RETA SEARA 2.5 KILO', category: 'Ofertas', price: 51.50, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-seara-25-kilo-pmg-atacadista.jpg' },
 ];
 
 // Array com os IDs em oferta (fácil de verificar)
