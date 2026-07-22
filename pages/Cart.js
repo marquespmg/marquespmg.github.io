@@ -13,7 +13,7 @@ import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 // 🎁 CONFIGURAÇÃO DA CAMPANHA "COMPRE E GANHE"
 // ==============================================
 const CAMPANHA_CONFIG = {
-  ativa: false, // MUDAR PARA true quando quiser ativar
+  ativa: true, // MUDAR PARA true quando quiser ativar
   marcas: {
     Cepêra: {
       nome: "Cepêra",
@@ -28,7 +28,7 @@ const CAMPANHA_CONFIG = {
 // ⚡ CONFIGURAÇÃO DA OFERTA RELÂMPAGO
 // ==============================================
 const OFERTA_RELAMPAGO_CART = {
-  ativa: true,  // ⚠️ MANTENHA IGUAL AO DO produtos.js
+  ativa: false,  // ⚠️ MANTENHA IGUAL AO DO produtos.js
   ids: [746, 765, 752, 877] // ⚠️ COLOQUE OS MESMOS IDs
 };
 
