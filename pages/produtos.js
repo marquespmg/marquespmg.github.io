@@ -33,7 +33,7 @@ const OFERTA_RELAMPAGO = {
   duracao_horas: 3,
   
   // ⭐ É AQUI QUE VOCÊ MUDA O HORÁRIO!
-  data_inicio: '2026-07-17T19:46:00Z', // <--- MUDE AQUI!
+  data_inicio: '2026-07-22T13:00:00Z', // <--- MUDE AQUI!
   
   mensagem: '⚡ Aproveite os preços especiais por tempo limitado!',
   mensagem_encerrada: '⏰ Oferta encerrada! Fique de olho na próxima.'
