@@ -3766,173 +3766,219 @@ useEffect(() => {
   )}
 </div>
 
-            {/* CIDADES COM ENTREGA - AGORA COM DIAS DA SEMANA */}
-            <div style={styles.deliveryInfo}>
-              <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
+{/* CIDADES COM ENTREGA - AGORA COM DIAS DA SEMANA */}
+<div style={styles.deliveryInfo}>
+  <div style={{
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: '10px',
+    marginBottom: '16px'
+  }}>
+    <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
+    
+    {/* BOTÃO SAIBA MAIS - LINK PARA A PÁGINA DE CIDADES */}
+    <a
+      href="/cidades-atendidas"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '6px',
+        backgroundColor: '#095400',
+        color: 'white',
+        padding: '8px 18px',
+        borderRadius: '20px',
+        fontSize: '13px',
+        fontWeight: '600',
+        textDecoration: 'none',
+        transition: 'all 0.3s ease',
+        border: '2px solid #095400',
+        boxShadow: '0 2px 8px rgba(9, 84, 0, 0.15)',
+        whiteSpace: 'nowrap'
+      }}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = 'white';
+        e.target.style.color = '#095400';
+        e.target.style.transform = 'translateY(-2px)';
+        e.target.style.boxShadow = '0 4px 12px rgba(9, 84, 0, 0.25)';
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = '#095400';
+        e.target.style.color = 'white';
+        e.target.style.transform = 'translateY(0)';
+        e.target.style.boxShadow = '0 2px 8px rgba(9, 84, 0, 0.15)';
+      }}
+    >
+      <span>🌍</span>
+      Saiba mais
+      <span style={{ fontSize: '12px' }}>→</span>
+    </a>
+  </div>
+  
+  <div style={styles.regionsContainer}>
+    {Object.entries(citiesData).map(([key, region]) => (
+      <div key={key} style={styles.regionSection}>
+        <button 
+          onClick={() => toggleRegion(key)}
+          style={styles.regionButton}
+        >
+          <span style={styles.regionTitle}>
+            {region.title}
+          </span>
+          <span style={{
+            ...styles.arrow,
+            transform: openRegions[key] ? 'rotate(180deg)' : 'rotate(0deg)'
+          }}>
+            ▼
+          </span>
+        </button>
+        
+        {openRegions[key] && (
+          <div style={styles.citiesList}>
+            {key === 'sp' && region.regions.map((city, index) => {
+              // SP: cidade já vem com " -SP"
+              const cityKey = city;
+              const hasDeliveryData = deliveryDaysData[cityKey];
               
-              <div style={styles.regionsContainer}>
-                {Object.entries(citiesData).map(([key, region]) => (
-                  <div key={key} style={styles.regionSection}>
-                    <button 
-                      onClick={() => toggleRegion(key)}
-                      style={styles.regionButton}
-                    >
-                      <span style={styles.regionTitle}>
-                        {region.title}
-                      </span>
-                      <span style={{
-                        ...styles.arrow,
-                        transform: openRegions[key] ? 'rotate(180deg)' : 'rotate(0deg)'
-                      }}>
+              return (
+                <div key={index}>
+                  <div style={{ 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    padding: '2px 0',
+                    cursor: hasDeliveryData ? 'pointer' : 'default'
+                  }}>
+                    <span style={styles.cityItem}>📍 {city}</span>
+                    {hasDeliveryData && (
+                      <button
+                        onClick={() => toggleCityExpand(cityKey)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: '#e53935',
+                          cursor: 'pointer',
+                          fontSize: '10px',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          marginLeft: '4px'
+                        }}
+                      >
                         ▼
-                      </span>
-                    </button>
-                    
-                    {openRegions[key] && (
-                      <div style={styles.citiesList}>
-                        {key === 'sp' && region.regions.map((city, index) => {
-                          // SP: cidade já vem com " -SP"
-                          const cityKey = city;
-                          const hasDeliveryData = deliveryDaysData[cityKey];
-                          
-                          return (
-                            <div key={index}>
-                              <div style={{ 
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                width: '100%',
-                                padding: '2px 0',
-                                cursor: hasDeliveryData ? 'pointer' : 'default'
-                              }}>
-                                <span style={styles.cityItem}>📍 {city}</span>
-                                {hasDeliveryData && (
-                                  <button
-                                    onClick={() => toggleCityExpand(cityKey)}
-                                    style={{
-                                      background: 'none',
-                                      border: 'none',
-                                      color: '#e53935',
-                                      cursor: 'pointer',
-                                      fontSize: '10px',
-                                      padding: '2px 6px',
-                                      borderRadius: '4px',
-                                      marginLeft: '4px'
-                                    }}
-                                  >
-                                    ▼
-                                  </button>
-                                )}
-                              </div>
-                              {expandedCity === cityKey && hasDeliveryData && (
-                                <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-                              )}
-                            </div>
-                          );
-                        })}
-                        
-                        {key === 'rj' && region.cities.map((city, index) => {
-                          // RJ: adiciona -RJ
-                          const cityKey = `${city}-RJ`;
-                          const hasDeliveryData = deliveryDaysData[cityKey];
-                          
-                          return (
-                            <div key={index}>
-                              <div style={{ 
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                width: '100%',
-                                padding: '2px 0',
-                                cursor: hasDeliveryData ? 'pointer' : 'default'
-                              }}>
-                                <span style={styles.cityItem}>📍 {city}</span>
-                                {hasDeliveryData && (
-                                  <button
-                                    onClick={() => toggleCityExpand(cityKey)}
-                                    style={{
-                                      background: 'none',
-                                      border: 'none',
-                                      color: '#e53935',
-                                      cursor: 'pointer',
-                                      fontSize: '10px',
-                                      padding: '2px 6px',
-                                      borderRadius: '4px',
-                                      marginLeft: '4px'
-                                    }}
-                                  >
-                                    ▼
-                                  </button>
-                                )}
-                              </div>
-                              {expandedCity === cityKey && hasDeliveryData && (
-                                <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-                              )}
-                            </div>
-                          );
-                        })}
-                        
-                        {key === 'mg' && region.cities.map((city, index) => {
-                          // MG: adiciona -MG
-                          const cityKey = `${city}-MG`;
-                          const hasDeliveryData = deliveryDaysData[cityKey];
-                          
-                          return (
-                            <div key={index}>
-                              <div style={{ 
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                width: '100%',
-                                padding: '2px 0',
-                                cursor: hasDeliveryData ? 'pointer' : 'default'
-                              }}>
-                                <span style={styles.cityItem}>📍 {city}</span>
-                                {hasDeliveryData && (
-                                  <button
-                                    onClick={() => toggleCityExpand(cityKey)}
-                                    style={{
-                                      background: 'none',
-                                      border: 'none',
-                                      color: '#e53935',
-                                      cursor: 'pointer',
-                                      fontSize: '10px',
-                                      padding: '2px 6px',
-                                      borderRadius: '4px',
-                                      marginLeft: '4px'
-                                    }}
-                                  >
-                                    ▼
-                                  </button>
-                                )}
-                              </div>
-                              {expandedCity === cityKey && hasDeliveryData && (
-                                <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
+                      </button>
                     )}
                   </div>
-                ))}
-              </div>
+                  {expandedCity === cityKey && hasDeliveryData && (
+                    <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                  )}
+                </div>
+              );
+            })}
+            
+            {key === 'rj' && region.cities.map((city, index) => {
+              // RJ: adiciona -RJ
+              const cityKey = `${city}-RJ`;
+              const hasDeliveryData = deliveryDaysData[cityKey];
+              
+              return (
+                <div key={index}>
+                  <div style={{ 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    padding: '2px 0',
+                    cursor: hasDeliveryData ? 'pointer' : 'default'
+                  }}>
+                    <span style={styles.cityItem}>📍 {city}</span>
+                    {hasDeliveryData && (
+                      <button
+                        onClick={() => toggleCityExpand(cityKey)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: '#e53935',
+                          cursor: 'pointer',
+                          fontSize: '10px',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          marginLeft: '4px'
+                        }}
+                      >
+                        ▼
+                      </button>
+                    )}
+                  </div>
+                  {expandedCity === cityKey && hasDeliveryData && (
+                    <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                  )}
+                </div>
+              );
+            })}
+            
+            {key === 'mg' && region.cities.map((city, index) => {
+              // MG: adiciona -MG
+              const cityKey = `${city}-MG`;
+              const hasDeliveryData = deliveryDaysData[cityKey];
+              
+              return (
+                <div key={index}>
+                  <div style={{ 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    padding: '2px 0',
+                    cursor: hasDeliveryData ? 'pointer' : 'default'
+                  }}>
+                    <span style={styles.cityItem}>📍 {city}</span>
+                    {hasDeliveryData && (
+                      <button
+                        onClick={() => toggleCityExpand(cityKey)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: '#e53935',
+                          cursor: 'pointer',
+                          fontSize: '10px',
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          marginLeft: '4px'
+                        }}
+                      >
+                        ▼
+                      </button>
+                    )}
+                  </div>
+                  {expandedCity === cityKey && hasDeliveryData && (
+                    <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
 
-              <div style={styles.deliveryList}>
-                <div style={styles.deliveryItem}>
-                  <span style={styles.checkIcon}>✓</span>
-                  Frete grátis
-                </div>
-                <div style={styles.deliveryItem}>
-                  <span style={styles.checkIcon}>✓</span>
-                  Entrega em 1-2 dias úteis
-                </div>
-                <div style={styles.deliveryItem}>
-                  <span style={styles.checkIcon}>✓</span>
-                  Atendimento para food service
-                </div>
-              </div>
-            </div>
+  <div style={styles.deliveryList}>
+    <div style={styles.deliveryItem}>
+      <span style={styles.checkIcon}>✓</span>
+      Frete grátis
+    </div>
+    <div style={styles.deliveryItem}>
+      <span style={styles.checkIcon}>✓</span>
+      Entrega em 1-2 dias úteis
+    </div>
+    <div style={styles.deliveryItem}>
+      <span style={styles.checkIcon}>✓</span>
+      Atendimento para food service
+    </div>
+  </div>
+</div>
 
             {/* VANTAGENS */}
             <div style={styles.advantagesSection}>
