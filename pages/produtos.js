@@ -5281,46 +5281,100 @@ productsGrid: {
               }}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Cabeçalho do Menu */}
-              <div style={{
-                padding: '12px 15px',
-                borderBottom: '1px solid #eee',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                backgroundColor: '#fff5f5'
-              }}>
-                <strong style={{ 
-                  color: '#095400', 
-                  fontSize: windowWidth > 768 ? '16px' : '14px',
-                  fontWeight: '600'
-                }}>
-                  📍 Onde Entregamos
-                </strong>
-                <button
-                  onClick={() => setShowCitiesMenu(false)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#e53935',
-                    cursor: 'pointer',
-                    fontSize: '20px',
-                    fontWeight: 'bold',
-                    padding: '0',
-                    width: '24px',
-                    height: '24px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '50%',
-                    ':hover': {
-                      backgroundColor: '#f0f0f0'
-                    }
-                  }}
-                >
-                  ×
-                </button>
-              </div>
+{/* Cabeçalho do Menu */}
+<div style={{
+  padding: '12px 15px',
+  borderBottom: '1px solid #eee',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  backgroundColor: '#fff5f5',
+  gap: '10px',
+  flexWrap: 'wrap'
+}}>
+  <strong style={{ 
+    color: '#095400', 
+    fontSize: windowWidth > 768 ? '16px' : '14px',
+    fontWeight: '600',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px'
+  }}>
+    📍 Onde Entregamos
+  </strong>
+  
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px'
+  }}>
+    {/* BOTÃO SAIBA MAIS - DENTRO DO DROPDOWN */}
+    <a
+      href="/cidades-atendidas"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '4px',
+        backgroundColor: '#095400',
+        color: 'white',
+        padding: windowWidth > 768 ? '4px 14px' : '3px 10px',
+        borderRadius: '16px',
+        fontSize: windowWidth > 768 ? '12px' : '10px',
+        fontWeight: '600',
+        textDecoration: 'none',
+        transition: 'all 0.3s ease',
+        border: '2px solid #095400',
+        boxShadow: '0 2px 6px rgba(9, 84, 0, 0.15)',
+        whiteSpace: 'nowrap'
+      }}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = 'white';
+        e.target.style.color = '#095400';
+        e.target.style.transform = 'translateY(-1px)';
+        e.target.style.boxShadow = '0 4px 10px rgba(9, 84, 0, 0.2)';
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = '#095400';
+        e.target.style.color = 'white';
+        e.target.style.transform = 'translateY(0)';
+        e.target.style.boxShadow = '0 2px 6px rgba(9, 84, 0, 0.15)';
+      }}
+    >
+      <span>🌍</span>
+      Saiba mais
+    </a>
+    
+    {/* BOTÃO FECHAR */}
+    <button
+      onClick={() => setShowCitiesMenu(false)}
+      style={{
+        background: 'none',
+        border: 'none',
+        color: '#e53935',
+        cursor: 'pointer',
+        fontSize: '20px',
+        fontWeight: 'bold',
+        padding: '0',
+        width: '24px',
+        height: '24px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '50%',
+        transition: 'all 0.2s',
+        flexShrink: 0
+      }}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = '#f0f0f0';
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = 'transparent';
+      }}
+    >
+      ×
+    </button>
+  </div>
+</div>
               
               {/* Conteúdo do Menu */}
               <div style={{ padding: '15px' }}>
