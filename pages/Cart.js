@@ -33,7 +33,7 @@ const OFERTA_RELAMPAGO_CART = {
 };
 
 // ✅ Array com IDs dos produtos em oferta
-const PRODUTOS_EM_OFERTA = [2766, 2769, 2132, 2382, 1202, 1209, 52, 53, 999];
+const PRODUTOS_EM_OFERTA = [978, 1065, 2793, 2794, 2795, 2790, 2780, 2038, 2765, 2754];
 
 // ⭐ NOVO: Array com IDs da Oferta Relâmpago
 const PRODUTOS_OFERTA_RELAMPAGO = OFERTA_RELAMPAGO_CART.ids;
