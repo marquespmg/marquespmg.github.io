@@ -1,14 +1,15 @@
 // constants/ofertas.js
 export const featuredProducts = [
-  { id: 2766, name: 'PIMENTA BIQUINHO PORTO BELLO 2 KILO', category: 'Ofertas', price: 53.00, image: 'https://www.marquesvendaspmg.shop/images/pimenta-biquinho-porto-bello-2-kg-cx-6-bd.webp' },
-  { id: 2769, name: 'TOMATE SECO PORTO BELLO 1,4 KILO', category: 'Ofertas', price: 27.30, image: 'https://www.marquesvendaspmg.shop/images/tomate-seco-porto-bello-14-kg-cx-6-bd.webp' },
-  { id: 2132, name: 'PRESUNTO FATIADO SEARA 180 G', category: 'Ofertas', price: 8.15, image: 'https://www.marquesvendaspmg.shop/images/presunto-fatiado-seara.png' },
-  { id: 2382, name: 'APRESUNTADO FATIADO PAMPLONA 500 G', category: 'Ofertas', price: 12.99, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-fatiado-pamplona-500-g-cx-24-pct.webp' },
-  { id: 1202, name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL MAIS BATATA BEM BRASIL 2 KILO (CX 7 PCT)', category: 'Ofertas', price: 138.99, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-9-mm-corte-tradicional-mais-batata-bem-brasil-2-kilo-cx-7-pct-pmg-atacadista.jpg' },
-  { id: 1209, name: 'BATATA PALITO CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL UAI BEM BRASIL 2 KILO (CX 7 PCT)', category: 'Ofertas', price: 129.99, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-9-mm-corte-tradicional-uai-bem-brasil-2-kilo-cx-7-pct-pmg-atacadista.jpg' },
-  { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 21.10, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 16.30, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 999, name: 'CALABRESA RETA SEARA 2.5 KILO', category: 'Ofertas', price: 51.50, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-seara-25-kilo-pmg-atacadista.jpg' },
+  { id: 978, name: 'CALABRESA AURORA 5 KILO', category: 'Ofertas', price: 106.99, image: 'https://www.marquesvendaspmg.shop/images/calabresa-aurora-5-kilo-pmg-atacadista.jpg' },
+  { id: 1065, name: 'PRESUNTO SEARA 3.5 KILO PÇ', category: 'Ofertas', price: 86.00, image: 'https://www.marquesvendaspmg.shop/images/presunto-seara-35-kilo-pc-pmg-atacadista.jpg' },
+  { id: 2793, name: 'TEMPERO ALHO E SAL FOOD SERVICE QUERO 1,01 KILO', category: 'Ofertas', price: 14.90, image: 'https://www.marquesvendaspmg.shop/images/tempero-alho-e-sal-food-service-quero-101-kg-cx-6-pt.webp' },
+  { id: 2794, name: 'TEMPERO COMPLETO COM PIMENTA FOOD SERVICE QUERO 1,01 KILO', category: 'Ofertas', price: 14.90, image: 'https://www.marquesvendaspmg.shop/images/tempero-completo-com-pimenta-food-service-quero-101-kg-cx-6-pt.webp' },
+  { id: 2795, name: 'TEMPERO COMPLETO SEM PIMENTA FOOD SERVICE QUERO 1,01 KILO', category: 'Ofertas', price: 14.90, image: 'https://www.marquesvendaspmg.shop/images/tempero-completo-sem-pimenta-food-service-quero-101-kg-cx-6-pt.webp' },
+  { id: 2790, name: 'PARMESÃO 9 MESES EL MAESTRO 7 KG', category: 'Ofertas', price: 69.60, image: 'https://www.marquesvendaspmg.shop/images/parmesao-9-meses-el-maestro-7-kg-cx-2-pc.webp' },
+  { id: 2780, name: 'CREME DE LEITE LEVE 15% DE GORDURA LIDER 200 G (CX 27 UN)', category: 'Ofertas', price: 73.00, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-leve-15-de-gordura-lider-200-g-cx-27-un.webp' },
+  { id: 2038, name: 'LEITE INTEGRAL LIDER 1 L (CX 12 UN)', category: 'Ofertas', price: 73.99, image: 'https://www.marquesvendaspmg.shop/images/leite-integral-lider.png' },
+  { id: 2765, name: 'ITUBAÍNA TUTTI FRUTTI RETRÔ ZERO LATA 350 ML (PCT 12 LT)', category: 'Ofertas', price: 42.50, image: 'https://www.marquesvendaspmg.shop/images/itubaina-tutti-frutti-retro-zero-lata-350-ml-pct-12-lt.webp' },
+  { id: 2754, name: 'ALCATRA BOVINA CONGELADA EM BIFE ALFAMA 2 KILO', category: 'Ofertas', price: 103.00, image: 'https://www.marquesvendaspmg.shop/images/alcatra-bovina-congelada-em-bife-alfama-2-kg-cx-3-pct.webp' },
 ];
 
 // Array com os IDs em oferta (fácil de verificar)
