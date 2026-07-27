@@ -198,9 +198,9 @@ export default function useTrackUser() {
     // Executa imediatamente quando a página carrega
     trackActivity();
     
-    // Atualiza a cada 30 segundos
-    const intervalId = setInterval(trackActivity, 30000);
-    console.log('⏰ Intervalo configurado: 30 segundos');
+    // Atualiza a cada 5 minutos
+    const intervalId = setInterval(trackActivity, 300000);
+    console.log('⏰ Intervalo configurado: 5 minutos');
     
     // Limpeza
     return () => {
