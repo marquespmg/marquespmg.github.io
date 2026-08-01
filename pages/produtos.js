@@ -10,7 +10,7 @@ import { useProdutoValidade } from '../hook/useProdutoValidade';
 
 // ========== CONFIGURAÇÃO DA CAMPANHA ==========
 const CAMPANHA_COMPRE_E_GANHE = {
-  ativa: true, // MUDAR PARA true quando quiser ativar
+  ativa: false, // MUDAR PARA true quando quiser ativar
   marcas: {
     Cepêra: {
       nome: "Cepêra",
