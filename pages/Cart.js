@@ -13,7 +13,7 @@ import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 // 🎁 CONFIGURAÇÃO DA CAMPANHA "COMPRE E GANHE"
 // ==============================================
 const CAMPANHA_CONFIG = {
-  ativa: true, // MUDAR PARA true quando quiser ativar
+  ativa: false, // MUDAR PARA true quando quiser ativar
   marcas: {
     Cepêra: {
       nome: "Cepêra",
