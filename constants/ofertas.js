@@ -1,15 +1,15 @@
 // constants/ofertas.js
 export const featuredProducts = [
-  { id: 978, name: 'CALABRESA AURORA 5 KILO', category: 'Ofertas', price: 106.99, image: 'https://www.marquesvendaspmg.shop/images/calabresa-aurora-5-kilo-pmg-atacadista.jpg' },
-  { id: 1065, name: 'PRESUNTO SEARA 3.5 KILO PÇ', category: 'Ofertas', price: 86.00, image: 'https://www.marquesvendaspmg.shop/images/presunto-seara-35-kilo-pc-pmg-atacadista.jpg' },
-  { id: 2793, name: 'TEMPERO ALHO E SAL FOOD SERVICE QUERO 1,01 KILO', category: 'Ofertas', price: 14.90, image: 'https://www.marquesvendaspmg.shop/images/tempero-alho-e-sal-food-service-quero-101-kg-cx-6-pt.webp' },
-  { id: 2794, name: 'TEMPERO COMPLETO COM PIMENTA FOOD SERVICE QUERO 1,01 KILO', category: 'Ofertas', price: 14.90, image: 'https://www.marquesvendaspmg.shop/images/tempero-completo-com-pimenta-food-service-quero-101-kg-cx-6-pt.webp' },
-  { id: 2795, name: 'TEMPERO COMPLETO SEM PIMENTA FOOD SERVICE QUERO 1,01 KILO', category: 'Ofertas', price: 14.90, image: 'https://www.marquesvendaspmg.shop/images/tempero-completo-sem-pimenta-food-service-quero-101-kg-cx-6-pt.webp' },
-  { id: 2790, name: 'PARMESÃO 9 MESES EL MAESTRO 7 KG', category: 'Ofertas', price: 69.60, image: 'https://www.marquesvendaspmg.shop/images/parmesao-9-meses-el-maestro-7-kg-cx-2-pc.webp' },
-  { id: 2780, name: 'CREME DE LEITE LEVE 15% DE GORDURA LIDER 200 G (CX 27 UN)', category: 'Ofertas', price: 73.00, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-leve-15-de-gordura-lider-200-g-cx-27-un.webp' },
-  { id: 2038, name: 'LEITE INTEGRAL LIDER 1 L (CX 12 UN)', category: 'Ofertas', price: 73.99, image: 'https://www.marquesvendaspmg.shop/images/leite-integral-lider.png' },
-  { id: 2765, name: 'ITUBAÍNA TUTTI FRUTTI RETRÔ ZERO LATA 350 ML (PCT 12 LT)', category: 'Ofertas', price: 42.50, image: 'https://www.marquesvendaspmg.shop/images/itubaina-tutti-frutti-retro-zero-lata-350-ml-pct-12-lt.webp' },
-  { id: 2754, name: 'ALCATRA BOVINA CONGELADA EM BIFE ALFAMA 2 KILO', category: 'Ofertas', price: 103.00, image: 'https://www.marquesvendaspmg.shop/images/alcatra-bovina-congelada-em-bife-alfama-2-kg-cx-3-pct.webp' },
+  { id: 2801, name: 'APRESUNTADO PIF PAF 3,8 KILO', category: 'Ofertas', price: 48.10, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-pif-paf-38-kg-cx-2-pc.webp' },
+  { id: 2827, name: 'GOIABADA CREMOSA FORNEÁVEL PREDILECTA 1 KILO', category: 'Ofertas', price: 16.50, image: 'https://www.marquesvendaspmg.shop/images/goiabada-cremosa-forneavel-predilecta-1-kg-cx-12-bis.webp' },
+  { id: 2830, name: 'LOMBO CANADENSE PRIETO 1 KILO', category: 'Ofertas', price: 33.80, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-prieto-1-kg-cx-5-kg.webp' },
+  { id: 2831, name: 'MILHO CONGELADO ARRICO 2,5 KILO', category: 'Ofertas', price: 33.10, image: 'https://www.marquesvendaspmg.shop/images/milho-congelado-arrico-25-kg-cx-4-pct.webp' },
+  { id: 2835, name: 'RECHEIO E COBERTURA SABOR LEITINHO BOM PRINCÍPIO 1,01 KILO', category: 'Ofertas', price: 36.00, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-leitinho-bom-principio-101-kg-cx-6-bis.webp' },
+  { id: 2809, name: 'CHOCOLATE FORNEÁVEL BRANCO BOM PRINCÍPIO 1,01 KILO', category: 'Ofertas', price: 24.99, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-bom-principio-101-kg-cx-6-bis.webp' },
+  { id: 2808, name: 'CHOCOLATE FORNEÁVEL AVELÃ BOM PRINCÍPIO 1,01 KILO', category: 'Ofertas', price: 28.50, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-avela-bom-principio-101-kg-cx-6-bis.webp' },
+  { id: 2807, name: 'CHOCOLATE FORNEÁVEL AO LEITE BOM PRINCÍPIO 1,01 KILO', category: 'Ofertas', price: 27.50, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-ao-leite-bom-principio-101-kg-cx-6-bis.webp' },
+  { id: 1273, name: 'FEIJÃO PRETO TIPO 1 SOLITO 1 KILO (FDO 10 PCT)', category: 'Ofertas', price: 68.00, image: 'https://www.marquesvendaspmg.shop/images/feijao-preto-tipo-1-solito-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
+  { id: 1038, name: 'PAIO SUÍNO SEARA 2.5 KILO PCT', category: 'Ofertas', price: 60.50, image: 'https://www.marquesvendaspmg.shop/images/paio-suino-seara-25-kilo-pct-pmg-atacadista.jpg' },
 ];
 
 // Array com os IDs em oferta (fácil de verificar)
