@@ -1799,6 +1799,12 @@
     "quinta": true,
     "sexta": true
   },
+  "PRESIDENTE PRUDENTE": {
+    "terca": false,
+    "quarta": false,
+    "quinta": true,
+    "sexta": false
+  },
   "PROMISSÃO": {
     "terca": false,
     "quarta": true,
