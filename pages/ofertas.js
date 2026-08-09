@@ -140,16 +140,16 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 2801, name: 'APRESUNTADO PIF PAF 3,8 KILO', category: 'Ofertas', price: 48.10, image: 'https://www.marquesvendaspmg.shop/images/apresuntado-pif-paf-38-kg-cx-2-pc.webp' },
-  { id: 2827, name: 'GOIABADA CREMOSA FORNEÁVEL PREDILECTA 1 KILO', category: 'Ofertas', price: 16.50, image: 'https://www.marquesvendaspmg.shop/images/goiabada-cremosa-forneavel-predilecta-1-kg-cx-12-bis.webp' },
-  { id: 2830, name: 'LOMBO CANADENSE PRIETO 1 KILO', category: 'Ofertas', price: 33.80, image: 'https://www.marquesvendaspmg.shop/images/lombo-canadense-prieto-1-kg-cx-5-kg.webp' },
-  { id: 2831, name: 'MILHO CONGELADO ARRICO 2,5 KILO', category: 'Ofertas', price: 33.10, image: 'https://www.marquesvendaspmg.shop/images/milho-congelado-arrico-25-kg-cx-4-pct.webp' },
-  { id: 2835, name: 'RECHEIO E COBERTURA SABOR LEITINHO BOM PRINCÍPIO 1,01 KILO', category: 'Ofertas', price: 36.00, image: 'https://www.marquesvendaspmg.shop/images/recheio-e-cobertura-sabor-leitinho-bom-principio-101-kg-cx-6-bis.webp' },
-  { id: 2809, name: 'CHOCOLATE FORNEÁVEL BRANCO BOM PRINCÍPIO 1,01 KILO', category: 'Ofertas', price: 24.99, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-branco-bom-principio-101-kg-cx-6-bis.webp' },
-  { id: 2808, name: 'CHOCOLATE FORNEÁVEL AVELÃ BOM PRINCÍPIO 1,01 KILO', category: 'Ofertas', price: 28.50, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-avela-bom-principio-101-kg-cx-6-bis.webp' },
-  { id: 2807, name: 'CHOCOLATE FORNEÁVEL AO LEITE BOM PRINCÍPIO 1,01 KILO', category: 'Ofertas', price: 27.50, image: 'https://www.marquesvendaspmg.shop/images/chocolate-forneavel-ao-leite-bom-principio-101-kg-cx-6-bis.webp' },
-  { id: 1273, name: 'FEIJÃO PRETO TIPO 1 SOLITO 1 KILO (FDO 10 PCT)', category: 'Ofertas', price: 68.00, image: 'https://www.marquesvendaspmg.shop/images/feijao-preto-tipo-1-solito-1-kilo-fdo-10-pct-pmg-atacadista.jpg' },
-  { id: 1038, name: 'PAIO SUÍNO SEARA 2.5 KILO PCT', category: 'Ofertas', price: 60.50, image: 'https://www.marquesvendaspmg.shop/images/paio-suino-seara-25-kilo-pct-pmg-atacadista.jpg' },
+  { id: 46, name: 'ÁGUA DE COCO GRANDE COCO QUADRADO 1 L (CX 12 UN)', category: 'Ofertas', price: 94.99, image: 'https://www.marquesvendaspmg.shop/images/agua-de-coco-grande-coco-quadrado-1-l-cx-12-un-pmg-atacadista.jpg' },
+  { id: 50, name: 'ÁGUA DE COCO PEQUENA COCO QUADRADO 200 ML (CX 27 UN)', category: 'Ofertas', price: 53.50, image: 'https://www.marquesvendaspmg.shop/images/agua-de-coco-pequena-coco-quadrado-200-ml-cx-27-un-pmg-atacadista.jpg' },
+  { id: 1905, name: 'ÁGUA MINERAL LINDOYA VERÃO COM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-lindoya-verao-com-gas-300-ml.png' },
+  { id: 1906, name: 'ÁGUA MINERAL LINDOYA VERÃO SEM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-lindoya-verao-sem-gas-300-ml.png' },
+  { id: 191, name: 'ISOTÔNICO GATORADE LARANJA 500 ML (PCT 6 UN)', category: 'Ofertas', price: 39.50, image: 'https://www.marquesvendaspmg.shop/images/isotonico-gatorade-laranja-500-ml-pct-6-un-pmg-atacadista.jpg' },
+  { id: 192, name: 'ISOTÔNICO GATORADE LIMÃO 500 ML (PCT 6 UN)', category: 'Ofertas', price: 39.50, image: 'https://www.marquesvendaspmg.shop/images/isotonico-gatorade-limao-500-ml-pct-6-un-pmg-atacadista.jpg' },
+  { id: 193, name: 'ISOTÔNICO GATORADE MORANGO COM MARACUJÁ 500 ML (PCT 6 UN)', category: 'Ofertas', price: 39.50, image: 'https://www.marquesvendaspmg.shop/images/isotonico-gatorade-morango-com-maracuja-500-ml-pct-6-un-pmg-atacadista.jpg' },
+  { id: 1254, name: 'CEBOLA GRAÚDA NACIONAL (SC 20 KILO)', category: 'Ofertas', price: 103.99, image: 'https://www.marquesvendaspmg.shop/images/cebola-grauda-nacional-sc-18-kilo-pmg-atacadista.jpg' },
+  { id: 261, name: 'SUCO GUARAVITON AÇAÍ 500 ML (PCT 12 UN)', category: 'Ofertas', price: 33.50, image: 'https://www.marquesvendaspmg.shop/images/suco-guaraviton-acai-500-ml-pct-12-un-pmg-atacadista.jpg' },
+  { id: 923, name: 'REQUEIJÃO TRÊS MARIAS SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 38.99, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tres-marias-sem-amido-18-kilo-pmg-atacadista.jpg' },
 ];
 
 // ========== BANNERS ========== //
