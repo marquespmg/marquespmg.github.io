@@ -13,15 +13,20 @@ import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 // 🎁 CONFIGURAÇÃO DA CAMPANHA "COMPRE E GANHE"
 // ==============================================
 const CAMPANHA_CONFIG = {
-  ativa: false, // MUDAR PARA true quando quiser ativar
+  ativa: true,  // MUDAR PARA false quando quiser desativar
   marcas: {
-    Cepêra: {
-      nome: "Cepêra",
-      ids: [2597, 2599, 2616, 2620, 2621, 2632, 2633],
-      minimo: 5
+    suprema: {
+      nome: "Suprema Bunge",
+      ids: [1720, 1753, 1752],
+      minimo: 2
+    },
+    scala: {
+      nome: "SCALA",
+      ids: [795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
+      minimo: 2
     }
   },
-  desconto: 2 // percentual
+  desconto: 2
 };
 
 // ==============================================
@@ -800,9 +805,9 @@ if (cupomAplicado) {
       ? `\n *Pedido usando cupom ${cupomAplicado.nome}*\n`
       : '';
 
-    const campanhaText = campanhaAtiva
-      ? `\n *Campanha aplicada: Cepêra (2% de desconto)*\n`
-      : '';
+const campanhaText = campanhaAtiva
+  ? `\n *Campanha aplicada: Suprema Bunge + SCALA (2% de desconto)*\n`
+  : '';
 
     const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
@@ -1390,13 +1395,13 @@ if (cupomAplicado) {
   }}>
     <div style={{ fontSize: '20px', marginBottom: '4px' }}>🎉</div>
     <p style={{ margin: 0, color: '#1B5E20', fontWeight: 600, fontSize: '14px' }}>
-      Parabéns! Você ganhou 2% de desconto através da campanha Cepêra
+      Parabéns! Você ganhou 2% de desconto através da campanha Suprema Bunge + SCALA!
     </p>
-<p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '12px' }}>
-  Desconto distribuído entre os itens
-  <br />
-  ( Não aplicado para produtos em oferta )
-</p>
+    <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '12px' }}>
+      Desconto distribuído entre os itens elegíveis
+      <br />
+      ( Não aplicado para produtos em oferta )
+    </p>
   </div>
 )}
 
