@@ -15,15 +15,10 @@ import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 const CAMPANHA_CONFIG = {
   ativa: true,  // MUDAR PARA false quando quiser desativar
   marcas: {
-    suprema: {
-      nome: "Suprema Bunge",
-      ids: [1720, 1753, 1752],
-      minimo: 2
-    },
     scala: {
       nome: "SCALA",
-      ids: [795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
-      minimo: 2
+      ids: [764, 795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
+      minimo: 5  // ⭐ MUDOU DE 2 PARA 5
     }
   },
   desconto: 2
@@ -806,7 +801,7 @@ if (cupomAplicado) {
       : '';
 
 const campanhaText = campanhaAtiva
-  ? `\n *Campanha aplicada: Suprema Bunge + SCALA (2% de desconto)*\n`
+  ? `\n *Campanha aplicada: SCALA (2% de desconto)*\n`
   : '';
 
     const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -1395,7 +1390,7 @@ const campanhaText = campanhaAtiva
   }}>
     <div style={{ fontSize: '20px', marginBottom: '4px' }}>🎉</div>
     <p style={{ margin: 0, color: '#1B5E20', fontWeight: 600, fontSize: '14px' }}>
-      Parabéns! Você ganhou 2% de desconto através da campanha Suprema Bunge + SCALA!
+      Parabéns! Você ganhou 2% de desconto através da campanha SCALA!
     </p>
     <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '12px' }}>
       Desconto distribuído entre os itens elegíveis
