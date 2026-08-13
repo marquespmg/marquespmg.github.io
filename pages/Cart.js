@@ -10,18 +10,21 @@ import { produtosArray } from './produtos';
 import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 
 // ==============================================
-// 🎁 CONFIGURAÇÃO DA CAMPANHA "COMPRE E GANHE"
+// 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
 // ==============================================
-const CAMPANHA_CONFIG = {
-  ativa: true,  // MUDAR PARA false quando quiser desativar
-  marcas: {
-    scala: {
-      nome: "SCALA",
-      ids: [764, 795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
-      minimo: 5  // ⭐ MUDOU DE 2 PARA 5
-    }
-  },
-  desconto: 2
+
+// ⭐ CAMPANHA 1: SCALA (5 produtos)
+const CAMPANHA_SCALA_CART = {
+  ativa: true,
+  ids: [795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
+  minimo: 5
+};
+
+// ⭐ CAMPANHA 2: SUPREMA BUNGE (2 produtos)
+const CAMPANHA_SUPREMA_CART = {
+  ativa: true,
+  ids: [1720, 1753, 1752],
+  minimo: 2
 };
 
 // ==============================================
@@ -63,55 +66,51 @@ const CUPONS = {
 const CART_STORAGE_KEY = 'cart_data';
 
 // ==============================================
-// ✅ FUNÇÃO PARA VERIFICAR CAMPANHA (ATUALIZADA)
+// ✅ FUNÇÃO PARA VERIFICAR CAMPANHA (VERSÃO DUAS CAMPANHAS)
 // ==============================================
 const verificarCampanha = (cartItems) => {
-  if (!CAMPANHA_CONFIG.ativa) {
-    return {
-      qualificada: false,
-      progresso: {},
-      desconto: 0
-    };
+  // Verifica SCALA
+  const scalaCount = cartItems
+    .filter(item => CAMPANHA_SCALA_CART.ids.includes(item.id) && !isOfertaRelampago(item.id))
+    .reduce((sum, item) => sum + (item.quantity || 1), 0);
+  const scalaQualificada = CAMPANHA_SCALA_CART.ativa && scalaCount >= CAMPANHA_SCALA_CART.minimo;
+
+  // Verifica SUPREMA BUNGE
+  const supremaCount = cartItems
+    .filter(item => CAMPANHA_SUPREMA_CART.ids.includes(item.id) && !isOfertaRelampago(item.id))
+    .reduce((sum, item) => sum + (item.quantity || 1), 0);
+  const supremaQualificada = CAMPANHA_SUPREMA_CART.ativa && supremaCount >= CAMPANHA_SUPREMA_CART.minimo;
+
+  // Qualificada se QUALQUER UMA for atingida
+  const qualificada = scalaQualificada || supremaQualificada;
+
+  // Nome da campanha ativada (para exibir)
+  let nomeCampanhaAtiva = '';
+  if (scalaQualificada && supremaQualificada) {
+    nomeCampanhaAtiva = 'SCALA + Suprema Bunge';
+  } else if (scalaQualificada) {
+    nomeCampanhaAtiva = 'SCALA';
+  } else if (supremaQualificada) {
+    nomeCampanhaAtiva = 'Suprema Bunge';
   }
-
-  const progresso = {};
-  let qualificada = true;
-
-  Object.keys(CAMPANHA_CONFIG.marcas).forEach(key => {
-    const marca = CAMPANHA_CONFIG.marcas[key];
-    // ⭐ FILTRA OS PRODUTOS QUE NÃO SÃO OFERTA RELÂMPAGO
-    const quantidade = cartItems
-      .filter(item => marca.ids.includes(item.id) && !isOfertaRelampago(item.id))
-      .reduce((sum, item) => sum + (item.quantity || 1), 0);
-    
-    progresso[key] = {
-      ...marca,
-      atual: quantidade,
-      atingido: quantidade >= marca.minimo
-    };
-    
-    if (!progresso[key].atingido) {
-      qualificada = false;
-    }
-  });
 
   return {
     qualificada,
-    progresso,
-    desconto: qualificada ? CAMPANHA_CONFIG.desconto : 0
+    desconto: qualificada ? 2 : 0,
+    nomeCampanhaAtiva,
+    scala: { count: scalaCount, minimo: CAMPANHA_SCALA_CART.minimo, qualificada: scalaQualificada },
+    suprema: { count: supremaCount, minimo: CAMPANHA_SUPREMA_CART.minimo, qualificada: supremaQualificada }
   };
 };
 
 // ==============================================
-// ✅ FUNÇÃO PARA CALCULAR DESCONTO DA CAMPANHA (ATUALIZADA)
+// ✅ FUNÇÃO PARA CALCULAR DESCONTO DA CAMPANHA (VERSÃO DUAS CAMPANHAS)
 // ==============================================
 const calcularDescontoCampanha = (cartItems, groupedItems) => {
-  if (!CAMPANHA_CONFIG.ativa) return { totalDesconto: 0, itensComDesconto: {} };
-
   const campanhaInfo = verificarCampanha(cartItems);
   
   if (!campanhaInfo.qualificada) {
-    return { totalDesconto: 0, itensComDesconto: {} };
+    return { totalDesconto: 0, itensComDesconto: {}, nomeCampanha: '' };
   }
 
   // ⭐ FILTRA OS ITENS ELEGÍVEIS (NÃO ESTÃO EM OFERTA E NÃO SÃO OFERTA RELÂMPAGO)
@@ -120,11 +119,11 @@ const calcularDescontoCampanha = (cartItems, groupedItems) => {
   );
 
   if (itensElegiveis.length === 0) {
-    return { totalDesconto: 0, itensComDesconto: {} };
+    return { totalDesconto: 0, itensComDesconto: {}, nomeCampanha: '' };
   }
 
   const totalElegivel = itensElegiveis.reduce((sum, item) => sum + item.totalPrice, 0);
-  const percentualDesconto = CAMPANHA_CONFIG.desconto / 100;
+  const percentualDesconto = 2 / 100;
   const descontoTotal = totalElegivel * percentualDesconto;
 
   const itensComDesconto = {};
@@ -139,7 +138,8 @@ const calcularDescontoCampanha = (cartItems, groupedItems) => {
   return {
     totalDesconto: descontoTotal,
     itensComDesconto,
-    percentualAplicado: CAMPANHA_CONFIG.desconto
+    percentualAplicado: 2,
+    nomeCampanha: campanhaInfo.nomeCampanhaAtiva
   };
 };
 
@@ -702,7 +702,7 @@ if (cupomAplicado) {
   cupomAtivo = true;
   dadosDesconto = calcularDescontoCupom(cart, cupomAplicado);
   totalComDesconto = totalSemDesconto - dadosDesconto.totalDesconto;
-} else if (campanhaInfo.qualificada && CAMPANHA_CONFIG.ativa) { // ← USA O .ativa
+} else if (campanhaInfo.qualificada) {
   campanhaAtiva = true;
   dadosDesconto = dadosCampanha;
   totalComDesconto = totalSemDesconto - dadosCampanha.totalDesconto;
@@ -801,7 +801,7 @@ if (cupomAplicado) {
       : '';
 
 const campanhaText = campanhaAtiva
-  ? `\n *Campanha aplicada: SCALA (2% de desconto)*\n`
+  ? `\n *Campanha aplicada: ${dadosDesconto?.nomeCampanha || 'SCALA ou Suprema Bunge'} (2% de desconto)*\n`
   : '';
 
     const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -1178,7 +1178,7 @@ const campanhaText = campanhaAtiva
       fontSize: '10px',
       fontWeight: 700
     }}>
-      {cupomAtivo ? `${cupomAplicado?.desconto}% OFF` : `${CAMPANHA_CONFIG.desconto}% OFF`}
+      {cupomAtivo ? `${cupomAplicado?.desconto}% OFF` : `2% OFF`}
     </span>
   )}
 </p>
@@ -1378,8 +1378,8 @@ const campanhaText = campanhaAtiva
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
-{/* ⭐ AVISO DA CAMPANHA ATIVA - SÓ MOSTRA SE ATIVA */}
-{CAMPANHA_CONFIG.ativa && campanhaAtiva && (
+{/* ⭐ AVISO DA CAMPANHA ATIVA */}
+{CAMPANHA_SCALA_CART.ativa && campanhaAtiva && (
   <div style={{
     backgroundColor: '#E8F5E8',
     padding: '12px',
@@ -1390,9 +1390,11 @@ const campanhaText = campanhaAtiva
   }}>
     <div style={{ fontSize: '20px', marginBottom: '4px' }}>🎉</div>
     <p style={{ margin: 0, color: '#1B5E20', fontWeight: 600, fontSize: '14px' }}>
-      Parabéns! Você ganhou 2% de desconto através da campanha SCALA!
+      Parabéns! Você ganhou 2% de desconto!
     </p>
     <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '12px' }}>
+      Campanha ativada: {dadosDesconto?.nomeCampanha || 'SCALA ou Suprema Bunge'}
+      <br />
       Desconto distribuído entre os itens elegíveis
       <br />
       ( Não aplicado para produtos em oferta )
@@ -1429,10 +1431,10 @@ const campanhaText = campanhaAtiva
                     maxWidth: '220px'
                   }}>
                     {cupomAtivo ? (
-                      <>🏷️ Desconto ({cupomAplicado.nome} - {cupomAplicado.desconto}%):</>
-                    ) : campanhaAtiva ? (
-                      <>🎁 Desconto Campanha ({CAMPANHA_CONFIG.desconto}%):</>
-                    ) : null}
+  <>🏷️ Desconto ({cupomAplicado.nome} - {cupomAplicado.desconto}%):</>
+) : campanhaAtiva ? (
+  <>🎁 Desconto Campanha (2%):</>
+) : null}
                   </span>
                   <span style={{ 
                     fontWeight: 600, 
@@ -1469,7 +1471,7 @@ const campanhaText = campanhaAtiva
     1. Campanha DESATIVADA (ativa: false) OU
     2. Campanha ATIVA mas NÃO QUALIFICADA (cliente não atingiu requisitos)
 */}
-{(!CAMPANHA_CONFIG.ativa || !campanhaAtiva) && (
+{(!CAMPANHA_SCALA_CART.ativa || !campanhaAtiva) && (
   <div style={{
     backgroundColor: '#F8F9FA',
     borderRadius: '10px',
@@ -1668,7 +1670,7 @@ const campanhaText = campanhaAtiva
             )}
 
 {/* ✅ AVISO QUANDO CAMPANHA ESTÁ ATIVA E QUALIFICADA (CUPONS BLOQUEADOS) */}
-{CAMPANHA_CONFIG.ativa && campanhaAtiva && (
+{CAMPANHA_SCALA_CART.ativa && campanhaAtiva && (
   <div style={{
     padding: '10px',
     backgroundColor: '#FFF3E0',
