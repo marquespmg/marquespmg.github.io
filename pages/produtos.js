@@ -8,25 +8,60 @@ import useTrackUser from '../hook/useTrackUser';
 import WithdrawalModal from '../components/WithdrawalModal';
 import { useProdutoValidade } from '../hook/useProdutoValidade';
 
-// ========== CONFIGURAÇÃO DA CAMPANHA ========== //
-const CAMPANHA_COMPRE_E_GANHE = {
+// ==============================================
+// 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
+// ==============================================
+
+// ⭐ CAMPANHA 1: SCALA (5 produtos)
+const CAMPANHA_SCALA = {
   ativa: true,  // MUDAR PARA false quando quiser desativar
-  marcas: {
-    scala: {
-      nome: "SCALA",
-      ids: [764, 795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
-      minimo: 5,  // ⭐ MUDOU DE 2 PARA 5
-      icone: "⭐"
-    }
-  },
-  desconto: 2,
+  nome: "SCALA",
+  ids: [795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
+  minimo: 5,
+  icone: "⭐",
   mensagem: "🎉 Parabéns! Você ganhou 2% de desconto através da campanha SCALA!",
   mensagemWhatsApp: "Campanha aplicada: SCALA (2% de desconto)"
 };
 
+// ⭐ CAMPANHA 2: SUPREMA BUNGE (2 produtos)
+const CAMPANHA_SUPREMA = {
+  ativa: true,  // MUDAR PARA false quando quiser desativar
+  nome: "Suprema Bunge",
+  ids: [1720, 1753, 1752],
+  minimo: 2,
+  icone: "🌾",
+  mensagem: "🎉 Parabéns! Você ganhou 2% de desconto através da campanha Suprema Bunge!",
+  mensagemWhatsApp: "Campanha aplicada: Suprema Bunge (2% de desconto)"
+};
+
+// ⭐ CAMPANHA PRINCIPAL (para exibir na categoria)
+const CAMPANHA_COMPRE_E_GANHE = {
+  ativa: CAMPANHA_SCALA.ativa || CAMPANHA_SUPREMA.ativa, // ATIVA SE QUALQUER UMA ESTIVER ATIVA
+  marcas: {
+    scala: {
+      nome: CAMPANHA_SCALA.nome,
+      ids: CAMPANHA_SCALA.ids,
+      minimo: CAMPANHA_SCALA.minimo,
+      icone: CAMPANHA_SCALA.icone,
+      ativa: CAMPANHA_SCALA.ativa
+    },
+    suprema: {
+      nome: CAMPANHA_SUPREMA.nome,
+      ids: CAMPANHA_SUPREMA.ids,
+      minimo: CAMPANHA_SUPREMA.minimo,
+      icone: CAMPANHA_SUPREMA.icone,
+      ativa: CAMPANHA_SUPREMA.ativa
+    }
+  },
+  desconto: 2,
+  mensagem: "🎉 Parabéns! Você ganhou 2% de desconto através da campanha SCALA ou Suprema Bunge!",
+  mensagemWhatsApp: "Campanha aplicada: SCALA ou Suprema Bunge (2% de desconto)"
+};
+
 // IDs dos produtos da campanha (para exibir na categoria)
 const PRODUTOS_CAMPANHA = [
-  ...CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids
+  ...CAMPANHA_SCALA.ids,
+  ...CAMPANHA_SUPREMA.ids
 ];
 
 // ========== CONFIGURAÇÃO DA OFERTA RELÂMPAGO ========== //
@@ -6001,70 +6036,152 @@ productsGrid: {
         📋 Como funciona:
       </p>
       <ul style={{ margin: 0, paddingLeft: '20px', fontSize: windowWidth > 768 ? '13px' : '12px', color: '#333' }}>
-        <li>Compre no mínimo <strong style={{ color: '#095400' }}>5 produtos SCALA</strong></li>
-        <li>Ganhe <strong style={{ color: '#095400' }}>2% de desconto</strong> distribuído entre os itens</li>
+        <li>
+          <strong style={{ color: '#095400' }}>⭐ SCALA:</strong> Compre <strong style={{ color: '#095400' }}>5 produtos</strong> e ganhe 2% de desconto
+        </li>
+        <li>
+          <strong style={{ color: '#095400' }}>🌾 Suprema Bunge:</strong> Compre <strong style={{ color: '#095400' }}>2 produtos</strong> e ganhe 2% de desconto
+        </li>
+        <li style={{ color: '#E65100' }}>⚠️ As campanhas <strong>NÃO são cumulativas</strong> (máximo 2% de desconto)</li>
         <li style={{ color: '#E65100' }}>⚠️ Desconto não se aplica a produtos em oferta</li>
       </ul>
     </div>
 
-    {/* BARRA DE PROGRESSO - UMA ÚNICA (SCALA) */}
+    {/* BARRAS DE PROGRESSO */}
     <div style={{
-      maxWidth: '500px',
-      margin: '0 auto 20px auto',
-      backgroundColor: '#fff',
-      borderRadius: '10px',
-      padding: windowWidth > 768 ? '15px' : '12px',
-      border: '2px solid #095400',
-      boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
+      display: 'grid',
+      gridTemplateColumns: windowWidth > 768 ? '1fr 1fr' : '1fr',
+      gap: '15px',
+      marginBottom: '20px'
     }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-        <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>⭐ SCALA</span>
-        <span style={{ 
-          fontWeight: 700, 
-          color: (() => {
-            const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
-              .reduce((sum, item) => sum + (item.quantity || 1), 0);
-            return count >= 5 ? '#27AE60' : '#E74C3C';
-          })() 
-        }}>
-          {cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
-            .reduce((sum, item) => sum + (item.quantity || 1), 0)}/5
-        </span>
-      </div>
-      <div style={{
-        width: '100%',
-        height: '12px',
-        backgroundColor: '#F5F5F5',
-        borderRadius: '10px',
-        overflow: 'hidden'
-      }}>
+      {/* SCALA */}
+      {CAMPANHA_SCALA.ativa && (
         <div style={{
-          width: `${Math.min((cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
-            .reduce((sum, item) => sum + (item.quantity || 1), 0) / 5) * 100, 100)}%`,
-          height: '100%',
-          background: (() => {
-            const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
-              .reduce((sum, item) => sum + (item.quantity || 1), 0);
-            return count >= 5 ? '#27AE60' : '#095400';
-          })(),
+          backgroundColor: '#fff',
           borderRadius: '10px',
-          transition: 'width 0.8s ease-in-out'
-        }} />
-      </div>
-      <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#666', textAlign: 'center' }}>
-        {(() => {
-          const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
-            .reduce((sum, item) => sum + (item.quantity || 1), 0);
-          return count >= 5 ? '✅ Atingido!' : `Faltam ${5 - count} produto(s)`;
-        })()}
-      </p>
+          padding: windowWidth > 768 ? '15px' : '12px',
+          border: '2px solid #095400',
+          boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+            <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>⭐ SCALA</span>
+            <span style={{ 
+              fontWeight: 700, 
+              color: (() => {
+                const count = cart.filter(item => CAMPANHA_SCALA.ids.includes(item.id))
+                  .reduce((sum, item) => sum + (item.quantity || 1), 0);
+                return count >= CAMPANHA_SCALA.minimo ? '#27AE60' : '#E74C3C';
+              })() 
+            }}>
+              {cart.filter(item => CAMPANHA_SCALA.ids.includes(item.id))
+                .reduce((sum, item) => sum + (item.quantity || 1), 0)}/{CAMPANHA_SCALA.minimo}
+            </span>
+          </div>
+          <div style={{
+            width: '100%',
+            height: '12px',
+            backgroundColor: '#F5F5F5',
+            borderRadius: '10px',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              width: `${Math.min((cart.filter(item => CAMPANHA_SCALA.ids.includes(item.id))
+                .reduce((sum, item) => sum + (item.quantity || 1), 0) / CAMPANHA_SCALA.minimo) * 100, 100)}%`,
+              height: '100%',
+              background: (() => {
+                const count = cart.filter(item => CAMPANHA_SCALA.ids.includes(item.id))
+                  .reduce((sum, item) => sum + (item.quantity || 1), 0);
+                return count >= CAMPANHA_SCALA.minimo ? '#27AE60' : '#095400';
+              })(),
+              borderRadius: '10px',
+              transition: 'width 0.8s ease-in-out'
+            }} />
+          </div>
+          <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#666', textAlign: 'center' }}>
+            {(() => {
+              const count = cart.filter(item => CAMPANHA_SCALA.ids.includes(item.id))
+                .reduce((sum, item) => sum + (item.quantity || 1), 0);
+              return count >= CAMPANHA_SCALA.minimo ? '✅ Atingido!' : `Faltam ${CAMPANHA_SCALA.minimo - count} produto(s)`;
+            })()}
+          </p>
+        </div>
+      )}
+
+      {/* SUPREMA BUNGE */}
+      {CAMPANHA_SUPREMA.ativa && (
+        <div style={{
+          backgroundColor: '#fff',
+          borderRadius: '10px',
+          padding: windowWidth > 768 ? '15px' : '12px',
+          border: '2px solid #095400',
+          boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+            <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>🌾 Suprema Bunge</span>
+            <span style={{ 
+              fontWeight: 700, 
+              color: (() => {
+                const count = cart.filter(item => CAMPANHA_SUPREMA.ids.includes(item.id))
+                  .reduce((sum, item) => sum + (item.quantity || 1), 0);
+                return count >= CAMPANHA_SUPREMA.minimo ? '#27AE60' : '#E74C3C';
+              })() 
+            }}>
+              {cart.filter(item => CAMPANHA_SUPREMA.ids.includes(item.id))
+                .reduce((sum, item) => sum + (item.quantity || 1), 0)}/{CAMPANHA_SUPREMA.minimo}
+            </span>
+          </div>
+          <div style={{
+            width: '100%',
+            height: '12px',
+            backgroundColor: '#F5F5F5',
+            borderRadius: '10px',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              width: `${Math.min((cart.filter(item => CAMPANHA_SUPREMA.ids.includes(item.id))
+                .reduce((sum, item) => sum + (item.quantity || 1), 0) / CAMPANHA_SUPREMA.minimo) * 100, 100)}%`,
+              height: '100%',
+              background: (() => {
+                const count = cart.filter(item => CAMPANHA_SUPREMA.ids.includes(item.id))
+                  .reduce((sum, item) => sum + (item.quantity || 1), 0);
+                return count >= CAMPANHA_SUPREMA.minimo ? '#27AE60' : '#095400';
+              })(),
+              borderRadius: '10px',
+              transition: 'width 0.8s ease-in-out'
+            }} />
+          </div>
+          <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#666', textAlign: 'center' }}>
+            {(() => {
+              const count = cart.filter(item => CAMPANHA_SUPREMA.ids.includes(item.id))
+                .reduce((sum, item) => sum + (item.quantity || 1), 0);
+              return count >= CAMPANHA_SUPREMA.minimo ? '✅ Atingido!' : `Faltam ${CAMPANHA_SUPREMA.minimo - count} produto(s)`;
+            })()}
+          </p>
+        </div>
+      )}
     </div>
 
     {/* STATUS DA CAMPANHA */}
     {(() => {
-      const scalaCount = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
+      const scalaCount = cart.filter(item => CAMPANHA_SCALA.ids.includes(item.id))
         .reduce((sum, item) => sum + (item.quantity || 1), 0);
-      const qualificada = scalaCount >= 5;
+      const supremaCount = cart.filter(item => CAMPANHA_SUPREMA.ids.includes(item.id))
+        .reduce((sum, item) => sum + (item.quantity || 1), 0);
+      
+      const scalaQualificada = scalaCount >= CAMPANHA_SCALA.minimo;
+      const supremaQualificada = supremaCount >= CAMPANHA_SUPREMA.minimo;
+      const qualificada = scalaQualificada || supremaQualificada;
+
+      let statusMessage = '';
+      if (scalaQualificada && supremaQualificada) {
+        statusMessage = '🎉 Parabéns! Você ganhou 2% de desconto! (SCALA + Suprema Bunge)';
+      } else if (scalaQualificada) {
+        statusMessage = '🎉 Parabéns! Você ganhou 2% de desconto através da campanha SCALA!';
+      } else if (supremaQualificada) {
+        statusMessage = '🎉 Parabéns! Você ganhou 2% de desconto através da campanha Suprema Bunge!';
+      } else {
+        statusMessage = '📌 Complete os requisitos de UMA das campanhas para ativar o desconto de 2%';
+      }
 
       return qualificada ? (
         <div style={{
@@ -6077,7 +6194,7 @@ productsGrid: {
         }}>
           <div style={{ fontSize: windowWidth > 768 ? '40px' : '30px', marginBottom: '8px' }}>🎉</div>
           <p style={{ margin: 0, color: '#095400', fontWeight: 700, fontSize: windowWidth > 768 ? '20px' : '16px' }}>
-            Parabéns! Você ganhou 2% de desconto!
+            {statusMessage}
           </p>
           <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: windowWidth > 768 ? '15px' : '13px', fontWeight: 500 }}>
             Desconto aplicado automaticamente no carrinho
@@ -6093,7 +6210,7 @@ productsGrid: {
           color: '#E65100'
         }}>
           <span style={{ fontSize: '20px', marginRight: '8px' }}>📌</span>
-          Complete os requisitos para ativar o desconto de 2%
+          {statusMessage}
         </div>
       );
     })()}
@@ -6109,7 +6226,7 @@ productsGrid: {
       border: '1px solid #E0E0E0',
       textAlign: 'center'
     }}>
-      ℹ️ A campanha não pode ser combinada com cupons de desconto
+      ℹ️ As campanhas não podem ser combinadas com cupons de desconto
     </div>
 
     <style>{`
