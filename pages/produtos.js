@@ -10,29 +10,22 @@ import { useProdutoValidade } from '../hook/useProdutoValidade';
 
 // ========== CONFIGURAÇÃO DA CAMPANHA ========== //
 const CAMPANHA_COMPRE_E_GANHE = {
-  ativa: true,  // MUDAR PARA true quando quiser ativar
+  ativa: true,  // MUDAR PARA false quando quiser desativar
   marcas: {
-    suprema: {
-      nome: "Suprema Bunge",
-      ids: [1720, 1753, 1752],
-      minimo: 2,
-      icone: "🌾"
-    },
     scala: {
       nome: "SCALA",
-      ids: [795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
-      minimo: 2,
+      ids: [764, 795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
+      minimo: 5,  // ⭐ MUDOU DE 2 PARA 5
       icone: "⭐"
     }
   },
   desconto: 2,
-  mensagem: "🎉 Parabéns! Você ganhou 2% de desconto através da campanha Suprema Bunge + SCALA!",
-  mensagemWhatsApp: "Campanha aplicada: Suprema Bunge + SCALA (2% de desconto)"
+  mensagem: "🎉 Parabéns! Você ganhou 2% de desconto através da campanha SCALA!",
+  mensagemWhatsApp: "Campanha aplicada: SCALA (2% de desconto)"
 };
 
 // IDs dos produtos da campanha (para exibir na categoria)
 const PRODUTOS_CAMPANHA = [
-  ...CAMPANHA_COMPRE_E_GANHE.marcas.suprema.ids,
   ...CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids
 ];
 
@@ -6008,129 +6001,70 @@ productsGrid: {
         📋 Como funciona:
       </p>
       <ul style={{ margin: 0, paddingLeft: '20px', fontSize: windowWidth > 768 ? '13px' : '12px', color: '#333' }}>
-        <li>Compre no mínimo <strong style={{ color: '#095400' }}>2 produtos Suprema Bunge</strong> e <strong style={{ color: '#095400' }}>2 produtos SCALA</strong></li>
+        <li>Compre no mínimo <strong style={{ color: '#095400' }}>5 produtos SCALA</strong></li>
         <li>Ganhe <strong style={{ color: '#095400' }}>2% de desconto</strong> distribuído entre os itens</li>
         <li style={{ color: '#E65100' }}>⚠️ Desconto não se aplica a produtos em oferta</li>
       </ul>
     </div>
 
-    {/* BARRAS DE PROGRESSO */}
+    {/* BARRA DE PROGRESSO - UMA ÚNICA (SCALA) */}
     <div style={{
-      display: 'grid',
-      gridTemplateColumns: windowWidth > 768 ? '1fr 1fr' : '1fr',
-      gap: '15px',
-      marginBottom: '20px'
+      maxWidth: '500px',
+      margin: '0 auto 20px auto',
+      backgroundColor: '#fff',
+      borderRadius: '10px',
+      padding: windowWidth > 768 ? '15px' : '12px',
+      border: '2px solid #095400',
+      boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
     }}>
-      {/* Suprema Bunge */}
-      <div style={{
-        backgroundColor: '#fff',
-        borderRadius: '10px',
-        padding: windowWidth > 768 ? '15px' : '12px',
-        border: '2px solid #095400',
-        boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-          <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>🌾 Suprema Bunge</span>
-          <span style={{ 
-            fontWeight: 700, 
-            color: (() => {
-              const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.suprema.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0);
-              return count >= 2 ? '#27AE60' : '#E74C3C';
-            })() 
-          }}>
-            {cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.suprema.ids.includes(item.id))
-              .reduce((sum, item) => sum + (item.quantity || 1), 0)}/2
-          </span>
-        </div>
-        <div style={{
-          width: '100%',
-          height: '12px',
-          backgroundColor: '#F5F5F5',
-          borderRadius: '10px',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            width: `${Math.min((cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.suprema.ids.includes(item.id))
-              .reduce((sum, item) => sum + (item.quantity || 1), 0) / 2) * 100, 100)}%`,
-            height: '100%',
-            background: (() => {
-              const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.suprema.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0);
-              return count >= 2 ? '#27AE60' : '#095400';
-            })(),
-            borderRadius: '10px',
-            transition: 'width 0.8s ease-in-out'
-          }} />
-        </div>
-        <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#666', textAlign: 'center' }}>
-          {(() => {
-            const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.suprema.ids.includes(item.id))
-              .reduce((sum, item) => sum + (item.quantity || 1), 0);
-            return count >= 2 ? '✅ Atingido!' : `Faltam ${2 - count} produto(s)`;
-          })()}
-        </p>
-      </div>
-
-      {/* SCALA */}
-      <div style={{
-        backgroundColor: '#fff',
-        borderRadius: '10px',
-        padding: windowWidth > 768 ? '15px' : '12px',
-        border: '2px solid #095400',
-        boxShadow: '0 2px 8px rgba(9, 84, 0, 0.08)'
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-          <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>⭐ SCALA</span>
-          <span style={{ 
-            fontWeight: 700, 
-            color: (() => {
-              const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0);
-              return count >= 2 ? '#27AE60' : '#E74C3C';
-            })() 
-          }}>
-            {cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
-              .reduce((sum, item) => sum + (item.quantity || 1), 0)}/2
-          </span>
-        </div>
-        <div style={{
-          width: '100%',
-          height: '12px',
-          backgroundColor: '#F5F5F5',
-          borderRadius: '10px',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            width: `${Math.min((cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
-              .reduce((sum, item) => sum + (item.quantity || 1), 0) / 2) * 100, 100)}%`,
-            height: '100%',
-            background: (() => {
-              const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
-                .reduce((sum, item) => sum + (item.quantity || 1), 0);
-              return count >= 2 ? '#27AE60' : '#095400';
-            })(),
-            borderRadius: '10px',
-            transition: 'width 0.8s ease-in-out'
-          }} />
-        </div>
-        <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#666', textAlign: 'center' }}>
-          {(() => {
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+        <span style={{ fontWeight: 600, fontSize: windowWidth > 768 ? '15px' : '13px', color: '#095400' }}>⭐ SCALA</span>
+        <span style={{ 
+          fontWeight: 700, 
+          color: (() => {
             const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
               .reduce((sum, item) => sum + (item.quantity || 1), 0);
-            return count >= 2 ? '✅ Atingido!' : `Faltam ${2 - count} produto(s)`;
-          })()}
-        </p>
+            return count >= 5 ? '#27AE60' : '#E74C3C';
+          })() 
+        }}>
+          {cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
+            .reduce((sum, item) => sum + (item.quantity || 1), 0)}/5
+        </span>
       </div>
+      <div style={{
+        width: '100%',
+        height: '12px',
+        backgroundColor: '#F5F5F5',
+        borderRadius: '10px',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          width: `${Math.min((cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
+            .reduce((sum, item) => sum + (item.quantity || 1), 0) / 5) * 100, 100)}%`,
+          height: '100%',
+          background: (() => {
+            const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
+              .reduce((sum, item) => sum + (item.quantity || 1), 0);
+            return count >= 5 ? '#27AE60' : '#095400';
+          })(),
+          borderRadius: '10px',
+          transition: 'width 0.8s ease-in-out'
+        }} />
+      </div>
+      <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#666', textAlign: 'center' }}>
+        {(() => {
+          const count = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
+            .reduce((sum, item) => sum + (item.quantity || 1), 0);
+          return count >= 5 ? '✅ Atingido!' : `Faltam ${5 - count} produto(s)`;
+        })()}
+      </p>
     </div>
 
     {/* STATUS DA CAMPANHA */}
     {(() => {
-      const supremaCount = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.suprema.ids.includes(item.id))
-        .reduce((sum, item) => sum + (item.quantity || 1), 0);
       const scalaCount = cart.filter(item => CAMPANHA_COMPRE_E_GANHE.marcas.scala.ids.includes(item.id))
         .reduce((sum, item) => sum + (item.quantity || 1), 0);
-      const qualificada = supremaCount >= 2 && scalaCount >= 2;
+      const qualificada = scalaCount >= 5;
 
       return qualificada ? (
         <div style={{
