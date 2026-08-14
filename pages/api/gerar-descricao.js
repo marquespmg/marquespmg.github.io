@@ -2775,7 +2775,7 @@ const products = [
       return res.status(404).json({ error: 'Produto não encontrado' });
     }
 
-    // 🔥 3. GERA DESCRIÇÃO COM GPT-5.3 (NOVO PROMPT)
+    // 🔥 3. GERA DESCRIÇÃO COM GPT-5.6 LUNA PRO
     const descricao = await gerarDescricaoComIA(produto);
 
     // 🔥 4. SALVA NO SUPABASE
@@ -2807,10 +2807,11 @@ const products = [
   }
 }
 
-// 🔥 FUNÇÃO PARA GERAR DESCRIÇÃO - NOVO PROMPT
+// 🔥 FUNÇÃO PARA GERAR DESCRIÇÃO COM GPT-5.6 LUNA PRO
 async function gerarDescricaoComIA(produto) {
   const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-  const MODELO = 'openai/gpt-5.3-chat';
+  // 🔥 MODELO ATUALIZADO - GPT-5.6 LUNA PRO
+  const MODELO = 'openai/gpt-5.6-luna-pro';
 
   // 🔥 DICIONÁRIO DE GÊNEROS
   const generos = {
@@ -2847,7 +2848,7 @@ async function gerarDescricaoComIA(produto) {
   const genero = generos[primeiraPalavra] || generos.default;
   const artigo = genero === 'feminino' ? 'A' : 'O';
 
-  // 🔥 NOVO PROMPT - PRIORIZA INFORMAÇÕES TÉCNICAS + BENEFÍCIOS
+  // 🔥 PROMPT - PRIORIZA INFORMAÇÕES TÉCNICAS + BENEFÍCIOS
   const prompt = `
 Você é um copywriter especialista em food service. Crie uma descrição para o produto abaixo.
 
