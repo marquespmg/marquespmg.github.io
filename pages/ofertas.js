@@ -140,16 +140,16 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 46, name: 'ÁGUA DE COCO GRANDE COCO QUADRADO 1 L (CX 12 UN)', category: 'Ofertas', price: 94.99, image: 'https://www.marquesvendaspmg.shop/images/agua-de-coco-grande-coco-quadrado-1-l-cx-12-un-pmg-atacadista.jpg' },
-  { id: 50, name: 'ÁGUA DE COCO PEQUENA COCO QUADRADO 200 ML (CX 27 UN)', category: 'Ofertas', price: 53.50, image: 'https://www.marquesvendaspmg.shop/images/agua-de-coco-pequena-coco-quadrado-200-ml-cx-27-un-pmg-atacadista.jpg' },
-  { id: 1905, name: 'ÁGUA MINERAL LINDOYA VERÃO COM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-lindoya-verao-com-gas-300-ml.png' },
-  { id: 1906, name: 'ÁGUA MINERAL LINDOYA VERÃO SEM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-lindoya-verao-sem-gas-300-ml.png' },
-  { id: 191, name: 'ISOTÔNICO GATORADE LARANJA 500 ML (PCT 6 UN)', category: 'Ofertas', price: 39.50, image: 'https://www.marquesvendaspmg.shop/images/isotonico-gatorade-laranja-500-ml-pct-6-un-pmg-atacadista.jpg' },
-  { id: 192, name: 'ISOTÔNICO GATORADE LIMÃO 500 ML (PCT 6 UN)', category: 'Ofertas', price: 39.50, image: 'https://www.marquesvendaspmg.shop/images/isotonico-gatorade-limao-500-ml-pct-6-un-pmg-atacadista.jpg' },
-  { id: 193, name: 'ISOTÔNICO GATORADE MORANGO COM MARACUJÁ 500 ML (PCT 6 UN)', category: 'Ofertas', price: 39.50, image: 'https://www.marquesvendaspmg.shop/images/isotonico-gatorade-morango-com-maracuja-500-ml-pct-6-un-pmg-atacadista.jpg' },
-  { id: 1254, name: 'CEBOLA GRAÚDA NACIONAL (SC 20 KILO)', category: 'Ofertas', price: 103.99, image: 'https://www.marquesvendaspmg.shop/images/cebola-grauda-nacional-sc-18-kilo-pmg-atacadista.jpg' },
-  { id: 261, name: 'SUCO GUARAVITON AÇAÍ 500 ML (PCT 12 UN)', category: 'Ofertas', price: 33.50, image: 'https://www.marquesvendaspmg.shop/images/suco-guaraviton-acai-500-ml-pct-12-un-pmg-atacadista.jpg' },
-  { id: 923, name: 'REQUEIJÃO TRÊS MARIAS SEM AMIDO 1,5 KILO', category: 'Ofertas', price: 38.99, image: 'https://www.marquesvendaspmg.shop/images/requeijao-tres-marias-sem-amido-18-kilo-pmg-atacadista.jpg' },
+  { id: 2851, name: 'CARNE SECA BOVINA CONGELADA DESFIADA QUALI 1 KILO', category: 'Ofertas', price: 62.99, image: 'https://www.marquesvendaspmg.shop/images/carne-seca-bovina-congelada-desfiada-quali-1-kg-cx-6-pct.webp' },
+  { id: 2856, name: 'COSTELA BOVINA CONGELADA DESFIADA QUALI 1 KILO', category: 'Ofertas', price: 60.89, image: 'https://www.marquesvendaspmg.shop/images/costela-bovina-congelada-desfiada-quali-1-kg-cx-6-pct.webp' },
+  { id: 2861, name: 'CUPIM BOVINO CONGELADO DESFIADO QUALI 1 KILO', category: 'Ofertas', price: 65.99, image: 'https://www.marquesvendaspmg.shop/images/cupim-bovino-congelado-desfiado-quali-1-kg-cx-6-pct.webp' },
+  { id: 2878, name: 'PEITO DE FRANGO CONGELADO COZIDO DESFIADO QUALI 1 KILO (CX 15 PCT)', category: 'Ofertas', price: 434.89, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-cozido-desfiado-quali-1-kg-cx-15-pct.webp' },
+  { id: 2879, name: 'PERNIL SUÍNO CONGELADO DESFIADO QUALI 1 KILO', category: 'Ofertas', price: 35.20, image: 'https://www.marquesvendaspmg.shop/images/pernil-suino-congelado-desfiado-quali-1-kg-cx-6-pct.webp' },
+  { id: 2875, name: 'PASTA DE ALHO SANTA MASSA 1,010 KILO', category: 'Ofertas', price: 24.80, image: 'https://www.marquesvendaspmg.shop/images/pasta-de-alho-santa-massa-1010-kg-cx-5-bis.png' },
+  { id: 2876, name: 'PATINHO BOVINO CONGELADO EM BIFE ALFAMA 2 KILO', category: 'Ofertas', price: 105.00, image: 'https://www.marquesvendaspmg.shop/images/patinho-bovino-congelado-em-bife-alfama-2-kg-cx-3-pct.webp' },
+  { id: 2877, name: 'PATINHO BOVINO CONGELADO EM TIRAS ALFAMA 2 KILO', category: 'Ofertas', price: 99.99, image: 'https://www.marquesvendaspmg.shop/images/patinho-bovino-congelado-em-tiras-alfama-2-kg-cx-3-pct.webp' },
+  { id: 2850, name: 'BISTECA DO CONTRA FILÉ BOVINO COM OSSO CONGELADA EM BIFE ALFAMA 2 KILO', category: 'Ofertas', price: 84.80, image: 'https://www.marquesvendaspmg.shop/images/bisteca-do-contra-file-bovino-com-osso-congelada-em-bife-alfama-2-kg-cx-3-pct.webp' },
+  { id: 2873, name: 'MORTADELA DEFUMADA SADIA 4 KG', category: 'Ofertas', price: 18.25, image: 'https://www.marquesvendaspmg.shop/images/mortadela-defumada-sadia-4-kg-cx-2-pc.webp' },
 ];
 
 // ========== BANNERS ========== //
