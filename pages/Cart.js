@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
-import { useRouter } from 'next/router'; // ✅ ADICIONADO
+import { useRouter } from 'next/router';
 // ==============================================
 // ✅ IMPORTA SOMENTE O ARRAY DE PRODUTOS
 // ==============================================
@@ -31,8 +31,8 @@ const CAMPANHA_SUPREMA_CART = {
 // ⚡ CONFIGURAÇÃO DA OFERTA RELÂMPAGO
 // ==============================================
 const OFERTA_RELAMPAGO_CART = {
-  ativa: false,  // ⚠️ MANTENHA IGUAL AO DO produtos.js
-  ids: [746, 765, 752, 877] // ⚠️ COLOQUE OS MESMOS IDs
+  ativa: false,
+  ids: [746, 765, 752, 877]
 };
 
 // ✅ Array com IDs dos produtos em oferta
@@ -144,7 +144,7 @@ const calcularDescontoCampanha = (cartItems, groupedItems) => {
 };
 
 const Cart = ({ cart, setCart, removeFromCart }) => {
-  const router = useRouter(); // ✅ ADICIONADO
+  const router = useRouter();
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -166,36 +166,36 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   // Hook para validade dos produtos
   const { getIdPmg, loading: loadingIdPmg } = useProdutoIdPmg();
 
-// ==============================================
-// ✅ FUNÇÃO MODIFICADA: verificarLoginERedirecionar
-// ==============================================
-const verificarLoginERedirecionar = async () => {
-  const { data: { user: currentUser } } = await supabase.auth.getUser();
-  
-  // Se NÃO estiver logado
-  if (!currentUser) {
-    // 🔥 SALVA A PÁGINA ATUAL (onde o cliente está)
-    const currentPath = window.location.pathname; // ex: /ofertas ou /produto/421
-    const currentUrl = window.location.href; // URL completa
+  // ==============================================
+  // ✅ FUNÇÃO MODIFICADA: verificarLoginERedirecionar
+  // ==============================================
+  const verificarLoginERedirecionar = async () => {
+    const { data: { user: currentUser } } = await supabase.auth.getUser();
     
-    // Salva a página atual para redirecionar depois do login
-    sessionStorage.setItem('redirectAfterLogin', currentPath);
-    sessionStorage.setItem('redirectAfterLoginFull', currentUrl);
+    // Se NÃO estiver logado
+    if (!currentUser) {
+      // 🔥 SALVA A PÁGINA ATUAL (onde o cliente está)
+      const currentPath = window.location.pathname;
+      const currentUrl = window.location.href;
+      
+      // Salva a página atual para redirecionar depois do login
+      sessionStorage.setItem('redirectAfterLogin', currentPath);
+      sessionStorage.setItem('redirectAfterLoginFull', currentUrl);
+      
+      // Mostra mensagem informativa
+      setShowLoginMessage(true);
+      
+      // 🔥 Redireciona para a página de login com a página atual como destino
+      setTimeout(() => {
+        router.push(`/produtos?login=required&redirect=${encodeURIComponent(currentPath)}`);
+      }, 1500);
+      
+      return false;
+    }
     
-    // Mostra mensagem informativa
-    setShowLoginMessage(true);
-    
-    // 🔥 Redireciona para a página de login com a página atual como destino
-    setTimeout(() => {
-      router.push(`/produtos?login=required&redirect=${encodeURIComponent(currentPath)}`);
-    }, 1500);
-    
-    return false;
-  }
-  
-  // Se estiver logado, retorna true
-  return true;
-};
+    // Se estiver logado, retorna true
+    return true;
+  };
 
   // ==============================================
   // ✅ FUNÇÃO MODIFICADA: finalizarPedido com verificação de login
@@ -209,7 +209,6 @@ const verificarLoginERedirecionar = async () => {
     // 🔐 VERIFICA SE USUÁRIO ESTÁ LOGADO
     const isLoggedIn = await verificarLoginERedirecionar();
     if (!isLoggedIn) {
-      // Sai da função se não estiver logado (já vai redirecionar)
       return;
     }
 
@@ -234,8 +233,8 @@ const verificarLoginERedirecionar = async () => {
         total_amount: totalComDesconto,
         payment_method: paymentMethod,
         cupom_applied: cupomAplicado?.nome || null,
-        campanha_applied: campanhaAtiva ? 'Cepêra (2%)' : null,
-        discount_amount: cupomAplicado?.desconto || (campanhaAtiva ? CAMPANHA_CONFIG.desconto : 0),
+        campanha_applied: campanhaAtiva ? (dadosDesconto?.nomeCampanha || 'SCALA ou Suprema Bunge') : null,
+        discount_amount: cupomAplicado?.desconto || (campanhaAtiva ? 2 : 0),
         status: 'completed'
       };
       
@@ -287,145 +286,145 @@ const verificarLoginERedirecionar = async () => {
     setShowLoginMessage(false);
   };
 
-// ==============================================
-// ✅ Função para calcular desconto do cupom (ATUALIZADA)
-// ==============================================
-const calcularDescontoCupom = (cartItems, cupom) => {
-  if (!cupom || !cartItems || cartItems.length === 0) {
-    return { 
-      totalComDesconto: 0, 
-      itensComDesconto: [], 
-      totalDesconto: 0,
-      totalElegivel: 0 
-    };
-  }
-
-  const groupedItems = cartItems.reduce((acc, item) => {
-    const existing = acc.find(p => p.id === item.id);
-    const calculated = calculateProductPrice(item);
-    const totalPrice = calculated.totalPrice * (item.quantity || 1);
-    
-    if (existing) {
-      existing.quantity += (item.quantity || 1);
-      existing.totalPrice += totalPrice;
-    } else {
-      acc.push({
-        ...item,
-        quantity: item.quantity || 1,
-        totalPrice: totalPrice,
-        unitPrice: calculated.unitPrice,
-        weight: calculated.weight,
-        isBox: calculated.isBox
-      });
+  // ==============================================
+  // ✅ Função para calcular desconto do cupom (ATUALIZADA)
+  // ==============================================
+  const calcularDescontoCupom = (cartItems, cupom) => {
+    if (!cupom || !cartItems || cartItems.length === 0) {
+      return { 
+        totalComDesconto: 0, 
+        itensComDesconto: [], 
+        totalDesconto: 0,
+        totalElegivel: 0 
+      };
     }
-    return acc;
-  }, []);
 
-  // ⭐ FILTRA OS ITENS ELEGÍVEIS (NÃO ESTÃO EM OFERTA E NÃO SÃO OFERTA RELÂMPAGO)
-  const itensElegiveis = groupedItems.filter(
-    item => !PRODUTOS_EM_OFERTA.includes(item.id) && !isOfertaRelampago(item.id)
-  );
+    const groupedItems = cartItems.reduce((acc, item) => {
+      const existing = acc.find(p => p.id === item.id);
+      const calculated = calculateProductPrice(item);
+      const totalPrice = calculated.totalPrice * (item.quantity || 1);
+      
+      if (existing) {
+        existing.quantity += (item.quantity || 1);
+        existing.totalPrice += totalPrice;
+      } else {
+        acc.push({
+          ...item,
+          quantity: item.quantity || 1,
+          totalPrice: totalPrice,
+          unitPrice: calculated.unitPrice,
+          weight: calculated.weight,
+          isBox: calculated.isBox
+        });
+      }
+      return acc;
+    }, []);
 
-  if (itensElegiveis.length === 0) {
+    // ⭐ FILTRA OS ITENS ELEGÍVEIS (NÃO ESTÃO EM OFERTA E NÃO SÃO OFERTA RELÂMPAGO)
+    const itensElegiveis = groupedItems.filter(
+      item => !PRODUTOS_EM_OFERTA.includes(item.id) && !isOfertaRelampago(item.id)
+    );
+
+    if (itensElegiveis.length === 0) {
+      return {
+        itensComDesconto: {},
+        totalDesconto: 0,
+        totalElegivel: 0,
+        percentualAplicado: 0,
+        mensagem: 'Nenhum item elegível para desconto (todos estão em oferta ou oferta relâmpago)'
+      };
+    }
+
+    const totalElegivel = itensElegiveis.reduce((sum, item) => sum + item.totalPrice, 0);
+    const percentualDesconto = cupom.desconto / 100;
+    const descontoTotal = totalElegivel * percentualDesconto;
+
+    const itensComDesconto = {};
+    itensElegiveis.forEach(item => {
+      itensComDesconto[item.id] = {
+        totalPrice: item.totalPrice,
+        quantidade: item.quantity,
+        proporcao: item.totalPrice / totalElegivel,
+        descontoAplicado: descontoTotal * (item.totalPrice / totalElegivel)
+      };
+    });
+
     return {
-      itensComDesconto: {},
-      totalDesconto: 0,
-      totalElegivel: 0,
-      percentualAplicado: 0,
-      mensagem: 'Nenhum item elegível para desconto (todos estão em oferta ou oferta relâmpago)'
+      itensComDesconto,
+      totalDesconto: descontoTotal,
+      totalElegivel,
+      percentualAplicado: cupom.desconto
     };
-  }
-
-  const totalElegivel = itensElegiveis.reduce((sum, item) => sum + item.totalPrice, 0);
-  const percentualDesconto = cupom.desconto / 100;
-  const descontoTotal = totalElegivel * percentualDesconto;
-
-  const itensComDesconto = {};
-  itensElegiveis.forEach(item => {
-    itensComDesconto[item.id] = {
-      totalPrice: item.totalPrice,
-      quantidade: item.quantity,
-      proporcao: item.totalPrice / totalElegivel,
-      descontoAplicado: descontoTotal * (item.totalPrice / totalElegivel)
-    };
-  });
-
-  return {
-    itensComDesconto,
-    totalDesconto: descontoTotal,
-    totalElegivel,
-    percentualAplicado: cupom.desconto
   };
-};
 
-// ==============================================
-// ✅ Função para aplicar cupom (ATUALIZADA)
-// ==============================================
-const aplicarCupom = () => {
-  const cupomUpper = cupomInput.toUpperCase().trim();
-  const cupom = CUPONS[cupomUpper];
+  // ==============================================
+  // ✅ Função para aplicar cupom (ATUALIZADA)
+  // ==============================================
+  const aplicarCupom = () => {
+    const cupomUpper = cupomInput.toUpperCase().trim();
+    const cupom = CUPONS[cupomUpper];
 
-  setMensagemCupom({ texto: '', tipo: '' });
+    setMensagemCupom({ texto: '', tipo: '' });
 
-  if (!cupom) {
-    setMensagemCupom({
-      texto: '❌ Cupom inválido!',
-      tipo: 'erro'
-    });
-    setCupomAplicado(null);
-    return;
-  }
-
-  // ⭐ VERIFICA SE TEM ITENS ELEGÍVEIS (NÃO OFERTA E NÃO OFERTA RELÂMPAGO)
-  const itensElegiveis = cart.filter(
-    item => !PRODUTOS_EM_OFERTA.includes(item.id) && !isOfertaRelampago(item.id)
-  );
-  
-  if (itensElegiveis.length === 0) {
-    setMensagemCupom({
-      texto: `❌ Cupom ${cupom.nome} não é válido para carrinhos com apenas produtos em oferta`,
-      tipo: 'erro'
-    });
-    setCupomAplicado(null);
-    return;
-  }
-
-  const groupedCart = cart.reduce((acc, product) => {
-    const existing = acc.find(p => p.id === product.id);
-    const calculated = calculateProductPrice(product);
-    const quantity = product.quantity || 1;
-    
-    if (existing) {
-      existing.quantity += quantity;
-      existing.totalPrice += calculated.totalPrice * quantity;
-    } else {
-      acc.push({
-        ...product,
-        quantity: quantity,
-        totalPrice: calculated.totalPrice * quantity
+    if (!cupom) {
+      setMensagemCupom({
+        texto: '❌ Cupom inválido!',
+        tipo: 'erro'
       });
+      setCupomAplicado(null);
+      return;
     }
-    return acc;
-  }, []);
 
-  const totalCarrinho = groupedCart.reduce((sum, item) => sum + item.totalPrice, 0);
+    // ⭐ VERIFICA SE TEM ITENS ELEGÍVEIS (NÃO OFERTA E NÃO OFERTA RELÂMPAGO)
+    const itensElegiveis = cart.filter(
+      item => !PRODUTOS_EM_OFERTA.includes(item.id) && !isOfertaRelampago(item.id)
+    );
+    
+    if (itensElegiveis.length === 0) {
+      setMensagemCupom({
+        texto: `❌ Cupom ${cupom.nome} não é válido para carrinhos com apenas produtos em oferta`,
+        tipo: 'erro'
+      });
+      setCupomAplicado(null);
+      return;
+    }
 
-  if (totalCarrinho < cupom.minimo) {
+    const groupedCart = cart.reduce((acc, product) => {
+      const existing = acc.find(p => p.id === product.id);
+      const calculated = calculateProductPrice(product);
+      const quantity = product.quantity || 1;
+      
+      if (existing) {
+        existing.quantity += quantity;
+        existing.totalPrice += calculated.totalPrice * quantity;
+      } else {
+        acc.push({
+          ...product,
+          quantity: quantity,
+          totalPrice: calculated.totalPrice * quantity
+        });
+      }
+      return acc;
+    }, []);
+
+    const totalCarrinho = groupedCart.reduce((sum, item) => sum + item.totalPrice, 0);
+
+    if (totalCarrinho < cupom.minimo) {
+      setMensagemCupom({
+        texto: `❌ Cupom ${cupom.nome} válido apenas para pedidos ACIMA de R$ ${cupom.minimo.toFixed(2)}. Seu pedido atual é R$ ${totalCarrinho.toFixed(2)}`,
+        tipo: 'erro'
+      });
+      setCupomAplicado(null);
+      return;
+    }
+
+    setCupomAplicado(cupom);
     setMensagemCupom({
-      texto: `❌ Cupom ${cupom.nome} válido apenas para pedidos ACIMA de R$ ${cupom.minimo.toFixed(2)}. Seu pedido atual é R$ ${totalCarrinho.toFixed(2)}`,
-      tipo: 'erro'
+      texto: `✅ Cupom ${cupom.nome} aplicado! ${cupom.desconto}% de desconto distribuído entre os itens`,
+      tipo: 'sucesso'
     });
-    setCupomAplicado(null);
-    return;
-  }
-
-  setCupomAplicado(cupom);
-  setMensagemCupom({
-    texto: `✅ Cupom ${cupom.nome} aplicado! ${cupom.desconto}% de desconto distribuído entre os itens`,
-    tipo: 'sucesso'
-  });
-  setCupomInput('');
-};
+    setCupomInput('');
+  };
 
   // ==============================================
   // ✅ Função para remover cupom
@@ -697,16 +696,16 @@ const aplicarCupom = () => {
   const campanhaInfo = verificarCampanha(cart);
   const dadosCampanha = calcularDescontoCampanha(cart, groupedCart);
   
-// 2️⃣ DECIDE QUAL DESCONTO APLICAR (CUPOM OU CAMPANHA)
-if (cupomAplicado) {
-  cupomAtivo = true;
-  dadosDesconto = calcularDescontoCupom(cart, cupomAplicado);
-  totalComDesconto = totalSemDesconto - dadosDesconto.totalDesconto;
-} else if (campanhaInfo.qualificada) {
-  campanhaAtiva = true;
-  dadosDesconto = dadosCampanha;
-  totalComDesconto = totalSemDesconto - dadosCampanha.totalDesconto;
-}
+  // 2️⃣ DECIDE QUAL DESCONTO APLICAR (CUPOM OU CAMPANHA)
+  if (cupomAplicado) {
+    cupomAtivo = true;
+    dadosDesconto = calcularDescontoCupom(cart, cupomAplicado);
+    totalComDesconto = totalSemDesconto - dadosDesconto.totalDesconto;
+  } else if (campanhaInfo.qualificada) {
+    campanhaAtiva = true;
+    dadosDesconto = dadosCampanha;
+    totalComDesconto = totalSemDesconto - dadosCampanha.totalDesconto;
+  }
 
   const isTotalValid = totalComDesconto >= 900;
 
@@ -800,9 +799,9 @@ if (cupomAplicado) {
       ? `\n *Pedido usando cupom ${cupomAplicado.nome}*\n`
       : '';
 
-const campanhaText = campanhaAtiva
-  ? `\n *Campanha aplicada: ${dadosDesconto?.nomeCampanha || 'SCALA ou Suprema Bunge'} (2% de desconto)*\n`
-  : '';
+    const campanhaText = campanhaAtiva
+      ? `\n *Campanha aplicada: ${dadosDesconto?.nomeCampanha || 'SCALA ou Suprema Bunge'} (2% de desconto)*\n`
+      : '';
 
     const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
@@ -834,58 +833,57 @@ const campanhaText = campanhaAtiva
   // JSX
   return (
     <>
-{/* ✅ MENSAGEM INFORMATIVA DE LOGIN - ESTILO TOAST (DINÂMICA) */}
-{showLoginMessage && (
-  <div style={{
-    position: 'fixed',
-    top: '20px',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    backgroundColor: '#fff3cd',
-    color: '#856404',
-    padding: '15px 25px',
-    borderRadius: '8px',
-    zIndex: 9999,
-    boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-    border: '2px solid #ffeeba',
-    maxWidth: '90%',
-    textAlign: 'center',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '15px',
-    animation: 'slideDown 0.5s ease-out'
-  }}>
-    <span style={{ fontSize: '24px' }}>🔑</span>
-    <div>
-      <strong style={{ fontSize: '16px', display: 'block' }}>
-        Você está sendo redirecionado para a página de login
-      </strong>
-      <span style={{ fontSize: '14px' }}>
-        {(() => {
-          // 🔥 DETECTA SE ESTÁ NA PÁGINA DE PRODUTO
-          const currentPath = window.location.pathname;
-          if (currentPath && currentPath.includes('/produto/')) {
-            return '📦 Após o login, você voltará para o produto que estava vendo';
-          }
-          return '🛍️ Após o login, você voltará para a página de ofertas';
-        })()}
-      </span>
-    </div>
-    <button
-      onClick={dismissLoginMessage}
-      style={{
-        background: 'none',
-        border: 'none',
-        fontSize: '20px',
-        cursor: 'pointer',
-        color: '#856404',
-        padding: '0 5px'
-      }}
-    >
-      ✕
-    </button>
-  </div>
-)}
+      {/* ✅ MENSAGEM INFORMATIVA DE LOGIN - ESTILO TOAST (DINÂMICA) */}
+      {showLoginMessage && (
+        <div style={{
+          position: 'fixed',
+          top: '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          backgroundColor: '#fff3cd',
+          color: '#856404',
+          padding: '15px 25px',
+          borderRadius: '8px',
+          zIndex: 9999,
+          boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+          border: '2px solid #ffeeba',
+          maxWidth: '90%',
+          textAlign: 'center',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '15px',
+          animation: 'slideDown 0.5s ease-out'
+        }}>
+          <span style={{ fontSize: '24px' }}>🔑</span>
+          <div>
+            <strong style={{ fontSize: '16px', display: 'block' }}>
+              Você está sendo redirecionado para a página de login
+            </strong>
+            <span style={{ fontSize: '14px' }}>
+              {(() => {
+                const currentPath = window.location.pathname;
+                if (currentPath && currentPath.includes('/produto/')) {
+                  return '📦 Após o login, você voltará para o produto que estava vendo';
+                }
+                return '🛍️ Após o login, você voltará para a página de ofertas';
+              })()}
+            </span>
+          </div>
+          <button
+            onClick={dismissLoginMessage}
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '20px',
+              cursor: 'pointer',
+              color: '#856404',
+              padding: '0 5px'
+            }}
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       {/* Botão flutuante do carrinho */}
       <div style={{
@@ -1123,65 +1121,65 @@ const campanhaText = campanhaAtiva
                         minWidth: 0,
                         paddingRight: '5px'
                       }}>
-<p style={{ 
-  fontWeight: 600, 
-  margin: '0 0 5px 0', 
-  color: '#2C3E50', 
-  fontSize: isMobile ? '14px' : '13px',
-  lineHeight: '1.3',
-  wordWrap: 'break-word'
-}}>
-  {product.name}
-  
-  {/* ⭐ BADGE OFERTA RELÂMPAGO (VERMELHO) */}
-  {isOfertaRelampago(product.id) && (
-    <span style={{
-      display: 'inline-block',
-      marginLeft: '6px',
-      padding: '2px 8px',
-      backgroundColor: '#FF1744',
-      color: 'white',
-      borderRadius: '12px',
-      fontSize: '10px',
-      fontWeight: 700,
-      textTransform: 'uppercase'
-    }}>
-      ⚡ RELÂMPAGO
-    </span>
-  )}
-  
-  {/* ⭐ BADGE OFERTA NORMAL (LARANJA) */}
-  {!isOfertaRelampago(product.id) && PRODUTOS_EM_OFERTA.includes(product.id) && (
-    <span style={{
-      display: 'inline-block',
-      marginLeft: '6px',
-      padding: '2px 6px',
-      backgroundColor: '#FF6B6B',
-      color: 'white',
-      borderRadius: '12px',
-      fontSize: '10px',
-      fontWeight: 700
-    }}>
-      OFERTA
-    </span>
-  )}
-  
-  {/* ⭐ BADGE DE DESCONTO APLICADO */}
-  {temDesconto && !isOfertaRelampago(product.id) && !PRODUTOS_EM_OFERTA.includes(product.id) && (cupomAtivo || campanhaAtiva) && (
-    <span style={{
-      display: 'inline-block',
-      marginLeft: '6px',
-      padding: '2px 6px',
-      backgroundColor: '#27AE60',
-      color: 'white',
-      borderRadius: '12px',
-      fontSize: '10px',
-      fontWeight: 700
-    }}>
-      {cupomAtivo ? `${cupomAplicado?.desconto}% OFF` : `2% OFF`}
-    </span>
-  )}
-</p>
+                        <p style={{ 
+                          fontWeight: 600, 
+                          margin: '0 0 5px 0', 
+                          color: '#2C3E50', 
+                          fontSize: isMobile ? '14px' : '13px',
+                          lineHeight: '1.3',
+                          wordWrap: 'break-word'
+                        }}>
+                          {product.name}
+                          
+                          {/* ⭐ BADGE OFERTA RELÂMPAGO (VERMELHO) */}
+                          {isOfertaRelampago(product.id) && (
+                            <span style={{
+                              display: 'inline-block',
+                              marginLeft: '6px',
+                              padding: '2px 8px',
+                              backgroundColor: '#FF1744',
+                              color: 'white',
+                              borderRadius: '12px',
+                              fontSize: '10px',
+                              fontWeight: 700,
+                              textTransform: 'uppercase'
+                            }}>
+                              ⚡ RELÂMPAGO
+                            </span>
+                          )}
+                          
+                          {/* ⭐ BADGE OFERTA NORMAL (LARANJA) */}
+                          {!isOfertaRelampago(product.id) && PRODUTOS_EM_OFERTA.includes(product.id) && (
+                            <span style={{
+                              display: 'inline-block',
+                              marginLeft: '6px',
+                              padding: '2px 6px',
+                              backgroundColor: '#FF6B6B',
+                              color: 'white',
+                              borderRadius: '12px',
+                              fontSize: '10px',
+                              fontWeight: 700
+                            }}>
+                              OFERTA
+                            </span>
+                          )}
+                          
+                          {/* ⭐ BADGE DE DESCONTO APLICADO */}
+                          {temDesconto && !isOfertaRelampago(product.id) && !PRODUTOS_EM_OFERTA.includes(product.id) && (cupomAtivo || campanhaAtiva) && (
+                            <span style={{
+                              display: 'inline-block',
+                              marginLeft: '6px',
+                              padding: '2px 6px',
+                              backgroundColor: '#27AE60',
+                              color: 'white',
+                              borderRadius: '12px',
+                              fontSize: '10px',
+                              fontWeight: 700
+                            }}>
+                              {cupomAtivo ? `${cupomAplicado?.desconto}% OFF` : `2% OFF`}
+                            </span>
+                          )}
+                        </p>
                         {product.isBox && product.boxWeight ? (
                           <p style={{ 
                             margin: '2px 0 0', 
@@ -1331,7 +1329,7 @@ const campanhaText = campanhaAtiva
                             alignItems: 'center',
                             justifyContent: 'center',
                             transition: 'all 0.2s'
-                        }}
+                          }}
                           onMouseOver={(e) => e.target.style.background = '#EE5A52'}
                           onMouseOut={(e) => e.target.style.background = '#FF6B6B'}
                         > × </button>
@@ -1378,29 +1376,29 @@ const campanhaText = campanhaAtiva
               ⚠️ Não aceitamos pagamento antecipado, pague no ato da entrega
             </div>
 
-{/* ⭐ AVISO DA CAMPANHA ATIVA */}
-{CAMPANHA_SCALA_CART.ativa && campanhaAtiva && (
-  <div style={{
-    backgroundColor: '#E8F5E8',
-    padding: '12px',
-    borderRadius: '8px',
-    marginBottom: '15px',
-    border: '2px solid #66BB6A',
-    textAlign: 'center'
-  }}>
-    <div style={{ fontSize: '20px', marginBottom: '4px' }}>🎉</div>
-    <p style={{ margin: 0, color: '#1B5E20', fontWeight: 600, fontSize: '14px' }}>
-      Parabéns! Você ganhou 2% de desconto!
-    </p>
-    <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '12px' }}>
-      Campanha ativada: {dadosDesconto?.nomeCampanha || 'SCALA ou Suprema Bunge'}
-      <br />
-      Desconto distribuído entre os itens elegíveis
-      <br />
-      ( Não aplicado para produtos em oferta )
-    </p>
-  </div>
-)}
+            {/* ⭐ AVISO DA CAMPANHA ATIVA */}
+            {CAMPANHA_SCALA_CART.ativa && campanhaAtiva && (
+              <div style={{
+                backgroundColor: '#E8F5E8',
+                padding: '12px',
+                borderRadius: '8px',
+                marginBottom: '15px',
+                border: '2px solid #66BB6A',
+                textAlign: 'center'
+              }}>
+                <div style={{ fontSize: '20px', marginBottom: '4px' }}>🎉</div>
+                <p style={{ margin: 0, color: '#1B5E20', fontWeight: 600, fontSize: '14px' }}>
+                  Parabéns! Você ganhou 2% de desconto!
+                </p>
+                <p style={{ margin: '5px 0 0', color: '#2E7D32', fontSize: '12px' }}>
+                  Campanha ativada: {dadosDesconto?.nomeCampanha || 'SCALA ou Suprema Bunge'}
+                  <br />
+                  Desconto distribuído entre os itens elegíveis
+                  <br />
+                  ( Não aplicado para produtos em oferta )
+                </p>
+              </div>
+            )}
 
             {/* Resumo do pedido */}
             <div style={{ 
@@ -1431,10 +1429,10 @@ const campanhaText = campanhaAtiva
                     maxWidth: '220px'
                   }}>
                     {cupomAtivo ? (
-  <>🏷️ Desconto ({cupomAplicado.nome} - {cupomAplicado.desconto}%):</>
-) : campanhaAtiva ? (
-  <>🎁 Desconto Campanha (2%):</>
-) : null}
+                      <>🏷️ Desconto ({cupomAplicado.nome} - {cupomAplicado.desconto}%):</>
+                    ) : campanhaAtiva ? (
+                      <>🎁 Desconto Campanha (2%):</>
+                    ) : null}
                   </span>
                   <span style={{ 
                     fontWeight: 600, 
@@ -1467,18 +1465,18 @@ const campanhaText = campanhaAtiva
               </div>
             </div>
 
-{/* ✅ SEÇÃO DE CUPOM - APARECE QUANDO:
-    1. Campanha DESATIVADA (ativa: false) OU
-    2. Campanha ATIVA mas NÃO QUALIFICADA (cliente não atingiu requisitos)
-*/}
-{(!CAMPANHA_SCALA_CART.ativa || !campanhaAtiva) && (
-  <div style={{
-    backgroundColor: '#F8F9FA',
-    borderRadius: '10px',
-    marginBottom: '15px',
-    border: '2px solid #E9ECEF',
-    overflow: 'hidden'
-  }}>
+            {/* ✅ SEÇÃO DE CUPOM - APARECE QUANDO:
+                1. Campanha DESATIVADA (ativa: false) OU
+                2. Campanha ATIVA mas NÃO QUALIFICADA (cliente não atingiu requisitos)
+            */}
+            {(!CAMPANHA_SCALA_CART.ativa || !campanhaAtiva) && (
+              <div style={{
+                backgroundColor: '#F8F9FA',
+                borderRadius: '10px',
+                marginBottom: '15px',
+                border: '2px solid #E9ECEF',
+                overflow: 'hidden'
+              }}>
                 {/* Cabeçalho clicável */}
                 <div 
                   onClick={() => setCupomExpanded(!cupomExpanded)}
@@ -1669,21 +1667,21 @@ const campanhaText = campanhaAtiva
               </div>
             )}
 
-{/* ✅ AVISO QUANDO CAMPANHA ESTÁ ATIVA E QUALIFICADA (CUPONS BLOQUEADOS) */}
-{CAMPANHA_SCALA_CART.ativa && campanhaAtiva && (
-  <div style={{
-    padding: '10px',
-    backgroundColor: '#FFF3E0',
-    borderRadius: '8px',
-    marginBottom: '15px',
-    border: '1px solid #FFE0B2',
-    textAlign: 'center',
-    fontSize: isMobile ? '12px' : '11px',
-    color: '#E65100'
-  }}>
-    ⚠️ Cupons indisponíveis enquanto a campanha estiver ativa
-  </div>
-)}
+            {/* ✅ AVISO QUANDO CAMPANHA ESTÁ ATIVA E QUALIFICADA (CUPONS BLOQUEADOS) */}
+            {CAMPANHA_SCALA_CART.ativa && campanhaAtiva && (
+              <div style={{
+                padding: '10px',
+                backgroundColor: '#FFF3E0',
+                borderRadius: '8px',
+                marginBottom: '15px',
+                border: '1px solid #FFE0B2',
+                textAlign: 'center',
+                fontSize: isMobile ? '12px' : '11px',
+                color: '#E65100'
+              }}>
+                ⚠️ Cupons indisponíveis enquanto a campanha estiver ativa
+              </div>
+            )}
 
             {/* ✅ SEGUNDO AVISO DE PAGAMENTO (antes da forma de pagamento) */}
             <div style={{ 
@@ -1778,7 +1776,6 @@ const campanhaText = campanhaAtiva
               {finalizando ? (
                 '🔄 Finalizando...'
               ) : (
-                // ✅ VERIFICA SE USUÁRIO ESTÁ LOGADO PARA MOSTRAR TEXTO DIFERENTE
                 user ? '📲 FINALIZAR PEDIDO' : '🔑 FAZER LOGIN PARA FINALIZAR'
               )}
             </button>
