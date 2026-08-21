@@ -2766,9 +2766,20 @@ const products = [
   { id: 2880, name: 'PROVOLONE QUERO MAIS 4 KG', category: 'Derivados de Leite', price: 41.31, image: 'https://www.marquesvendaspmg.shop/images/provolone-quero-mais-4-kg-cx-4-pc.webp' },
   { id: 2881, name: 'RABO BOVINO CONGELADO PLENA 1.6 KG', category: 'Derivados de Bovino', price: 38.46, image: 'https://www.marquesvendaspmg.shop/images/rabo-bovino-congelado-plena-16-kg-cx-23-kg.webp' },
   { id: 2882, name: 'REQUEIJÃO FORTUNATA CREMOSO RECHEIO 1,010 KILO', category: 'Derivados de Leite', price: 17.84, image: 'https://www.marquesvendaspmg.shop/images/requeijao-fortunata-cremoso-recheio-1010-kg-cx-8-bis.webp' },
+  { id: 2883, name: 'AZEITONA PRETA GRAÚDA 11 X 13 AZAPA ARCOBELLO (BD 2 KILO)', category: 'Derivados de Vegetal', price: 117.26, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-grauda-11-x-13-azapa-arcobello-bd-2-kg.webp' },
+  { id: 2884, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO FAST FOOD BEM BRASIL 2 KILO (CX 6 PCT)', category: 'Derivados de Vegetal', price: 177.58, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-fast-food-bem-brasil-2-kg-cx-6-pct.jpg' },
+  { id: 2885, name: 'CORAÇÃO DE FRANGO CONGELADO SEARA 1 KILO (CX 18 PCT)', category: 'Derivados de Ave', price: 609.59, image: 'https://www.marquesvendaspmg.shop/images/coracao-de-frango-congelado-seara-1-kg-cx-18-pct.webp' },
+  { id: 2886, name: 'COXAS E SOBRECOXAS DE FRANGO CONGELADAS COM OSSO NUTRIBEM (CX 20 KILO)', category: 'Derivados de Ave', price: 149.98, image: 'https://www.marquesvendaspmg.shop/images/coxas-e-sobrecoxas-de-frango-congeladas-com-osso-nutribem-cx-20-kg.webp' },
+  { id: 2887, name: 'COXINHAS DAS ASAS DE FRANGO CONGELADAS SEARA 1 KILO (CX 18 PCT)', category: 'Derivados de Ave', price: 174.17, image: 'https://www.marquesvendaspmg.shop/images/coxinhas-das-asas-de-frango-congeladas-seara-1-kg-cx-18-pct.webp' },
+  { id: 2888, name: 'FILÉ DE COXAS E SOBRECOXAS DE FRANGO CONGELADOS ITABOM (CX 20 KILO)', category: 'Derivados de Ave', price: 210.45, image: 'https://www.marquesvendaspmg.shop/images/file-de-coxas-e-sobrecoxas-de-frango-congelados-itabom-cx-20-kg.webp' },
+  { id: 2889, name: 'FILEZINHO SASSAMI DE FRANGO CONGELADO ADORO (CX 20 KILO)', category: 'Derivados de Ave', price: 290.28, image: 'https://www.marquesvendaspmg.shop/images/filezinho-sassami-de-frango-congelado-adoro-cx-20-kg.webp' },
+  { id: 2890, name: 'HAMBÚRGUER PEQUENO DE CARNE BOVINA FRIBOI 56 G (CX 36 UN)', category: 'Derivados de Bovino', price: 64.38, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-pequeno-de-carne-bovina-friboi-56-g-cx-36-un.webp' },
+  { id: 2892, name: 'MOLHO AMERICANO BARBECUE ZAFRÁN 1,1 KILO', category: 'Conservas/Enlatados', price: 29.18, image: 'https://www.marquesvendaspmg.shop/images/molho-americano-barbecue-zafran-11-kg-cx-05-bag.webp' },
+  { id: 2894, name: 'SOBRECOXAS DE FRANGO CONGELADAS COM OSSO ITABOM (CX 20 KILO)', category: 'Derivados de Ave', price: 181.43, image: 'https://www.marquesvendaspmg.shop/images/sobrecoxas-de-frango-congeladas-com-osso-itabom-cx-20-kg.webp' },
+  { id: 2895, name: 'VINHO ITALIANO BRANCO SUAVE FRISANTE LAMBRUSCO SOGNO ITALIANO 750 ML', category: 'Bebidas', price: 24.56, image: 'https://www.marquesvendaspmg.shop/images/vinho-italiano-branco-suave-frisante-lambrusco-sogno-italiano-750-ml-cx-6-un.png' },
+  { id: 2896, name: 'VINHO ITALIANO TINTO SUAVE FRISANTE LAMBRUSCO SOGNO ITALIANO 750 ML', category: 'Bebidas', price: 24.56, image: 'https://www.marquesvendaspmg.shop/images/vinho-italiano-tinto-suave-frisante-lambrusco-sogno-italiano-750-ml-cx-6-un.png' },
  // ... adicione todos os produtos até ID 1898
 ];
-
     const produto = products.find(p => p.id === produtoId);
 
     if (!produto) {
