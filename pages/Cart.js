@@ -438,65 +438,83 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
     setTimeout(() => setMensagemCupom({ texto: '', tipo: '' }), 3000);
   };
 
-  // ==============================================
-  // ✅ FUNÇÃO - USA produtosArray
-  // ==============================================
-  const updateCartPrices = (currentCart) => {
-    if (!currentCart || currentCart.length === 0) return currentCart;
+// ==============================================
+// ✅ FUNÇÃO - USA produtosArray (ATUALIZADA)
+// ==============================================
+const updateCartPrices = (currentCart) => {
+  if (!currentCart || currentCart.length === 0) return currentCart;
 
-    try {
-      if (!produtosArray || !Array.isArray(produtosArray)) {
-        console.error('❌ produtosArray não está disponível ou não é um array');
-        return currentCart;
-      }
-
-      console.log(`📦 Atualizando preços com ${produtosArray.length} produtos`);
-
-      const priceMap = {};
-      produtosArray.forEach(product => {
-        priceMap[product.id] = {
-          price: product.price,
-          name: product.name,
-          image: product.image
-        };
-      });
-
-      let mudou = false;
-      const updatedCart = currentCart.map(item => {
-        const updatedProduct = priceMap[item.id];
-        if (updatedProduct) {
-          if (updatedProduct.price !== item.price) {
-            mudou = true;
-            console.log(`🔄 Produto ${item.id}: R$ ${item.price} → R$ ${updatedProduct.price}`);
-            return {
-              ...item,
-              price: updatedProduct.price,
-              name: updatedProduct.name,
-              image: updatedProduct.image
-            };
-          }
-        }
-        return item;
-      });
-
-      if (mudou) {
-        console.log('✅ Preços atualizados com sucesso!');
-        if (cupomAplicado) {
-          setMensagemCupom({
-            texto: '⚠️ Preços atualizados, verifique se o cupom ainda é válido',
-            tipo: 'info'
-          });
-        }
-        return updatedCart;
-      }
-
-      console.log('⏺️ Nenhuma atualização necessária');
-      return currentCart;
-    } catch (error) {
-      console.error('❌ Erro ao atualizar preços:', error);
+  try {
+    if (!produtosArray || !Array.isArray(produtosArray)) {
+      console.error('❌ produtosArray não está disponível ou não é um array');
       return currentCart;
     }
-  };
+
+    console.log(`📦 Atualizando produtos com ${produtosArray.length} produtos`);
+
+    const priceMap = {};
+    produtosArray.forEach(product => {
+      priceMap[product.id] = {
+        price: product.price,
+        name: product.name,
+        image: product.image
+      };
+    });
+
+    let mudou = false;
+    const updatedCart = currentCart.map(item => {
+      const updatedProduct = priceMap[item.id];
+      if (updatedProduct) {
+        let itemModificado = false;
+        let novoItem = { ...item };
+        
+        // ✅ ATUALIZA O PREÇO
+        if (updatedProduct.price !== item.price) {
+          console.log(`🔄 Produto ${item.id}: R$ ${item.price} → R$ ${updatedProduct.price}`);
+          novoItem.price = updatedProduct.price;
+          itemModificado = true;
+        }
+        
+        // ✅ ATUALIZA O NOME
+        if (updatedProduct.name !== item.name) {
+          console.log(`🔄 Produto ${item.id}: "${item.name}" → "${updatedProduct.name}"`);
+          novoItem.name = updatedProduct.name;
+          itemModificado = true;
+        }
+        
+        // ✅ ATUALIZA A IMAGEM
+        if (updatedProduct.image && updatedProduct.image !== item.image) {
+          console.log(`🔄 Produto ${item.id}: imagem atualizada`);
+          novoItem.image = updatedProduct.image;
+          itemModificado = true;
+        }
+        
+        if (itemModificado) {
+          mudou = true;
+          return novoItem;
+        }
+      }
+      return item;
+    });
+
+    if (mudou) {
+      console.log('✅ Produtos atualizados com sucesso!');
+      if (cupomAplicado) {
+        setMensagemCupom({
+          texto: '⚠️ Produtos atualizados, verifique se o cupom ainda é válido',
+          tipo: 'info'
+        });
+      }
+      return updatedCart;
+    }
+
+    console.log('⏺️ Nenhuma atualização necessária');
+    return currentCart;
+  } catch (error) {
+    console.error('❌ Erro ao atualizar produtos:', error);
+    return currentCart;
+  }
+};
 
   // ==============================================
   // ✅ LOAD INICIAL - Carrega e atualiza preços
