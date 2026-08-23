@@ -80,8 +80,8 @@
     "success": true
   },
   "22": {
-    "validade": "20/12/2026",
-    "lote": null,
+    "validade": "22/12/2026",
+    "lote": "2707",
     "success": true
   },
   "23": {
@@ -300,8 +300,8 @@
     "success": true
   },
   "142": {
-    "validade": "18/10/2026",
-    "lote": "260620",
+    "validade": "20/10/2026",
+    "lote": "260622",
     "success": true
   },
   "143": {
@@ -460,8 +460,8 @@
     "success": true
   },
   "221": {
-    "validade": "29/09/2026",
-    "lote": "1926070121",
+    "validade": "13/10/2026",
+    "lote": "260715",
     "success": true
   },
   "222": {
@@ -3430,8 +3430,8 @@
     "success": true
   },
   "3396": {
-    "validade": "27/04/2028",
-    "lote": "260427",
+    "validade": "20/04/2029",
+    "lote": "260420",
     "success": true
   },
   "3397": {
@@ -3640,8 +3640,8 @@
     "success": true
   },
   "3578": {
-    "validade": "11/10/2026",
-    "lote": "392",
+    "validade": "31/10/2026",
+    "lote": "391",
     "success": true
   },
   "3585": {
@@ -4380,8 +4380,8 @@
     "success": true
   },
   "4320": {
-    "validade": "12/04/2027",
-    "lote": "05116072601",
+    "validade": "13/04/2027",
+    "lote": "05117072601",
     "success": true
   },
   "4354": {
@@ -8505,8 +8505,8 @@
     "success": true
   },
   "7888": {
-    "validade": "08/11/2026",
-    "lote": "01",
+    "validade": "15/11/2026",
+    "lote": "03",
     "success": true
   },
   "7889": {
@@ -8570,8 +8570,8 @@
     "success": true
   },
   "7915": {
-    "validade": "03/12/2026",
-    "lote": "111",
+    "validade": "05/12/2026",
+    "lote": "110",
     "success": true
   },
   "7918": {
@@ -8750,8 +8750,8 @@
     "success": true
   },
   "8120": {
-    "validade": "24/06/2027",
-    "lote": null,
+    "validade": "26/06/2027",
+    "lote": "2606",
     "success": true
   },
   "8126": {
@@ -10090,8 +10090,8 @@
     "success": true
   },
   "8833": {
-    "validade": "13/05/2027",
-    "lote": "1305",
+    "validade": "03/06/2027",
+    "lote": "0306",
     "success": true
   },
   "8835": {
