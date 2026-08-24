@@ -3719,8 +3719,8 @@ useEffect(() => {
   </button>
 </div>
 
-{/* ========== VALIDADE E LOTE - PÁGINA INDIVIDUAL ========== */}
-{user && dadosValidade[product.id] && (
+{/* ========== VALIDADE E LOTE - AGORA VISÍVEL PARA TODOS ========== */}
+{dadosValidade[product.id] && (
   <div style={{
     marginTop: '15px',
     padding: '12px 15px',
