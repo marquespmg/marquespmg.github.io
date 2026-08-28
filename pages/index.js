@@ -1073,6 +1073,37 @@ const avaliacoes = [
     />
   </div>
 
+{/* BOTÃO VER FOTOS DA OPERAÇÃO - VERSÃO DISCRETA */}
+<Link href="/pmg-operacao" passHref legacyBehavior>
+  <a style={{
+    display: 'inline-block',
+    padding: isMobile ? '10px 20px' : '12px 24px',
+    backgroundColor: 'transparent',
+    color: '#095400',
+    textDecoration: 'none',
+    borderRadius: '30px',
+    fontSize: isMobile ? '0.85rem' : '0.9rem',
+    fontWeight: '500',
+    transition: 'all 0.3s ease',
+    border: '2px solid #095400',
+    margin: isMobile ? '10px auto 5px' : '15px auto 5px',
+    width: isMobile ? '90%' : 'auto',
+    maxWidth: '350px',
+    textAlign: 'center',
+  }}
+  onMouseOver={(e) => {
+    e.target.style.backgroundColor = '#095400';
+    e.target.style.color = '#fff';
+  }}
+  onMouseOut={(e) => {
+    e.target.style.backgroundColor = 'transparent';
+    e.target.style.color = '#095400';
+  }}
+  >
+    📸 Ver Fotos da Operação PMG
+  </a>
+</Link>
+
 {/* Texto descritivo para SEO - ESCONDIDO visualmente mas o Google lê */}
 <div style={{ 
   maxWidth: '800px',
