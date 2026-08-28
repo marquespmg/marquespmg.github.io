@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- ========== PÁGINAS PRINCIPAIS ========== -->
+  
   <!-- Página Principal -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/</loc>
@@ -8,7 +11,7 @@
     <priority>1.0</priority>
   </url>
   
-  <!-- Página do App - NOVA -->
+  <!-- Página do App -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/app</loc>
     <lastmod>2024-12-19</lastmod>
@@ -32,13 +35,15 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- Página de Indicações -->
+  <!-- ========== NOVA PÁGINA - PMG OPERAÇÃO ========== -->
   <url>
-    <loc>https://www.marquesvendaspmg.shop/indicacoes</loc>
+    <loc>https://www.marquesvendaspmg.shop/pmg-operacao</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
+  
+  <!-- ========== PÁGINAS INSTITUCIONAIS ========== -->
   
   <!-- Página Quem Somos -->
   <url>
@@ -48,9 +53,35 @@
     <priority>0.7</priority>
   </url>
   
+  <!-- Página de Indicações -->
+  <url>
+    <loc>https://www.marquesvendaspmg.shop/indicacoes</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Food News (Blog) -->
+  <url>
+    <loc>https://www.marquesvendaspmg.shop/food-news</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- ========== PÁGINAS LEGAIS ========== -->
+  
   <!-- Política de Privacidade -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/politica-de-privacidade</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Política de Devolução e Reembolso -->
+  <url>
+    <loc>https://www.marquesvendaspmg.shop/politica-devolucao-e-reembolso</loc>
     <lastmod>2024-12-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -63,4 +94,5 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  
 </urlset>
