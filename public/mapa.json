@@ -3189,7 +3189,7 @@
   },
   {
     "idSite": 862,
-    "idPMG": null
+    "idPMG": 8400
   },
   {
     "idSite": 863,
@@ -7746,7 +7746,7 @@
   },
   {
     "idSite": 2050,
-    "idPMG": null
+    "idPMG": 8790
   },
   {
     "idSite": 2051,
@@ -11110,5 +11110,97 @@
   {
     "idSite": 2896,
     "idPMG": 10009
+  },
+  {
+    "idSite": 2897,
+    "idPMG": 6582
+  },
+  {
+    "idSite": 2898,
+    "idPMG": 10020
+  },
+  {
+    "idSite": 2899,
+    "idPMG": 10014
+  },
+  {
+    "idSite": 2900,
+    "idPMG": 7195
+  },
+  {
+    "idSite": 2901,
+    "idPMG": 7849
+  },
+  {
+    "idSite": 2902,
+    "idPMG": 9070
+  },
+  {
+    "idSite": 2904,
+    "idPMG": 10030
+  },
+  {
+    "idSite": 2906,
+    "idPMG": 8270
+  },
+  {
+    "idSite": 2907,
+    "idPMG": 9144
+  },
+  {
+    "idSite": 2908,
+    "idPMG": 10029
+  },
+  {
+    "idSite": 2911,
+    "idPMG": 10019
+  },
+  {
+    "idSite": 2913,
+    "idPMG": 10025
+  },
+  {
+    "idSite": 2914,
+    "idPMG": 10018
+  },
+  {
+    "idSite": 2915,
+    "idPMG": 10023
+  },
+  {
+    "idSite": 2916,
+    "idPMG": 10024
+  },
+  {
+    "idSite": 2917,
+    "idPMG": 4475
+  },
+  {
+    "idSite": 2919,
+    "idPMG": 10007
+  },
+  {
+    "idSite": 2920,
+    "idPMG": 533
+  },
+  {
+    "idSite": 2921,
+    "idPMG": 10021
+  },
+  {
+    "idSite": 2922,
+    "idPMG": 9670
+  },
+  {
+    "idSite": 2923,
+    "idPMG": 9139
+  },
+  {
+    "idSite": 2925,
+    "idPMG": 10031
+  },
+  {
+    "idSite": 2926,
+    "idPMG": 440
   }
 ]
