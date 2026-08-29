@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
+import useTrackUser from '../hook/useTrackUser'; // ← ADICIONE ESTA LINHA
 
 // Mapeamento das fotos por seção
 const sections = [
@@ -91,6 +92,7 @@ const sections = [
 ];
 
 export default function PMGOperacao() {
+  useTrackUser(); // ← ADICIONE ESTA LINHA
   const [isMobile, setIsMobile] = useState(false);
   const [currentIndex, setCurrentIndex] = useState({});
   const [activeSection, setActiveSection] = useState('entrada');
