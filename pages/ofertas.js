@@ -140,16 +140,16 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 2895, name: 'VINHO ITALIANO BRANCO SUAVE FRISANTE LAMBRUSCO SOGNO ITALIANO 750 ML', category: 'Ofertas', price: 24.30, image: 'https://www.marquesvendaspmg.shop/images/vinho-italiano-branco-suave-frisante-lambrusco-sogno-italiano-750-ml-cx-6-un.png' },
-  { id: 2896, name: 'VINHO ITALIANO TINTO SUAVE FRISANTE LAMBRUSCO SOGNO ITALIANO 750 ML', category: 'Ofertas', price: 24.30, image: 'https://www.marquesvendaspmg.shop/images/vinho-italiano-tinto-suave-frisante-lambrusco-sogno-italiano-750-ml-cx-6-un.png' },
-  { id: 2883, name: 'AZEITONA PRETA GRAÚDA 11 X 13 AZAPA ARCOBELLO (BD 2 KILO)', category: 'Ofertas', price: 114.80, image: 'https://www.marquesvendaspmg.shop/images/azeitona-preta-grauda-11-x-13-azapa-arcobello-bd-2-kg.webp' },
-  { id: 2884, name: 'BATATA PALITO CONGELADA PRÉ FRITA 7 MM CORTE FINO FAST FOOD BEM BRASIL 2 KILO (CX 6 PCT)', category: 'Ofertas', price: 175.99, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-congelada-pre-frita-7-mm-corte-fino-fast-food-bem-brasil-2-kg-cx-6-pct.jpg' },
-  { id: 2853, name: 'CHEDDAR FORTUNATA CREMOSO RECHEIO 1,010 KILO', category: 'Ofertas', price: 17.99, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fortunata-cremoso-recheio-1010-kg-cx-8-bis.png' },
-  { id: 2882, name: 'REQUEIJÃO FORTUNATA CREMOSO RECHEIO 1,010 KILO', category: 'Ofertas', price: 17.99, image: 'https://www.marquesvendaspmg.shop/images/requeijao-fortunata-cremoso-recheio-1010-kg-cx-8-bis.webp' },
-  { id: 1908, name: 'CHÁ MATTE LEÃO NATURAL TOSTADO A GRANEL 250 G (CX 10 UN)', category: 'Ofertas', price: 74.30, image: 'https://www.marquesvendaspmg.shop/images/cha-matte-leao-natural-tostado-a-granel-250-g.png' },
-  { id: 1909, name: 'CHÁ MATTE LEÃO SOLÚVEL NATURAL 1 KILO', category: 'Ofertas', price: 33.60, image: 'https://www.marquesvendaspmg.shop/images/cha-matte-leao-soluvel-natural-1-kilo.png' },
-  { id: 2849, name: 'BATATA PALITO DOCE CONGELADA PRÉ FRITA 9 MM CORTE TRADICIONAL FARM FRITES 2 KILO (CX 5 PCT)', category: 'Ofertas', price: 378.00, image: 'https://www.marquesvendaspmg.shop/images/batata-palito-doce-congelada-pre-frita-9-mm-corte-tradicional-farm-frites-2-kg-cx-5-pct.png' },
-  { id: 319, name: 'VINHO NACIONAL TINTO SUAVE COUNTRY WINE 750 ML (CX 6 UN)', category: 'Ofertas', price: 85.00, image: 'https://www.marquesvendaspmg.shop/images/vinho-nacional-tinto-suave-country-wine-750-ml-pmg-atacadista.jpg' },
+  { id: 2898, name: 'CALABRESA RETA CHULETÃO 3 KILO', category: 'Ofertas', price: 50.99, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-chuletao-3-kg-cx-6-pct.png' },
+  { id: 2899, name: 'CARNE MOÍDA BOVINA CONGELADA CHULETÃO 500 G', category: 'Ofertas', price: 8.30, image: 'https://www.marquesvendaspmg.shop/images/carne-moida-bovina-congelada-chuletao-500-g-cx-20-pct.png' },
+  { id: 2911, name: 'HAMBÚRGUER MÉDIO DE CARNE DE FRANGO E CARNE BOVINA CHULETÃO 90 G (CX 36 UN)', category: 'Ofertas', price: 44.30, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-medio-de-carne-de-frango-e-carne-bovina-chuletao-90-g-cx-36-un.png' },
+  { id: 2914, name: 'HAMBÚRGUER PEQUENO DE CARNE DE FRANGO E CARNE BOVINA CHULETÃO 56 G (CX 36 UN)', category: 'Ofertas', price: 27.50, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-pequeno-de-carne-de-frango-e-carne-bovina-chuletao-56-g-cx-36-un.png' },
+  { id: 2922, name: 'PEITO DE FRANGO CONGELADO EM BIFES ALFAMA 2 KILO (CX 3 PCT)', category: 'Ofertas', price: 109.00, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-em-bifes-alfama-2-kg-cx-3-pct.webp' },
+  { id: 2919, name: 'MOLHO DE PIMENTA SWEET CHILLI JUNIOR 1,1 KILO', category: 'Ofertas', price: 21.10, image: 'https://www.marquesvendaspmg.shop/images/molho-de-pimenta-sweet-chilli-junior-11-kg-cx-5-bag.webp' },
+  { id: 2916, name: 'KIBE DE CARNE BOVINA CONGELADO CONDESSA 1 KILO', category: 'Ofertas', price: 18.99, image: 'https://www.marquesvendaspmg.shop/images/kibe-de-carne-bovina-congelado-condessa-1-kg-cx-10-pct.png' },
+  { id: 2907, name: 'FILÉ DE POLACA EMPANADO CONGELADO SEARA 1,2 KILO (CX 3 PCT)', category: 'Ofertas', price: 217.89, image: 'https://www.marquesvendaspmg.shop/images/file-de-polaca-empanado-congelado-seara-12-kg-cx-3-pct.png' },
+  { id: 2897, name: 'ALMÔNDEGA BOVINA CONGELADA CONDESSA 1 KILO', category: 'Ofertas', price: 18.30, image: 'https://www.marquesvendaspmg.shop/images/almondega-bovina-congelada-condessa-1-kg-cx-10-pct.png' },
+  { id: 2908, name: 'FILEZINHO SASSAMI DE FRANGO CONGELADO TEMPERADO E EMPANADO SEARA 2 KILO (CX 4 PCT)', category: 'Ofertas', price: 207.55, image: 'https://www.marquesvendaspmg.shop/images/filezinho-sassami-de-frango-congelado-temperado-e-empanado-seara-2-kg-cx-4-pct.png' },
 ];
 
 // ========== BANNERS ========== //
