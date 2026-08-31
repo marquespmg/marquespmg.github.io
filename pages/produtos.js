@@ -6259,7 +6259,7 @@ productsGrid: {
       } else if (supremaQualificada) {
         statusMessage = '🎉 Parabéns! Você ganhou 2% de desconto através da campanha Suprema Bunge!';
       } else {
-        statusMessage = '📌 Complete os requisitos de UMA das campanhas para ativar o desconto de 2%';
+        statusMessage = ' Complete os requisitos de UMA das campanhas para ativar o desconto de 2%';
       }
 
       return qualificada ? (
