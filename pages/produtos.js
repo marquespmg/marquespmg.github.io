@@ -3436,7 +3436,7 @@ const abrirModalConta = async () => {
   }, []);
   // ========== FIM DO CONTADOR DE PEDIDOS ========== //
   
-  // ========== DETECTAR SE ESTÁ RODANDO DENTRO DO APP ==========
+// ========== DETECTAR SE ESTÁ RODANDO DENTRO DO APP ==========
 const isRunningInApp = () => {
   if (typeof window === 'undefined') return false;
   
@@ -3451,7 +3451,12 @@ const isRunningInApp = () => {
   const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
                 window.navigator.standalone === true;
   
-  return isWebView || isPWA;
+  // Detecta redes sociais (WhatsApp, Instagram, Facebook)
+  const isWhatsApp = ua.includes('whatsapp');
+  const isInstagram = ua.includes('instagram');
+  const isFacebook = ua.includes('fb') || ua.includes('facebook');
+  
+  return isWebView || isPWA || isWhatsApp || isInstagram || isFacebook;
 };
   
   const [user, setUser] = useState(null);
@@ -3945,6 +3950,10 @@ useEffect(() => {
   
   if (inApp) {
     console.log('📱 App detectado - Google Login escondido');
+    
+    // ✅ GARANTE QUE AS NOTIFICAÇÕES NÃO APAREÇAM NO APP
+    setShowFreteToast(false);
+    setShowWhatsappToast(false);
   }
 }, []);
 
@@ -4010,27 +4019,37 @@ useEffect(() => {
     };
   }, []);
 
-  // Efeito para as notificações toast
-  useEffect(() => {
-    const TEMPO_INICIAL = 15000;
-    const INTERVALO = 9000;
-    const DURACAO = 10000;
+// ========== Efeito para as notificações toast (MODIFICADO) ========== //
+useEffect(() => {
+  // ✅ VERIFICA SE ESTÁ NO APP
+  const inApp = isRunningInApp();
+  
+  // Se estiver no APP, NÃO mostra as notificações
+  if (inApp) {
+    console.log('📱 App detectado - Notificações desativadas');
+    return; // Sai do useEffect sem mostrar nada
+  }
 
-    const firstTimeout = setTimeout(() => {
-      setShowFreteToast(true);
-      setTimeout(() => setShowFreteToast(false), DURACAO);
-    }, TEMPO_INICIAL);
-    
-    const secondTimeout = setTimeout(() => {
-      setShowWhatsappToast(true);
-      setTimeout(() => setShowWhatsappToast(false), DURACAO);
-    }, TEMPO_INICIAL + INTERVALO);
+  // Só executa se NÃO for app (site normal)
+  const TEMPO_INICIAL = 15000;
+  const INTERVALO = 9000;
+  const DURACAO = 10000;
 
-    return () => {
-      clearTimeout(firstTimeout);
-      clearTimeout(secondTimeout);
-    };
-  }, []);
+  const firstTimeout = setTimeout(() => {
+    setShowFreteToast(true);
+    setTimeout(() => setShowFreteToast(false), DURACAO);
+  }, TEMPO_INICIAL);
+  
+  const secondTimeout = setTimeout(() => {
+    setShowWhatsappToast(true);
+    setTimeout(() => setShowWhatsappToast(false), DURACAO);
+  }, TEMPO_INICIAL + INTERVALO);
+
+  return () => {
+    clearTimeout(firstTimeout);
+    clearTimeout(secondTimeout);
+  };
+}, []);
 
   // Efeito para fechar o menu de cidades ao clicar fora
   useEffect(() => {
