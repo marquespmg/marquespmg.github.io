@@ -140,16 +140,8 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 2898, name: 'CALABRESA RETA CHULETÃO 3 KILO', category: 'Ofertas', price: 50.99, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-chuletao-3-kg-cx-6-pct.png' },
-  { id: 2899, name: 'CARNE MOÍDA BOVINA CONGELADA CHULETÃO 500 G', category: 'Ofertas', price: 8.30, image: 'https://www.marquesvendaspmg.shop/images/carne-moida-bovina-congelada-chuletao-500-g-cx-20-pct.png' },
-  { id: 2911, name: 'HAMBÚRGUER MÉDIO DE CARNE DE FRANGO E CARNE BOVINA CHULETÃO 90 G (CX 36 UN)', category: 'Ofertas', price: 44.30, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-medio-de-carne-de-frango-e-carne-bovina-chuletao-90-g-cx-36-un.png' },
-  { id: 2914, name: 'HAMBÚRGUER PEQUENO DE CARNE DE FRANGO E CARNE BOVINA CHULETÃO 56 G (CX 36 UN)', category: 'Ofertas', price: 27.50, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-pequeno-de-carne-de-frango-e-carne-bovina-chuletao-56-g-cx-36-un.png' },
-  { id: 2922, name: 'PEITO DE FRANGO CONGELADO EM BIFES ALFAMA 2 KILO (CX 3 PCT)', category: 'Ofertas', price: 109.00, image: 'https://www.marquesvendaspmg.shop/images/peito-de-frango-congelado-em-bifes-alfama-2-kg-cx-3-pct.webp' },
-  { id: 2919, name: 'MOLHO DE PIMENTA SWEET CHILLI JUNIOR 1,1 KILO', category: 'Ofertas', price: 21.10, image: 'https://www.marquesvendaspmg.shop/images/molho-de-pimenta-sweet-chilli-junior-11-kg-cx-5-bag.webp' },
-  { id: 2916, name: 'KIBE DE CARNE BOVINA CONGELADO CONDESSA 1 KILO', category: 'Ofertas', price: 18.99, image: 'https://www.marquesvendaspmg.shop/images/kibe-de-carne-bovina-congelado-condessa-1-kg-cx-10-pct.png' },
-  { id: 2907, name: 'FILÉ DE POLACA EMPANADO CONGELADO SEARA 1,2 KILO (CX 3 PCT)', category: 'Ofertas', price: 217.89, image: 'https://www.marquesvendaspmg.shop/images/file-de-polaca-empanado-congelado-seara-12-kg-cx-3-pct.png' },
-  { id: 2897, name: 'ALMÔNDEGA BOVINA CONGELADA CONDESSA 1 KILO', category: 'Ofertas', price: 18.30, image: 'https://www.marquesvendaspmg.shop/images/almondega-bovina-congelada-condessa-1-kg-cx-10-pct.png' },
-  { id: 2908, name: 'FILEZINHO SASSAMI DE FRANGO CONGELADO TEMPERADO E EMPANADO SEARA 2 KILO (CX 4 PCT)', category: 'Ofertas', price: 207.55, image: 'https://www.marquesvendaspmg.shop/images/filezinho-sassami-de-frango-congelado-temperado-e-empanado-seara-2-kg-cx-4-pct.png' },
+  { id: 2853, name: 'CHEDDAR FORTUNATA CREMOSO RECHEIO 1,010 KILO', category: 'Ofertas', price: 13.93, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fortunata-cremoso-recheio-1010-kg-cx-8-bis.png' },
+  { id: 2882, name: 'REQUEIJÃO FORTUNATA CREMOSO RECHEIO 1,010 KILO', category: 'Ofertas', price: 13.62, image: 'https://www.marquesvendaspmg.shop/images/requeijao-fortunata-cremoso-recheio-1010-kg-cx-8-bis.webp' },
   { id: 1098, name: 'ANÉIS DE CEBOLA CONGELADOS PRÉ FRITOS EMPANADOS PRÉ FORMADOS PICKERS MCCAIN 1,05 KILO (CX 10 PCT)', category: 'Ofertas', price: 218.43, image: 'https://www.marquesvendaspmg.shop/images/aneis-de-cebola-congelados-pre-fritos-empanados-pre-formados-mccain-105-kilo-cx-10-pct-pmg-atacadista.jpg' },
   { id: 1170, name: 'BATATA CONGELADA PRÉ FRITA COM CASCA RÚSTICA SKIN ON WEDGES MCCAIN 2,5 KILO (CX 5 PCT)', category: 'Ofertas', price: 204.01, image: 'https://www.marquesvendaspmg.shop/images/batata-congelada-pre-frita-com-casca-rustica-skin-on-wedges-mccain-25-kilo-cx-5-pct-pmg-atacadista.jpg' },
   { id: 1171, name: 'BATATA CONGELADA PRÉ FRITA COM CASCA RÚSTICA SURECRISP CRISPERS MCCAIN 2,5 KILO (CX 5 PCT)', category: 'Ofertas', price: 257.96, image: 'https://www.marquesvendaspmg.shop/images/batata-congelada-pre-frita-com-casca-rustica-surecrisp-crispers-mccain-25-kilo-cx-5-pct-pmg-atacadista.jpg' },
@@ -182,8 +174,6 @@ const featuredProducts = [
   { id: 1468, name: 'SARDINHAS EM ÓLEO COQUEIRO 125 G (CX 54 LT)', category: 'Ofertas', price: 321.84, image: 'https://www.marquesvendaspmg.shop/images/sardinhas-em-oleo-coqueiro-125-g-cx-54-lt-pmg-atacadista.jpg' },
   { id: 2587, name: 'MACARRÃO CARACOLINO COM OVOS SANTA AMÁLIA 500 G (FDO 20 PCT)', category: 'Ofertas', price: 72.04, image: 'https://www.marquesvendaspmg.shop/images/macarrao-caracolino-com-ovos-santa-amalia-500-g-fdo-20-pct.webp' },
   { id: 2591, name: 'MACARRÃO NINHO TALHARINE COM OVOS SANTA AMÁLIA 500 G (FDO 20 PCT)', category: 'Ofertas', price: 97.81, image: 'https://www.marquesvendaspmg.shop/images/macarrao-ninho-talharine-com-ovos-santa-amalia-500-g-fdo-20-pct.webp' },
-  { id: 2853, name: 'CHEDDAR FORTUNATA CREMOSO RECHEIO 1,010 KILO', category: 'Ofertas', price: 13.93, image: 'https://www.marquesvendaspmg.shop/images/cheddar-fortunata-cremoso-recheio-1010-kg-cx-8-bis.png' },
- { id: 2882, name: 'REQUEIJÃO FORTUNATA CREMOSO RECHEIO 1,010 KILO', category: 'Ofertas', price: 13.62, image: 'https://www.marquesvendaspmg.shop/images/requeijao-fortunata-cremoso-recheio-1010-kg-cx-8-bis.webp' },
 ];
 
 // ========== BANNERS ========== //
