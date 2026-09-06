@@ -66,6 +66,32 @@ const CUPONS = {
 const CART_STORAGE_KEY = 'cart_data';
 
 // ==============================================
+// ✅ FUNÇÃO PARA FILTRAR PRODUTOS COM PREÇO ZERADO
+// ==============================================
+const filtrarProdutosZerados = (cartItems) => {
+  if (!cartItems || cartItems.length === 0) return cartItems;
+  
+  const itensFiltrados = cartItems.filter(item => {
+    // Verifica se o preço é maior que 0
+    const temPrecoValido = item.price > 0;
+    
+    // Se o preço for 0 ou menor, remove do carrinho
+    if (!temPrecoValido) {
+      console.log(`🗑️ Removendo produto ID ${item.id} - ${item.name} (preço zerado)`);
+      return false;
+    }
+    return true;
+  });
+  
+  const removidos = cartItems.length - itensFiltrados.length;
+  if (removidos > 0) {
+    console.log(`🗑️ ${removidos} produto(s) com preço zerado removido(s) do carrinho`);
+  }
+  
+  return itensFiltrados;
+};
+
+// ==============================================
 // ✅ FUNÇÃO PARA VERIFICAR CAMPANHA (VERSÃO DUAS CAMPANHAS)
 // ==============================================
 const verificarCampanha = (cartItems) => {
@@ -165,6 +191,281 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 
   // Hook para validade dos produtos
   const { getIdPmg, loading: loadingIdPmg } = useProdutoIdPmg();
+
+  // ==============================================
+  // ✅ FUNÇÃO - USA produtosArray (ATUALIZADA COM FILTRO DE ZERADOS)
+  // ==============================================
+  const updateCartPrices = (currentCart) => {
+    if (!currentCart || currentCart.length === 0) return currentCart;
+
+    try {
+      if (!produtosArray || !Array.isArray(produtosArray)) {
+        console.error('❌ produtosArray não está disponível ou não é um array');
+        return currentCart;
+      }
+
+      console.log(`📦 Atualizando produtos com ${produtosArray.length} produtos`);
+
+      const priceMap = {};
+      produtosArray.forEach(product => {
+        priceMap[product.id] = {
+          price: product.price,
+          name: product.name,
+          image: product.image
+        };
+      });
+
+      let mudou = false;
+      let itensZerados = [];
+      
+      // ✅ FILTRA PRODUTOS COM PREÇO ZERADO OU INDISPONÍVEL
+      const cartFiltrado = currentCart.filter(item => {
+        const productData = priceMap[item.id];
+        
+        // Se o produto existe no catálogo E está com preço zerado
+        if (productData && productData.price <= 0) {
+          itensZerados.push({ id: item.id, name: item.name });
+          console.log(`🗑️ Produto ID ${item.id} - ${item.name} está com preço zerado, removendo...`);
+          mudou = true;
+          return false;
+        }
+        
+        // Se o produto NÃO existe no catálogo (foi removido)
+        if (!productData) {
+          itensZerados.push({ id: item.id, name: item.name || 'Produto removido' });
+          console.log(`🗑️ Produto ID ${item.id} não encontrado no catálogo, removendo...`);
+          mudou = true;
+          return false;
+        }
+        
+        return true;
+      });
+
+      // Se houver itens zerados, mostra alerta visual
+      if (itensZerados.length > 0) {
+        const nomesProdutos = itensZerados.map(p => p.name).join(', ');
+        console.log(`⚠️ Produtos removidos por indisponibilidade: ${nomesProdutos}`);
+        
+        // Mostra mensagem para o usuário
+        if (typeof window !== 'undefined') {
+          console.warn(`🛒 ${itensZerados.length} produto(s) foram removidos do carrinho por estarem indisponíveis.`);
+        }
+      }
+
+      // Atualiza os preços dos produtos que sobraram
+      const updatedCart = cartFiltrado.map(item => {
+        const updatedProduct = priceMap[item.id];
+        if (updatedProduct) {
+          let itemModificado = false;
+          let novoItem = { ...item };
+          
+          // ✅ ATUALIZA O PREÇO
+          if (updatedProduct.price !== item.price) {
+            console.log(`🔄 Produto ${item.id}: R$ ${item.price} → R$ ${updatedProduct.price}`);
+            novoItem.price = updatedProduct.price;
+            itemModificado = true;
+          }
+          
+          // ✅ ATUALIZA O NOME
+          if (updatedProduct.name !== item.name) {
+            console.log(`🔄 Produto ${item.id}: "${item.name}" → "${updatedProduct.name}"`);
+            novoItem.name = updatedProduct.name;
+            itemModificado = true;
+          }
+          
+          // ✅ ATUALIZA A IMAGEM
+          if (updatedProduct.image && updatedProduct.image !== item.image) {
+            console.log(`🔄 Produto ${item.id}: imagem atualizada`);
+            novoItem.image = updatedProduct.image;
+            itemModificado = true;
+          }
+          
+          if (itemModificado) {
+            mudou = true;
+            return novoItem;
+          }
+        }
+        return item;
+      });
+
+      if (mudou) {
+        console.log('✅ Produtos atualizados com sucesso!');
+        if (cupomAplicado) {
+          setMensagemCupom({
+            texto: '⚠️ Produtos atualizados, verifique se o cupom ainda é válido',
+            tipo: 'info'
+          });
+        }
+        return updatedCart;
+      }
+
+      console.log('⏺️ Nenhuma atualização necessária');
+      return currentCart;
+    } catch (error) {
+      console.error('❌ Erro ao atualizar produtos:', error);
+      return currentCart;
+    }
+  };
+
+  // ==============================================
+  // ✅ LOAD INICIAL - Carrega e atualiza preços (COM FILTRO)
+  // ==============================================
+  useEffect(() => {
+    const initializeCart = () => {
+      const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+      if (savedCart) {
+        try {
+          const parsedCart = JSON.parse(savedCart);
+          
+          // ✅ PRIMEIRO: FILTRA PRODUTOS ZERADOS
+          const cartSemZerados = filtrarProdutosZerados(parsedCart);
+          
+          // ✅ SEGUNDO: ATUALIZA PREÇOS
+          const updatedCart = updateCartPrices(cartSemZerados);
+          
+          // Se houver diferença, atualiza o localStorage
+          if (updatedCart.length !== parsedCart.length) {
+            console.log('🔄 Carrinho atualizado: produtos zerados removidos');
+            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedCart));
+            
+            // Exibe mensagem para o usuário
+            if (updatedCart.length < parsedCart.length) {
+              const removidos = parsedCart.length - updatedCart.length;
+              console.log(`🔔 ${removidos} produto(s) indisponível(eis) removido(s) do carrinho`);
+            }
+          }
+          
+          setCart(updatedCart);
+        } catch (error) {
+          console.error('Erro ao carregar carrinho:', error);
+        }
+      }
+    };
+    
+    initializeCart();
+  }, []);
+
+  // Verificação de mobile
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      if (!mobile) setIsCollapsed(true);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Verifica usuário logado
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        const newUser = session?.user || null;
+        setUser(newUser);
+        
+        if (newUser && cart.length > 0) {
+          console.log('👤 Usuário logou, atualizando preços...');
+          const updatedCart = updateCartPrices(cart);
+          if (updatedCart !== cart) {
+            setCart(updatedCart);
+            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedCart));
+          }
+        }
+      }
+    );
+    return () => subscription.unsubscribe();
+  }, [cart]);
+
+  // Atualiza preços quando abre o carrinho (COM FILTRO)
+  useEffect(() => {
+    const isCartOpen = isMobile ? isOpen : !isCollapsed;
+    
+    if (isCartOpen && cart.length > 0) {
+      console.log('🛒 Carrinho aberto, verificando preços...');
+      
+      // ✅ PRIMEIRO: FILTRA PRODUTOS ZERADOS
+      const cartSemZerados = filtrarProdutosZerados(cart);
+      
+      // ✅ SEGUNDO: ATUALIZA PREÇOS
+      const updatedCart = updateCartPrices(cartSemZerados);
+      
+      // Verifica se houve mudança
+      const mudou = updatedCart.length !== cart.length || 
+                    JSON.stringify(updatedCart) !== JSON.stringify(cart);
+      
+      if (mudou) {
+        console.log('💰 Preços atualizados ao abrir o carrinho!');
+        setCart(updatedCart);
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedCart));
+        
+        if (user) {
+          setTimeout(() => {
+            supabase
+              .from('user_carts')
+              .upsert({
+                user_id: user.id,
+                cart_items: updatedCart,
+                updated_at: new Date().toISOString()
+              })
+              .then(() => console.log('✅ Carrinho sincronizado com Supabase'))
+              .catch(err => console.error('❌ Erro ao sincronizar:', err));
+          }, 500);
+        }
+      }
+    }
+  }, [isOpen, isCollapsed, isMobile, cart, user]);
+
+  // Sincroniza com Supabase (COM FILTRO)
+  useEffect(() => {
+    const syncWithSupabase = async () => {
+      if (!user || cart.length === 0 || isSyncing) return;
+      
+      // ✅ FILTRA PRODUTOS ZERADOS ANTES DE SALVAR
+      const cartFiltrado = filtrarProdutosZerados(cart);
+      
+      // Se o carrinho filtrado é diferente, atualiza o estado
+      if (cartFiltrado.length !== cart.length) {
+        console.log('🔄 Removendo produtos zerados durante sincronização');
+        setCart(cartFiltrado);
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartFiltrado));
+        return;
+      }
+      
+      setIsSyncing(true);
+      try {
+        await supabase
+          .from('user_carts')
+          .upsert({ 
+            user_id: user.id, 
+            cart_items: cartFiltrado,
+            updated_at: new Date().toISOString()
+          });
+      } catch (error) {
+        console.error('Erro ao sincronizar carrinho:', error);
+      } finally {
+        setIsSyncing(false);
+      }
+    };
+
+    const timeoutId = setTimeout(syncWithSupabase, 1000);
+    return () => clearTimeout(timeoutId);
+  }, [cart, user]);
+
+  // Feedback visual
+  useEffect(() => {
+    if (cart.length > 0) {
+      setShowAddedFeedback(true);
+      const timer = setTimeout(() => setShowAddedFeedback(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [cart.length]);
+
+  // Função para alternar carrinho
+  const toggleCart = () => {
+    if (isMobile) setIsOpen(!isOpen);
+    else setIsCollapsed(!isCollapsed);
+  };
 
   // ==============================================
   // ✅ FUNÇÃO MODIFICADA: verificarLoginERedirecionar
@@ -436,205 +737,6 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
       tipo: 'info'
     });
     setTimeout(() => setMensagemCupom({ texto: '', tipo: '' }), 3000);
-  };
-
-// ==============================================
-// ✅ FUNÇÃO - USA produtosArray (ATUALIZADA)
-// ==============================================
-const updateCartPrices = (currentCart) => {
-  if (!currentCart || currentCart.length === 0) return currentCart;
-
-  try {
-    if (!produtosArray || !Array.isArray(produtosArray)) {
-      console.error('❌ produtosArray não está disponível ou não é um array');
-      return currentCart;
-    }
-
-    console.log(`📦 Atualizando produtos com ${produtosArray.length} produtos`);
-
-    const priceMap = {};
-    produtosArray.forEach(product => {
-      priceMap[product.id] = {
-        price: product.price,
-        name: product.name,
-        image: product.image
-      };
-    });
-
-    let mudou = false;
-    const updatedCart = currentCart.map(item => {
-      const updatedProduct = priceMap[item.id];
-      if (updatedProduct) {
-        let itemModificado = false;
-        let novoItem = { ...item };
-        
-        // ✅ ATUALIZA O PREÇO
-        if (updatedProduct.price !== item.price) {
-          console.log(`🔄 Produto ${item.id}: R$ ${item.price} → R$ ${updatedProduct.price}`);
-          novoItem.price = updatedProduct.price;
-          itemModificado = true;
-        }
-        
-        // ✅ ATUALIZA O NOME
-        if (updatedProduct.name !== item.name) {
-          console.log(`🔄 Produto ${item.id}: "${item.name}" → "${updatedProduct.name}"`);
-          novoItem.name = updatedProduct.name;
-          itemModificado = true;
-        }
-        
-        // ✅ ATUALIZA A IMAGEM
-        if (updatedProduct.image && updatedProduct.image !== item.image) {
-          console.log(`🔄 Produto ${item.id}: imagem atualizada`);
-          novoItem.image = updatedProduct.image;
-          itemModificado = true;
-        }
-        
-        if (itemModificado) {
-          mudou = true;
-          return novoItem;
-        }
-      }
-      return item;
-    });
-
-    if (mudou) {
-      console.log('✅ Produtos atualizados com sucesso!');
-      if (cupomAplicado) {
-        setMensagemCupom({
-          texto: '⚠️ Produtos atualizados, verifique se o cupom ainda é válido',
-          tipo: 'info'
-        });
-      }
-      return updatedCart;
-    }
-
-    console.log('⏺️ Nenhuma atualização necessária');
-    return currentCart;
-  } catch (error) {
-    console.error('❌ Erro ao atualizar produtos:', error);
-    return currentCart;
-  }
-};
-
-  // ==============================================
-  // ✅ LOAD INICIAL - Carrega e atualiza preços
-  // ==============================================
-  useEffect(() => {
-    const initializeCart = () => {
-      const savedCart = localStorage.getItem(CART_STORAGE_KEY);
-      if (savedCart) {
-        try {
-          const parsedCart = JSON.parse(savedCart);
-          const updatedCart = updateCartPrices(parsedCart);
-          setCart(updatedCart);
-        } catch (error) {
-          console.error('Erro ao carregar carrinho:', error);
-        }
-      }
-    };
-    
-    initializeCart();
-  }, []);
-
-  // Verificação de mobile
-  useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth <= 768;
-      setIsMobile(mobile);
-      if (!mobile) setIsCollapsed(true);
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Verifica usuário logado
-  useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        const newUser = session?.user || null;
-        setUser(newUser);
-        
-        if (newUser && cart.length > 0) {
-          console.log('👤 Usuário logou, atualizando preços...');
-          const updatedCart = updateCartPrices(cart);
-          if (updatedCart !== cart) {
-            setCart(updatedCart);
-            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedCart));
-          }
-        }
-      }
-    );
-    return () => subscription.unsubscribe();
-  }, [cart]);
-
-  // Atualiza preços quando abre o carrinho
-  useEffect(() => {
-    const isCartOpen = isMobile ? isOpen : !isCollapsed;
-    
-    if (isCartOpen && cart.length > 0) {
-      console.log('🛒 Carrinho aberto, verificando preços...');
-      const updatedCart = updateCartPrices(cart);
-      
-      if (updatedCart !== cart) {
-        console.log('💰 Preços atualizados ao abrir o carrinho!');
-        setCart(updatedCart);
-        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(updatedCart));
-        
-        if (user) {
-          setTimeout(() => {
-            supabase
-              .from('user_carts')
-              .upsert({
-                user_id: user.id,
-                cart_items: updatedCart,
-                updated_at: new Date().toISOString()
-              })
-              .then(() => console.log('✅ Carrinho sincronizado com Supabase'))
-              .catch(err => console.error('❌ Erro ao sincronizar:', err));
-          }, 500);
-        }
-      }
-    }
-  }, [isOpen, isCollapsed, isMobile, cart, user]);
-
-  // Sincroniza com Supabase
-  useEffect(() => {
-    const syncWithSupabase = async () => {
-      if (!user || cart.length === 0 || isSyncing) return;
-      setIsSyncing(true);
-      try {
-        await supabase
-          .from('user_carts')
-          .upsert({ 
-            user_id: user.id, 
-            cart_items: cart,
-            updated_at: new Date().toISOString()
-          });
-      } catch (error) {
-        console.error('Erro ao sincronizar carrinho:', error);
-      } finally {
-        setIsSyncing(false);
-      }
-    };
-
-    const timeoutId = setTimeout(syncWithSupabase, 1000);
-    return () => clearTimeout(timeoutId);
-  }, [cart, user]);
-
-  // Feedback visual
-  useEffect(() => {
-    if (cart.length > 0) {
-      setShowAddedFeedback(true);
-      const timer = setTimeout(() => setShowAddedFeedback(false), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [cart.length]);
-
-  // Função para alternar carrinho
-  const toggleCart = () => {
-    if (isMobile) setIsOpen(!isOpen);
-    else setIsCollapsed(!isCollapsed);
   };
 
   // Funções de cálculo
