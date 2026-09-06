@@ -15,14 +15,14 @@ import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
 
 // ⭐ CAMPANHA 1: SCALA (5 produtos)
 const CAMPANHA_SCALA_CART = {
-  ativa: true,
+  ativa: false,
   ids: [795, 813, 818, 830, 853, 870, 909, 914, 915, 1534, 2468, 2657, 2659, 2680],
   minimo: 5
 };
 
 // ⭐ CAMPANHA 2: SUPREMA BUNGE (2 produtos)
 const CAMPANHA_SUPREMA_CART = {
-  ativa: true,
+  ativa: false,
   ids: [1720, 1753, 1752],
   minimo: 2
 };
@@ -36,7 +36,7 @@ const OFERTA_RELAMPAGO_CART = {
 };
 
 // ✅ Array com IDs dos produtos em oferta
-const PRODUTOS_EM_OFERTA = [1098, 1170, 1171, 1174, 1176, 1177, 1178, 1195, 1198, 1203, 1204, 1208, 1213, 1215, 1895, 2162, 2164, 2426, 1222, 1229, 1224, 1230, 1121, 1446, 1450, 2234, 1439, 1444, 1448, 1468, 2587, 2591, 2853, 2882, 2898, 2899, 2911, 2914, 2922, 2919, 2916, 2907, 2897, 2908];
+const PRODUTOS_EM_OFERTA = [1098, 1170, 1171, 1174, 1176, 1177, 1178, 1195, 1198, 1203, 1204, 1208, 1213, 1215, 1895, 2162, 2164, 2426, 1222, 1229, 1224, 1230, 1121, 1446, 1450, 2234, 1439, 1444, 1448, 1468, 2587, 2591, 2853, 2882];
 
 // ⭐ NOVO: Array com IDs da Oferta Relâmpago
 const PRODUTOS_OFERTA_RELAMPAGO = OFERTA_RELAMPAGO_CART.ids;
