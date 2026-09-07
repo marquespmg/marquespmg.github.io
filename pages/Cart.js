@@ -183,6 +183,9 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 
   // ✅ NOVO: Estado para controle da mensagem de login
   const [showLoginMessage, setShowLoginMessage] = useState(false);
+  
+    // ✅ ADICIONE ESTA LINHA AQUI:
+  const [inputQuantities, setInputQuantities] = useState({});
 
   // Estados para cupom
   const [cupomInput, setCupomInput] = useState('');
@@ -191,6 +194,128 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 
   // Hook para validade dos produtos
   const { getIdPmg, loading: loadingIdPmg } = useProdutoIdPmg();
+
+  // ==============================================
+  // ✅ FUNÇÃO PARA REMOVER DO CARRINHO COM VERIFICAÇÃO DE CUPOM
+  // ==============================================
+  const handleRemoveFromCart = (productId) => {
+    // 1️⃣ Chama a função original para remover
+    removeFromCart(productId);
+    
+    // 2️⃣ Verifica se o cupom ainda é válido após remover
+    setTimeout(() => {
+      if (cupomAplicado) {
+        // Pega o carrinho atualizado (já sem o produto)
+        const cartAtual = cart.filter(item => item.id !== productId);
+        
+        // Recalcula o total
+        const newGrouped = cartAtual.reduce((acc, product) => {
+          const existing = acc.find(p => p.id === product.id);
+          const calculated = calculateProductPrice(product);
+          const quantity = product.quantity || 1;
+          
+          if (existing) {
+            existing.quantity += quantity;
+            existing.totalPrice += calculated.totalPrice * quantity;
+          } else {
+            acc.push({
+              ...product,
+              quantity: quantity,
+              totalPrice: calculated.totalPrice * quantity
+            });
+          }
+          return acc;
+        }, []);
+        
+        const novoTotal = newGrouped.reduce((sum, item) => sum + item.totalPrice, 0);
+        
+        // ⭐ VERIFICA SE O TOTAL AINDA ATENDE O MÍNIMO DO CUPOM
+        if (novoTotal < cupomAplicado.minimo) {
+          setMensagemCupom({
+            texto: `⚠️ Cupom ${cupomAplicado.nome} removido: pedido abaixo de R$ ${cupomAplicado.minimo.toFixed(2)}`,
+            tipo: 'info'
+          });
+          setCupomAplicado(null);
+          
+          setTimeout(() => {
+            setMensagemCupom({ texto: '', tipo: '' });
+          }, 4000);
+        }
+      }
+    }, 100);
+  };
+
+// ==============================================
+// ✅ FUNÇÃO PARA ALTERAR QUANTIDADE DIGITADA
+// ==============================================
+const handleQuantityChange = (productId, newQuantity) => {
+  // Se for 0 ou negativo, remove o produto
+  if (newQuantity <= 0) {
+    handleRemoveFromCart(productId);
+    // Limpa o estado local
+    setInputQuantities(prev => ({
+      ...prev,
+      [productId]: undefined
+    }));
+    return;
+  }
+
+  // Limita a 999 (máximo razoável)
+  if (newQuantity > 999) {
+    newQuantity = 999;
+  }
+
+  // Encontra o produto no carrinho
+  const productIndex = cart.findIndex(item => item.id === productId);
+  if (productIndex === -1) return;
+
+  // Cria novo carrinho com a quantidade atualizada
+  const newCart = [...cart];
+  newCart[productIndex] = {
+    ...newCart[productIndex],
+    quantity: newQuantity
+  };
+
+  // Atualiza o estado
+  setCart(newCart);
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(newCart));
+
+  // ✅ VERIFICA SE O CUPOM AINDA É VÁLIDO
+  if (cupomAplicado) {
+    // Recalcula o total
+    const newGrouped = newCart.reduce((acc, product) => {
+      const existing = acc.find(p => p.id === product.id);
+      const calculated = calculateProductPrice(product);
+      const quantity = product.quantity || 1;
+      
+      if (existing) {
+        existing.quantity += quantity;
+        existing.totalPrice += calculated.totalPrice * quantity;
+      } else {
+        acc.push({
+          ...product,
+          quantity: quantity,
+          totalPrice: calculated.totalPrice * quantity
+        });
+      }
+      return acc;
+    }, []);
+    
+    const novoTotal = newGrouped.reduce((sum, item) => sum + item.totalPrice, 0);
+    
+    if (novoTotal < cupomAplicado.minimo) {
+      setMensagemCupom({
+        texto: `⚠️ Cupom ${cupomAplicado.nome} removido: pedido abaixo de R$ ${cupomAplicado.minimo.toFixed(2)}`,
+        tipo: 'info'
+      });
+      setCupomAplicado(null);
+      
+      setTimeout(() => {
+        setMensagemCupom({ texto: '', tipo: '' });
+      }, 4000);
+    }
+  }
+};
 
   // ==============================================
   // ✅ FUNÇÃO - USA produtosArray (ATUALIZADA COM FILTRO DE ZERADOS)
@@ -1331,130 +1456,223 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
                       </div>
                     </div>
 
-                    {/* Controles de quantidade e preço */}
-                    <div style={{ 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      justifyContent: 'space-between',
-                      marginTop: '10px',
-                      paddingLeft: isMobile ? '0' : '60px'
-                    }}>
-                      <div style={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: isMobile ? '10px' : '6px',
-                        background: '#f8f9fa',
-                        borderRadius: '20px',
-                        padding: isMobile ? '6px 10px' : '4px 8px'
-                      }}>
-                        <button
-                          onClick={() => adjustQuantity(product.id, -1)}
-                          style={{ 
-                            background: '#E74C3C', 
-                            color: 'white',
-                            border: 'none', 
-                            borderRadius: '50%', 
-                            width: isMobile ? '28px' : '24px', 
-                            height: isMobile ? '28px' : '24px', 
-                            cursor: 'pointer',
-                            fontSize: isMobile ? '16px' : '14px',
-                            fontWeight: 'bold',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            transition: 'all 0.2s'
-                          }}
-                          onMouseOver={(e) => e.target.style.background = '#C0392B'}
-                          onMouseOut={(e) => e.target.style.background = '#E74C3C'}
-                        > - </button>
-                        <span style={{ 
-                          fontSize: isMobile ? '14px' : '12px', 
-                          fontWeight: '600',
-                          minWidth: '18px',
-                          textAlign: 'center'
-                        }}>
-                          {product.quantity}
-                        </span>
-                        <button
-                          onClick={() => adjustQuantity(product.id, 1)}
-                          style={{ 
-                            background: '#2ECC71', 
-                            color: 'white',
-                            border: 'none', 
-                            borderRadius: '50%', 
-                            width: isMobile ? '28px' : '24px', 
-                            height: isMobile ? '28px' : '24px', 
-                            cursor: 'pointer',
-                            fontSize: isMobile ? '16px' : '14px',
-                            fontWeight: 'bold',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            transition: 'all 0.2s'
-                          }}
-                          onMouseOver={(e) => e.target.style.background = '#27AE60'}
-                          onMouseOut={(e) => e.target.style.background = '#2ECC71'}
-                        > + </button>
-                      </div>
-                      
-                      <div style={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: isMobile ? '12px' : '8px' 
-                      }}>
-                        <div style={{ textAlign: 'right' }}>
-                          {temDesconto && (cupomAtivo || campanhaAtiva) ? (
-                            <>
-                              <p style={{ 
-                                fontWeight: 700, 
-                                margin: 0, 
-                                color: '#27AE60', 
-                                fontSize: isMobile ? '15px' : '14px'
-                              }}>
-                                R$ {precoComDesconto.toFixed(2)}
-                              </p>
-                              <p style={{ 
-                                margin: 0, 
-                                color: '#999', 
-                                fontSize: isMobile ? '11px' : '10px',
-                                textDecoration: 'line-through'
-                              }}>
-                                R$ {product.totalPrice.toFixed(2)}
-                              </p>
-                            </>
-                          ) : (
-                            <p style={{ 
-                              fontWeight: 700, 
-                              margin: 0, 
-                              color: '#E74C3C', 
-                              fontSize: isMobile ? '15px' : '14px'
-                            }}>
-                              R$ {product.totalPrice.toFixed(2)}
-                            </p>
-                          )}
-                        </div>
-                        <button
-                          onClick={() => removeFromCart(product.id)}
-                          style={{ 
-                            background: '#FF6B6B', 
-                            color: 'white', 
-                            border: 'none', 
-                            borderRadius: '50%',
-                            width: isMobile ? '32px' : '28px',
-                            height: isMobile ? '32px' : '28px',
-                            cursor: 'pointer', 
-                            fontSize: isMobile ? '16px' : '14px',
-                            fontWeight: 'bold',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            transition: 'all 0.2s'
-                          }}
-                          onMouseOver={(e) => e.target.style.background = '#EE5A52'}
-                          onMouseOut={(e) => e.target.style.background = '#FF6B6B'}
-                        > × </button>
-                      </div>
-                    </div>
+{/* Controles de quantidade e preço */}
+<div style={{ 
+  display: 'flex', 
+  alignItems: 'center', 
+  justifyContent: 'space-between',
+  marginTop: '10px',
+  paddingLeft: isMobile ? '0' : '60px'
+}}>
+  <div style={{ 
+    display: 'flex', 
+    alignItems: 'center', 
+    gap: isMobile ? '10px' : '6px',
+    background: '#f8f9fa',
+    borderRadius: '20px',
+    padding: isMobile ? '6px 10px' : '4px 8px'
+  }}>
+    <button
+      onClick={() => {
+        adjustQuantity(product.id, -1);
+        // Limpa o estado local ao usar os botões
+        setInputQuantities(prev => ({
+          ...prev,
+          [product.id]: undefined
+        }));
+      }}
+      style={{ 
+        background: '#E74C3C', 
+        color: 'white',
+        border: 'none', 
+        borderRadius: '50%', 
+        width: isMobile ? '28px' : '24px', 
+        height: isMobile ? '28px' : '24px', 
+        cursor: 'pointer',
+        fontSize: isMobile ? '16px' : '14px',
+        fontWeight: 'bold',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'all 0.2s'
+      }}
+      onMouseOver={(e) => e.target.style.background = '#C0392B'}
+      onMouseOut={(e) => e.target.style.background = '#E74C3C'}
+    > - </button>
+    
+    {/* ✅ CAMPO DE QUANTIDADE EDITÁVEL COM ESTADO LOCAL */}
+    <input
+      type="text"
+      inputMode="numeric"
+      pattern="[0-9]*"
+      value={inputQuantities[product.id] !== undefined ? inputQuantities[product.id] : product.quantity}
+      onChange={(e) => {
+        // Permite apenas números
+        const value = e.target.value.replace(/\D/g, '');
+        
+        // Atualiza o estado local do input (mostra o que o cliente está digitando)
+        setInputQuantities(prev => ({
+          ...prev,
+          [product.id]: value
+        }));
+        
+        // Se o campo NÃO estiver vazio, atualiza o carrinho
+        if (value !== '') {
+          const newQuantity = Number(value);
+          if (newQuantity >= 1) {
+            handleQuantityChange(product.id, newQuantity);
+          }
+        }
+      }}
+      onBlur={(e) => {
+        const value = e.target.value.replace(/\D/g, '');
+        
+        // Se vazio ou 0, volta para 1
+        if (value === '' || parseInt(value) <= 0) {
+          handleQuantityChange(product.id, 1);
+          // Limpa o estado local para mostrar o valor do carrinho
+          setInputQuantities(prev => ({
+            ...prev,
+            [product.id]: undefined
+          }));
+        } else {
+          const newQuantity = parseInt(value);
+          if (newQuantity > 999) {
+            handleQuantityChange(product.id, 999);
+            setInputQuantities(prev => ({
+              ...prev,
+              [product.id]: '999'
+            }));
+          } else {
+            handleQuantityChange(product.id, newQuantity);
+            // Limpa o estado local para mostrar o valor do carrinho
+            setInputQuantities(prev => ({
+              ...prev,
+              [product.id]: undefined
+            }));
+          }
+        }
+      }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          e.target.blur();
+        }
+      }}
+      style={{
+        width: isMobile ? '40px' : '35px',
+        padding: isMobile ? '6px 2px' : '4px 2px',
+        textAlign: 'center',
+        fontSize: isMobile ? '14px' : '12px',
+        fontWeight: '600',
+        border: '1px solid #ddd',
+        borderRadius: '6px',
+        background: 'white',
+        outline: 'none',
+        transition: 'border 0.2s'
+      }}
+      onFocus={(e) => {
+        e.target.style.borderColor = '#095400';
+        e.target.select();
+      }}
+      onBlur={(e) => {
+        e.target.style.borderColor = '#ddd';
+      }}
+    />
+    
+    <button
+      onClick={() => {
+        adjustQuantity(product.id, 1);
+        // Limpa o estado local ao usar os botões
+        setInputQuantities(prev => ({
+          ...prev,
+          [product.id]: undefined
+        }));
+      }}
+      style={{ 
+        background: '#2ECC71', 
+        color: 'white',
+        border: 'none', 
+        borderRadius: '50%', 
+        width: isMobile ? '28px' : '24px', 
+        height: isMobile ? '28px' : '24px', 
+        cursor: 'pointer',
+        fontSize: isMobile ? '16px' : '14px',
+        fontWeight: 'bold',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'all 0.2s'
+      }}
+      onMouseOver={(e) => e.target.style.background = '#27AE60'}
+      onMouseOut={(e) => e.target.style.background = '#2ECC71'}
+    > + </button>
+  </div>
+  
+  <div style={{ 
+    display: 'flex', 
+    alignItems: 'center', 
+    gap: isMobile ? '12px' : '8px' 
+  }}>
+    <div style={{ textAlign: 'right' }}>
+      {temDesconto && (cupomAtivo || campanhaAtiva) ? (
+        <>
+          <p style={{ 
+            fontWeight: 700, 
+            margin: 0, 
+            color: '#27AE60', 
+            fontSize: isMobile ? '15px' : '14px'
+          }}>
+            R$ {precoComDesconto.toFixed(2)}
+          </p>
+          <p style={{ 
+            margin: 0, 
+            color: '#999', 
+            fontSize: isMobile ? '11px' : '10px',
+            textDecoration: 'line-through'
+          }}>
+            R$ {product.totalPrice.toFixed(2)}
+          </p>
+        </>
+      ) : (
+        <p style={{ 
+          fontWeight: 700, 
+          margin: 0, 
+          color: '#E74C3C', 
+          fontSize: isMobile ? '15px' : '14px'
+        }}>
+          R$ {product.totalPrice.toFixed(2)}
+        </p>
+      )}
+    </div>
+    <button
+      onClick={() => {
+        handleRemoveFromCart(product.id);
+        // Limpa o estado local ao remover
+        setInputQuantities(prev => ({
+          ...prev,
+          [product.id]: undefined
+        }));
+      }}
+      style={{ 
+        background: '#FF6B6B', 
+        color: 'white', 
+        border: 'none', 
+        borderRadius: '50%',
+        width: isMobile ? '32px' : '28px',
+        height: isMobile ? '32px' : '28px',
+        cursor: 'pointer', 
+        fontSize: isMobile ? '16px' : '14px',
+        fontWeight: 'bold',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'all 0.2s'
+      }}
+      onMouseOver={(e) => e.target.style.background = '#EE5A52'}
+      onMouseOut={(e) => e.target.style.background = '#FF6B6B'}
+    > × </button>
+  </div>
+</div>
 
                     {/* Mostra o desconto distribuído */}
                     {dadosDesconto && dadosDesconto.itensComDesconto[product.id] && (
