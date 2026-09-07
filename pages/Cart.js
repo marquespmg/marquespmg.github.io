@@ -1500,7 +1500,7 @@ const handleQuantityChange = (productId, newQuantity) => {
       onMouseOut={(e) => e.target.style.background = '#E74C3C'}
     > - </button>
     
-    {/* ✅ CAMPO DE QUANTIDADE EDITÁVEL COM ESTADO LOCAL */}
+    {/* ✅ CAMPO DE QUANTIDADE EDITÁVEL - SEM SELEÇÃO AUTOMÁTICA */}
     <input
       type="text"
       inputMode="numeric"
@@ -1572,7 +1572,7 @@ const handleQuantityChange = (productId, newQuantity) => {
       }}
       onFocus={(e) => {
         e.target.style.borderColor = '#095400';
-        e.target.select();
+        // ✅ NÃO SELECIONA NADA - comportamento natural
       }}
       onBlur={(e) => {
         e.target.style.borderColor = '#ddd';
