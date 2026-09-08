@@ -6444,6 +6444,7 @@ productsGrid: {
           src={product.image} 
           alt={seo.alt}
           title={seo.title}
+		  loading="lazy"  // ← ADICIONE SÓ ISSO
           style={styles.productImage}
           onError={(e) => {
             e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
