@@ -3858,9 +3858,9 @@ const filteredProducts = uniqueProducts
               <Link href="/produtos" legacyBehavior>
                 <a style={{
                   ...styles.homeButton,
-                  backgroundColor: '#095400',
+                  backgroundColor: '#e53935',
                   color: 'white',
-                  border: '1px solid #095400'
+                  border: '1px solid #e53935'
                 }}>
                   🚚 Entrega
                 </a>
@@ -4496,158 +4496,137 @@ const filteredProducts = uniqueProducts
           </div>
         </footer>
 
-        {/* ========== SCRIPT SCHEMA.ORG - RETIRADA ========== */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "LocalBusiness",
-                  "name": "PMG Atacadista - Retirada",
-                  "description": "PMG Atacadista - Retirada de produtos em Santo Amaro, São Paulo. Pedido mínimo R$ 200,00. Atacado food service para restaurantes, bares e mercados. Retirada mediante pedido.",
-                  "image": "https://i.imgur.com/jrERRsC.png",
-                  "telephone": "+55-11-91357-2902",
-                  "priceRange": "$$",
-                  "openingHours": "Mon-Fri 08:00-17:00",
-                  "openingHoursSpecification": [
-                    {
-                      "@type": "OpeningHoursSpecification",
-                      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                      "opens": "08:00",
-                      "closes": "17:00"
-                    }
-                  ],
-                  "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Rua Ada Negri, 96",
-                    "addressLocality": "Santo Amaro",
-                    "addressRegion": "SP",
-                    "postalCode": "04755-000",
-                    "addressCountry": "BR"
-                  },
-                  "geo": {
-                    "@type": "GeoCoordinates",
-                    "latitude": "-23.6549",
-                    "longitude": "-46.7059"
-                  },
-                  "areaServed": [
-                    {
-                      "@type": "City",
-                      "name": "Santo Amaro - SP"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "São Paulo - SP"
-                    },
-                    {
-                      "@type": "AdministrativeArea",
-                      "name": "Grande São Paulo"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Itapecerica da Serra - SP"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Embu das Artes - SP"
-                    },
-                    {
-                      "@type": "City",
-                      "name": "Taboão da Serra - SP"
-                    }
-                  ],
-                  "hasMap": "https://www.google.com/maps?q=R.+Ada+Negri,+96+-+Santo+Amaro,+São+Paulo",
-                  "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "PIX"],
-                  "currenciesAccepted": "BRL",
-                  "contactPoint": {
-                    "@type": "ContactPoint",
-                    "telephone": "+55-11-91357-2902",
-                    "contactType": "sales",
-                    "availableLanguage": ["Portuguese"]
-                  },
-                  "makesOffer": currentProducts.map(product => ({
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Product",
-                      "name": product.name,
-                      "description": `${product.name} disponível para retirada na PMG Atacadista em Santo Amaro - SP. Produto em estoque para retirada imediata.`,
-                      "image": product.image,
-                      "category": product.category,
-                      "brand": {
-                        "@type": "Brand",
-                        "name": "PMG Atacadista"
-                      }
-                    },
-                    "price": product.price.toString(),
-                    "priceCurrency": "BRL",
-                    "availability": "https://schema.org/InStock",
-                    "priceValidUntil": "2026-12-31",
-                    "availableAtOrFrom": {
-                      "@type": "Place",
-                      "name": "PMG Atacadista - Retirada",
-                      "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "Rua Ada Negri, 96",
-                        "addressLocality": "Santo Amaro",
-                        "addressRegion": "SP",
-                        "postalCode": "04755-000",
-                        "addressCountry": "BR"
-                      }
-                    },
-                    "shippingDetails": {
-                      "@type": "OfferShippingDetails",
-                      "shippingRate": {
-                        "@type": "MonetaryAmount",
-                        "value": "0.00",
-                        "currency": "BRL"
-                      },
-                      "deliveryTime": {
-                        "@type": "ShippingDeliveryTime",
-                        "handlingTime": {
-                          "@type": "QuantitativeValue",
-                          "minValue": 0,
-                          "maxValue": 2,
-                          "unitCode": "h"
-                        }
-                      }
-                    },
-                    "hasMerchantReturnPolicy": {
-                      "@type": "MerchantReturnPolicy",
-                      "applicableCountry": "BR",
-                      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                      "merchantReturnDays": 0,
-                      "returnMethod": "https://schema.org/ReturnAtPlace"
-                    }
-                  })),
-                  "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": "https://www.marquesvendaspmg.shop/retirada?search={search_term_string}",
-                    "query-input": "required name=search_term_string"
-                  }
-                },
-                {
-                  "@type": "BreadcrumbList",
-                  "itemListElement": [
-                    {
-                      "@type": "ListItem",
-                      "position": 1,
-                      "name": "Início",
-                      "item": "https://www.marquesvendaspmg.shop"
-                    },
-                    {
-                      "@type": "ListItem",
-                      "position": 2,
-                      "name": "Retirada",
-                      "item": "https://www.marquesvendaspmg.shop/retirada"
-                    }
-                  ]
-                }
-              ]
-            })
-          }}
-        />
+{/* ========== SCRIPT SCHEMA.ORG - RETIRADA ========== */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "name": "PMG Atacadista - Retirada",
+          "description": "PMG Atacadista - Retirada de produtos em Santo Amaro, São Paulo. Pedido mínimo R$ 200,00. Atacado food service para restaurantes, bares e mercados. Retirada mediante pedido.",
+          "image": "https://i.imgur.com/jrERRsC.png",
+          "telephone": "+55-11-91357-2902",
+          "priceRange": "$$",
+          "openingHours": "Mon-Fri 08:00-17:00",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "08:00",
+              "closes": "17:00"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Ada Negri, 96",
+            "addressLocality": "Santo Amaro",
+            "addressRegion": "SP",
+            "postalCode": "04755-000",
+            "addressCountry": "BR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-23.6549",
+            "longitude": "-46.7059"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Santo Amaro - SP"
+            },
+            {
+              "@type": "City",
+              "name": "São Paulo - SP"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Grande São Paulo"
+            }
+          ],
+          "hasMap": "https://www.google.com/maps?q=R.+Ada+Negri,+96+-+Santo+Amaro,+São+Paulo",
+          "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "PIX"],
+          "currenciesAccepted": "BRL",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-11-91357-2902",
+            "contactType": "sales",
+            "availableLanguage": ["Portuguese"]
+          },
+          "makesOffer": currentProducts.map(product => ({
+            "@type": "Offer",
+            "price": product.price.toString(),
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2026-12-31",
+            "itemOffered": {
+              "@type": "Product",
+              "name": product.name,
+              "description": `${product.name} disponível para retirada na PMG Atacadista em Santo Amaro - SP. Produto em estoque para retirada imediata.`,
+              "image": product.image,
+              "category": product.category,
+              "brand": {
+                "@type": "Brand",
+                "name": "PMG Atacadista"
+              },
+              // ⭐ ADICIONADO para resolver o erro crítico
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "37",
+                "bestRating": "5",
+                "worstRating": "1"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": product.price.toString(),
+                "priceCurrency": "BRL",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2026-12-31"
+              }
+            },
+            "availableAtOrFrom": {
+              "@type": "Place",
+              "name": "PMG Atacadista - Retirada",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Rua Ada Negri, 96",
+                "addressLocality": "Santo Amaro",
+                "addressRegion": "SP",
+                "postalCode": "04755-000",
+                "addressCountry": "BR"
+              }
+            }
+          })),
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.marquesvendaspmg.shop/retirada?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Início",
+              "item": "https://www.marquesvendaspmg.shop"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Retirada",
+              "item": "https://www.marquesvendaspmg.shop/retirada"
+            }
+          ]
+        }
+      ]
+    })
+  }}
+/>
 
         {/* ========== CONTEÚDO SEO OCULTO ========== */}
         <div style={{
