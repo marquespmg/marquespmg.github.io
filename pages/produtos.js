@@ -6021,6 +6021,40 @@ productsGrid: {
       Minha Conta
     </button>
     
+    {/* ⭐ BOTÃO RETIRAR - NOVO */}
+    <Link href="/retirada" legacyBehavior>
+      <a style={{
+        backgroundColor: '#e53935',
+        color: 'white',
+        border: 'none',
+        padding: windowWidth > 768 ? '10px 20px' : '8px 15px',
+        borderRadius: '30px',
+        fontSize: windowWidth > 768 ? '14px' : '12px',
+        fontWeight: '700',
+        cursor: 'pointer',
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '5px',
+        transition: 'all 0.3s',
+        boxShadow: '0 2px 8px rgba(229, 57, 53, 0.3)'
+      }}
+      onMouseOver={(e) => {
+        e.target.style.backgroundColor = '#c62828';
+        e.target.style.transform = 'translateY(-2px)';
+        e.target.style.boxShadow = '0 4px 12px rgba(229, 57, 53, 0.4)';
+      }}
+      onMouseOut={(e) => {
+        e.target.style.backgroundColor = '#e53935';
+        e.target.style.transform = 'translateY(0)';
+        e.target.style.boxShadow = '0 2px 8px rgba(229, 57, 53, 0.3)';
+      }}
+    >
+      <span>📦</span>
+      RETIRAR
+    </a>
+    </Link>
+    
     {/* BOTÃO SAIR DA CONTA */}
     <button
       onClick={handleLogout}
@@ -6046,7 +6080,6 @@ productsGrid: {
     </button>
   </div>
 )}
-
         <div style={styles.searchBar}>
           <input
             type="text"
