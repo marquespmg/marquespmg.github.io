@@ -2976,6 +2976,8 @@ const RetiradaPage = () => {
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const bannerIntervalRef = useRef(null);
 
+    useTrackUser(); // ← ADICIONE ESTA LINHA
+
   // ========== DETECTAR APP E ESCONDER GOOGLE LOGIN ========== //
   useEffect(() => {
     const inApp = isRunningInApp();
