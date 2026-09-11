@@ -2818,6 +2818,21 @@ const products = [
   { id: 2948, name: 'RAGGU DE SUÍNO MOÍDO CONGELADO TEMPERADO GRAN CORTE 500 G', category: 'Derivados de Suíno', price: 10.43, image: 'https://www.marquesvendaspmg.shop/images/raggu-de-suino-moido-congelado-temperado-gran-corte-500-g-cx-16-pct.webp' },
   { id: 2949, name: 'REQUEIJÃO COPO TRÊS MARIAS SEM AMIDO 200 G (CX 24 UN)', category: 'Derivados de Leite', price: 189.96, image: 'https://www.marquesvendaspmg.shop/images/requeijao-copo-tres-marias-sem-amido-200-g-cx-24-un.png' },
   { id: 2950, name: 'SOBRECOXAS DE FRANGO CONGELADAS COM OSSO ADORO (CX 20 KILO)', category: 'Derivados de Ave', price: 191.10, image: 'https://www.marquesvendaspmg.shop/images/sobrecoxas-de-frango-congeladas-com-osso-adoro-cx-20-kg.webp' },
+  { id: 2951, name: 'ALGA MARINHA YAKI SUSHI NORI BLACK TAICHI 140 G', category: 'Derivados do Mar', price: 44.98, image: 'https://www.marquesvendaspmg.shop/images/alga-marinha-yaki-sushi-nori-black-taichi-140-g-cx-70-pct.webp' },
+  { id: 2952, name: 'ALGA MARINHA YAKI SUSHI NORI GOLD TAICHI 140 G', category: 'Derivados do Mar', price: 35.98, image: 'https://www.marquesvendaspmg.shop/images/alga-marinha-yaki-sushi-nori-gold-taichi-140-g-cx-70-pct.jpg' },
+  { id: 2953, name: 'ANÉIS DE CEBOLA CONGELADO PRÉ FRITOS EMPANADOS PRÉ FORMADOS BEM BRASIL 1,05 KILO (CX 8 PCT)', category: 'Derivados de Vegetal', price: 190.28, image: 'https://www.marquesvendaspmg.shop/images/aneis-de-cebola-congelado-pre-fritos-empanados-pre-formados-bem-brasil-105-kg-cx-8-pct.png' },
+  { id: 2954, name: 'APERITIVO RUM XEQUE MATE 362 ML (PCT 12 LT)', category: 'Bebidas', price: 96.76, image: 'https://www.marquesvendaspmg.shop/images/aperitivo-rum-xeque-mate-362-ml-pct-12-lt.webp' },
+  { id: 2955, name: 'CALABRESA GRAN CORTE 2,5 KILO', category: 'Derivados de Suíno', price: 51.32, image: 'https://www.marquesvendaspmg.shop/images/calabresa-gran-corte-25-kg-cx-4-pct.png' },
+  { id: 2956, name: 'CALABRESA RETA FRIMESA 3 KILO', category: 'Derivados de Suíno', price: 63.03, image: 'https://www.marquesvendaspmg.shop/images/calabresa-reta-frimesa-3-kg-cx-4-pct.png' },
+  { id: 2960, name: 'FEIJÃO CARIOCA TIPO 1 CAMPEIRO 1 KILO (FDO 10 PCT)', category: 'Derivados de Vegetal', price: 82.25, image: 'https://www.marquesvendaspmg.shop/images/feijao-carioca-tipo-1-campeiro-1-kg-fdo-10-pct.webp' },
+  { id: 2961, name: 'MASSA FRESCA NHOQUE DE BATATA BRASILEIRINHA 500 G ', category: 'Farináceos', price: 9.54, image: 'https://www.marquesvendaspmg.shop/images/massa-fresca-nhoque-de-batata-brasileirinha-500-g-fdo-12-pct.png' },
+  { id: 2962, name: 'MUÇARELA DE BÚFALA BÚFALO DOURADO 2.5 KG', category: 'Derivados de Leite', price: 55.83, image: 'https://www.marquesvendaspmg.shop/images/mucarela-de-bufala-bufalo-dourado-25-kg-cx-3-pc.png' },
+  { id: 2964, name: 'MUÇARELA LATVIDA 3 KG', category: 'Derivados de Leite', price: 32.72, image: 'https://www.marquesvendaspmg.shop/images/mucarela-latvida-3-kg-cx-6-pc.png' },
+  { id: 2965, name: 'PARMA PRESUNTO CRU FATIADO GRANDE SERRANO ESPANHOL HACIENDAS 500 G ', category: 'Derivados de Suíno', price: 53.24, image: 'https://www.marquesvendaspmg.shop/images/parma-presunto-cru-fatiado-grande-serrano-espanhol-haciendas-500-g-cx-6-pct.png' },
+  { id: 2966, name: 'PARMA PRESUNTO CRU FATIADO PEQUENO SERRANO ESPANHOL HACIENDAS 100 G ', category: 'Derivados de Suíno', price: 20.39, image: 'https://www.marquesvendaspmg.shop/images/parma-presunto-cru-fatiado-pequeno-serrano-espanhol-haciendas-100-g-cx-15-pct.png' },
+  { id: 2967, name: 'PARMESÃO 6 MESES PRESIDENT 7 KG', category: 'Derivados de Leite', price: 82.62, image: 'https://www.marquesvendaspmg.shop/images/parmesao-6-meses-president-7-kg-cx-2-pc.png' },
+  { id: 2968, name: 'PARMESÃO RALADO MÉDIO NOVATO 1 KILO', category: 'Derivados de Leite', price: 37.31, image: 'https://www.marquesvendaspmg.shop/images/parmesao-ralado-medio-novato-1-kg-fdo-10-pct.png' },
+  { id: 2969, name: 'SAL GROSSO PARA CHURRASCO MARFIM 1 KILO (FDO 10 PCT)', category: 'Farináceos', price: 18.94, image: 'https://www.marquesvendaspmg.shop/images/sal-grosso-para-churrasco-marfim-1-kg-fdo-10-pct.png' },
     // ... adicione todos os produtos até ID 1898
 ];
 
