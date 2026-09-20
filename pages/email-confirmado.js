@@ -1,52 +1,88 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const EmailConfirmado = () => {
+  const router = useRouter();
+  const { status } = router.query;
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Animação de entrada suave
     setIsVisible(true);
   }, []);
 
+  // ✅ Só mostra sucesso se status não for 'error'
+  const isSuccess = status !== 'error';
+
   return (
     <div style={styles.container}>
-      <div style={{...styles.contentBox, opacity: isVisible ? 1 : 0, transform: isVisible ? 'translateY(0)' : 'translateY(20px)'}}>
+      <div
+        style={{
+          ...styles.contentBox,
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
+        }}
+      >
+        {/* ÍCONE */}
         <div style={styles.successIcon}>
-          <svg viewBox="0 0 100 100" style={styles.checkmark}>
-            <circle cx="50" cy="50" r="45" fill="none" stroke="#28a745" strokeWidth="5"/>
-            <path fill="none" stroke="#28a745" strokeWidth="8" d="M30,50 45,65 70,35"/>
-          </svg>
-        </div>
-        
-        <h2 style={styles.title}>E-mail Confirmado com Sucesso!</h2>
-        
-        <p style={styles.text}>
-          Parabéns! Seu e-mail foi confirmado e sua conta está ativada.
-        </p>
-        
-        <p style={styles.text}>
-          Agora você tem acesso completo ao <span style={styles.highlight}>programa de indicações</span> da{' '}
-          <span style={styles.highlight}>Marques Vendas PMG</span>.
-        </p>
-
-        <div style={styles.stepsContainer}>
-          <h3 style={styles.stepsTitle}>Próximos Passos:</h3>
-          <ol style={styles.stepsList}>
-            <li style={styles.stepsItem}>Volte para o site de indicações</li>
-            <li style={styles.stepsItem}>Faça login com seu e-mail e senha</li>
-            <li style={styles.stepsItem}>Quanto mais indicar, mais você ganha</li>
-          </ol>
+          {isSuccess ? (
+            <svg viewBox="0 0 100 100" style={styles.checkmark}>
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#28a745" strokeWidth="5"/>
+              <path fill="none" stroke="#28a745" strokeWidth="8" d="M30,50 45,65 70,35"/>
+            </svg>
+          ) : (
+            <svg viewBox="0 0 100 100" style={styles.checkmark}>
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#dc3545" strokeWidth="5"/>
+              <path fill="none" stroke="#dc3545" strokeWidth="8" d="M35,35 65,65 M65,35 35,65"/>
+            </svg>
+          )}
         </div>
 
-        <p style={styles.warning}>
-          <span>⚠</span> Dica: Use a mesma senha que você cadastrou.
-        </p>
+        {/* TÍTULO */}
+        <h2 style={{
+          ...styles.title,
+          color: isSuccess ? '#28a745' : '#dc3545'
+        }}>
+          {isSuccess ? 'E-mail confirmado com sucesso!' : 'Erro na confirmação'}
+        </h2>
 
+        {/* MENSAGEM */}
+        {isSuccess ? (
+          <>
+            <p style={styles.text}>
+              Seu e-mail foi confirmado e sua conta está ativa.
+            </p>
+            <p style={styles.text}>
+              Agora você já pode fazer login e acessar todos os produtos da{' '}
+              <span style={styles.highlight}>Marques Vendas PMG</span>.
+            </p>
+
+            {/* BOTÃO DE SUCESSO */}
+            <a href="/produtos" style={styles.button}>
+              Acessar a Loja
+            </a>
+          </>
+        ) : (
+          <>
+            <p style={styles.text}>
+              Ocorreu um erro ao confirmar seu e-mail.
+            </p>
+            <p style={styles.text}>
+              Verifique se o link está completo ou solicite um novo.
+            </p>
+
+            {/* BOTÃO DE ERRO */}
+            <a href="/produtos" style={styles.buttonError}>
+              Voltar para a Loja
+            </a>
+          </>
+        )}
+
+        {/* RODAPÉ */}
         <p style={styles.footer}>
-          © 2025 Marques Vendas PMG - Todos os direitos reservados.
+          © 2026 Marques Vendas PMG - Todos os direitos reservados.
         </p>
       </div>
-      
+
       <style jsx>{`
         @keyframes scaleIn {
           0% { transform: scale(0); opacity: 0; }
@@ -66,8 +102,7 @@ const styles = {
     minHeight: '100vh',
     backgroundColor: '#f8f9fa',
     padding: '20px',
-    fontFamily: "'Inter', sans-serif",
-    transition: 'all 0.3s ease'
+    fontFamily: "'Inter', sans-serif"
   },
   contentBox: {
     background: '#fff',
@@ -90,9 +125,8 @@ const styles = {
     animation: 'scaleIn 0.5s ease forwards'
   },
   title: {
-    color: '#333',
     marginBottom: '20px',
-    fontSize: '28px',
+    fontSize: '26px',
     fontWeight: '700'
   },
   text: {
@@ -101,42 +135,36 @@ const styles = {
     lineHeight: '1.6',
     fontSize: '16px'
   },
-  stepsContainer: {
-    textAlign: 'left',
-    margin: '25px 0',
-    padding: '20px',
-    background: '#f8f9fa',
-    borderRadius: '10px',
-    border: '1px solid #e9ecef'
+  button: {
+    display: 'inline-block',
+    padding: '14px 32px',
+    backgroundColor: '#095400',
+    color: 'white',
+    textDecoration: 'none',
+    borderRadius: '8px',
+    fontWeight: '600',
+    fontSize: '16px',
+    marginTop: '20px',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 12px rgba(9, 84, 0, 0.2)'
   },
-  stepsTitle: {
-    color: '#333',
-    marginBottom: '15px',
-    fontSize: '18px',
-    fontWeight: '600'
-  },
-  stepsList: {
-    paddingLeft: '20px',
-    color: '#666'
-  },
-  stepsItem: {
-    marginBottom: '10px',
-    lineHeight: '1.5'
-  },
-  warning: {
-    color: '#dc3545',
-    fontWeight: '500',
-    marginTop: '15px',
-    fontSize: '14px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '8px'
+  buttonError: {
+    display: 'inline-block',
+    padding: '14px 32px',
+    backgroundColor: '#dc3545',
+    color: 'white',
+    textDecoration: 'none',
+    borderRadius: '8px',
+    fontWeight: '600',
+    fontSize: '16px',
+    marginTop: '20px',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 12px rgba(220, 53, 69, 0.2)'
   },
   footer: {
-    marginTop: '30px',
+    marginTop: '35px',
     color: '#999',
-    fontSize: '14px'
+    fontSize: '13px'
   },
   highlight: {
     color: '#095400',
