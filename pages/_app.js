@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Markito from '../pages/Markito';
 import SeasonalOverlay from '@/components/SeasonalOverlay/SeasonalOverlay';
+import AvaliacaoAppOverlay from '@/components/AvaliacaoAppOverlay/AvaliacaoAppOverlay'; // ✅ NOVO
 import '../styles/globals.css';
 
 // ========== LIMPEZA TOTAL DE CACHE (RADICAL) ==========
@@ -242,7 +243,11 @@ function MyApp({ Component, pageProps }) {
         `
       }} />
 
+      {/* ✅ Overlay sazonal (existente) */}
       <SeasonalOverlay />
+
+      {/* ✅ NOVO: Overlay de avaliação do app */}
+      <AvaliacaoAppOverlay />
 
       <Component 
         {...pageProps} 
