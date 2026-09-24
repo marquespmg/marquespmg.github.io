@@ -3,6 +3,12 @@ import Head from 'next/head';
 import { useState, useRef, useEffect } from 'react';
 
 export default function EnvioEmMassa() {
+  // ========== PROTEÇÃO POR SENHA ==========
+  const [autenticado, setAutenticado] = useState(false);
+  const [senhaInput, setSenhaInput] = useState('');
+  const [erroSenha, setErroSenha] = useState('');
+
+  // ========== ESTADOS ORIGINAIS ==========
   const [isMobile, setIsMobile] = useState(false);
   const [abaAtiva, setAbaAtiva] = useState('disparar');
   const [arquivo, setArquivo] = useState(null);
@@ -35,49 +41,49 @@ export default function EnvioEmMassa() {
     localStorage.setItem('pmg_historico', JSON.stringify(novo));
   };
 
-const handleFile = (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
-  setArquivo(file);
+  const handleFile = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setArquivo(file);
 
-  const reader = new FileReader();
-  reader.onload = (evt) => {
-    const texto = evt.target.result;
-    const linhas = texto.split('\n').filter(l => l.trim());
-    if (linhas.length < 2) {
-      setLog(prev => [...prev, '⚠️ Arquivo vazio ou sem cabeçalho']);
-      return;
-    }
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      const texto = evt.target.result;
+      const linhas = texto.split('\n').filter(l => l.trim());
+      if (linhas.length < 2) {
+        setLog(prev => [...prev, '⚠️ Arquivo vazio ou sem cabeçalho']);
+        return;
+      }
 
-    // Detecta o separador: tab, ponto e vírgula ou vírgula
-    const primeiraLinha = linhas[0];
-    let separador = ',';
-    if (primeiraLinha.includes('\t')) separador = '\t';
-    else if (primeiraLinha.includes(';')) separador = ';';
-    else if (primeiraLinha.includes(',')) separador = ',';
+      // Detecta o separador: tab, ponto e vírgula ou vírgula
+      const primeiraLinha = linhas[0];
+      let separador = ',';
+      if (primeiraLinha.includes('\t')) separador = '\t';
+      else if (primeiraLinha.includes(';')) separador = ';';
+      else if (primeiraLinha.includes(',')) separador = ',';
 
-    const cabecalho = primeiraLinha
-      .split(separador)
-      .map(c => c.trim().toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-      );
+      const cabecalho = primeiraLinha
+        .split(separador)
+        .map(c => c.trim().toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+        );
 
-    const dados = linhas.slice(1).map(linha => {
-      const valores = linha.split(separador).map(v => v.trim());
-      const obj = {};
-      cabecalho.forEach((col, i) => obj[col] = valores[i] || '');
-      return obj;
-    }).filter(c => c.telefone);
+      const dados = linhas.slice(1).map(linha => {
+        const valores = linha.split(separador).map(v => v.trim());
+        const obj = {};
+        cabecalho.forEach((col, i) => obj[col] = valores[i] || '');
+        return obj;
+      }).filter(c => c.telefone);
 
-    setContatos(dados);
-    setLog(prev => [
-      ...prev,
-      `✅ ${dados.length} contatos carregados (separador: "${separador === '\t' ? 'TAB' : separador}")`
-    ]);
+      setContatos(dados);
+      setLog(prev => [
+        ...prev,
+        `✅ ${dados.length} contatos carregados (separador: "${separador === '\t' ? 'TAB' : separador}")`
+      ]);
+    };
+    reader.readAsText(file);
   };
-  reader.readAsText(file);
-};
 
   // Adiciona 55 automaticamente se não tiver
   const limparTelefone = (tel) => {
@@ -153,6 +159,100 @@ const handleFile = (e) => {
   const totalEnviados = historico.reduce((acc, c) => acc + c.enviados, 0);
   const totalFalhas = historico.reduce((acc, c) => acc + c.falhas, 0);
 
+  // ========== TELA DE LOGIN ==========
+  if (!autenticado) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f0f8f0',
+        fontFamily: "'Segoe UI', Roboto, sans-serif",
+        padding: '20px'
+      }}>
+        <div style={{
+          backgroundColor: '#fff',
+          padding: '40px 30px',
+          borderRadius: '12px',
+          boxShadow: '0 10px 30px rgba(9, 84, 0, 0.15)',
+          maxWidth: '400px',
+          width: '100%',
+          textAlign: 'center'
+        }}>
+          <img
+            src="https://i.imgur.com/pBH5WpZ.png"
+            alt="PMG"
+            style={{ width: '120px', marginBottom: '20px' }}
+          />
+          <h1 style={{ color: '#095400', fontSize: '1.4rem', marginBottom: '10px' }}>
+            Painel Interno
+          </h1>
+          <p style={{ color: '#666', fontSize: '0.9rem', marginBottom: '25px' }}>
+            Digite a senha para acessar o painel de envio.
+          </p>
+
+          <input
+            type="password"
+            placeholder="Senha"
+            value={senhaInput}
+            onChange={(e) => setSenhaInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                if (senhaInput === process.env.NEXT_PUBLIC_SENHA_PMG) {
+                  setAutenticado(true);
+                  setErroSenha('');
+                } else {
+                  setErroSenha('Senha incorreta');
+                }
+              }
+            }}
+            style={{
+              width: '100%',
+              padding: '14px',
+              borderRadius: '8px',
+              border: '1px solid #ccc',
+              fontSize: '1rem',
+              marginBottom: '15px',
+              boxSizing: 'border-box'
+            }}
+          />
+
+          {erroSenha && (
+            <p style={{ color: '#e74c3c', fontSize: '0.85rem', marginBottom: '15px' }}>
+              {erroSenha}
+            </p>
+          )}
+
+          <button
+            onClick={() => {
+              if (senhaInput === process.env.NEXT_PUBLIC_SENHA_PMG) {
+                setAutenticado(true);
+                setErroSenha('');
+              } else {
+                setErroSenha('Senha incorreta');
+              }
+            }}
+            style={{
+              width: '100%',
+              padding: '14px',
+              backgroundColor: '#095400',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '1rem',
+              fontWeight: '600',
+              cursor: 'pointer'
+            }}
+          >
+            Entrar
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // ========== PAINEL (APÓS LOGIN) ==========
   return (
     <>
       <Head>
