@@ -99,7 +99,7 @@ export default function EnvioEmMassa() {
       return;
     }
     setEnviando(true);
-    setLog(prev => [...prev, `🚀 Iniciando envio para ${contatos.length} contatos...`]);
+    setLog(prev => [...prev, `🚀 Iniciando envio para ${contatos.length} contatos usando o template "${template}"...`]);
 
     const campanha = {
       id: Date.now(),
@@ -389,14 +389,20 @@ export default function EnvioEmMassa() {
             </section>
 
             <section style={cardSecaoCinza}>
-              <h2 style={tituloSecao}>2. Template aprovado</h2>
+              <h2 style={tituloSecao}>2. Escolha o template</h2>
               <select
                 value={template}
                 onChange={(e) => setTemplate(e.target.value)}
                 style={selectStyle}
               >
-                <option value="prospeccao_pmg_atacado3">prospeccao_pmg_atacado3</option>
+                <option value="prospeccao_pmg_atacado3">prospeccao_pmg_atacado3 (Marketing - Original)</option>
+                <option value="prospeccao_pmg_atacado4">prospeccao_pmg_atacado4 (Marketing - Apresentação)</option>
+                <option value="prospeccao_pmg_atacado5">prospeccao_pmg_atacado5 (Marketing - Enxuta)</option>
+                <option value="hello_world">hello_world (Teste - English)</option>
               </select>
+              <p style={{ marginTop: '10px', color: '#666', fontSize: '0.8rem' }}>
+                O template escolhido será usado em todos os contatos desta campanha.
+              </p>
             </section>
 
             <section style={{ textAlign: 'center', marginBottom: '20px' }}>
