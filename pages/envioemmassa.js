@@ -461,6 +461,7 @@ export default function EnvioEmMassa() {
                 <option value="prospeccao_pmg_atacado3">prospeccao_pmg_atacado3 (Marketing - Original)</option>
                 <option value="prospeccao_pmg_atacado4">prospeccao_pmg_atacado4 (Marketing - Apresentação)</option>
                 <option value="prospeccao_pmg_atacado5">prospeccao_pmg_atacado5 (Marketing - Enxuta)</option>
+                <option value="teste">teste (Marketing - Novo)</option>
                 <option value="hello_world">hello_world (Teste - English)</option>
               </select>
               <p style={{ marginTop: '10px', color: '#666', fontSize: '0.8rem' }}>
