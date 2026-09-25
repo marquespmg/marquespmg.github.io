@@ -16,9 +16,15 @@ export default function EnvioEmMassa() {
   const [template, setTemplate] = useState('prospeccao_pmg_atacado3');
   const [enviando, setEnviando] = useState(false);
   const [historico, setHistorico] = useState([]);
-  const [recebidas, setRecebidas] = useState([]);
   const [log, setLog] = useState([]);
   const fileInputRef = useRef(null);
+
+  // ========== ESTADOS DE CONVERSAS ==========
+  const [conversas, setConversas] = useState([]);
+  const [conversaAtiva, setConversaAtiva] = useState(null);
+  const [mensagensConversa, setMensagensConversa] = useState([]);
+  const [respostaTexto, setRespostaTexto] = useState('');
+  const [enviandoResposta, setEnviandoResposta] = useState(false);
 
   // Preço por mensagem Marketing (Brasil) em USD
   const PRECO_MARKETING_USD = 0.0732;
@@ -30,11 +36,70 @@ export default function EnvioEmMassa() {
 
     const hist = localStorage.getItem('pmg_historico');
     if (hist) setHistorico(JSON.parse(hist));
-    const rec = localStorage.getItem('pmg_recebidas');
-    if (rec) setRecebidas(JSON.parse(rec));
 
     return () => window.removeEventListener('resize', check);
   }, []);
+
+  // ========== CARREGAR CONVERSAS ==========
+  useEffect(() => {
+    if (abaAtiva === 'recebidas' && autenticado) {
+      carregarConversas();
+    }
+  }, [abaAtiva, autenticado]);
+
+  // Auto-refresh das conversas a cada 10s
+  useEffect(() => {
+    if (abaAtiva !== 'recebidas' || !autenticado) return;
+    const interval = setInterval(() => {
+      carregarConversas();
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [abaAtiva, autenticado]);
+
+  const carregarConversas = async () => {
+    try {
+      const resp = await fetch('/api/conversas');
+      const data = await resp.json();
+      if (data.conversas) setConversas(data.conversas);
+    } catch (err) {
+      console.error('Erro ao carregar conversas:', err);
+    }
+  };
+
+  const carregarMensagens = async (telefone) => {
+    try {
+      const resp = await fetch(`/api/mensagens?telefone=${telefone}`);
+      const data = await resp.json();
+      if (data.mensagens) setMensagensConversa(data.mensagens);
+    } catch (err) {
+      console.error('Erro ao carregar mensagens:', err);
+    }
+  };
+
+  const enviarResposta = async () => {
+    if (!respostaTexto.trim() || !conversaAtiva) return;
+    setEnviandoResposta(true);
+    try {
+      const resp = await fetch('/api/responder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          telefone: conversaAtiva.telefone,
+          texto: respostaTexto
+        })
+      });
+      const data = await resp.json();
+      if (resp.ok) {
+        setRespostaTexto('');
+        carregarMensagens(conversaAtiva.telefone);
+      } else {
+        alert('Erro: ' + (data.erro?.error?.message || 'falhou ao enviar'));
+      }
+    } catch (err) {
+      alert('Erro: ' + err.message);
+    }
+    setEnviandoResposta(false);
+  };
 
   const salvarHistorico = (novo) => {
     setHistorico(novo);
@@ -55,7 +120,6 @@ export default function EnvioEmMassa() {
         return;
       }
 
-      // Detecta o separador: tab, ponto e vírgula ou vírgula
       const primeiraLinha = linhas[0];
       let separador = ',';
       if (primeiraLinha.includes('\t')) separador = '\t';
@@ -85,7 +149,6 @@ export default function EnvioEmMassa() {
     reader.readAsText(file);
   };
 
-  // Adiciona 55 automaticamente se não tiver
   const limparTelefone = (tel) => {
     let numero = tel.replace(/\D/g, '');
     if (numero.startsWith('55') && numero.length >= 12) return numero;
@@ -339,7 +402,7 @@ export default function EnvioEmMassa() {
           {[
             { id: 'disparar', label: '📤 Disparar' },
             { id: 'historico', label: '📊 Histórico' },
-            { id: 'recebidas', label: '📥 Recebidas' },
+            { id: 'recebidas', label: '💬 Conversas' },
             { id: 'custos', label: '💰 Custos' }
           ].map(aba => (
             <button
@@ -465,27 +528,149 @@ export default function EnvioEmMassa() {
 
         {abaAtiva === 'recebidas' && (
           <section style={cardSecao}>
-            <h2 style={tituloSecao}>Mensagens recebidas</h2>
-            {recebidas.length === 0 ? (
-              <p style={{ color: '#666' }}>
-                Nenhuma mensagem recebida ainda.<br />
-                <small>Configure o Webhook para capturar as respostas automaticamente.</small>
-              </p>
-            ) : (
-              recebidas.map((m, i) => (
-                <div key={i} style={{
-                  padding: '15px',
-                  border: '1px solid #e0e0e0',
-                  borderRadius: '8px',
-                  marginBottom: '10px'
-                }}>
-                  <div style={{ fontSize: '0.8rem', color: '#666' }}>
-                    {m.telefone} • {new Date(m.data).toLocaleString('pt-BR')}
+            <h2 style={tituloSecao}>Conversas</h2>
+            <div style={{ display: 'flex', gap: '15px', minHeight: '400px', flexDirection: isMobile ? 'column' : 'row' }}>
+              {/* Lista de conversas */}
+              <div style={{
+                flex: isMobile ? '1' : '0 0 280px',
+                borderRight: isMobile ? 'none' : '1px solid #e0e0e0',
+                borderBottom: isMobile ? '1px solid #e0e0e0' : 'none',
+                paddingRight: isMobile ? '0' : '15px',
+                paddingBottom: isMobile ? '15px' : '0',
+                maxHeight: '500px',
+                overflowY: 'auto'
+              }}>
+                {conversas.length === 0 ? (
+                  <p style={{ color: '#666', fontSize: '0.85rem' }}>
+                    Nenhuma conversa ainda.
+                  </p>
+                ) : (
+                  conversas.map((c) => (
+                    <div
+                      key={c.id}
+                      onClick={() => {
+                        setConversaAtiva(c);
+                        carregarMensagens(c.telefone);
+                      }}
+                      style={{
+                        padding: '10px',
+                        borderRadius: '8px',
+                        marginBottom: '5px',
+                        cursor: 'pointer',
+                        backgroundColor: conversaAtiva?.id === c.id ? '#e8f5e9' : 'transparent',
+                        borderLeft: conversaAtiva?.id === c.id ? '3px solid #095400' : '3px solid transparent'
+                      }}
+                    >
+                      <div style={{ fontWeight: '600', fontSize: '0.85rem', color: '#095400' }}>
+                        {c.nome_contato || c.telefone}
+                      </div>
+                      <div style={{ fontSize: '0.75rem', color: '#666', marginTop: '3px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {c.ultima_mensagem}
+                      </div>
+                      {c.nao_lidas > 0 && (
+                        <span style={{
+                          backgroundColor: '#e74c3c',
+                          color: '#fff',
+                          borderRadius: '10px',
+                          padding: '1px 7px',
+                          fontSize: '0.7rem',
+                          marginTop: '3px',
+                          display: 'inline-block'
+                        }}>
+                          {c.nao_lidas} nova(s)
+                        </span>
+                      )}
+                    </div>
+                  ))
+                )}
+              </div>
+
+              {/* Janela de conversa */}
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                {!conversaAtiva ? (
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, color: '#999', minHeight: '200px' }}>
+                    Selecione uma conversa
                   </div>
-                  <div style={{ marginTop: '5px' }}>{m.texto}</div>
-                </div>
-              ))
-            )}
+                ) : (
+                  <>
+                    <div style={{ borderBottom: '1px solid #e0e0e0', paddingBottom: '10px', marginBottom: '10px' }}>
+                      <strong style={{ color: '#095400' }}>{conversaAtiva.nome_contato || conversaAtiva.telefone}</strong>
+                      <div style={{ fontSize: '0.75rem', color: '#666' }}>{conversaAtiva.telefone}</div>
+                      {conversaAtiva.janela_aberta_ate && new Date(conversaAtiva.janela_aberta_ate) > new Date() ? (
+                        <div style={{ fontSize: '0.75rem', color: '#2e7d32' }}>✅ Janela aberta — responda em texto livre</div>
+                      ) : (
+                        <div style={{ fontSize: '0.75rem', color: '#e74c3c' }}>⚠️ Janela fechada — use template para reengajar</div>
+                      )}
+                    </div>
+
+                    <div style={{ flex: 1, overflowY: 'auto', maxHeight: '350px', paddingRight: '10px' }}>
+                      {mensagensConversa.map((m) => (
+                        <div
+                          key={m.id}
+                          style={{
+                            textAlign: m.direcao === 'enviada' ? 'right' : 'left',
+                            marginBottom: '8px'
+                          }}
+                        >
+                          <div style={{
+                            display: 'inline-block',
+                            backgroundColor: m.direcao === 'enviada' ? '#d4edda' : '#f1f1f1',
+                            padding: '8px 12px',
+                            borderRadius: '10px',
+                            maxWidth: '70%',
+                            fontSize: '0.85rem',
+                            textAlign: 'left',
+                            wordBreak: 'break-word'
+                          }}>
+                            {m.conteudo}
+                            <div style={{ fontSize: '0.65rem', color: '#888', marginTop: '3px' }}>
+                              {new Date(m.created_at).toLocaleString('pt-BR')}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '8px', marginTop: '15px' }}>
+                      <input
+                        type="text"
+                        placeholder="Digite sua resposta..."
+                        value={respostaTexto}
+                        onChange={(e) => setRespostaTexto(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' && !e.shiftKey) {
+                            e.preventDefault();
+                            enviarResposta();
+                          }
+                        }}
+                        style={{
+                          flex: 1,
+                          padding: '12px',
+                          borderRadius: '8px',
+                          border: '1px solid #ccc',
+                          fontSize: '0.9rem'
+                        }}
+                      />
+                      <button
+                        onClick={enviarResposta}
+                        disabled={!respostaTexto.trim() || enviandoResposta}
+                        style={{
+                          padding: '12px 20px',
+                          backgroundColor: enviandoResposta ? '#999' : '#095400',
+                          color: '#fff',
+                          border: 'none',
+                          borderRadius: '8px',
+                          fontWeight: '600',
+                          cursor: enviandoResposta ? 'not-allowed' : 'pointer'
+                        }}
+                      >
+                        {enviandoResposta ? '...' : 'Enviar'}
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
           </section>
         )}
 
