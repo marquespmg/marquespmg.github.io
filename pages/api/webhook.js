@@ -1,6 +1,62 @@
 // pages/api/webhook.js
 import { supabase } from '../../lib/supabaseClient';
 
+// ============ RESPOSTAS AUTOMÁTICAS ============
+const RESPOSTAS_AUTOMATICAS = {
+  'Falar com vendedor': `Olá! 👋 Para falar com um vendedor da PMG Atacadista, chame diretamente no WhatsApp:
+
+👉 https://wa.me/5511913572902
+
+Será um prazer te atender!`,
+  
+  'Quero tabela de preço': `Olá! 👋 Acesse nossa tabela de preços e catálogo completo pelo link:
+
+👉 https://www.marquesvendaspmg.shop/produtos
+
+Qualquer dúvida, é só chamar!`,
+  
+  'Já sou cliente': `Olá! 🎉
+
+Obrigado por escolher a PMG Atacadista! Desejamos muito sucesso nos seus negócios.
+
+Se precisar de algo, é só chamar! 🚀`
+};
+
+// Função para enviar mensagem via API da Meta
+async function enviarMensagem(telefone, texto) {
+  const TOKEN = process.env.WHATSAPP_TOKEN;
+  const PHONE_ID = process.env.WHATSAPP_PHONE_ID;
+
+  try {
+    const resp = await fetch(
+      `https://graph.facebook.com/v21.0/${PHONE_ID}/messages`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          messaging_product: 'whatsapp',
+          to: telefone,
+          type: 'text',
+          text: { body: texto }
+        })
+      }
+    );
+
+    const data = await resp.json();
+    if (!resp.ok) {
+      console.error('❌ Erro ao enviar resposta automática:', data);
+      return null;
+    }
+    return data.messages?.[0]?.id;
+  } catch (err) {
+    console.error('❌ Erro ao enviar resposta automática:', err);
+    return null;
+  }
+}
+
 export default async function handler(req, res) {
   // ============ VERIFICAÇÃO (Meta chama com GET) ============
   if (req.method === 'GET') {
@@ -21,7 +77,6 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     let body = req.body;
 
-    // Se o body veio como string (ex: teste manual), faz o parse
     if (typeof body === 'string') {
       try {
         body = JSON.parse(body);
@@ -31,7 +86,6 @@ export default async function handler(req, res) {
       }
     }
 
-    // Log do body recebido (truncado para não poluir)
     console.log('📦 Webhook recebido:', JSON.stringify(body).substring(0, 800));
 
     try {
@@ -90,7 +144,7 @@ export default async function handler(req, res) {
             console.log('✅ Mensagem salva no Supabase');
           }
 
-          // 3. Atualiza a conversa (resumo para caixa de entrada)
+          // 3. Atualiza a conversa
           const janelaAberta = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
           const { error: erroConversa } = await supabase.from('conversas').upsert({
             contato_id: contato?.id || null,
@@ -107,6 +161,44 @@ export default async function handler(req, res) {
             console.error('❌ Erro ao atualizar conversa:', erroConversa);
           } else {
             console.log('✅ Conversa atualizada');
+          }
+
+          // 4. RESPOSTA AUTOMÁTICA (quebra-gelos)
+          const respostaAutomatica = RESPOSTAS_AUTOMATICAS[texto];
+
+          if (respostaAutomatica) {
+            console.log(`🤖 Detectado quebra-gelo: "${texto}" — enviando resposta automática`);
+
+            const messageId = await enviarMensagem(telefone, respostaAutomatica);
+
+            if (messageId) {
+              // Salva a resposta automática no Supabase
+              await supabase.from('mensagens').insert({
+                contato_id: contato?.id || null,
+                telefone,
+                direcao: 'enviada',
+                tipo: 'texto',
+                conteudo: respostaAutomatica,
+                message_id: messageId,
+                status: 'sent'
+              });
+
+              // Atualiza a conversa com a última mensagem enviada
+              await supabase.from('conversas').upsert({
+                contato_id: contato?.id || null,
+                telefone,
+                nome_contato: nome,
+                ultima_mensagem: respostaAutomatica,
+                ultima_mensagem_em: new Date().toISOString(),
+                ultima_mensagem_direcao: 'enviada',
+                janela_aberta_ate: janelaAberta,
+                nao_lidas: 0
+              }, { onConflict: 'telefone' });
+
+              console.log(`✅ Resposta automática enviada para ${telefone}`);
+            }
+          } else {
+            console.log(`ℹ️ Mensagem não é quebra-gelo, nenhuma resposta automática`);
           }
 
           console.log(`✅ Processado: ${nome} (${telefone}): ${texto}`);
@@ -135,7 +227,6 @@ export default async function handler(req, res) {
       console.error('❌ Erro geral no webhook:', e);
     }
 
-    // A Meta exige 200 rápido, senão reenvia o evento
     return res.status(200).end();
   }
 
