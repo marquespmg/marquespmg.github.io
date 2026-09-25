@@ -1,4 +1,6 @@
 // pages/api/webhook.js
+import { supabase } from '../../lib/supabaseClient';
+
 export default async function handler(req, res) {
   // ============ VERIFICAÇÃO (Meta chama com GET) ============
   if (req.method === 'GET') {
@@ -8,17 +10,29 @@ export default async function handler(req, res) {
     const challenge = req.query['hub.challenge'];
 
     if (mode === 'subscribe' && token === VERIFY_TOKEN) {
-      console.log('✅ Webhook verificado com sucesso');
+      console.log('✅ Webhook verificado');
       return res.status(200).send(challenge);
     }
-
     console.warn('❌ Falha na verificação do webhook');
     return res.status(403).end();
   }
 
   // ============ RECEBIMENTO DE EVENTOS (Meta chama com POST) ============
   if (req.method === 'POST') {
-    const body = req.body;
+    let body = req.body;
+
+    // Se o body veio como string (ex: teste manual), faz o parse
+    if (typeof body === 'string') {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        console.error('❌ Erro ao fazer parse do body:', e);
+        return res.status(400).end();
+      }
+    }
+
+    // Log do body recebido (truncado para não poluir)
+    console.log('📦 Webhook recebido:', JSON.stringify(body).substring(0, 800));
 
     try {
       const entry = body.entry?.[0];
@@ -33,32 +47,95 @@ export default async function handler(req, res) {
           const tipo = msg.type;
           const texto = msg.text?.body || `[${tipo}]`;
 
-          console.log(`📥 Recebida de ${nome} (${telefone}): ${texto}`);
+          console.log(`📥 Processando mensagem de ${nome} (${telefone}): ${texto}`);
 
-          // Aqui você pode salvar em banco de dados
-          // Exemplo: await salvarMensagem({ telefone, nome, texto, data: new Date() });
+          // 1. Garante que o contato existe
+          let { data: contato, error: erroBusca } = await supabase
+            .from('contatos')
+            .select('id')
+            .eq('telefone', telefone)
+            .single();
+
+          if (erroBusca && erroBusca.code !== 'PGRST116') {
+            console.error('❌ Erro ao buscar contato:', erroBusca);
+          }
+
+          if (!contato) {
+            const { data: novo, error: erroContato } = await supabase
+              .from('contatos')
+              .insert({ telefone, nome })
+              .select('id')
+              .single();
+
+            if (erroContato) {
+              console.error('❌ Erro ao criar contato:', erroContato);
+            }
+            contato = novo;
+          }
+
+          // 2. Salva a mensagem recebida
+          const { error: erroMsg } = await supabase.from('mensagens').insert({
+            contato_id: contato?.id || null,
+            telefone,
+            direcao: 'recebida',
+            tipo,
+            conteudo: texto,
+            message_id: msg.id,
+            status: 'received'
+          });
+
+          if (erroMsg) {
+            console.error('❌ Erro ao salvar mensagem:', erroMsg);
+          } else {
+            console.log('✅ Mensagem salva no Supabase');
+          }
+
+          // 3. Atualiza a conversa (resumo para caixa de entrada)
+          const janelaAberta = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+          const { error: erroConversa } = await supabase.from('conversas').upsert({
+            contato_id: contato?.id || null,
+            telefone,
+            nome_contato: nome,
+            ultima_mensagem: texto,
+            ultima_mensagem_em: new Date().toISOString(),
+            ultima_mensagem_direcao: 'recebida',
+            janela_aberta_ate: janelaAberta,
+            nao_lidas: 1
+          }, { onConflict: 'telefone' });
+
+          if (erroConversa) {
+            console.error('❌ Erro ao atualizar conversa:', erroConversa);
+          } else {
+            console.log('✅ Conversa atualizada');
+          }
+
+          console.log(`✅ Processado: ${nome} (${telefone}): ${texto}`);
         }
       }
 
       // ---------- Status de entrega/leitura ----------
       if (value?.statuses) {
         for (const st of value.statuses) {
-          const status = st.status; // sent, delivered, read, failed
-          const destinatario = st.recipient_id;
+          const status = st.status;
           const messageId = st.id;
 
-          console.log(`📊 Status "${status}" para ${destinatario} (msg ${messageId})`);
+          const { error: erroStatus } = await supabase
+            .from('mensagens')
+            .update({ status })
+            .eq('message_id', messageId);
 
-          if (status === 'failed' && st.errors) {
-            console.error('❌ Erro no envio:', JSON.stringify(st.errors, null, 2));
+          if (erroStatus) {
+            console.error('❌ Erro ao atualizar status:', erroStatus);
           }
+
+          console.log(`📊 Status "${status}" para msg ${messageId}`);
         }
       }
     } catch (e) {
-      console.error('Erro ao processar webhook:', e);
+      console.error('❌ Erro geral no webhook:', e);
     }
 
-    // A Meta exige resposta 200 rápida, senão reenvia o evento
+    // A Meta exige 200 rápido, senão reenvia o evento
     return res.status(200).end();
   }
 
