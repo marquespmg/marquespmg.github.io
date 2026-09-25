@@ -1,10 +1,12 @@
 // pages/api/enviar-whatsapp.js
+import { supabase } from '../../lib/supabaseClient';
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ erro: 'Método não permitido' });
   }
 
-  const { telefone, template, parametros } = req.body;
+  const { telefone, template, parametros, campanha_id } = req.body;
 
   if (!telefone || !template) {
     return res.status(400).json({ erro: 'Telefone e template são obrigatórios' });
@@ -18,6 +20,28 @@ export default async function handler(req, res) {
   }
 
   try {
+    // 1. Garante que o contato existe
+    let { data: contato } = await supabase
+      .from('contatos')
+      .select('id')
+      .eq('telefone', telefone)
+      .single();
+
+    if (!contato) {
+      const { data: novoContato } = await supabase
+        .from('contatos')
+        .insert({
+          telefone,
+          nome: parametros.nome || null,
+          empresa: parametros.empresa || null,
+          cidade: parametros.cidade || null
+        })
+        .select('id')
+        .single();
+      contato = novoContato;
+    }
+
+    // 2. Envia para a Meta
     const resp = await fetch(
       `https://graph.facebook.com/v21.0/${PHONE_ID}/messages`,
       {
@@ -49,6 +73,32 @@ export default async function handler(req, res) {
     );
 
     const data = await resp.json();
+
+    // 3. Salva a mensagem no Supabase (mesmo se falhar)
+    const mensagemBase = {
+      contato_id: contato?.id || null,
+      campanha_id: campanha_id || null,
+      telefone,
+      direcao: 'enviada',
+      tipo: 'template',
+      conteudo: `[Template: ${template}]`,
+      template_nome: template,
+      message_id: data.messages?.[0]?.id || null,
+      status: resp.ok ? 'sent' : 'failed',
+      erro: resp.ok ? null : (data.error?.message || 'erro desconhecido')
+    };
+
+    await supabase.from('mensagens').insert(mensagemBase);
+
+    // 4. Atualiza a conversa (resumo)
+    await supabase.from('conversas').upsert({
+      contato_id: contato?.id || null,
+      telefone,
+      nome_contato: parametros.nome || null,
+      ultima_mensagem: `[Template: ${template}]`,
+      ultima_mensagem_em: new Date().toISOString(),
+      ultima_mensagem_direcao: 'enviada'
+    }, { onConflict: 'telefone' });
 
     if (!resp.ok) {
       console.error('Erro Meta API:', JSON.stringify(data, null, 2));
