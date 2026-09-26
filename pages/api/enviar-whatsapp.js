@@ -3,9 +3,12 @@ import { supabase } from '../../lib/supabaseClient';
 
 // ============ CONFIGURAÇÃO DE TEMPLATES ============
 const TEMPLATES = {
+  // Templates COM variáveis e COM imagem no cabeçalho
   'prospeccao_pmg_atacado3': {
     temVariaveis: true,
-    variaveis: ['nome', 'empresa', 'cidade']
+    variaveis: ['nome', 'empresa', 'cidade'],
+    temImagem: true,
+    imagemUrl: 'https://www.marquesvendaspmg.shop/testetempla.png'
   },
   'prospeccao_pmg_atacado4': {
     temVariaveis: true,
@@ -15,11 +18,15 @@ const TEMPLATES = {
     temVariaveis: true,
     variaveis: ['nome', 'empresa', 'cidade']
   },
+
+  // Template COM imagem, SEM variáveis
   'teste': {
     temVariaveis: false,
     temImagem: true,
     imagemUrl: 'https://www.marquesvendaspmg.shop/testetempla.png'
   },
+
+  // Template em inglês, sem nada
   'hello_world': {
     temVariaveis: false,
     language: 'en_US'
@@ -73,7 +80,7 @@ export default async function handler(req, res) {
     // 2. Monta os componentes conforme o template
     const components = [];
 
-    // 2.1 Cabeçalho de imagem (apenas para o template 'teste')
+    // 2.1 Cabeçalho de imagem (se o template tiver)
     if (configTemplate?.temImagem && configTemplate?.imagemUrl) {
       components.push({
         type: 'header',
@@ -84,7 +91,7 @@ export default async function handler(req, res) {
       });
     }
 
-    // 2.2 Corpo com variáveis (apenas para templates de prospecção)
+    // 2.2 Corpo com variáveis (se o template tiver)
     if (temVariaveis) {
       const parametrosBody = [];
 
