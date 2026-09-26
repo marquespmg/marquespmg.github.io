@@ -1,7 +1,7 @@
 // pages/api/webhook.js
 import { supabase } from '../../lib/supabaseClient';
 
-// ============ RESPOSTAS AUTOMÁTICAS ============
+// ============ RESPOSTAS AUTOMÁTICAS (QUEBRA-GELOS) ============
 const RESPOSTAS_AUTOMATICAS = {
   'Falar com vendedor': `Olá! 👋 Para falar com um vendedor da PMG Atacadista, chame diretamente no WhatsApp:
 
@@ -21,6 +21,17 @@ Obrigado por escolher a PMG Atacadista! Desejamos muito sucesso nos seus negóci
 
 Se precisar de algo, é só chamar! 🚀`
 };
+
+// ============ MENSAGEM DE BOAS-VINDAS ============
+const MENSAGEM_BOAS_VINDAS = `Olá! 👋 Que bom ter você por aqui!
+
+Para atendimento direto, me chama no WhatsApp:
+👉 https://wa.me/5511913572902
+
+Se preferir, dá uma olhada no nosso catálogo:
+🛒 https://www.marquesvendaspmg.shop
+
+Fico à disposição!`;
 
 // Função para enviar mensagem via API da Meta
 async function enviarMensagem(telefone, texto) {
@@ -46,13 +57,14 @@ async function enviarMensagem(telefone, texto) {
     );
 
     const data = await resp.json();
+
     if (!resp.ok) {
-      console.error('❌ Erro ao enviar resposta automática:', data);
+      console.error('❌ Erro ao enviar mensagem:', data);
       return null;
     }
     return data.messages?.[0]?.id;
   } catch (err) {
-    console.error('❌ Erro ao enviar resposta automática:', err);
+    console.error('❌ Erro ao enviar mensagem:', err);
     return null;
   }
 }
@@ -66,10 +78,8 @@ export default async function handler(req, res) {
     const challenge = req.query['hub.challenge'];
 
     if (mode === 'subscribe' && token === VERIFY_TOKEN) {
-      console.log('✅ Webhook verificado');
       return res.status(200).send(challenge);
     }
-    console.warn('❌ Falha na verificação do webhook');
     return res.status(403).end();
   }
 
@@ -86,8 +96,6 @@ export default async function handler(req, res) {
       }
     }
 
-    console.log('📦 Webhook recebido:', JSON.stringify(body).substring(0, 800));
-
     try {
       const entry = body.entry?.[0];
       const changes = entry?.changes?.[0];
@@ -100,8 +108,6 @@ export default async function handler(req, res) {
           const nome = value.contacts?.[0]?.profile?.name || 'Desconhecido';
           const tipo = msg.type;
           const texto = msg.text?.body || `[${tipo}]`;
-
-          console.log(`📥 Processando mensagem de ${nome} (${telefone}): ${texto}`);
 
           // 1. Garante que o contato existe
           let { data: contato, error: erroBusca } = await supabase
@@ -127,7 +133,33 @@ export default async function handler(req, res) {
             contato = novo;
           }
 
-          // 2. Salva a mensagem recebida
+          // 2. Antes de salvar, verifica se precisa enviar saudação
+          // (precisa ser ANTES de atualizar a conversa, senão perde a referência da última interação)
+          let deveEnviarSaudacao = false;
+
+          const { data: conversaExistente } = await supabase
+            .from('conversas')
+            .select('ultima_mensagem_em')
+            .eq('telefone', telefone)
+            .single();
+
+          if (!conversaExistente) {
+            // Cliente novo (nunca interagiu)
+            deveEnviarSaudacao = true;
+            console.log(`👋 Cliente novo detectado: ${telefone}`);
+          } else {
+            // Cliente antigo - verifica se passou 12h desde a última mensagem
+            const ultimaInteracao = new Date(conversaExistente.ultima_mensagem_em);
+            const agora = new Date();
+            const diferencaHoras = (agora - ultimaInteracao) / (1000 * 60 * 60);
+
+            if (diferencaHoras >= 12) {
+              deveEnviarSaudacao = true;
+              console.log(`👋 Cliente antigo (${diferencaHoras.toFixed(1)}h sem interação): ${telefone}`);
+            }
+          }
+
+          // 3. Salva a mensagem recebida no Supabase
           const { error: erroMsg } = await supabase.from('mensagens').insert({
             contato_id: contato?.id || null,
             telefone,
@@ -140,11 +172,9 @@ export default async function handler(req, res) {
 
           if (erroMsg) {
             console.error('❌ Erro ao salvar mensagem:', erroMsg);
-          } else {
-            console.log('✅ Mensagem salva no Supabase');
           }
 
-          // 3. Atualiza a conversa
+          // 4. Atualiza a conversa (resumo)
           const janelaAberta = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
           const { error: erroConversa } = await supabase.from('conversas').upsert({
             contato_id: contato?.id || null,
@@ -159,20 +189,17 @@ export default async function handler(req, res) {
 
           if (erroConversa) {
             console.error('❌ Erro ao atualizar conversa:', erroConversa);
-          } else {
-            console.log('✅ Conversa atualizada');
           }
 
-          // 4. RESPOSTA AUTOMÁTICA (quebra-gelos)
+          // 5. RESPOSTA AUTOMÁTICA (quebra-gelos)
           const respostaAutomatica = RESPOSTAS_AUTOMATICAS[texto];
 
           if (respostaAutomatica) {
-            console.log(`🤖 Detectado quebra-gelo: "${texto}" — enviando resposta automática`);
+            console.log(`🤖 Detectado quebra-gelo: "${texto}"`);
 
             const messageId = await enviarMensagem(telefone, respostaAutomatica);
 
             if (messageId) {
-              // Salva a resposta automática no Supabase
               await supabase.from('mensagens').insert({
                 contato_id: contato?.id || null,
                 telefone,
@@ -183,7 +210,6 @@ export default async function handler(req, res) {
                 status: 'sent'
               });
 
-              // Atualiza a conversa com a última mensagem enviada
               await supabase.from('conversas').upsert({
                 contato_id: contato?.id || null,
                 telefone,
@@ -197,11 +223,40 @@ export default async function handler(req, res) {
 
               console.log(`✅ Resposta automática enviada para ${telefone}`);
             }
-          } else {
-            console.log(`ℹ️ Mensagem não é quebra-gelo, nenhuma resposta automática`);
           }
 
-          console.log(`✅ Processado: ${nome} (${telefone}): ${texto}`);
+          // 6. SAUDAÇÃO AUTOMÁTICA (boas-vindas para cliente novo ou sem interação 12h)
+          // Só envia se NÃO foi um quebra-gelo (para não sobrepor)
+          if (deveEnviarSaudacao && !respostaAutomatica) {
+            const messageId = await enviarMensagem(telefone, MENSAGEM_BOAS_VINDAS);
+
+            if (messageId) {
+              await supabase.from('mensagens').insert({
+                contato_id: contato?.id || null,
+                telefone,
+                direcao: 'enviada',
+                tipo: 'texto',
+                conteudo: MENSAGEM_BOAS_VINDAS,
+                message_id: messageId,
+                status: 'sent'
+              });
+
+              await supabase.from('conversas').upsert({
+                contato_id: contato?.id || null,
+                telefone,
+                nome_contato: nome,
+                ultima_mensagem: MENSAGEM_BOAS_VINDAS,
+                ultima_mensagem_em: new Date().toISOString(),
+                ultima_mensagem_direcao: 'enviada',
+                janela_aberta_ate: janelaAberta,
+                nao_lidas: 0
+              }, { onConflict: 'telefone' });
+
+              console.log(`✅ Saudação automática enviada para ${telefone}`);
+            }
+          } else if (deveEnviarSaudacao && respostaAutomatica) {
+            console.log(`ℹ️ Saudação não enviada (quebra-gelo já respondeu)`);
+          }
         }
       }
 
@@ -211,16 +266,10 @@ export default async function handler(req, res) {
           const status = st.status;
           const messageId = st.id;
 
-          const { error: erroStatus } = await supabase
+          await supabase
             .from('mensagens')
             .update({ status })
             .eq('message_id', messageId);
-
-          if (erroStatus) {
-            console.error('❌ Erro ao atualizar status:', erroStatus);
-          }
-
-          console.log(`📊 Status "${status}" para msg ${messageId}`);
         }
       }
     } catch (e) {
