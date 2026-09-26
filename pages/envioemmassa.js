@@ -26,6 +26,12 @@ export default function EnvioEmMassa() {
   const [respostaTexto, setRespostaTexto] = useState('');
   const [enviandoResposta, setEnviandoResposta] = useState(false);
 
+  // ========== ESTADOS DE ARQUIVO ==========
+  const [arquivoConversa, setArquivoConversa] = useState(null);
+  const [legendaArquivo, setLegendaArquivo] = useState('');
+  const [enviandoArquivo, setEnviandoArquivo] = useState(false);
+  const arquivoConversaRef = useRef(null);
+
   // Preço por mensagem Marketing (Brasil) em USD
   const PRECO_MARKETING_USD = 0.0732;
 
@@ -99,6 +105,51 @@ export default function EnvioEmMassa() {
       alert('Erro: ' + err.message);
     }
     setEnviandoResposta(false);
+  };
+
+  const enviarArquivo = async () => {
+    if (!arquivoConversa || !conversaAtiva) {
+      alert('Selecione um arquivo primeiro');
+      return;
+    }
+    setEnviandoArquivo(true);
+    try {
+      const reader = new FileReader();
+      reader.readAsDataURL(arquivoConversa);
+
+      reader.onload = async () => {
+        const base64 = reader.result;
+        const resp = await fetch('/api/enviar-arquivo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            telefone: conversaAtiva.telefone,
+            arquivoBase64: base64,
+            nomeArquivo: arquivoConversa.name,
+            tipoArquivo: arquivoConversa.type,
+            legenda: legendaArquivo
+          })
+        });
+        const data = await resp.json();
+        if (resp.ok) {
+          setArquivoConversa(null);
+          setLegendaArquivo('');
+          if (arquivoConversaRef.current) arquivoConversaRef.current.value = '';
+          carregarMensagens(conversaAtiva.telefone);
+        } else {
+          alert('Erro: ' + (data.erro?.error?.message || 'falha ao enviar arquivo'));
+        }
+        setEnviandoArquivo(false);
+      };
+
+      reader.onerror = () => {
+        alert('Erro ao ler o arquivo');
+        setEnviandoArquivo(false);
+      };
+    } catch (err) {
+      alert('Erro: ' + err.message);
+      setEnviandoArquivo(false);
+    }
   };
 
   const salvarHistorico = (novo) => {
@@ -632,7 +683,104 @@ export default function EnvioEmMassa() {
                       ))}
                     </div>
 
+                    {/* Área de anexo */}
+                    {arquivoConversa && (
+                      <div style={{
+                        marginTop: '10px',
+                        padding: '10px',
+                        backgroundColor: '#f0f8f0',
+                        borderRadius: '8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        fontSize: '0.85rem'
+                      }}>
+                        <span>📎</span>
+                        <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                          {arquivoConversa.name}
+                        </span>
+                        <button
+                          onClick={() => {
+                            setArquivoConversa(null);
+                            if (arquivoConversaRef.current) arquivoConversaRef.current.value = '';
+                          }}
+                          style={{
+                            background: 'none',
+                            border: 'none',
+                            color: '#e74c3c',
+                            cursor: 'pointer',
+                            fontSize: '1rem'
+                          }}
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    )}
+
+                    {/* Legenda do anexo */}
+                    {arquivoConversa && (
+                      <input
+                        type="text"
+                        placeholder="Legenda (opcional)..."
+                        value={legendaArquivo}
+                        onChange={(e) => setLegendaArquivo(e.target.value)}
+                        style={{
+                          marginTop: '8px',
+                          width: '100%',
+                          padding: '10px',
+                          borderRadius: '8px',
+                          border: '1px solid #ccc',
+                          fontSize: '0.85rem',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    )}
+
+                    {/* Botão enviar arquivo */}
+                    {arquivoConversa && (
+                      <button
+                        onClick={enviarArquivo}
+                        disabled={enviandoArquivo}
+                        style={{
+                          marginTop: '8px',
+                          padding: '12px 20px',
+                          backgroundColor: enviandoArquivo ? '#999' : '#25D366',
+                          color: '#fff',
+                          border: 'none',
+                          borderRadius: '8px',
+                          fontWeight: '600',
+                          cursor: enviandoArquivo ? 'not-allowed' : 'pointer',
+                          width: '100%'
+                        }}
+                      >
+                        {enviandoArquivo ? 'Enviando...' : '📤 Enviar arquivo'}
+                      </button>
+                    )}
+
+                    {/* Linha principal de envio */}
                     <div style={{ display: 'flex', gap: '8px', marginTop: '15px' }}>
+                      <input
+                        type="file"
+                        ref={arquivoConversaRef}
+                        onChange={(e) => setArquivoConversa(e.target.files[0])}
+                        style={{ display: 'none' }}
+                      />
+                      <button
+                        onClick={() => arquivoConversaRef.current?.click()}
+                        style={{
+                          padding: '12px 15px',
+                          backgroundColor: '#f1f1f1',
+                          color: '#333',
+                          border: 'none',
+                          borderRadius: '8px',
+                          fontWeight: '600',
+                          cursor: 'pointer',
+                          fontSize: '1.1rem'
+                        }}
+                        title="Anexar arquivo"
+                      >
+                        📎
+                      </button>
                       <input
                         type="text"
                         placeholder="Digite sua resposta..."
