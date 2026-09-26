@@ -3,7 +3,6 @@ import { supabase } from '../../lib/supabaseClient';
 
 // ============ CONFIGURAÇÃO DE TEMPLATES ============
 const TEMPLATES = {
-  // Templates com 3 variáveis (nome, empresa, cidade)
   'prospeccao_pmg_atacado3': {
     temVariaveis: true,
     variaveis: ['nome', 'empresa', 'cidade']
@@ -16,15 +15,11 @@ const TEMPLATES = {
     temVariaveis: true,
     variaveis: ['nome', 'empresa', 'cidade']
   },
-
-  // Template com imagem no cabeçalho (sem variáveis no corpo)
   'teste': {
     temVariaveis: false,
     temImagem: true,
     imagemUrl: 'https://www.marquesvendaspmg.shop/testetempla.png'
   },
-
-  // Template de teste em inglês
   'hello_world': {
     temVariaveis: false,
     language: 'en_US'
@@ -50,11 +45,6 @@ export default async function handler(req, res) {
   }
 
   const configTemplate = TEMPLATES[template];
-
-  if (!configTemplate) {
-    console.warn(`⚠️ Template "${template}" não está na lista conhecida, assumindo que tem variáveis`);
-  }
-
   const temVariaveis = configTemplate?.temVariaveis !== false;
   const idioma = configTemplate?.language || 'pt_BR';
 
@@ -83,7 +73,7 @@ export default async function handler(req, res) {
     // 2. Monta os componentes conforme o template
     const components = [];
 
-    // 2.1 Se o template tem imagem no cabeçalho, adiciona
+    // 2.1 Cabeçalho de imagem (apenas para o template 'teste')
     if (configTemplate?.temImagem && configTemplate?.imagemUrl) {
       components.push({
         type: 'header',
@@ -92,10 +82,9 @@ export default async function handler(req, res) {
           image: { link: configTemplate.imagemUrl }
         }]
       });
-      console.log(`🖼️ Enviando imagem do cabeçalho: ${configTemplate.imagemUrl}`);
     }
 
-    // 2.2 Se o template tem variáveis no corpo, adiciona
+    // 2.2 Corpo com variáveis (apenas para templates de prospecção)
     if (temVariaveis) {
       const parametrosBody = [];
 
@@ -127,13 +116,20 @@ export default async function handler(req, res) {
         type: 'body',
         parameters: parametrosBody
       });
-
-      console.log(`📤 Enviando template "${template}" com ${parametrosBody.length} parâmetros`);
-    } else {
-      console.log(`📤 Enviando template "${template}" sem parâmetros no corpo`);
     }
 
     // 3. Envia para a Meta
+    const payload = {
+      messaging_product: 'whatsapp',
+      to: telefone,
+      type: 'template',
+      template: {
+        name: template,
+        language: { code: idioma },
+        ...(components.length > 0 && { components })
+      }
+    };
+
     const resp = await fetch(
       `https://graph.facebook.com/v21.0/${PHONE_ID}/messages`,
       {
@@ -142,22 +138,13 @@ export default async function handler(req, res) {
           'Authorization': `Bearer ${TOKEN}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          messaging_product: 'whatsapp',
-          to: telefone,
-          type: 'template',
-          template: {
-            name: template,
-            language: { code: idioma },
-            ...(components.length > 0 && { components })
-          }
-        })
+        body: JSON.stringify(payload)
       }
     );
 
     const data = await resp.json();
 
-    // 4. Salva a mensagem no Supabase (mesmo se falhar)
+    // 4. Salva a mensagem no Supabase
     const mensagemBase = {
       contato_id: contato?.id || null,
       campanha_id: campanha_id || null,
@@ -173,7 +160,7 @@ export default async function handler(req, res) {
 
     await supabase.from('mensagens').insert(mensagemBase);
 
-    // 5. Atualiza a conversa (resumo)
+    // 5. Atualiza a conversa
     await supabase.from('conversas').upsert({
       contato_id: contato?.id || null,
       telefone,
@@ -187,8 +174,6 @@ export default async function handler(req, res) {
       console.error('❌ Erro Meta API:', JSON.stringify(data, null, 2));
       return res.status(resp.status).json({ erro: data });
     }
-
-    console.log(`✅ Mensagem enviada para ${telefone} usando template "${template}"`);
 
     return res.status(200).json({
       messageId: data.messages?.[0]?.id,
