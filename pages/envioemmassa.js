@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { useState, useRef, useEffect } from 'react';
+import { supabase } from '../lib/supabaseClient';
 
 export default function EnvioEmMassa() {
   // ========== PROTEÇÃO POR SENHA ==========
@@ -113,43 +114,59 @@ export default function EnvioEmMassa() {
       return;
     }
     setEnviandoArquivo(true);
+
     try {
-      const reader = new FileReader();
-      reader.readAsDataURL(arquivoConversa);
+      // 1. Upload direto para o Supabase Storage
+      const timestamp = Date.now();
+      const nomeSeguro = arquivoConversa.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+      const caminho = `${timestamp}_${nomeSeguro}`;
 
-      reader.onload = async () => {
-        const base64 = reader.result;
-        const resp = await fetch('/api/enviar-arquivo', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            telefone: conversaAtiva.telefone,
-            arquivoBase64: base64,
-            nomeArquivo: arquivoConversa.name,
-            tipoArquivo: arquivoConversa.type,
-            legenda: legendaArquivo
-          })
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('anexos')
+        .upload(caminho, arquivoConversa, {
+          contentType: arquivoConversa.type,
+          upsert: false
         });
-        const data = await resp.json();
-        if (resp.ok) {
-          setArquivoConversa(null);
-          setLegendaArquivo('');
-          if (arquivoConversaRef.current) arquivoConversaRef.current.value = '';
-          carregarMensagens(conversaAtiva.telefone);
-        } else {
-          alert('Erro: ' + (data.erro?.error?.message || 'falha ao enviar arquivo'));
-        }
-        setEnviandoArquivo(false);
-      };
 
-      reader.onerror = () => {
-        alert('Erro ao ler o arquivo');
+      if (uploadError) {
+        alert('Erro no upload: ' + uploadError.message);
         setEnviandoArquivo(false);
-      };
+        return;
+      }
+
+      // 2. Pega URL pública
+      const { data: urlData } = supabase.storage
+        .from('anexos')
+        .getPublicUrl(caminho);
+
+      const urlPublica = urlData.publicUrl;
+
+      // 3. Chama a API que só passa a URL para a Meta
+      const resp = await fetch('/api/enviar-arquivo-url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          telefone: conversaAtiva.telefone,
+          urlArquivo: urlPublica,
+          nomeArquivo: arquivoConversa.name,
+          legenda: legendaArquivo
+        })
+      });
+
+      const data = await resp.json();
+
+      if (resp.ok) {
+        setArquivoConversa(null);
+        setLegendaArquivo('');
+        if (arquivoConversaRef.current) arquivoConversaRef.current.value = '';
+        carregarMensagens(conversaAtiva.telefone);
+      } else {
+        alert('Erro: ' + (data.erro?.error?.message || 'falha ao enviar arquivo'));
+      }
     } catch (err) {
       alert('Erro: ' + err.message);
-      setEnviandoArquivo(false);
     }
+    setEnviandoArquivo(false);
   };
 
   const salvarHistorico = (novo) => {
