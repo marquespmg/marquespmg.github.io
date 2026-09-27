@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useState, useRef, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
+import EmojiPicker from 'emoji-picker-react';
 
 export default function EnvioEmMassa() {
   // ========== PROTEÇÃO POR SENHA ==========
@@ -20,6 +21,9 @@ export default function EnvioEmMassa() {
   const [log, setLog] = useState([]);
   const fileInputRef = useRef(null);
 
+  // ========== ESTADOS DE PROGRESSO ==========
+  const [progresso, setProgresso] = useState({ atual: 0, total: 0 });
+
   // ========== ESTADOS DE CONVERSAS ==========
   const [conversas, setConversas] = useState([]);
   const [conversaAtiva, setConversaAtiva] = useState(null);
@@ -32,6 +36,9 @@ export default function EnvioEmMassa() {
   const [legendaArquivo, setLegendaArquivo] = useState('');
   const [enviandoArquivo, setEnviandoArquivo] = useState(false);
   const arquivoConversaRef = useRef(null);
+
+  // ========== ESTADOS DE EMOJI ==========
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   // Preço por mensagem Marketing (Brasil) em USD
   const PRECO_MARKETING_USD = 0.0732;
@@ -116,7 +123,6 @@ export default function EnvioEmMassa() {
     setEnviandoArquivo(true);
 
     try {
-      // 1. Upload direto para o Supabase Storage
       const timestamp = Date.now();
       const nomeSeguro = arquivoConversa.name.replace(/[^a-zA-Z0-9._-]/g, '_');
       const caminho = `${timestamp}_${nomeSeguro}`;
@@ -134,14 +140,12 @@ export default function EnvioEmMassa() {
         return;
       }
 
-      // 2. Pega URL pública
       const { data: urlData } = supabase.storage
         .from('anexos')
         .getPublicUrl(caminho);
 
       const urlPublica = urlData.publicUrl;
 
-      // 3. Chama a API que só passa a URL para a Meta
       const resp = await fetch('/api/enviar-arquivo-url', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -230,6 +234,7 @@ export default function EnvioEmMassa() {
       return;
     }
     setEnviando(true);
+    setProgresso({ atual: 0, total: contatos.length });
     setLog(prev => [...prev, `🚀 Iniciando envio para ${contatos.length} contatos usando o template "${template}"...`]);
 
     const campanha = {
@@ -278,12 +283,14 @@ export default function EnvioEmMassa() {
         setLog(prev => [...prev, `❌ ${c.nome} (${telefone}) — erro: ${err.message}`]);
       }
 
+      setProgresso({ atual: i + 1, total: contatos.length });
       await new Promise(r => setTimeout(r, 1000));
     }
 
     salvarHistorico([campanha, ...historico]);
     setEnviando(false);
     setLog(prev => [...prev, '🏁 Envio concluído!']);
+    setProgresso({ atual: 0, total: 0 });
   };
 
   const custoTotal = historico.reduce((acc, c) => acc + (c.custoEstimado || 0), 0);
@@ -311,17 +318,9 @@ export default function EnvioEmMassa() {
           width: '100%',
           textAlign: 'center'
         }}>
-          <img
-            src="https://i.imgur.com/pBH5WpZ.png"
-            alt="PMG"
-            style={{ width: '120px', marginBottom: '20px' }}
-          />
-          <h1 style={{ color: '#095400', fontSize: '1.4rem', marginBottom: '10px' }}>
-            Painel Interno
-          </h1>
-          <p style={{ color: '#666', fontSize: '0.9rem', marginBottom: '25px' }}>
-            Digite a senha para acessar o painel de envio.
-          </p>
+          <img src="https://i.imgur.com/pBH5WpZ.png" alt="PMG" style={{ width: '120px', marginBottom: '20px' }} />
+          <h1 style={{ color: '#095400', fontSize: '1.4rem', marginBottom: '10px' }}>Painel Interno</h1>
+          <p style={{ color: '#666', fontSize: '0.9rem', marginBottom: '25px' }}>Digite a senha para acessar o painel de envio.</p>
 
           <input
             type="password"
@@ -338,22 +337,10 @@ export default function EnvioEmMassa() {
                 }
               }
             }}
-            style={{
-              width: '100%',
-              padding: '14px',
-              borderRadius: '8px',
-              border: '1px solid #ccc',
-              fontSize: '1rem',
-              marginBottom: '15px',
-              boxSizing: 'border-box'
-            }}
+            style={{ width: '100%', padding: '14px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1rem', marginBottom: '15px', boxSizing: 'border-box' }}
           />
 
-          {erroSenha && (
-            <p style={{ color: '#e74c3c', fontSize: '0.85rem', marginBottom: '15px' }}>
-              {erroSenha}
-            </p>
-          )}
+          {erroSenha && (<p style={{ color: '#e74c3c', fontSize: '0.85rem', marginBottom: '15px' }}>{erroSenha}</p>)}
 
           <button
             onClick={() => {
@@ -364,17 +351,7 @@ export default function EnvioEmMassa() {
                 setErroSenha('Senha incorreta');
               }
             }}
-            style={{
-              width: '100%',
-              padding: '14px',
-              backgroundColor: '#095400',
-              color: '#fff',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '1rem',
-              fontWeight: '600',
-              cursor: 'pointer'
-            }}
+            style={{ width: '100%', padding: '14px', backgroundColor: '#095400', color: '#fff', border: 'none', borderRadius: '8px', fontSize: '1rem', fontWeight: '600', cursor: 'pointer' }}
           >
             Entrar
           </button>
@@ -400,73 +377,24 @@ export default function EnvioEmMassa() {
         backgroundColor: '#ffffff',
         fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
       }}>
-        <header style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          padding: isMobile ? '15px 0' : '30px 0',
-          marginBottom: '20px'
-        }}>
-          <div style={{
-            backgroundColor: '#095400',
-            padding: isMobile ? '8px 15px' : '10px 25px',
-            borderRadius: '30px',
-            marginBottom: '10px',
-            color: 'white',
-            fontSize: isMobile ? '0.8rem' : '0.9rem',
-            fontWeight: '600'
-          }}>
+        <header style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: isMobile ? '15px 0' : '30px 0', marginBottom: '20px' }}>
+          <div style={{ backgroundColor: '#095400', padding: isMobile ? '8px 15px' : '10px 25px', borderRadius: '30px', marginBottom: '10px', color: 'white', fontSize: isMobile ? '0.8rem' : '0.9rem', fontWeight: '600' }}>
             Painel Interno
           </div>
-          <img
-            src="https://i.imgur.com/pBH5WpZ.png"
-            alt="Marques Vendas PMG"
-            style={{ width: isMobile ? '150px' : '180px', margin: '10px 0' }}
-          />
-          <h1 style={{
-            color: '#095400',
-            fontSize: isMobile ? '1.4rem' : '1.8rem',
-            margin: '10px 0',
-            textAlign: 'center',
-            fontWeight: '700'
-          }}>
+          <img src="https://i.imgur.com/pBH5WpZ.png" alt="Marques Vendas PMG" style={{ width: isMobile ? '150px' : '180px', margin: '10px 0' }} />
+          <h1 style={{ color: '#095400', fontSize: isMobile ? '1.4rem' : '1.8rem', margin: '10px 0', textAlign: 'center', fontWeight: '700' }}>
             Painel de Envio — WhatsApp
           </h1>
         </header>
 
-        <section style={{
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
-          gap: '15px',
-          marginBottom: '25px'
-        }}>
-          <div style={cardResumo}>
-            <div style={cardLabel}>Enviadas</div>
-            <div style={cardValor}>{totalEnviados}</div>
-          </div>
-          <div style={cardResumo}>
-            <div style={cardLabel}>Falhas</div>
-            <div style={{ ...cardValor, color: '#e74c3c' }}>{totalFalhas}</div>
-          </div>
-          <div style={cardResumo}>
-            <div style={cardLabel}>Campanhas</div>
-            <div style={cardValor}>{historico.length}</div>
-          </div>
-          <div style={cardResumo}>
-            <div style={cardLabel}>Custo estimado</div>
-            <div style={{ ...cardValor, fontSize: '1.3rem' }}>
-              US$ {custoTotal.toFixed(2)}
-            </div>
-          </div>
+        <section style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)', gap: '15px', marginBottom: '25px' }}>
+          <div style={cardResumo}><div style={cardLabel}>Enviadas</div><div style={cardValor}>{totalEnviados}</div></div>
+          <div style={cardResumo}><div style={cardLabel}>Falhas</div><div style={{ ...cardValor, color: '#e74c3c' }}>{totalFalhas}</div></div>
+          <div style={cardResumo}><div style={cardLabel}>Campanhas</div><div style={cardValor}>{historico.length}</div></div>
+          <div style={cardResumo}><div style={cardLabel}>Custo estimado</div><div style={{ ...cardValor, fontSize: '1.3rem' }}>US$ {custoTotal.toFixed(2)}</div></div>
         </section>
 
-        <nav style={{
-          display: 'flex',
-          gap: '5px',
-          marginBottom: '20px',
-          borderBottom: '2px solid #e0e0e0',
-          flexWrap: 'wrap'
-        }}>
+        <nav style={{ display: 'flex', gap: '5px', marginBottom: '20px', borderBottom: '2px solid #e0e0e0', flexWrap: 'wrap' }}>
           {[
             { id: 'disparar', label: '📤 Disparar' },
             { id: 'historico', label: '📊 Histórico' },
@@ -498,43 +426,24 @@ export default function EnvioEmMassa() {
             <section style={cardSecao}>
               <h2 style={tituloSecao}>1. Suba a planilha (CSV)</h2>
               <p style={{ color: '#666', fontSize: '0.85rem', marginBottom: '15px' }}>
-                Colunas esperadas: <code>nome, empresa, cidade, telefone</code>
-                <br />
+                Colunas esperadas: <code>nome, empresa, cidade, telefone</code><br />
                 <small>O <code>55</code> é adicionado automaticamente se não estiver no número.</small>
               </p>
-              <input
-                type="file"
-                accept=".csv,.txt"
-                ref={fileInputRef}
-                onChange={handleFile}
-                style={{ display: 'none' }}
-              />
-              <button onClick={() => fileInputRef.current.click()} style={botaoPrimario}>
-                📂 Escolher arquivo
-              </button>
-              {arquivo && (
-                <p style={{ marginTop: '10px', color: '#095400', fontSize: '0.9rem' }}>
-                  📄 {arquivo.name} — {contatos.length} contatos
-                </p>
-              )}
+              <input type="file" accept=".csv,.txt" ref={fileInputRef} onChange={handleFile} style={{ display: 'none' }} />
+              <button onClick={() => fileInputRef.current.click()} style={botaoPrimario}>📂 Escolher arquivo</button>
+              {arquivo && (<p style={{ marginTop: '10px', color: '#095400', fontSize: '0.9rem' }}>📄 {arquivo.name} — {contatos.length} contatos</p>)}
             </section>
 
             <section style={cardSecaoCinza}>
               <h2 style={tituloSecao}>2. Escolha o template</h2>
-              <select
-                value={template}
-                onChange={(e) => setTemplate(e.target.value)}
-                style={selectStyle}
-              >
+              <select value={template} onChange={(e) => setTemplate(e.target.value)} style={selectStyle}>
                 <option value="prospeccao_pmg_atacado3">prospeccao_pmg_atacado3 (Marketing - Original)</option>
                 <option value="prospeccao_pmg_atacado4">prospeccao_pmg_atacado4 (Marketing - Apresentação)</option>
                 <option value="prospeccao_pmg_atacado5">prospeccao_pmg_atacado5 (Marketing - Enxuta)</option>
                 <option value="teste">teste (Marketing - Novo)</option>
                 <option value="hello_world">hello_world (Teste - English)</option>
               </select>
-              <p style={{ marginTop: '10px', color: '#666', fontSize: '0.8rem' }}>
-                O template escolhido será usado em todos os contatos desta campanha.
-              </p>
+              <p style={{ marginTop: '10px', color: '#666', fontSize: '0.8rem' }}>O template escolhido será usado em todos os contatos desta campanha.</p>
             </section>
 
             <section style={{ textAlign: 'center', marginBottom: '20px' }}>
@@ -553,12 +462,25 @@ export default function EnvioEmMassa() {
               </button>
             </section>
 
+            {enviando && progresso.total > 0 && (
+              <div style={{ marginBottom: '15px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: '#666', marginBottom: '5px' }}>
+                  <span>Enviando...</span>
+                  <span>{progresso.atual} de {progresso.total}</span>
+                </div>
+                <div style={{ width: '100%', height: '8px', backgroundColor: '#e0e0e0', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{
+                    width: `${(progresso.atual / progresso.total) * 100}%`,
+                    height: '100%',
+                    backgroundColor: '#25D366',
+                    transition: 'width 0.3s ease'
+                  }} />
+                </div>
+              </div>
+            )}
+
             <section style={logStyle}>
-              {log.length === 0 ? (
-                <span style={{ color: '#666' }}>Aguardando ação...</span>
-              ) : (
-                log.map((l, i) => <div key={i}>{l}</div>)
-              )}
+              {log.length === 0 ? (<span style={{ color: '#666' }}>Aguardando ação...</span>) : (log.map((l, i) => <div key={i}>{l}</div>))}
             </section>
           </>
         )}
@@ -566,31 +488,52 @@ export default function EnvioEmMassa() {
         {abaAtiva === 'historico' && (
           <section style={cardSecao}>
             <h2 style={tituloSecao}>Histórico de campanhas</h2>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '20px' }}>
+              <div style={{ backgroundColor: '#f0f8f0', padding: '12px', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '0.75rem', color: '#666' }}>Total enviado</div>
+                <div style={{ fontSize: '1.2rem', fontWeight: '700', color: '#095400' }}>{totalEnviados}</div>
+              </div>
+              <div style={{ backgroundColor: '#f0f8f0', padding: '12px', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '0.75rem', color: '#666' }}>Total falhas</div>
+                <div style={{ fontSize: '1.2rem', fontWeight: '700', color: '#e74c3c' }}>{totalFalhas}</div>
+              </div>
+              <div style={{ backgroundColor: '#f0f8f0', padding: '12px', borderRadius: '8px', textAlign: 'center' }}>
+                <div style={{ fontSize: '0.75rem', color: '#666' }}>Campanhas</div>
+                <div style={{ fontSize: '1.2rem', fontWeight: '700', color: '#095400' }}>{historico.length}</div>
+              </div>
+            </div>
+
             {historico.length === 0 ? (
               <p style={{ color: '#666' }}>Nenhuma campanha enviada ainda.</p>
             ) : (
-              historico.map(c => (
-                <div key={c.id} style={{
-                  padding: '15px',
-                  border: '1px solid #e0e0e0',
-                  borderRadius: '8px',
-                  marginBottom: '10px'
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
-                    <div>
-                      <strong style={{ color: '#095400' }}>{c.template}</strong>
-                      <div style={{ fontSize: '0.8rem', color: '#666' }}>
-                        {new Date(c.data).toLocaleString('pt-BR')}
+              historico.map(c => {
+                const taxa = c.total > 0 ? ((c.enviados / c.total) * 100).toFixed(0) : 0;
+                return (
+                  <div key={c.id} style={{ padding: '15px', border: '1px solid #e0e0e0', borderRadius: '8px', marginBottom: '10px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+                      <div>
+                        <strong style={{ color: '#095400' }}>{c.template}</strong>
+                        <div style={{ fontSize: '0.8rem', color: '#666' }}>{new Date(c.data).toLocaleString('pt-BR')}</div>
+                      </div>
+                      <div style={{ textAlign: 'right' }}>
+                        <div>✅ {c.enviados} enviados</div>
+                        <div style={{ color: '#e74c3c' }}>❌ {c.falhas} falhas</div>
+                        <div style={{ fontSize: '0.8rem' }}>US$ {c.custoEstimado.toFixed(2)}</div>
                       </div>
                     </div>
-                    <div style={{ textAlign: 'right' }}>
-                      <div>✅ {c.enviados} enviados</div>
-                      <div style={{ color: '#e74c3c' }}>❌ {c.falhas} falhas</div>
-                      <div style={{ fontSize: '0.8rem' }}>US$ {c.custoEstimado.toFixed(2)}</div>
+                    <div style={{ marginTop: '8px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#666', marginBottom: '3px' }}>
+                        <span>Taxa de sucesso</span>
+                        <span style={{ color: taxa >= 80 ? '#25D366' : '#e74c3c' }}>{taxa}%</span>
+                      </div>
+                      <div style={{ width: '100%', height: '6px', backgroundColor: '#e0e0e0', borderRadius: '3px', overflow: 'hidden' }}>
+                        <div style={{ width: `${taxa}%`, height: '100%', backgroundColor: taxa >= 80 ? '#25D366' : '#e74c3c' }} />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             )}
           </section>
         )}
@@ -610,9 +553,7 @@ export default function EnvioEmMassa() {
                 overflowY: 'auto'
               }}>
                 {conversas.length === 0 ? (
-                  <p style={{ color: '#666', fontSize: '0.85rem' }}>
-                    Nenhuma conversa ainda.
-                  </p>
+                  <p style={{ color: '#666', fontSize: '0.85rem' }}>Nenhuma conversa ainda.</p>
                 ) : (
                   conversas.map((c) => (
                     <div
@@ -637,15 +578,7 @@ export default function EnvioEmMassa() {
                         {c.ultima_mensagem}
                       </div>
                       {c.nao_lidas > 0 && (
-                        <span style={{
-                          backgroundColor: '#e74c3c',
-                          color: '#fff',
-                          borderRadius: '10px',
-                          padding: '1px 7px',
-                          fontSize: '0.7rem',
-                          marginTop: '3px',
-                          display: 'inline-block'
-                        }}>
+                        <span style={{ backgroundColor: '#e74c3c', color: '#fff', borderRadius: '10px', padding: '1px 7px', fontSize: '0.7rem', marginTop: '3px', display: 'inline-block' }}>
                           {c.nao_lidas} nova(s)
                         </span>
                       )}
@@ -655,45 +588,75 @@ export default function EnvioEmMassa() {
               </div>
 
               {/* Janela de conversa */}
-              <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', position: 'relative' }}>
                 {!conversaAtiva ? (
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, color: '#999', minHeight: '200px' }}>
                     Selecione uma conversa
                   </div>
                 ) : (
                   <>
-                    <div style={{ borderBottom: '1px solid #e0e0e0', paddingBottom: '10px', marginBottom: '10px' }}>
-                      <strong style={{ color: '#095400' }}>{conversaAtiva.nome_contato || conversaAtiva.telefone}</strong>
-                      <div style={{ fontSize: '0.75rem', color: '#666' }}>{conversaAtiva.telefone}</div>
+                    {/* Header verde estilo WhatsApp */}
+                    <div style={{ backgroundColor: '#075E54', color: '#fff', padding: '12px 15px', display: 'flex', alignItems: 'center', gap: '12px', borderRadius: '8px 8px 0 0' }}>
+                      <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '1.1rem' }}>
+                        {(conversaAtiva.nome_contato || 'C')[0].toUpperCase()}
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontWeight: '600', fontSize: '0.95rem' }}>
+                          {conversaAtiva.nome_contato || conversaAtiva.telefone}
+                        </div>
+                        <div style={{ fontSize: '0.75rem', opacity: 0.85 }}>{conversaAtiva.telefone}</div>
+                      </div>
                       {conversaAtiva.janela_aberta_ate && new Date(conversaAtiva.janela_aberta_ate) > new Date() ? (
-                        <div style={{ fontSize: '0.75rem', color: '#2e7d32' }}>✅ Janela aberta — responda em texto livre</div>
+                        <div style={{ fontSize: '0.7rem', color: '#a8e6cf', textAlign: 'right' }}>✅ Janela aberta</div>
                       ) : (
-                        <div style={{ fontSize: '0.75rem', color: '#e74c3c' }}>⚠️ Janela fechada — use template para reengajar</div>
+                        <div style={{ fontSize: '0.7rem', color: '#ffb3b3', textAlign: 'right' }}>⚠️ Janela fechada</div>
                       )}
                     </div>
 
-                    <div style={{ flex: 1, overflowY: 'auto', maxHeight: '350px', paddingRight: '10px' }}>
+                    {/* Área das mensagens com fundo */}
+                    <div style={{
+                      flex: 1,
+                      overflowY: 'auto',
+                      maxHeight: '400px',
+                      padding: '20px',
+                      backgroundImage: 'url(/planofundo.jpg)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundColor: '#efeae2'
+                    }}>
                       {mensagensConversa.map((m) => (
-                        <div
-                          key={m.id}
-                          style={{
-                            textAlign: m.direcao === 'enviada' ? 'right' : 'left',
-                            marginBottom: '8px'
-                          }}
-                        >
+                        <div key={m.id} style={{ textAlign: m.direcao === 'enviada' ? 'right' : 'left', marginBottom: '10px' }}>
                           <div style={{
                             display: 'inline-block',
-                            backgroundColor: m.direcao === 'enviada' ? '#d4edda' : '#f1f1f1',
-                            padding: '8px 12px',
-                            borderRadius: '10px',
+                            backgroundColor: m.direcao === 'enviada' ? '#dcf8c6' : '#ffffff',
+                            padding: '8px 12px 20px 12px',
+                            borderRadius: m.direcao === 'enviada' ? '10px 10px 0 10px' : '10px 10px 10px 0',
                             maxWidth: '70%',
-                            fontSize: '0.85rem',
+                            fontSize: '0.88rem',
                             textAlign: 'left',
-                            wordBreak: 'break-word'
+                            wordBreak: 'break-word',
+                            boxShadow: '0 1px 1px rgba(0,0,0,0.1)',
+                            position: 'relative'
                           }}>
                             {m.conteudo}
-                            <div style={{ fontSize: '0.65rem', color: '#888', marginTop: '3px' }}>
-                              {new Date(m.created_at).toLocaleString('pt-BR')}
+                            <div style={{
+                              fontSize: '0.65rem',
+                              color: '#888',
+                              marginTop: '3px',
+                              position: 'absolute',
+                              bottom: '3px',
+                              right: '8px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '3px'
+                            }}>
+                              {new Date(m.created_at).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+                              {m.direcao === 'enviada' && (
+                                <span style={{ color: m.status === 'read' ? '#34B7F1' : '#888' }}>
+                                  {m.status === 'read' ? '✓✓' : m.status === 'delivered' ? '✓✓' : '✓'}
+                                </span>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -702,105 +665,78 @@ export default function EnvioEmMassa() {
 
                     {/* Área de anexo */}
                     {arquivoConversa && (
-                      <div style={{
-                        marginTop: '10px',
-                        padding: '10px',
-                        backgroundColor: '#f0f8f0',
-                        borderRadius: '8px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '10px',
-                        fontSize: '0.85rem'
-                      }}>
+                      <div style={{ margin: '10px 15px', padding: '10px', backgroundColor: '#f0f8f0', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.85rem' }}>
                         <span>📎</span>
-                        <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                          {arquivoConversa.name}
-                        </span>
+                        <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{arquivoConversa.name}</span>
                         <button
                           onClick={() => {
                             setArquivoConversa(null);
                             if (arquivoConversaRef.current) arquivoConversaRef.current.value = '';
                           }}
-                          style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#e74c3c',
-                            cursor: 'pointer',
-                            fontSize: '1rem'
-                          }}
+                          style={{ background: 'none', border: 'none', color: '#e74c3c', cursor: 'pointer', fontSize: '1rem' }}
                         >
                           ✕
                         </button>
                       </div>
                     )}
 
-                    {/* Legenda do anexo */}
                     {arquivoConversa && (
                       <input
                         type="text"
                         placeholder="Legenda (opcional)..."
                         value={legendaArquivo}
                         onChange={(e) => setLegendaArquivo(e.target.value)}
-                        style={{
-                          marginTop: '8px',
-                          width: '100%',
-                          padding: '10px',
-                          borderRadius: '8px',
-                          border: '1px solid #ccc',
-                          fontSize: '0.85rem',
-                          boxSizing: 'border-box'
-                        }}
+                        style={{ margin: '0 15px 8px', padding: '10px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '0.85rem', boxSizing: 'border-box' }}
                       />
                     )}
 
-                    {/* Botão enviar arquivo */}
                     {arquivoConversa && (
                       <button
                         onClick={enviarArquivo}
                         disabled={enviandoArquivo}
-                        style={{
-                          marginTop: '8px',
-                          padding: '12px 20px',
-                          backgroundColor: enviandoArquivo ? '#999' : '#25D366',
-                          color: '#fff',
-                          border: 'none',
-                          borderRadius: '8px',
-                          fontWeight: '600',
-                          cursor: enviandoArquivo ? 'not-allowed' : 'pointer',
-                          width: '100%'
-                        }}
+                        style={{ margin: '0 15px 8px', padding: '10px 20px', backgroundColor: enviandoArquivo ? '#999' : '#25D366', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '600', cursor: enviandoArquivo ? 'not-allowed' : 'pointer' }}
                       >
                         {enviandoArquivo ? 'Enviando...' : '📤 Enviar arquivo'}
                       </button>
                     )}
 
-                    {/* Linha principal de envio */}
-                    <div style={{ display: 'flex', gap: '8px', marginTop: '15px' }}>
-                      <input
-                        type="file"
-                        ref={arquivoConversaRef}
-                        onChange={(e) => setArquivoConversa(e.target.files[0])}
-                        style={{ display: 'none' }}
-                      />
+                    {/* Picker de emoji */}
+                    {showEmojiPicker && (
+                      <div style={{ position: 'absolute', bottom: '80px', right: '20px', zIndex: 100 }}>
+                        <EmojiPicker
+                          onEmojiClick={(emojiData) => {
+                            setRespostaTexto(prev => prev + emojiData.emoji);
+                            setShowEmojiPicker(false);
+                          }}
+                          theme="light"
+                          searchDisabled
+                          skinTonesDisabled
+                          height={350}
+                          width={300}
+                        />
+                      </div>
+                    )}
+
+                    {/* Barra de envio estilo WhatsApp */}
+                    <div style={{ backgroundColor: '#f0f0f0', padding: '10px 15px', display: 'flex', gap: '8px', alignItems: 'center', borderTop: '1px solid #e0e0e0', borderRadius: '0 0 8px 8px' }}>
+                      <input type="file" ref={arquivoConversaRef} onChange={(e) => setArquivoConversa(e.target.files[0])} style={{ display: 'none' }} />
+                      <button
+                        onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                        style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', color: '#666' }}
+                        title="Emojis"
+                      >
+                        😀
+                      </button>
                       <button
                         onClick={() => arquivoConversaRef.current?.click()}
-                        style={{
-                          padding: '12px 15px',
-                          backgroundColor: '#f1f1f1',
-                          color: '#333',
-                          border: 'none',
-                          borderRadius: '8px',
-                          fontWeight: '600',
-                          cursor: 'pointer',
-                          fontSize: '1.1rem'
-                        }}
+                        style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', color: '#666' }}
                         title="Anexar arquivo"
                       >
                         📎
                       </button>
                       <input
                         type="text"
-                        placeholder="Digite sua resposta..."
+                        placeholder="Digite uma mensagem"
                         value={respostaTexto}
                         onChange={(e) => setRespostaTexto(e.target.value)}
                         onKeyDown={(e) => {
@@ -809,28 +745,26 @@ export default function EnvioEmMassa() {
                             enviarResposta();
                           }
                         }}
-                        style={{
-                          flex: 1,
-                          padding: '12px',
-                          borderRadius: '8px',
-                          border: '1px solid #ccc',
-                          fontSize: '0.9rem'
-                        }}
+                        style={{ flex: 1, padding: '10px 15px', borderRadius: '20px', border: 'none', fontSize: '0.9rem', outline: 'none', backgroundColor: '#fff' }}
                       />
                       <button
                         onClick={enviarResposta}
                         disabled={!respostaTexto.trim() || enviandoResposta}
                         style={{
-                          padding: '12px 20px',
-                          backgroundColor: enviandoResposta ? '#999' : '#095400',
+                          width: '45px',
+                          height: '45px',
+                          borderRadius: '50%',
+                          backgroundColor: enviandoResposta ? '#999' : '#25D366',
                           color: '#fff',
                           border: 'none',
-                          borderRadius: '8px',
-                          fontWeight: '600',
-                          cursor: enviandoResposta ? 'not-allowed' : 'pointer'
+                          fontSize: '1.3rem',
+                          cursor: enviandoResposta ? 'not-allowed' : 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
                         }}
                       >
-                        {enviandoResposta ? '...' : 'Enviar'}
+                        {enviandoResposta ? '...' : '➤'}
                       </button>
                     </div>
                   </>
@@ -843,11 +777,31 @@ export default function EnvioEmMassa() {
         {abaAtiva === 'custos' && (
           <section style={cardSecao}>
             <h2 style={tituloSecao}>Custos estimados</h2>
+
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '15px', marginBottom: '25px' }}>
+              <div style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '12px', textAlign: 'center', border: '1px solid #e0f0e0' }}>
+                <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '5px' }}>💰 Custo total</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: '700', color: '#095400' }}>US$ {custoTotal.toFixed(2)}</div>
+                <div style={{ fontSize: '0.75rem', color: '#888', marginTop: '3px' }}>≈ R$ {(custoTotal * 5.4).toFixed(2)}</div>
+              </div>
+              <div style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '12px', textAlign: 'center', border: '1px solid #e0f0e0' }}>
+                <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '5px' }}>📊 Média por envio</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: '700', color: '#095400' }}>
+                  US$ {totalEnviados > 0 ? (custoTotal / totalEnviados).toFixed(4) : '0.0000'}
+                </div>
+              </div>
+              <div style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '12px', textAlign: 'center', border: '1px solid #e0f0e0' }}>
+                <div style={{ fontSize: '0.85rem', color: '#666', marginBottom: '5px' }}>📅 Projeção mensal</div>
+                <div style={{ fontSize: '1.8rem', fontWeight: '700', color: '#e74c3c' }}>US$ {(custoTotal * 30).toFixed(2)}</div>
+                <div style={{ fontSize: '0.75rem', color: '#888', marginTop: '3px' }}>Se mantiver o ritmo</div>
+              </div>
+            </div>
+
             <p style={{ color: '#666', fontSize: '0.9rem', marginBottom: '15px' }}>
-              Preço usado como referência: <strong>US$ {PRECO_MARKETING_USD.toFixed(4)}</strong> por mensagem de Marketing (Brasil).
-              <br />
+              Preço usado como referência: <strong>US$ {PRECO_MARKETING_USD.toFixed(4)}</strong> por mensagem de Marketing (Brasil).<br />
               <small>O valor real pode variar. Confira no Billing Hub da Meta.</small>
             </p>
+
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
                 <tr style={{ backgroundColor: '#f0f8f0' }}>
@@ -874,25 +828,33 @@ export default function EnvioEmMassa() {
                 </tr>
               </tbody>
             </table>
+
+            {historico.length > 0 && (
+              <div style={{ marginTop: '30px' }}>
+                <h3 style={{ color: '#095400', fontSize: '1rem', marginBottom: '15px' }}>📊 Custo por campanha</h3>
+                <div style={{ display: 'flex', alignItems: 'flex-end', gap: '8px', height: '150px', padding: '10px', backgroundColor: '#f8f8f8', borderRadius: '8px' }}>
+                  {historico.slice(0, 10).reverse().map((c, i) => {
+                    const maxCusto = Math.max(...historico.map(x => x.custoEstimado), 0.01);
+                    const altura = (c.custoEstimado / maxCusto) * 100;
+                    return (
+                      <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}>
+                        <div style={{ fontSize: '0.65rem', color: '#666' }}>${c.custoEstimado.toFixed(2)}</div>
+                        <div style={{ width: '100%', height: `${altura}%`, backgroundColor: '#25D366', borderRadius: '4px 4px 0 0', minHeight: '4px' }} />
+                        <div style={{ fontSize: '0.6rem', color: '#888', whiteSpace: 'nowrap' }}>
+                          {new Date(c.data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </section>
         )}
 
-        <footer style={{
-          marginTop: '40px',
-          padding: '25px 15px',
-          textAlign: 'center',
-          color: '#666',
-          fontSize: '0.8rem',
-          borderTop: '2px solid #095400',
-          backgroundColor: '#f8f9fa',
-          borderRadius: '12px 12px 0 0'
-        }}>
-          <Link href="/" style={{ color: '#095400', textDecoration: 'none', fontWeight: '600' }}>
-            ← Voltar para o site
-          </Link>
-          <p style={{ marginTop: '15px' }}>
-            © {new Date().getFullYear()} Marques Vendas PMG. Painel interno.
-          </p>
+        <footer style={{ marginTop: '40px', padding: '25px 15px', textAlign: 'center', color: '#666', fontSize: '0.8rem', borderTop: '2px solid #095400', backgroundColor: '#f8f9fa', borderRadius: '12px 12px 0 0' }}>
+          <Link href="/" style={{ color: '#095400', textDecoration: 'none', fontWeight: '600' }}>← Voltar para o site</Link>
+          <p style={{ marginTop: '15px' }}>© {new Date().getFullYear()} Marques Vendas PMG. Painel interno.</p>
         </footer>
       </div>
     </>
