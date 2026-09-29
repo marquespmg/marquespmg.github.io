@@ -1,39 +1,23 @@
 // pages/api/webhook.js
 import { supabase } from '../../lib/supabaseClient';
 
+// ============ CONFIGURAÇÕES ============
+const LINK_SITE = 'https://www.marquesvendaspmg.shop';
+const LINK_WHATSAPP = 'https://wa.me/5511913572902';
+
 // ============ RESPOSTAS AUTOMÁTICAS (QUEBRA-GELOS) ============
 const RESPOSTAS_AUTOMATICAS = {
-  'Falar com vendedor': `Olá! 👋 Para falar com um vendedor da PMG Atacadista, chame diretamente no WhatsApp:
-
-👉 https://wa.me/5511913572902
-
-Será um prazer te atender!`,
-  
-  'Quero tabela de preço': `Olá! 👋 Acesse nossa tabela de preços e catálogo completo pelo link:
-
-👉 https://www.marquesvendaspmg.shop/produtos
-
-Qualquer dúvida, é só chamar!`,
-  
-  'Já sou cliente': `Olá! 🎉
-
-Obrigado por escolher a PMG Atacadista! Desejamos muito sucesso nos seus negócios.
-
-Se precisar de algo, é só chamar! 🚀`
+  'Falar com vendedor': 'menu',
+  'Quero tabela de preço': 'menu',
+  'Já sou cliente': 'menu'
 };
 
 // ============ MENSAGEM DE BOAS-VINDAS ============
-const MENSAGEM_BOAS_VINDAS = `Olá! 👋 Que bom ter você por aqui!
+const MENSAGEM_BOAS_VINDAS = `Bem-vindo à Marques Vendas PMG! 👋
 
-Para atendimento direto, me chama no WhatsApp:
-👉 https://wa.me/5511913572902
+Como podemos te ajudar hoje?`;
 
-Se preferir, dá uma olhada no nosso catálogo:
-🛒 https://www.marquesvendaspmg.shop
-
-Fico à disposição!`;
-
-// Função para enviar mensagem via API da Meta
+// ============ FUNÇÃO PARA ENVIAR MENSAGEM DE TEXTO ============
 async function enviarMensagem(telefone, texto) {
   const TOKEN = process.env.WHATSAPP_TOKEN;
   const PHONE_ID = process.env.WHATSAPP_PHONE_ID;
@@ -57,7 +41,6 @@ async function enviarMensagem(telefone, texto) {
     );
 
     const data = await resp.json();
-
     if (!resp.ok) {
       console.error('❌ Erro ao enviar mensagem:', data);
       return null;
@@ -69,23 +52,169 @@ async function enviarMensagem(telefone, texto) {
   }
 }
 
+// ============ FUNÇÃO PARA ENVIAR MENU INTERATIVO (LISTA) ============
+async function enviarMenu(telefone) {
+  const TOKEN = process.env.WHATSAPP_TOKEN;
+  const PHONE_ID = process.env.WHATSAPP_PHONE_ID;
+
+  const payload = {
+    messaging_product: 'whatsapp',
+    to: telefone,
+    type: 'interactive',
+    interactive: {
+      type: 'list',
+      header: {
+        type: 'text',
+        text: 'Marques Vendas PMG'
+      },
+      body: {
+        text: 'Como podemos te ajudar hoje? 👇'
+      },
+      footer: {
+        text: 'Toque em "Ver Opções" para escolher'
+      },
+      action: {
+        button: 'Ver Opções',
+        sections: [
+          {
+            title: 'Menu Principal',
+            rows: [
+              {
+                id: 'menu_site',
+                title: '🛒 Ver Catálogo no Site',
+                description: 'Acesse nosso catálogo completo'
+              },
+              {
+                id: 'menu_vendedor',
+                title: '💬 Falar com Vendedor',
+                description: 'Atendimento direto pelo WhatsApp'
+              },
+              {
+                id: 'menu_tabela',
+                title: '📄 Receber Tabela de Preços',
+                description: 'Tabela atualizada com o vendedor'
+              },
+              {
+                id: 'menu_horario',
+                title: '🕐 Horário de Funcionamento',
+                description: 'Seg a Sáb, 08h-13h / 15h-20h'
+              },
+              {
+                id: 'menu_endereco',
+                title: '📍 Ver Endereço',
+                description: 'Estrada Ferreira Guedes, 784'
+              },
+              {
+                id: 'menu_finalizar',
+                title: '🚪 Finalizar Atendimento',
+                description: 'Encerrar a conversa'
+              }
+            ]
+          }
+        ]
+      }
+    }
+  };
+
+  try {
+    const resp = await fetch(
+      `https://graph.facebook.com/v21.0/${PHONE_ID}/messages`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }
+    );
+
+    const data = await resp.json();
+    if (!resp.ok) {
+      console.error('❌ Erro ao enviar menu:', JSON.stringify(data, null, 2));
+      return null;
+    }
+    return data.messages?.[0]?.id;
+  } catch (err) {
+    console.error('❌ Erro ao enviar menu:', err);
+    return null;
+  }
+}
+
+// ============ FUNÇÃO PARA PROCESSAR A OPÇÃO ESCOLHIDA ============
+async function processarOpcao(telefone, opcaoId) {
+  let resposta = '';
+
+  switch (opcaoId) {
+    case 'menu_site':
+      resposta = `Aqui está nosso catálogo completo! 🛒
+
+${LINK_SITE}
+
+Qualquer dúvida, é só chamar!`;
+      break;
+
+    case 'menu_vendedor':
+      resposta = `Para falar com nosso vendedor, chame direto no WhatsApp: 💬
+
+${LINK_WHATSAPP}
+
+Será um prazer te atender!`;
+      break;
+
+    case 'menu_tabela':
+      resposta = `Já vamos te enviar a tabela! 📄
+
+Aguarde alguns minutinhos que já estamos enviando. 🙏`;
+      break;
+
+    case 'menu_horario':
+      resposta = `🕐 Nosso horário de funcionamento:
+
+📅 Segunda a Sábado
+🌅 Manhã: 08h às 13h
+🌇 Tarde: 15h às 20h
+
+Estamos à disposição!`;
+      break;
+
+    case 'menu_endereco':
+      resposta = `📍 Nosso endereço:
+
+Estrada Ferreira Guedes, 784 - Potuverá
+Itapecerica da Serra - SP
+
+⚠️ Informações importantes:
+• Pedido mínimo: R$ 900,00
+• Não realizamos retirada no local
+
+Para mais informações, fale com nosso vendedor:
+${LINK_WHATSAPP}`;
+      break;
+
+    case 'menu_finalizar':
+      resposta = `✅ Atendimento finalizado!
+
+Se precisar de algo, é só chamar de novo. 👋
+
+🛒 Catálogo: ${LINK_SITE}
+💬 WhatsApp: ${LINK_WHATSAPP}`;
+      break;
+
+    default:
+      resposta = `Desculpe, não entendi a opção. Tente novamente.`;
+  }
+
+  return resposta;
+}
+
 // ============ FUNÇÃO PARA EXTRAIR O TEXTO DA MENSAGEM ============
 function extrairTextoMensagem(msg) {
-  // Texto normal
   if (msg.text?.body) return msg.text.body;
-
-  // Botão (resposta rápida)
   if (msg.button?.text) return `🔘 ${msg.button.text}`;
+  if (msg.interactive?.button_reply?.title) return `🔘 ${msg.interactive.button_reply.title}`;
+  if (msg.interactive?.list_reply?.title) return `📋 ${msg.interactive.list_reply.title}`;
 
-  // Interativo (botão ou lista)
-  if (msg.interactive?.button_reply?.title) {
-    return `🔘 ${msg.interactive.button_reply.title}`;
-  }
-  if (msg.interactive?.list_reply?.title) {
-    return `📋 ${msg.interactive.list_reply.title}`;
-  }
-
-  // Contato enviado
   if (msg.type === 'contacts' && msg.contacts?.length > 0) {
     const contatos = msg.contacts.map(c => {
       const nome = c.name?.formatted_name || 'Sem nome';
@@ -95,51 +224,33 @@ function extrairTextoMensagem(msg) {
     return `📇 Contato enviado: ${contatos.join(', ')}`;
   }
 
-  // Imagem
   if (msg.type === 'image') {
     const legenda = msg.image?.caption ? ` — "${msg.image.caption}"` : '';
     return `🖼️ Imagem${legenda}`;
   }
 
-  // Áudio
   if (msg.type === 'audio') return '🎤 Áudio';
-
-  // Vídeo
   if (msg.type === 'video') {
     const legenda = msg.video?.caption ? ` — "${msg.video.caption}"` : '';
     return `🎥 Vídeo${legenda}`;
   }
-
-  // Documento
   if (msg.type === 'document') {
     const nome = msg.document?.filename || 'sem nome';
-    const legenda = msg.document?.caption ? ` — "${msg.document.caption}"` : '';
-    return `📄 Documento: ${nome}${legenda}`;
+    return `📄 Documento: ${nome}`;
   }
-
-  // Localização
   if (msg.type === 'location') {
     const lat = msg.location?.latitude;
     const lon = msg.location?.longitude;
-    const nome = msg.location?.name || '';
-    const endereco = msg.location?.address || '';
-    return `📍 Localização${nome ? `: ${nome}` : ''}${endereco ? ` — ${endereco}` : ''} (${lat}, ${lon})`;
+    return `📍 Localização (${lat}, ${lon})`;
   }
-
-  // Sticker
   if (msg.type === 'sticker') return '🎨 Sticker';
+  if (msg.type === 'reaction') return `💚 Reação: ${msg.reaction?.emoji || ''}`;
 
-  // Reação
-  if (msg.type === 'reaction') {
-    return `💚 Reação: ${msg.reaction?.emoji || ''}`;
-  }
-
-  // Fallback
   return `[${msg.type}]`;
 }
 
 export default async function handler(req, res) {
-  // ============ VERIFICAÇÃO (Meta chama com GET) ============
+  // ============ VERIFICAÇÃO ============
   if (req.method === 'GET') {
     const VERIFY_TOKEN = process.env.WEBHOOK_VERIFY_TOKEN || 'pmg_webhook_2026';
     const mode = req.query['hub.mode'];
@@ -152,7 +263,7 @@ export default async function handler(req, res) {
     return res.status(403).end();
   }
 
-  // ============ RECEBIMENTO DE EVENTOS (Meta chama com POST) ============
+  // ============ RECEBIMENTO DE EVENTOS ============
   if (req.method === 'POST') {
     let body = req.body;
 
@@ -170,14 +281,11 @@ export default async function handler(req, res) {
       const changes = entry?.changes?.[0];
       const value = changes?.value;
 
-      // ---------- Mensagens recebidas ----------
       if (value?.messages) {
         for (const msg of value.messages) {
           const telefone = msg.from;
           const nome = value.contacts?.[0]?.profile?.name || 'Desconhecido';
           const tipo = msg.type;
-
-          // Extrai o texto da mensagem (com suporte a todos os tipos)
           const texto = extrairTextoMensagem(msg);
 
           // 1. Garante que o contato existe
@@ -198,15 +306,12 @@ export default async function handler(req, res) {
               .select('id')
               .single();
 
-            if (erroContato) {
-              console.error('❌ Erro ao criar contato:', erroContato);
-            }
+            if (erroContato) console.error('❌ Erro ao criar contato:', erroContato);
             contato = novo;
           }
 
-          // 2. Antes de salvar, verifica se precisa enviar saudação
+          // 2. Verifica se precisa enviar saudação
           let deveEnviarSaudacao = false;
-
           const { data: conversaExistente } = await supabase
             .from('conversas')
             .select('ultima_mensagem_em')
@@ -219,13 +324,10 @@ export default async function handler(req, res) {
             const ultimaInteracao = new Date(conversaExistente.ultima_mensagem_em);
             const agora = new Date();
             const diferencaHoras = (agora - ultimaInteracao) / (1000 * 60 * 60);
-
-            if (diferencaHoras >= 12) {
-              deveEnviarSaudacao = true;
-            }
+            if (diferencaHoras >= 12) deveEnviarSaudacao = true;
           }
 
-          // 3. Salva a mensagem recebida no Supabase
+          // 3. Salva a mensagem recebida
           const { error: erroMsg } = await supabase.from('mensagens').insert({
             contato_id: contato?.id || null,
             telefone,
@@ -236,13 +338,11 @@ export default async function handler(req, res) {
             status: 'received'
           });
 
-          if (erroMsg) {
-            console.error('❌ Erro ao salvar mensagem:', erroMsg);
-          }
+          if (erroMsg) console.error('❌ Erro ao salvar mensagem:', erroMsg);
 
-          // 4. Atualiza a conversa (resumo)
+          // 4. Atualiza a conversa
           const janelaAberta = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
-          const { error: erroConversa } = await supabase.from('conversas').upsert({
+          await supabase.from('conversas').upsert({
             contato_id: contato?.id || null,
             telefone,
             nome_contato: nome,
@@ -253,24 +353,69 @@ export default async function handler(req, res) {
             nao_lidas: 1
           }, { onConflict: 'telefone' });
 
-          if (erroConversa) {
-            console.error('❌ Erro ao atualizar conversa:', erroConversa);
+          // 5. VERIFICA SE É CLIQUE NO MENU
+          const opcaoMenu = msg.interactive?.list_reply?.id || msg.interactive?.button_reply?.id;
+
+          if (opcaoMenu) {
+            const respostaOpcao = await processarOpcao(telefone, opcaoMenu);
+
+            if (respostaOpcao) {
+              const messageId = await enviarMensagem(telefone, respostaOpcao);
+
+              if (messageId) {
+                await supabase.from('mensagens').insert({
+                  contato_id: contato?.id || null,
+                  telefone,
+                  direcao: 'enviada',
+                  tipo: 'texto',
+                  conteudo: respostaOpcao,
+                  message_id: messageId,
+                  status: 'sent'
+                });
+
+                await supabase.from('conversas').upsert({
+                  contato_id: contato?.id || null,
+                  telefone,
+                  nome_contato: nome,
+                  ultima_mensagem: respostaOpcao,
+                  ultima_mensagem_em: new Date().toISOString(),
+                  ultima_mensagem_direcao: 'enviada',
+                  janela_aberta_ate: janelaAberta,
+                  nao_lidas: 0
+                }, { onConflict: 'telefone' });
+
+                // Se não for "Finalizar", reenvia o menu depois de 2 segundos
+                if (opcaoMenu !== 'menu_finalizar') {
+                  setTimeout(async () => {
+                    const menuId = await enviarMenu(telefone);
+                    if (menuId) {
+                      await supabase.from('mensagens').insert({
+                        contato_id: contato?.id || null,
+                        telefone,
+                        direcao: 'enviada',
+                        tipo: 'interactive',
+                        conteudo: '📋 Menu de opções enviado',
+                        message_id: menuId,
+                        status: 'sent'
+                      });
+                    }
+                  }, 2000);
+                }
+              }
+            }
           }
+          // 6. RESPOSTA AUTOMÁTICA (QUEBRA-GELOS)
+          else if (RESPOSTAS_AUTOMATICAS[texto] === 'menu') {
+            const menuId = await enviarMenu(telefone);
 
-          // 5. RESPOSTA AUTOMÁTICA (quebra-gelos)
-          const respostaAutomatica = RESPOSTAS_AUTOMATICAS[texto];
-
-          if (respostaAutomatica) {
-            const messageId = await enviarMensagem(telefone, respostaAutomatica);
-
-            if (messageId) {
+            if (menuId) {
               await supabase.from('mensagens').insert({
                 contato_id: contato?.id || null,
                 telefone,
                 direcao: 'enviada',
-                tipo: 'texto',
-                conteudo: respostaAutomatica,
-                message_id: messageId,
+                tipo: 'interactive',
+                conteudo: '📋 Menu de opções enviado',
+                message_id: menuId,
                 status: 'sent'
               });
 
@@ -278,7 +423,7 @@ export default async function handler(req, res) {
                 contato_id: contato?.id || null,
                 telefone,
                 nome_contato: nome,
-                ultima_mensagem: respostaAutomatica,
+                ultima_mensagem: '📋 Menu de opções enviado',
                 ultima_mensagem_em: new Date().toISOString(),
                 ultima_mensagem_direcao: 'enviada',
                 janela_aberta_ate: janelaAberta,
@@ -286,32 +431,47 @@ export default async function handler(req, res) {
               }, { onConflict: 'telefone' });
             }
           }
+          // 7. SAUDAÇÃO AUTOMÁTICA (cliente novo ou sem interação 12h)
+          else if (deveEnviarSaudacao) {
+            const msgId = await enviarMensagem(telefone, MENSAGEM_BOAS_VINDAS);
 
-          // 6. SAUDAÇÃO AUTOMÁTICA (cliente novo ou sem interação 12h)
-          if (deveEnviarSaudacao && !respostaAutomatica) {
-            const messageId = await enviarMensagem(telefone, MENSAGEM_BOAS_VINDAS);
-
-            if (messageId) {
+            if (msgId) {
               await supabase.from('mensagens').insert({
                 contato_id: contato?.id || null,
                 telefone,
                 direcao: 'enviada',
                 tipo: 'texto',
                 conteudo: MENSAGEM_BOAS_VINDAS,
-                message_id: messageId,
+                message_id: msgId,
                 status: 'sent'
               });
 
-              await supabase.from('conversas').upsert({
-                contato_id: contato?.id || null,
-                telefone,
-                nome_contato: nome,
-                ultima_mensagem: MENSAGEM_BOAS_VINDAS,
-                ultima_mensagem_em: new Date().toISOString(),
-                ultima_mensagem_direcao: 'enviada',
-                janela_aberta_ate: janelaAberta,
-                nao_lidas: 0
-              }, { onConflict: 'telefone' });
+              // Envia o menu logo depois
+              setTimeout(async () => {
+                const menuId = await enviarMenu(telefone);
+                if (menuId) {
+                  await supabase.from('mensagens').insert({
+                    contato_id: contato?.id || null,
+                    telefone,
+                    direcao: 'enviada',
+                    tipo: 'interactive',
+                    conteudo: '📋 Menu de opções enviado',
+                    message_id: menuId,
+                    status: 'sent'
+                  });
+
+                  await supabase.from('conversas').upsert({
+                    contato_id: contato?.id || null,
+                    telefone,
+                    nome_contato: nome,
+                    ultima_mensagem: '📋 Menu de opções enviado',
+                    ultima_mensagem_em: new Date().toISOString(),
+                    ultima_mensagem_direcao: 'enviada',
+                    janela_aberta_ate: janelaAberta,
+                    nao_lidas: 0
+                  }, { onConflict: 'telefone' });
+                }
+              }, 1000);
             }
           }
         }
@@ -320,13 +480,10 @@ export default async function handler(req, res) {
       // ---------- Status de entrega/leitura ----------
       if (value?.statuses) {
         for (const st of value.statuses) {
-          const status = st.status;
-          const messageId = st.id;
-
           await supabase
             .from('mensagens')
-            .update({ status })
-            .eq('message_id', messageId);
+            .update({ status: st.status })
+            .eq('message_id', st.id);
         }
       }
     } catch (e) {
