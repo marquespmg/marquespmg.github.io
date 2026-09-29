@@ -69,6 +69,75 @@ async function enviarMensagem(telefone, texto) {
   }
 }
 
+// ============ FUNÇÃO PARA EXTRAIR O TEXTO DA MENSAGEM ============
+function extrairTextoMensagem(msg) {
+  // Texto normal
+  if (msg.text?.body) return msg.text.body;
+
+  // Botão (resposta rápida)
+  if (msg.button?.text) return `🔘 ${msg.button.text}`;
+
+  // Interativo (botão ou lista)
+  if (msg.interactive?.button_reply?.title) {
+    return `🔘 ${msg.interactive.button_reply.title}`;
+  }
+  if (msg.interactive?.list_reply?.title) {
+    return `📋 ${msg.interactive.list_reply.title}`;
+  }
+
+  // Contato enviado
+  if (msg.type === 'contacts' && msg.contacts?.length > 0) {
+    const contatos = msg.contacts.map(c => {
+      const nome = c.name?.formatted_name || 'Sem nome';
+      const telefone = c.phones?.[0]?.phone || 'sem telefone';
+      return `${nome} (${telefone})`;
+    });
+    return `📇 Contato enviado: ${contatos.join(', ')}`;
+  }
+
+  // Imagem
+  if (msg.type === 'image') {
+    const legenda = msg.image?.caption ? ` — "${msg.image.caption}"` : '';
+    return `🖼️ Imagem${legenda}`;
+  }
+
+  // Áudio
+  if (msg.type === 'audio') return '🎤 Áudio';
+
+  // Vídeo
+  if (msg.type === 'video') {
+    const legenda = msg.video?.caption ? ` — "${msg.video.caption}"` : '';
+    return `🎥 Vídeo${legenda}`;
+  }
+
+  // Documento
+  if (msg.type === 'document') {
+    const nome = msg.document?.filename || 'sem nome';
+    const legenda = msg.document?.caption ? ` — "${msg.document.caption}"` : '';
+    return `📄 Documento: ${nome}${legenda}`;
+  }
+
+  // Localização
+  if (msg.type === 'location') {
+    const lat = msg.location?.latitude;
+    const lon = msg.location?.longitude;
+    const nome = msg.location?.name || '';
+    const endereco = msg.location?.address || '';
+    return `📍 Localização${nome ? `: ${nome}` : ''}${endereco ? ` — ${endereco}` : ''} (${lat}, ${lon})`;
+  }
+
+  // Sticker
+  if (msg.type === 'sticker') return '🎨 Sticker';
+
+  // Reação
+  if (msg.type === 'reaction') {
+    return `💚 Reação: ${msg.reaction?.emoji || ''}`;
+  }
+
+  // Fallback
+  return `[${msg.type}]`;
+}
+
 export default async function handler(req, res) {
   // ============ VERIFICAÇÃO (Meta chama com GET) ============
   if (req.method === 'GET') {
@@ -107,7 +176,9 @@ export default async function handler(req, res) {
           const telefone = msg.from;
           const nome = value.contacts?.[0]?.profile?.name || 'Desconhecido';
           const tipo = msg.type;
-          const texto = msg.text?.body || `[${tipo}]`;
+
+          // Extrai o texto da mensagem (com suporte a todos os tipos)
+          const texto = extrairTextoMensagem(msg);
 
           // 1. Garante que o contato existe
           let { data: contato, error: erroBusca } = await supabase
@@ -134,7 +205,6 @@ export default async function handler(req, res) {
           }
 
           // 2. Antes de salvar, verifica se precisa enviar saudação
-          // (precisa ser ANTES de atualizar a conversa, senão perde a referência da última interação)
           let deveEnviarSaudacao = false;
 
           const { data: conversaExistente } = await supabase
@@ -144,18 +214,14 @@ export default async function handler(req, res) {
             .single();
 
           if (!conversaExistente) {
-            // Cliente novo (nunca interagiu)
             deveEnviarSaudacao = true;
-            console.log(`👋 Cliente novo detectado: ${telefone}`);
           } else {
-            // Cliente antigo - verifica se passou 12h desde a última mensagem
             const ultimaInteracao = new Date(conversaExistente.ultima_mensagem_em);
             const agora = new Date();
             const diferencaHoras = (agora - ultimaInteracao) / (1000 * 60 * 60);
 
             if (diferencaHoras >= 12) {
               deveEnviarSaudacao = true;
-              console.log(`👋 Cliente antigo (${diferencaHoras.toFixed(1)}h sem interação): ${telefone}`);
             }
           }
 
@@ -195,8 +261,6 @@ export default async function handler(req, res) {
           const respostaAutomatica = RESPOSTAS_AUTOMATICAS[texto];
 
           if (respostaAutomatica) {
-            console.log(`🤖 Detectado quebra-gelo: "${texto}"`);
-
             const messageId = await enviarMensagem(telefone, respostaAutomatica);
 
             if (messageId) {
@@ -220,13 +284,10 @@ export default async function handler(req, res) {
                 janela_aberta_ate: janelaAberta,
                 nao_lidas: 0
               }, { onConflict: 'telefone' });
-
-              console.log(`✅ Resposta automática enviada para ${telefone}`);
             }
           }
 
-          // 6. SAUDAÇÃO AUTOMÁTICA (boas-vindas para cliente novo ou sem interação 12h)
-          // Só envia se NÃO foi um quebra-gelo (para não sobrepor)
+          // 6. SAUDAÇÃO AUTOMÁTICA (cliente novo ou sem interação 12h)
           if (deveEnviarSaudacao && !respostaAutomatica) {
             const messageId = await enviarMensagem(telefone, MENSAGEM_BOAS_VINDAS);
 
@@ -251,11 +312,7 @@ export default async function handler(req, res) {
                 janela_aberta_ate: janelaAberta,
                 nao_lidas: 0
               }, { onConflict: 'telefone' });
-
-              console.log(`✅ Saudação automática enviada para ${telefone}`);
             }
-          } else if (deveEnviarSaudacao && respostaAutomatica) {
-            console.log(`ℹ️ Saudação não enviada (quebra-gelo já respondeu)`);
           }
         }
       }
