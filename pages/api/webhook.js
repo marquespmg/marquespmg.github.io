@@ -57,64 +57,64 @@ async function enviarMenu(telefone) {
   const TOKEN = process.env.WHATSAPP_TOKEN;
   const PHONE_ID = process.env.WHATSAPP_PHONE_ID;
 
-  const payload = {
-    messaging_product: 'whatsapp',
-    to: telefone,
-    type: 'interactive',
-    interactive: {
-      type: 'list',
-      header: {
-        type: 'text',
-        text: 'Marques Vendas PMG'
-      },
-      body: {
-        text: 'Como podemos te ajudar hoje? 👇'
-      },
-      footer: {
-        text: 'Toque em "Ver Opções" para escolher'
-      },
-      action: {
-        button: 'Ver Opções',
-        sections: [
-          {
-            title: 'Menu Principal',
-            rows: [
-              {
-                id: 'menu_site',
-                title: '🛒 Ver Catálogo no Site',
-                description: 'Acesse nosso catálogo completo'
-              },
-              {
-                id: 'menu_vendedor',
-                title: '💬 Falar com Vendedor',
-                description: 'Atendimento direto pelo WhatsApp'
-              },
-              {
-                id: 'menu_tabela',
-                title: '📄 Receber Tabela de Preços',
-                description: 'Tabela atualizada com o vendedor'
-              },
-              {
-                id: 'menu_horario',
-                title: '🕐 Horário de Funcionamento',
-                description: 'Seg a Sáb, 08h-13h / 15h-20h'
-              },
-              {
-                id: 'menu_endereco',
-                title: '📍 Ver Endereço',
-                description: 'Estrada Ferreira Guedes, 784'
-              },
-              {
-                id: 'menu_finalizar',
-                title: '🚪 Finalizar Atendimento',
-                description: 'Encerrar a conversa'
-              }
-            ]
-          }
-        ]
-      }
+const payload = {
+  messaging_product: 'whatsapp',
+  to: telefone,
+  type: 'interactive',
+  interactive: {
+    type: 'list',
+    header: {
+      type: 'text',
+      text: 'Marques Vendas PMG'
+    },
+    body: {
+      text: 'Como podemos te ajudar hoje? 👇'
+    },
+    footer: {
+      text: 'Toque em "Ver Opções" para escolher'
+    },
+    action: {
+      button: 'Ver Opções',
+      sections: [
+        {
+          title: 'Menu Principal',
+          rows: [
+            {
+              id: 'menu_site',
+              title: '🛒 Ver Catálogo',
+              description: 'Acesse nosso catálogo completo'
+            },
+            {
+              id: 'menu_vendedor',
+              title: '💬 Falar Vendedor',
+              description: 'Atendimento direto pelo WhatsApp'
+            },
+            {
+              id: 'menu_tabela',
+              title: '📄 Receber Tabela',
+              description: 'Tabela de preços atualizada'
+            },
+            {
+              id: 'menu_horario',
+              title: '🕐 Horário',
+              description: 'Seg a Sáb, 08h-13h / 15h-20h'
+            },
+            {
+              id: 'menu_endereco',
+              title: '📍 Endereço',
+              description: 'Estrada Ferreira Guedes, 784'
+            },
+            {
+              id: 'menu_finalizar',
+              title: '🚪 Finalizar',
+              description: 'Encerrar a conversa'
+            }
+          ]
+        }
+      ]
     }
-  };
+  }
+};
 
   try {
     const resp = await fetch(
