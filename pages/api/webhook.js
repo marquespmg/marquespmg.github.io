@@ -58,24 +58,48 @@ function buscarProdutos(termo, limite = 1) {
   const produtos = carregarProdutos();
   if (!produtos.length) return { encontrados: [], totalEncontrados: 0 };
 
+  // Remove palavras comuns que não ajudam na busca
+  const palavrasIgnoradas = ['tem', 'quero', 'voce', 'vocês', 'vende', 'trabalha', 'trabalham', 'com', 'de', 'da', 'do', 'para', 'pra', 'uma', 'um', 'o', 'a', 'os', 'as', 'e', 'ou', 'existe', 'teria', 'gostaria', 'preciso', 'qual', 'quais', 'sobre', 'mim', 'me', 'fale', 'ola', 'olá', 'bom', 'dia', 'tarde', 'noite'];
+
   const termoNormalizado = normalizarTexto(termo);
-  const palavras = termoNormalizado.split(/\s+/).filter(p => p.length >= 3);
+  const palavras = termoNormalizado
+    .split(/\s+/)
+    .filter(p => p.length >= 3 && !palavrasIgnoradas.includes(p));
 
   if (!palavras.length) return { encontrados: [], totalEncontrados: 0 };
 
-  // Pontua cada produto pela quantidade de palavras que batem
+  // Pontua cada produto
   const pontuados = produtos.map(p => {
     const nomeNormalizado = normalizarTexto(p.nome);
+    const palavrasNome = nomeNormalizado.split(/\s+/);
     let pontos = 0;
+    let palavrasBateram = 0;
 
     palavras.forEach(palavra => {
-      if (nomeNormalizado.includes(palavra)) pontos++;
+      // ⚠️ Verifica se a palavra inteira bate (não só um pedaço)
+      const bateu = palavrasNome.some(pn => pn === palavra || pn.startsWith(palavra));
+      if (bateu) {
+        palavrasBateram++;
+        pontos += 10;
+      }
     });
+
+    // ⚠️ Exige que TODAS as palavras-chave batam
+    if (palavrasBateram < palavras.length) {
+      pontos = 0;
+    }
+
+    // ✅ Bônus se o produto começa com a palavra buscada (ex: "ARROZ...")
+    if (palavras.length === 1) {
+      const primeiraPalavraNome = palavrasNome[0];
+      if (primeiraPalavraNome === palavras[0]) {
+        pontos += 50;
+      }
+    }
 
     return { produto: p, pontos };
   }).filter(item => item.pontos > 0);
 
-  // Ordena por pontuação (maior primeiro)
   pontuados.sort((a, b) => b.pontos - a.pontos);
 
   return {
@@ -102,22 +126,25 @@ async function extrairPrecoDaPagina(produtoId) {
 
     let preco = null;
 
-    // 1. Meta tag og:price:amount
-    preco = $('meta[property="product:price:amount"]').attr('content');
+    // 🔥 ESTRATÉGIA 1: Procura por R$ no HTML de forma específica
+    // Padrão típico: R$ 35,08 ou R$ 3.508,00
+    const matches = html.match(/R\$\s*([\d]{1,3}(?:[.,]\d{3})*[.,]\d{2})/g);
 
-    // 2. Meta tag og:price
-    if (!preco) {
-      const precoTexto = $('meta[property="og:price:amount"]').attr('content');
-      if (precoTexto) preco = precoTexto;
+    if (matches && matches.length > 0) {
+      // Pega TODOS os preços encontrados e escolhe o MENOR
+      // (o menor geralmente é o preço do produto, o maior pode ser "de/por")
+      const valores = matches.map(m => {
+        const limpo = m.replace(/R\$\s*/, '').replace(/\./g, '').replace(',', '.');
+        return parseFloat(limpo);
+      }).filter(v => !isNaN(v) && v > 0 && v < 100000);
+
+      if (valores.length > 0) {
+        // Pega o menor valor (preço real)
+        preco = Math.min(...valores);
+      }
     }
 
-    // 3. Procura por R$ no HTML (regex)
-    if (!preco) {
-      const match = html.match(/R\$\s*([\d.,]+)/);
-      if (match) preco = match[1];
-    }
-
-    // 4. JSON-LD
+    // 🔥 ESTRATÉGIA 2: JSON-LD (com prioridade)
     if (!preco) {
       const scripts = $('script[type="application/ld+json"]');
       for (let i = 0; i < scripts.length; i++) {
@@ -125,9 +152,15 @@ async function extrairPrecoDaPagina(produtoId) {
           const json = JSON.parse($(scripts[i]).html());
           const grafo = json['@graph'] || [json];
           for (const item of grafo) {
-            if (item['@type'] === 'Product' && item.offers?.price) {
-              preco = item.offers.price;
-              break;
+            if (item['@type'] === 'Product' && item.offers) {
+              const precoItem = item.offers.price || item.offers.lowPrice;
+              if (precoItem) {
+                const valor = parseFloat(String(precoItem));
+                if (!isNaN(valor) && valor > 0 && valor < 100000) {
+                  preco = valor;
+                  break;
+                }
+              }
             }
           }
           if (preco) break;
@@ -135,12 +168,8 @@ async function extrairPrecoDaPagina(produtoId) {
       }
     }
 
-    if (preco) {
-      const precoLimpo = String(preco).replace(/\./g, '').replace(',', '.');
-      const valor = parseFloat(precoLimpo);
-      if (!isNaN(valor) && valor > 0) {
-        return valor;
-      }
+    if (preco && preco > 0 && preco < 100000) {
+      return preco;
     }
 
     return null;
@@ -154,21 +183,26 @@ async function extrairPrecoDaPagina(produtoId) {
 async function montarContextoProdutos(produtos, totalEncontrados) {
   if (!produtos.length) return '';
 
-  // Pega o preço do primeiro (e único) produto
   const preco = await extrairPrecoDaPagina(produtos[0].id);
-  const precoTexto = preco ? `R$ ${preco.toFixed(2)}` : 'Preço no site';
 
-  let contexto = 'PRODUTO ENCONTRADO NO CATÁLOGO:\n\n';
-  contexto += `- ${produtos[0].nome}\n`;
-  contexto += `  Categoria: ${produtos[0].categoria}\n`;
-  contexto += `  Preço: ${precoTexto}\n`;
-  contexto += `  Link: ${LINK_SITE}/produto/${produtos[0].id}\n\n`;
+  // ⚠️ Se não conseguir pegar o preço, NÃO inventa
+  const precoTexto = preco ? `R$ ${preco.toFixed(2)}` : 'Consulte no site';
 
-  // Se tiver mais opções além da mostrada
+  const linkProduto = `${LINK_SITE}/produto/${produtos[0].id}`;
+
+  let contexto = `PRODUTO ENCONTRADO (USE EXATAMENTE ESSES DADOS):\n\n`;
+  contexto += `Nome exato: ${produtos[0].nome}\n`;
+  contexto += `Categoria: ${produtos[0].categoria}\n`;
+  contexto += `Preço: ${precoTexto}\n`;
+  contexto += `Link direto: ${linkProduto}\n\n`;
+  contexto += `⚠️ REGRAS CRÍTICAS:\n`;
+  contexto += `1. Use APENAS o nome acima, não invente variações\n`;
+  contexto += `2. Use APENAS o preço acima, não invente\n`;
+  contexto += `3. SEMPRE inclua o link direto do produto na resposta\n`;
+  contexto += `4. NÃO diga que o produto tem outra embalagem/tipo\n\n`;
+
   if (totalEncontrados > 1) {
-    const restantes = totalEncontrados - 1;
-    contexto += `\nOBSERVAÇÃO IMPORTANTE: Temos mais ${restantes} opção(ões) desse tipo de produto no site. `;
-    contexto += `Sugira ao cliente acessar o catálogo completo: ${LINK_SITE}\n\n`;
+    contexto += `OBSERVAÇÃO: Temos mais ${totalEncontrados - 1} opção(ões) desse produto no site: ${LINK_SITE}\n\n`;
   }
 
   return contexto;
@@ -183,7 +217,7 @@ async function gerarRespostaIA(mensagemCliente, historico = [], contextoProdutos
 
   const promptSistema = `Você é o assistente virtual da Marques Vendas PMG, uma distribuidora food service.
 
-INFORMAÇÕES IMPORTANTES:
+INFORMAÇÕES DA EMPRESA:
 - Horário: Segunda a Sábado, das 08h às 13h e das 15h às 20h
 - Endereço: Estrada Ferreira Guedes, 784 - Potuverá, Itapecerica da Serra - SP
 - Pedido mínimo: R$ 900,00
@@ -196,17 +230,23 @@ COMO SE COMPORTAR:
 - Seja direto, sem enrolação
 - Use emojis com moderação (1 ou 2 por mensagem)
 - Use quebras de linha para deixar a mensagem legível
-- Se o cliente perguntar sobre produto, use SEMPRE os dados abaixo (nunca invente preço)
-- Se houver a observação "Temos mais X opções", mencione isso na resposta
-- NUNCA diga que não sabe se o produto está listado abaixo
-- Se o cliente quiser fechar pedido, oriente a acessar o site, cadastrar e finalizar
-- Se não souber algo, seja honesto e direcione para o vendedor
-- NUNCA diga que é "a empresa" - você é um assistente/vendedor
-- NUNCA invente informações
+
+⚠️ REGRAS CRÍTICAS SOBRE PRODUTOS:
+- Quando a seção "PRODUTO ENCONTRADO" aparecer, use EXATAMENTE o nome e preço informados
+- NUNCA invente embalagem, tipo, sabor ou variação que não esteja explícito
+- SEMPRE inclua o LINK DIRETO do produto (não só o link do site)
+- Se o preço for "Consulte no site", não invente valor
+- Se o cliente pedir foto, mande o link direto do produto
+- NÃO sugira outro produto se o cliente pediu um específico
+
+⚠️ OUTRAS REGRAS:
+- Se o cliente quiser fechar pedido, oriente a acessar o site e cadastrar
+- Se não souber algo, direcione para o vendedor: ${LINK_WHATSAPP}
+- NUNCA diga que é "a empresa oficial" - você é um assistente/vendedor
 
 ${contextoProdutos ? `\n${contextoProdutos}` : ''}
 
-Responda a mensagem do cliente de forma natural.`;
+Responda a mensagem do cliente de forma natural e direta.`;
 
   // Monta o histórico (últimas 10 mensagens)
   const mensagens = [
