@@ -1,8 +1,5 @@
 // pages/api/webhook.js
 import { supabase } from '../../lib/supabaseClient';
-import fs from 'fs';
-import path from 'path';
-import * as cheerio from 'cheerio';
 
 // ⏱️ Timeout aumentado (Vercel Pro permite 60s)
 export const config = {
@@ -27,24 +24,6 @@ const MENSAGEM_BOAS_VINDAS = `Bem-vindo à Marques Vendas PMG! 👋
 
 Como podemos te ajudar hoje?`;
 
-// ============ CACHE DE PRODUTOS ============
-let produtosCache = null;
-
-function carregarProdutos() {
-  if (produtosCache) return produtosCache;
-
-  try {
-    const caminho = path.join(process.cwd(), 'data', 'produtos.json');
-    const conteudo = fs.readFileSync(caminho, 'utf8');
-    produtosCache = JSON.parse(conteudo);
-    console.log(`✅ ${produtosCache.length} produtos carregados em cache`);
-    return produtosCache;
-  } catch (err) {
-    console.error('❌ Erro ao carregar produtos:', err.message);
-    return [];
-  }
-}
-
 // ============ NORMALIZAR TEXTO ============
 function normalizarTexto(texto) {
   return texto
@@ -53,200 +32,106 @@ function normalizarTexto(texto) {
     .replace(/[\u0300-\u036f]/g, '');
 }
 
-// ============ BUSCAR PRODUTOS ============
-function buscarProdutos(termo, limite = 1) {
-  const produtos = carregarProdutos();
-  if (!produtos.length) return { encontrados: [], totalEncontrados: 0 };
-
-  // Remove palavras comuns que não ajudam na busca
-  const palavrasIgnoradas = ['tem', 'quero', 'voce', 'vocês', 'vende', 'trabalha', 'trabalham', 'com', 'de', 'da', 'do', 'para', 'pra', 'uma', 'um', 'o', 'a', 'os', 'as', 'e', 'ou', 'existe', 'teria', 'gostaria', 'preciso', 'qual', 'quais', 'sobre', 'mim', 'me', 'fale', 'ola', 'olá', 'bom', 'dia', 'tarde', 'noite'];
-
-  const termoNormalizado = normalizarTexto(termo);
-  const palavras = termoNormalizado
-    .split(/\s+/)
-    .filter(p => p.length >= 3 && !palavrasIgnoradas.includes(p));
-
-  if (!palavras.length) return { encontrados: [], totalEncontrados: 0 };
-
-  // Pontua cada produto
-  const pontuados = produtos.map(p => {
-    const nomeNormalizado = normalizarTexto(p.nome);
-    const palavrasNome = nomeNormalizado.split(/\s+/);
-    let pontos = 0;
-    let palavrasBateram = 0;
-
-    palavras.forEach(palavra => {
-      // ⚠️ Verifica se a palavra inteira bate (não só um pedaço)
-      const bateu = palavrasNome.some(pn => pn === palavra || pn.startsWith(palavra));
-      if (bateu) {
-        palavrasBateram++;
-        pontos += 10;
-      }
-    });
-
-    // ⚠️ Exige que TODAS as palavras-chave batam
-    if (palavrasBateram < palavras.length) {
-      pontos = 0;
-    }
-
-    // ✅ Bônus se o produto começa com a palavra buscada (ex: "ARROZ...")
-    if (palavras.length === 1) {
-      const primeiraPalavraNome = palavrasNome[0];
-      if (primeiraPalavraNome === palavras[0]) {
-        pontos += 50;
-      }
-    }
-
-    return { produto: p, pontos };
-  }).filter(item => item.pontos > 0);
-
-  pontuados.sort((a, b) => b.pontos - a.pontos);
-
-  return {
-    encontrados: pontuados.slice(0, limite).map(item => item.produto),
-    totalEncontrados: pontuados.length
-  };
-}
-
-// ============ EXTRAIR PREÇO DA PÁGINA DO PRODUTO ============
-async function extrairPrecoDaPagina(produtoId) {
-  try {
-    const url = `${LINK_SITE}/produto/${produtoId}`;
-    const resp = await fetch(url, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; PMGBot/1.0)' }
-    });
-
-    if (!resp.ok) {
-      console.warn(`⚠️ Página do produto ${produtoId} retornou ${resp.status}`);
-      return null;
-    }
-
-    const html = await resp.text();
-    const $ = cheerio.load(html);
-
-    let preco = null;
-
-    // 🔥 ESTRATÉGIA 1: Procura por R$ no HTML de forma específica
-    // Padrão típico: R$ 35,08 ou R$ 3.508,00
-    const matches = html.match(/R\$\s*([\d]{1,3}(?:[.,]\d{3})*[.,]\d{2})/g);
-
-    if (matches && matches.length > 0) {
-      // Pega TODOS os preços encontrados e escolhe o MENOR
-      // (o menor geralmente é o preço do produto, o maior pode ser "de/por")
-      const valores = matches.map(m => {
-        const limpo = m.replace(/R\$\s*/, '').replace(/\./g, '').replace(',', '.');
-        return parseFloat(limpo);
-      }).filter(v => !isNaN(v) && v > 0 && v < 100000);
-
-      if (valores.length > 0) {
-        // Pega o menor valor (preço real)
-        preco = Math.min(...valores);
-      }
-    }
-
-    // 🔥 ESTRATÉGIA 2: JSON-LD (com prioridade)
-    if (!preco) {
-      const scripts = $('script[type="application/ld+json"]');
-      for (let i = 0; i < scripts.length; i++) {
-        try {
-          const json = JSON.parse($(scripts[i]).html());
-          const grafo = json['@graph'] || [json];
-          for (const item of grafo) {
-            if (item['@type'] === 'Product' && item.offers) {
-              const precoItem = item.offers.price || item.offers.lowPrice;
-              if (precoItem) {
-                const valor = parseFloat(String(precoItem));
-                if (!isNaN(valor) && valor > 0 && valor < 100000) {
-                  preco = valor;
-                  break;
-                }
-              }
-            }
-          }
-          if (preco) break;
-        } catch (e) {}
-      }
-    }
-
-    if (preco && preco > 0 && preco < 100000) {
-      return preco;
-    }
-
-    return null;
-  } catch (err) {
-    console.error(`❌ Erro ao extrair preço do produto ${produtoId}:`, err.message);
-    return null;
-  }
-}
-
-// ============ MONTAR CONTEXTO DE PRODUTOS PARA A IA ============
-async function montarContextoProdutos(produtos, totalEncontrados) {
-  if (!produtos.length) return '';
-
-  const preco = await extrairPrecoDaPagina(produtos[0].id);
-
-  // ⚠️ Se não conseguir pegar o preço, NÃO inventa
-  const precoTexto = preco ? `R$ ${preco.toFixed(2)}` : 'Consulte no site';
-
-  const linkProduto = `${LINK_SITE}/produto/${produtos[0].id}`;
-
-  let contexto = `PRODUTO ENCONTRADO (USE EXATAMENTE ESSES DADOS):\n\n`;
-  contexto += `Nome exato: ${produtos[0].nome}\n`;
-  contexto += `Categoria: ${produtos[0].categoria}\n`;
-  contexto += `Preço: ${precoTexto}\n`;
-  contexto += `Link direto: ${linkProduto}\n\n`;
-  contexto += `⚠️ REGRAS CRÍTICAS:\n`;
-  contexto += `1. Use APENAS o nome acima, não invente variações\n`;
-  contexto += `2. Use APENAS o preço acima, não invente\n`;
-  contexto += `3. SEMPRE inclua o link direto do produto na resposta\n`;
-  contexto += `4. NÃO diga que o produto tem outra embalagem/tipo\n\n`;
-
-  if (totalEncontrados > 1) {
-    contexto += `OBSERVAÇÃO: Temos mais ${totalEncontrados - 1} opção(ões) desse produto no site: ${LINK_SITE}\n\n`;
-  }
-
-  return contexto;
-}
-
 // ============ CHAMAR A IA (OPEN ROUTER) ============
-async function gerarRespostaIA(mensagemCliente, historico = [], contextoProdutos = '') {
+async function gerarRespostaIA(mensagemCliente, historico = []) {
   if (!OPENROUTER_API_KEY) {
     console.error('❌ OPENROUTER_API_KEY não configurada');
     return null;
   }
 
-  const promptSistema = `Você é o assistente virtual da Marques Vendas PMG, uma distribuidora food service.
+  const promptSistema = `Você é o vendedor virtual da Marques Vendas PMG, uma distribuidora food service que atende bares, restaurantes, pizzarias, lanchonetes e comerciantes.
 
-INFORMAÇÕES DA EMPRESA:
-- Horário: Segunda a Sábado, das 08h às 13h e das 15h às 20h
+🎯 SEU OBJETIVO PRINCIPAL: CONVENCER O CLIENTE A COMPRAR E LEVAR ELE PARA O SITE.
+Você é um vendedor 24h por dia. Seu trabalho é vender, não só responder.
+
+═══════════════════════════════════════
+INFORMAÇÕES DA EMPRESA (use quando fizer sentido)
+═══════════════════════════════════════
+- Site (catálogo COMPLETO com preços atualizados): ${LINK_SITE}
+- WhatsApp do vendedor humano: ${LINK_WHATSAPP}
+- Horário: Segunda a Sábado, 08h às 13h e 15h às 20h
 - Endereço: Estrada Ferreira Guedes, 784 - Potuverá, Itapecerica da Serra - SP
 - Pedido mínimo: R$ 900,00
-- NÃO fazemos retirada no local
-- Site: ${LINK_SITE}
-- WhatsApp do vendedor: ${LINK_WHATSAPP}
+- 🚚 FRETE GRÁTIS (destaque isso!)
+- 💰 PAGUE SÓ NA ENTREGA (destaque isso! é um grande diferencial)
+- ❌ NÃO fazemos retirada no local (entregamos)
+- Atendemos toda a região, incluindo cidades próximas
 
-COMO SE COMPORTAR:
-- Fale como um vendedor humano, próximo e educado
-- Seja direto, sem enrolação
-- Use emojis com moderação (1 ou 2 por mensagem)
-- Use quebras de linha para deixar a mensagem legível
+═══════════════════════════════════════
+🏆 BENEFÍCIOS QUE VOCÊ DEVE DESTACAR (sempre que possível)
+═══════════════════════════════════════
+1. 🚚 FRETE GRÁTIS para pedidos acima do mínimo
+2. 💰 PAGUE SÓ NA ENTREGA — segurança total pro cliente
+3. 📦 Produtos de qualidade food service
+4. 🛒 Catálogo completo no site com preços atualizados
+5. 💬 Atendimento humano pelo WhatsApp quando quiser
+6. 🏢 Empresa séria com endereço fixo
 
-⚠️ REGRAS CRÍTICAS SOBRE PRODUTOS:
-- Quando a seção "PRODUTO ENCONTRADO" aparecer, use EXATAMENTE o nome e preço informados
-- NUNCA invente embalagem, tipo, sabor ou variação que não esteja explícito
-- SEMPRE inclua o LINK DIRETO do produto (não só o link do site)
-- Se o preço for "Consulte no site", não invente valor
-- Se o cliente pedir foto, mande o link direto do produto
-- NÃO sugira outro produto se o cliente pediu um específico
+═══════════════════════════════════════
+⚠️ REGRAS CRÍTICAS — LEIA COM ATENÇÃO
+═══════════════════════════════════════
+1. ❌ NUNCA invente preços. Se perguntarem preço, diga que o catálogo completo com preços atualizados está no site e mande o link: ${LINK_SITE}
+2. ❌ NUNCA invente se tem ou não um produto específico. Diga que no site tem o catálogo completo e mande o link.
+3. ❌ NUNCA invente embalagem, marca, sabor, peso, validade ou qualquer detalhe de produto.
+4. ✅ SEMPRE que o cliente perguntar sobre produto/preço/estoque, mande o link do site: ${LINK_SITE}
+5. ✅ SEMPRE que possível, destaque: FRETE GRÁTIS e PAGUE NA ENTREGA
+6. ✅ Se o cliente demonstrar interesse, incentive o cadastro no site pra ver os preços e fazer o pedido
+7. ✅ Se o cliente quiser falar com humano, mande: ${LINK_WHATSAPP}
+8. ✅ Seja convincente, simpático e direto. Fale como vendedor de verdade.
+9. ✅ Use emojis com moderação (1 a 2 por mensagem)
+10. ✅ Use quebras de linha pra deixar legível
+11. ❌ NUNCA diga que é "a empresa oficial" — você é o vendedor/assistente
+12. ❌ NUNCA fale de produtos que você não tem certeza. Redirecione pro site.
 
-⚠️ OUTRAS REGRAS:
-- Se o cliente quiser fechar pedido, oriente a acessar o site e cadastrar
-- Se não souber algo, direcione para o vendedor: ${LINK_WHATSAPP}
-- NUNCA diga que é "a empresa oficial" - você é um assistente/vendedor
+═══════════════════════════════════════
+💡 EXEMPLOS DE COMO RESPONDER
+═══════════════════════════════════════
 
-${contextoProdutos ? `\n${contextoProdutos}` : ''}
+Cliente: "Vocês tem muçarela?"
+Você: "Temos sim! 🧀 Nosso catálogo completo com todos os produtos e preços atualizados está no site:
 
-Responda a mensagem do cliente de forma natural e direta.`;
+${LINK_SITE}
+
+Lá você encontra muçarela e muito mais, com frete grátis e pagamento só na entrega! 💰🚚
+
+Qualquer dúvida, é só chamar!"
+
+Cliente: "Quanto custa o queijo?"
+Você: "Os preços atualizados você confere direto no nosso site: 🛒
+
+${LINK_SITE}
+
+É rapidinho, só se cadastrar e você já vê tudo com preço. E o melhor: frete grátis e você paga só na entrega! 💰🚚
+
+Precisa de ajuda com algo específico?"
+
+Cliente: "Vocês entregam em [cidade]?"
+Você: "Entregamos sim! 🚚 Atendemos toda a região.
+
+Nosso catálogo completo está em:
+${LINK_SITE}
+
+Pedido mínimo de R$ 900,00, frete GRÁTIS e você paga só na entrega! 💰
+
+Ficou com alguma dúvida?"
+
+Cliente: "Quero fazer um pedido"
+Você: "Perfeito! 🎉 Pra fazer seu pedido é bem simples:
+
+1️⃣ Acesse: ${LINK_SITE}
+2️⃣ Se cadastre rapidinho
+3️⃣ Escolha seus produtos
+4️⃣ Finalize o pedido
+
+Pedido mínimo: R$ 900,00
+🚚 Frete GRÁTIS
+💰 Pagamento só na entrega
+
+Qualquer dúvida no cadastro, me chama aqui! 😊"
+
+═══════════════════════════════════════
+
+Agora responda a mensagem do cliente sendo um VENDEDOR CONVINCENTE, sempre levando ele pro site ${LINK_SITE} e destacando frete grátis + pague na entrega.`;
 
   // Monta o histórico (últimas 10 mensagens)
   const mensagens = [
@@ -267,7 +152,7 @@ Responda a mensagem do cliente de forma natural e direta.`;
       body: JSON.stringify({
         model: OPENROUTER_MODEL,
         messages: mensagens,
-        temperature: 0.7,
+        temperature: 0.8,
         max_tokens: 500
       })
     });
@@ -407,19 +292,19 @@ async function processarOpcao(telefone, opcaoId) {
 
   switch (opcaoId) {
     case 'menu_site':
-      resposta = `Aqui está nosso catálogo completo! 🛒\n\n${LINK_SITE}\n\nQualquer dúvida, é só chamar!`;
+      resposta = `Aqui está nosso catálogo completo! 🛒\n\n${LINK_SITE}\n\n✅ Frete GRÁTIS\n💰 Pague só na entrega\n📦 Pedido mínimo: R$ 900,00\n\nQualquer dúvida, é só chamar!`;
       break;
     case 'menu_vendedor':
       resposta = `Para falar com nosso vendedor, chame direto no WhatsApp: 💬\n\n${LINK_WHATSAPP}\n\nSerá um prazer te atender!`;
       break;
     case 'menu_tabela':
-      resposta = `Já vamos te enviar a tabela! 📄\n\nAguarde alguns minutinhos que já estamos enviando. 🙏`;
+      resposta = `Já vamos te enviar a tabela! 📄\n\nMas você também pode conferir todos os preços atualizados direto no site:\n${LINK_SITE}\n\nAguarde alguns minutinhos que já estamos enviando. 🙏`;
       break;
     case 'menu_horario':
       resposta = `🕐 Nosso horário de funcionamento:\n\n📅 Segunda a Sábado\n🌅 Manhã: 08h às 13h\n🌇 Tarde: 15h às 20h\n\nEstamos à disposição!`;
       break;
     case 'menu_endereco':
-      resposta = `📍 Nosso endereço:\n\nEstrada Ferreira Guedes, 784 - Potuverá\nItapecerica da Serra - SP\n\n⚠️ Informações importantes:\n• Pedido mínimo: R$ 900,00\n• Não realizamos retirada no local\n\nPara mais informações, fale com nosso vendedor:\n${LINK_WHATSAPP}`;
+      resposta = `📍 Nosso endereço:\n\nEstrada Ferreira Guedes, 784 - Potuverá\nItapecerica da Serra - SP\n\n⚠️ Informações importantes:\n• Pedido mínimo: R$ 900,00\n• 🚚 Frete GRÁTIS\n• 💰 Pague só na entrega\n• ❌ Não realizamos retirada no local\n\nPara mais informações, fale com nosso vendedor:\n${LINK_WHATSAPP}`;
       break;
     case 'menu_finalizar':
       resposta = `✅ Atendimento finalizado!\n\nSe precisar de algo, é só chamar de novo. 👋\n\n🛒 Catálogo: ${LINK_SITE}\n💬 WhatsApp: ${LINK_WHATSAPP}`;
@@ -695,25 +580,8 @@ export default async function handler(req, res) {
             // Busca histórico para contexto
             const historico = await buscarHistorico(telefone);
 
-            // Verifica se a mensagem parece ser sobre produto
-            const palavrasProduto = ['preco', 'preço', 'quanto', 'custa', 'valor', 'tem', 'vende', 'produto', 'muçarela', 'queijo', 'cerveja', 'carne', 'bebida', 'coca', 'arroz', 'feijao', 'oleo', 'leite', 'pão', 'farinha', 'acucar', 'cafe', 'molho', 'atum', 'calabresa', 'linguica', 'bacon', 'frango', 'bovino', 'suino', 'peixe'];
-            const textoNormalizado = normalizarTexto(texto);
-            const ehSobreProduto = palavrasProduto.some(p => textoNormalizado.includes(p));
-
-            let contextoProdutos = '';
-
-            if (ehSobreProduto) {
-              // 🔥 BUSCA SÓ 1 PRODUTO (mais rápido)
-              const { encontrados, totalEncontrados } = buscarProdutos(texto, 1);
-
-              if (encontrados.length) {
-                console.log(`🔍 ${encontrados.length} produto(s) mostrado(s) de ${totalEncontrados} encontrados para "${texto}"`);
-                contextoProdutos = await montarContextoProdutos(encontrados, totalEncontrados);
-              }
-            }
-
-            // Chama a IA (com ou sem contexto de produtos)
-            const respostaIA = await gerarRespostaIA(texto, historico, contextoProdutos);
+            // Chama a IA (sem contexto de produtos - ela leva pro site)
+            const respostaIA = await gerarRespostaIA(texto, historico);
 
             if (respostaIA) {
               const messageId = await enviarMensagem(telefone, respostaIA);
