@@ -1,9 +1,14 @@
 // pages/api/webhook.js
 import { supabase } from '../../lib/supabaseClient';
+import fs from 'fs';
+import path from 'path';
+import * as cheerio from 'cheerio';
 
 // ============ CONFIGURAÇÕES ============
 const LINK_SITE = 'https://www.marquesvendaspmg.shop';
 const LINK_WHATSAPP = 'https://wa.me/5511913572902';
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+const OPENROUTER_MODEL = process.env.OPENROUTER_MODEL || 'openai/gpt-4o-mini';
 
 // ============ RESPOSTAS AUTOMÁTICAS (QUEBRA-GELOS) ============
 const RESPOSTAS_AUTOMATICAS = {
@@ -17,7 +22,240 @@ const MENSAGEM_BOAS_VINDAS = `Bem-vindo à Marques Vendas PMG! 👋
 
 Como podemos te ajudar hoje?`;
 
-// ============ FUNÇÃO PARA ENVIAR MENSAGEM DE TEXTO ============
+// ============ CACHE DE PRODUTOS ============
+let produtosCache = null;
+
+function carregarProdutos() {
+  if (produtosCache) return produtosCache;
+
+  try {
+    const caminho = path.join(process.cwd(), 'data', 'produtos.json');
+    const conteudo = fs.readFileSync(caminho, 'utf8');
+    produtosCache = JSON.parse(conteudo);
+    console.log(`✅ ${produtosCache.length} produtos carregados em cache`);
+    return produtosCache;
+  } catch (err) {
+    console.error('❌ Erro ao carregar produtos:', err.message);
+    return [];
+  }
+}
+
+// ============ BUSCAR PRODUTOS ============
+function normalizarTexto(texto) {
+  return texto
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
+
+function buscarProdutos(termo, limite = 5) {
+  const produtos = carregarProdutos();
+  if (!produtos.length) return [];
+
+  const termoNormalizado = normalizarTexto(termo);
+  const palavras = termoNormalizado.split(/\s+/).filter(p => p.length >= 3);
+
+  if (!palavras.length) return [];
+
+  // Pontua cada produto pela quantidade de palavras que batem
+  const pontuados = produtos.map(p => {
+    const nomeNormalizado = normalizarTexto(p.nome);
+    let pontos = 0;
+
+    palavras.forEach(palavra => {
+      if (nomeNormalizado.includes(palavra)) pontos++;
+    });
+
+    return { produto: p, pontos };
+  }).filter(item => item.pontos > 0);
+
+  // Ordena por pontuação (maior primeiro)
+  pontuados.sort((a, b) => b.pontos - a.pontos);
+
+  return pontuados.slice(0, limite).map(item => item.produto);
+}
+
+// ============ EXTRAIR PREÇO DA PÁGINA DO PRODUTO ============
+async function extrairPrecoDaPagina(produtoId) {
+  try {
+    const url = `${LINK_SITE}/produto/${produtoId}`;
+    const resp = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; PMGBot/1.0)' }
+    });
+
+    if (!resp.ok) {
+      console.warn(`⚠️ Página do produto ${produtoId} retornou ${resp.status}`);
+      return null;
+    }
+
+    const html = await resp.text();
+    const $ = cheerio.load(html);
+
+    // Tenta várias estratégias para achar o preço
+    let preco = null;
+
+    // 1. Meta tag og:price:amount
+    preco = $('meta[property="product:price:amount"]').attr('content');
+
+    // 2. Meta tag og:price
+    if (!preco) {
+      const precoTexto = $('meta[property="og:price:amount"]').attr('content');
+      if (precoTexto) preco = precoTexto;
+    }
+
+    // 3. Procura por R$ no HTML (regex)
+    if (!preco) {
+      const match = html.match(/R\$\s*([\d.,]+)/);
+      if (match) preco = match[1];
+    }
+
+    // 4. JSON-LD
+    if (!preco) {
+      const scripts = $('script[type="application/ld+json"]');
+      for (let i = 0; i < scripts.length; i++) {
+        try {
+          const json = JSON.parse($(scripts[i]).html());
+          const grafo = json['@graph'] || [json];
+          for (const item of grafo) {
+            if (item['@type'] === 'Product' && item.offers?.price) {
+              preco = item.offers.price;
+              break;
+            }
+          }
+          if (preco) break;
+        } catch (e) {}
+      }
+    }
+
+    if (preco) {
+      // Normaliza o preço (remove pontos de milhar, mantém vírgula decimal)
+      const precoLimpo = String(preco).replace(/\./g, '').replace(',', '.');
+      const valor = parseFloat(precoLimpo);
+      if (!isNaN(valor) && valor > 0) {
+        return valor;
+      }
+    }
+
+    return null;
+  } catch (err) {
+    console.error(`❌ Erro ao extrair preço do produto ${produtoId}:`, err.message);
+    return null;
+  }
+}
+
+// ============ MONTAR CONTEXTO DE PRODUTOS PARA A IA ============
+async function montarContextoProdutos(produtos) {
+  if (!produtos.length) return '';
+
+  let contexto = 'PRODUTOS ENCONTRADOS NO CATÁLOGO:\n\n';
+
+  for (const p of produtos) {
+    const preco = await extrairPrecoDaPagina(p.id);
+    const precoTexto = preco ? `R$ ${preco.toFixed(2)}` : 'Preço no site';
+
+    contexto += `- ${p.nome}\n`;
+    contexto += `  Categoria: ${p.categoria}\n`;
+    contexto += `  Preço: ${precoTexto}\n`;
+    contexto += `  Link: ${LINK_SITE}/produto/${p.id}\n\n`;
+  }
+
+  return contexto;
+}
+
+// ============ CHAMAR A IA (OPEN ROUTER) ============
+async function gerarRespostaIA(mensagemCliente, historico = [], contextoProdutos = '') {
+  if (!OPENROUTER_API_KEY) {
+    console.error('❌ OPENROUTER_API_KEY não configurada');
+    return null;
+  }
+
+  const promptSistema = `Você é o assistente virtual da Marques Vendas PMG, uma distribuidora food service.
+
+INFORMAÇÕES IMPORTANTES:
+- Horário: Segunda a Sábado, das 08h às 13h e das 15h às 20h
+- Endereço: Estrada Ferreira Guedes, 784 - Potuverá, Itapecerica da Serra - SP
+- Pedido mínimo: R$ 900,00
+- NÃO fazemos retirada no local
+- Site: ${LINK_SITE}
+- WhatsApp do vendedor: ${LINK_WHATSAPP}
+
+COMO SE COMPORTAR:
+- Fale como um vendedor humano, próximo e educado
+- Seja direto, sem enrolação
+- Use emojis com moderação (1 ou 2 por mensagem)
+- Use quebras de linha para deixar a mensagem legível
+- Se o cliente perguntar sobre produto, use SEMPRE os dados abaixo (nunca invente preço)
+- Se o cliente quiser fechar pedido, oriente a acessar o site, cadastrar e finalizar
+- Se não souber algo, seja honesto e direcione para o vendedor
+- NUNCA diga que é "a empresa" - você é um assistente/vendedor
+- NUNCA invente informações
+
+${contextoProdutos ? `\n${contextoProdutos}` : ''}
+
+Responda a mensagem do cliente de forma natural.`;
+
+  // Monta o histórico (últimas 10 mensagens)
+  const mensagens = [
+    { role: 'system', content: promptSistema },
+    ...historico.slice(-10),
+    { role: 'user', content: mensagemCliente }
+  ];
+
+  try {
+    const resp = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': LINK_SITE,
+        'X-Title': 'Marques Vendas PMG'
+      },
+      body: JSON.stringify({
+        model: OPENROUTER_MODEL,
+        messages: mensagens,
+        temperature: 0.7,
+        max_tokens: 500
+      })
+    });
+
+    const data = await resp.json();
+
+    if (!resp.ok) {
+      console.error('❌ Erro Open Router:', JSON.stringify(data, null, 2));
+      return null;
+    }
+
+    return data.choices?.[0]?.message?.content || null;
+  } catch (err) {
+    console.error('❌ Erro ao chamar IA:', err.message);
+    return null;
+  }
+}
+
+// ============ BUSCAR HISTÓRICO DO CLIENTE ============
+async function buscarHistorico(telefone) {
+  try {
+    const { data } = await supabase
+      .from('mensagens')
+      .select('direcao, conteudo, created_at')
+      .eq('telefone', telefone)
+      .order('created_at', { ascending: false })
+      .limit(10);
+
+    if (!data) return [];
+
+    // Inverte para ordem cronológica
+    return data.reverse().map(m => ({
+      role: m.direcao === 'enviada' ? 'assistant' : 'user',
+      content: m.conteudo
+    }));
+  } catch (err) {
+    console.error('❌ Erro ao buscar histórico:', err);
+    return [];
+  }
+}
+
+// ============ ENVIAR MENSAGEM DE TEXTO ============
 async function enviarMensagem(telefone, texto) {
   const TOKEN = process.env.WHATSAPP_TOKEN;
   const PHONE_ID = process.env.WHATSAPP_PHONE_ID;
@@ -52,69 +290,38 @@ async function enviarMensagem(telefone, texto) {
   }
 }
 
-// ============ FUNÇÃO PARA ENVIAR MENU INTERATIVO (LISTA) ============
+// ============ ENVIAR MENU INTERATIVO ============
 async function enviarMenu(telefone) {
   const TOKEN = process.env.WHATSAPP_TOKEN;
   const PHONE_ID = process.env.WHATSAPP_PHONE_ID;
 
-const payload = {
-  messaging_product: 'whatsapp',
-  to: telefone,
-  type: 'interactive',
-  interactive: {
-    type: 'list',
-    header: {
-      type: 'text',
-      text: 'Marques Vendas PMG'
-    },
-    body: {
-      text: 'Como podemos te ajudar hoje? 👇'
-    },
-    footer: {
-      text: 'Toque em "Ver Opções" para escolher'
-    },
-    action: {
-      button: 'Ver Opções',
-      sections: [
-        {
-          title: 'Menu Principal',
-          rows: [
-            {
-              id: 'menu_site',
-              title: '🛒 Ver Catálogo',
-              description: 'Acesse nosso catálogo completo'
-            },
-            {
-              id: 'menu_vendedor',
-              title: '💬 Falar Vendedor',
-              description: 'Atendimento direto pelo WhatsApp'
-            },
-            {
-              id: 'menu_tabela',
-              title: '📄 Receber Tabela',
-              description: 'Tabela de preços atualizada'
-            },
-            {
-              id: 'menu_horario',
-              title: '🕐 Horário',
-              description: 'Seg a Sáb, 08h-13h / 15h-20h'
-            },
-            {
-              id: 'menu_endereco',
-              title: '📍 Endereço',
-              description: 'Estrada Ferreira Guedes, 784'
-            },
-            {
-              id: 'menu_finalizar',
-              title: '🚪 Finalizar',
-              description: 'Encerrar a conversa'
-            }
-          ]
-        }
-      ]
+  const payload = {
+    messaging_product: 'whatsapp',
+    to: telefone,
+    type: 'interactive',
+    interactive: {
+      type: 'list',
+      header: { type: 'text', text: 'Marques Vendas PMG' },
+      body: { text: 'Como podemos te ajudar hoje? 👇' },
+      footer: { text: 'Toque em "Ver Opções" para escolher' },
+      action: {
+        button: 'Ver Opções',
+        sections: [
+          {
+            title: 'Menu Principal',
+            rows: [
+              { id: 'menu_site', title: '🛒 Ver Catálogo', description: 'Acesse nosso catálogo completo' },
+              { id: 'menu_vendedor', title: '💬 Falar Vendedor', description: 'Atendimento direto pelo WhatsApp' },
+              { id: 'menu_tabela', title: '📄 Receber Tabela', description: 'Tabela de preços atualizada' },
+              { id: 'menu_horario', title: '🕐 Horário', description: 'Seg a Sáb, 08h-13h / 15h-20h' },
+              { id: 'menu_endereco', title: '📍 Endereço', description: 'Estrada Ferreira Guedes, 784' },
+              { id: 'menu_finalizar', title: '🚪 Finalizar', description: 'Encerrar a conversa' }
+            ]
+          }
+        ]
+      }
     }
-  }
-};
+  };
 
   try {
     const resp = await fetch(
@@ -141,66 +348,29 @@ const payload = {
   }
 }
 
-// ============ FUNÇÃO PARA PROCESSAR A OPÇÃO ESCOLHIDA ============
+// ============ PROCESSAR OPÇÃO DO MENU ============
 async function processarOpcao(telefone, opcaoId) {
   let resposta = '';
 
   switch (opcaoId) {
     case 'menu_site':
-      resposta = `Aqui está nosso catálogo completo! 🛒
-
-${LINK_SITE}
-
-Qualquer dúvida, é só chamar!`;
+      resposta = `Aqui está nosso catálogo completo! 🛒\n\n${LINK_SITE}\n\nQualquer dúvida, é só chamar!`;
       break;
-
     case 'menu_vendedor':
-      resposta = `Para falar com nosso vendedor, chame direto no WhatsApp: 💬
-
-${LINK_WHATSAPP}
-
-Será um prazer te atender!`;
+      resposta = `Para falar com nosso vendedor, chame direto no WhatsApp: 💬\n\n${LINK_WHATSAPP}\n\nSerá um prazer te atender!`;
       break;
-
     case 'menu_tabela':
-      resposta = `Já vamos te enviar a tabela! 📄
-
-Aguarde alguns minutinhos que já estamos enviando. 🙏`;
+      resposta = `Já vamos te enviar a tabela! 📄\n\nAguarde alguns minutinhos que já estamos enviando. 🙏`;
       break;
-
     case 'menu_horario':
-      resposta = `🕐 Nosso horário de funcionamento:
-
-📅 Segunda a Sábado
-🌅 Manhã: 08h às 13h
-🌇 Tarde: 15h às 20h
-
-Estamos à disposição!`;
+      resposta = `🕐 Nosso horário de funcionamento:\n\n📅 Segunda a Sábado\n🌅 Manhã: 08h às 13h\n🌇 Tarde: 15h às 20h\n\nEstamos à disposição!`;
       break;
-
     case 'menu_endereco':
-      resposta = `📍 Nosso endereço:
-
-Estrada Ferreira Guedes, 784 - Potuverá
-Itapecerica da Serra - SP
-
-⚠️ Informações importantes:
-• Pedido mínimo: R$ 900,00
-• Não realizamos retirada no local
-
-Para mais informações, fale com nosso vendedor:
-${LINK_WHATSAPP}`;
+      resposta = `📍 Nosso endereço:\n\nEstrada Ferreira Guedes, 784 - Potuverá\nItapecerica da Serra - SP\n\n⚠️ Informações importantes:\n• Pedido mínimo: R$ 900,00\n• Não realizamos retirada no local\n\nPara mais informações, fale com nosso vendedor:\n${LINK_WHATSAPP}`;
       break;
-
     case 'menu_finalizar':
-      resposta = `✅ Atendimento finalizado!
-
-Se precisar de algo, é só chamar de novo. 👋
-
-🛒 Catálogo: ${LINK_SITE}
-💬 WhatsApp: ${LINK_WHATSAPP}`;
+      resposta = `✅ Atendimento finalizado!\n\nSe precisar de algo, é só chamar de novo. 👋\n\n🛒 Catálogo: ${LINK_SITE}\n💬 WhatsApp: ${LINK_WHATSAPP}`;
       break;
-
     default:
       resposta = `Desculpe, não entendi a opção. Tente novamente.`;
   }
@@ -208,7 +378,7 @@ Se precisar de algo, é só chamar de novo. 👋
   return resposta;
 }
 
-// ============ FUNÇÃO PARA EXTRAIR O TEXTO DA MENSAGEM ============
+// ============ EXTRAIR TEXTO DA MENSAGEM ============
 function extrairTextoMensagem(msg) {
   if (msg.text?.body) return msg.text.body;
   if (msg.button?.text) return `🔘 ${msg.button.text}`;
@@ -249,6 +419,7 @@ function extrairTextoMensagem(msg) {
   return `[${msg.type}]`;
 }
 
+// ============ HANDLER PRINCIPAL ============
 export default async function handler(req, res) {
   // ============ VERIFICAÇÃO ============
   if (req.method === 'GET') {
@@ -328,7 +499,7 @@ export default async function handler(req, res) {
           }
 
           // 3. Salva a mensagem recebida
-          const { error: erroMsg } = await supabase.from('mensagens').insert({
+          await supabase.from('mensagens').insert({
             contato_id: contato?.id || null,
             telefone,
             direcao: 'recebida',
@@ -337,8 +508,6 @@ export default async function handler(req, res) {
             message_id: msg.id,
             status: 'received'
           });
-
-          if (erroMsg) console.error('❌ Erro ao salvar mensagem:', erroMsg);
 
           // 4. Atualiza a conversa
           const janelaAberta = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
@@ -358,10 +527,8 @@ export default async function handler(req, res) {
 
           if (opcaoMenu) {
             const respostaOpcao = await processarOpcao(telefone, opcaoMenu);
-
             if (respostaOpcao) {
               const messageId = await enviarMensagem(telefone, respostaOpcao);
-
               if (messageId) {
                 await supabase.from('mensagens').insert({
                   contato_id: contato?.id || null,
@@ -384,7 +551,6 @@ export default async function handler(req, res) {
                   nao_lidas: 0
                 }, { onConflict: 'telefone' });
 
-                // Se não for "Finalizar", reenvia o menu depois de 2 segundos
                 if (opcaoMenu !== 'menu_finalizar') {
                   setTimeout(async () => {
                     const menuId = await enviarMenu(telefone);
@@ -407,7 +573,6 @@ export default async function handler(req, res) {
           // 6. RESPOSTA AUTOMÁTICA (QUEBRA-GELOS)
           else if (RESPOSTAS_AUTOMATICAS[texto] === 'menu') {
             const menuId = await enviarMenu(telefone);
-
             if (menuId) {
               await supabase.from('mensagens').insert({
                 contato_id: contato?.id || null,
@@ -434,7 +599,6 @@ export default async function handler(req, res) {
           // 7. SAUDAÇÃO AUTOMÁTICA (cliente novo ou sem interação 12h)
           else if (deveEnviarSaudacao) {
             const msgId = await enviarMensagem(telefone, MENSAGEM_BOAS_VINDAS);
-
             if (msgId) {
               await supabase.from('mensagens').insert({
                 contato_id: contato?.id || null,
@@ -446,7 +610,6 @@ export default async function handler(req, res) {
                 status: 'sent'
               });
 
-              // Envia o menu logo depois
               setTimeout(async () => {
                 const menuId = await enviarMenu(telefone);
                 if (menuId) {
@@ -472,6 +635,57 @@ export default async function handler(req, res) {
                   }, { onConflict: 'telefone' });
                 }
               }, 1000);
+            }
+          }
+          // 8. MENSAGEM NORMAL → CHAMA A IA
+          else {
+            // Busca histórico para contexto
+            const historico = await buscarHistorico(telefone);
+
+            // Verifica se a mensagem parece ser sobre produto
+            const palavrasProduto = ['preco', 'preço', 'quanto', 'custa', 'valor', 'tem', 'vende', 'produto', 'muçarela', 'queijo', 'cerveja', 'carne', 'bebida', 'coca', 'arroz', 'feijao', 'oleo', 'leite', 'pão', 'farinha', 'acucar', 'cafe', 'molho', 'atum', 'calabresa', 'linguica', 'bacon', 'frango', 'bovino', 'suino', 'peixe'];
+            const textoNormalizado = normalizarTexto(texto);
+            const ehSobreProduto = palavrasProduto.some(p => textoNormalizado.includes(p));
+
+            let contextoProdutos = '';
+
+            if (ehSobreProduto) {
+              const produtosEncontrados = buscarProdutos(texto, 5);
+              if (produtosEncontrados.length) {
+                console.log(`🔍 ${produtosEncontrados.length} produtos encontrados para "${texto}"`);
+                contextoProdutos = await montarContextoProdutos(produtosEncontrados);
+              }
+            }
+
+            // Chama a IA (com ou sem contexto de produtos)
+            const respostaIA = await gerarRespostaIA(texto, historico, contextoProdutos);
+
+            if (respostaIA) {
+              const messageId = await enviarMensagem(telefone, respostaIA);
+              if (messageId) {
+                await supabase.from('mensagens').insert({
+                  contato_id: contato?.id || null,
+                  telefone,
+                  direcao: 'enviada',
+                  tipo: 'texto',
+                  conteudo: respostaIA,
+                  message_id: messageId,
+                  status: 'sent'
+                });
+
+                await supabase.from('conversas').upsert({
+                  contato_id: contato?.id || null,
+                  telefone,
+                  nome_contato: nome,
+                  ultima_mensagem: respostaIA,
+                  ultima_mensagem_em: new Date().toISOString(),
+                  ultima_mensagem_direcao: 'enviada',
+                  janela_aberta_ate: janelaAberta,
+                  nao_lidas: 0
+                }, { onConflict: 'telefone' });
+              }
+            } else {
+              console.error('❌ IA não retornou resposta');
             }
           }
         }
