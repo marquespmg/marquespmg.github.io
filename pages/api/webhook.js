@@ -4,6 +4,11 @@ import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
 
+// ⏱️ Timeout aumentado (Vercel Pro permite 60s)
+export const config = {
+  maxDuration: 60,
+};
+
 // ============ CONFIGURAÇÕES ============
 const LINK_SITE = 'https://www.marquesvendaspmg.shop';
 const LINK_WHATSAPP = 'https://wa.me/5511913572902';
@@ -40,7 +45,7 @@ function carregarProdutos() {
   }
 }
 
-// ============ BUSCAR PRODUTOS ============
+// ============ NORMALIZAR TEXTO ============
 function normalizarTexto(texto) {
   return texto
     .toLowerCase()
@@ -48,14 +53,15 @@ function normalizarTexto(texto) {
     .replace(/[\u0300-\u036f]/g, '');
 }
 
-function buscarProdutos(termo, limite = 5) {
+// ============ BUSCAR PRODUTOS ============
+function buscarProdutos(termo, limite = 1) {
   const produtos = carregarProdutos();
-  if (!produtos.length) return [];
+  if (!produtos.length) return { encontrados: [], totalEncontrados: 0 };
 
   const termoNormalizado = normalizarTexto(termo);
   const palavras = termoNormalizado.split(/\s+/).filter(p => p.length >= 3);
 
-  if (!palavras.length) return [];
+  if (!palavras.length) return { encontrados: [], totalEncontrados: 0 };
 
   // Pontua cada produto pela quantidade de palavras que batem
   const pontuados = produtos.map(p => {
@@ -72,7 +78,10 @@ function buscarProdutos(termo, limite = 5) {
   // Ordena por pontuação (maior primeiro)
   pontuados.sort((a, b) => b.pontos - a.pontos);
 
-  return pontuados.slice(0, limite).map(item => item.produto);
+  return {
+    encontrados: pontuados.slice(0, limite).map(item => item.produto),
+    totalEncontrados: pontuados.length
+  };
 }
 
 // ============ EXTRAIR PREÇO DA PÁGINA DO PRODUTO ============
@@ -91,7 +100,6 @@ async function extrairPrecoDaPagina(produtoId) {
     const html = await resp.text();
     const $ = cheerio.load(html);
 
-    // Tenta várias estratégias para achar o preço
     let preco = null;
 
     // 1. Meta tag og:price:amount
@@ -128,7 +136,6 @@ async function extrairPrecoDaPagina(produtoId) {
     }
 
     if (preco) {
-      // Normaliza o preço (remove pontos de milhar, mantém vírgula decimal)
       const precoLimpo = String(preco).replace(/\./g, '').replace(',', '.');
       const valor = parseFloat(precoLimpo);
       if (!isNaN(valor) && valor > 0) {
@@ -144,19 +151,24 @@ async function extrairPrecoDaPagina(produtoId) {
 }
 
 // ============ MONTAR CONTEXTO DE PRODUTOS PARA A IA ============
-async function montarContextoProdutos(produtos) {
+async function montarContextoProdutos(produtos, totalEncontrados) {
   if (!produtos.length) return '';
 
-  let contexto = 'PRODUTOS ENCONTRADOS NO CATÁLOGO:\n\n';
+  // Pega o preço do primeiro (e único) produto
+  const preco = await extrairPrecoDaPagina(produtos[0].id);
+  const precoTexto = preco ? `R$ ${preco.toFixed(2)}` : 'Preço no site';
 
-  for (const p of produtos) {
-    const preco = await extrairPrecoDaPagina(p.id);
-    const precoTexto = preco ? `R$ ${preco.toFixed(2)}` : 'Preço no site';
+  let contexto = 'PRODUTO ENCONTRADO NO CATÁLOGO:\n\n';
+  contexto += `- ${produtos[0].nome}\n`;
+  contexto += `  Categoria: ${produtos[0].categoria}\n`;
+  contexto += `  Preço: ${precoTexto}\n`;
+  contexto += `  Link: ${LINK_SITE}/produto/${produtos[0].id}\n\n`;
 
-    contexto += `- ${p.nome}\n`;
-    contexto += `  Categoria: ${p.categoria}\n`;
-    contexto += `  Preço: ${precoTexto}\n`;
-    contexto += `  Link: ${LINK_SITE}/produto/${p.id}\n\n`;
+  // Se tiver mais opções além da mostrada
+  if (totalEncontrados > 1) {
+    const restantes = totalEncontrados - 1;
+    contexto += `\nOBSERVAÇÃO IMPORTANTE: Temos mais ${restantes} opção(ões) desse tipo de produto no site. `;
+    contexto += `Sugira ao cliente acessar o catálogo completo: ${LINK_SITE}\n\n`;
   }
 
   return contexto;
@@ -185,6 +197,8 @@ COMO SE COMPORTAR:
 - Use emojis com moderação (1 ou 2 por mensagem)
 - Use quebras de linha para deixar a mensagem legível
 - Se o cliente perguntar sobre produto, use SEMPRE os dados abaixo (nunca invente preço)
+- Se houver a observação "Temos mais X opções", mencione isso na resposta
+- NUNCA diga que não sabe se o produto está listado abaixo
 - Se o cliente quiser fechar pedido, oriente a acessar o site, cadastrar e finalizar
 - Se não souber algo, seja honesto e direcione para o vendedor
 - NUNCA diga que é "a empresa" - você é um assistente/vendedor
@@ -244,7 +258,6 @@ async function buscarHistorico(telefone) {
 
     if (!data) return [];
 
-    // Inverte para ordem cronológica
     return data.reverse().map(m => ({
       role: m.direcao === 'enviada' ? 'assistant' : 'user',
       content: m.conteudo
@@ -650,10 +663,12 @@ export default async function handler(req, res) {
             let contextoProdutos = '';
 
             if (ehSobreProduto) {
-              const produtosEncontrados = buscarProdutos(texto, 5);
-              if (produtosEncontrados.length) {
-                console.log(`🔍 ${produtosEncontrados.length} produtos encontrados para "${texto}"`);
-                contextoProdutos = await montarContextoProdutos(produtosEncontrados);
+              // 🔥 BUSCA SÓ 1 PRODUTO (mais rápido)
+              const { encontrados, totalEncontrados } = buscarProdutos(texto, 1);
+
+              if (encontrados.length) {
+                console.log(`🔍 ${encontrados.length} produto(s) mostrado(s) de ${totalEncontrados} encontrados para "${texto}"`);
+                contextoProdutos = await montarContextoProdutos(encontrados, totalEncontrados);
               }
             }
 
