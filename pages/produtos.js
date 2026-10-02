@@ -9,6 +9,7 @@ import WithdrawalModal from '../components/WithdrawalModal';
 import { useProdutoValidade } from '../hook/useProdutoValidade';
 import keywordsMap from '../public/keywords.json';
 import pesosMap from '../public/pesos.json';
+import VerificadorCEP from '../components/VerificadorCEP';
 
 // ==============================================
 // 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
@@ -5996,9 +5997,14 @@ productsGrid: {
         </a>
       </Link>
     </div>
+
+    {/* ✅ VERIFICADOR DE CEP - dentro da faixa verde, abaixo dos botões */}
+    <div style={{ marginTop: '12px' }}>
+      <VerificadorCEP />
+    </div>
   </div>
 )}
-
+	
 <div style={styles.header}>
   <img 
     src="https://i.imgur.com/pBH5WpZ.png" 
