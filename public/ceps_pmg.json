@@ -1,0 +1,4598 @@
+{
+  "MG": {
+    "CAMANDUCAIA-MG": {
+      "cidade": "Camanducaia",
+      "uf": "MG",
+      "cepi": "37650-000",
+      "cepf": "37654-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CAMBUÍ-MG": {
+      "cidade": "Cambuí",
+      "uf": "MG",
+      "cepi": "37600-000",
+      "cepf": "37604-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CONCEIÇÃO DOS OUROS-MG": {
+      "cidade": "Conceição dos Ouros",
+      "uf": "MG",
+      "cepi": "37548-000",
+      "cepf": "37548-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CONGONHAL-MG": {
+      "cidade": "Congonhal",
+      "uf": "MG",
+      "cepi": "37584-000",
+      "cepf": "37585-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "DELFIM MOREIRA-MG": {
+      "cidade": "Delfim Moreira",
+      "uf": "MG",
+      "cepi": "37514-000",
+      "cepf": "37515-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ESTIVA-MG": {
+      "cidade": "Estiva",
+      "uf": "MG",
+      "cepi": "37542-000",
+      "cepf": "37544-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "EXTREMA-MG": {
+      "cidade": "Extrema",
+      "uf": "MG",
+      "cepi": "37640-000",
+      "cepf": "37649-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ITAJUBÁ-MG": {
+      "cidade": "Itajubá",
+      "uf": "MG",
+      "cepi": "37500-001",
+      "cepf": "37506-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ITAMONTE-MG": {
+      "cidade": "Itamonte",
+      "uf": "MG",
+      "cepi": "37466-000",
+      "cepf": "37466-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ITANHANDU-MG": {
+      "cidade": "Itanhandu",
+      "uf": "MG",
+      "cepi": "37464-000",
+      "cepf": "37464-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ITAPEVA-MG": {
+      "cidade": "Itapeva",
+      "uf": "MG",
+      "cepi": "37655-000",
+      "cepf": "37659-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "MARIA DA FÉ-MG": {
+      "cidade": "Maria da Fé",
+      "uf": "MG",
+      "cepi": "37517-000",
+      "cepf": "37519-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "MONTE VERDE-MG": {
+      "cidade": "Camanducaia",
+      "uf": "MG",
+      "cepi": "37650-000",
+      "cepf": "37654-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "OURO FINO-MG": {
+      "cidade": "Ouro Fino",
+      "uf": "MG",
+      "cepi": "37570-000",
+      "cepf": "37575-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PARAISÓPOLIS-MG": {
+      "cidade": "Paraisópolis",
+      "uf": "MG",
+      "cepi": "37660-000",
+      "cepf": "37669-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PASSA QUATRO-MG": {
+      "cidade": "Passa Quatro",
+      "uf": "MG",
+      "cepi": "37460-000",
+      "cepf": "37463-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PIRANGUINHO-MG": {
+      "cidade": "Piranguinho",
+      "uf": "MG",
+      "cepi": "37508-000",
+      "cepf": "37509-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "POÇOS DE CALDAS-MG": {
+      "cidade": "Poços de Caldas",
+      "uf": "MG",
+      "cepi": "37700-001",
+      "cepf": "37719-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "POUSO ALEGRE-MG": {
+      "cidade": "Pouso Alegre",
+      "uf": "MG",
+      "cepi": "37550-001",
+      "cepf": "37561-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SANTA RITA DO SAPUCAÍ-MG": {
+      "cidade": "Santa Rita do Sapucaí",
+      "uf": "MG",
+      "cepi": "37540-000",
+      "cepf": "37541-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO LOURENÇO-MG": {
+      "cidade": "São Lourenço",
+      "uf": "MG",
+      "cepi": "37470-000",
+      "cepf": "37471-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO SEBASTIÃO DO PARAÍSO-MG": {
+      "cidade": "São Sebastião do Paraíso",
+      "uf": "MG",
+      "cepi": "37950-000",
+      "cepf": "37959-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "TRÊS PONTAS-MG": {
+      "cidade": "Três Pontas",
+      "uf": "MG",
+      "cepi": "37190-000",
+      "cepf": "37194-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "VARGINHA-MG": {
+      "cidade": "Varginha",
+      "uf": "MG",
+      "cepi": "37000-001",
+      "cepf": "37109-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "VIRGÍNIA-MG": {
+      "cidade": "Virgínia",
+      "uf": "MG",
+      "cepi": "37465-000",
+      "cepf": "37465-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    }
+  },
+  "RJ": {
+    "BARRA DO PIRAÍ-RJ": {
+      "cidade": "Barra do Piraí",
+      "uf": "RJ",
+      "cepi": "27000-001",
+      "cepf": "27150-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BARRA MANSA-RJ": {
+      "cidade": "Barra Mansa",
+      "uf": "RJ",
+      "cepi": "27300-001",
+      "cepf": "27399-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITATIAIA-RJ": {
+      "cidade": "Itatiaia",
+      "uf": "RJ",
+      "cepi": "27580-000",
+      "cepf": "27599-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PARATY-RJ": {
+      "cidade": "Paraty",
+      "uf": "RJ",
+      "cepi": "23970-000",
+      "cepf": "23999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PIRAÍ-RJ": {
+      "cidade": "Piraí",
+      "uf": "RJ",
+      "cepi": "27175-000",
+      "cepf": "27196-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PORTO REAL-RJ": {
+      "cidade": "Porto Real",
+      "uf": "RJ",
+      "cepi": "27570-000",
+      "cepf": "27579-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "RESENDE-RJ": {
+      "cidade": "Resende",
+      "uf": "RJ",
+      "cepi": "27500-001",
+      "cepf": "27549-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "VALENÇA-RJ": {
+      "cidade": "Valença",
+      "uf": "RJ",
+      "cepi": "45400-000",
+      "cepf": "45415-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "VASSOURAS-RJ": {
+      "cidade": "Vassouras",
+      "uf": "RJ",
+      "cepi": "27700-000",
+      "cepf": "27899-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "VOLTA REDONDA-RJ": {
+      "cidade": "Volta Redonda",
+      "uf": "RJ",
+      "cepi": "27200-001",
+      "cepf": "27299-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    }
+  },
+  "SP": {
+    "AGUAÍ - SP": {
+      "cidade": "Aguaí",
+      "uf": "SP",
+      "cepi": "13860-000",
+      "cepf": "13869-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": false
+    },
+    "ÁGUAS DA PRATA": {
+      "cidade": "Águas da Prata",
+      "uf": "SP",
+      "cepi": "13890-000",
+      "cepf": "13899-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ÁGUAS DE LINDÓIA": {
+      "cidade": "Águas de Lindóia",
+      "uf": "SP",
+      "cepi": "13940-000",
+      "cepf": "13949-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ÁGUAS DE SANTA BARBARA": {
+      "cidade": "Águas de Santa Bárbara",
+      "uf": "SP",
+      "cepi": "18770-000",
+      "cepf": "18774-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "ÁGUAS DE SÃO PEDRO": {
+      "cidade": "Águas de São Pedro",
+      "uf": "SP",
+      "cepi": "13525-000",
+      "cepf": "13529-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "AGUDOS": {
+      "cidade": "Agudos",
+      "uf": "SP",
+      "cepi": "17120-000",
+      "cepf": "17149-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ALAMBARI": {
+      "cidade": "Alambari",
+      "uf": "SP",
+      "cepi": "18220-000",
+      "cepf": "18224-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ALTAIR": {
+      "cidade": "Altair",
+      "uf": "SP",
+      "cepi": "15430-000",
+      "cepf": "15439-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ALTINÓPOLIS": {
+      "cidade": "Altinópolis",
+      "uf": "SP",
+      "cepi": "14350-000",
+      "cepf": "14389-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "ALUMINIO": {
+      "cidade": "Alumínio",
+      "uf": "SP",
+      "cepi": "18125-000",
+      "cepf": "18129-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ALVARES FLORENCE": {
+      "cidade": "Álvares Florence",
+      "uf": "SP",
+      "cepi": "15540-000",
+      "cepf": "15549-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "AMERICANA": {
+      "cidade": "Americana",
+      "uf": "SP",
+      "cepi": "13465-001",
+      "cepf": "13479-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "AMÉRICO BRASILIENSE": {
+      "cidade": "Américo Brasiliense",
+      "uf": "SP",
+      "cepi": "14820-000",
+      "cepf": "14824-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "AMERICO CAMPOS": {
+      "cidade": "Américo de Campos",
+      "uf": "SP",
+      "cepi": "15550-000",
+      "cepf": "15559-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "AMPARO": {
+      "cidade": "Amparo",
+      "uf": "SP",
+      "cepi": "58548-000",
+      "cepf": "58549-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ANALÂNDIA": {
+      "cidade": "Analândia",
+      "uf": "SP",
+      "cepi": "13550-000",
+      "cepf": "13559-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "ANGATUBA": {
+      "cidade": "Angatuba",
+      "uf": "SP",
+      "cepi": "18240-000",
+      "cepf": "18244-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "APARECIDA": {
+      "cidade": "Aparecida",
+      "uf": "SP",
+      "cepi": "58823-000",
+      "cepf": "58823-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "APIAÍ": {
+      "cidade": "Apiaí",
+      "uf": "SP",
+      "cepi": "18320-000",
+      "cepf": "18324-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ARAÇARIGUAMA": {
+      "cidade": "Araçariguama",
+      "uf": "SP",
+      "cepi": "18147-000",
+      "cepf": "18149-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ARAÇATUBA": {
+      "cidade": "Araçatuba",
+      "uf": "SP",
+      "cepi": "16000-001",
+      "cepf": "16129-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ARAÇOIABA DA SERRA": {
+      "cidade": "Araçoiaba da Serra",
+      "uf": "SP",
+      "cepi": "18190-000",
+      "cepf": "18194-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ARANDU": {
+      "cidade": "Arandu",
+      "uf": "SP",
+      "cepi": "18710-000",
+      "cepf": "18719-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ARAPEI": {
+      "cidade": "Arapeí",
+      "uf": "SP",
+      "cepi": "12870-000",
+      "cepf": "12899-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ARARAQUARA": {
+      "cidade": "Araraquara",
+      "uf": "SP",
+      "cepi": "14800-001",
+      "cepf": "14811-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ARARAS": {
+      "cidade": "Araras",
+      "uf": "SP",
+      "cepi": "13600-001",
+      "cepf": "13609-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "AREALVA": {
+      "cidade": "Arealva",
+      "uf": "SP",
+      "cepi": "17160-000",
+      "cepf": "17179-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "AREIOPOLIS": {
+      "cidade": "Areiópolis",
+      "uf": "SP",
+      "cepi": "18670-000",
+      "cepf": "18674-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "ARTHUR NOGUEIRA": {
+      "cidade": "Artur Nogueira",
+      "uf": "SP",
+      "cepi": "13160-000",
+      "cepf": "13164-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ARUJA": {
+      "cidade": "Arujá",
+      "uf": "SP",
+      "cepi": "07400-001",
+      "cepf": "07499-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ASSIS": {
+      "cidade": "Assis",
+      "uf": "SP",
+      "cepi": "19800-001",
+      "cepf": "19819-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "ATIBAIA": {
+      "cidade": "Atibaia",
+      "uf": "SP",
+      "cepi": "12940-001",
+      "cepf": "12954-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "AURIFLAMA": {
+      "cidade": "Auriflama",
+      "uf": "SP",
+      "cepi": "15350-000",
+      "cepf": "15354-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "AVARÉ": {
+      "cidade": "Avaré",
+      "uf": "SP",
+      "cepi": "18700-001",
+      "cepf": "18709-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "BADY BASSITT": {
+      "cidade": "Bady Bassitt",
+      "uf": "SP",
+      "cepi": "15115-000",
+      "cepf": "15119-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BANANAL": {
+      "cidade": "Bananal",
+      "uf": "SP",
+      "cepi": "12850-000",
+      "cepf": "12869-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BARÃO DE ANTONINA": {
+      "cidade": "Barão de Antonina",
+      "uf": "SP",
+      "cepi": "18490-000",
+      "cepf": "18499-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "BARIRI": {
+      "cidade": "Bariri",
+      "uf": "SP",
+      "cepi": "17250-000",
+      "cepf": "17259-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "BARRA BONITA": {
+      "cidade": "Barra Bonita",
+      "uf": "SP",
+      "cepi": "89909-000",
+      "cepf": "89909-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "BARRETOS": {
+      "cidade": "Barretos",
+      "uf": "SP",
+      "cepi": "14780-001",
+      "cepf": "14789-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "BARRINHA": {
+      "cidade": "Barrinha",
+      "uf": "SP",
+      "cepi": "14860-000",
+      "cepf": "14869-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BARUERI": {
+      "cidade": "Barueri",
+      "uf": "SP",
+      "cepi": "06400-001",
+      "cepf": "06499-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "BATATAIS": {
+      "cidade": "Batatais",
+      "uf": "SP",
+      "cepi": "14300-000",
+      "cepf": "14339-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BAURU": {
+      "cidade": "Bauru",
+      "uf": "SP",
+      "cepi": "17000-001",
+      "cepf": "17110-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "BEBEDOURO": {
+      "cidade": "Bebedouro",
+      "uf": "SP",
+      "cepi": "14700-001",
+      "cepf": "14718-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BERNARDINO DE CAMPOS": {
+      "cidade": "Bernardino de Campos",
+      "uf": "SP",
+      "cepi": "18960-000",
+      "cepf": "18969-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "BERTIOGA": {
+      "cidade": "Bertioga",
+      "uf": "SP",
+      "cepi": "11250-000",
+      "cepf": "11299-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "BILAC": {
+      "cidade": "Bilac",
+      "uf": "SP",
+      "cepi": "16210-000",
+      "cepf": "16219-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "BIRIGUI": {
+      "cidade": "Birigui",
+      "uf": "SP",
+      "cepi": "16200-001",
+      "cepf": "16209-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BOA ESPERANÇA DO SUL": {
+      "cidade": "Boa Esperança do Sul",
+      "uf": "SP",
+      "cepi": "14930-000",
+      "cepf": "14934-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "BOFETE": {
+      "cidade": "Bofete",
+      "uf": "SP",
+      "cepi": "18590-000",
+      "cepf": "18599-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BOITUVA": {
+      "cidade": "Boituva",
+      "uf": "SP",
+      "cepi": "18550-000",
+      "cepf": "18559-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "BOM JESUS DOS PERDOES": {
+      "cidade": "Bom Jesus dos Perdões",
+      "uf": "SP",
+      "cepi": "12955-000",
+      "cepf": "12959-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "BOM SUCESSO DE ITARARÉ": {
+      "cidade": "Bom Sucesso de Itararé",
+      "uf": "SP",
+      "cepi": "18475-000",
+      "cepf": "18479-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "BORBOREMA": {
+      "cidade": "Borborema",
+      "uf": "SP",
+      "cepi": "58394-000",
+      "cepf": "58394-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BOTUCATU": {
+      "cidade": "Botucatu",
+      "uf": "SP",
+      "cepi": "18600-001",
+      "cepf": "18619-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "BRAGANÇA PAULISTA": {
+      "cidade": "Bragança Paulista",
+      "uf": "SP",
+      "cepi": "12900-001",
+      "cepf": "12929-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "BRODOWSKI": {
+      "cidade": "Brodowski",
+      "uf": "SP",
+      "cepi": "14340-000",
+      "cepf": "14349-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "BROTAS": {
+      "cidade": "Brotas",
+      "uf": "SP",
+      "cepi": "17380-000",
+      "cepf": "17399-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "BURI": {
+      "cidade": "Buri",
+      "uf": "SP",
+      "cepi": "18290-000",
+      "cepf": "18299-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CABREUVA": {
+      "cidade": "Cabreúva",
+      "uf": "SP",
+      "cepi": "13315-000",
+      "cepf": "13319-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAÇAPAVA": {
+      "cidade": "Caçapava",
+      "uf": "SP",
+      "cepi": "12280-001",
+      "cepf": "12299-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CACHOEIRA PAULISTA": {
+      "cidade": "Cachoeira Paulista",
+      "uf": "SP",
+      "cepi": "12630-000",
+      "cepf": "12689-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CACONDE": {
+      "cidade": "Caconde",
+      "uf": "SP",
+      "cepi": "13770-000",
+      "cepf": "13779-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "CAIEIRAS": {
+      "cidade": "Caieiras",
+      "uf": "SP",
+      "cepi": "07700-001",
+      "cepf": "07749-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAJAMAR": {
+      "cidade": "Cajamar",
+      "uf": "SP",
+      "cepi": "07750-001",
+      "cepf": "07799-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAJATI": {
+      "cidade": "Cajati",
+      "uf": "SP",
+      "cepi": "11950-000",
+      "cepf": "11954-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAJOBI": {
+      "cidade": "Cajobi",
+      "uf": "SP",
+      "cepi": "15410-000",
+      "cepf": "15419-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAJURU": {
+      "cidade": "Cajuru",
+      "uf": "SP",
+      "cepi": "14240-000",
+      "cepf": "14249-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "CAMPANHA": {
+      "cidade": "Campinas",
+      "uf": "SP",
+      "cepi": "13000-001",
+      "cepf": "13139-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAMPINAS": {
+      "cidade": "Campinas",
+      "uf": "SP",
+      "cepi": "13000-001",
+      "cepf": "13139-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAMPO LIMPO PAULISTA": {
+      "cidade": "Campo Limpo Paulista",
+      "uf": "SP",
+      "cepi": "13230-001",
+      "cepf": "13239-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAMPOS DO JORDÃO": {
+      "cidade": "Campos do Jordão",
+      "uf": "SP",
+      "cepi": "12460-000",
+      "cepf": "12489-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CANANEIA": {
+      "cidade": "Cananéia",
+      "uf": "SP",
+      "cepi": "11990-000",
+      "cepf": "11999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CANAS": {
+      "cidade": "Canas",
+      "uf": "SP",
+      "cepi": "12615-000",
+      "cepf": "12619-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CANITAR": {
+      "cidade": "Canitar",
+      "uf": "SP",
+      "cepi": "18990-000",
+      "cepf": "18999-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAPAO BONITO": {
+      "cidade": "Capão Bonito",
+      "uf": "SP",
+      "cepi": "18300-001",
+      "cepf": "18308-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CAPELA DO ALTO": {
+      "cidade": "Capela do Alto",
+      "uf": "SP",
+      "cepi": "18195-000",
+      "cepf": "18199-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CAPIVARI": {
+      "cidade": "Capivari",
+      "uf": "SP",
+      "cepi": "13360-000",
+      "cepf": "13369-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "CARAGUATATUBA": {
+      "cidade": "Caraguatatuba",
+      "uf": "SP",
+      "cepi": "11660-001",
+      "cepf": "11679-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CARAPICUIBA": {
+      "cidade": "Carapicuíba",
+      "uf": "SP",
+      "cepi": "06300-001",
+      "cepf": "06399-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CASA BRANCA": {
+      "cidade": "Casa Branca",
+      "uf": "SP",
+      "cepi": "13700-000",
+      "cepf": "13709-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CASSIA DOS COQUEIROS": {
+      "cidade": "Cássia dos Coqueiros",
+      "uf": "SP",
+      "cepi": "14260-000",
+      "cepf": "14269-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "CATANDUVA": {
+      "cidade": "Catanduva",
+      "uf": "SP",
+      "cepi": "15800-001",
+      "cepf": "15819-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CAUCAIA DO ALTO": {
+      "cidade": "Cotia",
+      "uf": "SP",
+      "cepi": "06700-001",
+      "cepf": "06729-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CEDRAL": {
+      "cidade": "Cedral",
+      "uf": "SP",
+      "cepi": "65260-000",
+      "cepf": "65262-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CERQUEIRA CESAR": {
+      "cidade": "Cerqueira César",
+      "uf": "SP",
+      "cepi": "18760-000",
+      "cepf": "18769-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "CERQUILHO": {
+      "cidade": "Cerquilho",
+      "uf": "SP",
+      "cepi": "18520-000",
+      "cepf": "18529-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CESARIO LANGE": {
+      "cidade": "Cesário Lange",
+      "uf": "SP",
+      "cepi": "18285-000",
+      "cepf": "18289-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CHARQUEADA": {
+      "cidade": "Charqueada",
+      "uf": "SP",
+      "cepi": "13515-000",
+      "cepf": "13519-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CHAVANTES": {
+      "cidade": "Chavantes",
+      "uf": "SP",
+      "cepi": "18970-000",
+      "cepf": "18989-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "COLINA": {
+      "cidade": "Colina",
+      "uf": "SP",
+      "cepi": "14770-000",
+      "cepf": "14774-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "COLOMBIA": {
+      "cidade": "Colômbia",
+      "uf": "SP",
+      "cepi": "14795-000",
+      "cepf": "14799-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CONCHAL": {
+      "cidade": "Conchal",
+      "uf": "SP",
+      "cepi": "13835-000",
+      "cepf": "13839-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CONCHAS": {
+      "cidade": "Conchas",
+      "uf": "SP",
+      "cepi": "18570-000",
+      "cepf": "18579-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CORDEIRÓPOLIS": {
+      "cidade": "Cordeirópolis",
+      "uf": "SP",
+      "cepi": "13490-000",
+      "cepf": "13494-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "CORONEL MACEDO": {
+      "cidade": "Coronel Macedo",
+      "uf": "SP",
+      "cepi": "18745-000",
+      "cepf": "18759-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "CORUMBATAÍ": {
+      "cidade": "Corumbataí",
+      "uf": "SP",
+      "cepi": "13540-000",
+      "cepf": "13549-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "COSMÓPOLIS": {
+      "cidade": "Cosmópolis",
+      "uf": "SP",
+      "cepi": "13150-000",
+      "cepf": "13159-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "COSMORAMA": {
+      "cidade": "Cosmorama",
+      "uf": "SP",
+      "cepi": "15530-000",
+      "cepf": "15539-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "COTIA": {
+      "cidade": "Cotia",
+      "uf": "SP",
+      "cepi": "06700-001",
+      "cepf": "06729-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CRAVINHOS": {
+      "cidade": "Cravinhos",
+      "uf": "SP",
+      "cepi": "14140-000",
+      "cepf": "14149-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "CRUZEIRO": {
+      "cidade": "Cruzeiro",
+      "uf": "SP",
+      "cepi": "12700-001",
+      "cepf": "12759-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CUBATÃO": {
+      "cidade": "Cubatão",
+      "uf": "SP",
+      "cepi": "11500-001",
+      "cepf": "11599-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CUNHA": {
+      "cidade": "Cunha",
+      "uf": "SP",
+      "cepi": "12530-000",
+      "cepf": "12569-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "DESCALVADO": {
+      "cidade": "Descalvado",
+      "uf": "SP",
+      "cepi": "13690-000",
+      "cepf": "13699-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "DIADEMA": {
+      "cidade": "Diadema",
+      "uf": "SP",
+      "cepi": "09900-001",
+      "cepf": "09999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "DIVINOLÂNDIA": {
+      "cidade": "Divinolândia",
+      "uf": "SP",
+      "cepi": "13780-000",
+      "cepf": "13789-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "DOBRADA": {
+      "cidade": "Dobrada",
+      "uf": "SP",
+      "cepi": "15980-000",
+      "cepf": "15989-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "DOIS CORREGOS": {
+      "cidade": "Dois Córregos",
+      "uf": "SP",
+      "cepi": "17300-000",
+      "cepf": "17319-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "DOURADO SP": {
+      "cidade": "Dourado",
+      "uf": "SP",
+      "cepi": "13590-000",
+      "cepf": "13599-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "DUARTINA": {
+      "cidade": "Duartina",
+      "uf": "SP",
+      "cepi": "17470-000",
+      "cepf": "17474-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": false
+    },
+    "ELDORADO": {
+      "cidade": "Eldorado",
+      "uf": "SP",
+      "cepi": "79970-000",
+      "cepf": "79974-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ELIAS FAUSTO": {
+      "cidade": "Elias Fausto",
+      "uf": "SP",
+      "cepi": "13350-000",
+      "cepf": "13359-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ELISIARIO": {
+      "cidade": "Elisiário",
+      "uf": "SP",
+      "cepi": "15823-000",
+      "cepf": "15824-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "EMBAUBA": {
+      "cidade": "Embaúba",
+      "uf": "SP",
+      "cepi": "15425-000",
+      "cepf": "15429-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "EMBU GUAÇU": {
+      "cidade": "Embu-Guaçu",
+      "uf": "SP",
+      "cepi": "06900-000",
+      "cepf": "06949-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ENGENHEIRO COELHO": {
+      "cidade": "Engenheiro Coelho",
+      "uf": "SP",
+      "cepi": "13165-000",
+      "cepf": "13169-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ESPÍRITO SANTO DO PINHAL": {
+      "cidade": "Espírito Santo do Pinhal",
+      "uf": "SP",
+      "cepi": "13990-000",
+      "cepf": "13994-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ESPÍRITO SANTO DO TURVO": {
+      "cidade": "Espírito Santo do Turvo",
+      "uf": "SP",
+      "cepi": "18935-000",
+      "cepf": "18939-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "ESTIVA GERBI": {
+      "cidade": "Estiva Gerbi",
+      "uf": "SP",
+      "cepi": "13857-000",
+      "cepf": "13859-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "FARTURA": {
+      "cidade": "Fartura",
+      "uf": "SP",
+      "cepi": "18870-000",
+      "cepf": "18889-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "FERNANDO PRESTES": {
+      "cidade": "Fernando Prestes",
+      "uf": "SP",
+      "cepi": "15940-000",
+      "cepf": "15949-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "FERNANDÓPOLIS": {
+      "cidade": "Fernandópolis",
+      "uf": "SP",
+      "cepi": "15600-000",
+      "cepf": "15619-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "FERRAZ DE VASCONCELOS": {
+      "cidade": "Ferraz de Vasconcelos",
+      "uf": "SP",
+      "cepi": "08500-001",
+      "cepf": "08549-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "FRANCA": {
+      "cidade": "Franca",
+      "uf": "SP",
+      "cepi": "14400-001",
+      "cepf": "14414-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "FRANCISCO MORATO": {
+      "cidade": "Francisco Morato",
+      "uf": "SP",
+      "cepi": "07900-001",
+      "cepf": "07999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "FRANCO DA ROCHA": {
+      "cidade": "Franco da Rocha",
+      "uf": "SP",
+      "cepi": "07800-001",
+      "cepf": "07899-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "GARÇA": {
+      "cidade": "Garça",
+      "uf": "SP",
+      "cepi": "17400-000",
+      "cepf": "17409-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "GAVIÃO PEIXOTO": {
+      "cidade": "Gavião Peixoto",
+      "uf": "SP",
+      "cepi": "14813-000",
+      "cepf": "14814-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": false
+    },
+    "GUAÍRA": {
+      "cidade": "Guaíra",
+      "uf": "SP",
+      "cepi": "85980-000",
+      "cepf": "85987-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "GUAPIAÇU": {
+      "cidade": "Guapiaçu",
+      "uf": "SP",
+      "cepi": "15110-000",
+      "cepf": "15114-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "GUAPIARA": {
+      "cidade": "Guapiara",
+      "uf": "SP",
+      "cepi": "18310-000",
+      "cepf": "18314-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "GUARÁ": {
+      "cidade": "Guará",
+      "uf": "SP",
+      "cepi": "14580-000",
+      "cepf": "14599-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "GUARACI": {
+      "cidade": "Guaraci",
+      "uf": "SP",
+      "cepi": "86620-000",
+      "cepf": "86629-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "GUARAREMA": {
+      "cidade": "Guararema",
+      "uf": "SP",
+      "cepi": "08900-000",
+      "cepf": "08939-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "GUARATINGUETÁ": {
+      "cidade": "Guaratinguetá",
+      "uf": "SP",
+      "cepi": "12500-001",
+      "cepf": "12524-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "GUAREÍ": {
+      "cidade": "Guareí",
+      "uf": "SP",
+      "cepi": "18250-000",
+      "cepf": "18254-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "GUARIBA": {
+      "cidade": "Guariba",
+      "uf": "SP",
+      "cepi": "14840-000",
+      "cepf": "14849-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "GUARUJÁ": {
+      "cidade": "Guarujá",
+      "uf": "SP",
+      "cepi": "11400-001",
+      "cepf": "11499-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "GUARULHOS1": {
+      "cidade": "Guarulhos",
+      "uf": "SP",
+      "cepi": "07000-001",
+      "cepf": "07399-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "GUARULHOS2": {
+      "cidade": "Guarulhos",
+      "uf": "SP",
+      "cepi": "07000-001",
+      "cepf": "07399-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "GUATAPARA": {
+      "cidade": "Guatapará",
+      "uf": "SP",
+      "cepi": "14115-000",
+      "cepf": "14119-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "GUATAPARÁ": {
+      "cidade": "Guatapará",
+      "uf": "SP",
+      "cepi": "14115-000",
+      "cepf": "14119-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "HOLAMBRA": {
+      "cidade": "Holambra",
+      "uf": "SP",
+      "cepi": "13825-000",
+      "cepf": "13829-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "HORTOLANDIA": {
+      "cidade": "Hortolândia",
+      "uf": "SP",
+      "cepi": "13183-001",
+      "cepf": "13189-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "IBATE": {
+      "cidade": "Ibaté",
+      "uf": "SP",
+      "cepi": "14815-000",
+      "cepf": "14819-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "IBIRÁ": {
+      "cidade": "Ibirá",
+      "uf": "SP",
+      "cepi": "15860-000",
+      "cepf": "15869-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "IBITINGA": {
+      "cidade": "Ibitinga",
+      "uf": "SP",
+      "cepi": "14940-000",
+      "cepf": "14954-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "IBIUNA": {
+      "cidade": "Ibiúna",
+      "uf": "SP",
+      "cepi": "18150-000",
+      "cepf": "18159-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "IGARAÇÚ DO TIETÊ": {
+      "cidade": "Igaraçu do Tietê",
+      "uf": "SP",
+      "cepi": "17350-000",
+      "cepf": "17359-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "IGARATÁ": {
+      "cidade": "Igaratá",
+      "uf": "SP",
+      "cepi": "12350-000",
+      "cepf": "12379-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "IGUAPE": {
+      "cidade": "Iguape",
+      "uf": "SP",
+      "cepi": "11920-000",
+      "cepf": "11924-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ILHA BELA NORTE / CENTRO": {
+      "cidade": "Ilhabela",
+      "uf": "SP",
+      "cepi": "11630-000",
+      "cepf": "11659-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ILHA BELA SUL": {
+      "cidade": "Ilhabela",
+      "uf": "SP",
+      "cepi": "11630-000",
+      "cepf": "11659-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ILHA COMPRIDA": {
+      "cidade": "Ilha Comprida",
+      "uf": "SP",
+      "cepi": "11925-000",
+      "cepf": "11929-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "INDAIATUBA": {
+      "cidade": "Indaiatuba",
+      "uf": "SP",
+      "cepi": "13330-001",
+      "cepf": "13349-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "IPAUSSU": {
+      "cidade": "Ipaussu",
+      "uf": "SP",
+      "cepi": "18950-000",
+      "cepf": "18959-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "IPERÓ": {
+      "cidade": "Iperó",
+      "uf": "SP",
+      "cepi": "18560-000",
+      "cepf": "18569-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "IPEUNA": {
+      "cidade": "Ipeúna",
+      "uf": "SP",
+      "cepi": "13537-000",
+      "cepf": "13539-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "IPORANGA": {
+      "cidade": "Iporanga",
+      "uf": "SP",
+      "cepi": "18330-000",
+      "cepf": "18359-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "IPUÃ": {
+      "cidade": "Ipuã",
+      "uf": "SP",
+      "cepi": "14610-000",
+      "cepf": "14619-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "IRACEMAPOLIS": {
+      "cidade": "Iracemápolis",
+      "uf": "SP",
+      "cepi": "13495-000",
+      "cepf": "13499-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITABERA": {
+      "cidade": "Itaberá",
+      "uf": "SP",
+      "cepi": "18440-000",
+      "cepf": "18459-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ITAI": {
+      "cidade": "Itaí",
+      "uf": "SP",
+      "cepi": "18730-000",
+      "cepf": "18739-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ITAJOBI": {
+      "cidade": "Itajobi",
+      "uf": "SP",
+      "cepi": "15840-000",
+      "cepf": "15844-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITANHAÉM": {
+      "cidade": "Itanhaém",
+      "uf": "SP",
+      "cepi": "11740-000",
+      "cepf": "11749-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITAPETININGA": {
+      "cidade": "Itapetininga",
+      "uf": "SP",
+      "cepi": "18200-001",
+      "cepf": "18215-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITAPEVA": {
+      "cidade": "Itapeva",
+      "uf": "SP",
+      "cepi": "37655-000",
+      "cepf": "37659-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITAPEVI": {
+      "cidade": "Itapevi",
+      "uf": "SP",
+      "cepi": "06650-001",
+      "cepf": "06699-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITAPIRA": {
+      "cidade": "Itapira",
+      "uf": "SP",
+      "cepi": "13970-001",
+      "cepf": "13985-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITÁPOLIS": {
+      "cidade": "Itápolis",
+      "uf": "SP",
+      "cepi": "14900-000",
+      "cepf": "14909-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITAPORANGA": {
+      "cidade": "Itaporanga",
+      "uf": "SP",
+      "cepi": "58780-000",
+      "cepf": "58783-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ITAQUAQUECETUBA": {
+      "cidade": "Itaquaquecetuba",
+      "uf": "SP",
+      "cepi": "08570-001",
+      "cepf": "08599-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITARARÉ": {
+      "cidade": "Itararé",
+      "uf": "SP",
+      "cepi": "18460-000",
+      "cepf": "18469-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ITARIRI": {
+      "cidade": "Itariri",
+      "uf": "SP",
+      "cepi": "11760-000",
+      "cepf": "11789-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITATIBA": {
+      "cidade": "Itatiba",
+      "uf": "SP",
+      "cepi": "13250-001",
+      "cepf": "13259-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITATINGA": {
+      "cidade": "Itatinga",
+      "uf": "SP",
+      "cepi": "18690-000",
+      "cepf": "18699-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "ITIRAPINA": {
+      "cidade": "Itirapina",
+      "uf": "SP",
+      "cepi": "13530-000",
+      "cepf": "13536-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITOBI": {
+      "cidade": "Itobi",
+      "uf": "SP",
+      "cepi": "13715-000",
+      "cepf": "13719-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITU": {
+      "cidade": "Itu",
+      "uf": "SP",
+      "cepi": "13300-001",
+      "cepf": "13314-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITUPEVA": {
+      "cidade": "Itupeva",
+      "uf": "SP",
+      "cepi": "13295-000",
+      "cepf": "13299-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ITUVERAVA": {
+      "cidade": "Ituverava",
+      "uf": "SP",
+      "cepi": "14500-000",
+      "cepf": "14529-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "JABORANDI": {
+      "cidade": "Jaborandi",
+      "uf": "SP",
+      "cepi": "47655-000",
+      "cepf": "47664-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "JABOTICABAL": {
+      "cidade": "Jaboticabal",
+      "uf": "SP",
+      "cepi": "14870-001",
+      "cepf": "14898-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JACAREI": {
+      "cidade": "Jacareí",
+      "uf": "SP",
+      "cepi": "12300-001",
+      "cepf": "12349-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JACI": {
+      "cidade": "Jaci",
+      "uf": "SP",
+      "cepi": "15155-000",
+      "cepf": "15159-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "JACUPIRANGA": {
+      "cidade": "Jacupiranga",
+      "uf": "SP",
+      "cepi": "11940-000",
+      "cepf": "11949-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JAGUARIUNA": {
+      "cidade": "Jaguariúna",
+      "uf": "SP",
+      "cepi": "13820-000",
+      "cepf": "13824-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "JALES": {
+      "cidade": "Jales",
+      "uf": "SP",
+      "cepi": "15700-001",
+      "cepf": "15709-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "JAMBEIRO": {
+      "cidade": "Jambeiro",
+      "uf": "SP",
+      "cepi": "12270-000",
+      "cepf": "12279-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "JANDIRA": {
+      "cidade": "Jandira",
+      "uf": "SP",
+      "cepi": "06600-001",
+      "cepf": "06649-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JARDINÓPOLIS": {
+      "cidade": "Jardinópolis",
+      "uf": "SP",
+      "cepi": "89848-000",
+      "cepf": "89849-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": false
+    },
+    "JARINU": {
+      "cidade": "Jarinu",
+      "uf": "SP",
+      "cepi": "13240-000",
+      "cepf": "13249-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JAÚ": {
+      "cidade": "Jaú",
+      "uf": "SP",
+      "cepi": "17200-001",
+      "cepf": "17220-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JOANOPOLIS": {
+      "cidade": "Joanópolis",
+      "uf": "SP",
+      "cepi": "12980-000",
+      "cepf": "12989-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JOÃO RAMALHO": {
+      "cidade": "João Ramalho",
+      "uf": "SP",
+      "cepi": "19680-000",
+      "cepf": "19699-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JOSÉ BONIFÁCIO": {
+      "cidade": "José Bonifácio",
+      "uf": "SP",
+      "cepi": "15200-000",
+      "cepf": "15209-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "JUMIRIM": {
+      "cidade": "Jumirim",
+      "uf": "SP",
+      "cepi": "18535-000",
+      "cepf": "18539-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "JUNDIAI": {
+      "cidade": "Jundiaí",
+      "uf": "SP",
+      "cepi": "13200-001",
+      "cepf": "13219-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JUQUIA": {
+      "cidade": "Juquiá",
+      "uf": "SP",
+      "cepi": "11800-000",
+      "cepf": "11849-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JUQUITIBA": {
+      "cidade": "Juquitiba",
+      "uf": "SP",
+      "cepi": "06950-000",
+      "cepf": "06999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "LAGOINHA": {
+      "cidade": "Lagoinha",
+      "uf": "SP",
+      "cepi": "12130-000",
+      "cepf": "12139-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "LARANJAL PAULISTA": {
+      "cidade": "Laranjal Paulista",
+      "uf": "SP",
+      "cepi": "18500-000",
+      "cepf": "18519-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "LEME": {
+      "cidade": "Leme",
+      "uf": "SP",
+      "cepi": "13610-001",
+      "cepf": "13624-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "LENÇOIS PAULISTA": {
+      "cidade": "Lençóis Paulista",
+      "uf": "SP",
+      "cepi": "18680-001",
+      "cepf": "18687-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "LIMEIRA": {
+      "cidade": "Limeira",
+      "uf": "SP",
+      "cepi": "13480-001",
+      "cepf": "13489-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "LINS": {
+      "cidade": "Lins",
+      "uf": "SP",
+      "cepi": "16400-001",
+      "cepf": "16419-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "LORENA": {
+      "cidade": "Lorena",
+      "uf": "SP",
+      "cepi": "12600-001",
+      "cepf": "12614-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "LOUVEIRA": {
+      "cidade": "Louveira",
+      "uf": "SP",
+      "cepi": "13290-000",
+      "cepf": "13294-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "LUIS ANTONIO": {
+      "cidade": "Luís Antônio",
+      "uf": "SP",
+      "cepi": "14210-000",
+      "cepf": "14229-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "LUTÉCIA": {
+      "cidade": "Lutécia",
+      "uf": "SP",
+      "cepi": "19750-000",
+      "cepf": "19769-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MAIRINQUE": {
+      "cidade": "Mairinque",
+      "uf": "SP",
+      "cepi": "18120-000",
+      "cepf": "18124-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MAIRIPORÃ": {
+      "cidade": "Mairiporã",
+      "uf": "SP",
+      "cepi": "07600-000",
+      "cepf": "07699-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "MANDURI": {
+      "cidade": "Manduri",
+      "uf": "SP",
+      "cepi": "18780-000",
+      "cepf": "18789-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "MARAPOAMA": {
+      "cidade": "Marapoama",
+      "uf": "SP",
+      "cepi": "15845-000",
+      "cepf": "15849-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "MARÍLIA": {
+      "cidade": "Marília",
+      "uf": "SP",
+      "cepi": "17500-001",
+      "cepf": "17539-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "MATÃO": {
+      "cidade": "Matão",
+      "uf": "SP",
+      "cepi": "15990-001",
+      "cepf": "15999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MAUA": {
+      "cidade": "Mauá",
+      "uf": "SP",
+      "cepi": "09300-001",
+      "cepf": "09399-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MENDONÇA": {
+      "cidade": "Mendonça",
+      "uf": "SP",
+      "cepi": "15220-000",
+      "cepf": "15224-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "MERIDIANO": {
+      "cidade": "Meridiano",
+      "uf": "SP",
+      "cepi": "15625-000",
+      "cepf": "15629-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "METRÔ 1": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "METRÔ 2": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MIGUELÓPOLIS": {
+      "cidade": "Miguelópolis",
+      "uf": "SP",
+      "cepi": "14530-000",
+      "cepf": "14539-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "MINEIROS DO TIETE": {
+      "cidade": "Mineiros do Tietê",
+      "uf": "SP",
+      "cepi": "17320-000",
+      "cepf": "17339-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "MIRACATU": {
+      "cidade": "Miracatu",
+      "uf": "SP",
+      "cepi": "11850-000",
+      "cepf": "11899-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MIRANDOPOLIS": {
+      "cidade": "Mirandópolis",
+      "uf": "SP",
+      "cepi": "16800-000",
+      "cepf": "16849-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "MIRASSOL": {
+      "cidade": "Mirassol",
+      "uf": "SP",
+      "cepi": "15130-000",
+      "cepf": "15139-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "MOCOCA": {
+      "cidade": "Mococa",
+      "uf": "SP",
+      "cepi": "13730-001",
+      "cepf": "13749-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "MOGI DAS CRUZES": {
+      "cidade": "Mogi das Cruzes",
+      "uf": "SP",
+      "cepi": "08700-001",
+      "cepf": "08889-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MOGI GUAÇU": {
+      "cidade": "Mogi Guaçu",
+      "uf": "SP",
+      "cepi": "13840-001",
+      "cepf": "13855-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MOGI MIRIM": {
+      "cidade": "Mogi Mirim",
+      "uf": "SP",
+      "cepi": "13800-001",
+      "cepf": "13817-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MONGAGUÁ": {
+      "cidade": "Mongaguá",
+      "uf": "SP",
+      "cepi": "11730-000",
+      "cepf": "11739-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MONTE ALEGRE DO SUL": {
+      "cidade": "Monte Alegre do Sul",
+      "uf": "SP",
+      "cepi": "13910-000",
+      "cepf": "13919-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "MONTE ALTO": {
+      "cidade": "Monte Alto",
+      "uf": "SP",
+      "cepi": "15910-000",
+      "cepf": "15919-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "MONTE APRAZÍVEL": {
+      "cidade": "Monte Aprazível",
+      "uf": "SP",
+      "cepi": "15150-000",
+      "cepf": "15154-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "MONTE AZUL PAULISTA": {
+      "cidade": "Monte Azul Paulista",
+      "uf": "SP",
+      "cepi": "14730-000",
+      "cepf": "14734-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "MONTE MOR": {
+      "cidade": "Monte Mor",
+      "uf": "SP",
+      "cepi": "13190-000",
+      "cepf": "13199-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "MONTEIRO LOBATO": {
+      "cidade": "Monteiro Lobato",
+      "uf": "SP",
+      "cepi": "12250-000",
+      "cepf": "12259-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "MORRO AGUDO": {
+      "cidade": "Morro Agudo",
+      "uf": "SP",
+      "cepi": "14640-000",
+      "cepf": "14659-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "MORUNGABA": {
+      "cidade": "Morungaba",
+      "uf": "SP",
+      "cepi": "13260-000",
+      "cepf": "13269-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "MOTUCA": {
+      "cidade": "Motuca",
+      "uf": "SP",
+      "cepi": "14835-000",
+      "cepf": "14839-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "NATIVIDADE DA SERRA": {
+      "cidade": "Natividade da Serra",
+      "uf": "SP",
+      "cepi": "12180-000",
+      "cepf": "12199-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "NAZARÉ PAULISTA": {
+      "cidade": "Nazaré Paulista",
+      "uf": "SP",
+      "cepi": "12960-000",
+      "cepf": "12969-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "NHANDEARA": {
+      "cidade": "Nhandeara",
+      "uf": "SP",
+      "cepi": "15190-000",
+      "cepf": "15199-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "NOVA ALIANÇA": {
+      "cidade": "Nova Aliança",
+      "uf": "SP",
+      "cepi": "15210-000",
+      "cepf": "15219-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "NOVA CAMPINA": {
+      "cidade": "Nova Campina",
+      "uf": "SP",
+      "cepi": "18435-000",
+      "cepf": "18439-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "NOVA EUROPA": {
+      "cidade": "Nova Europa",
+      "uf": "SP",
+      "cepi": "14920-000",
+      "cepf": "14929-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "NOVA ODESSA": {
+      "cidade": "Nova Odessa",
+      "uf": "SP",
+      "cepi": "13380-001",
+      "cepf": "13389-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "NOVA ZONA": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "NOVAIS": {
+      "cidade": "Novais",
+      "uf": "SP",
+      "cepi": "15885-000",
+      "cepf": "15889-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "NOVO HORIZONTE": {
+      "cidade": "Novo Horizonte",
+      "uf": "SP",
+      "cepi": "46730-000",
+      "cepf": "46739-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "NUPORANGA": {
+      "cidade": "Nuporanga",
+      "uf": "SP",
+      "cepi": "14670-000",
+      "cepf": "14679-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "OLÍMPIA": {
+      "cidade": "Olímpia",
+      "uf": "SP",
+      "cepi": "15400-000",
+      "cepf": "15409-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "ORLÂNDIA": {
+      "cidade": "Orlândia",
+      "uf": "SP",
+      "cepi": "14620-000",
+      "cepf": "14639-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "OSASCO": {
+      "cidade": "Osasco",
+      "uf": "SP",
+      "cepi": "06000-001",
+      "cepf": "06299-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "OSCAR BRESSANE": {
+      "cidade": "Oscar Bressane",
+      "uf": "SP",
+      "cepi": "19770-000",
+      "cepf": "19779-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "OURINHOS": {
+      "cidade": "Ourinhos",
+      "uf": "SP",
+      "cepi": "19900-001",
+      "cepf": "19919-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "PALMITAL": {
+      "cidade": "Palmital",
+      "uf": "SP",
+      "cepi": "85270-000",
+      "cepf": "85274-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "PARAGUAÇU PAULISTA": {
+      "cidade": "Paraguaçu Paulista",
+      "uf": "SP",
+      "cepi": "19700-000",
+      "cepf": "19739-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "PARAIBÚNA": {
+      "cidade": "Paraibuna",
+      "uf": "SP",
+      "cepi": "12260-000",
+      "cepf": "12269-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "PARAISO": {
+      "cidade": "Paraíso",
+      "uf": "SP",
+      "cepi": "89906-000",
+      "cepf": "89907-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "PARDINHO": {
+      "cidade": "Pardinho",
+      "uf": "SP",
+      "cepi": "18640-000",
+      "cepf": "18649-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "PARIQUERA-ACU": {
+      "cidade": "Pariquera-Açu",
+      "uf": "SP",
+      "cepi": "11930-000",
+      "cepf": "11939-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PARISI": {
+      "cidade": "Parisi",
+      "uf": "SP",
+      "cepi": "15525-000",
+      "cepf": "15529-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PAULÍNIA": {
+      "cidade": "Paulínia",
+      "uf": "SP",
+      "cepi": "13140-001",
+      "cepf": "13149-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PAULISTANIA": {
+      "cidade": "Paulistânia",
+      "uf": "SP",
+      "cepi": "17150-000",
+      "cepf": "17159-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "PEDERNEIRAS": {
+      "cidade": "Pederneiras",
+      "uf": "SP",
+      "cepi": "17280-000",
+      "cepf": "17289-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "PEDRA BELA": {
+      "cidade": "Pedra Bela",
+      "uf": "SP",
+      "cepi": "12990-000",
+      "cepf": "12994-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "PEDRANOPOLIS": {
+      "cidade": "Pedranópolis",
+      "uf": "SP",
+      "cepi": "15630-000",
+      "cepf": "15639-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PEDREGULHO": {
+      "cidade": "Pedregulho",
+      "uf": "SP",
+      "cepi": "14470-000",
+      "cepf": "14489-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PEDREIRA": {
+      "cidade": "Pedreira",
+      "uf": "SP",
+      "cepi": "13920-000",
+      "cepf": "13929-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PEDRO DE TOLEDO": {
+      "cidade": "Pedro de Toledo",
+      "uf": "SP",
+      "cepi": "11790-000",
+      "cepf": "11799-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "PENAPOLIS": {
+      "cidade": "Penápolis",
+      "uf": "SP",
+      "cepi": "16300-001",
+      "cepf": "16309-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PEREIRAS": {
+      "cidade": "Pereiras",
+      "uf": "SP",
+      "cepi": "18580-000",
+      "cepf": "18589-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "PERUÍBE": {
+      "cidade": "Peruíbe",
+      "uf": "SP",
+      "cepi": "11750-000",
+      "cepf": "11759-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PIEDADE": {
+      "cidade": "Piedade",
+      "uf": "SP",
+      "cepi": "18170-000",
+      "cepf": "18179-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PILAR DO SUL": {
+      "cidade": "Pilar do Sul",
+      "uf": "SP",
+      "cepi": "18185-000",
+      "cepf": "18189-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PINDAMONHANGABA": {
+      "cidade": "Pindamonhangaba",
+      "uf": "SP",
+      "cepi": "12400-001",
+      "cepf": "12449-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PINHALZINHO": {
+      "cidade": "Pinhalzinho",
+      "uf": "SP",
+      "cepi": "89870-000",
+      "cepf": "89870-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PIQUETE": {
+      "cidade": "Piquete",
+      "uf": "SP",
+      "cepi": "12620-000",
+      "cepf": "12629-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PIRACAIA": {
+      "cidade": "Piracaia",
+      "uf": "SP",
+      "cepi": "12970-000",
+      "cepf": "12979-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PIRACICABA": {
+      "cidade": "Piracicaba",
+      "uf": "SP",
+      "cepi": "13400-001",
+      "cepf": "13434-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PIRAJU": {
+      "cidade": "Piraju",
+      "uf": "SP",
+      "cepi": "18800-000",
+      "cepf": "18829-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PIRAJUÍ": {
+      "cidade": "Pirajuí",
+      "uf": "SP",
+      "cepi": "16600-000",
+      "cepf": "16639-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "PIRAPORA DO BOM JESUS": {
+      "cidade": "Pirapora do Bom Jesus",
+      "uf": "SP",
+      "cepi": "06550-000",
+      "cepf": "06599-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "PIRASSUNUNGA": {
+      "cidade": "Pirassununga",
+      "uf": "SP",
+      "cepi": "13630-001",
+      "cepf": "13644-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PITANGUEIRAS": {
+      "cidade": "Pitangueiras",
+      "uf": "SP",
+      "cepi": "86613-000",
+      "cepf": "86614-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "POÁ": {
+      "cidade": "Poá",
+      "uf": "SP",
+      "cepi": "08550-001",
+      "cepf": "08569-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "POMPÉIA": {
+      "cidade": "Pompéia",
+      "uf": "SP",
+      "cepi": "17580-000",
+      "cepf": "17589-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "PONTAL": {
+      "cidade": "Pontal",
+      "uf": "SP",
+      "cepi": "14180-000",
+      "cepf": "14199-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "PORANGABA": {
+      "cidade": "Porangaba",
+      "uf": "SP",
+      "cepi": "18260-000",
+      "cepf": "18264-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PORTO FELIZ": {
+      "cidade": "Porto Feliz",
+      "uf": "SP",
+      "cepi": "18540-000",
+      "cepf": "18549-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "PORTO FERREIRA": {
+      "cidade": "Porto Ferreira",
+      "uf": "SP",
+      "cepi": "13660-000",
+      "cepf": "13669-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "POTIM": {
+      "cidade": "Potim",
+      "uf": "SP",
+      "cepi": "12525-000",
+      "cepf": "12529-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "POTIRENDABA": {
+      "cidade": "Potirendaba",
+      "uf": "SP",
+      "cepi": "15105-000",
+      "cepf": "15107-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "PRADÓPOLIS": {
+      "cidade": "Pradópolis",
+      "uf": "SP",
+      "cepi": "14850-000",
+      "cepf": "14859-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "PRAIA GRANDE": {
+      "cidade": "Praia Grande",
+      "uf": "SP",
+      "cepi": "88990-000",
+      "cepf": "88999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "PRESIDENTE PRUDENTE": {
+      "cidade": "Presidente Prudente",
+      "uf": "SP",
+      "cepi": "19000-001",
+      "cepf": "19140-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "PROMISSÃO": {
+      "cidade": "Promissão",
+      "uf": "SP",
+      "cepi": "16370-000",
+      "cepf": "16399-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "QUADRA": {
+      "cidade": "Quadra",
+      "uf": "SP",
+      "cepi": "18255-000",
+      "cepf": "18259-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "QUATÁ": {
+      "cidade": "Quatá",
+      "uf": "SP",
+      "cepi": "19780-000",
+      "cepf": "19799-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "RAFARD": {
+      "cidade": "Rafard",
+      "uf": "SP",
+      "cepi": "13370-000",
+      "cepf": "13374-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "REDENÇÃO DA SERRA": {
+      "cidade": "Redenção da Serra",
+      "uf": "SP",
+      "cepi": "12170-000",
+      "cepf": "12179-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "REGISTRO": {
+      "cidade": "Registro",
+      "uf": "SP",
+      "cepi": "11900-000",
+      "cepf": "11909-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "RIBEIRA": {
+      "cidade": "Ribeira",
+      "uf": "SP",
+      "cepi": "18380-000",
+      "cepf": "18384-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "RIBEIRÃO BRANCO": {
+      "cidade": "Ribeirão Branco",
+      "uf": "SP",
+      "cepi": "18430-000",
+      "cepf": "18434-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "RIBEIRÃO GRANDE": {
+      "cidade": "Ribeirão Grande",
+      "uf": "SP",
+      "cepi": "18315-000",
+      "cepf": "18319-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "RIBEIRÃO PIRES": {
+      "cidade": "Ribeirão Pires",
+      "uf": "SP",
+      "cepi": "09400-001",
+      "cepf": "09449-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "RIBEIRÃO PRETO": {
+      "cidade": "Ribeirão Preto",
+      "uf": "SP",
+      "cepi": "14000-001",
+      "cepf": "14109-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "RINCAO": {
+      "cidade": "Rincão",
+      "uf": "SP",
+      "cepi": "14830-000",
+      "cepf": "14834-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "RIO CLARO": {
+      "cidade": "Rio Claro",
+      "uf": "SP",
+      "cepi": "27460-000",
+      "cepf": "27499-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "RIO DAS PEDRAS": {
+      "cidade": "Rio das Pedras",
+      "uf": "SP",
+      "cepi": "13390-000",
+      "cepf": "13399-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "RIO GRANDE DA SERRA": {
+      "cidade": "Rio Grande da Serra",
+      "uf": "SP",
+      "cepi": "09450-000",
+      "cepf": "09499-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ROSEIRA": {
+      "cidade": "Roseira",
+      "uf": "SP",
+      "cepi": "12580-000",
+      "cepf": "12599-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "SALES OLIVEIRA": {
+      "cidade": "Sales Oliveira",
+      "uf": "SP",
+      "cepi": "14660-000",
+      "cepf": "14669-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SALESÓPOLIS": {
+      "cidade": "Salesópolis",
+      "uf": "SP",
+      "cepi": "08970-000",
+      "cepf": "08999-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": false
+    },
+    "SALTINHO": {
+      "cidade": "Saltinho",
+      "uf": "SP",
+      "cepi": "89981-000",
+      "cepf": "89981-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "SALTO": {
+      "cidade": "Salto",
+      "uf": "SP",
+      "cepi": "13320-001",
+      "cepf": "13329-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SALTO DE PIRAPORA": {
+      "cidade": "Salto de Pirapora",
+      "uf": "SP",
+      "cepi": "18160-000",
+      "cepf": "18169-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SALTO GRANDE": {
+      "cidade": "Salto Grande",
+      "uf": "SP",
+      "cepi": "19920-000",
+      "cepf": "19929-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SANTA ADÉLIA": {
+      "cidade": "Santa Adélia",
+      "uf": "SP",
+      "cepi": "15950-000",
+      "cepf": "15959-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SANTA BRANCA": {
+      "cidade": "Santa Branca",
+      "uf": "SP",
+      "cepi": "12380-000",
+      "cepf": "12399-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "SANTA CRUZ DA CONCEIÇÃO": {
+      "cidade": "Santa Cruz da Conceição",
+      "uf": "SP",
+      "cepi": "13625-000",
+      "cepf": "13629-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SANTA CRUZ DA ESPERANÇA": {
+      "cidade": "Santa Cruz da Esperança",
+      "uf": "SP",
+      "cepi": "14250-000",
+      "cepf": "14259-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SANTA CRUZ DAS PALMEIRAS": {
+      "cidade": "Santa Cruz das Palmeiras",
+      "uf": "SP",
+      "cepi": "13650-000",
+      "cepf": "13659-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SANTA CRUZ DO RIO PARDO": {
+      "cidade": "Santa Cruz do Rio Pardo",
+      "uf": "SP",
+      "cepi": "18900-000",
+      "cepf": "18934-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SANTA ERNESTINA": {
+      "cidade": "Santa Ernestina",
+      "uf": "SP",
+      "cepi": "15970-000",
+      "cepf": "15979-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SANTA FÉ DO SUL": {
+      "cidade": "Santa Fé do Sul",
+      "uf": "SP",
+      "cepi": "15775-000",
+      "cepf": "15779-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "SANTA GERTRUDES": {
+      "cidade": "Santa Gertrudes",
+      "uf": "SP",
+      "cepi": "13510-000",
+      "cepf": "13514-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "SANTA ISABEL": {
+      "cidade": "Santa Isabel",
+      "uf": "SP",
+      "cepi": "76320-000",
+      "cepf": "76329-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SANTA LUCIA": {
+      "cidade": "Santa Lúcia",
+      "uf": "SP",
+      "cepi": "85795-000",
+      "cepf": "85799-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "SANTA RITA DO PASSA QUATRO": {
+      "cidade": "Santa Rita do Passa Quatro",
+      "uf": "SP",
+      "cepi": "13670-000",
+      "cepf": "13689-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SANTA ROSA DE VITERBO": {
+      "cidade": "Santa Rosa de Viterbo",
+      "uf": "SP",
+      "cepi": "14270-000",
+      "cepf": "14299-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SANTANA DE PARNAIBA": {
+      "cidade": "Santana de Parnaíba",
+      "uf": "SP",
+      "cepi": "06500-001",
+      "cepf": "06549-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SANTO ANDRE": {
+      "cidade": "Santo André",
+      "uf": "SP",
+      "cepi": "58675-000",
+      "cepf": "58679-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SANTO ANTONIO DA ALEGRIA": {
+      "cidade": "Santo Antônio da Alegria",
+      "uf": "SP",
+      "cepi": "14390-000",
+      "cepf": "14399-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": false
+    },
+    "SANTO ANTÔNIO DE POSSE": {
+      "cidade": "Santo Antônio de Posse",
+      "uf": "SP",
+      "cepi": "13830-000",
+      "cepf": "13834-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SANTO ANTONIO DO PINHAL": {
+      "cidade": "Santo Antônio do Pinhal",
+      "uf": "SP",
+      "cepi": "12450-000",
+      "cepf": "12459-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SANTOS": {
+      "cidade": "Santos",
+      "uf": "SP",
+      "cepi": "11000-001",
+      "cepf": "11199-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO BENTO DO SAPUCAI": {
+      "cidade": "São Bento do Sapucaí",
+      "uf": "SP",
+      "cepi": "12490-000",
+      "cepf": "12499-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "SÃO BERNARDO DO CAMPO": {
+      "cidade": "São Bernardo do Campo",
+      "uf": "SP",
+      "cepi": "09600-001",
+      "cepf": "09899-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO CAETANO DO SUL": {
+      "cidade": "São Caetano do Sul",
+      "uf": "SP",
+      "cepi": "09500-001",
+      "cepf": "09599-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO CARLOS": {
+      "cidade": "São Carlos",
+      "uf": "SP",
+      "cepi": "89885-000",
+      "cepf": "89885-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO JOÃO DA BOA VISTA": {
+      "cidade": "São João da Boa Vista",
+      "uf": "SP",
+      "cepi": "13870-001",
+      "cepf": "13879-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO JOAQUIM DA BARRA": {
+      "cidade": "São Joaquim da Barra",
+      "uf": "SP",
+      "cepi": "14600-000",
+      "cepf": "14609-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO JOSÉ DO RIO PARDO": {
+      "cidade": "São José do Rio Pardo",
+      "uf": "SP",
+      "cepi": "13720-000",
+      "cepf": "13729-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO JOSÉ DO RIO PRETO": {
+      "cidade": "São José do Rio Preto",
+      "uf": "SP",
+      "cepi": "15000-001",
+      "cepf": "15104-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO JOSÉ DOS CAMPOS": {
+      "cidade": "São José dos Campos",
+      "uf": "SP",
+      "cepi": "12200-001",
+      "cepf": "12248-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO LOURENÇO DA SERRA": {
+      "cidade": "São Lourenço da Serra",
+      "uf": "SP",
+      "cepi": "06890-000",
+      "cepf": "06899-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO MANUEL": {
+      "cidade": "São Manuel",
+      "uf": "SP",
+      "cepi": "18650-000",
+      "cepf": "18659-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO MIGUEL ARCANJO": {
+      "cidade": "São Miguel Arcanjo",
+      "uf": "SP",
+      "cepi": "18230-000",
+      "cepf": "18239-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO PEDRO": {
+      "cidade": "São Pedro",
+      "uf": "SP",
+      "cepi": "59480-000",
+      "cepf": "59489-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO PEDRO DO TURVO": {
+      "cidade": "São Pedro do Turvo",
+      "uf": "SP",
+      "cepi": "18940-000",
+      "cepf": "18949-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO ROQUE": {
+      "cidade": "São Roque",
+      "uf": "SP",
+      "cepi": "18130-001",
+      "cepf": "18146-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO SEBASTIÃO": {
+      "cidade": "São Sebastião",
+      "uf": "SP",
+      "cepi": "57275-000",
+      "cepf": "57279-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO SIMÃO": {
+      "cidade": "São Simão",
+      "uf": "SP",
+      "cepi": "75890-000",
+      "cepf": "75899-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO VICENTE": {
+      "cidade": "São Vicente",
+      "uf": "SP",
+      "cepi": "59340-000",
+      "cepf": "59342-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SARAPUI": {
+      "cidade": "Sarapuí",
+      "uf": "SP",
+      "cepi": "18225-000",
+      "cepf": "18229-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SARUTAIA": {
+      "cidade": "Sarutaiá",
+      "uf": "SP",
+      "cepi": "18840-000",
+      "cepf": "18859-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SERRA NEGRA": {
+      "cidade": "Serra Negra",
+      "uf": "SP",
+      "cepi": "13930-000",
+      "cepf": "13939-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SERRANA": {
+      "cidade": "Serrana",
+      "uf": "SP",
+      "cepi": "14150-000",
+      "cepf": "14159-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SERTÃOZINHO": {
+      "cidade": "Sertãozinho",
+      "uf": "SP",
+      "cepi": "58268-000",
+      "cepf": "58269-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SETE BARRAS": {
+      "cidade": "Sete Barras",
+      "uf": "SP",
+      "cepi": "11910-000",
+      "cepf": "11919-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "SEVERINIA": {
+      "cidade": "Severínia",
+      "uf": "SP",
+      "cepi": "14735-000",
+      "cepf": "14739-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "SILVEIRAS": {
+      "cidade": "Silveiras",
+      "uf": "SP",
+      "cepi": "12690-000",
+      "cepf": "12699-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SOCORRO": {
+      "cidade": "Socorro",
+      "uf": "SP",
+      "cepi": "13960-000",
+      "cepf": "13969-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SOROCABA": {
+      "cidade": "Sorocaba",
+      "uf": "SP",
+      "cepi": "18000-001",
+      "cepf": "18109-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SUMARÉ": {
+      "cidade": "Sumaré",
+      "uf": "SP",
+      "cepi": "13170-001",
+      "cepf": "13182-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SUZANO": {
+      "cidade": "Suzano",
+      "uf": "SP",
+      "cepi": "08600-001",
+      "cepf": "08699-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "TABAPUÃ": {
+      "cidade": "Tabapuã",
+      "uf": "SP",
+      "cepi": "15880-000",
+      "cepf": "15884-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "TABATINGA": {
+      "cidade": "Tabatinga",
+      "uf": "SP",
+      "cepi": "69640-000",
+      "cepf": "69649-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "TAGUAÍ": {
+      "cidade": "Taguaí",
+      "uf": "SP",
+      "cepi": "18890-000",
+      "cepf": "18899-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "TAIAÇU": {
+      "cidade": "Taiaçu",
+      "uf": "SP",
+      "cepi": "14725-000",
+      "cepf": "14729-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "TAMBAU": {
+      "cidade": "Tambaú",
+      "uf": "SP",
+      "cepi": "13710-000",
+      "cepf": "13714-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "TANABI": {
+      "cidade": "Tanabi",
+      "uf": "SP",
+      "cepi": "15170-000",
+      "cepf": "15179-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "TAPIRAÍ": {
+      "cidade": "Tapiraí",
+      "uf": "SP",
+      "cepi": "38980-000",
+      "cepf": "38989-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "TAPIRATIBA": {
+      "cidade": "Tapiratiba",
+      "uf": "SP",
+      "cepi": "13760-000",
+      "cepf": "13769-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "TAQUARITINGA": {
+      "cidade": "Taquaritinga",
+      "uf": "SP",
+      "cepi": "15900-000",
+      "cepf": "15909-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "TAQUARITUBA": {
+      "cidade": "Taquarituba",
+      "uf": "SP",
+      "cepi": "18740-000",
+      "cepf": "18744-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "TAQUARIVAÍ": {
+      "cidade": "Taquarivaí",
+      "uf": "SP",
+      "cepi": "18425-000",
+      "cepf": "18429-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "TATUÍ": {
+      "cidade": "Tatuí",
+      "uf": "SP",
+      "cepi": "18270-001",
+      "cepf": "18282-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "TAUBATÉ": {
+      "cidade": "Taubaté",
+      "uf": "SP",
+      "cepi": "12000-001",
+      "cepf": "12119-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "TERRA ROXA": {
+      "cidade": "Terra Roxa",
+      "uf": "SP",
+      "cepi": "85990-000",
+      "cepf": "85997-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "TIETÊ": {
+      "cidade": "Tietê",
+      "uf": "SP",
+      "cepi": "18530-000",
+      "cepf": "18534-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "TIMBURI": {
+      "cidade": "Timburi",
+      "uf": "SP",
+      "cepi": "18860-000",
+      "cepf": "18869-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "TORRE DE PEDRA": {
+      "cidade": "Torre de Pedra",
+      "uf": "SP",
+      "cepi": "18265-000",
+      "cepf": "18269-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "TORRINHA": {
+      "cidade": "Torrinha",
+      "uf": "SP",
+      "cepi": "17360-000",
+      "cepf": "17369-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "TREMEMBÉ": {
+      "cidade": "Tremembé",
+      "uf": "SP",
+      "cepi": "12120-000",
+      "cepf": "12129-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "TRÊS FRONTEIRAS": {
+      "cidade": "Três Fronteiras",
+      "uf": "SP",
+      "cepi": "15770-000",
+      "cepf": "15772-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "TUIUTI": {
+      "cidade": "Tuiuti",
+      "uf": "SP",
+      "cepi": "12930-000",
+      "cepf": "12934-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "TUPÃ": {
+      "cidade": "Tupã",
+      "uf": "SP",
+      "cepi": "17600-001",
+      "cepf": "17626-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "UBATUBA": {
+      "cidade": "Ubatuba",
+      "uf": "SP",
+      "cepi": "11680-000",
+      "cepf": "11699-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "UCHOA": {
+      "cidade": "Uchoa",
+      "uf": "SP",
+      "cepi": "15890-000",
+      "cepf": "15894-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "URUPÊS": {
+      "cidade": "Urupês",
+      "uf": "SP",
+      "cepi": "15850-000",
+      "cepf": "15859-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "VALENTIM GENTIL": {
+      "cidade": "Valentim Gentil",
+      "uf": "SP",
+      "cepi": "15520-000",
+      "cepf": "15524-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "VALINHOS": {
+      "cidade": "Valinhos",
+      "uf": "SP",
+      "cepi": "13270-001",
+      "cepf": "13279-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "VARGEM": {
+      "cidade": "Vargem",
+      "uf": "SP",
+      "cepi": "89638-000",
+      "cepf": "89639-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "VARGEM GRANDE DO SUL": {
+      "cidade": "Vargem Grande do Sul",
+      "uf": "SP",
+      "cepi": "13880-000",
+      "cepf": "13889-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "VARGEM GRANDE PAULISTA": {
+      "cidade": "Vargem Grande Paulista",
+      "uf": "SP",
+      "cepi": "06730-000",
+      "cepf": "06749-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "VARZEA PAULISTA": {
+      "cidade": "Várzea Paulista",
+      "uf": "SP",
+      "cepi": "13220-001",
+      "cepf": "13229-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "VINHEDO": {
+      "cidade": "Vinhedo",
+      "uf": "SP",
+      "cepi": "13280-001",
+      "cepf": "13289-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "VIRADOURO": {
+      "cidade": "Viradouro",
+      "uf": "SP",
+      "cepi": "14740-000",
+      "cepf": "14744-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "VISTA ALEGRE DO ALTO": {
+      "cidade": "Vista Alegre do Alto",
+      "uf": "SP",
+      "cepi": "15920-000",
+      "cepf": "15929-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": false,
+      "sexta": false
+    },
+    "VOTORANTIM": {
+      "cidade": "Votorantim",
+      "uf": "SP",
+      "cepi": "18110-001",
+      "cepf": "18119-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "VOTUPORANGA": {
+      "cidade": "Votuporanga",
+      "uf": "SP",
+      "cepi": "15500-001",
+      "cepf": "15515-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ZONA CENTRAL 1": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA CENTRAL 2": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA CENTRAL 3": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA LESTE 1": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA LESTE 2": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA LESTE 3": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA NORTE 1": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA NORTE 2": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA NORTE 3": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA OESTE 1": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA SUL 1": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA SUL 2": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA SUL 3 - AR 1": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": false
+    },
+    "ZONA SUL 3 - AR 2": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA SUL 3 - AR 3": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": false
+    },
+    "ZONA SUL 3A": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA SUL 3B": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA SUL 4": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "01000-001",
+      "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    }
+  }
+}
