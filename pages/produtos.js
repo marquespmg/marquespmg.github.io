@@ -9,7 +9,7 @@ import WithdrawalModal from '../components/WithdrawalModal';
 import { useProdutoValidade } from '../hook/useProdutoValidade';
 import keywordsMap from '../public/keywords.json';
 import pesosMap from '../public/pesos.json';
-import VerificadorCEP from '../components/VerificadorCEP';
+import VerificadorCEP from '../components/VerificadorCEP'
 
 // ==============================================
 // 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
