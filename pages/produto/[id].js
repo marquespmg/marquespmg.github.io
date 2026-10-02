@@ -11,6 +11,7 @@ import { IDs_EM_OFERTA, PRECO_OFERTA_POR_ID } from '../../constants/ofertas';
 import { useDescricaoAI } from '../../hook/useDescricaoAI'; 
 import keywordsMap from '../../public/keywords.json';
 import pesosMap from '../../public/pesos.json';
+import VerificadorCEP from '../../components/VerificadorCEP';
 
 const products = [
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 783.51, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg', gtin: '17890000000373' },
@@ -3841,6 +3842,11 @@ useEffect(() => {
   >
     {status.buyButtonText}
   </button>
+</div>
+
+{/* ✅ VERIFICADOR DE CEP - acima da validade, logo após os botões */}
+<div style={{ marginTop: '15px' }}>
+  <VerificadorCEP />
 </div>
 
 {/* ========== VALIDADE E LOTE - AGORA VISÍVEL PARA TODOS ========== */}
