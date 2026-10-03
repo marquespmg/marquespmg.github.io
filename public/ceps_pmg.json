@@ -137,7 +137,7 @@
       "cepf": "37575-999",
       "terca": false,
       "quarta": true,
-      "quinta": false,
+      "quinta": true,
       "sexta": true
     },
     "PARAISÓPOLIS-MG": {
@@ -364,46 +364,6 @@
       "quinta": true,
       "sexta": false
     },
-    "ÁGUAS DA PRATA": {
-      "cidade": "Águas da Prata",
-      "uf": "SP",
-      "cepi": "13890-000",
-      "cepf": "13899-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
-    "ÁGUAS DE LINDÓIA": {
-      "cidade": "Águas de Lindóia",
-      "uf": "SP",
-      "cepi": "13940-000",
-      "cepf": "13949-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "ÁGUAS DE SANTA BARBARA": {
-      "cidade": "Águas de Santa Bárbara",
-      "uf": "SP",
-      "cepi": "18770-000",
-      "cepf": "18774-999",
-      "terca": true,
-      "quarta": false,
-      "quinta": true,
-      "sexta": false
-    },
-    "ÁGUAS DE SÃO PEDRO": {
-      "cidade": "Águas de São Pedro",
-      "uf": "SP",
-      "cepi": "13525-000",
-      "cepf": "13529-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
     "AGUDOS": {
       "cidade": "Agudos",
       "uf": "SP",
@@ -474,16 +434,6 @@
       "quinta": true,
       "sexta": true
     },
-    "AMÉRICO BRASILIENSE": {
-      "cidade": "Américo Brasiliense",
-      "uf": "SP",
-      "cepi": "14820-000",
-      "cepf": "14824-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
     "AMERICO CAMPOS": {
       "cidade": "Américo de Campos",
       "uf": "SP",
@@ -495,13 +445,23 @@
       "sexta": true
     },
     "AMPARO": {
-      "cidade": "Amparo",
+      "cidade": "AMPARO",
       "uf": "SP",
-      "cepi": "58548-000",
-      "cepf": "58549-999",
+      "cepi": "13900-000",
+      "cepf": "13909-999",
       "terca": true,
       "quarta": true,
       "quinta": true,
+      "sexta": true
+    },
+    "AMÉRICO BRASILIENSE": {
+      "cidade": "Américo Brasiliense",
+      "uf": "SP",
+      "cepi": "14820-000",
+      "cepf": "14824-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
       "sexta": true
     },
     "ANALÂNDIA": {
@@ -525,10 +485,10 @@
       "sexta": true
     },
     "APARECIDA": {
-      "cidade": "Aparecida",
+      "cidade": "APARECIDA",
       "uf": "SP",
-      "cepi": "58823-000",
-      "cepf": "58823-999",
+      "cepi": "12570-000",
+      "cepf": "12579-999",
       "terca": true,
       "quarta": true,
       "quinta": true,
@@ -539,36 +499,6 @@
       "uf": "SP",
       "cepi": "18320-000",
       "cepf": "18324-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
-    "ARAÇARIGUAMA": {
-      "cidade": "Araçariguama",
-      "uf": "SP",
-      "cepi": "18147-000",
-      "cepf": "18149-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "ARAÇATUBA": {
-      "cidade": "Araçatuba",
-      "uf": "SP",
-      "cepi": "16000-001",
-      "cepf": "16129-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
-    "ARAÇOIABA DA SERRA": {
-      "cidade": "Araçoiaba da Serra",
-      "uf": "SP",
-      "cepi": "18190-000",
-      "cepf": "18194-999",
       "terca": false,
       "quarta": true,
       "quinta": false,
@@ -612,6 +542,36 @@
       "terca": true,
       "quarta": true,
       "quinta": true,
+      "sexta": true
+    },
+    "ARAÇARIGUAMA": {
+      "cidade": "Araçariguama",
+      "uf": "SP",
+      "cepi": "18147-000",
+      "cepf": "18149-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ARAÇATUBA": {
+      "cidade": "Araçatuba",
+      "uf": "SP",
+      "cepi": "16000-001",
+      "cepf": "16129-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ARAÇOIABA DA SERRA": {
+      "cidade": "Araçoiaba da Serra",
+      "uf": "SP",
+      "cepi": "18190-000",
+      "cepf": "18194-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
       "sexta": true
     },
     "AREALVA": {
@@ -714,16 +674,6 @@
       "quinta": false,
       "sexta": true
     },
-    "BARÃO DE ANTONINA": {
-      "cidade": "Barão de Antonina",
-      "uf": "SP",
-      "cepi": "18490-000",
-      "cepf": "18499-999",
-      "terca": true,
-      "quarta": false,
-      "quinta": true,
-      "sexta": false
-    },
     "BARIRI": {
       "cidade": "Bariri",
       "uf": "SP",
@@ -735,10 +685,10 @@
       "sexta": false
     },
     "BARRA BONITA": {
-      "cidade": "Barra Bonita",
+      "cidade": "BARRA BONITA",
       "uf": "SP",
-      "cepi": "89909-000",
-      "cepf": "89909-999",
+      "cepi": "17340-000",
+      "cepf": "17349-999",
       "terca": false,
       "quarta": false,
       "quinta": true,
@@ -773,6 +723,16 @@
       "quarta": true,
       "quinta": true,
       "sexta": true
+    },
+    "BARÃO DE ANTONINA": {
+      "cidade": "Barão de Antonina",
+      "uf": "SP",
+      "cepi": "18490-000",
+      "cepf": "18499-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
     },
     "BATATAIS": {
       "cidade": "Batatais",
@@ -844,6 +804,16 @@
       "quinta": false,
       "sexta": true
     },
+    "BIRITIBA-MIRIM": {
+      "cidade": "BIRITIBA MIRIM",
+      "uf": "SP",
+      "cepi": "08940-000",
+      "cepf": "08940-970",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
     "BOA ESPERANÇA DO SUL": {
       "cidade": "Boa Esperança do Sul",
       "uf": "SP",
@@ -895,10 +865,10 @@
       "sexta": true
     },
     "BORBOREMA": {
-      "cidade": "Borborema",
+      "cidade": "BORBOREMA",
       "uf": "SP",
-      "cepi": "58394-000",
-      "cepf": "58394-999",
+      "cepi": "14955-000",
+      "cepf": "14959-999",
       "terca": false,
       "quarta": true,
       "quinta": false,
@@ -961,16 +931,6 @@
       "cepf": "13319-999",
       "terca": true,
       "quarta": false,
-      "quinta": true,
-      "sexta": true
-    },
-    "CAÇAPAVA": {
-      "cidade": "Caçapava",
-      "uf": "SP",
-      "cepi": "12280-001",
-      "cepf": "12299-999",
-      "terca": true,
-      "quarta": true,
       "quinta": true,
       "sexta": true
     },
@@ -1204,11 +1164,21 @@
       "quinta": true,
       "sexta": true
     },
-    "CEDRAL": {
-      "cidade": "Cedral",
+    "CAÇAPAVA": {
+      "cidade": "Caçapava",
       "uf": "SP",
-      "cepi": "65260-000",
-      "cepf": "65262-999",
+      "cepi": "12280-001",
+      "cepf": "12299-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "CEDRAL": {
+      "cidade": "CEDRAL",
+      "uf": "SP",
+      "cepi": "15895-000",
+      "cepf": "15899-999",
       "terca": false,
       "quarta": true,
       "quinta": false,
@@ -1334,16 +1304,6 @@
       "quinta": true,
       "sexta": true
     },
-    "COSMÓPOLIS": {
-      "cidade": "Cosmópolis",
-      "uf": "SP",
-      "cepi": "13150-000",
-      "cepf": "13159-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
     "COSMORAMA": {
       "cidade": "Cosmorama",
       "uf": "SP",
@@ -1352,6 +1312,16 @@
       "terca": false,
       "quarta": true,
       "quinta": true,
+      "sexta": true
+    },
+    "COSMÓPOLIS": {
+      "cidade": "Cosmópolis",
+      "uf": "SP",
+      "cepi": "13150-000",
+      "cepf": "13159-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
       "sexta": true
     },
     "COTIA": {
@@ -1475,10 +1445,10 @@
       "sexta": false
     },
     "ELDORADO": {
-      "cidade": "Eldorado",
+      "cidade": "ELDORADO",
       "uf": "SP",
-      "cepi": "79970-000",
-      "cepf": "79974-999",
+      "cepi": "11960-000",
+      "cepf": "11999-999",
       "terca": true,
       "quarta": false,
       "quinta": true,
@@ -1511,6 +1481,16 @@
       "cepf": "15429-999",
       "terca": false,
       "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "EMBU DAS ARTES": {
+      "cidade": "Embu das Artes",
+      "uf": "SP",
+      "cepi": "06800-000",
+      "cepf": "06849-999",
+      "terca": true,
+      "quarta": true,
       "quinta": true,
       "sexta": true
     },
@@ -1654,14 +1634,14 @@
       "quinta": false,
       "sexta": false
     },
-    "GUAÍRA": {
-      "cidade": "Guaíra",
+    "GUAPIARA": {
+      "cidade": "Guapiara",
       "uf": "SP",
-      "cepi": "85980-000",
-      "cepf": "85987-999",
-      "terca": true,
+      "cepi": "18310-000",
+      "cepf": "18314-999",
+      "terca": false,
       "quarta": false,
-      "quinta": true,
+      "quinta": false,
       "sexta": true
     },
     "GUAPIAÇU": {
@@ -1674,31 +1654,11 @@
       "quinta": false,
       "sexta": false
     },
-    "GUAPIARA": {
-      "cidade": "Guapiara",
-      "uf": "SP",
-      "cepi": "18310-000",
-      "cepf": "18314-999",
-      "terca": false,
-      "quarta": false,
-      "quinta": false,
-      "sexta": true
-    },
-    "GUARÁ": {
-      "cidade": "Guará",
-      "uf": "SP",
-      "cepi": "14580-000",
-      "cepf": "14599-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
     "GUARACI": {
-      "cidade": "Guaraci",
+      "cidade": "GUARACI",
       "uf": "SP",
-      "cepi": "86620-000",
-      "cepf": "86629-999",
+      "cepi": "15420-000",
+      "cepf": "15424-999",
       "terca": false,
       "quarta": false,
       "quinta": true,
@@ -1774,6 +1734,16 @@
       "quinta": true,
       "sexta": true
     },
+    "GUARÁ": {
+      "cidade": "Guará",
+      "uf": "SP",
+      "cepi": "14580-000",
+      "cepf": "14599-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
     "GUATAPARA": {
       "cidade": "Guatapará",
       "uf": "SP",
@@ -1791,6 +1761,16 @@
       "cepf": "14119-999",
       "terca": true,
       "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "GUAÍRA": {
+      "cidade": "GUAÍRA",
+      "uf": "SP",
+      "cepi": "14790-000",
+      "cepf": "14799-999",
+      "terca": true,
+      "quarta": false,
       "quinta": true,
       "sexta": true
     },
@@ -1854,16 +1834,6 @@
       "quinta": true,
       "sexta": true
     },
-    "IGARAÇÚ DO TIETÊ": {
-      "cidade": "Igaraçu do Tietê",
-      "uf": "SP",
-      "cepi": "17350-000",
-      "cepf": "17359-999",
-      "terca": false,
-      "quarta": false,
-      "quinta": true,
-      "sexta": false
-    },
     "IGARATÁ": {
       "cidade": "Igaratá",
       "uf": "SP",
@@ -1873,6 +1843,16 @@
       "quarta": false,
       "quinta": true,
       "sexta": true
+    },
+    "IGARAÇÚ DO TIETÊ": {
+      "cidade": "Igaraçu do Tietê",
+      "uf": "SP",
+      "cepi": "17350-000",
+      "cepf": "17359-999",
+      "terca": false,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
     },
     "IGUAPE": {
       "cidade": "Iguape",
@@ -2024,6 +2004,16 @@
       "quinta": true,
       "sexta": true
     },
+    "ITAPECERICA DA SERRA": {
+      "cidade": "Itapecerica da Serra",
+      "uf": "SP",
+      "cepi": "06850-000",
+      "cepf": "06899-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
     "ITAPETININGA": {
       "cidade": "Itapetininga",
       "uf": "SP",
@@ -2059,16 +2049,6 @@
       "uf": "SP",
       "cepi": "13970-001",
       "cepf": "13985-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "ITÁPOLIS": {
-      "cidade": "Itápolis",
-      "uf": "SP",
-      "cepi": "14900-000",
-      "cepf": "14909-999",
       "terca": true,
       "quarta": true,
       "quinta": true,
@@ -2184,11 +2164,21 @@
       "quinta": false,
       "sexta": true
     },
-    "JABORANDI": {
-      "cidade": "Jaborandi",
+    "ITÁPOLIS": {
+      "cidade": "Itápolis",
       "uf": "SP",
-      "cepi": "47655-000",
-      "cepf": "47664-999",
+      "cepi": "14900-000",
+      "cepf": "14909-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "JABORANDI": {
+      "cidade": "JABORANDI",
+      "uf": "SP",
+      "cepi": "14775-000",
+      "cepf": "14779-999",
       "terca": true,
       "quarta": false,
       "quinta": true,
@@ -2275,10 +2265,10 @@
       "sexta": true
     },
     "JARDINÓPOLIS": {
-      "cidade": "Jardinópolis",
+      "cidade": "JARDINÓPOLIS",
       "uf": "SP",
-      "cepi": "89848-000",
-      "cepf": "89849-999",
+      "cepi": "14670-000",
+      "cepf": "14679-999",
       "terca": false,
       "quarta": true,
       "quinta": true,
@@ -2314,16 +2304,6 @@
       "quinta": true,
       "sexta": true
     },
-    "JOÃO RAMALHO": {
-      "cidade": "João Ramalho",
-      "uf": "SP",
-      "cepi": "19680-000",
-      "cepf": "19699-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
     "JOSÉ BONIFÁCIO": {
       "cidade": "José Bonifácio",
       "uf": "SP",
@@ -2331,6 +2311,16 @@
       "cepf": "15209-999",
       "terca": false,
       "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "JOÃO RAMALHO": {
+      "cidade": "João Ramalho",
+      "uf": "SP",
+      "cepi": "19680-000",
+      "cepf": "19699-999",
+      "terca": true,
+      "quarta": true,
       "quinta": true,
       "sexta": true
     },
@@ -2865,10 +2855,10 @@
       "sexta": true
     },
     "NOVO HORIZONTE": {
-      "cidade": "Novo Horizonte",
+      "cidade": "NOVO HORIZONTE",
       "uf": "SP",
-      "cepi": "46730-000",
-      "cepf": "46739-999",
+      "cepi": "14960-000",
+      "cepf": "14969-999",
       "terca": false,
       "quarta": false,
       "quinta": true,
@@ -2935,10 +2925,10 @@
       "sexta": true
     },
     "PALMITAL": {
-      "cidade": "Palmital",
+      "cidade": "PALMITAL",
       "uf": "SP",
-      "cepi": "85270-000",
-      "cepf": "85274-999",
+      "cepi": "19970-000",
+      "cepf": "19979-999",
       "terca": false,
       "quarta": false,
       "quinta": false,
@@ -2965,10 +2955,10 @@
       "sexta": true
     },
     "PARAISO": {
-      "cidade": "Paraíso",
+      "cidade": "PARAISO",
       "uf": "SP",
-      "cepi": "89906-000",
-      "cepf": "89907-999",
+      "cepi": "15825-000",
+      "cepf": "15829-999",
       "terca": false,
       "quarta": true,
       "quinta": false,
@@ -3004,16 +2994,6 @@
       "quinta": true,
       "sexta": true
     },
-    "PAULÍNIA": {
-      "cidade": "Paulínia",
-      "uf": "SP",
-      "cepi": "13140-001",
-      "cepf": "13149-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
     "PAULISTANIA": {
       "cidade": "Paulistânia",
       "uf": "SP",
@@ -3023,6 +3003,16 @@
       "quarta": false,
       "quinta": true,
       "sexta": false
+    },
+    "PAULÍNIA": {
+      "cidade": "Paulínia",
+      "uf": "SP",
+      "cepi": "13140-001",
+      "cepf": "13149-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
     },
     "PEDERNEIRAS": {
       "cidade": "Pederneiras",
@@ -3234,16 +3224,6 @@
       "quinta": false,
       "sexta": true
     },
-    "POÁ": {
-      "cidade": "Poá",
-      "uf": "SP",
-      "cepi": "08550-001",
-      "cepf": "08569-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
     "POMPÉIA": {
       "cidade": "Pompéia",
       "uf": "SP",
@@ -3314,6 +3294,16 @@
       "quinta": false,
       "sexta": true
     },
+    "POÁ": {
+      "cidade": "Poá",
+      "uf": "SP",
+      "cepi": "08550-001",
+      "cepf": "08569-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
     "PRADÓPOLIS": {
       "cidade": "Pradópolis",
       "uf": "SP",
@@ -3325,10 +3315,10 @@
       "sexta": false
     },
     "PRAIA GRANDE": {
-      "cidade": "Praia Grande",
+      "cidade": "PRAIA GRANDE",
       "uf": "SP",
-      "cepi": "88990-000",
-      "cepf": "88999-999",
+      "cepi": "11700-000",
+      "cepf": "11729-999",
       "terca": true,
       "quarta": true,
       "quinta": true,
@@ -3465,10 +3455,10 @@
       "sexta": true
     },
     "RIO CLARO": {
-      "cidade": "Rio Claro",
+      "cidade": "RIO CLARO",
       "uf": "SP",
-      "cepi": "27460-000",
-      "cepf": "27499-999",
+      "cepi": "13500-000",
+      "cepf": "13509-999",
       "terca": true,
       "quarta": true,
       "quinta": true,
@@ -3655,10 +3645,10 @@
       "sexta": true
     },
     "SANTA ISABEL": {
-      "cidade": "Santa Isabel",
+      "cidade": "SANTA ISABEL",
       "uf": "SP",
-      "cepi": "76320-000",
-      "cepf": "76329-999",
+      "cepi": "07500-000",
+      "cepf": "07599-999",
       "terca": true,
       "quarta": true,
       "quinta": true,
@@ -3724,16 +3714,6 @@
       "quinta": false,
       "sexta": false
     },
-    "SANTO ANTÔNIO DE POSSE": {
-      "cidade": "Santo Antônio de Posse",
-      "uf": "SP",
-      "cepi": "13830-000",
-      "cepf": "13834-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
     "SANTO ANTONIO DO PINHAL": {
       "cidade": "Santo Antônio do Pinhal",
       "uf": "SP",
@@ -3744,191 +3724,21 @@
       "quinta": true,
       "sexta": true
     },
+    "SANTO ANTÔNIO DE POSSE": {
+      "cidade": "Santo Antônio de Posse",
+      "uf": "SP",
+      "cepi": "13830-000",
+      "cepf": "13834-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
     "SANTOS": {
       "cidade": "Santos",
       "uf": "SP",
       "cepi": "11000-001",
       "cepf": "11199-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO BENTO DO SAPUCAI": {
-      "cidade": "São Bento do Sapucaí",
-      "uf": "SP",
-      "cepi": "12490-000",
-      "cepf": "12499-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": false,
-      "sexta": false
-    },
-    "SÃO BERNARDO DO CAMPO": {
-      "cidade": "São Bernardo do Campo",
-      "uf": "SP",
-      "cepi": "09600-001",
-      "cepf": "09899-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO CAETANO DO SUL": {
-      "cidade": "São Caetano do Sul",
-      "uf": "SP",
-      "cepi": "09500-001",
-      "cepf": "09599-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO CARLOS": {
-      "cidade": "São Carlos",
-      "uf": "SP",
-      "cepi": "89885-000",
-      "cepf": "89885-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO JOÃO DA BOA VISTA": {
-      "cidade": "São João da Boa Vista",
-      "uf": "SP",
-      "cepi": "13870-001",
-      "cepf": "13879-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO JOAQUIM DA BARRA": {
-      "cidade": "São Joaquim da Barra",
-      "uf": "SP",
-      "cepi": "14600-000",
-      "cepf": "14609-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
-    "SÃO JOSÉ DO RIO PARDO": {
-      "cidade": "São José do Rio Pardo",
-      "uf": "SP",
-      "cepi": "13720-000",
-      "cepf": "13729-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO JOSÉ DO RIO PRETO": {
-      "cidade": "São José do Rio Preto",
-      "uf": "SP",
-      "cepi": "15000-001",
-      "cepf": "15104-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
-    "SÃO JOSÉ DOS CAMPOS": {
-      "cidade": "São José dos Campos",
-      "uf": "SP",
-      "cepi": "12200-001",
-      "cepf": "12248-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO LOURENÇO DA SERRA": {
-      "cidade": "São Lourenço da Serra",
-      "uf": "SP",
-      "cepi": "06890-000",
-      "cepf": "06899-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO MANUEL": {
-      "cidade": "São Manuel",
-      "uf": "SP",
-      "cepi": "18650-000",
-      "cepf": "18659-999",
-      "terca": true,
-      "quarta": false,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO MIGUEL ARCANJO": {
-      "cidade": "São Miguel Arcanjo",
-      "uf": "SP",
-      "cepi": "18230-000",
-      "cepf": "18239-999",
-      "terca": false,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
-    "SÃO PEDRO": {
-      "cidade": "São Pedro",
-      "uf": "SP",
-      "cepi": "59480-000",
-      "cepf": "59489-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": false,
-      "sexta": true
-    },
-    "SÃO PEDRO DO TURVO": {
-      "cidade": "São Pedro do Turvo",
-      "uf": "SP",
-      "cepi": "18940-000",
-      "cepf": "18949-999",
-      "terca": true,
-      "quarta": false,
-      "quinta": false,
-      "sexta": true
-    },
-    "SÃO ROQUE": {
-      "cidade": "São Roque",
-      "uf": "SP",
-      "cepi": "18130-001",
-      "cepf": "18146-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO SEBASTIÃO": {
-      "cidade": "São Sebastião",
-      "uf": "SP",
-      "cepi": "57275-000",
-      "cepf": "57279-999",
-      "terca": true,
-      "quarta": true,
-      "quinta": true,
-      "sexta": true
-    },
-    "SÃO SIMÃO": {
-      "cidade": "São Simão",
-      "uf": "SP",
-      "cepi": "75890-000",
-      "cepf": "75899-999",
-      "terca": true,
-      "quarta": false,
-      "quinta": false,
-      "sexta": true
-    },
-    "SÃO VICENTE": {
-      "cidade": "São Vicente",
-      "uf": "SP",
-      "cepi": "59340-000",
-      "cepf": "59342-999",
       "terca": true,
       "quarta": true,
       "quinta": true,
@@ -3975,10 +3785,10 @@
       "sexta": true
     },
     "SERTÃOZINHO": {
-      "cidade": "Sertãozinho",
+      "cidade": "SERTÃOZINHO",
       "uf": "SP",
-      "cepi": "58268-000",
-      "cepf": "58269-999",
+      "cepi": "14160-000",
+      "cepf": "14179-999",
       "terca": true,
       "quarta": true,
       "quinta": true,
@@ -4054,6 +3864,186 @@
       "quinta": true,
       "sexta": true
     },
+    "SÃO BENTO DO SAPUCAI": {
+      "cidade": "São Bento do Sapucaí",
+      "uf": "SP",
+      "cepi": "12490-000",
+      "cepf": "12499-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": false
+    },
+    "SÃO BERNARDO DO CAMPO": {
+      "cidade": "São Bernardo do Campo",
+      "uf": "SP",
+      "cepi": "09600-001",
+      "cepf": "09899-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO CAETANO DO SUL": {
+      "cidade": "São Caetano do Sul",
+      "uf": "SP",
+      "cepi": "09500-001",
+      "cepf": "09599-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO CARLOS": {
+      "cidade": "SÃO CARLOS",
+      "uf": "SP",
+      "cepi": "13560-000",
+      "cepf": "13579-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO JOAQUIM DA BARRA": {
+      "cidade": "São Joaquim da Barra",
+      "uf": "SP",
+      "cepi": "14600-000",
+      "cepf": "14609-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO JOSÉ DO RIO PARDO": {
+      "cidade": "São José do Rio Pardo",
+      "uf": "SP",
+      "cepi": "13720-000",
+      "cepf": "13729-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO JOSÉ DO RIO PRETO": {
+      "cidade": "São José do Rio Preto",
+      "uf": "SP",
+      "cepi": "15000-001",
+      "cepf": "15104-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO JOSÉ DOS CAMPOS": {
+      "cidade": "São José dos Campos",
+      "uf": "SP",
+      "cepi": "12200-001",
+      "cepf": "12248-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO JOÃO DA BOA VISTA": {
+      "cidade": "São João da Boa Vista",
+      "uf": "SP",
+      "cepi": "13870-001",
+      "cepf": "13879-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO LOURENÇO DA SERRA": {
+      "cidade": "São Lourenço da Serra",
+      "uf": "SP",
+      "cepi": "06890-000",
+      "cepf": "06899-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO MANUEL": {
+      "cidade": "São Manuel",
+      "uf": "SP",
+      "cepi": "18650-000",
+      "cepf": "18659-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO MIGUEL ARCANJO": {
+      "cidade": "São Miguel Arcanjo",
+      "uf": "SP",
+      "cepi": "18230-000",
+      "cepf": "18239-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO PEDRO": {
+      "cidade": "SÃO PEDRO",
+      "uf": "SP",
+      "cepi": "13520-000",
+      "cepf": "13529-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO PEDRO DO TURVO": {
+      "cidade": "São Pedro do Turvo",
+      "uf": "SP",
+      "cepi": "18940-000",
+      "cepf": "18949-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO ROQUE": {
+      "cidade": "São Roque",
+      "uf": "SP",
+      "cepi": "18130-001",
+      "cepf": "18146-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO SEBASTIÃO": {
+      "cidade": "SÃO SEBASTIÃO",
+      "uf": "SP",
+      "cepi": "11600-000",
+      "cepf": "11629-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "SÃO SIMÃO": {
+      "cidade": "São Simão",
+      "uf": "SP",
+      "cepi": "75890-000",
+      "cepf": "75899-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": false,
+      "sexta": true
+    },
+    "SÃO VICENTE": {
+      "cidade": "SÃO VICENTE",
+      "uf": "SP",
+      "cepi": "11300-000",
+      "cepf": "11399-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
     "TABAPUÃ": {
       "cidade": "Tabapuã",
       "uf": "SP",
@@ -4065,10 +4055,10 @@
       "sexta": true
     },
     "TABATINGA": {
-      "cidade": "Tabatinga",
+      "cidade": "TABATINGA",
       "uf": "SP",
-      "cepi": "69640-000",
-      "cepf": "69649-999",
+      "cepi": "14910-000",
+      "cepf": "14914-999",
       "terca": true,
       "quarta": false,
       "quinta": true,
@@ -4114,21 +4104,21 @@
       "quinta": false,
       "sexta": false
     },
-    "TAPIRAÍ": {
-      "cidade": "Tapiraí",
-      "uf": "SP",
-      "cepi": "38980-000",
-      "cepf": "38989-999",
-      "terca": true,
-      "quarta": false,
-      "quinta": true,
-      "sexta": false
-    },
     "TAPIRATIBA": {
       "cidade": "Tapiratiba",
       "uf": "SP",
       "cepi": "13760-000",
       "cepf": "13769-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "TAPIRAÍ": {
+      "cidade": "TAPIRAÍ",
+      "uf": "SP",
+      "cepi": "18180-000",
+      "cepf": "18184-999",
       "terca": true,
       "quarta": false,
       "quinta": true,
@@ -4185,10 +4175,10 @@
       "sexta": true
     },
     "TERRA ROXA": {
-      "cidade": "Terra Roxa",
+      "cidade": "TERRA ROXA",
       "uf": "SP",
-      "cepi": "85990-000",
-      "cepf": "85997-999",
+      "cepi": "14745-000",
+      "cepf": "14749-999",
       "terca": true,
       "quarta": false,
       "quinta": true,
@@ -4325,10 +4315,10 @@
       "sexta": true
     },
     "VARGEM": {
-      "cidade": "Vargem",
+      "cidade": "VARGEM",
       "uf": "SP",
-      "cepi": "89638-000",
-      "cepf": "89639-999",
+      "cepi": "13185-000",
+      "cepf": "13189-999",
       "terca": false,
       "quarta": true,
       "quinta": false,
@@ -4592,6 +4582,46 @@
       "terca": true,
       "quarta": true,
       "quinta": true,
+      "sexta": true
+    },
+    "ÁGUAS DA PRATA": {
+      "cidade": "Águas da Prata",
+      "uf": "SP",
+      "cepi": "13890-000",
+      "cepf": "13899-999",
+      "terca": false,
+      "quarta": true,
+      "quinta": false,
+      "sexta": true
+    },
+    "ÁGUAS DE LINDÓIA": {
+      "cidade": "Águas de Lindóia",
+      "uf": "SP",
+      "cepi": "13940-000",
+      "cepf": "13949-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ÁGUAS DE SANTA BARBARA": {
+      "cidade": "Águas de Santa Bárbara",
+      "uf": "SP",
+      "cepi": "18770-000",
+      "cepf": "18774-999",
+      "terca": true,
+      "quarta": false,
+      "quinta": true,
+      "sexta": false
+    },
+    "ÁGUAS DE SÃO PEDRO": {
+      "cidade": "Águas de São Pedro",
+      "uf": "SP",
+      "cepi": "13525-000",
+      "cepf": "13529-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": false,
       "sexta": true
     }
   }
