@@ -4064,6 +4064,16 @@
       "quinta": true,
       "sexta": false
     },
+	 "TABOAO DA SERRA": {
+      "cidade": "Taboão da Serra",
+      "uf": "SP",
+      "cepi": "06750-001",
+      "cepf": "06799-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
     "TAGUAÍ": {
       "cidade": "Taguaí",
       "uf": "SP",
