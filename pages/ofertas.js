@@ -141,7 +141,6 @@ sp: {
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
   { id: 2987, name: 'CARNE MOÍDA BOVINA CONGELADA PATINHO PUMBA 1 KILO', category: 'Ofertas', price: 23.50, image: 'https://www.marquesvendaspmg.shop/images/carne-moida-bovina-congelada-patinho-pumba-1-kg-cx-12-pct.png', gtin: '0637850035113' },
-  { id: 2988, name: 'CARNE SECA BOVINA CONGELADA DESFIADA ALFAMA 1 KILO', category: 'Ofertas', price: 68.00, image: 'https://www.marquesvendaspmg.shop/images/carne-seca-bovina-congelada-desfiada-alfama-1-kg-cx-6-pct.webp', gtin: '7898786880038' },
   { id: 2995, name: 'MAIONESE EKMA 2,5 KILO', category: 'Ofertas', price: 18.60, image: 'https://www.marquesvendaspmg.shop/images/maionese-ekma-25-kg-cx-6-bag.png', gtin: '7896455003320' },
   { id: 2998, name: 'MOLHO AMERICANO EKMA 1,1 KILO', category: 'Ofertas', price: 18.60, image: 'https://www.marquesvendaspmg.shop/images/molho-americano-ekma-11-kg-cx-6-bag.png', gtin: '7896455003924' },
   { id: 2999, name: 'MOLHO CHEDDAR EKMA 1,1 KILO', category: 'Ofertas', price: 18.60, image: 'https://www.marquesvendaspmg.shop/images/molho-cheddar-ekma-11-kg-cx-6-bag.png', gtin: '7896455003948' },
