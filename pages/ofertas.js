@@ -140,15 +140,18 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 2987, name: 'CARNE MOÍDA BOVINA CONGELADA PATINHO PUMBA 1 KILO', category: 'Ofertas', price: 23.50, image: 'https://www.marquesvendaspmg.shop/images/carne-moida-bovina-congelada-patinho-pumba-1-kg-cx-12-pct.png', gtin: '0637850035113' },
-  { id: 2995, name: 'MAIONESE EKMA 2,5 KILO', category: 'Ofertas', price: 18.60, image: 'https://www.marquesvendaspmg.shop/images/maionese-ekma-25-kg-cx-6-bag.png', gtin: '7896455003320' },
-  { id: 2998, name: 'MOLHO AMERICANO EKMA 1,1 KILO', category: 'Ofertas', price: 18.60, image: 'https://www.marquesvendaspmg.shop/images/molho-americano-ekma-11-kg-cx-6-bag.png', gtin: '7896455003924' },
-  { id: 2999, name: 'MOLHO CHEDDAR EKMA 1,1 KILO', category: 'Ofertas', price: 18.60, image: 'https://www.marquesvendaspmg.shop/images/molho-cheddar-ekma-11-kg-cx-6-bag.png', gtin: '7896455003948' },
-  { id: 2320, name: 'MACARRÃO ESPAGUETE Nº 8 COM OVOS CAMIL 500 G (FDO 30 PCT)', category: 'Ofertas', price: 79, image: 'https://www.marquesvendaspmg.shop/images/macarrao-espaguete-8-com-ovos-camil.png', gtin: '7896024210098' },
-  { id: 1177, name: 'BATATA CONGELADA PRÉ FRITA NOISETTES MCCAIN 2,5 KILO (CX 4 PCT)', category: 'Ofertas', price: 222.00, image: 'https://www.marquesvendaspmg.shop/images/batata-congelada-pre-frita-noisettes-mccain-25-kilo-cx-4-pct-pmg-atacadista.jpg', gtin: '7797906000984' },
-  { id: 353, name: 'WHISKY JOHNNIE WALKER BLUE LABEL 750 ML', category: 'Ofertas', price: 998.00, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-blue-label-750-ml-pmg-atacadista.jpg', gtin: '5000267114279' },
-  { id: 352, name: 'WHISKY JOHNNIE WALKER BLACK LABEL 12 ANOS 1 L', category: 'Ofertas', price: 172.99, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-black-label-12-anos-1-l-pmg-atacadista.jpg', gtin: '5000267023601' },
-  { id: 171, name: 'GIN BEEFEATER 750 ML', category: 'Ofertas', price: 88.00, image: 'https://www.marquesvendaspmg.shop/images/gin-beefeater-750-ml-pmg-atacadista.jpg', gtin: '5000329002537' },
+  { id: 3004, name: 'ATUM RALADO EM ÓLEO FALANI 400 G', category: 'Ofertas', price: 17.99, image: 'https://www.marquesvendaspmg.shop/images/atum-ralado-em-oleo-falani-400-g-cx-24-lt.png', gtin: '7898111555181' },
+  { id: 3005, name: 'CALABRESA FATIADA RESFRIADA AURORA 1 KILO', category: 'Ofertas', price: 33.80, image: 'https://www.marquesvendaspmg.shop/images/calabresa-fatiada-resfriada-aurora-1-kg-cx-10-pct.png', gtin: '7891164005931' },
+  { id: 3006, name: 'CARNE BOVINA CONGELADA EM ISCAS SLICE ALFAMA 2 KILO', category: 'Ofertas', price: 97.05, image: 'https://www.marquesvendaspmg.shop/images/carne-bovina-congelada-em-iscas-slice-alfama-2-kg-cx-3-pct.webp', gtin: '7898978666082' },
+  { id: 3014, name: 'HAMBÚRGUER DE CARNE SUÍNA SABOR DEFUMADO FRIMESA 120 G (CX 40 UN)', category: 'Ofertas', price: 119.99, image: 'https://www.marquesvendaspmg.shop/images/hamburguer-de-carne-suina-sabor-defumado-frimesa-120-g-cx-40-un.png', gtin: '7896275987084' },
+  { id: 160, name: 'ESPUMANTE BRANCO MOSCATEL SALTON 750 ML (CX 6 UN)', category: 'Ofertas', price: 158.15, image: 'https://www.marquesvendaspmg.shop/images/espumante-branco-moscatel-salton-750-ml-pmg-atacadista.jpg', gtin: '7896023082634' },
+  { id: 161, name: 'ESPUMANTE BRANCO NATURAL BRUT SALTON 750 ML (CX 6 UN)', category: 'Ofertas', price: 158.15, image: 'https://www.marquesvendaspmg.shop/images/espumante-branco-natural-brut-salton-750-ml-pmg-atacadista.jpg', gtin: '7896023082993' },
+  { id: 162, name: 'ESPUMANTE CHANDON BABY BRUT ROSÉ 187 ML', category: 'Ofertas', price: 32.30, image: 'https://www.marquesvendaspmg.shop/images/espumante-chandon-baby-brut-rose-187-ml-pmg-atacadista.jpg', gtin: '7891083611442' },
+  { id: 165, name: 'ESPUMANTE CHANDON RÉSERVE BRUT 750 ML (CX 6 UN)', category: 'Ofertas', price: 490.88, image: 'https://www.marquesvendaspmg.shop/images/espumante-chandon-reserve-brut-750-ml-pmg-atacadista.jpg', gtin: '7891083611138' },
+  { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 20.55, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg', gtin: '7898641870648' },
+  { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 15.35, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg', gtin: '7898641870228' },
+  { id: 1905, name: 'ÁGUA MINERAL LINDOYA VERÃO COM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-lindoya-verao-com-gas-300-ml.png', gtin: '7896089500134' },
+  { id: 1906, name: 'ÁGUA MINERAL LINDOYA VERÃO SEM GÁS 300 ML (PCT 12 UN)', category: 'Ofertas', price: 19.99, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-lindoya-verao-sem-gas-300-ml.png' },
 ];
 
 // ========== BANNERS ========== //
