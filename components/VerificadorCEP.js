@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 // ==============================================
 
 const HORA_CORTE = 11;
-const LS_KEY = 'pmg_cep_salvo'; // chave do localStorage
+const LS_KEY = 'pmg_cep_salvo';
 
 const DIAS_SEMANA = {
   0: 'domingo',
@@ -73,15 +73,15 @@ export default function VerificadorCEP() {
   const [focado, setFocado] = useState(false);
   const [jaCarregou, setJaCarregou] = useState(false);
 
-  // Carrega o JSON de CEPs da PMG
+  // Carrega o JSON de CEPs da PMG (com cache-busting pra evitar versão antiga)
   useEffect(() => {
-    fetch('/ceps_pmg.json')
+    fetch(`/ceps_pmg.json?v=${Date.now()}`)
       .then((r) => (r.ok ? r.json() : {}))
       .then((data) => setCepsPMG(data))
       .catch(() => setCepsPMG({}));
   }, []);
 
-  // ✅ NOVO: Ao montar, verifica se tem CEP salvo e refaz a busca
+  // Ao montar, verifica se tem CEP salvo e refaz a busca
   useEffect(() => {
     if (!cepsPMG || jaCarregou) return;
 
@@ -89,7 +89,6 @@ export default function VerificadorCEP() {
       const cepSalvo = localStorage.getItem(LS_KEY);
       if (cepSalvo) {
         setCep(cepSalvo);
-        // Refaz a busca automaticamente
         executarVerificacao(cepSalvo);
       }
     } catch (e) {
@@ -106,7 +105,6 @@ export default function VerificadorCEP() {
     if (estado !== 'inicial') setEstado('inicial');
   };
 
-  // ✅ Refatorado: recebe o CEP como parâmetro (pra funcionar no auto-load)
   const executarVerificacao = async (cepParaVerificar) => {
     const cepLimpo = (cepParaVerificar || cep).replace(/\D/g, '');
     if (cepLimpo.length !== 8) {
@@ -133,21 +131,38 @@ export default function VerificadorCEP() {
         s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim();
 
       const cidadeNorm = normalizar(cidade);
+      const cepLimpo8 = cepLimpo;
 
-      let chaveEncontrada = null;
-      let dadosCidade = null;
+      // ✅ Coleta TODAS as chaves candidatas
+      const chavesCandidatas = [];
+
+      // 1. Tenta pelo nome da chave (ex: "ATIBAIA" === "ATIBAIA")
       for (const k of Object.keys(cidadesDoUF)) {
         if (normalizar(k) === cidadeNorm) {
-          chaveEncontrada = k;
-          dadosCidade = cidadesDoUF[k];
-          break;
+          chavesCandidatas.push(k);
         }
       }
 
-      if (!chaveEncontrada) {
+      // 2. Se não achou, procura pelo campo "cidade" (ex: "ZONA LESTE 4" -> "São Paulo")
+      if (chavesCandidatas.length === 0) {
         for (const k of Object.keys(cidadesDoUF)) {
           const d = cidadesDoUF[k];
           if (d.cidade && normalizar(d.cidade) === cidadeNorm) {
+            chavesCandidatas.push(k);
+          }
+        }
+      }
+
+      // ✅ Entre as candidatas, escolhe a que a FAIXA contém o CEP
+      let chaveEncontrada = null;
+      let dadosCidade = null;
+
+      for (const k of chavesCandidatas) {
+        const d = cidadesDoUF[k];
+        const cepi = (d.cepi || '').replace(/\D/g, '');
+        const cepf = (d.cepf || '').replace(/\D/g, '');
+        if (cepi && cepf && cepi.length === 8 && cepf.length === 8) {
+          if (cepLimpo8 >= cepi && cepLimpo8 <= cepf) {
             chaveEncontrada = k;
             dadosCidade = d;
             break;
@@ -155,7 +170,13 @@ export default function VerificadorCEP() {
         }
       }
 
-      // ✅ Salva no localStorage independente do resultado
+      // Se nenhuma faixa bateu (mas tem candidata), usa a primeira
+      if (!chaveEncontrada && chavesCandidatas.length > 0) {
+        chaveEncontrada = chavesCandidatas[0];
+        dadosCidade = cidadesDoUF[chaveEncontrada];
+      }
+
+      // Salva no localStorage independente do resultado
       try {
         localStorage.setItem(LS_KEY, cepLimpo);
       } catch (e) {
@@ -168,13 +189,12 @@ export default function VerificadorCEP() {
         return;
       }
 
-      const cepNum = parseInt(cepLimpo, 10);
-      const cepiNum = parseInt((dadosCidade.cepi || '').replace(/\D/g, ''), 10);
-      const cepfNum = parseInt((dadosCidade.cepf || '').replace(/\D/g, ''), 10);
-
+      // Validação final
+      const cepiLimpo = (dadosCidade.cepi || '').replace(/\D/g, '');
+      const cepfLimpo = (dadosCidade.cepf || '').replace(/\D/g, '');
       const dentroDaFaixa =
-        !isNaN(cepiNum) && !isNaN(cepfNum)
-          ? cepNum >= cepiNum && cepNum <= cepfNum
+        cepiLimpo && cepfLimpo && cepiLimpo.length === 8 && cepfLimpo.length === 8
+          ? cepLimpo8 >= cepiLimpo && cepLimpo8 <= cepfLimpo
           : true;
 
       if (!dentroDaFaixa) {
@@ -195,7 +215,6 @@ export default function VerificadorCEP() {
 
   const verificar = () => executarVerificacao(cep);
 
-  // ✅ Resetar limpa também o localStorage
   const resetar = () => {
     setCep('');
     setEstado('inicial');
@@ -383,7 +402,6 @@ export default function VerificadorCEP() {
   // ============================================
   return (
     <div style={styles.container}>
-      {/* Botão de recolher (só quando tem resultado) */}
       {(estado === 'encontrado' || estado === 'nao_encontrado') && (
         <button
           onClick={() => setRecolhido(true)}
@@ -396,7 +414,6 @@ export default function VerificadorCEP() {
         </button>
       )}
 
-      {/* INICIAL / BUSCANDO / INVALIDO — input único com ícone dentro */}
       {(estado === 'inicial' || estado === 'buscando' || estado === 'invalido') && (
         <>
           <div style={styles.linhaInput}>
@@ -437,7 +454,6 @@ export default function VerificadorCEP() {
         </>
       )}
 
-      {/* ENCONTRADO */}
       {estado === 'encontrado' && resultado && (
         <div style={styles.resultadoBox}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '3px' }}>
@@ -473,7 +489,6 @@ export default function VerificadorCEP() {
         </div>
       )}
 
-      {/* NÃO ENCONTRADO */}
       {estado === 'nao_encontrado' && resultado && (
         <div style={styles.resultadoBox}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '3px' }}>
