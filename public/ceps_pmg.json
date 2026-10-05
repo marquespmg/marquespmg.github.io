@@ -2227,8 +2227,8 @@
     "JAGUARIUNA": {
       "cidade": "Jaguariúna",
       "uf": "SP",
-      "cepi": "13820-000",
-      "cepf": "13824-999",
+      "cepi": "13910-001",
+      "cepf": "13919-999",
       "terca": true,
       "quarta": false,
       "quinta": true,
@@ -4469,6 +4469,16 @@
       "uf": "SP",
       "cepi": "01000-001",
       "cepf": "05999-999",
+      "terca": true,
+      "quarta": true,
+      "quinta": true,
+      "sexta": true
+    },
+    "ZONA LESTE 4": {
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "cepi": "08000-000",
+      "cepf": "08499-999",
       "terca": true,
       "quarta": true,
       "quinta": true,
