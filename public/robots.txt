@@ -1,26 +1,58 @@
+# ========== BUSCA TRADICIONAL ==========
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ========== IA - BUSCA (CITAM SEU SITE) ==========
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# ========== IA - TREINAMENTO ==========
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# ========== PADRÃO (TUDO LIBERADO) ==========
 User-agent: *
 Allow: /
 Disallow: /admin/
-Disallow: /api/
 Disallow: /private/
-
-# Crawl-delay para não sobrecarregar (opcional)
-Crawl-delay: 2
-
-# Prioridade para páginas importantes
-User-agent: Googlebot
-Allow: /produtos
-Allow: /faq
-Allow: /quem-somos
-Allow: /ofertas
-
-# Bloquear páginas de desenvolvimento
-User-agent: *
 Disallow: /teste/
 Disallow: /dev/
 Disallow: /staging/
 
-# Sitemaps (mantenha os que já tem)
+# ========== SITEMAPS ==========
 Sitemap: https://www.marquesvendaspmg.shop/sitemap.xml
 Sitemap: https://www.marquesvendaspmg.shop/sitemap-produtos.xml
 Sitemap: https://www.marquesvendaspmg.shop/sitemap-imagens.xml
