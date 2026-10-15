@@ -142,7 +142,6 @@ sp: {
 const featuredProducts = [
   { id: 160, name: 'ESPUMANTE BRANCO MOSCATEL SALTON 750 ML (CX 6 UN)', category: 'Ofertas', price: 158.15, image: 'https://www.marquesvendaspmg.shop/images/espumante-branco-moscatel-salton-750-ml-pmg-atacadista.jpg', gtin: '7896023082634' },
   { id: 161, name: 'ESPUMANTE BRANCO NATURAL BRUT SALTON 750 ML (CX 6 UN)', category: 'Ofertas', price: 158.15, image: 'https://www.marquesvendaspmg.shop/images/espumante-branco-natural-brut-salton-750-ml-pmg-atacadista.jpg', gtin: '7896023082993' },
-  { id: 162, name: 'ESPUMANTE CHANDON BABY BRUT ROSÉ 187 ML', category: 'Ofertas', price: 32.30, image: 'https://www.marquesvendaspmg.shop/images/espumante-chandon-baby-brut-rose-187-ml-pmg-atacadista.jpg', gtin: '7891083611442' },
   { id: 165, name: 'ESPUMANTE CHANDON RÉSERVE BRUT 750 ML (CX 6 UN)', category: 'Ofertas', price: 490.88, image: 'https://www.marquesvendaspmg.shop/images/espumante-chandon-reserve-brut-750-ml-pmg-atacadista.jpg', gtin: '7891083611138' },
   { id: 52, name: 'ÁGUA MINERAL BUONAVITA COM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 20.55, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-com-gas-510-ml-pct-12-un-pmg-atacadista.jpg', gtin: '7898641870648' },
   { id: 53, name: 'ÁGUA MINERAL BUONAVITA SEM GÁS 510 ML (PCT 12 UN)', category: 'Ofertas', price: 15.35, image: 'https://www.marquesvendaspmg.shop/images/agua-mineral-buonavita-sem-gas-510-ml-pct-12-un-pmg-atacadista.jpg', gtin: '7898641870228' },
