@@ -1,27 +1,28 @@
+/* ============================================================
+   ?? GLOBALS.CSS - PMG Atacadista
+   Versão atualizada - Mantém tema claro sempre + Melhorias visuais
+   ============================================================ */
+
+/* ---------- 1. RESET E VARIÁVEIS ---------- */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand-green: #095400;
+  --brand-green-hover: #0a6d00;
+  --brand-red: #e53935;
+  --brand-red-hover: #c62828;
+  --gray-btn: #6c757d;
+  --gray-btn-hover: #5a6268;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ?? IMPORTANTE: removido o "modo escuro" automático.
+   O site agora é SEMPRE claro, para bater com o _app.js */
 
+/* ---------- 2. RESET BÁSICO ---------- */
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -30,13 +31,234 @@ body {
   margin: 0;
 }
 
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* ---------- 3. FONTE MODERNA (INTER) ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ---------- 4. BOTÕES DO MENU SUPERIOR ---------- */
+.btn-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.btn-top-primary {
+  background: #ffffff;
+  color: #095400;
+  border-color: #095400;
+}
+
+.btn-top-primary:hover {
+  background: #095400;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(9, 84, 0, 0.25);
+}
+
+.btn-top-danger {
+  background: #e53935;
+  color: #ffffff;
+  border-color: #e53935;
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.3);
+}
+
+.btn-top-danger:hover {
+  background: #c62828;
+  border-color: #c62828;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(229, 57, 53, 0.4);
+}
+
+.btn-top-gray {
+  background: #6c757d;
+  color: #ffffff;
+  border-color: #6c757d;
+}
+
+.btn-top-gray:hover {
+  background: #5a6268;
+  border-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.btn-top-green {
+  background: #095400;
+  color: #ffffff;
+  border-color: #095400;
+}
+
+.btn-top-green:hover {
+  background: #0a6d00;
+  border-color: #0a6d00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(9, 84, 0, 0.25);
+}
+
+/* ---------- 5. CARD DE PRODUTO COM HOVER ---------- */
+.product-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.product-card-hover:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+.product-card-hover img {
+  transition: transform 0.4s ease;
+}
+
+.product-card-hover:hover img {
+  transform: scale(1.05);
+}
+
+/* ---------- 6. FADE-IN SUAVE AO ROLAR ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* ---------- 7. BOTÃO ADICIONAR AO CARRINHO ---------- */
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #095400 0%, #0d7a00 100%) !important;
+  box-shadow: 0 4px 12px rgba(9, 84, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0d7a00 0%, #095400 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(9, 84, 0, 0.3);
+}
+
+.add-to-cart-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* ---------- 8. BUSCA COM FOCO VERDE ---------- */
+input[type="text"][placeholder*="Pesquisar"]:focus,
+input[type="text"][placeholder*="pesquisar"]:focus {
+  border-color: #095400 !important;
+  box-shadow: 0 4px 20px rgba(9, 84, 0, 0.15) !important;
+  outline: none;
+}
+
+/* ---------- 9. SCROLLBAR PERSONALIZADA ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #095400;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0a6d00;
+}
+
+/* ---------- 10. SELEÇÃO DE TEXTO COM COR DA MARCA ---------- */
+::selection {
+  background: #095400;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: #095400;
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   ?? MELHORIAS PARA MOBILE - Botões e toques
+   ============================================================ */
+
+/* ---------- 1. EFEITO DE "APERTAR" NO MOBILE ---------- */
+.btn-top:active {
+  transform: scale(0.96) !important;
+  transition: transform 0.1s ease !important;
+}
+
+.btn-top-primary:active {
+  background: #095400 !important;
+  color: #ffffff !important;
+}
+
+.btn-top-danger:active {
+  background: #c62828 !important;
+}
+
+.btn-top-gray:active {
+  background: #5a6268 !important;
+}
+
+.btn-top-green:active {
+  background: #0a6d00 !important;
+}
+
+/* ---------- 2. BOTÕES MAIORES NO MOBILE (44px mínimo) ---------- */
+@media (max-width: 768px) {
+  .btn-top {
+    padding: 10px 16px;
+    font-size: 13px;
+    min-height: 42px;
+    border-radius: 22px;
+  }
+  
+  /* Garante que o ícone fique alinhado */
+  .btn-top span {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ---------- 3. REMOVE O "FLASH AZUL" AO TOCAR NO MOBILE ---------- */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mas mantém acessibilidade em links e botões */
+a, button {
+  -webkit-tap-highlight-color: rgba(9, 84, 0, 0.1);
+}
+
