@@ -4897,37 +4897,46 @@ productsGrid: {
       boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
       overflow: 'hidden',
       transition: 'transform 0.3s, box-shadow 0.3s',
-      position: 'relative'
+      position: 'relative',
+      display: 'flex',
+      flexDirection: 'column'
     },
     productImage: {
       width: '100%',
-      height: windowWidth > 768 ? '180px' : '120px',
+      height: windowWidth > 768 ? '180px' : '150px',
       objectFit: 'cover',
-      borderBottom: '1px solid #eee'
+      borderBottom: '1px solid #eee',
+      backgroundColor: '#ffffff'
     },
     productInfo: {
-      padding: windowWidth > 768 ? '20px' : '10px',
+      padding: windowWidth > 768 ? '20px' : '12px',
       display: 'flex',
       flexDirection: 'column',
-      height: windowWidth > 768 ? 'auto' : 'calc(100% - 120px)'
-    },
-    productNameContainer: {
-      flex: '1',
-      marginBottom: '10px'
+      flex: 1,
+      gap: windowWidth > 768 ? '0' : '6px'
     },
     productName: {
       fontSize: windowWidth > 768 ? '16px' : '14px',
       fontWeight: '600',
       color: '#333',
-      marginBottom: '5px',
+      marginBottom: windowWidth > 768 ? '5px' : '2px',
+      lineHeight: windowWidth > 768 ? '1.4' : '1.3',
       display: '-webkit-box',
       WebkitLineClamp: expandedDescriptions ? 'unset' : (windowWidth > 768 ? 2 : 3),
       WebkitBoxOrient: 'vertical',
       overflow: 'hidden',
       textOverflow: 'ellipsis'
     },
+    productPrice: {
+      fontSize: windowWidth > 768 ? '18px' : '17px',
+      fontWeight: '800',
+      color: '#e53935',
+      margin: windowWidth > 768 ? '15px 0' : '8px 0 4px 0',
+      letterSpacing: '-0.3px'
+    },
     showMoreButton: {
       background: 'none',
+      backgroundColor: 'transparent',
       border: 'none',
       color: '#095400',
       fontSize: '12px',
@@ -4935,13 +4944,12 @@ productsGrid: {
       padding: '0',
       marginTop: '5px',
       textAlign: 'left',
-      fontWeight: '600'
-    },
-    productPrice: {
-      fontSize: windowWidth > 768 ? '18px' : '16px',
-      fontWeight: '700',
-      color: '#e53935',
-      margin: windowWidth > 768 ? '15px 0' : '10px 0'
+      fontWeight: '600',
+      textDecoration: 'underline',
+      outline: 'none',
+      appearance: 'none',
+      WebkitAppearance: 'none',
+      boxShadow: 'none'
     },
     unavailablePrice: {
       fontSize: windowWidth > 768 ? '18px' : '16px',
@@ -5000,30 +5008,97 @@ productsGrid: {
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: 'rgba(0,0,0,0.7)',
+      backgroundColor: 'rgba(0,0,0,0.75)',
+      backdropFilter: 'blur(4px)',
+      WebkitBackdropFilter: 'blur(4px)',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       zIndex: 1000,
-      padding: windowWidth > 768 ? '0' : '10px'
+      padding: windowWidth > 768 ? '20px' : '10px',
+      animation: 'fadeIn 0.3s ease-out'
     },
     authBox: {
       backgroundColor: '#fff',
-      borderRadius: '10px',
-      padding: windowWidth > 768 ? '30px' : '20px',
-      width: '90%',
-      maxWidth: '400px',
-      boxShadow: '0 5px 20px rgba(0,0,0,0.2)'
+      borderRadius: '16px',
+      padding: windowWidth > 768 ? '35px 30px' : '25px 20px',
+      width: '100%',
+      maxWidth: '430px',
+      maxHeight: '95vh',
+      overflowY: 'auto',
+      boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+      animation: 'slideUp 0.3s ease-out',
+      position: 'relative'
     },
     authToggle: {
       background: 'none',
       border: 'none',
       color: '#095400',
       cursor: 'pointer',
-      fontWeight: '600',
+      fontWeight: '700',
       textDecoration: 'underline',
       marginLeft: '5px',
-      fontSize: windowWidth > 768 ? 'inherit' : '14px'
+      fontSize: '14px',
+      padding: '0'
+    },
+    authInput: {
+      width: '100%',
+      padding: '14px 16px',
+      borderRadius: '10px',
+      border: '2px solid #e0e0e0',
+      fontSize: '15px',
+      outline: 'none',
+      transition: 'all 0.2s ease',
+      backgroundColor: '#fafafa',
+      color: '#333'
+    },
+    authInputFocus: {
+      borderColor: '#095400',
+      backgroundColor: '#fff',
+      boxShadow: '0 0 0 4px rgba(9, 84, 0, 0.1)'
+    },
+    authLabel: {
+      display: 'block',
+      fontWeight: '600',
+      color: '#333',
+      marginBottom: '6px',
+      fontSize: '13px',
+      letterSpacing: '0.2px'
+    },
+    authError: {
+      backgroundColor: '#FFEBEE',
+      border: '1px solid #FFCDD2',
+      color: '#C62828',
+      padding: '12px 15px',
+      borderRadius: '10px',
+      fontSize: '14px',
+      marginBottom: '20px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      fontWeight: '500'
+    },
+    authDivider: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '20px 0',
+      color: '#999'
+    },
+    authSubmitBtn: {
+      width: '100%',
+      padding: '15px',
+      background: 'linear-gradient(135deg, #095400 0%, #0d7a00 100%)',
+      color: '#fff',
+      border: 'none',
+      borderRadius: '10px',
+      fontSize: '16px',
+      fontWeight: '700',
+      cursor: 'pointer',
+      transition: 'all 0.25s ease',
+      boxShadow: '0 4px 12px rgba(9, 84, 0, 0.25)',
+      letterSpacing: '0.3px',
+      marginTop: '10px'
     },
     pageBlocker: {
       position: 'fixed',
@@ -5501,23 +5576,7 @@ productsGrid: {
       flexWrap: 'wrap'
     }}>
       {/* BOTÃO PÁGINA INICIAL */}
-      <a href="/" style={{
-        backgroundColor: 'white',
-        color: '#095400',
-        border: '1px solid #095400',
-        padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-        borderRadius: '20px',
-        fontSize: windowWidth > 768 ? '14px' : '12px',
-        fontWeight: '600',
-        cursor: 'pointer',
-        textDecoration: 'none',
-        whiteSpace: 'nowrap',
-        transition: 'all 0.3s',
-        ':hover': {
-          backgroundColor: '#095400',
-          color: 'white'
-        }
-      }}>
+      <a href="/" className="btn-top btn-top-primary">
         Página Inicial
       </a>
       
@@ -5525,27 +5584,7 @@ productsGrid: {
       <div style={{ position: 'relative', display: 'inline-block' }}>
         <button
           onClick={() => setShowCitiesMenu(!showCitiesMenu)}
-          style={{
-            backgroundColor: '#e53935',
-            color: 'white',
-            border: 'none',
-            padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-            borderRadius: '20px',
-            fontSize: windowWidth > 768 ? '14px' : '12px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.3s',
-            whiteSpace: 'nowrap',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '5px',
-            boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
-            ':hover': {
-              backgroundColor: '#c62828',
-              transform: 'translateY(-2px)',
-              boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
-            }
-          }}
+          className="btn-top btn-top-danger"
         >
           Onde Entregamos
           <span style={{
@@ -5557,7 +5596,7 @@ productsGrid: {
           </span>
         </button>
         
-        {/* MENU DROPDOWN - CENTRALIZADO E RESPONSIVO */}
+        {/* MENU DROPDOWN - MANTIDO IGUAL */}
         {showCitiesMenu && (
           <>
             {/* Overlay para fechar ao clicar fora */}
@@ -5593,383 +5632,344 @@ productsGrid: {
               }}
               onClick={(e) => e.stopPropagation()}
             >
-{/* Cabeçalho do Menu */}
-<div style={{
-  padding: '12px 15px',
-  borderBottom: '1px solid #eee',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  backgroundColor: '#fff5f5',
-  gap: '10px',
-  flexWrap: 'wrap'
-}}>
-  <strong style={{ 
-    color: '#095400', 
-    fontSize: windowWidth > 768 ? '16px' : '14px',
-    fontWeight: '600',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '6px'
-  }}>
-    📍 Onde Entregamos
-  </strong>
-  
-  <div style={{
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px'
-  }}>
-    {/* BOTÃO SAIBA MAIS - DENTRO DO DROPDOWN */}
-    <a
-      href="/cidades-atendidas"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '4px',
-        backgroundColor: '#095400',
-        color: 'white',
-        padding: windowWidth > 768 ? '4px 14px' : '3px 10px',
-        borderRadius: '16px',
-        fontSize: windowWidth > 768 ? '12px' : '10px',
-        fontWeight: '600',
-        textDecoration: 'none',
-        transition: 'all 0.3s ease',
-        border: '2px solid #095400',
-        boxShadow: '0 2px 6px rgba(9, 84, 0, 0.15)',
-        whiteSpace: 'nowrap'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(-1px)';
-        e.target.style.boxShadow = '0 4px 10px rgba(9, 84, 0, 0.2)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 6px rgba(9, 84, 0, 0.15)';
-      }}
-    >
-      <span>🌍</span>
-      Saiba mais
-    </a>
-    
-    {/* BOTÃO FECHAR */}
-    <button
-      onClick={() => setShowCitiesMenu(false)}
-      style={{
-        background: 'none',
-        border: 'none',
-        color: '#e53935',
-        cursor: 'pointer',
-        fontSize: '20px',
-        fontWeight: 'bold',
-        padding: '0',
-        width: '24px',
-        height: '24px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: '50%',
-        transition: 'all 0.2s',
-        flexShrink: 0
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = '#f0f0f0';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = 'transparent';
-      }}
-    >
-      ×
-    </button>
-  </div>
-</div>
+              {/* Cabeçalho do Menu */}
+              <div style={{
+                padding: '12px 15px',
+                borderBottom: '1px solid #eee',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                backgroundColor: '#fff5f5',
+                gap: '10px',
+                flexWrap: 'wrap'
+              }}>
+                <strong style={{ 
+                  color: '#095400', 
+                  fontSize: windowWidth > 768 ? '16px' : '14px',
+                  fontWeight: '600',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}>
+                  📍 Onde Entregamos
+                </strong>
+                
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}>
+                  {/* BOTÃO SAIBA MAIS */}
+                  <a
+                    href="/cidades-atendidas"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                      backgroundColor: '#095400',
+                      color: 'white',
+                      padding: windowWidth > 768 ? '4px 14px' : '3px 10px',
+                      borderRadius: '16px',
+                      fontSize: windowWidth > 768 ? '12px' : '10px',
+                      fontWeight: '600',
+                      textDecoration: 'none',
+                      transition: 'all 0.3s ease',
+                      border: '2px solid #095400',
+                      boxShadow: '0 2px 6px rgba(9, 84, 0, 0.15)',
+                      whiteSpace: 'nowrap'
+                    }}
+                    onMouseOver={(e) => {
+                      e.target.style.backgroundColor = 'white';
+                      e.target.style.color = '#095400';
+                      e.target.style.transform = 'translateY(-1px)';
+                      e.target.style.boxShadow = '0 4px 10px rgba(9, 84, 0, 0.2)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.backgroundColor = '#095400';
+                      e.target.style.color = 'white';
+                      e.target.style.transform = 'translateY(0)';
+                      e.target.style.boxShadow = '0 2px 6px rgba(9, 84, 0, 0.15)';
+                    }}
+                  >
+                    <span>🌍</span>
+                    Saiba mais
+                  </a>
+                  
+                  {/* BOTÃO FECHAR */}
+                  <button
+                    onClick={() => setShowCitiesMenu(false)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#e53935',
+                      cursor: 'pointer',
+                      fontSize: '20px',
+                      fontWeight: 'bold',
+                      padding: '0',
+                      width: '24px',
+                      height: '24px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: '50%',
+                      transition: 'all 0.2s',
+                      flexShrink: 0
+                    }}
+                    onMouseOver={(e) => {
+                      e.target.style.backgroundColor = '#f0f0f0';
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.backgroundColor = 'transparent';
+                    }}
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
               
-              {/* Conteúdo do Menu */}
+              {/* Conteúdo do Menu - MANTIDO IGUAL */}
               <div style={{ padding: '15px' }}>
                 
-{/* ========== SÃO PAULO ========== */}
-<div style={{ marginBottom: '15px' }}>
-  <div 
-    onClick={() => toggleRegion('sp')}
-    style={{
-      color: '#095400',
-      fontWeight: '600',
-      fontSize: windowWidth > 768 ? '15px' : '13px',
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      cursor: 'pointer',
-      padding: '5px',
-      borderRadius: '4px',
-      ':hover': {
-        backgroundColor: '#f9f9f9'
-      }
-    }}
-  >
-    <span>🏢</span>
-    <span>Estado de São Paulo</span>
-    <span style={{
-      marginLeft: 'auto',
-      fontSize: '12px',
-      transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
-      transition: 'transform 0.2s'
-    }}>
-      ▼
-    </span>
-  </div>
-  
-  {openRegions.sp && (
-    <div style={{
-      marginLeft: '10px',
-      paddingLeft: '10px',
-      borderLeft: '2px solid #095400',
-      maxHeight: '120px',
-      overflowY: 'auto'
-    }}>
-      {citiesData.sp.regions.map((city, index) => {
-        // Nome da cidade exatamente como está no JSON (adiciona -SP)
-        const cityKey = city;
-        const hasDeliveryData = deliveryDaysData[cityKey];
-        
-        return (
-          <div key={index}>
-            <div style={{ 
-              padding: '5px 0', 
-              color: '#555',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              cursor: hasDeliveryData ? 'pointer' : 'default'
-            }}>
-              <span>• {city}</span>
-              {hasDeliveryData && (
-                <button
-                  onClick={() => toggleCityExpand(cityKey)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#e53935',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    padding: '4px 8px',
-                    borderRadius: '4px',
-                    transition: 'all 0.2s',
-                    ':hover': {
-                      backgroundColor: '#f0f0f0'
-                    }
-                  }}
-                >
-                  ▼
-                </button>
-              )}
-            </div>
-            
-            {/* Mostra os dias se estiver expandido */}
-            {expandedCity === cityKey && hasDeliveryData && (
-              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-            )}
-          </div>
-        );
-      })}
-    </div>
-  )}
-</div>
+                {/* SÃO PAULO */}
+                <div style={{ marginBottom: '15px' }}>
+                  <div 
+                    onClick={() => toggleRegion('sp')}
+                    style={{
+                      color: '#095400',
+                      fontWeight: '600',
+                      fontSize: windowWidth > 768 ? '15px' : '13px',
+                      marginBottom: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '5px',
+                      borderRadius: '4px'
+                    }}
+                  >
+                    <span>🏢</span>
+                    <span>Estado de São Paulo</span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontSize: '12px',
+                      transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s'
+                    }}>
+                      ▼
+                    </span>
+                  </div>
+                  
+                  {openRegions.sp && (
+                    <div style={{
+                      marginLeft: '10px',
+                      paddingLeft: '10px',
+                      borderLeft: '2px solid #095400',
+                      maxHeight: '120px',
+                      overflowY: 'auto'
+                    }}>
+                      {citiesData.sp.regions.map((city, index) => {
+                        const cityKey = city;
+                        const hasDeliveryData = deliveryDaysData[cityKey];
+                        
+                        return (
+                          <div key={index}>
+                            <div style={{ 
+                              padding: '5px 0', 
+                              color: '#555',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              cursor: hasDeliveryData ? 'pointer' : 'default'
+                            }}>
+                              <span>• {city}</span>
+                              {hasDeliveryData && (
+                                <button
+                                  onClick={() => toggleCityExpand(cityKey)}
+                                  style={{
+                                    background: 'none',
+                                    border: 'none',
+                                    color: '#e53935',
+                                    cursor: 'pointer',
+                                    fontSize: '12px',
+                                    padding: '4px 8px',
+                                    borderRadius: '4px'
+                                  }}
+                                >
+                                  ▼
+                                </button>
+                              )}
+                            </div>
+                            
+                            {expandedCity === cityKey && hasDeliveryData && (
+                              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
 
-{/* ========== RIO DE JANEIRO ========== */}
-<div style={{ marginBottom: '15px' }}>
-  <div 
-    onClick={() => toggleRegion('rj')}
-    style={{
-      color: '#095400',
-      fontWeight: '600',
-      fontSize: windowWidth > 768 ? '15px' : '13px',
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      cursor: 'pointer',
-      padding: '5px',
-      borderRadius: '4px',
-      ':hover': {
-        backgroundColor: '#f9f9f9'
-      }
-    }}
-  >
-    <span>🏖️</span>
-    <span>Sul do Rio de Janeiro</span>
-    <span style={{
-      marginLeft: 'auto',
-      fontSize: '12px',
-      transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
-      transition: 'transform 0.2s'
-    }}>
-      ▼
-    </span>
-  </div>
-  
-  {openRegions.rj && (
-    <div style={{
-      marginLeft: '10px',
-      paddingLeft: '10px',
-      borderLeft: '2px solid #e53935',
-      maxHeight: '120px',
-      overflowY: 'auto'
-    }}>
-      {citiesData.rj.cities.map((city, index) => {
-        // Nome da cidade exatamente como está no JSON (adiciona -RJ)
-        const cityKey = `${city}-RJ`;
-        const hasDeliveryData = deliveryDaysData[cityKey];
-        
-        return (
-          <div key={index}>
-            <div style={{ 
-              padding: '5px 0', 
-              color: '#555',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              cursor: hasDeliveryData ? 'pointer' : 'default'
-            }}>
-              <span>• {city}</span>
-              {hasDeliveryData && (
-                <button
-                  onClick={() => toggleCityExpand(cityKey)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#e53935',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    padding: '4px 8px',
-                    borderRadius: '4px',
-                    transition: 'all 0.2s',
-                    ':hover': {
-                      backgroundColor: '#f0f0f0'
-                    }
-                  }}
-                >
-                  ▼
-                </button>
-              )}
-            </div>
-            
-            {/* Mostra os dias se estiver expandido */}
-            {expandedCity === cityKey && hasDeliveryData && (
-              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-            )}
-          </div>
-        );
-      })}
-    </div>
-  )}
-</div>
+                {/* RIO DE JANEIRO */}
+                <div style={{ marginBottom: '15px' }}>
+                  <div 
+                    onClick={() => toggleRegion('rj')}
+                    style={{
+                      color: '#095400',
+                      fontWeight: '600',
+                      fontSize: windowWidth > 768 ? '15px' : '13px',
+                      marginBottom: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '5px',
+                      borderRadius: '4px'
+                    }}
+                  >
+                    <span>🏖️</span>
+                    <span>Sul do Rio de Janeiro</span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontSize: '12px',
+                      transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s'
+                    }}>
+                      ▼
+                    </span>
+                  </div>
+                  
+                  {openRegions.rj && (
+                    <div style={{
+                      marginLeft: '10px',
+                      paddingLeft: '10px',
+                      borderLeft: '2px solid #e53935',
+                      maxHeight: '120px',
+                      overflowY: 'auto'
+                    }}>
+                      {citiesData.rj.cities.map((city, index) => {
+                        const cityKey = `${city}-RJ`;
+                        const hasDeliveryData = deliveryDaysData[cityKey];
+                        
+                        return (
+                          <div key={index}>
+                            <div style={{ 
+                              padding: '5px 0', 
+                              color: '#555',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              cursor: hasDeliveryData ? 'pointer' : 'default'
+                            }}>
+                              <span>• {city}</span>
+                              {hasDeliveryData && (
+                                <button
+                                  onClick={() => toggleCityExpand(cityKey)}
+                                  style={{
+                                    background: 'none',
+                                    border: 'none',
+                                    color: '#e53935',
+                                    cursor: 'pointer',
+                                    fontSize: '12px',
+                                    padding: '4px 8px',
+                                    borderRadius: '4px'
+                                  }}
+                                >
+                                  ▼
+                                </button>
+                              )}
+                            </div>
+                            
+                            {expandedCity === cityKey && hasDeliveryData && (
+                              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
 
-{/* ========== MINAS GERAIS ========== */}
-<div>
-  <div 
-    onClick={() => toggleRegion('mg')}
-    style={{
-      color: '#095400',
-      fontWeight: '600',
-      fontSize: windowWidth > 768 ? '15px' : '13px',
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      cursor: 'pointer',
-      padding: '5px',
-      borderRadius: '4px',
-      ':hover': {
-        backgroundColor: '#f9f9f9'
-      }
-    }}
-  >
-    <span>⛰️</span>
-    <span>Sul de Minas Gerais</span>
-    <span style={{
-      marginLeft: 'auto',
-      fontSize: '12px',
-      transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
-      transition: 'transform 0.2s'
-    }}>
-      ▼
-    </span>
-  </div>
-  
-  {openRegions.mg && (
-    <div style={{
-      marginLeft: '10px',
-      paddingLeft: '10px',
-      borderLeft: '2px solid #e53935',
-      maxHeight: '120px',
-      overflowY: 'auto'
-    }}>
-      {citiesData.mg.cities.map((city, index) => {
-        // Nome da cidade exatamente como está no JSON (adiciona -MG)
-        const cityKey = `${city}-MG`;
-        const hasDeliveryData = deliveryDaysData[cityKey];
-        
-        return (
-          <div key={index}>
-            <div style={{ 
-              padding: '5px 0', 
-              color: '#555',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              cursor: hasDeliveryData ? 'pointer' : 'default'
-            }}>
-              <span>• {city}</span>
-              {hasDeliveryData && (
-                <button
-                  onClick={() => toggleCityExpand(cityKey)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#e53935',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    padding: '4px 8px',
-                    borderRadius: '4px',
-                    transition: 'all 0.2s',
-                    ':hover': {
-                      backgroundColor: '#f0f0f0'
-                    }
-                  }}
-                >
-                  ▼
-                </button>
-              )}
-            </div>
-            
-            {/* Mostra os dias se estiver expandido */}
-            {expandedCity === cityKey && hasDeliveryData && (
-              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-            )}
-          </div>
-        );
-      })}
-      
-      {/* Mensagem de "mais cidades" apenas para MG (se necessário) */}
-      {citiesData.mg.cities.length > 59 && (
-        <div style={{
-          color: '#888',
-          fontSize: '12px',
-          fontStyle: 'italic',
-          padding: '5px 0'
-        }}>
-          + {citiesData.mg.cities.length - 59} cidades...
-        </div>
-      )}
-    </div>
-  )}
-</div>
-</div>
+                {/* MINAS GERAIS */}
+                <div>
+                  <div 
+                    onClick={() => toggleRegion('mg')}
+                    style={{
+                      color: '#095400',
+                      fontWeight: '600',
+                      fontSize: windowWidth > 768 ? '15px' : '13px',
+                      marginBottom: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: 'pointer',
+                      padding: '5px',
+                      borderRadius: '4px'
+                    }}
+                  >
+                    <span>⛰️</span>
+                    <span>Sul de Minas Gerais</span>
+                    <span style={{
+                      marginLeft: 'auto',
+                      fontSize: '12px',
+                      transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s'
+                    }}>
+                      ▼
+                    </span>
+                  </div>
+                  
+                  {openRegions.mg && (
+                    <div style={{
+                      marginLeft: '10px',
+                      paddingLeft: '10px',
+                      borderLeft: '2px solid #e53935',
+                      maxHeight: '120px',
+                      overflowY: 'auto'
+                    }}>
+                      {citiesData.mg.cities.map((city, index) => {
+                        const cityKey = `${city}-MG`;
+                        const hasDeliveryData = deliveryDaysData[cityKey];
+                        
+                        return (
+                          <div key={index}>
+                            <div style={{ 
+                              padding: '5px 0', 
+                              color: '#555',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              cursor: hasDeliveryData ? 'pointer' : 'default'
+                            }}>
+                              <span>• {city}</span>
+                              {hasDeliveryData && (
+                                <button
+                                  onClick={() => toggleCityExpand(cityKey)}
+                                  style={{
+                                    background: 'none',
+                                    border: 'none',
+                                    color: '#e53935',
+                                    cursor: 'pointer',
+                                    fontSize: '12px',
+                                    padding: '4px 8px',
+                                    borderRadius: '4px'
+                                  }}
+                                >
+                                  ▼
+                                </button>
+                              )}
+                            </div>
+                            
+                            {expandedCity === cityKey && hasDeliveryData && (
+                              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              </div>
               
               {/* Rodapé do Menu */}
               <div style={{
@@ -5987,57 +5987,17 @@ productsGrid: {
         )}
       </div>
       
-      {/* BOTÃO PERGUNTAS FREQUENTES - DEPOIS DE ONDE ENTREGAMOS */}
+      {/* BOTÃO PERGUNTAS FREQUENTES */}
       <Link href="/faq" legacyBehavior>
-        <a style={{
-          backgroundColor: 'white',
-          color: '#095400',
-          border: '1px solid #095400',
-          padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-          borderRadius: '20px',
-          fontSize: windowWidth > 768 ? '14px' : '12px',
-          fontWeight: '600',
-          cursor: 'pointer',
-          textDecoration: 'none',
-          whiteSpace: 'nowrap',
-          transition: 'all 0.3s',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '5px',
-          ':hover': {
-            backgroundColor: '#095400',
-            color: 'white'
-          }
-        }}>
+        <a className="btn-top btn-top-primary">
           ❓ Perguntas
         </a>
       </Link>
 
-      {/* ========== BOTÃO MEUS PEDIDOS (NOVO) ========== */}
+      {/* BOTÃO MEUS PEDIDOS */}
       <Link href="/meus-pedidos" legacyBehavior>
-        <a style={{
-          backgroundColor: 'white',
-          color: '#095400',
-          border: '1px solid #095400',
-          padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-          borderRadius: '20px',
-          fontSize: windowWidth > 768 ? '14px' : '12px',
-          fontWeight: '600',
-          cursor: 'pointer',
-          textDecoration: 'none',
-          whiteSpace: 'nowrap',
-          transition: 'all 0.3s',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '5px',
-          position: 'relative',
-          ':hover': {
-            backgroundColor: '#095400',
-            color: 'white'
-          }
-        }}>
+        <a className="btn-top btn-top-primary" style={{ position: 'relative' }}>
           📦 Pedidos
-          {/* Bolinha vermelha com quantidade */}
           {pedidosCount > 0 && (
             <span style={{
               position: 'absolute',
@@ -6529,10 +6489,10 @@ productsGrid: {
     return (
       <div 
         key={product.id} 
+        className="product-card-hover fade-in-up"
         style={{
           ...styles.productCard,
           ...(product.price === 0 && { opacity: 0.7 }),
-          // ⭐ BORDA VERMELHA PARA PRODUTOS EM OFERTA
           ...(isOfertaRelampago && {
             border: '2px solid #FF1744',
             boxShadow: '0 0 20px rgba(255, 23, 68, 0.15)'
@@ -6677,9 +6637,10 @@ productsGrid: {
 )}
 
           {user && (
-            <button
+                       <button
               onClick={() => addToCart(product)}
               disabled={product.price === 0}
+              className={product.price > 0 && !isOfertaRelampago ? 'add-to-cart-btn' : ''}
               style={{
                 ...styles.addButton,
                 ...(product.price === 0 && styles.disabledButton),
@@ -7521,140 +7482,285 @@ productsGrid: {
 </footer>
 
         {showAuthModal && (
-          <div style={styles.authModal}>
+          <div 
+            style={styles.authModal}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setShowAuthModal(false);
+                setAuthError('');
+              }
+            }}
+          >
             <div style={styles.authBox}>
-              <h2 style={{ 
-                color: '#095400', 
-                textAlign: 'center',
-                marginBottom: '20px',
-                fontSize: windowWidth > 768 ? '24px' : '20px'
-              }}>
-                {authType === 'login' ? 'Acesse Sua Conta' : 'Crie Sua Conta'}
-              </h2>
+              
+              {/* BOTÃO FECHAR */}
+              <button
+                onClick={() => {
+                  setShowAuthModal(false);
+                  setAuthError('');
+                }}
+                style={{
+                  position: 'absolute',
+                  top: '18px',
+                  right: '18px',
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '22px',
+                  color: '#999',
+                  cursor: 'pointer',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.2s',
+                  lineHeight: 1,
+                  padding: 0
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = '#f5f5f5';
+                  e.target.style.color = '#333';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = 'transparent';
+                  e.target.style.color = '#999';
+                }}
+                aria-label="Fechar"
+              >
+                ×
+              </button>
 
-              {authError && (
-                <p style={{ 
-                  color: '#e53935', 
-                  textAlign: 'center',
-                  marginBottom: '15px',
-                  fontSize: windowWidth > 768 ? '16px' : '14px'
+              {/* CABEÇALHO */}
+              <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+                <h2 style={{ 
+                  color: '#095400', 
+                  marginBottom: '8px',
+                  fontSize: windowWidth > 768 ? '24px' : '21px',
+                  fontWeight: '700',
+                  letterSpacing: '-0.5px',
+                  margin: '0 0 8px 0'
                 }}>
-                  {authError}
+                  {authType === 'login' ? 'Acesse Sua Conta' : 'Crie Sua Conta'}
+                </h2>
+
+                <p style={{
+                  color: '#666',
+                  fontSize: '14px',
+                  margin: 0,
+                  lineHeight: '1.5'
+                }}>
+                  {authType === 'login' 
+                    ? 'Entre para ver os preços e fazer pedidos' 
+                    : 'Cadastre-se e tenha acesso aos preços de atacado'}
                 </p>
+              </div>
+
+              {/* ERRO */}
+              {authError && (
+                <div style={styles.authError}>
+                  <span>{authError}</span>
+                </div>
               )}
 
+              {/* FORMULÁRIO */}
               <form onSubmit={authType === 'login' ? handleLogin : handleRegister}>
+                
                 {authType === 'register' && (
-                  <input
-                    type="text"
-                    placeholder="Nome Completo"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    style={{ ...styles.searchInput, marginBottom: '15px' }}
-                    required
-                  />
+                  <div style={{ marginBottom: '15px' }}>
+                    <label style={styles.authLabel}>Nome completo</label>
+                    <input
+                      type="text"
+                      placeholder="Ex: João da Silva"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      style={styles.authInput}
+                      onFocus={(e) => {
+                        Object.assign(e.target.style, styles.authInputFocus);
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = '#e0e0e0';
+                        e.target.style.backgroundColor = '#fafafa';
+                        e.target.style.boxShadow = 'none';
+                      }}
+                      required
+                    />
+                  </div>
                 )}
 
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                    style={{ ...styles.searchInput, marginBottom: '15px' }}
+                <div style={{ marginBottom: '15px' }}>
+                  <label style={styles.authLabel}>E-mail</label>
+                  <input
+                    type="email"
+                    placeholder="seu@email.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    style={styles.authInput}
+                    onFocus={(e) => {
+                      Object.assign(e.target.style, styles.authInputFocus);
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = '#e0e0e0';
+                      e.target.style.backgroundColor = '#fafafa';
+                      e.target.style.boxShadow = 'none';
+                    }}
                     required
                   />
+                </div>
 
-                  {authType === 'register' && (
-                    <>
+                {authType === 'register' && (
+                  <>
+                    <div style={{ marginBottom: '15px' }}>
+                      <label style={styles.authLabel}>Telefone / WhatsApp</label>
                       <input
                         type="tel"
-                        placeholder="Telefone"
+                        placeholder="(11) 99999-9999"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        style={{ ...styles.searchInput, marginBottom: '15px' }}
+                        style={styles.authInput}
+                        onFocus={(e) => {
+                          Object.assign(e.target.style, styles.authInputFocus);
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = '#e0e0e0';
+                          e.target.style.backgroundColor = '#fafafa';
+                          e.target.style.boxShadow = 'none';
+                        }}
                         required
                       />
+                    </div>
+                    
+                    <div style={{ marginBottom: '15px' }}>
+                      <label style={styles.authLabel}>CPF ou CNPJ</label>
                       <input
                         type="text"
-                        placeholder="CPF/CNPJ"
+                        placeholder="000.000.000-00"
                         value={cpfCnpj}
                         onChange={(e) => setCpfCnpj(e.target.value)}
-                        style={{ ...styles.searchInput, marginBottom: '15px' }}
+                        style={styles.authInput}
+                        onFocus={(e) => {
+                          Object.assign(e.target.style, styles.authInputFocus);
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = '#e0e0e0';
+                          e.target.style.backgroundColor = '#fafafa';
+                          e.target.style.boxShadow = 'none';
+                        }}
                         required
                       />
-                    </>
-                  )}
+                    </div>
+                  </>
+                )}
 
+                <div style={{ marginBottom: '22px' }}>
+                  <label style={styles.authLabel}>Senha</label>
                   <input
                     type="password"
-                    placeholder="Senha"
+                    placeholder="Mínimo 6 caracteres"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    style={{ ...styles.searchInput, marginBottom: '20px' }}
+                    style={styles.authInput}
+                    onFocus={(e) => {
+                      Object.assign(e.target.style, styles.authInputFocus);
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = '#e0e0e0';
+                      e.target.style.backgroundColor = '#fafafa';
+                      e.target.style.boxShadow = 'none';
+                    }}
                     required
                   />
+                </div>
 
+                <button
+                  type="submit"
+                  disabled={loading}
+                  style={{
+                    ...styles.authSubmitBtn,
+                    ...(loading && { opacity: 0.7, cursor: 'wait' })
+                  }}
+                >
+                  {loading 
+                    ? 'Aguarde...' 
+                    : (authType === 'login' ? 'Entrar' : 'Criar Conta')
+                  }
+                </button>
+              </form>
+
+              {/* BOTÃO GOOGLE */}
+              {showGoogleLogin && (
+                <div style={{ marginTop: '22px' }}>
+                  <div style={styles.authDivider}>
+                    <div style={{ flex: 1, height: '1px', backgroundColor: '#e0e0e0' }}></div>
+                    <span style={{ padding: '0 14px', fontSize: '13px', fontWeight: '500', color: '#999' }}>ou</span>
+                    <div style={{ flex: 1, height: '1px', backgroundColor: '#e0e0e0' }}></div>
+                  </div>
+                  
                   <button
-                    type="submit"
-                    style={styles.addButton}
+                    onClick={handleGoogleLogin}
+                    type="button"
+                    style={{
+                      width: '100%',
+                      padding: '13px 20px',
+                      backgroundColor: '#fff',
+                      color: '#333',
+                      border: '2px solid #e0e0e0',
+                      borderRadius: '10px',
+                      fontSize: '15px',
+                      fontWeight: '600',
+                      cursor: 'pointer',
+                      transition: 'all 0.25s ease',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '10px'
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.borderColor = '#095400';
+                      e.currentTarget.style.backgroundColor = '#f8fff8';
+                      e.currentTarget.style.transform = 'translateY(-1px)';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(9, 84, 0, 0.1)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.borderColor = '#e0e0e0';
+                      e.currentTarget.style.backgroundColor = '#fff';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
                   >
-                    {authType === 'login' ? 'Entrar' : 'Cadastrar'}
+                    <img 
+                      src="https://i.imgur.com/TcCOJPO.png" 
+                      alt="Google" 
+                      style={{ width: '20px', height: '20px' }} 
+                    />
+                    Entrar com Google
                   </button>
+                </div>
+              )}
 
-                  <p style={{ 
-                    textAlign: 'center', 
-                    marginTop: '15px',
-                    fontSize: windowWidth > 768 ? '16px' : '14px'
-                  }}>
-                    {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setAuthType(authType === 'login' ? 'register' : 'login');
-                        setAuthError('');
-                      }}
-                      style={styles.authToggle}
-                    >
-                      {authType === 'login' ? 'Cadastre-se' : 'Faça login'}
-                    </button>
-                  </p>
-                </form>
-                
-{/* Adicionar o botão de login com Google - Só aparece se NÃO for app */}
-{showGoogleLogin && (
-  <div style={{ 
-    marginTop: '20px', 
-    textAlign: 'center',
-    position: 'relative'
-  }}>
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      margin: '15px 0',
-      color: '#757575'
-    }}>
-      <div style={{ flex: 1, height: '1px', backgroundColor: '#ddd' }}></div>
-      <span style={{ padding: '0 10px', fontSize: '14px' }}>ou</span>
-      <div style={{ flex: 1, height: '1px', backgroundColor: '#ddd' }}></div>
-    </div>
-    
-    <button
-      onClick={handleGoogleLogin}
-      style={styles.googleLoginButton}
-    >
-      <img 
-        src="https://i.imgur.com/TcCOJPO.png" 
-        alt="Google logo" 
-        style={styles.googleLogo} 
-      />
-      Entrar com Google
-    </button>
-  </div>
-)}
-              </div>
+              {/* TOGGLE LOGIN/CADASTRO */}
+              <p style={{ 
+                textAlign: 'center', 
+                marginTop: '24px',
+                marginBottom: 0,
+                fontSize: '14px',
+                color: '#666'
+              }}>
+                {authType === 'login' ? 'Não tem conta?' : 'Já tem conta?'}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthType(authType === 'login' ? 'register' : 'login');
+                    setAuthError('');
+                  }}
+                  style={styles.authToggle}
+                >
+                  {authType === 'login' ? 'Cadastre-se' : 'Faça login'}
+                </button>
+              </p>
             </div>
-          )}
+          </div>
+        )}
 
           <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
         </div>
@@ -8236,6 +8342,38 @@ productsGrid: {
           </>
         )}
       </div>
+
+      {/* ✅ ANIMAÇÕES DO MODAL DE LOGIN/CADASTRO */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fadeInOut {
+          0%, 100% { opacity: 0; transform: translateY(-10px); }
+          10%, 90% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
+        }
+      `}</style>
     </>
   );
 };
