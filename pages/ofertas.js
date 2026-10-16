@@ -727,8 +727,7 @@ useEffect(() => {
       padding: isMobile ? '10px' : '20px',
       backgroundColor: '#ffffff',
       minHeight: '100vh',
-      position: 'relative',
-      fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
+      position: 'relative'
     },
     header: {
       textAlign: 'center',
@@ -767,11 +766,7 @@ useEffect(() => {
       position: 'relative',
       height: '100%',
       display: 'flex',
-      flexDirection: 'column',
-      ':hover': {
-        transform: 'translateY(-5px)',
-        boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
-      }
+      flexDirection: 'column'
     },
     productImageContainer: {
       width: '100%',
@@ -788,10 +783,7 @@ useEffect(() => {
       height: '100%',
       objectFit: 'contain',
       padding: '10px',
-      transition: 'transform 0.3s ease',
-      ':hover': {
-        transform: 'scale(1.05)'
-      }
+      transition: 'transform 0.3s ease'
     },
     productInfo: {
       padding: isMobile ? '15px' : '20px',
@@ -818,6 +810,7 @@ useEffect(() => {
     },
     showMoreButton: {
       background: 'none',
+      backgroundColor: 'transparent',
       border: 'none',
       color: '#095400',
       fontSize: '12px',
@@ -825,7 +818,11 @@ useEffect(() => {
       padding: '0',
       marginTop: '5px',
       fontWeight: '600',
-      textDecoration: 'underline'
+      textDecoration: 'underline',
+      outline: 'none',
+      appearance: 'none',
+      WebkitAppearance: 'none',
+      boxShadow: 'none'
     },
     productPrice: {
       fontSize: isMobile ? '18px' : '20px',
@@ -846,27 +843,15 @@ useEffect(() => {
       cursor: 'pointer',
       transition: 'all 0.3s ease',
       boxShadow: '0 2px 8px rgba(9, 84, 0, 0.3)',
-      marginTop: 'auto',
-      ':hover': {
-        backgroundColor: '#0a6b00',
-        transform: 'translateY(-2px)'
-      }
+      marginTop: 'auto'
     },
     addedButton: {
       backgroundColor: '#27AE60',
-      cursor: 'default',
-      ':hover': {
-        backgroundColor: '#27AE60',
-        transform: 'none'
-      }
+      cursor: 'default'
     },
     disabledButton: {
       backgroundColor: '#ccc',
-      cursor: 'not-allowed',
-      ':hover': {
-        backgroundColor: '#ccc',
-        transform: 'none'
-      }
+      cursor: 'not-allowed'
     },
     productDetailsButton: {
       position: 'absolute',
@@ -886,11 +871,7 @@ useEffect(() => {
       fontWeight: 'bold',
       transition: 'all 0.3s ease',
       zIndex: 5,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-      ':hover': {
-        backgroundColor: '#b92c2b',
-        transform: 'scale(1.1)'
-      }
+      boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
     },
     pagination: {
       display: 'flex',
@@ -909,11 +890,7 @@ useEffect(() => {
       fontSize: isMobile ? '14px' : '16px',
       fontWeight: '600',
       color: '#095400',
-      transition: 'all 0.3s ease',
-      ':hover': {
-        backgroundColor: '#095400',
-        color: '#fff'
-      }
+      transition: 'all 0.3s ease'
     },
     activePage: {
       backgroundColor: '#095400',
@@ -955,11 +932,7 @@ useEffect(() => {
       justifyContent: 'center',
       boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
       transition: 'all 0.3s ease',
-      fontWeight: 'bold',
-      ':hover': {
-        backgroundColor: '#095400',
-        color: 'white'
-      }
+      fontWeight: 'bold'
     },
     prevButton: {
       left: '15px'
@@ -1145,23 +1118,7 @@ useEffect(() => {
           flexWrap: 'wrap'
         }}>
           {/* BOTÃO PÁGINA INICIAL */}
-          <a href="/" style={{
-            backgroundColor: 'white',
-            color: '#095400',
-            border: '1px solid #095400',
-            padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-            borderRadius: '20px',
-            fontSize: windowWidth > 768 ? '14px' : '12px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
-            transition: 'all 0.3s',
-            ':hover': {
-              backgroundColor: '#095400',
-              color: 'white'
-            }
-          }}>
+          <a href="/" className="btn-top btn-top-primary">
             Página Inicial
           </a>
           
@@ -1169,27 +1126,7 @@ useEffect(() => {
           <div style={{ position: 'relative', display: 'inline-block' }}>
             <button
               onClick={() => setShowCitiesMenu(!showCitiesMenu)}
-              style={{
-                backgroundColor: '#e53935',
-                color: 'white',
-                border: 'none',
-                padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-                borderRadius: '20px',
-                fontSize: windowWidth > 768 ? '14px' : '12px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                transition: 'all 0.3s',
-                whiteSpace: 'nowrap',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '5px',
-                boxShadow: '0 2px 5px rgba(229, 57, 53, 0.3)',
-                ':hover': {
-                  backgroundColor: '#c62828',
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 4px 10px rgba(229, 57, 53, 0.4)'
-                }
-              }}
+              className="btn-top btn-top-danger"
             >
               Onde Entregamos
               <span style={{
@@ -1268,10 +1205,7 @@ useEffect(() => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        borderRadius: '50%',
-                        ':hover': {
-                          backgroundColor: '#f0f0f0'
-                        }
+                        borderRadius: '50%'
                       }}
                     >
                       ×
@@ -1280,285 +1214,257 @@ useEffect(() => {
                   
                   {/* Conteúdo do Menu */}
                   <div style={{ padding: '15px' }}>
-{/* ========== SÃO PAULO ========== */}
-<div style={{ marginBottom: '15px' }}>
-  <div 
-    onClick={() => toggleRegion('sp')}
-    style={{
-      color: '#095400',
-      fontWeight: '600',
-      fontSize: windowWidth > 768 ? '15px' : '13px',
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      cursor: 'pointer',
-      padding: '5px',
-      borderRadius: '4px',
-      ':hover': {
-        backgroundColor: '#f9f9f9'
-      }
-    }}
-  >
-    <span>🏢</span>
-    <span>Estado de São Paulo</span>
-    <span style={{
-      marginLeft: 'auto',
-      fontSize: '12px',
-      transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
-      transition: 'transform 0.2s'
-    }}>
-      ▼
-    </span>
-  </div>
-  
-  {openRegions.sp && (
-    <div style={{
-      marginLeft: '10px',
-      paddingLeft: '10px',
-      borderLeft: '2px solid #095400',
-      maxHeight: '120px',
-      overflowY: 'auto'
-    }}>
-      {citiesData.sp.regions.map((city, index) => {
-        // Nome da cidade exatamente como está no JSON (adiciona -SP)
-        const cityKey = city;
-        const hasDeliveryData = deliveryDaysData[cityKey];
-        
-        return (
-          <div key={index}>
-            <div style={{ 
-              padding: '5px 0', 
-              color: '#555',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              cursor: hasDeliveryData ? 'pointer' : 'default'
-            }}>
-              <span>• {city}</span>
-              {hasDeliveryData && (
-                <button
-                  onClick={() => toggleCityExpand(cityKey)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#e53935',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    padding: '4px 8px',
-                    borderRadius: '4px',
-                    transition: 'all 0.2s',
-                    ':hover': {
-                      backgroundColor: '#f0f0f0'
-                    }
-                  }}
-                >
-                  ▼
-                </button>
-              )}
-            </div>
-            
-            {/* Mostra os dias se estiver expandido */}
-            {expandedCity === cityKey && hasDeliveryData && (
-              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-            )}
-          </div>
-        );
-      })}
-    </div>
-  )}
-</div>
+                    {/* SÃO PAULO */}
+                    <div style={{ marginBottom: '15px' }}>
+                      <div 
+                        onClick={() => toggleRegion('sp')}
+                        style={{
+                          color: '#095400',
+                          fontWeight: '600',
+                          fontSize: windowWidth > 768 ? '15px' : '13px',
+                          marginBottom: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          cursor: 'pointer',
+                          padding: '5px',
+                          borderRadius: '4px'
+                        }}
+                      >
+                        <span>🏢</span>
+                        <span>Estado de São Paulo</span>
+                        <span style={{
+                          marginLeft: 'auto',
+                          fontSize: '12px',
+                          transform: openRegions.sp ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.2s'
+                        }}>
+                          ▼
+                        </span>
+                      </div>
+                      
+                      {openRegions.sp && (
+                        <div style={{
+                          marginLeft: '10px',
+                          paddingLeft: '10px',
+                          borderLeft: '2px solid #095400',
+                          maxHeight: '120px',
+                          overflowY: 'auto'
+                        }}>
+                          {citiesData.sp.regions.map((city, index) => {
+                            const cityKey = city;
+                            const hasDeliveryData = deliveryDaysData[cityKey];
+                            
+                            return (
+                              <div key={index}>
+                                <div style={{ 
+                                  padding: '5px 0', 
+                                  color: '#555',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'space-between',
+                                  cursor: hasDeliveryData ? 'pointer' : 'default'
+                                }}>
+                                  <span>• {city}</span>
+                                  {hasDeliveryData && (
+                                    <button
+                                      onClick={() => toggleCityExpand(cityKey)}
+                                      style={{
+                                        background: 'none',
+                                        border: 'none',
+                                        color: '#e53935',
+                                        cursor: 'pointer',
+                                        fontSize: '12px',
+                                        padding: '4px 8px',
+                                        borderRadius: '4px'
+                                      }}
+                                    >
+                                      ▼
+                                    </button>
+                                  )}
+                                </div>
+                                
+                                {expandedCity === cityKey && hasDeliveryData && (
+                                  <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
 
-{/* ========== RIO DE JANEIRO ========== */}
-<div style={{ marginBottom: '15px' }}>
-  <div 
-    onClick={() => toggleRegion('rj')}
-    style={{
-      color: '#095400',
-      fontWeight: '600',
-      fontSize: windowWidth > 768 ? '15px' : '13px',
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      cursor: 'pointer',
-      padding: '5px',
-      borderRadius: '4px',
-      ':hover': {
-        backgroundColor: '#f9f9f9'
-      }
-    }}
-  >
-    <span>🏖️</span>
-    <span>Sul do Rio de Janeiro</span>
-    <span style={{
-      marginLeft: 'auto',
-      fontSize: '12px',
-      transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
-      transition: 'transform 0.2s'
-    }}>
-      ▼
-    </span>
-  </div>
-  
-  {openRegions.rj && (
-    <div style={{
-      marginLeft: '10px',
-      paddingLeft: '10px',
-      borderLeft: '2px solid #e53935',
-      maxHeight: '120px',
-      overflowY: 'auto'
-    }}>
-      {citiesData.rj.cities.map((city, index) => {
-        // Nome da cidade exatamente como está no JSON (adiciona -RJ)
-        const cityKey = `${city}-RJ`;
-        const hasDeliveryData = deliveryDaysData[cityKey];
-        
-        return (
-          <div key={index}>
-            <div style={{ 
-              padding: '5px 0', 
-              color: '#555',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              cursor: hasDeliveryData ? 'pointer' : 'default'
-            }}>
-              <span>• {city}</span>
-              {hasDeliveryData && (
-                <button
-                  onClick={() => toggleCityExpand(cityKey)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#e53935',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    padding: '4px 8px',
-                    borderRadius: '4px',
-                    transition: 'all 0.2s',
-                    ':hover': {
-                      backgroundColor: '#f0f0f0'
-                    }
-                  }}
-                >
-                  ▼
-                </button>
-              )}
-            </div>
-            
-            {/* Mostra os dias se estiver expandido */}
-            {expandedCity === cityKey && hasDeliveryData && (
-              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-            )}
-          </div>
-        );
-      })}
-    </div>
-  )}
-</div>
+                    {/* RIO DE JANEIRO */}
+                    <div style={{ marginBottom: '15px' }}>
+                      <div 
+                        onClick={() => toggleRegion('rj')}
+                        style={{
+                          color: '#095400',
+                          fontWeight: '600',
+                          fontSize: windowWidth > 768 ? '15px' : '13px',
+                          marginBottom: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          cursor: 'pointer',
+                          padding: '5px',
+                          borderRadius: '4px'
+                        }}
+                      >
+                        <span>🏖️</span>
+                        <span>Sul do Rio de Janeiro</span>
+                        <span style={{
+                          marginLeft: 'auto',
+                          fontSize: '12px',
+                          transform: openRegions.rj ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.2s'
+                        }}>
+                          ▼
+                        </span>
+                      </div>
+                      
+                      {openRegions.rj && (
+                        <div style={{
+                          marginLeft: '10px',
+                          paddingLeft: '10px',
+                          borderLeft: '2px solid #e53935',
+                          maxHeight: '120px',
+                          overflowY: 'auto'
+                        }}>
+                          {citiesData.rj.cities.map((city, index) => {
+                            const cityKey = `${city}-RJ`;
+                            const hasDeliveryData = deliveryDaysData[cityKey];
+                            
+                            return (
+                              <div key={index}>
+                                <div style={{ 
+                                  padding: '5px 0', 
+                                  color: '#555',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'space-between',
+                                  cursor: hasDeliveryData ? 'pointer' : 'default'
+                                }}>
+                                  <span>• {city}</span>
+                                  {hasDeliveryData && (
+                                    <button
+                                      onClick={() => toggleCityExpand(cityKey)}
+                                      style={{
+                                        background: 'none',
+                                        border: 'none',
+                                        color: '#e53935',
+                                        cursor: 'pointer',
+                                        fontSize: '12px',
+                                        padding: '4px 8px',
+                                        borderRadius: '4px'
+                                      }}
+                                    >
+                                      ▼
+                                    </button>
+                                  )}
+                                </div>
+                                
+                                {expandedCity === cityKey && hasDeliveryData && (
+                                  <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
 
-{/* ========== MINAS GERAIS ========== */}
-<div>
-  <div 
-    onClick={() => toggleRegion('mg')}
-    style={{
-      color: '#095400',
-      fontWeight: '600',
-      fontSize: windowWidth > 768 ? '15px' : '13px',
-      marginBottom: '8px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      cursor: 'pointer',
-      padding: '5px',
-      borderRadius: '4px',
-      ':hover': {
-        backgroundColor: '#f9f9f9'
-      }
-    }}
-  >
-    <span>⛰️</span>
-    <span>Sul de Minas Gerais</span>
-    <span style={{
-      marginLeft: 'auto',
-      fontSize: '12px',
-      transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
-      transition: 'transform 0.2s'
-    }}>
-      ▼
-    </span>
-  </div>
-  
-  {openRegions.mg && (
-    <div style={{
-      marginLeft: '10px',
-      paddingLeft: '10px',
-      borderLeft: '2px solid #e53935',
-      maxHeight: '120px',
-      overflowY: 'auto'
-    }}>
-      {citiesData.mg.cities.map((city, index) => {
-        // Nome da cidade exatamente como está no JSON (adiciona -MG)
-        const cityKey = `${city}-MG`;
-        const hasDeliveryData = deliveryDaysData[cityKey];
-        
-        return (
-          <div key={index}>
-            <div style={{ 
-              padding: '5px 0', 
-              color: '#555',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              cursor: hasDeliveryData ? 'pointer' : 'default'
-            }}>
-              <span>• {city}</span>
-              {hasDeliveryData && (
-                <button
-                  onClick={() => toggleCityExpand(cityKey)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#e53935',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    padding: '4px 8px',
-                    borderRadius: '4px',
-                    transition: 'all 0.2s',
-                    ':hover': {
-                      backgroundColor: '#f0f0f0'
-                    }
-                  }}
-                >
-                  ▼
-                </button>
-              )}
-            </div>
-            
-            {/* Mostra os dias se estiver expandido */}
-            {expandedCity === cityKey && hasDeliveryData && (
-              <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
-            )}
-          </div>
-        );
-      })}
-      
-      {/* Mensagem de "mais cidades" apenas para MG (se necessário) */}
-      {citiesData.mg.cities.length > 59 && (
-        <div style={{
-          color: '#888',
-          fontSize: '12px',
-          fontStyle: 'italic',
-          padding: '5px 0'
-        }}>
-          + {citiesData.mg.cities.length - 59} cidades...
-        </div>
-      )}
-    </div>
-  )}
-</div>
-</div>
+                    {/* MINAS GERAIS */}
+                    <div>
+                      <div 
+                        onClick={() => toggleRegion('mg')}
+                        style={{
+                          color: '#095400',
+                          fontWeight: '600',
+                          fontSize: windowWidth > 768 ? '15px' : '13px',
+                          marginBottom: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          cursor: 'pointer',
+                          padding: '5px',
+                          borderRadius: '4px'
+                        }}
+                      >
+                        <span>⛰️</span>
+                        <span>Sul de Minas Gerais</span>
+                        <span style={{
+                          marginLeft: 'auto',
+                          fontSize: '12px',
+                          transform: openRegions.mg ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.2s'
+                        }}>
+                          ▼
+                        </span>
+                      </div>
+                      
+                      {openRegions.mg && (
+                        <div style={{
+                          marginLeft: '10px',
+                          paddingLeft: '10px',
+                          borderLeft: '2px solid #e53935',
+                          maxHeight: '120px',
+                          overflowY: 'auto'
+                        }}>
+                          {citiesData.mg.cities.map((city, index) => {
+                            const cityKey = `${city}-MG`;
+                            const hasDeliveryData = deliveryDaysData[cityKey];
+                            
+                            return (
+                              <div key={index}>
+                                <div style={{ 
+                                  padding: '5px 0', 
+                                  color: '#555',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'space-between',
+                                  cursor: hasDeliveryData ? 'pointer' : 'default'
+                                }}>
+                                  <span>• {city}</span>
+                                  {hasDeliveryData && (
+                                    <button
+                                      onClick={() => toggleCityExpand(cityKey)}
+                                      style={{
+                                        background: 'none',
+                                        border: 'none',
+                                        color: '#e53935',
+                                        cursor: 'pointer',
+                                        fontSize: '12px',
+                                        padding: '4px 8px',
+                                        borderRadius: '4px'
+                                      }}
+                                    >
+                                      ▼
+                                    </button>
+                                  )}
+                                </div>
+                                
+                                {expandedCity === cityKey && hasDeliveryData && (
+                                  <DeliveryDaysDisplay days={deliveryDaysData[cityKey]} />
+                                )}
+                              </div>
+                            );
+                          })}
+                          
+                          {citiesData.mg.cities.length > 59 && (
+                            <div style={{
+                              color: '#888',
+                              fontSize: '12px',
+                              fontStyle: 'italic',
+                              padding: '5px 0'
+                            }}>
+                              + {citiesData.mg.cities.length - 59} cidades...
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                   
                   {/* Rodapé do Menu */}
                   <div style={{
@@ -1578,26 +1484,7 @@ useEffect(() => {
           
           {/* BOTÃO PERGUNTAS FREQUENTES */}
           <Link href="/faq" legacyBehavior>
-            <a style={{
-              backgroundColor: 'white',
-              color: '#095400',
-              border: '1px solid #095400',
-              padding: windowWidth > 768 ? '8px 12px' : '6px 10px',
-              borderRadius: '20px',
-              fontSize: windowWidth > 768 ? '14px' : '12px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-              transition: 'all 0.3s',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '5px',
-              ':hover': {
-                backgroundColor: '#095400',
-                color: 'white'
-              }
-            }}>
+            <a className="btn-top btn-top-primary">
               ❓ Perguntas
             </a>
           </Link>
@@ -1685,7 +1572,7 @@ useEffect(() => {
           const inCart = isProductInCart(product.id);
           
           return (
-            <div key={product.id} style={styles.productCard}>
+            <div key={product.id} className="product-card-hover" style={styles.productCard}>
               {/* BOTÃO LUPA */}
               <button
                 onClick={() => redirectToProductDetails(product.id)}
@@ -1724,7 +1611,6 @@ useEffect(() => {
                     {product.name}
                   </h4>
                   
-                  {/* ✅ MOSTRA "MOSTRAR MAIS" APENAS SE O TEXTO ULTRAPASSOU 2 LINHAS NO CELULAR */}
                   {isMobile && needsExpand[product.id] && (
                     <button 
                       onClick={() => toggleDescription(product.id)}
@@ -1735,7 +1621,6 @@ useEffect(() => {
                   )}
                 </div>
                 
-                {/* ✅ TODOS PODEM VER PREÇOS (sem bloqueio) */}
                 <p style={product.price > 0 ? styles.productPrice : { ...styles.productPrice, color: '#999', textDecoration: 'line-through' }}>
                   {product.price > 0 ? `R$ ${product.price.toFixed(2)}` : 'Indisponível'}
                 </p>
@@ -1743,6 +1628,7 @@ useEffect(() => {
                 <button
                   onClick={() => handleAddToCart(product)}
                   disabled={product.price === 0}
+                  className={!inCart && product.price > 0 ? 'add-to-cart-btn' : ''}
                   style={{
                     ...styles.addButton,
                     ...(inCart && styles.addedButton),
@@ -1876,7 +1762,7 @@ useEffect(() => {
               }}
               style={{
                 ...styles.dot,
-                ...(index === currentPage && styles.activeDot)
+                ...(index === currentBannerIndex && styles.activeDot)
               }}
             />
           ))}
@@ -2002,158 +1888,70 @@ useEffect(() => {
             
             {/* Política de Privacidade */}
             <Link href="/politica-de-privacidade" passHref legacyBehavior>
-              <a style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '600',
+              <a className="btn-top btn-top-primary" style={{
+                minHeight: '50px',
+                justifyContent: 'center',
                 fontSize: '14px',
                 padding: '12px 8px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                minHeight: '50px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'white';
-                e.target.style.color = '#095400';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-              }}
-              title="Política de Privacidade"
-              aria-label="Leia nossa Política de Privacidade"
-            >
-              <span>🔒</span>
-              Privacidade
-            </a>
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}>
+                <span>🔒</span>
+                Privacidade
+              </a>
             </Link>
 
             {/* Política de Devolução e Reembolso */}
             <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
-              <a style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '600',
+              <a className="btn-top btn-top-primary" style={{
+                minHeight: '50px',
+                justifyContent: 'center',
                 fontSize: '14px',
                 padding: '12px 8px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                minHeight: '50px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'white';
-                e.target.style.color = '#095400';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-              }}
-              title="Política de Devolução e Reembolso"
-              aria-label="Leia nossa Política de Devolução e Reembolso"
-            >
-              <span>🔄</span>
-              Política de Devolução e Reembolso
-            </a>
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}>
+                <span>🔄</span>
+                Política de Devolução e Reembolso
+              </a>
             </Link>
 
             {/* Termos de Uso */}
             <Link href="/termos" passHref legacyBehavior>
-              <a style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '600',
+              <a className="btn-top btn-top-primary" style={{
+                minHeight: '50px',
+                justifyContent: 'center',
                 fontSize: '14px',
                 padding: '12px 8px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                minHeight: '50px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'white';
-                e.target.style.color = '#095400';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-              }}
-              title="Termos de Uso"
-              aria-label="Leia nossos Termos de Uso"
-            >
-              <span>📄</span>
-              Termos
-            </a>
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}>
+                <span>📄</span>
+                Termos
+              </a>
             </Link>
 
             {/* Quem Somos */}
             <Link href="/quem-somos" passHref legacyBehavior>
-              <a style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '600',
+              <a className="btn-top btn-top-primary" style={{
+                minHeight: '50px',
+                justifyContent: 'center',
                 fontSize: '14px',
                 padding: '12px 8px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                minHeight: '50px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'white';
-                e.target.style.color = '#095400';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-              }}
-              title="Quem Somos"
-              aria-label="Conheça mais sobre nós"
-            >
-              <span>👥</span>
-              Sobre
-            </a>
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}>
+                <span>👥</span>
+                Sobre
+              </a>
             </Link>
           </div>
 
@@ -2204,14 +2002,6 @@ useEffect(() => {
                   border: '1px solid #e0e0e0',
                   boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                 }}
-                onMouseOver={(e) => {
-                  e.target.style.transform = 'scale(1.1)';
-                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-                }}
               >
                 <img 
                   src="https://i.imgur.com/prULUUA.png" 
@@ -2240,14 +2030,6 @@ useEffect(() => {
                   backgroundColor: 'white',
                   border: '1px solid #e0e0e0',
                   boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.transform = 'scale(1.1)';
-                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
                 }}
               >
                 <img 
@@ -2278,14 +2060,6 @@ useEffect(() => {
                   border: '1px solid #e0e0e0',
                   boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                 }}
-                onMouseOver={(e) => {
-                  e.target.style.transform = 'scale(1.1)';
-                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-                }}
               >
                 <img 
                   src="https://i.imgur.com/WfpZ8Gg.png" 
@@ -2305,7 +2079,6 @@ useEffect(() => {
             paddingTop: '15px',
             borderTop: '1px solid #e0e0e0'
           }}>
-            {/* TEXTO SEO - AGORA EM CIMA (Google lê primeiro) */}
             <p style={{ 
               margin: '0 0 15px 0', 
               fontSize: '11px', 
@@ -2323,7 +2096,6 @@ useEffect(() => {
               Trabalhamos com as melhores marcas do mercado para garantir qualidade e satisfação aos nossos clientes.
             </p>
             
-            {/* INFORMAÇÕES DE CONTATO - AGORA EMBAIXO */}
             <p style={{ 
               margin: '8px 0', 
               fontSize: '14px',
