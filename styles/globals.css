@@ -72,8 +72,9 @@ a {
 }
 
 .btn-top-primary:hover {
-  background: #095400;
-  color: #ffffff;
+  background: #095400 !important;
+  color: #ffffff !important;
+  border-color: #095400 !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(9, 84, 0, 0.25);
 }
@@ -86,8 +87,9 @@ a {
 }
 
 .btn-top-danger:hover {
-  background: #c62828;
-  border-color: #c62828;
+  background: #c62828 !important;
+  border-color: #c62828 !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(229, 57, 53, 0.4);
 }
@@ -99,8 +101,9 @@ a {
 }
 
 .btn-top-gray:hover {
-  background: #5a6268;
-  border-color: #5a6268;
+  background: #5a6268 !important;
+  border-color: #5a6268 !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
 }
 
@@ -111,8 +114,9 @@ a {
 }
 
 .btn-top-green:hover {
-  background: #0a6d00;
-  border-color: #0a6d00;
+  background: #0a6d00 !important;
+  border-color: #0a6d00 !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(9, 84, 0, 0.25);
 }
@@ -431,4 +435,196 @@ a, button {
 
 .cart-item:hover {
   background-color: #FAFAFA;
+}
+
+
+/* ============================================================
+   ?? BLOCO P1 - ESTILOS DA PÁGINA DE PRODUTO INDIVIDUAL
+   ============================================================ */
+
+/* ---------- 1. BOTÕES DE NAVEGAÇÃO DO TOPO ---------- */
+.product-nav-btn {
+  background: #095400;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.25s ease;
+  min-width: 120px;
+}
+
+.product-nav-btn:hover {
+  background: #0a6d00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(9, 84, 0, 0.25);
+}
+
+.product-nav-btn-oferta {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.25s ease;
+  min-width: 120px;
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.3);
+}
+
+.product-nav-btn-oferta:hover {
+  background: #c62828;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(229, 57, 53, 0.4);
+}
+
+/* ---------- 2. BOTÃO ADICIONAR AO CARRINHO ---------- */
+.product-add-btn {
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 200px;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.product-add-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(0.92);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- 3. BOTÃO COMPRAR AGORA ---------- */
+.product-buy-btn {
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  flex: 1;
+  min-width: 200px;
+  transition: all 0.25s ease;
+}
+
+.product-buy-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(0.92);
+  box-shadow: 0 6px 18px rgba(9, 84, 0, 0.2);
+}
+
+/* ---------- 4. BOTÃO "SAIBA MAIS" (cidades) ---------- */
+.product-saiba-mais-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #095400;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #095400;
+  box-shadow: 0 2px 8px rgba(9, 84, 0, 0.15);
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.product-saiba-mais-btn:hover {
+  background: white;
+  color: #095400;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(9, 84, 0, 0.25);
+}
+
+/* ---------- 5. IMAGEM DO PRODUTO COM ZOOM ---------- */
+.product-image-zoom {
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.product-image-zoom:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- 6. VANTAGENS COM HOVER ---------- */
+.product-advantage-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #333;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.product-advantage-item:hover {
+  background: rgba(9, 84, 0, 0.08);
+  transform: translateX(3px);
+}
+
+/* ---------- 7. FOOTER LINKS (reutiliza .btn-top) ---------- */
+/* Já tem classes .btn-top do globals, vamos usar lá */
+
+/* ---------- 8. LINK DE REDES SOCIAIS ---------- */
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+}
+
+.social-icon-link:hover {
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-color: #095400;
+}
+
+/* ---------- 9. ANIMAÇÃO DE ENTRADA DA PÁGINA ---------- */
+@keyframes productFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-page-anim {
+  animation: productFadeIn 0.5s ease-out;
+}
+
+/* ---------- 10. TÍTULO COM GRADIENTE (opcional) ---------- */
+.product-main-title {
+  color: #095400;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.5px;
 }
