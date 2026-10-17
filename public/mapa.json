@@ -7078,7 +7078,7 @@
   },
   {
     "idSite": 1882,
-    "idPMG": null
+    "idPMG": 8236
   },
   {
     "idSite": 1883,
@@ -11586,5 +11586,33 @@
   {
     "idSite": 3034,
     "idPMG": 925
+  },
+  {
+    "idSite": 3035,
+    "idPMG": 10109
+  },
+  {
+    "idSite": 3036,
+    "idPMG": 10108
+  },
+  {
+    "idSite": 3037,
+    "idPMG": 10110
+  },
+  {
+    "idSite": 3038,
+    "idPMG": 6008
+  },
+  {
+    "idSite": 3039,
+    "idPMG": 10099
+  },
+  {
+    "idSite": 3040,
+    "idPMG": 7581
+  },
+  {
+    "idSite": 3041,
+    "idPMG": 8116
   }
 ]
