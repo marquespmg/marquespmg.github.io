@@ -184,7 +184,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
   // ✅ NOVO: Estado para controle da mensagem de login
   const [showLoginMessage, setShowLoginMessage] = useState(false);
   
-    // ✅ ADICIONE ESTA LINHA AQUI:
+  // ✅ ADICIONE ESTA LINHA AQUI:
   const [inputQuantities, setInputQuantities] = useState({});
 
   // Estados para cupom
@@ -1221,28 +1221,30 @@ const handleQuantityChange = (productId, newQuantity) => {
       )}
 
       {/* Container principal do carrinho */}
-      <div style={{
-        position: 'fixed',
-        right: isMobile ? (isOpen ? '0' : '-100%') : (isCollapsed ? '-380px' : '15px'),
-        bottom: isMobile ? '0' : 'auto',
-        top: isMobile ? 'auto' : '15px',
-        width: isMobile ? '100%' : '380px',
-        height: isMobile ? '85vh' : 'auto',
-        backgroundColor: '#fff',
-        borderRadius: isMobile ? '20px 20px 0 0' : '12px',
-        boxShadow: '0 -5px 25px rgba(0, 0, 0, 0.15)',
-        padding: isMobile ? '20px 15px' : '15px',
-        zIndex: 1000,
-        maxHeight: isMobile ? '85vh' : '85vh',
-        overflowY: 'auto',
-        overflowX: 'hidden',
-        fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
-        transition: isMobile ? 'transform 0.3s ease-out' : 'right 0.3s ease-in-out',
-        boxSizing: 'border-box',
-        transform: isMobile ? (isOpen ? 'translateY(0)' : 'translateY(100%)') : 'none',
-        opacity: isMobile ? (isOpen ? 1 : 0) : (isCollapsed ? 0 : 1),
-        pointerEvents: isMobile ? (isOpen ? 'auto' : 'none') : (isCollapsed ? 'none' : 'auto')
-      }}>
+      <div 
+        className={!isMobile && !isCollapsed ? 'cart-container-anim' : ''}
+        style={{
+          position: 'fixed',
+          right: isMobile ? (isOpen ? '0' : '-100%') : (isCollapsed ? '-380px' : '15px'),
+          bottom: isMobile ? '0' : 'auto',
+          top: isMobile ? 'auto' : '15px',
+          width: isMobile ? '100%' : '380px',
+          height: isMobile ? '85vh' : 'auto',
+          backgroundColor: '#fff',
+          borderRadius: isMobile ? '20px 20px 0 0' : '12px',
+          boxShadow: '0 -5px 25px rgba(0, 0, 0, 0.15)',
+          padding: isMobile ? '20px 15px' : '15px',
+          zIndex: 1000,
+          maxHeight: isMobile ? '85vh' : '85vh',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          transition: isMobile ? 'transform 0.3s ease-out' : 'right 0.3s ease-in-out',
+          boxSizing: 'border-box',
+          transform: isMobile ? (isOpen ? 'translateY(0)' : 'translateY(100%)') : 'none',
+          opacity: isMobile ? (isOpen ? 1 : 0) : (isCollapsed ? 0 : 1),
+          pointerEvents: isMobile ? (isOpen ? 'auto' : 'none') : (isCollapsed ? 'none' : 'auto')
+        }}
+      >
         
         {/* Header do carrinho */}
         <div style={{
@@ -1268,23 +1270,10 @@ const handleQuantityChange = (productId, newQuantity) => {
           </h2>
           <button 
             onClick={toggleCart}
-            style={{ 
-              background: 'none', 
-              border: 'none', 
-              fontSize: isMobile ? '24px' : '20px', 
-              cursor: 'pointer', 
-              color: '#7F8C8D', 
-              padding: '6px',
-              borderRadius: '50%',
-              width: '36px',
-              height: '36px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              transition: 'background 0.2s'
+            className="cart-close-btn"
+            style={{
+              fontSize: isMobile ? '24px' : '20px'
             }}
-            onMouseOver={(e) => e.target.style.background = '#f8f9fa'}
-            onMouseOut={(e) => e.target.style.background = 'none'}
           >
             ×
           </button>
@@ -1334,6 +1323,7 @@ const handleQuantityChange = (productId, newQuantity) => {
                 return (
                   <div 
                     key={`${product.id}-${product.quantity}`} 
+                    className="cart-item"
                     style={{ 
                       padding: isMobile ? '15px 0' : '12px 0', 
                       borderBottom: '2px solid #f8f9fa',
@@ -1456,223 +1446,168 @@ const handleQuantityChange = (productId, newQuantity) => {
                       </div>
                     </div>
 
-{/* Controles de quantidade e preço */}
-<div style={{ 
-  display: 'flex', 
-  alignItems: 'center', 
-  justifyContent: 'space-between',
-  marginTop: '10px',
-  paddingLeft: isMobile ? '0' : '60px'
-}}>
-  <div style={{ 
-    display: 'flex', 
-    alignItems: 'center', 
-    gap: isMobile ? '10px' : '6px',
-    background: '#f8f9fa',
-    borderRadius: '20px',
-    padding: isMobile ? '6px 10px' : '4px 8px'
-  }}>
-    <button
-      onClick={() => {
-        adjustQuantity(product.id, -1);
-        // Limpa o estado local ao usar os botões
-        setInputQuantities(prev => ({
-          ...prev,
-          [product.id]: undefined
-        }));
-      }}
-      style={{ 
-        background: '#E74C3C', 
-        color: 'white',
-        border: 'none', 
-        borderRadius: '50%', 
-        width: isMobile ? '28px' : '24px', 
-        height: isMobile ? '28px' : '24px', 
-        cursor: 'pointer',
-        fontSize: isMobile ? '16px' : '14px',
-        fontWeight: 'bold',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'all 0.2s'
-      }}
-      onMouseOver={(e) => e.target.style.background = '#C0392B'}
-      onMouseOut={(e) => e.target.style.background = '#E74C3C'}
-    > - </button>
-    
-    {/* ✅ CAMPO DE QUANTIDADE EDITÁVEL - SEM SELEÇÃO AUTOMÁTICA */}
-    <input
-      type="text"
-      inputMode="numeric"
-      pattern="[0-9]*"
-      value={inputQuantities[product.id] !== undefined ? inputQuantities[product.id] : product.quantity}
-      onChange={(e) => {
-        // Permite apenas números
-        const value = e.target.value.replace(/\D/g, '');
-        
-        // Atualiza o estado local do input (mostra o que o cliente está digitando)
-        setInputQuantities(prev => ({
-          ...prev,
-          [product.id]: value
-        }));
-        
-        // Se o campo NÃO estiver vazio, atualiza o carrinho
-        if (value !== '') {
-          const newQuantity = Number(value);
-          if (newQuantity >= 1) {
-            handleQuantityChange(product.id, newQuantity);
-          }
-        }
-      }}
-      onBlur={(e) => {
-        const value = e.target.value.replace(/\D/g, '');
-        
-        // Se vazio ou 0, volta para 1
-        if (value === '' || parseInt(value) <= 0) {
-          handleQuantityChange(product.id, 1);
-          // Limpa o estado local para mostrar o valor do carrinho
-          setInputQuantities(prev => ({
-            ...prev,
-            [product.id]: undefined
-          }));
-        } else {
-          const newQuantity = parseInt(value);
-          if (newQuantity > 999) {
-            handleQuantityChange(product.id, 999);
-            setInputQuantities(prev => ({
-              ...prev,
-              [product.id]: '999'
-            }));
-          } else {
-            handleQuantityChange(product.id, newQuantity);
-            // Limpa o estado local para mostrar o valor do carrinho
-            setInputQuantities(prev => ({
-              ...prev,
-              [product.id]: undefined
-            }));
-          }
-        }
-      }}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter') {
-          e.target.blur();
-        }
-      }}
-      style={{
-        width: isMobile ? '40px' : '35px',
-        padding: isMobile ? '6px 2px' : '4px 2px',
-        textAlign: 'center',
-        fontSize: isMobile ? '14px' : '12px',
-        fontWeight: '600',
-        border: '1px solid #ddd',
-        borderRadius: '6px',
-        background: 'white',
-        outline: 'none',
-        transition: 'border 0.2s'
-      }}
-      onFocus={(e) => {
-        e.target.style.borderColor = '#095400';
-        // ✅ NÃO SELECIONA NADA - comportamento natural
-      }}
-      onBlur={(e) => {
-        e.target.style.borderColor = '#ddd';
-      }}
-    />
-    
-    <button
-      onClick={() => {
-        adjustQuantity(product.id, 1);
-        // Limpa o estado local ao usar os botões
-        setInputQuantities(prev => ({
-          ...prev,
-          [product.id]: undefined
-        }));
-      }}
-      style={{ 
-        background: '#2ECC71', 
-        color: 'white',
-        border: 'none', 
-        borderRadius: '50%', 
-        width: isMobile ? '28px' : '24px', 
-        height: isMobile ? '28px' : '24px', 
-        cursor: 'pointer',
-        fontSize: isMobile ? '16px' : '14px',
-        fontWeight: 'bold',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'all 0.2s'
-      }}
-      onMouseOver={(e) => e.target.style.background = '#27AE60'}
-      onMouseOut={(e) => e.target.style.background = '#2ECC71'}
-    > + </button>
-  </div>
-  
-  <div style={{ 
-    display: 'flex', 
-    alignItems: 'center', 
-    gap: isMobile ? '12px' : '8px' 
-  }}>
-    <div style={{ textAlign: 'right' }}>
-      {temDesconto && (cupomAtivo || campanhaAtiva) ? (
-        <>
-          <p style={{ 
-            fontWeight: 700, 
-            margin: 0, 
-            color: '#27AE60', 
-            fontSize: isMobile ? '15px' : '14px'
-          }}>
-            R$ {precoComDesconto.toFixed(2)}
-          </p>
-          <p style={{ 
-            margin: 0, 
-            color: '#999', 
-            fontSize: isMobile ? '11px' : '10px',
-            textDecoration: 'line-through'
-          }}>
-            R$ {product.totalPrice.toFixed(2)}
-          </p>
-        </>
-      ) : (
-        <p style={{ 
-          fontWeight: 700, 
-          margin: 0, 
-          color: '#E74C3C', 
-          fontSize: isMobile ? '15px' : '14px'
-        }}>
-          R$ {product.totalPrice.toFixed(2)}
-        </p>
-      )}
-    </div>
-    <button
-      onClick={() => {
-        handleRemoveFromCart(product.id);
-        // Limpa o estado local ao remover
-        setInputQuantities(prev => ({
-          ...prev,
-          [product.id]: undefined
-        }));
-      }}
-      style={{ 
-        background: '#FF6B6B', 
-        color: 'white', 
-        border: 'none', 
-        borderRadius: '50%',
-        width: isMobile ? '32px' : '28px',
-        height: isMobile ? '32px' : '28px',
-        cursor: 'pointer', 
-        fontSize: isMobile ? '16px' : '14px',
-        fontWeight: 'bold',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'all 0.2s'
-      }}
-      onMouseOver={(e) => e.target.style.background = '#EE5A52'}
-      onMouseOut={(e) => e.target.style.background = '#FF6B6B'}
-    > × </button>
-  </div>
-</div>
+                    {/* Controles de quantidade e preço */}
+                    <div style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'space-between',
+                      marginTop: '10px',
+                      paddingLeft: isMobile ? '0' : '60px'
+                    }}>
+                      <div style={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: isMobile ? '10px' : '6px',
+                        background: '#f8f9fa',
+                        borderRadius: '20px',
+                        padding: isMobile ? '6px 10px' : '4px 8px'
+                      }}>
+                        <button
+                          onClick={() => {
+                            adjustQuantity(product.id, -1);
+                            setInputQuantities(prev => ({
+                              ...prev,
+                              [product.id]: undefined
+                            }));
+                          }}
+                          className="cart-qty-btn cart-qty-minus"
+                          style={{
+                            width: isMobile ? '28px' : '24px',
+                            height: isMobile ? '28px' : '24px',
+                            fontSize: isMobile ? '16px' : '14px'
+                          }}
+                        > - </button>
+                        
+                        {/* ✅ CAMPO DE QUANTIDADE EDITÁVEL */}
+                        <input
+                          type="text"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          value={inputQuantities[product.id] !== undefined ? inputQuantities[product.id] : product.quantity}
+                          onChange={(e) => {
+                            const value = e.target.value.replace(/\D/g, '');
+                            
+                            setInputQuantities(prev => ({
+                              ...prev,
+                              [product.id]: value
+                            }));
+                            
+                            if (value !== '') {
+                              const newQuantity = Number(value);
+                              if (newQuantity >= 1) {
+                                handleQuantityChange(product.id, newQuantity);
+                              }
+                            }
+                          }}
+                          onBlur={(e) => {
+                            const value = e.target.value.replace(/\D/g, '');
+                            
+                            if (value === '' || parseInt(value) <= 0) {
+                              handleQuantityChange(product.id, 1);
+                              setInputQuantities(prev => ({
+                                ...prev,
+                                [product.id]: undefined
+                              }));
+                            } else {
+                              const newQuantity = parseInt(value);
+                              if (newQuantity > 999) {
+                                handleQuantityChange(product.id, 999);
+                                setInputQuantities(prev => ({
+                                  ...prev,
+                                  [product.id]: '999'
+                                }));
+                              } else {
+                                handleQuantityChange(product.id, newQuantity);
+                                setInputQuantities(prev => ({
+                                  ...prev,
+                                  [product.id]: undefined
+                                }));
+                              }
+                            }
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                              e.target.blur();
+                            }
+                          }}
+                          className="cart-qty-input"
+                          style={{
+                            width: isMobile ? '40px' : '35px',
+                            padding: isMobile ? '6px 2px' : '4px 2px',
+                            fontSize: isMobile ? '14px' : '12px'
+                          }}
+                        />
+                        
+                        <button
+                          onClick={() => {
+                            adjustQuantity(product.id, 1);
+                            setInputQuantities(prev => ({
+                              ...prev,
+                              [product.id]: undefined
+                            }));
+                          }}
+                          className="cart-qty-btn cart-qty-plus"
+                          style={{
+                            width: isMobile ? '28px' : '24px',
+                            height: isMobile ? '28px' : '24px',
+                            fontSize: isMobile ? '16px' : '14px'
+                          }}
+                        > + </button>
+                      </div>
+                      
+                      <div style={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: isMobile ? '12px' : '8px' 
+                      }}>
+                        <div style={{ textAlign: 'right' }}>
+                          {temDesconto && (cupomAtivo || campanhaAtiva) ? (
+                            <>
+                              <p style={{ 
+                                fontWeight: 700, 
+                                margin: 0, 
+                                color: '#27AE60', 
+                                fontSize: isMobile ? '15px' : '14px'
+                              }}>
+                                R$ {precoComDesconto.toFixed(2)}
+                              </p>
+                              <p style={{ 
+                                margin: 0, 
+                                color: '#999', 
+                                fontSize: isMobile ? '11px' : '10px',
+                                textDecoration: 'line-through'
+                              }}>
+                                R$ {product.totalPrice.toFixed(2)}
+                              </p>
+                            </>
+                          ) : (
+                            <p style={{ 
+                              fontWeight: 700, 
+                              margin: 0, 
+                              color: '#E74C3C', 
+                              fontSize: isMobile ? '15px' : '14px'
+                            }}>
+                              R$ {product.totalPrice.toFixed(2)}
+                            </p>
+                          )}
+                        </div>
+                        <button
+                          onClick={() => {
+                            handleRemoveFromCart(product.id);
+                            setInputQuantities(prev => ({
+                              ...prev,
+                              [product.id]: undefined
+                            }));
+                          }}
+                          className="cart-remove-btn"
+                          style={{
+                            width: isMobile ? '32px' : '28px',
+                            height: isMobile ? '32px' : '28px',
+                            fontSize: isMobile ? '16px' : '14px'
+                          }}
+                        > × </button>
+                      </div>
+                    </div>
 
                     {/* Mostra o desconto distribuído */}
                     {dadosDesconto && dadosDesconto.itensComDesconto[product.id] && (
@@ -1803,10 +1738,7 @@ const handleQuantityChange = (productId, newQuantity) => {
               </div>
             </div>
 
-            {/* ✅ SEÇÃO DE CUPOM - APARECE QUANDO:
-                1. Campanha DESATIVADA (ativa: false) OU
-                2. Campanha ATIVA mas NÃO QUALIFICADA (cliente não atingiu requisitos)
-            */}
+            {/* ✅ SEÇÃO DE CUPOM */}
             {(!CAMPANHA_SCALA_CART.ativa || !campanhaAtiva) && (
               <div style={{
                 backgroundColor: '#F8F9FA',
@@ -1897,20 +1829,11 @@ const handleQuantityChange = (productId, newQuantity) => {
                       />
                       <button
                         onClick={aplicarCupom}
+                        className="cart-cupom-btn"
                         style={{
-                          backgroundColor: '#095400',
-                          color: 'white',
-                          border: 'none',
-                          borderRadius: '8px',
                           padding: isMobile ? '0 15px' : '0 12px',
-                          fontSize: isMobile ? '14px' : '13px',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          transition: 'all 0.2s',
-                          whiteSpace: 'nowrap'
+                          fontSize: isMobile ? '14px' : '13px'
                         }}
-                        onMouseOver={(e) => e.target.style.backgroundColor = '#0a6d00'}
-                        onMouseOut={(e) => e.target.style.backgroundColor = '#095400'}
                       >
                         Aplicar
                       </button>
@@ -2081,34 +2004,14 @@ const handleQuantityChange = (productId, newQuantity) => {
               </div>
             </div>
 
-            {/* ✅ BOTÃO FINALIZAR MODIFICADO - MOSTRA "FAZER LOGIN" QUANDO NÃO LOGADO */}
+            {/* ✅ BOTÃO FINALIZAR */}
             <button
               onClick={finalizarPedido}
               disabled={!isTotalValid || !paymentMethod || finalizando}
+              className="cart-finalizar-btn"
               style={{ 
-                width: '100%', 
                 padding: isMobile ? '16px' : '14px', 
-                background: isTotalValid && paymentMethod && !finalizando ? '#2ECC71' : '#BDC3C7', 
-                color: 'white', 
-                border: 'none', 
-                borderRadius: '10px', 
-                fontWeight: 700, 
-                fontSize: isMobile ? '15px' : '14px', 
-                cursor: isTotalValid && paymentMethod && !finalizando ? 'pointer' : 'not-allowed',
-                transition: 'all 0.3s',
-                boxShadow: isTotalValid && paymentMethod && !finalizando ? '0 4px 15px rgba(46, 204, 113, 0.3)' : 'none'
-              }}
-              onMouseOver={(e) => {
-                if (isTotalValid && paymentMethod && !finalizando) {
-                  e.target.style.background = '#27AE60';
-                  e.target.style.transform = 'translateY(-2px)';
-                }
-              }}
-              onMouseOut={(e) => {
-                if (isTotalValid && paymentMethod && !finalizando) {
-                  e.target.style.background = '#2ECC71';
-                  e.target.style.transform = 'translateY(0)';
-                }
+                fontSize: isMobile ? '15px' : '14px'
               }}
             > 
               {finalizando ? (
@@ -2164,7 +2067,7 @@ const handleQuantityChange = (productId, newQuantity) => {
             background: #f1f1f1;
           }
           ::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
+            background: #095400;
             border-radius: 10px;
           }
         }
