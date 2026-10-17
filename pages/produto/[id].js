@@ -3699,7 +3699,7 @@ useEffect(() => {
         </div>
       )}
 
-      <div style={styles.container}>
+      <div className="product-page-anim" style={styles.container}>
         
         {/* CABEÇALHO ÚNICO E SIMPLES */}
         <div style={styles.header}>
@@ -3717,19 +3717,19 @@ useEffect(() => {
             {/* BOTÕES DE NAVEGAÇÃO */}
             <div style={styles.navButtons}>
               <button 
-                style={styles.navButton}
+                className="product-nav-btn"
                 onClick={() => router.push('/')}
               >
                 Página Inicial
               </button>
               <button 
-                style={styles.navButton}
+                className="product-nav-btn"
                 onClick={() => router.push('/produtos')}
               >
                 Mais produtos
               </button>
               <button 
-                style={styles.ofertasButton}
+                className="product-nav-btn-oferta"
                 onClick={() => router.push('/ofertas')}
               >
                 🔥 Ofertas
@@ -3750,6 +3750,7 @@ useEffect(() => {
               src={product.image} 
               alt={seo.alt}
               title={seo.title}
+              className="product-image-zoom"
               style={styles.productImage}
               onError={(e) => {
                 e.target.src = 'https://via.placeholder.com/400x300/095400/ffffff?text=PMG+ATACADISTA';
@@ -3850,6 +3851,7 @@ useEffect(() => {
   <button
     onClick={handleAddToCart}
     disabled={!status.available}
+    className="product-add-btn"
     style={{
       ...styles.addToCartButton,
       backgroundColor: !status.available ? '#ccc' : (isProductInCart ? '#27AE60' : '#ff0000'),
@@ -3863,6 +3865,7 @@ useEffect(() => {
   <button
     onClick={handleBuyNow}
     disabled={!status.available}
+    className="product-buy-btn"
     style={{
       ...styles.buyNowButton,
       backgroundColor: !status.available ? '#ccc' : '#095400',
@@ -4029,37 +4032,7 @@ useEffect(() => {
     <h3 style={styles.sectionTitle}>🚚 Cidades com Entrega</h3>
     
     {/* BOTÃO SAIBA MAIS - LINK PARA A PÁGINA DE CIDADES */}
-    <a
-      href="/cidades-atendidas"
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '6px',
-        backgroundColor: '#095400',
-        color: 'white',
-        padding: '8px 18px',
-        borderRadius: '20px',
-        fontSize: '13px',
-        fontWeight: '600',
-        textDecoration: 'none',
-        transition: 'all 0.3s ease',
-        border: '2px solid #095400',
-        boxShadow: '0 2px 8px rgba(9, 84, 0, 0.15)',
-        whiteSpace: 'nowrap'
-      }}
-      onMouseOver={(e) => {
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#095400';
-        e.target.style.transform = 'translateY(-2px)';
-        e.target.style.boxShadow = '0 4px 12px rgba(9, 84, 0, 0.25)';
-      }}
-      onMouseOut={(e) => {
-        e.target.style.backgroundColor = '#095400';
-        e.target.style.color = 'white';
-        e.target.style.transform = 'translateY(0)';
-        e.target.style.boxShadow = '0 2px 8px rgba(9, 84, 0, 0.15)';
-      }}
-    >
+    <a href="/cidades-atendidas" className="product-saiba-mais-btn">
       <span>🌍</span>
       Saiba mais
       <span style={{ fontSize: '12px' }}>→</span>
@@ -4234,19 +4207,19 @@ useEffect(() => {
             <div style={styles.advantagesSection}>
               <h3 style={styles.sectionTitle}>🌟 Por que comprar na PMG ATACADISTA?</h3>
               <div style={styles.advantagesList}>
-                <div style={styles.advantageItem}>
+                <div className="product-advantage-item">
                   <span style={styles.advantageIcon}>💰</span>
                   Melhores preços de atacado
                 </div>
-                <div style={styles.advantageItem}>
+                <div className="product-advantage-item">
                   <span style={styles.advantageIcon}>⚡</span>
                   Entrega rápida e confiável
                 </div>
-                <div style={styles.advantageItem}>
+                <div className="product-advantage-item">
                   <span style={styles.advantageIcon}>🎯</span>
                   Atendimento especializado
                 </div>
-                <div style={styles.advantageItem}>
+                <div className="product-advantage-item">
                   <span style={styles.advantageIcon}>⭐</span>
                   Produtos de qualidade
                 </div>
@@ -4300,160 +4273,68 @@ useEffect(() => {
             width: '100%'
           }}>
             
-            {/* Política de Privacidade */}
             <Link href="/politica-de-privacidade" passHref legacyBehavior>
-              <a style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '600',
+              <a className="btn-top btn-top-primary" style={{
+                minHeight: '50px',
+                justifyContent: 'center',
                 fontSize: '14px',
                 padding: '12px 8px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                minHeight: '50px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'white';
-                e.target.style.color = '#095400';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-              }}
-              title="Política de Privacidade"
-              aria-label="Leia nossa Política de Privacidade"
-            >
-              <span>🔒</span>
-              Privacidade
-            </a>
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}>
+                <span>🔒</span>
+                Privacidade
+              </a>
             </Link>
 
-            {/* Política de Devolução e Reembolso */}
             <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
-              <a style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '600',
+              <a className="btn-top btn-top-primary" style={{
+                minHeight: '50px',
+                justifyContent: 'center',
                 fontSize: '14px',
                 padding: '12px 8px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                minHeight: '50px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'white';
-                e.target.style.color = '#095400';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-              }}
-              title="Política de Devolução e Reembolso"
-              aria-label="Leia nossa Política de Devolução e Reembolso"
-            >
-              <span>🔄</span>
-              Política de Devolução e Reembolso
-            </a>
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}>
+                <span>🔄</span>
+                Política de Devolução
+              </a>
             </Link>
 
-            {/* Termos de Uso */}
             <Link href="/termos" passHref legacyBehavior>
-              <a style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '600',
+              <a className="btn-top btn-top-primary" style={{
+                minHeight: '50px',
+                justifyContent: 'center',
                 fontSize: '14px',
                 padding: '12px 8px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                minHeight: '50px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'white';
-                e.target.style.color = '#095400';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-              }}
-              title="Termos de Uso"
-              aria-label="Leia nossos Termos de Uso"
-            >
-              <span>📄</span>
-              Termos
-            </a>
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}>
+                <span>📄</span>
+                Termos
+              </a>
             </Link>
 
-            {/* Quem Somos */}
             <Link href="/quem-somos" passHref legacyBehavior>
-              <a style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '600',
+              <a className="btn-top btn-top-primary" style={{
+                minHeight: '50px',
+                justifyContent: 'center',
                 fontSize: '14px',
                 padding: '12px 8px',
                 borderRadius: '8px',
-                transition: 'all 0.3s ease',
                 backgroundColor: 'white',
                 border: '1px solid #e0e0e0',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                minHeight: '50px'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 4px 8px rgba(9, 84, 0, 0.2)';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'white';
-                e.target.style.color = '#095400';
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-              }}
-              title="Quem Somos"
-              aria-label="Conheça mais sobre nós"
-            >
-              <span>👥</span>
-              Sobre
-            </a>
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+              }}>
+                <span>👥</span>
+                Sobre
+              </a>
             </Link>
           </div>
 
@@ -4491,35 +4372,12 @@ useEffect(() => {
                 href="https://www.facebook.com/MarquesVendaspmg" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '8px',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none',
-                  backgroundColor: 'white',
-                  border: '1px solid #e0e0e0',
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.transform = 'scale(1.1)';
-                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-                }}
+                className="social-icon-link"
               >
                 <img 
                   src="https://i.imgur.com/prULUUA.png" 
                   alt="Facebook" 
-                  style={{
-                    width: '20px',
-                    height: '20px'
-                  }}
+                  style={{ width: '20px', height: '20px' }}
                 />
               </a>
 
@@ -4528,35 +4386,12 @@ useEffect(() => {
                 href="https://www.instagram.com/marquesvendaspmg" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '8px',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none',
-                  backgroundColor: 'white',
-                  border: '1px solid #e0e0e0',
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.transform = 'scale(1.1)';
-                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-                }}
+                className="social-icon-link"
               >
                 <img 
                   src="https://i.imgur.com/I0ZZLjG.png" 
                   alt="Instagram" 
-                  style={{
-                    width: '20px',
-                    height: '20px'
-                  }}
+                  style={{ width: '20px', height: '20px' }}
                 />
               </a>
 
@@ -4565,35 +4400,12 @@ useEffect(() => {
                 href="https://www.youtube.com/@MarquesVendasPMG" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '8px',
-                  transition: 'all 0.3s ease',
-                  textDecoration: 'none',
-                  backgroundColor: 'white',
-                  border: '1px solid #e0e0e0',
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.transform = 'scale(1.1)';
-                  e.target.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-                }}
+                className="social-icon-link"
               >
                 <img 
                   src="https://i.imgur.com/WfpZ8Gg.png" 
                   alt="YouTube" 
-                  style={{
-                    width: '20px',
-                    height: '20px'
-                  }}
+                  style={{ width: '20px', height: '20px' }}
                 />
               </a>
             </div>
@@ -4697,7 +4509,6 @@ const styles = {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '15px',
-    fontFamily: 'Arial, sans-serif',
     minHeight: '100vh'
   },
   
