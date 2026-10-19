@@ -624,7 +624,7 @@ const handleQuantityChange = (productId, newQuantity) => {
   };
 
   // ==============================================
-  // ✅ FUNÇÃO MODIFICADA: finalizarPedido com verificação de login
+  // ✅ FUNÇÃO MODIFICADA: finalizarPedido (OTIMIZADA)
   // ==============================================
   const finalizarPedido = async () => {
     if (!isTotalValid || !paymentMethod) {
@@ -638,12 +638,24 @@ const handleQuantityChange = (productId, newQuantity) => {
       return;
     }
 
-    // Se chegou aqui, usuário está logado
-    const { data: { user: currentUser } } = await supabase.auth.getUser();
-
     setFinalizando(true);
 
     try {
+      // 1️⃣ GERA O LINK DO WHATSAPP PRIMEIRO (MAIS RÁPIDO)
+      const whatsappUrl = generateWhatsAppMessage();
+      
+      // 2️⃣ ABRE O WHATSAPP IMEDIATAMENTE (NÃO ESPERA O BANCO DE DADOS)
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        window.location.href = whatsappUrl;
+      } else {
+        window.open(whatsappUrl, '_blank');
+      }
+
+      // 3️⃣ PEGA OS DADOS DO USUÁRIO
+      const { data: { user: currentUser } } = await supabase.auth.getUser();
+
+      // 4️⃣ MONTA OS DADOS DO PEDIDO
       const orderItems = groupedCart.map(product => ({
         id: product.id,
         name: product.name,
@@ -663,17 +675,8 @@ const handleQuantityChange = (productId, newQuantity) => {
         discount_amount: cupomAplicado?.desconto || (campanhaAtiva ? 2 : 0),
         status: 'completed'
       };
-      
-      const whatsappUrl = generateWhatsAppMessage();
-      
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      
-      if (isIOS) {
-        window.location.href = whatsappUrl;
-      } else {
-        window.open(whatsappUrl, '_blank');
-      }
 
+      // 5️⃣ SALVA O PEDIDO EM SEGUNDO PLANO (SEM TRAVAR A TELA)
       fetch('/api/finalizar-pedido', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -682,20 +685,27 @@ const handleQuantityChange = (productId, newQuantity) => {
         console.error('❌ Erro ao salvar pedido:', error);
       });
 
+      // 6️⃣ LIMPA O CARRINHO E O SUPABASE (EM SEGUNDO PLANO)
       setCart([]);
       localStorage.removeItem(CART_STORAGE_KEY);
       
-      await supabase
+      supabase
         .from('user_carts')
         .upsert({
           user_id: currentUser.id,
           cart_items: [],
           updated_at: new Date().toISOString()
-        });
+        })
+        .then(() => console.log('✅ Carrinho limpo no Supabase'))
+        .catch(err => console.error('❌ Erro ao limpar Supabase:', err));
 
+      // 7️⃣ RESETA OS ESTADOS VISUAIS
       setCupomAplicado(null);
       setPaymentMethod('');
-      toggleCart();
+      
+      // Fecha o carrinho
+      if (isMobile) setIsOpen(false);
+      else setIsCollapsed(true);
 
     } catch (error) {
       console.error('❌ Erro ao finalizar pedido:', error);
