@@ -10,6 +10,7 @@ import { useProdutoValidade } from '../hook/useProdutoValidade';
 import keywordsMap from '../public/keywords.json';
 import pesosMap from '../public/pesos.json';
 import VerificadorCEP from '../components/VerificadorCEP'
+import { getUserIPCached, registrarAcesso } from '../lib/getUserIP';
 
 // ==============================================
 // 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
@@ -3547,7 +3548,90 @@ const abrirModalConta = async () => {
     return () => subscription?.unsubscribe();
   }, []);
   // ========== FIM DO CONTADOR DE PEDIDOS ========== //
-  
+
+	// ==============================================
+// 🛡️ VERIFICAÇÃO DE BLOQUEIO (VERSAO BLINDADA)
+// ==============================================
+const verificarUsuarioBloqueado = async ({ email, cpfCnpj, phone, ip }) => {
+  try {
+    const emailNorm = (email || '').trim().toLowerCase();
+    const cpfNorm   = (cpfCnpj || '').replace(/\D/g, '');
+    const phoneNorm = (phone || '').replace(/\D/g, '');
+    const ipNorm    = (ip || '').trim();
+
+    // Se nada foi informado, não bloqueia
+    if (!emailNorm && !cpfNorm && !phoneNorm && !ipNorm) {
+      return null;
+    }
+
+    // Faz 4 queries separadas em paralelo (mais confiável que .or())
+    const queries = [];
+
+    if (emailNorm) {
+      queries.push(
+        supabase
+          .from('blocked_users')
+          .select('reason')
+          .eq('email', emailNorm)
+          .limit(1)
+          .maybeSingle()
+      );
+    }
+
+    if (cpfNorm) {
+      queries.push(
+        supabase
+          .from('blocked_users')
+          .select('reason')
+          .eq('cpf_cnpj', cpfNorm)
+          .limit(1)
+          .maybeSingle()
+      );
+    }
+
+    if (phoneNorm) {
+      queries.push(
+        supabase
+          .from('blocked_users')
+          .select('reason')
+          .eq('phone', phoneNorm)
+          .limit(1)
+          .maybeSingle()
+      );
+    }
+
+    if (ipNorm) {
+      queries.push(
+        supabase
+          .from('blocked_users')
+          .select('reason')
+          .eq('ip', ipNorm)
+          .limit(1)
+          .maybeSingle()
+      );
+    }
+
+    const resultados = await Promise.all(queries);
+
+    // Se QUALQUER uma achou → bloqueado
+    for (const { data, error } of resultados) {
+      if (error) {
+        console.error('Erro em uma das consultas de bloqueio:', error);
+        continue; // não para, tenta as outras
+      }
+      if (data) {
+        return data.reason || 'Comportamento suspeito detectado';
+      }
+    }
+
+    return null; // passou em todas → liberado
+
+  } catch (err) {
+    console.error('Erro inesperado na verificação de bloqueio:', err);
+    return null;
+  }
+};
+
 // ========== DETECTAR SE ESTÁ RODANDO DENTRO DO APP ==========
 const isRunningInApp = () => {
   if (typeof window === 'undefined') return false;
@@ -3594,6 +3678,7 @@ const isRunningInApp = () => {
   const [showGoogleLogin, setShowGoogleLogin] = useState(true);
   const [tempoRestante, setTempoRestante] = useState('--:--:--');
   const [ofertaAtiva, setOfertaAtiva] = useState(OFERTA_RELAMPAGO.ativa);
+  const [contaBloqueada, setContaBloqueada] = useState(false);
 
   useTrackUser(); // ← ADICIONE ESTA LINHA
 
@@ -4495,97 +4580,129 @@ useEffect(() => {
   };
 }, []);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-      if (error) throw error;
-      
-      setUser(data.user);
-      
-      // Busca o nome do usuário após login
-      const { data: profileData } = await supabase
-        .from('profiles')
-        .select('full_name')
-        .eq('id', data.user.id)
-        .single();
-      
-      if (profileData) {
-        setUserName(profileData.full_name || '');
-      }
-      
+const handleLogin = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setAuthError('');
+
+  try {
+    // 1. Pega IP
+    const ip = await getUserIPCached();
+    console.log('🔍 [LOGIN] IP:', ip);
+
+    // 2. Registra acesso (sempre, mesmo se for bloqueado)
+    await registrarAcesso({ ip, email, tentativa: 'login' });
+
+    // 3. Verifica bloqueio
+    const motivoBloqueio = await verificarUsuarioBloqueado({ email, ip });
+
+    if (motivoBloqueio !== null) {
+      console.log('🚫 [LOGIN] BLOQUEADO:', motivoBloqueio);
+      await registrarAcesso({ ip, email, tentativa: 'bloqueado' });
+      setLoading(false);
       setShowAuthModal(false);
-      setPageBlocked(false);
-      
-      // VERIFICA E PREPARA REDIRECIONAMENTO APÓS LOGIN
-      const urlParams = new URLSearchParams(window.location.search);
-      const returnTo = urlParams.get('returnTo');
-      
-      if (returnTo) {
-        const decodedUrl = decodeURIComponent(returnTo);
-        if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
-          // Mostra mensagem centralizada
-          setRedirectDestination(decodedUrl);
-          setShowRedirectMessage(true);
-          
-          // Redireciona após 2 segundos
-          setTimeout(() => {
-            router.push(decodedUrl);
-          }, 2000);
-        }
+      setContaBloqueada(true);
+      return;
+    }
+
+    // 4. Login normal
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) throw error;
+
+    setUser(data.user);
+
+    const { data: profileData } = await supabase
+      .from('profiles').select('full_name').eq('id', data.user.id).single();
+    if (profileData) setUserName(profileData.full_name || '');
+
+    setShowAuthModal(false);
+    setPageBlocked(false);
+
+    // Redirecionamento pós-login (mantém o que você tinha)
+    const urlParams = new URLSearchParams(window.location.search);
+    const returnTo = urlParams.get('returnTo');
+    if (returnTo) {
+      const decodedUrl = decodeURIComponent(returnTo);
+      if (decodedUrl.startsWith('/produto/') || decodedUrl.startsWith('/')) {
+        setRedirectDestination(decodedUrl);
+        setShowRedirectMessage(true);
+        setTimeout(() => { router.push(decodedUrl); }, 2000);
       }
-      
-    } catch (error) {
-      setAuthError(error.message);
-    } finally {
-      setLoading(false);
     }
-  };
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            full_name: name,
-            phone,
-            cpf_cnpj: cpfCnpj
-          }
-        }
-      });
-      if (error) throw error;
-      const user = data?.user;
-      if (!user || !user.id) throw new Error("Erro ao obter o ID do usuário.");
+  } catch (error) {
+    console.error('Erro no login:', error);
+    setAuthError(error.message);
+  } finally {
+    setLoading(false);
+  }
+};
 
-      await supabase
-        .from('usuarios')
-        .insert([
-          {
-            id: user.id,
-            nome: name,
-            email: email,
-            telefone: phone,
-            cpf_cnpj: cpfCnpj,
-            senha: password
-          }
-        ]);
+const handleRegister = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setAuthError('');
 
-      alert('Cadastro realizado com sucesso! Verifique seu e-mail para confirmação. Se não encontrar verifique a caixa de spam.');
-      setAuthType('login');
-    } catch (error) {
-      setAuthError(error.message);
-    } finally {
+  try {
+    // 1. Pega IP
+    const ip = await getUserIPCached();
+    console.log('🔍 [REGISTER] IP:', ip);
+
+    // 2. REGISTRA O ACESSO antes de tudo (pra você ver o IP dela no painel)
+    await registrarAcesso({ ip, email, tentativa: 'cadastro' });
+
+    // 3. Verifica bloqueio
+    const motivoBloqueio = await verificarUsuarioBloqueado({
+      email, cpfCnpj, phone, ip,
+    });
+
+    if (motivoBloqueio !== null) {
+      console.log('🚫 [REGISTER] BLOQUEADO:', motivoBloqueio);
+      // Registra também que foi bloqueado (útil pra auditoria)
+      await registrarAcesso({ ip, email, tentativa: 'bloqueado' });
       setLoading(false);
+      setShowAuthModal(false);
+      setContaBloqueada(true);
+      return;
     }
-  };
+
+    // 4. Cadastra normal (mantém o que você já tinha)
+    const { data, error } = await supabase.auth.signUp({
+      email, password,
+      options: { data: { full_name: name, phone, cpf_cnpj: cpfCnpj } },
+    });
+    if (error) throw error;
+
+    if (!data.user?.identities || data.user.identities.length === 0) {
+      setLoading(false);
+      setAuthError('Este email já está cadastrado. Tente fazer login.');
+      return;
+    }
+
+    const user = data.user;
+    if (!user?.id) throw new Error('Erro ao obter o ID do usuário.');
+
+    await supabase
+      .from('usuarios')
+      .upsert([{
+        id: user.id,
+        nome: name,
+        email: email,
+        telefone: phone,
+        cpf_cnpj: cpfCnpj,
+        senha: password,
+      }], { onConflict: 'id' });
+
+    alert('Cadastro realizado com sucesso! Verifique seu e-mail para confirmação. Se não encontrar verifique a caixa de spam.');
+    setAuthType('login');
+
+  } catch (error) {
+    console.error('Erro no cadastro:', error);
+    setAuthError(error.message);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -5381,6 +5498,153 @@ productsGrid: {
       alignItems: 'center'
     }
   };
+
+if (contaBloqueada) {
+  return (
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '20px',
+      background: 'linear-gradient(135deg, #f9f9f9 0%, #f0f7f0 100%)',
+      fontFamily: 'system-ui, -apple-system, sans-serif'
+    }}>
+      <div style={{
+        maxWidth: '520px',
+        width: '100%',
+        background: '#fff',
+        padding: '45px 35px',
+        borderRadius: '16px',
+        boxShadow: '0 10px 40px rgba(0,0,0,0.08)',
+        textAlign: 'center'
+      }}>
+        {/* Ícone */}
+        <div style={{
+          width: '90px',
+          height: '90px',
+          margin: '0 auto 25px',
+          background: '#FFF3E0',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '48px'
+        }}>
+          🔒
+        </div>
+
+        {/* Título */}
+        <h1 style={{
+          color: '#095400',
+          fontSize: '24px',
+          marginBottom: '16px',
+          fontWeight: '700',
+          lineHeight: '1.3'
+        }}>
+          Acesso temporariamente limitado
+        </h1>
+
+        {/* Texto principal */}
+        <p style={{
+          color: '#555',
+          lineHeight: '1.7',
+          marginBottom: '14px',
+          fontSize: '15px'
+        }}>
+          Olá! Detectamos <strong>comportamentos suspeitos</strong> em sua conta
+          e, por segurança, decidimos limitar seu acesso à nossa plataforma.
+        </p>
+
+        <p style={{
+          color: '#555',
+          lineHeight: '1.7',
+          marginBottom: '32px',
+          fontSize: '15px'
+        }}>
+          Acredita que cometemos um engano? Entre em contato com nosso time —
+          vamos analisar seu caso com toda a atenção. 💚
+        </p>
+
+        {/* Botão WhatsApp */}
+        <a
+          href="https://wa.me/5511913572902?text=Ol%C3%A1%2C%20meu%20acesso%20foi%20limitado%20e%20gostaria%20de%20verificar"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px',
+            background: '#25D366',
+            color: '#fff',
+            padding: '15px 32px',
+            borderRadius: '10px',
+            textDecoration: 'none',
+            fontWeight: '700',
+            fontSize: '16px',
+            boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
+            width: '100%',
+            maxWidth: '320px',
+            margin: '0 auto'
+          }}
+        >
+          💬 Falar no WhatsApp
+        </a>
+
+        {/* ✅ NOVO: Botão Voltar */}
+        <button
+          onClick={() => {
+            // Se tem histórico, volta. Se não, vai pra home.
+            if (typeof window !== 'undefined' && window.history.length > 2) {
+              router.back();
+            } else {
+              router.push('/');
+            }
+          }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            background: 'transparent',
+            color: '#095400',
+            padding: '14px 32px',
+            borderRadius: '10px',
+            border: '2px solid #095400',
+            fontWeight: '600',
+            fontSize: '15px',
+            cursor: 'pointer',
+            width: '100%',
+            maxWidth: '320px',
+            margin: '14px auto 0',
+            transition: 'all 0.2s'
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.background = '#095400';
+            e.currentTarget.style.color = '#fff';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.background = 'transparent';
+            e.currentTarget.style.color = '#095400';
+          }}
+        >
+          ← Voltar
+        </button>
+
+        {/* Rodapé */}
+        <p style={{
+          color: '#999',
+          fontSize: '12px',
+          marginTop: '30px',
+          marginBottom: 0
+        }}>
+          Marques Vendas PMG — Segurança da sua conta é prioridade
+        </p>
+      </div>
+    </div>
+  );
+}
 
   return (
     <>
