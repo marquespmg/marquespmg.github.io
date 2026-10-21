@@ -4581,6 +4581,70 @@ useEffect(() => {
   };
 }, []);
 
+// ==============================================
+// 🛡️ VERIFICAÇÃO DE BLOQUEIO EM TEMPO REAL
+// - Roda ao carregar a página
+// - E a cada 15 minutos (bloqueia até se o user ficar parado)
+// ==============================================
+useEffect(() => {
+  // Se não tem usuário logado, não faz nada
+  if (!user?.email) return;
+
+  const verificarSeEstaBloqueado = async () => {
+    try {
+      console.log('🔍 [TEMPO REAL] Verificando bloqueio para:', user.email);
+
+      const ip = await getUserIPCached();
+      const motivo = await verificarUsuarioBloqueado({
+        email: user.email,
+        ip: ip,
+      });
+
+      if (motivo !== null) {
+        console.log('🚫 [TEMPO REAL] Usuário logado está bloqueado:', motivo);
+
+        // Registra no log pra auditoria
+        await registrarAcesso({
+          ip,
+          email: user.email,
+          tentativa: 'bloqueado',
+        });
+
+        // Força logout completo
+        await supabase.auth.signOut();
+        setUser(null);
+        setUserName('');
+        setUserAvatar('');
+        setCart([]);
+        setTotal(0);
+        setPedidosCount(0);
+        localStorage.removeItem('cart_data');
+        sessionStorage.removeItem('user_ip');
+
+        // Mostra tela de bloqueio
+        setContaBloqueada(true);
+      } else {
+        console.log('✅ [TEMPO REAL] Usuário não está bloqueado');
+      }
+    } catch (err) {
+      // Silencioso — nunca quebra o site
+      console.warn('⚠️ [TEMPO REAL] Erro na verificação:', err);
+    }
+  };
+
+  // 1. Verifica IMEDIATAMENTE ao carregar
+  verificarSeEstaBloqueado();
+
+  // 2. E verifica a cada 15 minutos
+  const INTERVALO_MS = 15 * 60 * 1000; // 15 minutos
+  const intervalId = setInterval(verificarSeEstaBloqueado, INTERVALO_MS);
+
+  // Limpa o intervalo quando o usuário muda (logout, troca de conta, etc.)
+  return () => {
+    clearInterval(intervalId);
+  };
+}, [user]);
+
 const handleLogin = async (e) => {
   e.preventDefault();
   setLoading(true);
