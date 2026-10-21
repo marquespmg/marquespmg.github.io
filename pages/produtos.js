@@ -10,7 +10,7 @@ import { useProdutoValidade } from '../hook/useProdutoValidade';
 import keywordsMap from '../public/keywords.json';
 import pesosMap from '../public/pesos.json';
 import VerificadorCEP from '../components/VerificadorCEP'
-import { getUserIPCached, registrarAcesso } from '../lib/getUserIP';
+import { getUserIPCached, registrarAcesso } from '../lib/getUserIP'
 
 // ==============================================
 // 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
