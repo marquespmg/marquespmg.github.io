@@ -3679,6 +3679,7 @@ const isRunningInApp = () => {
   const [tempoRestante, setTempoRestante] = useState('--:--:--');
   const [ofertaAtiva, setOfertaAtiva] = useState(OFERTA_RELAMPAGO.ativa);
   const [contaBloqueada, setContaBloqueada] = useState(false);
+  const [itemAdicionado, setItemAdicionado] = useState(null);
 
   useTrackUser(); // ← ADICIONE ESTA LINHA
 
@@ -6922,20 +6923,34 @@ if (contaBloqueada) {
 )}
 
           {user && (
-                       <button
-              onClick={() => addToCart(product)}
-              disabled={product.price === 0}
-              className={product.price > 0 && !isOfertaRelampago ? 'add-to-cart-btn' : ''}
-              style={{
-                ...styles.addButton,
-                ...(product.price === 0 && styles.disabledButton),
-                ...(isOfertaRelampago && {
-                  backgroundColor: '#FF1744'
-                })
-              }}
-            >
-              {product.price > 0 ? 'Adicionar ao Carrinho' : 'Indisponível'}
-            </button>
+<button
+  onClick={() => {
+    if (product.price === 0) return; // não faz nada se indisponível
+    addToCart(product);
+    setItemAdicionado(product.id);
+    setTimeout(() => setItemAdicionado(null), 1500); // volta ao normal em 1.5s
+  }}
+  disabled={product.price === 0}
+  className={product.price > 0 && !isOfertaRelampago ? 'add-to-cart-btn' : ''}
+  style={{
+    ...styles.addButton,
+    ...(product.price === 0 && styles.disabledButton),
+    ...(isOfertaRelampago && {
+      backgroundColor: '#FF1744'
+    }),
+    ...(itemAdicionado === product.id && {
+      backgroundColor: '#2ECC71', // verde de "sucesso"
+      cursor: 'default'
+    })
+  }}
+>
+  {product.price === 0
+    ? 'Indisponível'
+    : itemAdicionado === product.id
+      ? '✅ Item adicionado!'
+      : 'Adicionar ao Carrinho'
+  }
+</button>
           )}
 
           {user && dadosValidade[product.id] && (
