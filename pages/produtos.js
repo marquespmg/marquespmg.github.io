@@ -3611,21 +3611,46 @@ const isRunningInApp = () => {
   
   const ua = navigator.userAgent.toLowerCase();
   
-  // Detecta WebView do Android
-  const isWebView = ua.includes('wv') || 
-                    ua.includes('androidwebview') ||
-                    (ua.includes('android') && !ua.includes('chrome'));
+  // ========== 1. ANDROID WEBVIEW ==========
+  const isAndroidWebView = 
+    ua.includes('wv') || 
+    ua.includes('androidwebview') ||
+    (ua.includes('android') && !ua.includes('chrome'));
   
-  // Detecta PWA (app instalado)
-  const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
-                window.navigator.standalone === true;
+  // ========== 2. iOS WEBVIEW (NOVO!) ==========
+  const isIOS = /iphone|ipad|ipod/.test(ua);
   
-  // Detecta redes sociais (WhatsApp, Instagram, Facebook)
+  const isIOSWebView = 
+    isIOS && (
+      // 2.1. PWA instalado (iOS)
+      window.navigator.standalone === true ||
+      // 2.2. React Native WebView
+      (window.ReactNativeWebView && window.ReactNativeWebView.postMessage) ||
+      // 2.3. Sem window.safari (Safari normal tem window.safari)
+      (typeof window.safari === 'undefined' && !ua.includes('safari')) ||
+      // 2.4. User Agent típico de WebView iOS
+      /(iphone|ipod|ipad).*applewebkit(?!.*safari)/i.test(ua)
+    );
+  
+  // ========== 3. PWA (instalado, Android ou iOS) ==========
+  const isPWA = 
+    window.matchMedia('(display-mode: standalone)').matches || 
+    window.navigator.standalone === true;
+  
+  // ========== 4. REDES SOCIAIS ==========
   const isWhatsApp = ua.includes('whatsapp');
   const isInstagram = ua.includes('instagram');
   const isFacebook = ua.includes('fb') || ua.includes('facebook');
   
-  return isWebView || isPWA || isWhatsApp || isInstagram || isFacebook;
+  // ========== 5. RESULTADO ==========
+  return (
+    isAndroidWebView || 
+    isIOSWebView || 
+    isPWA || 
+    isWhatsApp || 
+    isInstagram || 
+    isFacebook
+  );
 };
   
   const [user, setUser] = useState(null);
@@ -3653,6 +3678,11 @@ const isRunningInApp = () => {
   const [ofertaAtiva, setOfertaAtiva] = useState(OFERTA_RELAMPAGO.ativa);
   const [contaBloqueada, setContaBloqueada] = useState(false);
   const [itemAdicionado, setItemAdicionado] = useState(null);
+  const [itemAdicionado, setItemAdicionado] = useState(null);
+  const [showConfirmarExclusao, setShowConfirmarExclusao] = useState(false);
+  const [digitouConfirmacao, setDigitouConfirmacao] = useState('');
+  const [excluindoConta, setExcluindoConta] = useState(false);
+  const [erroExclusao, setErroExclusao] = useState('');
 
   useTrackUser(); // ← ADICIONE ESTA LINHA
 
@@ -3814,6 +3844,56 @@ const DeliveryDaysDisplay = ({ days }) => {
       [regionKey]: !prev[regionKey]
     }));
   };
+
+// ============================================
+// 🗑️ EXCLUIR CONTA
+// ============================================
+const excluirConta = async () => {
+  // Valida confirmação
+  if (digitouConfirmacao.trim().toUpperCase() !== 'EXCLUIR') {
+    setErroExclusao('Digite EXCLUIR (em maiúsculas) para confirmar.');
+    return;
+  }
+
+  setExcluindoConta(true);
+  setErroExclusao('');
+
+  try {
+    // Chama a função RPC do Supabase
+    const { data, error } = await supabase.rpc('excluir_conta_usuario');
+
+    if (error) throw error;
+
+    if (!data?.success) {
+      throw new Error(data?.error || 'Erro ao excluir conta');
+    }
+
+    // Sucesso! Faz logout e redireciona
+    await supabase.auth.signOut();
+    
+    // Limpa tudo
+    setUser(null);
+    setUserName('');
+    setUserAvatar('');
+    setCart([]);
+    setTotal(0);
+    setPedidosCount(0);
+    localStorage.removeItem('cart_data');
+    sessionStorage.clear();
+
+    // Mostra mensagem de sucesso (opcional, ou redireciona)
+    alert('✅ Conta excluída com sucesso. Sentiremos sua falta! 💚');
+
+    // Redireciona pra home
+    router.push('/');
+
+  } catch (err) {
+    console.error('Erro ao excluir conta:', err);
+    setErroExclusao(err.message || 'Erro ao excluir conta. Tente novamente.');
+  } finally {
+    setExcluindoConta(false);
+  }
+};
 
 // ==============================================
 // 🔑 GERENCIAMENTO DE REDIRECIONAMENTO PÓS-LOGIN
@@ -8102,582 +8182,826 @@ if (contaBloqueada) {
           <Cart cart={cart} setCart={setCart} removeFromCart={removeFromCart} />
         </div>
 
-        {/* ========== MODAL MINHA CONTA ========== */}
-        {showAccountModal && (
-          <>
-            {/* OVERLAY */}
-            <div 
-              style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: 'rgba(0,0,0,0.6)',
-                backdropFilter: 'blur(3px)',
-                zIndex: 2000,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: windowWidth > 768 ? '20px' : '10px'
-              }}
-              onClick={() => setShowAccountModal(false)}
-            />
-            
-            {/* CONTEÚDO DO MODAL */}
-            <div style={{
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              backgroundColor: '#fff',
-              borderRadius: '16px',
-              width: windowWidth > 768 ? '500px' : 'calc(100% - 40px)',
-              maxWidth: '500px',
-              maxHeight: '85vh',
-              overflowY: 'auto',
-              zIndex: 2001,
-              boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-              padding: windowWidth > 768 ? '25px' : '20px'
+{/* ========== MODAL MINHA CONTA ========== */}
+{showAccountModal && (
+  <>
+    {/* OVERLAY */}
+    <div 
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0,0,0,0.6)',
+        backdropFilter: 'blur(3px)',
+        zIndex: 2000,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: windowWidth > 768 ? '20px' : '10px'
+      }}
+      onClick={() => setShowAccountModal(false)}
+    />
+    
+    {/* CONTEÚDO DO MODAL */}
+    <div style={{
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#fff',
+      borderRadius: '16px',
+      width: windowWidth > 768 ? '500px' : 'calc(100% - 40px)',
+      maxWidth: '500px',
+      maxHeight: '85vh',
+      overflowY: 'auto',
+      zIndex: 2001,
+      boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+      padding: windowWidth > 768 ? '25px' : '20px'
+    }}>
+      
+      {/* HEADER DO MODAL */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottom: '2px solid #095400',
+        paddingBottom: '15px',
+        marginBottom: '20px'
+      }}>
+        <h2 style={{
+          margin: 0,
+          color: '#095400',
+          fontSize: windowWidth > 768 ? '22px' : '20px',
+          fontWeight: '700',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px'
+        }}>
+          <span>👨‍🍳</span> Minha Conta
+        </h2>
+        <button
+          onClick={() => setShowAccountModal(false)}
+          style={{
+            background: 'none',
+            border: 'none',
+            fontSize: '24px',
+            cursor: 'pointer',
+            color: '#666',
+            width: '32px',
+            height: '32px',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.2s'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.backgroundColor = '#f0f0f0';
+            e.target.style.color = '#e53935';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.backgroundColor = 'transparent';
+            e.target.style.color = '#666';
+          }}
+        >
+          ×
+        </button>
+      </div>
+      
+      {/* MENSAGEM DE FEEDBACK */}
+      {mensagemAccount.texto && (
+        <div style={{
+          padding: '12px',
+          borderRadius: '8px',
+          marginBottom: '20px',
+          backgroundColor: mensagemAccount.tipo === 'sucesso' ? '#E8F5E8' : '#FFEBEE',
+          color: mensagemAccount.tipo === 'sucesso' ? '#27AE60' : '#E74C3C',
+          border: `1px solid ${mensagemAccount.tipo === 'sucesso' ? '#C8E6C9' : '#FFCDD2'}`,
+          fontSize: '14px',
+          textAlign: 'center'
+        }}>
+          {mensagemAccount.texto}
+        </div>
+      )}
+      
+      {/* LOADING */}
+      {loadingAccount && (
+        <div style={{
+          textAlign: 'center',
+          padding: '20px',
+          color: '#095400'
+        }}>
+          Carregando...
+        </div>
+      )}
+      
+      {/* DADOS DO USUÁRIO */}
+      {!loadingAccount && (
+        <>
+          {/* NOME (EDITÁVEL) */}
+          <div style={{ marginBottom: '20px' }}>
+            <label style={{
+              display: 'block',
+              fontWeight: '600',
+              color: '#333',
+              marginBottom: '5px',
+              fontSize: '14px'
             }}>
-              
-              {/* HEADER DO MODAL */}
+              Nome completo
+            </label>
+            {editandoNome ? (
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <input
+                  type="text"
+                  value={novoNome}
+                  onChange={(e) => setNovoNome(e.target.value)}
+                  style={{
+                    flex: 1,
+                    padding: '12px',
+                    border: '2px solid #095400',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    outline: 'none'
+                  }}
+                  placeholder="Seu nome"
+                />
+                <button
+                  onClick={salvarNome}
+                  style={{
+                    backgroundColor: '#095400',
+                    color: 'white',
+                    border: 'none',
+                    padding: '10px 15px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontWeight: '600'
+                  }}
+                >
+                  Salvar
+                </button>
+                <button
+                  onClick={() => {
+                    setEditandoNome(false);
+                    setNovoNome(accountData.nome);
+                  }}
+                  style={{
+                    backgroundColor: '#95a5a6',
+                    color: 'white',
+                    border: 'none',
+                    padding: '10px 15px',
+                    borderRadius: '8px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Cancelar
+                </button>
+              </div>
+            ) : (
               <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                borderBottom: '2px solid #095400',
-                paddingBottom: '15px',
-                marginBottom: '20px'
+                padding: '12px',
+                backgroundColor: '#f8f9fa',
+                borderRadius: '8px',
+                border: '1px solid #e9ecef'
               }}>
-                <h2 style={{
-                  margin: 0,
-                  color: '#095400',
-                  fontSize: windowWidth > 768 ? '22px' : '20px',
-                  fontWeight: '700',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px'
-                }}>
-                  <span>👨‍🍳</span> Minha Conta
-                </h2>
+                <span style={{ color: '#333', fontSize: '15px' }}>{accountData.nome || 'Não informado'}</span>
                 <button
-                  onClick={() => setShowAccountModal(false)}
+                  onClick={() => setEditandoNome(true)}
                   style={{
                     background: 'none',
                     border: 'none',
-                    fontSize: '24px',
+                    color: '#095400',
                     cursor: 'pointer',
-                    color: '#666',
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transition: 'all 0.2s'
-                  }}
-                  onMouseOver={(e) => {
-                    e.target.style.backgroundColor = '#f0f0f0';
-                    e.target.style.color = '#e53935';
-                  }}
-                  onMouseOut={(e) => {
-                    e.target.style.backgroundColor = 'transparent';
-                    e.target.style.color = '#666';
+                    fontSize: '14px',
+                    fontWeight: '600'
                   }}
                 >
-                  ×
+                  ✏️ Editar
                 </button>
               </div>
-              
-              {/* MENSAGEM DE FEEDBACK */}
-              {mensagemAccount.texto && (
-                <div style={{
-                  padding: '12px',
-                  borderRadius: '8px',
-                  marginBottom: '20px',
-                  backgroundColor: mensagemAccount.tipo === 'sucesso' ? '#E8F5E8' : '#FFEBEE',
-                  color: mensagemAccount.tipo === 'sucesso' ? '#27AE60' : '#E74C3C',
-                  border: `1px solid ${mensagemAccount.tipo === 'sucesso' ? '#C8E6C9' : '#FFCDD2'}`,
-                  fontSize: '14px',
-                  textAlign: 'center'
-                }}>
-                  {mensagemAccount.texto}
-                </div>
-              )}
-              
-              {/* LOADING */}
-              {loadingAccount && (
-                <div style={{
-                  textAlign: 'center',
-                  padding: '20px',
-                  color: '#095400'
-                }}>
-                  Carregando...
-                </div>
-              )}
-              
-              {/* DADOS DO USUÁRIO */}
-              {!loadingAccount && (
-                <>
-                  {/* NOME (EDITÁVEL) */}
-                  <div style={{ marginBottom: '20px' }}>
-                    <label style={{
-                      display: 'block',
-                      fontWeight: '600',
-                      color: '#333',
-                      marginBottom: '5px',
-                      fontSize: '14px'
-                    }}>
-                      Nome completo
-                    </label>
-                    {editandoNome ? (
-                      <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                        <input
-                          type="text"
-                          value={novoNome}
-                          onChange={(e) => setNovoNome(e.target.value)}
-                          style={{
-                            flex: 1,
-                            padding: '12px',
-                            border: '2px solid #095400',
-                            borderRadius: '8px',
-                            fontSize: '14px',
-                            outline: 'none'
-                          }}
-                          placeholder="Seu nome"
-                        />
-                        <button
-                          onClick={salvarNome}
-                          style={{
-                            backgroundColor: '#095400',
-                            color: 'white',
-                            border: 'none',
-                            padding: '10px 15px',
-                            borderRadius: '8px',
-                            cursor: 'pointer',
-                            fontWeight: '600'
-                          }}
-                        >
-                          Salvar
-                        </button>
-                        <button
-                          onClick={() => {
-                            setEditandoNome(false);
-                            setNovoNome(accountData.nome);
-                          }}
-                          style={{
-                            backgroundColor: '#95a5a6',
-                            color: 'white',
-                            border: 'none',
-                            padding: '10px 15px',
-                            borderRadius: '8px',
-                            cursor: 'pointer'
-                          }}
-                        >
-                          Cancelar
-                        </button>
-                      </div>
-                    ) : (
-                      <div style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        padding: '12px',
-                        backgroundColor: '#f8f9fa',
-                        borderRadius: '8px',
-                        border: '1px solid #e9ecef'
-                      }}>
-                        <span style={{ color: '#333', fontSize: '15px' }}>{accountData.nome || 'Não informado'}</span>
-                        <button
-                          onClick={() => setEditandoNome(true)}
-                          style={{
-                            background: 'none',
-                            border: 'none',
-                            color: '#095400',
-                            cursor: 'pointer',
-                            fontSize: '14px',
-                            fontWeight: '600'
-                          }}
-                        >
-                          ✏️ Editar
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* EMAIL (NÃO EDITÁVEL) */}
-                  <div style={{ marginBottom: '15px' }}>
-                    <label style={{
-                      display: 'block',
-                      fontWeight: '600',
-                      color: '#333',
-                      marginBottom: '5px',
-                      fontSize: '14px'
-                    }}>
-                      E-mail
-                    </label>
-                    <div style={{
-                      padding: '12px',
-                      backgroundColor: '#f8f9fa',
-                      borderRadius: '8px',
-                      border: '1px solid #e9ecef',
-                      color: '#666',
-                      fontSize: '15px'
-                    }}>
-                      {accountData.email}
-                    </div>
-                  </div>
-                  
-{/* TELEFONE (EDITÁVEL APENAS SE ESTIVER VAZIO) */}
-<div style={{ marginBottom: '15px' }}>
-  <label style={{
-    display: 'block',
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: '5px',
-    fontSize: '14px'
-  }}>
-    Telefone
-  </label>
-  {editandoTelefone ? (
-    <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-      <input
-        type="tel"
-        value={novoTelefone}
-        onChange={(e) => setNovoTelefone(e.target.value)}
-        placeholder="(11) 99999-9999"
-        style={{
-          flex: 1,
-          padding: '12px',
-          border: '2px solid #095400',
-          borderRadius: '8px',
-          fontSize: '14px',
-          outline: 'none'
-        }}
-      />
-      <button
-        onClick={salvarTelefone}
-        style={{
-          backgroundColor: '#095400',
-          color: 'white',
-          border: 'none',
-          padding: '10px 15px',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          fontWeight: '600'
-        }}
-      >
-        Salvar
-      </button>
-      <button
-        onClick={() => {
-          setEditandoTelefone(false);
-          setNovoTelefone(accountData.telefone);
-        }}
-        style={{
-          backgroundColor: '#95a5a6',
-          color: 'white',
-          border: 'none',
-          padding: '10px 15px',
-          borderRadius: '8px',
-          cursor: 'pointer'
-        }}
-      >
-        Cancelar
-      </button>
-    </div>
-  ) : (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '12px',
-      backgroundColor: '#f8f9fa',
-      borderRadius: '8px',
-      border: '1px solid #e9ecef'
-    }}>
-      <span style={{ color: '#333', fontSize: '15px' }}>
-        {accountData.telefone || 'Não informado'}
-      </span>
-      {(!accountData.telefone || accountData.telefone === '') && (
-        <button
-          onClick={() => {
-            setEditandoTelefone(true);
-            setNovoTelefone(accountData.telefone);
-          }}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: '#095400',
-            cursor: 'pointer',
-            fontSize: '14px',
-            fontWeight: '600'
-          }}
-        >
-          ✏️ Adicionar
-        </button>
-      )}
-    </div>
-  )}
-</div>
+            )}
+          </div>
+          
+          {/* EMAIL (NÃO EDITÁVEL) */}
+          <div style={{ marginBottom: '15px' }}>
+            <label style={{
+              display: 'block',
+              fontWeight: '600',
+              color: '#333',
+              marginBottom: '5px',
+              fontSize: '14px'
+            }}>
+              E-mail
+            </label>
+            <div style={{
+              padding: '12px',
+              backgroundColor: '#f8f9fa',
+              borderRadius: '8px',
+              border: '1px solid #e9ecef',
+              color: '#666',
+              fontSize: '15px'
+            }}>
+              {accountData.email}
+            </div>
+          </div>
 
-{/* CPF/CNPJ (EDITÁVEL APENAS SE ESTIVER VAZIO) */}
-<div style={{ marginBottom: '20px' }}>
-  <label style={{
-    display: 'block',
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: '5px',
-    fontSize: '14px'
-  }}>
-    CPF / CNPJ
-  </label>
-  {editandoCpfCnpj ? (
-    <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-      <input
-        type="text"
-        value={novoCpfCnpj}
-        onChange={(e) => setNovoCpfCnpj(e.target.value)}
-        placeholder="000.000.000-00 ou 00.000.000/0000-00"
-        style={{
-          flex: 1,
-          padding: '12px',
-          border: '2px solid #095400',
-          borderRadius: '8px',
-          fontSize: '14px',
-          outline: 'none'
-        }}
-      />
-      <button
-        onClick={salvarCpfCnpj}
-        style={{
-          backgroundColor: '#095400',
-          color: 'white',
-          border: 'none',
-          padding: '10px 15px',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          fontWeight: '600'
-        }}
-      >
-        Salvar
-      </button>
-      <button
-        onClick={() => {
-          setEditandoCpfCnpj(false);
-          setNovoCpfCnpj(accountData.cpf_cnpj);
-        }}
-        style={{
-          backgroundColor: '#95a5a6',
-          color: 'white',
-          border: 'none',
-          padding: '10px 15px',
-          borderRadius: '8px',
-          cursor: 'pointer'
-        }}
-      >
-        Cancelar
-      </button>
-    </div>
-  ) : (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '12px',
-      backgroundColor: '#f8f9fa',
-      borderRadius: '8px',
-      border: '1px solid #e9ecef'
-    }}>
-      <span style={{ color: '#333', fontSize: '15px' }}>
-        {accountData.cpf_cnpj || 'Não informado'}
-      </span>
-      {(!accountData.cpf_cnpj || accountData.cpf_cnpj === '') && (
-        <button
-          onClick={() => {
-            setEditandoCpfCnpj(true);
-            setNovoCpfCnpj(accountData.cpf_cnpj);
-          }}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: '#095400',
-            cursor: 'pointer',
-            fontSize: '14px',
-            fontWeight: '600'
-          }}
-        >
-          ✏️ Adicionar
-        </button>
-      )}
-    </div>
-  )}
-</div>
-                  
-                  {/* DIVISOR */}
-                  <div style={{
-                    height: '1px',
-                    backgroundColor: '#e9ecef',
-                    margin: '15px 0'
-                  }} />
-                  
-                  {/* SEÇÃO DE SENHA */}
-                  <div style={{ marginBottom: '10px' }}>
-                    <button
-                      onClick={() => setMostrarAlterarSenha(!mostrarAlterarSenha)}
-                      style={{
-                        width: '100%',
-                        padding: '12px',
-                        backgroundColor: '#f8f9fa',
-                        border: '1px solid #e9ecef',
-                        borderRadius: '8px',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        fontSize: '14px',
-                        fontWeight: '600',
-                        color: '#095400'
-                      }}
-                    >
-                      <span>🔐 {usuarioTemSenha ? 'Alterar Senha' : 'Cadastrar Senha'}</span>
-                      <span style={{ transform: mostrarAlterarSenha ? 'rotate(180deg)' : 'rotate(0deg)' }}>▼</span>
-                    </button>
-                    
-                    {mostrarAlterarSenha && (
-                      <div style={{
-                        marginTop: '15px',
-                        padding: '15px',
-                        backgroundColor: '#f8f9fa',
-                        borderRadius: '8px'
-                      }}>
-                        {usuarioTemSenha && (
-                          <input
-                            type="password"
-                            placeholder="Senha atual"
-                            value={senhaAtual}
-                            onChange={(e) => setSenhaAtual(e.target.value)}
-                            style={{
-                              width: '100%',
-                              padding: '12px',
-                              border: '1px solid #ddd',
-                              borderRadius: '8px',
-                              fontSize: '14px',
-                              marginBottom: '12px',
-                              outline: 'none',
-                              transition: 'border 0.2s'
-                            }}
-                            onFocus={(e) => e.target.style.borderColor = '#095400'}
-                            onBlur={(e) => e.target.style.borderColor = '#ddd'}
-                          />
-                        )}
-                        
-                        <input
-                          type="password"
-                          placeholder={usuarioTemSenha ? "Nova senha" : "Digite sua nova senha"}
-                          value={novaSenha}
-                          onChange={(e) => setNovaSenha(e.target.value)}
-                          style={{
-                            width: '100%',
-                            padding: '12px',
-                            border: '1px solid #ddd',
-                            borderRadius: '8px',
-                            fontSize: '14px',
-                            marginBottom: '12px',
-                            outline: 'none',
-                            transition: 'border 0.2s'
-                          }}
-                          onFocus={(e) => e.target.style.borderColor = '#095400'}
-                          onBlur={(e) => e.target.style.borderColor = '#ddd'}
-                        />
-                        
-                        <input
-                          type="password"
-                          placeholder="Confirmar senha"
-                          value={confirmarSenha}
-                          onChange={(e) => setConfirmarSenha(e.target.value)}
-                          style={{
-                            width: '100%',
-                            padding: '12px',
-                            border: '1px solid #ddd',
-                            borderRadius: '8px',
-                            fontSize: '14px',
-                            marginBottom: '15px',
-                            outline: 'none',
-                            transition: 'border 0.2s'
-                          }}
-                          onFocus={(e) => e.target.style.borderColor = '#095400'}
-                          onBlur={(e) => e.target.style.borderColor = '#ddd'}
-                        />
-                        
-                        <button
-                          onClick={usuarioTemSenha ? alterarSenha : cadastrarSenha}
-                          style={{
-                            width: '100%',
-                            padding: '12px',
-                            backgroundColor: '#095400',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: '8px',
-                            fontSize: '14px',
-                            fontWeight: '600',
-                            cursor: 'pointer',
-                            transition: 'all 0.3s'
-                          }}
-                          onMouseOver={(e) => e.target.style.backgroundColor = '#0a6d00'}
-                          onMouseOut={(e) => e.target.style.backgroundColor = '#095400'}
-                        >
-                          {usuarioTemSenha ? 'ALTERAR SENHA' : 'CADASTRAR SENHA'}
-                        </button>
-                        
-                        {!usuarioTemSenha && (
-                          <p style={{
-                            fontSize: '12px',
-                            color: '#666',
-                            textAlign: 'center',
-                            marginTop: '12px',
-                            marginBottom: 0
-                          }}>
-                            ⚡ Cadastre uma senha para poder entrar com e-mail senha também
-                          </p>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* BOTÃO FECHAR */}
+          {/* TELEFONE (EDITÁVEL APENAS SE ESTIVER VAZIO) */}
+          <div style={{ marginBottom: '15px' }}>
+            <label style={{
+              display: 'block',
+              fontWeight: '600',
+              color: '#333',
+              marginBottom: '5px',
+              fontSize: '14px'
+            }}>
+              Telefone
+            </label>
+            {editandoTelefone ? (
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <input
+                  type="tel"
+                  value={novoTelefone}
+                  onChange={(e) => setNovoTelefone(e.target.value)}
+                  placeholder="(11) 99999-9999"
+                  style={{
+                    flex: 1,
+                    padding: '12px',
+                    border: '2px solid #095400',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    outline: 'none'
+                  }}
+                />
+                <button
+                  onClick={salvarTelefone}
+                  style={{
+                    backgroundColor: '#095400',
+                    color: 'white',
+                    border: 'none',
+                    padding: '10px 15px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontWeight: '600'
+                  }}
+                >
+                  Salvar
+                </button>
+                <button
+                  onClick={() => {
+                    setEditandoTelefone(false);
+                    setNovoTelefone(accountData.telefone);
+                  }}
+                  style={{
+                    backgroundColor: '#95a5a6',
+                    color: 'white',
+                    border: 'none',
+                    padding: '10px 15px',
+                    borderRadius: '8px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Cancelar
+                </button>
+              </div>
+            ) : (
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '12px',
+                backgroundColor: '#f8f9fa',
+                borderRadius: '8px',
+                border: '1px solid #e9ecef'
+              }}>
+                <span style={{ color: '#333', fontSize: '15px' }}>
+                  {accountData.telefone || 'Não informado'}
+                </span>
+                {(!accountData.telefone || accountData.telefone === '') && (
                   <button
-                    onClick={() => setShowAccountModal(false)}
+                    onClick={() => {
+                      setEditandoTelefone(true);
+                      setNovoTelefone(accountData.telefone);
+                    }}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#095400',
+                      cursor: 'pointer',
+                      fontSize: '14px',
+                      fontWeight: '600'
+                    }}
+                  >
+                    ✏️ Adicionar
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* CPF/CNPJ (EDITÁVEL APENAS SE ESTIVER VAZIO) */}
+          <div style={{ marginBottom: '20px' }}>
+            <label style={{
+              display: 'block',
+              fontWeight: '600',
+              color: '#333',
+              marginBottom: '5px',
+              fontSize: '14px'
+            }}>
+              CPF / CNPJ
+            </label>
+            {editandoCpfCnpj ? (
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <input
+                  type="text"
+                  value={novoCpfCnpj}
+                  onChange={(e) => setNovoCpfCnpj(e.target.value)}
+                  placeholder="000.000.000-00 ou 00.000.000/0000-00"
+                  style={{
+                    flex: 1,
+                    padding: '12px',
+                    border: '2px solid #095400',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    outline: 'none'
+                  }}
+                />
+                <button
+                  onClick={salvarCpfCnpj}
+                  style={{
+                    backgroundColor: '#095400',
+                    color: 'white',
+                    border: 'none',
+                    padding: '10px 15px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    fontWeight: '600'
+                  }}
+                >
+                  Salvar
+                </button>
+                <button
+                  onClick={() => {
+                    setEditandoCpfCnpj(false);
+                    setNovoCpfCnpj(accountData.cpf_cnpj);
+                  }}
+                  style={{
+                    backgroundColor: '#95a5a6',
+                    color: 'white',
+                    border: 'none',
+                    padding: '10px 15px',
+                    borderRadius: '8px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Cancelar
+                </button>
+              </div>
+            ) : (
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '12px',
+                backgroundColor: '#f8f9fa',
+                borderRadius: '8px',
+                border: '1px solid #e9ecef'
+              }}>
+                <span style={{ color: '#333', fontSize: '15px' }}>
+                  {accountData.cpf_cnpj || 'Não informado'}
+                </span>
+                {(!accountData.cpf_cnpj || accountData.cpf_cnpj === '') && (
+                  <button
+                    onClick={() => {
+                      setEditandoCpfCnpj(true);
+                      setNovoCpfCnpj(accountData.cpf_cnpj);
+                    }}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      color: '#095400',
+                      cursor: 'pointer',
+                      fontSize: '14px',
+                      fontWeight: '600'
+                    }}
+                  >
+                    ✏️ Adicionar
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+          
+          {/* DIVISOR */}
+          <div style={{
+            height: '1px',
+            backgroundColor: '#e9ecef',
+            margin: '15px 0'
+          }} />
+          
+          {/* SEÇÃO DE SENHA */}
+          <div style={{ marginBottom: '10px' }}>
+            <button
+              onClick={() => setMostrarAlterarSenha(!mostrarAlterarSenha)}
+              style={{
+                width: '100%',
+                padding: '12px',
+                backgroundColor: '#f8f9fa',
+                border: '1px solid #e9ecef',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                fontSize: '14px',
+                fontWeight: '600',
+                color: '#095400'
+              }}
+            >
+              <span>🔐 {usuarioTemSenha ? 'Alterar Senha' : 'Cadastrar Senha'}</span>
+              <span style={{ transform: mostrarAlterarSenha ? 'rotate(180deg)' : 'rotate(0deg)' }}>▼</span>
+            </button>
+            
+            {mostrarAlterarSenha && (
+              <div style={{
+                marginTop: '15px',
+                padding: '15px',
+                backgroundColor: '#f8f9fa',
+                borderRadius: '8px'
+              }}>
+                {usuarioTemSenha && (
+                  <input
+                    type="password"
+                    placeholder="Senha atual"
+                    value={senhaAtual}
+                    onChange={(e) => setSenhaAtual(e.target.value)}
                     style={{
                       width: '100%',
                       padding: '12px',
-                      backgroundColor: '#e9ecef',
-                      color: '#666',
-                      border: 'none',
+                      border: '1px solid #ddd',
                       borderRadius: '8px',
                       fontSize: '14px',
-                      fontWeight: '600',
-                      cursor: 'pointer',
-                      marginTop: '20px',
-                      transition: 'all 0.3s'
+                      marginBottom: '12px',
+                      outline: 'none',
+                      transition: 'border 0.2s'
                     }}
-                    onMouseOver={(e) => {
-                      e.target.style.backgroundColor = '#dee2e6';
-                      e.target.style.color = '#333';
-                    }}
-                    onMouseOut={(e) => {
-                      e.target.style.backgroundColor = '#e9ecef';
-                      e.target.style.color = '#666';
-                    }}
-                  >
-                    Fechar
-                  </button>
-                </>
-              )}
-            </div>
-          </>
-        )}
+                    onFocus={(e) => e.target.style.borderColor = '#095400'}
+                    onBlur={(e) => e.target.style.borderColor = '#ddd'}
+                  />
+                )}
+                
+                <input
+                  type="password"
+                  placeholder={usuarioTemSenha ? "Nova senha" : "Digite sua nova senha"}
+                  value={novaSenha}
+                  onChange={(e) => setNovaSenha(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    marginBottom: '12px',
+                    outline: 'none',
+                    transition: 'border 0.2s'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = '#095400'}
+                  onBlur={(e) => e.target.style.borderColor = '#ddd'}
+                />
+                
+                <input
+                  type="password"
+                  placeholder="Confirmar senha"
+                  value={confirmarSenha}
+                  onChange={(e) => setConfirmarSenha(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    marginBottom: '15px',
+                    outline: 'none',
+                    transition: 'border 0.2s'
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = '#095400'}
+                  onBlur={(e) => e.target.style.borderColor = '#ddd'}
+                />
+                
+                <button
+                  onClick={usuarioTemSenha ? alterarSenha : cadastrarSenha}
+                  style={{
+                    width: '100%',
+                    padding: '12px',
+                    backgroundColor: '#095400',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '8px',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s'
+                  }}
+                  onMouseOver={(e) => e.target.style.backgroundColor = '#0a6d00'}
+                  onMouseOut={(e) => e.target.style.backgroundColor = '#095400'}
+                >
+                  {usuarioTemSenha ? 'ALTERAR SENHA' : 'CADASTRAR SENHA'}
+                </button>
+                
+                {!usuarioTemSenha && (
+                  <p style={{
+                    fontSize: '12px',
+                    color: '#666',
+                    textAlign: 'center',
+                    marginTop: '12px',
+                    marginBottom: 0
+                  }}>
+                    ⚡ Cadastre uma senha para poder entrar com e-mail senha também
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* ============================================ */}
+          {/* 🗑️ ZONA DE PERIGO — EXCLUSÃO DE CONTA       */}
+          {/* ============================================ */}
+          <div style={{
+            marginTop: '25px',
+            paddingTop: '20px',
+            borderTop: '2px solid #ffebee'
+          }}>
+            <p style={{
+              color: '#999',
+              fontSize: '11px',
+              textAlign: 'center',
+              marginBottom: '10px',
+              fontWeight: '600',
+              letterSpacing: '1px',
+              textTransform: 'uppercase'
+            }}>
+              Zona de Perigo
+            </p>
+            <button
+              onClick={() => {
+                setShowConfirmarExclusao(true);
+                setDigitouConfirmacao('');
+                setErroExclusao('');
+              }}
+              style={{
+                background: 'transparent',
+                border: '2px solid #e53935',
+                color: '#e53935',
+                padding: '12px 24px',
+                borderRadius: '8px',
+                fontSize: '14px',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                width: '100%'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.background = '#e53935';
+                e.currentTarget.style.color = 'white';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = '#e53935';
+              }}
+            >
+              🗑️ Excluir minha conta
+            </button>
+            <p style={{
+              color: '#999',
+              fontSize: '11px',
+              marginTop: '8px',
+              textAlign: 'center',
+              lineHeight: '1.4'
+            }}>
+              Esta ação é permanente e não pode ser desfeita.
+            </p>
+          </div>
+          
+          {/* BOTÃO FECHAR */}
+          <button
+            onClick={() => setShowAccountModal(false)}
+            style={{
+              width: '100%',
+              padding: '12px',
+              backgroundColor: '#e9ecef',
+              color: '#666',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '14px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              marginTop: '20px',
+              transition: 'all 0.3s'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#dee2e6';
+              e.target.style.color = '#333';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#e9ecef';
+              e.target.style.color = '#666';
+            }}
+          >
+            Fechar
+          </button>
+        </>
+      )}
+    </div>
+  </>
+)}
+
+{/* ============================================ */}
+{/* 🗑️ MODAL DE CONFIRMAÇÃO DE EXCLUSÃO          */}
+{/* ============================================ */}
+{showConfirmarExclusao && (
+  <>
+    {/* Overlay do modal de exclusão (por cima do modal de conta) */}
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        zIndex: 3000
+      }}
+      onClick={() => !excluindoConta && setShowConfirmarExclusao(false)}
+    />
+
+    {/* Modal de confirmação */}
+    <div style={{
+      position: 'fixed',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#fff',
+      borderRadius: '16px',
+      padding: '30px',
+      width: windowWidth > 768 ? '480px' : 'calc(100% - 40px)',
+      maxWidth: '480px',
+      maxHeight: '90vh',
+      overflowY: 'auto',
+      zIndex: 3001,
+      boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+      textAlign: 'center'
+    }}>
+      {/* Ícone */}
+      <div style={{
+        fontSize: '60px',
+        marginBottom: '15px',
+        lineHeight: 1
+      }}>
+        ⚠️
+      </div>
+
+      {/* Título */}
+      <h2 style={{
+        color: '#e53935',
+        fontSize: '22px',
+        fontWeight: '700',
+        marginBottom: '15px',
+        lineHeight: '1.3'
+      }}>
+        Excluir conta permanentemente?
+      </h2>
+
+      {/* Aviso */}
+      <div style={{
+        background: '#ffebee',
+        border: '1px solid #ffcdd2',
+        borderRadius: '8px',
+        padding: '15px',
+        marginBottom: '20px',
+        textAlign: 'left'
+      }}>
+        <p style={{
+          color: '#c62828',
+          fontSize: '13px',
+          margin: 0,
+          lineHeight: '1.6',
+          fontWeight: '600'
+        }}>
+          ⚠️ O que vai acontecer:
+        </p>
+        <ul style={{
+          color: '#555',
+          fontSize: '13px',
+          margin: '8px 0 0 0',
+          paddingLeft: '20px',
+          lineHeight: '1.6'
+        }}>
+          <li>Seus dados pessoais serão <strong>apagados</strong></li>
+          <li>Você será <strong>deslogado</strong> imediatamente</li>
+          <li>Não será possível <strong>recuperar</strong> a conta</li>
+          <li>Pedidos anteriores serão mantidos (obrigação fiscal)</li>
+          <li>Se você estiver bloqueado, <strong>continuará bloqueado</strong></li>
+        </ul>
+      </div>
+
+      {/* Instrução */}
+      <p style={{
+        color: '#333',
+        fontSize: '14px',
+        marginBottom: '10px',
+        fontWeight: '600'
+      }}>
+        Para confirmar, digite <strong style={{ color: '#e53935' }}>EXCLUIR</strong>:
+      </p>
+
+      {/* Input de confirmação */}
+      <input
+        type="text"
+        value={digitouConfirmacao}
+        onChange={(e) => setDigitouConfirmacao(e.target.value)}
+        placeholder="Digite EXCLUIR"
+        disabled={excluindoConta}
+        style={{
+          width: '100%',
+          padding: '12px',
+          border: '2px solid #ddd',
+          borderRadius: '8px',
+          fontSize: '15px',
+          textAlign: 'center',
+          outline: 'none',
+          marginBottom: '15px',
+          fontWeight: '600',
+          letterSpacing: '2px',
+          boxSizing: 'border-box'
+        }}
+        onFocus={(e) => e.target.style.borderColor = '#e53935'}
+        onBlur={(e) => e.target.style.borderColor = '#ddd'}
+      />
+
+      {/* Erro */}
+      {erroExclusao && (
+        <div style={{
+          background: '#ffebee',
+          color: '#c62828',
+          padding: '10px',
+          borderRadius: '6px',
+          fontSize: '13px',
+          marginBottom: '15px',
+          textAlign: 'left'
+        }}>
+          {erroExclusao}
+        </div>
+      )}
+
+      {/* Botões */}
+      <div style={{
+        display: 'flex',
+        gap: '10px'
+      }}>
+        <button
+          onClick={() => setShowConfirmarExclusao(false)}
+          disabled={excluindoConta}
+          style={{
+            flex: 1,
+            padding: '12px',
+            backgroundColor: '#e0e0e0',
+            color: '#333',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '14px',
+            fontWeight: '600',
+            cursor: excluindoConta ? 'not-allowed' : 'pointer',
+            opacity: excluindoConta ? 0.6 : 1
+          }}
+        >
+          Cancelar
+        </button>
+
+        <button
+          onClick={excluirConta}
+          disabled={excluindoConta || digitouConfirmacao.trim().toUpperCase() !== 'EXCLUIR'}
+          style={{
+            flex: 1,
+            padding: '12px',
+            backgroundColor: digitouConfirmacao.trim().toUpperCase() === 'EXCLUIR' ? '#e53935' : '#ffcdd2',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '14px',
+            fontWeight: '700',
+            cursor: (excluindoConta || digitouConfirmacao.trim().toUpperCase() !== 'EXCLUIR') ? 'not-allowed' : 'pointer',
+            transition: 'background 0.2s'
+          }}
+        >
+          {excluindoConta ? 'Excluindo...' : 'Excluir'}
+        </button>
+      </div>
+    </div>
+  </>
+)}
       </div>
 
       {/* ✅ ANIMAÇÕES DO MODAL DE LOGIN/CADASTRO */}
