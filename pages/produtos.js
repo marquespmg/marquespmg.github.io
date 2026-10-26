@@ -3678,7 +3678,6 @@ const isRunningInApp = () => {
   const [ofertaAtiva, setOfertaAtiva] = useState(OFERTA_RELAMPAGO.ativa);
   const [contaBloqueada, setContaBloqueada] = useState(false);
   const [itemAdicionado, setItemAdicionado] = useState(null);
-  const [itemAdicionado, setItemAdicionado] = useState(null);
   const [showConfirmarExclusao, setShowConfirmarExclusao] = useState(false);
   const [digitouConfirmacao, setDigitouConfirmacao] = useState('');
   const [excluindoConta, setExcluindoConta] = useState(false);
