@@ -56,3 +56,6 @@ Disallow: /staging/
 Sitemap: https://www.marquesvendaspmg.shop/sitemap.xml
 Sitemap: https://www.marquesvendaspmg.shop/sitemap-produtos.xml
 Sitemap: https://www.marquesvendaspmg.shop/sitemap-imagens.xml
+
+# ========== LLMS.TXT (CONTEXTO PARA IA) ==========
+# Arquivo de contexto para modelos de linguagem: https://www.marquesvendaspmg.shop/llms.txt
