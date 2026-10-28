@@ -6,10 +6,8 @@ import useTrackUser from '../hook/useTrackUser';
 export default function QuemSomos() {
   const [isMobile, setIsMobile] = useState(false);
   
-  // Hook para rastrear visitantes
   useTrackUser();
 
-  // Detectar tamanho da tela
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -21,78 +19,36 @@ export default function QuemSomos() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // URLs das fotos
   const foto1 = "https://www.marquesvendaspmg.shop/images/marques-quem-somos-1.jpeg";
   const foto2 = "https://www.marquesvendaspmg.shop/images/marques-quem-somos-2.jpeg";
 
   return (
     <>
       <Head>
-        <title>Quem Somos - Marques Vendas PMG | Atacado Food Service SP</title>
+        <title>Quem Somos - Marques Antonio | Marques Vendas PMG</title>
         <meta 
           name="description" 
-          content="Conheça Marques Antonio, fundador da Marques Vendas PMG. Mais de 5 anos de experiência em atacado food service. Entrega em SP, Sul Minas e Sul RJ." 
+          content="Conheça Marques Antonio, vendedor da PMG Atacadista há mais de 5 anos e criador da Marques Vendas PMG. Compre no atacado food service com atendimento direto para SP, Sul de Minas e Sul do RJ." 
         />
-        <meta 
-          name="keywords" 
-          content="Marques Vendas PMG, quem somos, atacado food service, distribuidora SP, Marques Antonio, história PMG, fornecedor atacado" 
-        />
-        <meta property="og:title" content="Quem Somos - Marques Vendas PMG | Atacado Food Service" />
+        <meta property="og:title" content="Quem Somos - Marques Antonio | Marques Vendas PMG" />
         <meta 
           property="og:description" 
-          content="Conheça a história da Marques Vendas PMG. Mais de 5 anos entregando qualidade em atacado para SP, Sul Minas e Sul RJ." 
+          content="Conheça Marques Antonio, vendedor da PMG Atacadista e criador da Marques Vendas PMG. Compre no atacado food service com atendimento direto." 
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.marquesvendaspmg.shop/quem-somos" />
         <meta property="og:image" content={foto1} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Marques Vendas PMG" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Quem Somos - Marques Antonio | Marques Vendas PMG" />
+        <meta name="twitter:description" content="Conheça Marques Antonio, vendedor da PMG Atacadista e criador da Marques Vendas PMG." />
+        <meta name="twitter:image" content={foto1} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.marquesvendaspmg.shop/quem-somos" />
         
-        {/* Schema.org para LocalBusiness */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Marques Vendas PMG",
-              "image": ["https://i.imgur.com/jrERRsC.png", foto1, foto2],
-              "description": "Marques Vendas PMG - Atacado Food Service com mais de 5 anos de experiência. Entregamos em SP, Sul Minas e Sul RJ.",
-              "founder": {
-                "@type": "Person",
-                "name": "Marques Antonio",
-                "jobTitle": "Fundador e CEO"
-              },
-              "foundingDate": "2020",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Estrada Ferreira Guedes, 784 - Potuverá",
-                "postalCode": "06885-150",
-                "addressLocality": "Itapecerica da Serra",
-                "addressRegion": "SP",
-                "addressCountry": "BR"
-              },
-              "telephone": "+55-11-91357-2902",
-              "email": "marquesvendaspmg@gmail.com",
-              "priceRange": "$$",
-              "openingHours": "Mo-Su 08:00-18:00",
-              "paymentAccepted": ["Cartão de Crédito", "Cartão de Débito", "Dinheiro", "PIX"],
-              "areaServed": [
-                {"@type": "State", "name": "São Paulo"},
-                {"@type": "State", "name": "Minas Gerais", "description": "Sul de Minas"},
-                {"@type": "State", "name": "Rio de Janeiro", "description": "Sul do Rio de Janeiro"}
-              ],
-              "sameAs": [
-                "https://www.facebook.com/MarquesVendaspmg",
-                "https://www.instagram.com/marquesvendaspmg",
-                "https://www.youtube.com/@MarquesVendasPMG"
-              ]
-            })
-          }}
-        />
-        
-        {/* Schema.org para Person (Marques Antonio) */}
+        {/* Schema: Person (Marques Antonio) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -100,15 +56,60 @@ export default function QuemSomos() {
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Marques Antonio",
-              "jobTitle": "Fundador e Especialista em Atacado Food Service",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Marques Vendas PMG"
-              },
-              "description": "Mais de 5 anos de experiência no mercado de atacado food service. Especialista em distribuição para restaurantes, bares e mercados.",
-              "knowsAbout": ["Atacado Food Service", "Distribuição", "Gestão de Fornecedores", "Logística SP"],
+              "jobTitle": "Vendedor na PMG Atacadista e Criador da Marques Vendas PMG",
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "PMG Atacadista"
+                }
+              ],
+              "description": "Vendedor na PMG Atacadista há mais de 5 anos e criador da Marques Vendas PMG, canal de compras no atacado food service.",
+              "knowsAbout": ["Atacado Food Service", "Distribuição", "Vendas", "Atendimento ao Cliente"],
               "image": foto1,
               "sameAs": "https://www.marquesvendaspmg.shop/quem-somos"
+            })
+          }}
+        />
+
+        {/* Schema: WebSite */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Marques Vendas PMG",
+              "url": "https://www.marquesvendaspmg.shop",
+              "description": "Canal de compras no atacado food service criado por Marques Antonio, vendedor da PMG Atacadista.",
+              "founder": {
+                "@type": "Person",
+                "name": "Marques Antonio"
+              }
+            })
+          }}
+        />
+
+        {/* Schema: BreadcrumbList */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.marquesvendaspmg.shop/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Quem Somos",
+                  "item": "https://www.marquesvendaspmg.shop/quem-somos"
+                }
+              ]
             })
           }}
         />
@@ -119,19 +120,17 @@ export default function QuemSomos() {
         margin: '0 auto',
         padding: isMobile ? '15px' : '30px',
         minHeight: '100vh',
-        fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
-        position: 'relative'
+        fontFamily: "'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif"
       }}>
-        {/* Cabeçalho com SEO melhorado */}
+        {/* Cabeçalho */}
         <header style={{ 
           marginBottom: isMobile ? '30px' : '40px', 
-          textAlign: 'center',
-          position: 'relative'
+          textAlign: 'center'
         }}>
           <Link href="/" style={{ display: 'inline-block' }}>
             <img 
               src="https://i.imgur.com/pBH5WpZ.png" 
-              alt="Logo Marques Vendas PMG - Atacado Food Service SP" 
+              alt="Logo Marques Vendas PMG - Canal de compras no atacado food service" 
               style={{ 
                 width: isMobile ? '180px' : '220px',
                 marginBottom: '20px',
@@ -145,7 +144,7 @@ export default function QuemSomos() {
             marginBottom: '15px',
             fontWeight: '700'
           }}>
-            Conheça a Marques Vendas PMG
+            Quem Somos — Marques Vendas PMG
           </h1>
           <p style={{ 
             color: '#666', 
@@ -154,11 +153,11 @@ export default function QuemSomos() {
             margin: '0 auto',
             lineHeight: '1.6'
           }}>
-            Mais de 5 anos entregando qualidade e confiança no atacado food service para São Paulo, Sul de Minas e Sul do Rio de Janeiro
+            Conheça Marques Antonio, vendedor da PMG Atacadista e criador da Marques Vendas PMG, seu canal de compras no atacado food service.
           </p>
         </header>
 
-        {/* Container Principal com Layout Responsivo */}
+        {/* Container Principal */}
         <div style={{
           display: 'flex',
           flexDirection: isMobile ? 'column' : 'row',
@@ -166,7 +165,7 @@ export default function QuemSomos() {
           marginBottom: '50px'
         }}>
           
-          {/* Coluna Esquerda: Conteúdo Principal */}
+          {/* Coluna Esquerda */}
           <div style={{
             flex: isMobile ? 'none' : 2,
             backgroundColor: '#ffffff',
@@ -175,14 +174,13 @@ export default function QuemSomos() {
             boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
             width: '100%'
           }}>
-            {/* Container para Foto 1 e Texto lado a lado em desktop */}
+            {/* Seção: Quem é Marques Antonio */}
             <div style={{
               display: isMobile ? 'block' : 'flex',
               gap: '25px',
               marginBottom: '30px',
               alignItems: 'flex-start'
             }}>
-              {/* Foto 1 - Lado direito em desktop, acima em mobile */}
               <div style={{
                 order: isMobile ? 1 : 2,
                 width: isMobile ? '100%' : '200px',
@@ -191,7 +189,7 @@ export default function QuemSomos() {
               }}>
                 <img 
                   src={foto1} 
-                  alt="Marques Antonio - Fundador da Marques Vendas PMG" 
+                  alt="Marques Antonio - Vendedor da PMG Atacadista e criador da Marques Vendas PMG" 
                   style={{
                     width: '100%',
                     height: isMobile ? 'auto' : '200px',
@@ -202,7 +200,6 @@ export default function QuemSomos() {
                 />
               </div>
 
-              {/* Texto "Quem Sou Eu" */}
               <div style={{
                 order: isMobile ? 2 : 1,
                 flex: 1
@@ -213,28 +210,28 @@ export default function QuemSomos() {
                   marginBottom: '15px',
                   fontWeight: '600'
                 }}>
-                  Quem Sou Eu
+                  Quem é Marques Antonio
                 </h2>
                 <p style={{ 
                   color: '#555', 
-                  lineHeight: '1.6',
+                  lineHeight: '1.7',
                   marginBottom: '15px',
                   fontSize: isMobile ? '0.95rem' : '1rem'
                 }}>
-                  Me chamo <strong>Marques Antonio</strong> e trabalho na <strong>PMG há mais de 5 anos</strong>. 
+                  Meu nome é <strong>Marques Antonio</strong>. Sou vendedor na <strong>PMG Atacadista</strong> há mais de 5 anos e foi dentro dessa empresa que aprendi, na prática, tudo o que sei sobre atacado food service, atendimento e logística para o setor alimentício.
                 </p>
                 <p style={{ 
                   color: '#555', 
-                  lineHeight: '1.6',
+                  lineHeight: '1.7',
                   marginBottom: '15px',
                   fontSize: isMobile ? '0.95rem' : '1rem'
                 }}>
-                  Sempre buscando melhorar cada dia mais nossas formas de atender você, nosso cliente, criamos este site <strong>Marques Vendas PMG - Distribuidora Food Service</strong> para oferecer um serviço de excelência.
+                  Foi essa experiência que me motivou a criar a <strong>Marques Vendas PMG</strong>. O objetivo é simples: te atender diretamente, com a mesma qualidade e o mesmo preço competitivo da PMG Atacadista, mas com o cuidado de quem conhece cada produto e cada cliente.
                 </p>
               </div>
             </div>
 
-            {/* Container para Foto 2 e Texto em layout alternado */}
+            {/* Seção: O que é a Marques Vendas PMG */}
             <div style={{
               display: 'flex',
               flexDirection: isMobile ? 'column' : 'row',
@@ -242,7 +239,6 @@ export default function QuemSomos() {
               marginBottom: '30px',
               alignItems: isMobile ? 'flex-start' : 'center'
             }}>
-              {/* Foto 2 - Lado esquerdo em desktop, acima em mobile */}
               <div style={{
                 width: isMobile ? '100%' : '180px',
                 flexShrink: 0,
@@ -250,7 +246,7 @@ export default function QuemSomos() {
               }}>
                 <img 
                   src={foto2} 
-                  alt="Marques Antonio trabalhando no computador - Marques Vendas PMG" 
+                  alt="Marques Antonio trabalhando - Marques Vendas PMG" 
                   style={{
                     width: '100%',
                     height: isMobile ? 'auto' : '180px',
@@ -261,7 +257,6 @@ export default function QuemSomos() {
                 />
               </div>
 
-              {/* Seção "Nossa Missão" */}
               <div style={{ flex: 1 }}>
                 <h2 style={{ 
                   color: '#095400', 
@@ -269,20 +264,27 @@ export default function QuemSomos() {
                   marginBottom: '15px',
                   fontWeight: '600'
                 }}>
-                  Nossa Missão
+                  O que é a Marques Vendas PMG
                 </h2>
                 <p style={{ 
                   color: '#555', 
-                  lineHeight: '1.6',
+                  lineHeight: '1.7',
                   marginBottom: '15px',
                   fontSize: isMobile ? '0.95rem' : '1rem'
                 }}>
-                  Na <strong>Marques Vendas PMG</strong>, acreditamos que o sucesso do seu negócio é o nosso sucesso. Por isso, nos dedicamos a fornecer produtos de qualidade com atendimento personalizado, buscando sempre superar suas expectativas.
+                  A <strong>Marques Vendas PMG</strong> é o meu canal de vendas. Aqui você navega pelo site, escolhe os produtos, monta seu carrinho e finaliza o pedido pelo WhatsApp. É simples, rápido e direto comigo.
+                </p>
+                <p style={{ 
+                  color: '#555', 
+                  lineHeight: '1.7',
+                  fontSize: isMobile ? '0.95rem' : '1rem'
+                }}>
+                  Todo o pedido é atendido com a estrutura da PMG Atacadista por trás — mais de 30 anos de tradição, 11.000 m² de planta em Itapecerica da Serra, mais de 280 veículos refrigerados e mais de 2.200 itens de produtos para food service.
                 </p>
               </div>
             </div>
 
-            {/* Seção "Compromisso com Você" */}
+            {/* Seção: Como Finalizar o Pedido */}
             <section style={{ marginBottom: '30px' }}>
               <h2 style={{ 
                 color: '#095400', 
@@ -290,30 +292,159 @@ export default function QuemSomos() {
                 marginBottom: '15px',
                 fontWeight: '600'
               }}>
-                Compromisso com Você
+                Como Finalizar o Pedido
               </h2>
               <p style={{ 
                 color: '#555', 
-                lineHeight: '1.6',
+                lineHeight: '1.7',
                 marginBottom: '15px',
                 fontSize: isMobile ? '0.95rem' : '1rem'
               }}>
-                Trabalhamos com transparência e ética, garantindo:
+                É só navegar pelo site, escolher os produtos e clicar em "Adicionar ao Carrinho". Quando terminar, clica em "Finalizar Pedido" — o site gera uma mensagem automática com o resumo do seu pedido e abre no WhatsApp. É só enviar que eu dou continuidade ao atendimento e combino a entrega com você. O pagamento é feito na entrega, podendo ser em crédito, débito ou dinheiro.
+              </p>
+            </section>
+
+            {/* Seção: Sobre a PMG Atacadista */}
+            <section style={{ marginBottom: '30px' }}>
+              <h2 style={{ 
+                color: '#095400', 
+                fontSize: isMobile ? '1.3rem' : '1.5rem',
+                marginBottom: '15px',
+                fontWeight: '600'
+              }}>
+                Sobre a PMG Atacadista
+              </h2>
+              <p style={{ 
+                color: '#555', 
+                lineHeight: '1.7',
+                marginBottom: '15px',
+                fontSize: isMobile ? '0.95rem' : '1rem'
+              }}>
+                A PMG Atacadista é uma empresa de alimentos e bebidas que atua no mercado desde 1995. Começou em Santo Amaro, na Zona Sul de São Paulo, distribuindo produtos perecíveis para pizzarias. Cresceu, mudou de planta algumas vezes e hoje opera em Itapecerica da Serra, com 11.000 m² de estrutura, mais de 280 veículos refrigerados, 400 representantes e 350 colaboradores.
+              </p>
+              <p style={{ 
+                color: '#555', 
+                lineHeight: '1.7',
+                fontSize: isMobile ? '0.95rem' : '1rem'
+              }}>
+                Atende mais de 22.000 estabelecimentos na Grande São Paulo, litoral, interior e Sul de Minas Gerais, oferecendo mais de 2.200 itens de produtos para food service. É essa estrutura que está por trás de cada pedido feito aqui na Marques Vendas PMG.
+              </p>
+            </section>
+
+            {/* Seção: Meu Compromisso */}
+            <section style={{ marginBottom: '30px' }}>
+              <h2 style={{ 
+                color: '#095400', 
+                fontSize: isMobile ? '1.3rem' : '1.5rem',
+                marginBottom: '15px',
+                fontWeight: '600'
+              }}>
+                Meu Compromisso com Você
+              </h2>
+              <p style={{ 
+                color: '#555', 
+                lineHeight: '1.7',
+                marginBottom: '15px',
+                fontSize: isMobile ? '0.95rem' : '1rem'
+              }}>
+                Meu compromisso é te atender com transparência e agilidade, garantindo:
               </p>
               <ul style={{ 
                 color: '#555',
                 paddingLeft: '20px',
                 marginBottom: '15px',
-                fontSize: isMobile ? '0.95rem' : '1rem'
+                fontSize: isMobile ? '0.95rem' : '1rem',
+                lineHeight: '1.7'
               }}>
                 <li style={{ marginBottom: '8px' }}>Produtos de qualidade comprovada</li>
                 <li style={{ marginBottom: '8px' }}>Preços competitivos no mercado</li>
-                <li style={{ marginBottom: '8px' }}>Atendimento rápido e eficiente</li>
-                <li style={{ marginBottom: '8px' }}>Soluções personalizadas para seu negócio</li>
+                <li style={{ marginBottom: '8px' }}>Atendimento direto e personalizado</li>
+                <li style={{ marginBottom: '8px' }}>Soluções sob medida para o seu negócio</li>
               </ul>
             </section>
 
-            {/* Seção "Fale Conosco" */}
+            {/* Seção: Links Internos (SEO) */}
+            <section style={{ marginBottom: '30px' }}>
+              <h2 style={{ 
+                color: '#095400', 
+                fontSize: isMobile ? '1.3rem' : '1.5rem',
+                marginBottom: '15px',
+                fontWeight: '600'
+              }}>
+                Explore o Site
+              </h2>
+              <p style={{ 
+                color: '#555', 
+                lineHeight: '1.7',
+                marginBottom: '20px',
+                fontSize: isMobile ? '0.95rem' : '1rem'
+              }}>
+                Agora que você já me conhece, explore o que a Marques Vendas PMG tem para oferecer:
+              </p>
+              <div style={{
+                display: 'flex',
+                flexDirection: isMobile ? 'column' : 'row',
+                gap: '15px',
+                flexWrap: 'wrap'
+              }}>
+                <Link 
+                  href="/produtos"
+                  style={{
+                    display: 'inline-block',
+                    padding: '12px 20px',
+                    backgroundColor: '#095400',
+                    color: 'white',
+                    borderRadius: '6px',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: isMobile ? '0.9rem' : '1rem',
+                    textAlign: 'center',
+                    flex: isMobile ? 'none' : '1',
+                    transition: 'background-color 0.3s'
+                  }}
+                >
+                  🛒 Faça seu Pedido Aqui
+                </Link>
+                <Link 
+                  href="/food-news"
+                  style={{
+                    display: 'inline-block',
+                    padding: '12px 20px',
+                    backgroundColor: '#095400',
+                    color: 'white',
+                    borderRadius: '6px',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: isMobile ? '0.9rem' : '1rem',
+                    textAlign: 'center',
+                    flex: isMobile ? 'none' : '1',
+                    transition: 'background-color 0.3s'
+                  }}
+                >
+                  📰 Conheça Nosso Blog
+                </Link>
+                <Link 
+                  href="/ofertas"
+                  style={{
+                    display: 'inline-block',
+                    padding: '12px 20px',
+                    backgroundColor: '#095400',
+                    color: 'white',
+                    borderRadius: '6px',
+                    textDecoration: 'none',
+                    fontWeight: '600',
+                    fontSize: isMobile ? '0.9rem' : '1rem',
+                    textAlign: 'center',
+                    flex: isMobile ? 'none' : '1',
+                    transition: 'background-color 0.3s'
+                  }}
+                >
+                  🔥 Conheça Nossas Ofertas
+                </Link>
+              </div>
+            </section>
+
+            {/* Seção: Fale Conosco */}
             <section>
               <h2 style={{ 
                 color: '#095400', 
@@ -325,15 +456,15 @@ export default function QuemSomos() {
               </h2>
               <p style={{ 
                 color: '#555', 
-                lineHeight: '1.6',
+                lineHeight: '1.7',
                 fontSize: isMobile ? '0.95rem' : '1rem'
               }}>
-                Estamos aqui para servir você melhor. Entre em contato pelo WhatsApp: <strong>(11) 91357-2902</strong> ou email: <strong>marquesvendaspmg@gmail.com</strong> - Será um prazer atendê-lo!
+                Estou aqui para te atender da melhor forma possível. Entre em contato pelo WhatsApp: <strong>(11) 91357-2902</strong> ou e-mail: <strong>marquesvendaspmg@gmail.com</strong>. Será um prazer atender você!
               </p>
             </section>
           </div>
 
-          {/* Coluna Direita: Informações Adicionais */}
+          {/* Coluna Direita */}
           <div style={{
             flex: isMobile ? 'none' : 1,
             backgroundColor: '#f9f9f9',
@@ -342,7 +473,7 @@ export default function QuemSomos() {
             boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
             width: '100%'
           }}>
-            {/* Área de Experiência */}
+            {/* Atendimento */}
             <div style={{
               backgroundColor: '#095400',
               color: 'white',
@@ -351,28 +482,20 @@ export default function QuemSomos() {
               marginBottom: '25px',
               textAlign: 'center'
             }}>
-              <div style={{
-                fontSize: isMobile ? '2rem' : '2.5rem',
-                marginBottom: '10px'
-              }}>
-                ⭐
-              </div>
+              <div style={{ fontSize: isMobile ? '2rem' : '2.5rem', marginBottom: '10px' }}>⭐</div>
               <h3 style={{
                 fontSize: isMobile ? '1.1rem' : '1.3rem',
                 marginBottom: '10px',
                 fontWeight: '600'
               }}>
-                5+ Anos de Experiência
+                Atendimento Direto
               </h3>
-              <p style={{
-                fontSize: isMobile ? '0.85rem' : '0.9rem',
-                opacity: '0.9'
-              }}>
-                No mercado de atacado food service
+              <p style={{ fontSize: isMobile ? '0.85rem' : '0.9rem', opacity: '0.9' }}>
+                Com vendedor da PMG Atacadista
               </p>
             </div>
 
-            {/* Área de Atendimento */}
+            {/* Onde Atendemos */}
             <div style={{ marginBottom: '25px' }}>
               <h3 style={{ 
                 color: '#095400', 
@@ -391,50 +514,24 @@ export default function QuemSomos() {
                 borderRadius: '8px',
                 borderLeft: '4px solid #095400'
               }}>
-                <p style={{ 
-                  color: '#333', 
-                  marginBottom: '8px',
-                  fontWeight: '500',
-                  fontSize: isMobile ? '0.9rem' : '1rem'
-                }}>
+                <p style={{ color: '#333', marginBottom: '8px', fontWeight: '500', fontSize: isMobile ? '0.9rem' : '1rem' }}>
                   <strong>🏢 São Paulo:</strong>
                 </p>
-                <p style={{ 
-                  color: '#555', 
-                  fontSize: isMobile ? '0.85rem' : '0.9rem',
-                  marginBottom: '12px'
-                }}>
+                <p style={{ color: '#555', fontSize: isMobile ? '0.85rem' : '0.9rem', marginBottom: '12px' }}>
                   Capital, Interior e Litoral
                 </p>
                 
-                <p style={{ 
-                  color: '#333', 
-                  marginBottom: '8px',
-                  fontWeight: '500',
-                  fontSize: isMobile ? '0.9rem' : '1rem'
-                }}>
+                <p style={{ color: '#333', marginBottom: '8px', fontWeight: '500', fontSize: isMobile ? '0.9rem' : '1rem' }}>
                   <strong>⛰️ Sul de Minas:</strong>
                 </p>
-                <p style={{ 
-                  color: '#555', 
-                  fontSize: isMobile ? '0.85rem' : '0.9rem',
-                  marginBottom: '12px'
-                }}>
+                <p style={{ color: '#555', fontSize: isMobile ? '0.85rem' : '0.9rem', marginBottom: '12px' }}>
                   +50 cidades atendidas
                 </p>
                 
-                <p style={{ 
-                  color: '#333', 
-                  marginBottom: '8px',
-                  fontWeight: '500',
-                  fontSize: isMobile ? '0.9rem' : '1rem'
-                }}>
+                <p style={{ color: '#333', marginBottom: '8px', fontWeight: '500', fontSize: isMobile ? '0.9rem' : '1rem' }}>
                   <strong>🏖️ Sul do RJ:</strong>
                 </p>
-                <p style={{ 
-                  color: '#555', 
-                  fontSize: isMobile ? '0.85rem' : '0.9rem'
-                }}>
+                <p style={{ color: '#555', fontSize: isMobile ? '0.85rem' : '0.9rem' }}>
                   Região Sul Fluminense
                 </p>
               </div>
@@ -456,16 +553,11 @@ export default function QuemSomos() {
                 alignItems: 'center',
                 gap: '10px'
               }}>
-                <span>💬</span> Fale Direto Conosco
+                <span>💬</span> Fale Direto Comigo
               </h3>
               
               <div style={{ marginBottom: '15px' }}>
-                <p style={{ 
-                  color: '#333', 
-                  marginBottom: '5px',
-                  fontWeight: '500',
-                  fontSize: isMobile ? '0.9rem' : '1rem'
-                }}>
+                <p style={{ color: '#333', marginBottom: '5px', fontWeight: '500', fontSize: isMobile ? '0.9rem' : '1rem' }}>
                   📞 WhatsApp:
                 </p>
                 <a 
@@ -484,12 +576,7 @@ export default function QuemSomos() {
               </div>
               
               <div>
-                <p style={{ 
-                  color: '#333', 
-                  marginBottom: '5px',
-                  fontWeight: '500',
-                  fontSize: isMobile ? '0.9rem' : '1rem'
-                }}>
+                <p style={{ color: '#333', marginBottom: '5px', fontWeight: '500', fontSize: isMobile ? '0.9rem' : '1rem' }}>
                   ✉️ E-mail:
                 </p>
                 <a 
@@ -533,42 +620,6 @@ export default function QuemSomos() {
           </div>
         </div>
 
-        {/* Conteúdo SEO Oculto (apenas para Google) */}
-        <div style={{
-          opacity: '0',
-          height: '0',
-          overflow: 'hidden',
-          position: 'absolute'
-        }}>
-          <h1>Marques Vendas PMG - Quem Somos</h1>
-          <h2>História da Marques Vendas PMG Atacado Food Service</h2>
-          <p>
-            Marques Vendas PMG é uma distribuidora especializada em atacado food service fundada por Marques Antonio. 
-            Com mais de 5 anos de experiência no mercado, atendemos restaurantes, bares, mercados e estabelecimentos 
-            comerciais em São Paulo, Sul de Minas Gerais e Sul do Rio de Janeiro.
-          </p>
-          <p>
-            Nossa empresa nasceu da necessidade de oferecer um serviço diferenciado no atacado food service. 
-            Marques Antonio, com sua vasta experiência na PMG, identificou a oportunidade de criar uma distribuidora 
-            que realmente entendesse as necessidades dos clientes do setor alimentício.
-          </p>
-          <h3>Marques Antonio - Fundador</h3>
-          <p>
-            Marques Antonio é o fundador e responsável pela Marques Vendas PMG. Com mais de 5 anos atuando na área 
-            de distribuição food service, ele traz conhecimento prático e entendimento profundo do mercado.
-          </p>
-          <h3>Área de Atuação PMG Atacadista</h3>
-          <p>
-            Atendemos todo o estado de São Paulo (capital, interior e litoral), Sul de Minas Gerais (mais de 50 cidades) 
-            e Sul do Rio de Janeiro. Nossa frota própria garante entregas rápidas e seguras.
-          </p>
-          <h3>Produtos PMG Atacado</h3>
-          <p>
-            Trabalhamos com linha completa de produtos para food service: bebidas, laticínios, frios, carnes, 
-            mercearia, higiene e limpeza. Todas as marcas premium do mercado.
-          </p>
-        </div>
-
         {/* Rodapé */}
         <footer style={{
           marginTop: isMobile ? '40px' : '50px',
@@ -587,104 +638,33 @@ export default function QuemSomos() {
           }}>
             <Link 
               href="/termos" 
-              style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '500',
-                padding: '5px 10px',
-                borderRadius: '5px',
-                transition: 'all 0.3s',
-                fontSize: isMobile ? '0.85rem' : '0.9rem'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#095400';
-              }}
+              style={{ color: '#095400', textDecoration: 'none', fontWeight: '500', padding: '5px 10px', fontSize: isMobile ? '0.85rem' : '0.9rem' }}
             >
               Termos de Uso
             </Link>
-            
             <Link 
               href="/politica-de-privacidade"
-              style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '500',
-                padding: '5px 10px',
-                borderRadius: '5px',
-                transition: 'all 0.3s',
-                fontSize: isMobile ? '0.85rem' : '0.9rem'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#095400';
-              }}
+              style={{ color: '#095400', textDecoration: 'none', fontWeight: '500', padding: '5px 10px', fontSize: isMobile ? '0.85rem' : '0.9rem' }}
             >
               Política de Privacidade
             </Link>
-            
             <Link 
               href="/quem-somos"
-              style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '600',
-                padding: '5px 10px',
-                borderRadius: '5px',
-                transition: 'all 0.3s',
-                fontSize: isMobile ? '0.85rem' : '0.9rem'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#095400';
-              }}
+              style={{ color: '#095400', textDecoration: 'none', fontWeight: '600', padding: '5px 10px', fontSize: isMobile ? '0.85rem' : '0.9rem' }}
             >
               Quem Somos
             </Link>
-            
             <Link 
               href="/"
-              style={{ 
-                color: '#095400', 
-                textDecoration: 'none',
-                fontWeight: '500',
-                padding: '5px 10px',
-                borderRadius: '5px',
-                transition: 'all 0.3s',
-                fontSize: isMobile ? '0.85rem' : '0.9rem'
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#095400';
-                e.target.style.color = 'white';
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-                e.target.style.color = '#095400';
-              }}
+              style={{ color: '#095400', textDecoration: 'none', fontWeight: '500', padding: '5px 10px', fontSize: isMobile ? '0.85rem' : '0.9rem' }}
             >
               Voltar ao Início
             </Link>
           </div>
           
-          <p style={{ 
-            marginTop: '15px', 
-            color: '#888',
-            fontSize: isMobile ? '0.75rem' : '0.8rem'
-          }}>
+          <p style={{ marginTop: '15px', color: '#888', fontSize: isMobile ? '0.75rem' : '0.8rem' }}>
             © {new Date().getFullYear()} Marques Vendas PMG. Todos os direitos reservados.<br />
-            Estrada Ferreira Guedes, 784 - Potuverá • Itapecerica da Serra • SP • CEP: 06885-150
+            Estrada Ferreira Guedes, 784 - Potuveró • Itapecerica da Serra • SP • CEP: 06885-150
           </p>
         </footer>
       </div>
