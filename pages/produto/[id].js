@@ -3906,6 +3906,31 @@ useEffect(() => {
   <VerificadorCEP />
 </div>
 
+{/* ========== NOVO: PAGUE NA ENTREGA (discreto) ========== */}
+<div style={{
+  marginTop: '12px',
+  padding: '10px 14px',
+  backgroundColor: '#fafafa',
+  border: '1px solid #ececec',
+  borderRadius: '8px'
+}}>
+  <div style={{
+    fontSize: '14px',
+    fontWeight: '600',
+    color: '#555',
+    marginBottom: '2px'
+  }}>
+    🚚 Pague somente na entrega
+  </div>
+  <div style={{
+    fontSize: '12px',
+    color: '#999',
+    lineHeight: '1.5'
+  }}>
+    Faça seu pedido pelo site e pague ao receber a mercadoria.
+  </div>
+</div>
+
 {/* ========== VALIDADE E LOTE - AGORA VISÍVEL PARA TODOS ========== */}
 {dadosValidade[product.id] && (
   <div style={{
