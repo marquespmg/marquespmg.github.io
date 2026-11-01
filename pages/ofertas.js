@@ -1846,84 +1846,86 @@ useEffect(() => {
             📋 Informações Legais
           </h3>
 
-          {/* Links Principais em Grid Responsivo */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-            gap: '15px',
-            marginBottom: '30px',
-            width: '100%'
-          }}>
-            
-            {/* Política de Privacidade */}
-            <Link href="/politica-de-privacidade" passHref legacyBehavior>
-              <a className="btn-top btn-top-primary" style={{
-                minHeight: '50px',
-                justifyContent: 'center',
-                fontSize: '14px',
-                padding: '12px 8px',
-                borderRadius: '8px',
-                backgroundColor: 'white',
-                border: '1px solid #e0e0e0',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-              }}>
-                <span>🔒</span>
-                Privacidade
-              </a>
-            </Link>
+{/* Links Principais em Grid Responsivo */}
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+  gap: '15px',
+  marginBottom: '30px',
+  width: '100%'
+}}>
+  
+  {/* Política de Privacidade */}
+  <Link href="/politica-de-privacidade" passHref legacyBehavior>
+    <a className="btn-top btn-top-primary" style={{
+      minHeight: '50px',
+      justifyContent: 'center',
+      fontSize: '14px',
+      padding: '12px 8px',
+      borderRadius: '8px',
+      backgroundColor: 'white',
+      border: '1px solid #e0e0e0',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+    }}>
+      <span>🔒</span>
+      Privacidade
+    </a>
+  </Link>
 
-            {/* Política de Devolução e Reembolso */}
-            <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
-              <a className="btn-top btn-top-primary" style={{
-                minHeight: '50px',
-                justifyContent: 'center',
-                fontSize: '14px',
-                padding: '12px 8px',
-                borderRadius: '8px',
-                backgroundColor: 'white',
-                border: '1px solid #e0e0e0',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-              }}>
-                <span>🔄</span>
-                Política de Devolução e Reembolso
-              </a>
-            </Link>
+  {/* Política de Devolução e Reembolso - SÓ QUEBRA O TEXTO, MANTÉM O PADRÃO */}
+  <Link href="/politica-devolucao-e-reembolso" passHref legacyBehavior>
+    <a className="btn-top btn-top-primary" style={{
+      minHeight: '50px',
+      justifyContent: 'center',
+      fontSize: '14px',
+      padding: '12px 8px',
+      borderRadius: '8px',
+      backgroundColor: 'white',
+      border: '1px solid #e0e0e0',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+      whiteSpace: 'normal',
+      textAlign: 'center',
+      lineHeight: '1.3'
+    }}>
+      <span>🔄</span>
+      Política de Devolução e Reembolso
+    </a>
+  </Link>
 
-            {/* Termos de Uso */}
-            <Link href="/termos" passHref legacyBehavior>
-              <a className="btn-top btn-top-primary" style={{
-                minHeight: '50px',
-                justifyContent: 'center',
-                fontSize: '14px',
-                padding: '12px 8px',
-                borderRadius: '8px',
-                backgroundColor: 'white',
-                border: '1px solid #e0e0e0',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-              }}>
-                <span>📄</span>
-                Termos
-              </a>
-            </Link>
+  {/* Termos de Uso */}
+  <Link href="/termos" passHref legacyBehavior>
+    <a className="btn-top btn-top-primary" style={{
+      minHeight: '50px',
+      justifyContent: 'center',
+      fontSize: '14px',
+      padding: '12px 8px',
+      borderRadius: '8px',
+      backgroundColor: 'white',
+      border: '1px solid #e0e0e0',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+    }}>
+      <span>📄</span>
+      Termos
+    </a>
+  </Link>
 
-            {/* Quem Somos */}
-            <Link href="/quem-somos" passHref legacyBehavior>
-              <a className="btn-top btn-top-primary" style={{
-                minHeight: '50px',
-                justifyContent: 'center',
-                fontSize: '14px',
-                padding: '12px 8px',
-                borderRadius: '8px',
-                backgroundColor: 'white',
-                border: '1px solid #e0e0e0',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-              }}>
-                <span>👥</span>
-                Sobre
-              </a>
-            </Link>
-          </div>
-
+  {/* Quem Somos */}
+  <Link href="/quem-somos" passHref legacyBehavior>
+    <a className="btn-top btn-top-primary" style={{
+      minHeight: '50px',
+      justifyContent: 'center',
+      fontSize: '14px',
+      padding: '12px 8px',
+      borderRadius: '8px',
+      backgroundColor: 'white',
+      border: '1px solid #e0e0e0',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+    }}>
+      <span>👥</span>
+      Sobre
+    </a>
+  </Link>
+</div>
           {/* Linha Divisa */}
           <div style={{
             height: '1px',
