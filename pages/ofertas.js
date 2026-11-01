@@ -140,20 +140,16 @@ sp: {
 
 // ========== PRODUTOS EM OFERTA ========== //
 const featuredProducts = [
-  { id: 160, name: 'ESPUMANTE BRANCO MOSCATEL SALTON 750 ML (CX 6 UN)', category: 'Ofertas', price: 158.15, image: 'https://www.marquesvendaspmg.shop/images/espumante-branco-moscatel-salton-750-ml-pmg-atacadista.jpg', gtin: '7896023082634' },
-  { id: 161, name: 'ESPUMANTE BRANCO NATURAL BRUT SALTON 750 ML (CX 6 UN)', category: 'Ofertas', price: 158.15, image: 'https://www.marquesvendaspmg.shop/images/espumante-branco-natural-brut-salton-750-ml-pmg-atacadista.jpg', gtin: '7896023082993' },
-  { id: 165, name: 'ESPUMANTE CHANDON RÉSERVE BRUT 750 ML (CX 6 UN)', category: 'Ofertas', price: 490.88, image: 'https://www.marquesvendaspmg.shop/images/espumante-chandon-reserve-brut-750-ml-pmg-atacadista.jpg', gtin: '7891083611138' },
-  { id: 346, name: 'WHISKY CHIVAS REGAL 12 ANOS 1 L', category: 'Ofertas', price: 110.20, image: 'https://www.marquesvendaspmg.shop/images/whisky-chivas-regal-12-anos-1-l-pmg-atacadista.jpg', gtin: '0080432400432' },
-  { id: 347, name: 'WHISKY JACK DANIEL´S TENNESSEE FIRE 1 L', category: 'Ofertas', price: 131.07, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-fire-1-l-pmg-atacadista.jpg', gtin: '5099873006368' },
-  { id: 348, name: 'WHISKY JACK DANIEL´S TENNESSEE HONEY 1 L', category: 'Ofertas', price: 134.55, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-honey-1-l-pmg-atacadista.jpg', gtin: '0082184000328' },
-  { id: 349, name: 'WHISKY JACK DANIEL´S TENNESSEE OLD No.7 1 L', category: 'Ofertas', price: 134.55, image: 'https://www.marquesvendaspmg.shop/images/whisky-jack-daniels-tennessee-old-no7-1-l-pmg-atacadista.jpg', gtin: '0082184090442' },
-  { id: 350, name: 'WHISKY JAMESON 750 ML', category: 'Ofertas', price: 93.96, image: 'https://www.marquesvendaspmg.shop/images/whisky-jameson-750-ml-pmg-atacadista.jpg', gtin: '5011007003029' },
-  { id: 351, name: 'WHISKY JIM BEAM 1 L', category: 'Ofertas', price: 80.04, image: 'https://www.marquesvendaspmg.shop/images/whisky-jim-beam-1-l-pmg-atacadista.jpg', gtin: '0080686027638' },
-  { id: 352, name: 'WHISKY JOHNNIE WALKER BLACK LABEL 12 ANOS 1 L', category: 'Ofertas', price: 165.86, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-black-label-12-anos-1-l-pmg-atacadista.jpg', gtin: '5000267023601' },
-  { id: 353, name: 'WHISKY JOHNNIE WALKER BLUE LABEL 750 ML', category: 'Ofertas', price: 966.60, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-blue-label-750-ml-pmg-atacadista.jpg', gtin: '5000267114279' },
-  { id: 354, name: 'WHISKY JOHNNIE WALKER DOUBLE BLACK 1 L', category: 'Ofertas', price: 191.39, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-double-black-1-l-pmg-atacadista.jpg', gtin: '5000267112077' },
-  { id: 355, name: 'WHISKY JOHNNIE WALKER GOLD LABEL RESERVE 750 ML', category: 'Ofertas', price: 220.39, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-gold-label-reserve-750-ml-pmg-atacadista.jpg', gtin: '5000267197630' },
-  { id: 356, name: 'WHISKY JOHNNIE WALKER RED LABEL 1 L', category: 'Ofertas', price: 81.78, image: 'https://www.marquesvendaspmg.shop/images/whisky-johnnie-walker-red-label-1-l-pmg-atacadista.jpg', gtin: '5000267013602' },
+  { id: 3071, name: 'CHESTER INTEIRO CONGELADO TEMPERADO PERDIGÃO 4 KG', category: 'Ofertas', price: 36.85, image: 'https://www.marquesvendaspmg.shop/images/chester-inteiro-congelado-temperado-perdigao-4-kg-cx-6-pc.jpg', gtin: '7891515195274' },
+  { id: 3088, name: 'PERU CONGELADO TEMPERADO SADIA 5 KG', category: 'Ofertas', price: 37.35, image: 'https://www.marquesvendaspmg.shop/images/peru-congelado-temperado-sadia-5-kg-cx-4-pc.webp', gtin: '7893000029927' },
+  { id: 3089, name: 'TENDER SEM OSSO DEFUMADO SADIA 1 KG', category: 'Ofertas', price: 78.80, image: 'https://www.marquesvendaspmg.shop/images/tender-sem-osso-defumado-sadia-1-kg-cx-7-pct.webp', gtin: '7893000001121' },
+  { id: 3072, name: 'COSTELINHA SUÍNA COZIDA TEMPERADA SEM OSSO COM MOLHO BBQ ZIPPY FOODS 1,01 KILO', category: 'Ofertas', price: 72.99, image: 'https://www.marquesvendaspmg.shop/images/costelinha-suina-cozida-temperada-sem-osso-com-molho-bbq-zippy-foods-101-kg-cx-10-pct.webp', gtin: '0070341229088' },
+  { id: 1584, name: 'FRUTAS CRISTALIZADAS BRASILSECO 1 KILO', category: 'Ofertas', price: 21.55, image: 'https://www.marquesvendaspmg.shop/images/frutas-cristalizadas-brasilseco-1-kilo-pmg-atacadista.jpg', gtin: '7898632341317' },
+  { id: 1624, name: 'NOZES MARIPOSA LERYC 1 KILO', category: 'Ofertas', price: 73.50, image: 'https://www.marquesvendaspmg.shop/images/nozes-mariposa-leryc-1-kilo-pmg-atacadista.jpg', gtin: '7898960431162' },
+  { id: 1580, name: 'DAMASCO TURCO BRASILSECO 1 KILO', category: 'Ofertas', price: 111.66, image: 'https://www.marquesvendaspmg.shop/images/damasco-turco-brasilseco-1-kilo-pmg-atacadista.jpg', gtin: '7898960431056' },
+  { id: 1470, name: 'ABACAXI EM CALDA RODELAS TOZZI 400 G', category: 'Ofertas', price: 15.55, image: 'https://www.marquesvendaspmg.shop/images/abacaxi-em-calda-rodelas-tozzi-400-g-pmg-atacadista.jpg', gtin: '7898909755380' },
+  { id: 1495, name: 'AMEIXA EM CALDA TOZZI 400 G', category: 'Ofertas', price: 12.25, image: 'https://www.marquesvendaspmg.shop/images/ameixa-em-calda-tozzi-400-g-pmg-atacadista.jpg', gtin: '7898909755533' },
+  { id: 1583, name: 'FIGO EM CALDA TOZZI 400 G', category: 'Ofertas', price: 12.99, image: 'https://www.marquesvendaspmg.shop/images/figo-em-calda-tozzi-400-g-pmg-atacadista.jpg', gtin: '7898909755014' },
 ];
 
 // ========== BANNERS ========== //
