@@ -12,6 +12,7 @@ import { useDescricaoAI } from '../../hook/useDescricaoAI';
 import keywordsMap from '../../public/keywords.json';
 import pesosMap from '../../public/pesos.json';
 import VerificadorCEP from '../../components/VerificadorCEP';
+import marcasMap from '../../public/marcas.json';
 
 const products = [
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 783.51, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg', gtin: '17890000000373' },
@@ -3119,24 +3120,35 @@ const generateDescription = (product) => {
   return baseDescription[product.category] || baseDescription.default;
 };
 
-// Gera brand automático baseado no nome
+// ============================================================
+// GERA BRAND — lê do marcas.json (extraído por IA)
+// ============================================================
 const generateBrand = (product) => {
-  const brandMap = {
-    'SEARA': 'Seara',
-    'PERDIGÃO': 'Perdigão',
-    'SADIA': 'Sadia',
-    'ITAIPAVA': 'Itaipava',
-    'BRAHMA': 'Brahma',
-    'SKOL': 'Skol',
-    'ANTARCTICA': 'Antarctica',
-    'HEINEKEN': 'Heineken',
-    'default': 'Marcas Premium'
+  // 1º: marca extraída por IA (100% baseada no nome do produto)
+  if (marcasMap[product.id]) {
+    return marcasMap[product.id];
+  }
+
+  // 2º: fallback inteligente por categoria
+  // (só cai aqui em acessórios/embalagens genéricos sem marca real)
+  const fallbackPorCategoria = {
+    'Acessórios': 'PMG Atacadista',
+    'Higiene': 'PMG Atacadista',
+    'Bebidas': 'Bebidas',
+    'Conservas/Enlatados': 'Conservas',
+    'Farináceos': 'Farináceos',
+    'Doces/Frutas': 'Doces',
+    'Panificação': 'Panificação',
+    'Salgados': 'Salgados',
+    'Orientais': 'Orientais',
+    'Derivados de Ave': 'Aves',
+    'Derivados de Bovino': 'Bovinos',
+    'Derivados de Suíno': 'Suínos',
+    'Derivados de Leite': 'Laticínios',
+    'Derivados do Mar': 'Frutos do Mar',
+    'Derivados de Vegetal': 'Vegetais',
   };
-  
-  const foundBrand = Object.keys(brandMap).find(brand => 
-    product.name.toUpperCase().includes(brand)
-  );
-  return brandMap[foundBrand] || brandMap.default;
+  return fallbackPorCategoria[product.category] || 'PMG Atacadista';
 };
 
 export async function getStaticProps({ params }) {
