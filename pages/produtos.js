@@ -11,6 +11,7 @@ import keywordsMap from '../public/keywords.json';
 import pesosMap from '../public/pesos.json';
 import VerificadorCEP from '../components/VerificadorCEP'
 import { getUserIPCached, registrarAcesso } from '../lib/getUserIP'
+import marcasMap from '../public/marcas.json';   // 👈 NOVA LINHA
 
 // ==============================================
 // 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
@@ -7146,22 +7147,30 @@ if (contaBloqueada) {
           return baseDescription[product.category] || baseDescription.default;
         };
 
-        // Gera brand automático baseado no nome
-        const generateBrand = (product) => {
-          const brandMap = {
-            'ITAIPAVA': 'Itaipava',
-            'BRAHMA': 'Brahma',
-            'SKOL': 'Skol',
-            'ANTARCTICA': 'Antarctica',
-            'HEINEKEN': 'Heineken',
-            'default': 'Marcas Premium'
-          };
-          
-          const foundBrand = Object.keys(brandMap).find(brand => 
-            product.name.toUpperCase().includes(brand)
-          );
-          return brandMap[foundBrand] || brandMap.default;
-        };
+// Gera brand automático lendo do marcas.json
+const generateBrand = (product) => {
+  if (marcasMap[product.id]) {
+    return marcasMap[product.id];
+  }
+  const fallbackPorCategoria = {
+    'Acessórios': 'PMG Atacadista',
+    'Higiene': 'PMG Atacadista',
+    'Bebidas': 'Bebidas',
+    'Conservas/Enlatados': 'Conservas',
+    'Farináceos': 'Farináceos',
+    'Doces/Frutas': 'Doces',
+    'Panificação': 'Panificação',
+    'Salgados': 'Salgados',
+    'Orientais': 'Orientais',
+    'Derivados de Ave': 'Aves',
+    'Derivados de Bovino': 'Bovinos',
+    'Derivados de Suíno': 'Suínos',
+    'Derivados de Leite': 'Laticínios',
+    'Derivados do Mar': 'Frutos do Mar',
+    'Derivados de Vegetal': 'Vegetais',
+  };
+  return fallbackPorCategoria[product.category] || 'PMG Atacadista';
+};
 
         return {
           "@type": "Product",
