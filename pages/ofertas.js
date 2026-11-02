@@ -4,6 +4,7 @@ import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 import useTrackUser from '../hook/useTrackUser';
 import { useRouter } from 'next/router';
+import marcasMap from '../public/marcas.json';   // 👈 NOVA LINHA
 
 // ========== DETECTAR SE ESTÁ RODANDO DENTRO DO APP ========== //
 const isRunningInApp = () => {
@@ -233,20 +234,36 @@ const generateImageSEO = (product) => {
   };
 };
 
-const generateBrand = (productName) => {
-  const brandMap = {
-    'JOHNNIE WALKER': 'Johnnie Walker',
-    'SALTON': 'Salton',
-    'ROCK´S': 'Rock´s',
-    'WHITE HORSE': 'White Horse',
-    'MIL ROTAS': 'Mil Rotas',
-    'default': 'Marcas Premium'
-  };
+// ========== GERA BRAND — lê do marcas.json ========== //
+const generateBrand = (product) => {
+  // ⚠️ IMPORTANTE: agora recebe o OBJETO product (não só o nome)
+  // porque precisamos do product.id para buscar no marcas.json
   
-  const foundBrand = Object.keys(brandMap).find(brand => 
-    productName.toUpperCase().includes(brand)
-  );
-  return brandMap[foundBrand] || brandMap.default;
+  // 1º: marca extraída por IA (100% baseada no nome real)
+  if (marcasMap[product.id]) {
+    return marcasMap[product.id];
+  }
+  
+  // 2º: fallback por categoria (só pra acessórios/embalagens genéricos)
+  const fallbackPorCategoria = {
+    'Acessórios': 'PMG Atacadista',
+    'Higiene': 'PMG Atacadista',
+    'Bebidas': 'Bebidas',
+    'Conservas/Enlatados': 'Conservas',
+    'Farináceos': 'Farináceos',
+    'Doces/Frutas': 'Doces',
+    'Panificação': 'Panificação',
+    'Salgados': 'Salgados',
+    'Orientais': 'Orientais',
+    'Derivados de Ave': 'Aves',
+    'Derivados de Bovino': 'Bovinos',
+    'Derivados de Suíno': 'Suínos',
+    'Derivados de Leite': 'Laticínios',
+    'Derivados do Mar': 'Frutos do Mar',
+    'Derivados de Vegetal': 'Vegetais',
+    'Ofertas': 'Ofertas PMG',   // ← NOVO (categoria específica de ofertas)
+  };
+  return fallbackPorCategoria[product.category] || 'PMG Atacadista';
 };
 
 const generateProductDescription = (product) => {
@@ -654,7 +671,7 @@ useEffect(() => {
       "image": product.image,
       "brand": {
         "@type": "Brand",
-        "name": generateBrand(product.name)
+        "name": generateBrand(product)
       },
       "offers": {
         "@type": "Offer",
