@@ -14,6 +14,8 @@ import pesosMap from '../../public/pesos.json';
 import VerificadorCEP from '../../components/VerificadorCEP';
 import marcasMap from '../../public/marcas.json';
 import descricoesMap from '../../public/descricoes.json';
+import ImageModule from 'next/image';
+const Image = ImageModule.default;
 
 const products = [
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 783.51, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg', gtin: '17890000000373' },
@@ -3816,34 +3818,37 @@ useEffect(() => {
           opacity: status.cardOpacity
         }}>
           
-          {/* IMAGEM DO PRODUTO */}
-          <div style={styles.imageContainer}>
-            <img 
-              src={product.image} 
-              alt={seo.alt}
-              title={seo.title}
-              className="product-image-zoom"
-              style={styles.productImage}
-              onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/400x300/095400/ffffff?text=PMG+ATACADISTA';
-              }}
-            />
-            {!status.available && (
-              <div style={{
-                position: 'absolute',
-                top: '10px',
-                left: '10px',
-                backgroundColor: 'rgba(0,0,0,0.7)',
-                color: 'white',
-                padding: '5px 10px',
-                borderRadius: '5px',
-                fontSize: '14px',
-                fontWeight: 'bold'
-              }}>
-                INDISPONÍVEL
-              </div>
-            )}
-          </div>
+{/* IMAGEM DO PRODUTO */}
+<div style={styles.imageContainer}>
+  <Image 
+    src={product.image} 
+    alt={seo.alt}
+    title={seo.title}
+    width={1000}
+    height={780}
+    className="product-image-zoom"
+    style={styles.productImage}
+    priority
+    onError={(e) => {
+      e.target.src = 'https://via.placeholder.com/400x300/095400/ffffff?text=PMG+ATACADISTA';
+    }}
+  />
+  {!status.available && (
+    <div style={{
+      position: 'absolute',
+      top: '10px',
+      left: '10px',
+      backgroundColor: 'rgba(0,0,0,0.7)',
+      color: 'white',
+      padding: '5px 10px',
+      borderRadius: '5px',
+      fontSize: '14px',
+      fontWeight: 'bold'
+    }}>
+      INDISPONÍVEL
+    </div>
+  )}
+</div>
 
           {/* INFORMAÇÕES DO PRODUTO */}
           <div style={styles.productInfo}>
