@@ -1,10 +1,21 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
+import dynamic from 'next/dynamic';  // 👈 NOVO
 import Markito from '../pages/Markito';
-import SeasonalOverlay from '@/components/SeasonalOverlay/SeasonalOverlay';
-import AvaliacaoAppOverlay from '@/components/AvaliacaoAppOverlay/AvaliacaoAppOverlay'; // ✅ NOVO
 import '../styles/globals.css';
+
+// ========== CARREGAMENTO LAZY DOS OVERLAYS (NÃO BLOQUEIAM A PÁGINA) ==========
+const SeasonalOverlay = dynamic(
+  () => import('@/components/SeasonalOverlay/SeasonalOverlay'),
+  { ssr: false }
+);
+
+const AvaliacaoAppOverlay = dynamic(
+  () => import('@/components/AvaliacaoAppOverlay/AvaliacaoAppOverlay'),
+  { ssr: false }
+);
+// ========== FIM ==========
 
 // ========== LIMPEZA TOTAL DE CACHE (RADICAL) ==========
 if (typeof window !== 'undefined') {
@@ -243,10 +254,10 @@ function MyApp({ Component, pageProps }) {
         `
       }} />
 
-      {/* ✅ Overlay sazonal (existente) */}
+      {/* ✅ Overlay sazonal (agora carrega depois da página) */}
       <SeasonalOverlay />
 
-      {/* ✅ NOVO: Overlay de avaliação do app */}
+      {/* ✅ NOVO: Overlay de avaliação do app (agora carrega depois da página) */}
       <AvaliacaoAppOverlay />
 
       <Component 
