@@ -2,6 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   
+  images: {  // 👈 NOVO BLOCO
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.marquesvendaspmg.shop',
+        port: '',
+        pathname: '/images/**',  // Permite qualquer imagem na pasta /images
+      },
+    ],
+  },
+  
   async rewrites() {
     return [
       {
@@ -12,7 +23,6 @@ const nextConfig = {
         source: '/food-news/:slug/:id',
         destination: '/food-news?slug=:slug&page=:id',
       },
-      // Mantém compatibilidade com URLs antigas
       {
         source: '/food-news',
         destination: '/food-news',
