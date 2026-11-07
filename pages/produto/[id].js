@@ -13,6 +13,7 @@ import keywordsMap from '../../public/keywords.json';
 import pesosMap from '../../public/pesos.json';
 import VerificadorCEP from '../../components/VerificadorCEP';
 import marcasMap from '../../public/marcas.json';
+import descricoesMap from '../../public/descricoes.json';
 
 const products = [
   { id: 7, name: 'APLICADOR PARA REQUEIJÃO (CX 1 UN)', category: 'Acessórios', price: 783.51, image: 'https://www.marquesvendaspmg.shop/images/aplicador-para-requeijao-cx-1-un-pmg-atacadista.jpg', gtin: '17890000000373' },
@@ -3108,16 +3109,24 @@ const generateSlug = (name) => {
     .substring(0, 60);
 };
 
-// Funções para gerar Schema.org (alinhadas com a página de produtos)
+// ============================================================
+// DESCRIÇÃO — lê do descricoes.json (mesma do site)
+// ============================================================
 const generateDescription = (product) => {
-  const baseDescription = {
-    'Bebidas': `Refresque-se com ${product.name}. Perfeita para momentos especiais, oferecendo qualidade e sabor incomparáveis.`,
-    'Laticínios': `Produto fresco e de alta qualidade. ${product.name} selecionado para atender os mais altos padrões.`,
+  // 1º: descrição do JSON (fonte única da verdade)
+  if (descricoesMap[product.id]) {
+    return descricoesMap[product.id];
+  }
+
+  // 2º: fallback por categoria (só produtos novos ainda não cadastrados)
+  const fallbackPorCategoria = {
+    'Bebidas': `Refresque-se com ${product.name}. Qualidade e sabor para seu food service.`,
+    'Laticínios': `Produto fresco e de alta qualidade. ${product.name} selecionado para os mais altos padrões.`,
     'Frios': `Sabor e qualidade em cada fatia. ${product.name} ideal para seu estabelecimento.`,
-    'Derivados de Ave': `Produto de frango congelado premium. ${product.name} com qualidade Seara para seu food service.`,
-    'default': `${product.name}. Produto de alta qualidade com ótimo custo-benefício para seu negócio.`
+    'Derivados de Ave': `Produto de ave premium. ${product.name} para seu food service.`,
+    'default': `${product.name}. Produto de alta qualidade com ótimo custo-benefício para seu negócio.`,
   };
-  return baseDescription[product.category] || baseDescription.default;
+  return fallbackPorCategoria[product.category] || fallbackPorCategoria.default;
 };
 
 // ============================================================
