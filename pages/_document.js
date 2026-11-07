@@ -1,4 +1,4 @@
-// pages/_document.js - VERSÃO LIMPA (SEM PWA)
+// pages/_document.js - VERSÃO LIMPA (SEM SCRIPTS DE TERCEIROS)
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
@@ -11,16 +11,15 @@ export default function Document() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <meta name="description" content="Distribuidora autorizada com os melhores produtos para seu negócio. Qualidade garantida e atendimento especializado." />
         
-        {/* ========== FORÇAR TEMA CLARO NO ANDROID ========== */}
+        {/* Forçar tema claro no Android */}
         <meta name="color-scheme" content="light only" />
         <meta name="supported-color-schemes" content="light" />
         <meta name="darkreader-lock" content="yes" />
-        {/* ========== FIM ========== */}
         
-        {/* Theme color - apenas navegador (sem PWA) */}
+        {/* Theme color */}
         <meta name="theme-color" content="#095400" />
         
-        {/* Ícones do site (apenas o principal) */}
+        {/* Ícones */}
         <link rel="icon" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />
         
@@ -30,39 +29,6 @@ export default function Document() {
         
         {/* Verificação do Google */}
         <meta name="google-site-verification" content="OM6ZA5lhy6ZCDjG8LU-PTFcF4QORtpkNh7f_JHt5Ctc" />
-
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-89LSRYEHF1"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-89LSRYEHF1', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }} />
-
-        {/* Meta Pixel */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '9491377657643670');
-            fbq('track', 'PageView');
-          `,
-        }} />
-        <noscript>
-          <img height="1" width="1" style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=9491377657643670&ev=PageView&noscript=1" />
-        </noscript>
       </Head>
       <body>
         <Main />
