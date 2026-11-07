@@ -12,6 +12,7 @@ import pesosMap from '../public/pesos.json';
 import VerificadorCEP from '../components/VerificadorCEP'
 import { getUserIPCached, registrarAcesso } from '../lib/getUserIP'
 import marcasMap from '../public/marcas.json';   // 👈 NOVA LINHA
+import descricoesMap from '../public/descricoes.json';   // 👈 NOVA LINHA
 
 // ==============================================
 // 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
@@ -7136,16 +7137,25 @@ if (contaBloqueada) {
       "@context": "https://schema.org",
       "@graph": currentProducts.map(product => {
         
-        // Gera descrição automática baseada no nome e categoria
-        const generateDescription = (product) => {
-          const baseDescription = {
-            'Bebidas': `Refresque-se com ${product.name}. Perfeita para momentos especiais, oferecendo qualidade e sabor incomparáveis.`,
-            'Laticínios': `Produto fresco e de alta qualidade. ${product.name} selecionado para atender os mais altos padrões.`,
-            'Frios': `Sabor e qualidade em cada fatia. ${product.name} ideal para seu estabelecimento.`,
-            'default': `${product.name}. Produto de alta qualidade com ótimo custo-benefício para seu negócio.`
-          };
-          return baseDescription[product.category] || baseDescription.default;
-        };
+// ============================================================
+// DESCRIÇÃO — lê do descricoes.json (fonte única)
+// ============================================================
+const generateDescription = (product) => {
+  // 1º: descrição do JSON (mesma do site e do [id].js)
+  if (descricoesMap[product.id]) {
+    return descricoesMap[product.id];
+  }
+
+  // 2º: fallback por categoria (só produtos novos ainda não cadastrados)
+  const fallbackPorCategoria = {
+    'Bebidas': `Refresque-se com ${product.name}. Qualidade e sabor para seu food service.`,
+    'Laticínios': `Produto fresco e de alta qualidade. ${product.name} selecionado para os mais altos padrões.`,
+    'Frios': `Sabor e qualidade em cada fatia. ${product.name} ideal para seu estabelecimento.`,
+    'Derivados de Ave': `Produto de ave premium. ${product.name} para seu food service.`,
+    'default': `${product.name}. Produto de alta qualidade com ótimo custo-benefício para seu negócio.`,
+  };
+  return fallbackPorCategoria[product.category] || fallbackPorCategoria.default;
+};
 
 // Gera brand automático lendo do marcas.json
 const generateBrand = (product) => {
