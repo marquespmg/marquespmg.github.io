@@ -5,6 +5,7 @@ import Link from 'next/link';
 import useTrackUser from '../hook/useTrackUser';
 import { useRouter } from 'next/router';
 import marcasMap from '../public/marcas.json';   // 👈 NOVA LINHA
+import descricoesMap from '../public/descricoes.json';   // 👈 NOVA LINHA
 
 // ========== DETECTAR SE ESTÁ RODANDO DENTRO DO APP ========== //
 const isRunningInApp = () => {
@@ -266,19 +267,16 @@ const generateBrand = (product) => {
   return fallbackPorCategoria[product.category] || 'PMG Atacadista';
 };
 
+// ============================================================
+// DESCRIÇÃO — lê do descricoes.json (fonte única)
+// ============================================================
 const generateProductDescription = (product) => {
-  if (product.name.includes('WHISKY')) {
-    return `${product.name} em oferta especial! Whisky premium importado para seu bar ou restaurante. Melhor preço atacado com entrega garantida.`;
+  // 1º: descrição do JSON (mesma do site e do [id].js)
+  if (descricoesMap[product.id]) {
+    return descricoesMap[product.id];
   }
-  if (product.name.includes('GIN')) {
-    return `${product.name} em promoção! Gin premium nacional. Perfeito para drinks especiais em seu estabelecimento.`;
-  }
-  if (product.name.includes('ESPUMANTE')) {
-    return `${product.name} em oferta! Espumante nacional de qualidade para celebrações e eventos.`;
-  }
-  if (product.name.includes('BAÚ') || product.name.includes('MOCHILA')) {
-    return `${product.name} em promoção! Equipamento profissional para transporte de alimentos. Qualidade garantida.`;
-  }
+
+  // 2º: fallback para produtos novos ainda não cadastrados
   return `${product.name} em oferta especial PMG Atacadista! Produto selecionado com o melhor preço atacado.`;
 };
 
