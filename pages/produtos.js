@@ -13,6 +13,8 @@ import VerificadorCEP from '../components/VerificadorCEP'
 import { getUserIPCached, registrarAcesso } from '../lib/getUserIP'
 import marcasMap from '../public/marcas.json';   // 👈 NOVA LINHA
 import descricoesMap from '../public/descricoes.json';   // 👈 NOVA LINHA
+import ImageModule from 'next/image';
+const Image = ImageModule.default;
 
 // ==============================================
 // 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
@@ -6965,16 +6967,17 @@ if (contaBloqueada) {
           </div>
         )}
         
-        <img 
-          src={product.image} 
-          alt={seo.alt}
-          title={seo.title}
-		  loading="lazy"  // ← ADICIONE SÓ ISSO
-          style={styles.productImage}
-          onError={(e) => {
-            e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
-          }}
-        />
+<Image 
+  src={product.image} 
+  alt={seo.alt}
+  title={seo.title}
+  width={250}
+  height={180}
+  style={styles.productImage}
+  onError={(e) => {
+    e.target.src = 'https://via.placeholder.com/250x180?text=Imagem+Não+Disponível';
+  }}
+/>
         
         <div style={styles.productInfo}>
 <div style={styles.productNameContainer}>
