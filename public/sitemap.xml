@@ -3,7 +3,6 @@
   
   <!-- ========== PÁGINAS PRINCIPAIS ========== -->
   
-  <!-- Página Principal -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/</loc>
     <lastmod>2026-10-15</lastmod>
@@ -11,7 +10,6 @@
     <priority>1.0</priority>
   </url>
   
-  <!-- Página do App -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/app</loc>
     <lastmod>2026-10-15</lastmod>
@@ -19,7 +17,6 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- Página de Ofertas -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/ofertas</loc>
     <lastmod>2026-10-15</lastmod>
@@ -27,7 +24,6 @@
     <priority>0.9</priority>
   </url>
   
-  <!-- Página de Produtos -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/produtos</loc>
     <lastmod>2026-10-15</lastmod>
@@ -35,7 +31,6 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- ========== NOVA PÁGINA - PMG OPERAÇÃO ========== -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/pmg-operacao</loc>
     <lastmod>2026-10-15</lastmod>
@@ -43,9 +38,6 @@
     <priority>0.8</priority>
   </url>
   
-  <!-- ========== PÁGINAS INSTITUCIONAIS ========== -->
-  
-  <!-- Página Quem Somos -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/quem-somos</loc>
     <lastmod>2026-10-15</lastmod>
@@ -53,7 +45,6 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Página de Indicações -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/indicacoes</loc>
     <lastmod>2026-10-15</lastmod>
@@ -61,7 +52,6 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Food News (Blog) -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/food-news</loc>
     <lastmod>2026-10-15</lastmod>
@@ -69,9 +59,24 @@
     <priority>0.6</priority>
   </url>
   
+  <!-- ========== BIBLIOTECA DE EBOOKS ========== -->
+  
+  <url>
+    <loc>https://www.marquesvendaspmg.shop/ebook</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.marquesvendaspmg.shop/ebook/guia-tecnico-carne-desfiada-bovina-alfama</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
   <!-- ========== PÁGINAS LEGAIS ========== -->
   
-  <!-- Política de Privacidade -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/politica-de-privacidade</loc>
     <lastmod>2026-10-15</lastmod>
@@ -79,7 +84,6 @@
     <priority>0.3</priority>
   </url>
   
-  <!-- Política de Devolução e Reembolso -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/politica-devolucao-e-reembolso</loc>
     <lastmod>2026-10-15</lastmod>
@@ -87,7 +91,6 @@
     <priority>0.3</priority>
   </url>
   
-  <!-- Termos de Uso -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/termos</loc>
     <lastmod>2026-10-15</lastmod>
