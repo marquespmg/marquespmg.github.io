@@ -9,13 +9,13 @@ export default function Home() {
   const banners = [
     { 
       id: 1,
-      desktop: 'https://i.imgur.com/5Xts5Ph.png',
-      mobile: 'https://i.imgur.com/5Xts5Ph.png'
+      desktop: 'https://www.marquesvendaspmg.shop/banner-frete-gratis-2400x800.png',
+      mobile: 'https://www.marquesvendaspmg.shop/banner-frete-gratis-2400x800.png'
     },
     { 
       id: 2,
-      desktop: 'https://i.imgur.com/MiXi0pu.png',
-      mobile: 'https://i.imgur.com/MiXi0pu.png'
+      desktop: 'https://www.marquesvendaspmg.shop/banner-ofertas-2400x800.png',
+      mobile: 'https://www.marquesvendaspmg.shop/banner-ofertas-2400x800.png'
     },
     { 
       id: 3,
@@ -34,8 +34,8 @@ export default function Home() {
     },
     { 
       id: 6,
-      desktop: 'https://i.imgur.com/QYaPsI8.png',
-      mobile: 'https://i.imgur.com/QYaPsI8.png'
+      desktop: 'https://www.marquesvendaspmg.shop/banner-compre-online-2400x800.png',
+      mobile: 'https://www.marquesvendaspmg.shop/banner-compre-online-2400x800.png'
     }
   ];
 
