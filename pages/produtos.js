@@ -3234,23 +3234,23 @@ const products = [
 const banners = [
   { 
     id: 1,
-    desktop: 'https://i.imgur.com/33QMJL2.png',
-    mobile: 'https://i.imgur.com/33QMJL2.png'
+    desktop: 'https://www.marquesvendaspmg.shop/banner-pague-na-entrega-2400x800.png',
+    mobile: 'https://www.marquesvendaspmg.shop/banner-pague-na-entrega-2400x800.png'
   },
   { 
     id: 2,
-    desktop: 'https://i.imgur.com/GmAXGiB.png',
-    mobile: 'https://i.imgur.com/GmAXGiB.png'
+    desktop: 'https://www.marquesvendaspmg.shop/banner-receba-48h-2400x800.png',
+    mobile: 'https://www.marquesvendaspmg.shop/banner-receba-48h-2400x800.png'
   },
   { 
     id: 3,
-    desktop: 'https://i.imgur.com/t5yuOrl.png',
-    mobile: 'https://i.imgur.com/t5yuOrl.png'
+    desktop: 'https://www.marquesvendaspmg.shop/banner-ofertas-imperdiveis-2400x800.png',
+    mobile: 'https://www.marquesvendaspmg.shop/banner-ofertas-imperdiveis-2400x800.png'
   },
   { 
     id: 4,
-    desktop: 'https://i.imgur.com/AWqaPY4.png',
-    mobile: 'https://i.imgur.com/AWqaPY4.png'
+    desktop: 'https://www.marquesvendaspmg.shop/banner-obrigado-2400x800.png',
+    mobile: 'https://www.marquesvendaspmg.shop/banner-obrigado-2400x800.png'
   }
 ];
 
