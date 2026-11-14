@@ -1273,74 +1273,84 @@ const avaliacoes = [
         }
       }}
     >
-      {avaliacoes.map((avaliacao, index) => (
-        <div key={index} style={{
-          minWidth: isMobile ? '85vw' : '28vw',
-          maxWidth: isMobile ? '85vw' : '28vw',
-          padding: '20px',
-          background: '#fff',
-          borderRadius: '10px',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-          flexShrink: 0,
-          boxSizing: 'border-box'
+{avaliacoes.map((avaliacao, index) => (
+  <div key={index} style={{
+    minWidth: isMobile ? '85vw' : '28vw',
+    maxWidth: isMobile ? '85vw' : '28vw',
+    padding: '20px',
+    background: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    flexShrink: 0,
+    boxSizing: 'border-box',
+    
+    // ⭐ BORDA DUPLA COMPLETA (2 linhas de 2 cores)
+    border: '3px solid #095400',      // linha verde externa
+    outline: '2px solid #ff0000',     // linha vermelha interna
+    outlineOffset: '-7px',            // distância entre as 2 linhas
+    
+    // 👇 CONTEÚDO CENTRALIZADO (opcional — você pediu)
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  }}>
+    <div style={{ 
+      display: 'flex', 
+      alignItems: 'center', 
+      marginBottom: '12px',
+      flexWrap: 'wrap'
+    }}>
+      <img 
+        src={avaliacao.foto} 
+        alt={avaliacao.nome} 
+        style={{ 
+          width: '45px', 
+          height: '45px', 
+          borderRadius: '50%', 
+          objectFit: 'cover',
+          marginRight: '10px'
+        }} 
+      />
+      <div>
+        <h3 style={{ 
+          color: '#095400', 
+          fontSize: isMobile ? '0.95rem' : '1rem',
+          margin: '0 0 3px 0',
+          fontWeight: '600'
         }}>
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            marginBottom: '12px',
-            flexWrap: 'wrap'
-          }}>
-            <img 
-              src={avaliacao.foto} 
-              alt={avaliacao.nome} 
+          {avaliacao.nome}
+        </h3>
+        <div style={{ 
+          display: 'flex',
+          gap: '2px'
+        }}>
+          {[...Array(5)].map((_, i) => (
+            <span 
+              key={i} 
               style={{ 
-                width: '45px', 
-                height: '45px', 
-                borderRadius: '50%', 
-                objectFit: 'cover',
-                marginRight: '10px'
-              }} 
-            />
-            <div>
-              <h3 style={{ 
-                color: '#095400', 
-                fontSize: isMobile ? '0.95rem' : '1rem',
-                margin: '0 0 3px 0',
-                fontWeight: '600'
-              }}>
-                {avaliacao.nome}
-              </h3>
-              <div style={{ 
-                display: 'flex',
-                gap: '2px'
-              }}>
-                {[...Array(5)].map((_, i) => (
-                  <span 
-                    key={i} 
-                    style={{ 
-                      color: i < avaliacao.estrelas ? '#FFD700' : '#e0e0e0',
-                      fontSize: isMobile ? '16px' : '18px',
-                      lineHeight: '1'
-                    }}
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-          <p style={{ 
-            color: '#555', 
-            fontSize: isMobile ? '0.88rem' : '0.92rem',
-            lineHeight: '1.5',
-            margin: 0,
-            wordBreak: 'break-word',
-            hyphens: 'auto'
-          }}>
-            "{avaliacao.texto}"
-          </p>
+                color: i < avaliacao.estrelas ? '#FFD700' : '#e0e0e0',
+                fontSize: isMobile ? '16px' : '18px',
+                lineHeight: '1'
+              }}
+            >
+              ★
+            </span>
+          ))}
         </div>
-      ))}
+      </div>
+    </div>
+    <p style={{ 
+      color: '#555', 
+      fontSize: isMobile ? '0.88rem' : '0.92rem',
+      lineHeight: '1.5',
+      margin: 0,
+      wordBreak: 'break-word',
+      hyphens: 'auto'
+    }}>
+      "{avaliacao.texto}"
+    </p>
+  </div>
+))}
     </div>
 
     {/* Botões de Navegação - Estilo Melhorado */}
