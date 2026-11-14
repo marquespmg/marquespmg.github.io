@@ -5,7 +5,6 @@ import useTrackUser from '../hook/useTrackUser';
 
 
 export default function Home() {
-  useTrackUser(); // ← ADICIONE ESTA LINHA
   const banners = [
     { 
       id: 1,
@@ -19,21 +18,16 @@ export default function Home() {
     },
     { 
       id: 3,
-      desktop: 'https://i.imgur.com/6aEBScN.png',
-      mobile: 'https://i.imgur.com/6aEBScN.png'
+      desktop: 'https://www.marquesvendaspmg.shop/banner-distribuidora-2400x800.png',
+      mobile: 'https://www.marquesvendaspmg.shop/banner-distribuidora-2400x800.png'
     },
     { 
       id: 4,
-      desktop: 'https://i.imgur.com/8toaBek.png',
-      mobile: 'https://i.imgur.com/8toaBek.png'
+      desktop: 'https://www.marquesvendaspmg.shop/banner-2200-produtos-2400x800.png',
+      mobile: 'https://www.marquesvendaspmg.shop/banner-2200-produtos-2400x800.png'
     },
     { 
       id: 5,
-      desktop: 'https://i.imgur.com/CMQslCd.png',
-      mobile: 'https://i.imgur.com/CMQslCd.png'
-    },
-    { 
-      id: 6,
       desktop: 'https://www.marquesvendaspmg.shop/banner-compre-online-2400x800.png',
       mobile: 'https://www.marquesvendaspmg.shop/banner-compre-online-2400x800.png'
     }
