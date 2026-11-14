@@ -5807,7 +5807,7 @@ if (contaBloqueada) {
         <meta property="og:description" content="Melhor preço em atacado para restaurantes e mercados. Entrega em SP, Sul Minas e Sul RJ." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.marquesvendaspmg.shop/produtos" />
-        <meta property="og:image" content="https://i.imgur.com/jrERRsC.png" />
+        <meta property="og:image" content="https://www.marquesvendaspmg.shop/logo1.png" />
         <meta property="og:site_name" content="PMG Atacadista" />
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta name="googlebot" content="index, follow" />
@@ -6466,7 +6466,7 @@ if (contaBloqueada) {
 	
 <div style={styles.header}>
   <img 
-    src="https://i.imgur.com/pBH5WpZ.png" 
+    src="https://www.marquesvendaspmg.shop/logo.png" 
     alt="Logo" 
     style={{ 
       height: windowWidth > 768 ? '60px' : '50px', 
@@ -7312,7 +7312,7 @@ const generateBrand = (product) => {
   "@type": "LocalBusiness",
   "priceRange": "$$",
   "name": "Marques Vendas PMG",
-  "image": "https://i.imgur.com/jrERRsC.png",
+  "image": "https://www.marquesvendaspmg.shop/logo1.png",
   "telephone": "+55-11-91357-2902",
   "areaServed": [
     {
