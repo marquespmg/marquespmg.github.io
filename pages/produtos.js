@@ -3351,7 +3351,18 @@ const ProductsPage = () => {
     loadCartFromStorage();
   }, []); // Executa apenas uma vez quando o componente monta
   // ========== FIM DA CORREÇÃO ========== //
-  
+
+	    // ========== FUNÇÃO PARA NORMALIZAR TEXTO (busca à prova de acento) ==========
+  const normalizar = (texto) => {
+    return (texto || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')        // remove acentos
+      .replace(/[^a-z0-9\s]/g, ' ')           // troca pontuação por espaço (opcional, Nível 2)
+      .replace(/\s+/g, ' ')                   // normaliza espaços
+      .trim();
+  };
+	
 // ========== FUNÇÃO PARA CARREGAR DADOS DO USUÁRIO ========== //
 const carregarDadosUsuario = async () => {
   if (!user) return;
@@ -5002,8 +5013,9 @@ const filteredProducts = uniqueProducts
     
     // 1. SE HÁ BUSCA: pesquisa por NOME ou ID EXATO
     if (searchTermTrimmed !== '') {
-      const searchLower = searchTermTrimmed.toLowerCase();
-      const productNameLower = product.name.toLowerCase();
+      // 🔥 NORMALIZA OS DOIS LADOS (remove acentos, cedilha e pontuação)
+      const searchNormalizado = normalizar(searchTermTrimmed);
+      const productNameNormalizado = normalizar(product.name);
       
       // 🔥 BUSCA POR ID DO SITE - EXATO
       const matchesIdSite = product.id.toString() === searchTermTrimmed;
@@ -5012,11 +5024,15 @@ const filteredProducts = uniqueProducts
       const idPMG = productMap[product.id];
       const matchesIdPMG = idPMG && idPMG.toString() === searchTermTrimmed;
       
-      // 🔥 BUSCA POR NOME (continua igual, com "contains")
-      const matchesName = productNameLower.includes(searchLower);
+      // 🔥 BUSCA POR NOME - agora à prova de acento
+      const matchesName = productNameNormalizado.includes(searchNormalizado);
       
-      // Retorna true se encontrar por ID EXATO ou por NOME
-      return matchesIdSite || matchesIdPMG || matchesName;
+      // 🔥 BUSCA POR MARCA (bônus) - encontra pelo nome da marca também
+      const marcaNormalizada = normalizar(marcasMap[product.id] || '');
+      const matchesMarca = marcaNormalizada.includes(searchNormalizado);
+      
+      // Retorna true se encontrar por ID EXATO, NOME ou MARCA
+      return matchesIdSite || matchesIdPMG || matchesName || matchesMarca;
     }
     
     // ⭐ NOVO: OFERTA RELÂMPAGO
@@ -5047,8 +5063,22 @@ const filteredProducts = uniqueProducts
            product.category !== '⏳ Ofertas da Semana 🚨';
   })
   .sort((a, b) => {
-    const nomeA = a.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const nomeB = b.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    // 🔥 PRODUTOS QUE COMEÇAM COM O TERMO APARECEM PRIMEIRO
+    if (searchTerm.trim() !== '') {
+      const searchNorm = normalizar(searchTerm.trim());
+      const nomeA = normalizar(a.name);
+      const nomeB = normalizar(b.name);
+      
+      const aComeca = nomeA.startsWith(searchNorm);
+      const bComeca = nomeB.startsWith(searchNorm);
+      
+      if (aComeca && !bComeca) return -1;
+      if (!aComeca && bComeca) return 1;
+    }
+    
+    // Ordenação alfabética normal (já sem acento)
+    const nomeA = normalizar(a.name);
+    const nomeB = normalizar(b.name);
     
     if (nomeA < nomeB) return -1;
     if (nomeA > nomeB) return 1;
