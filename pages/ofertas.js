@@ -146,12 +146,12 @@ const featuredProducts = [
   { id: 3088, name: 'PERU CONGELADO TEMPERADO SADIA 5 KG', category: 'Ofertas', price: 37.35, image: 'https://www.marquesvendaspmg.shop/images/peru-congelado-temperado-sadia-5-kg-cx-4-pc.webp', gtin: '7893000029927' },
   { id: 3089, name: 'TENDER SEM OSSO DEFUMADO SADIA 1 KG', category: 'Ofertas', price: 78.80, image: 'https://www.marquesvendaspmg.shop/images/tender-sem-osso-defumado-sadia-1-kg-cx-7-pct.webp', gtin: '7893000001121' },
   { id: 3096, name: 'KIT FRANGO INTEIRO CONGELADO TEMPERADO SEARA FIESTA COM BOLSA 3,2 KILO', category: 'Ofertas', price: 102.50, image: 'https://www.marquesvendaspmg.shop/images/kit-frango-inteiro-congelado-temperado-seara-fiesta-com-bolsa-32-kg-cx-2-un.jpg', gtin: '7894904609512' },
-  { id: 2668, name: 'PERNIL SUÍNO CONGELADO SEM OSSO E SEM COURO TCHÊ 12 KG', category: 'Ofertas', price: 14.88, image: 'https://www.marquesvendaspmg.shop/images/pernil-suino-congelado-sem-osso-e-sem-couro-tche-12-kg-cx-23-kg.webp', gtin: '7898665250945' },
-  { id: 1026, name: 'LOMBO SUÍNO CONGELADO TEMPERADO PAMPLONA  1 KG', category: 'Ofertas', price: 31.50, image: 'https://www.marquesvendaspmg.shop/images/lombo-suino-congelado-temperado-pamplona-1-kg-pmg-atacadista.jpg', gtin: '7896716301257' },
-  { id: 1004, name: 'COSTELA SUÍNA CONGELADA COM OSSO AURORA 1.5 KG', category: 'Ofertas', price: 33.50, image: 'https://www.marquesvendaspmg.shop/images/costela-suina-congelada-com-osso-aurora-15-kg-pmg-atacadista.jpg', gtin: '7891164001087' },
-  { id: 1516, name: 'CEREJA MARRASQUINO SEM TALO CURICO 1,8 KILO', category: 'Ofertas', price: 113.99, image: 'https://www.marquesvendaspmg.shop/images/cereja-marrasquino-sem-talo-curico-18-kilo-pmg-atacadista.jpg', gtin: '7803911110010' },
-  { id: 638, name: 'CREME DE LEITE GRANDE LEVE FOOD SERVICE 17% DE GORDURA ITALAC 1,030 KILO (CX 12 UN)', category: 'Ofertas', price: 165.99, image: 'https://www.marquesvendaspmg.shop/images/creme-de-leite-grande-food-service-italac-1030-kilo-cx-12-un-pmg-atacadista.jpg', gtin: '7898080642363' },
-  { id: 2772, name: 'BACALHAU POLACA DO ALASCA SALGADO SECO FILÉ EM PEDAÇOS BRASMAR 5 KILO', category: 'Ofertas', price: 227.00, image: 'https://www.marquesvendaspmg.shop/images/bacalhau-polaca-do-alasca-salgado-seco-file-em-pedacos-brasmar-5-kg-cx-2-pct.webp', gtin: '5606669334859' },
+  { id: 3061, name: 'PÊSSEGO EM CALDA NOBLE NATURE 485 G', category: 'Ofertas', price: 11.99, image: 'https://www.marquesvendaspmg.shop/images/pessego-em-calda-noble-nature-485-g-cx-12-lt.webp', gtin: '7908249331165' },
+  { id: 1643, name: 'UVA PASSA PRETA LERYC 1 KILO', category: 'Ofertas', price: 25.30, image: 'https://www.marquesvendaspmg.shop/images/uva-passa-preta-leryc-1-kilo-pmg-atacadista.jpg', gtin: '7898960431087' },
+  { id: 818, name: 'PROVOLONETE SCALA 300 G', category: 'Ofertas', price: 29.99, image: 'https://www.marquesvendaspmg.shop/images/provolonete-scala-300-g-pmg-atacadista.jpg', gtin: '7898039680842' },
+  { id: 2071, name: 'QUEIJO FRACIONADO BRIE YEMA 125 G', category: 'Ofertas', price: 10.70, image: 'https://www.marquesvendaspmg.shop/images/queijo-brie-yema.png', gtin: '7896425000724' },
+  { id: 2679, name: 'QUEIJO BRIE FORMA SÃO VICENTE 1 KILO', category: 'Ofertas', price: 67.30, image: 'https://www.marquesvendaspmg.shop/images/queijo-brie-forma-sao-vicente-1-kg-cx-3-pc.webp', gtin: '7896926700031' },
+  { id: 841, name: 'QUEIJO GOUDA BELLA ITÁLIA 3 KG', category: 'Ofertas', price: 59.55, image: 'https://www.marquesvendaspmg.shop/images/queijo-gouda-bella-italia-3-kg-pmg-atacadista.jpg', gtin: '7898264360045' },
 ];
 
 // ========== BANNERS ========== //
