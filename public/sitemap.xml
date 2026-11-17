@@ -63,14 +63,23 @@
   
   <url>
     <loc>https://www.marquesvendaspmg.shop/ebook</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
+  <!-- Ebook 1: Guia Técnico Carne Desfiada Alfama -->
   <url>
     <loc>https://www.marquesvendaspmg.shop/ebook/guia-tecnico-carne-desfiada-bovina-alfama</loc>
     <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Ebook 2: Guia Premium Manteiga Sem Sal Três Marias -->
+  <url>
+    <loc>https://www.marquesvendaspmg.shop/ebook/guia-premium-manteiga-sem-sal-tres-marias</loc>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
