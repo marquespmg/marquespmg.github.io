@@ -33,30 +33,33 @@ export const ebooks = [
     tags: ['carne desfiada', 'carne seca', 'ficha técnica', 'ALFAMA', 'food service'],
   },
 
-  // ============ EBOOK 2 (exemplo comentado — apague se não for usar) ============
-  // {
-  //   slug: 'guia-tecnico-queijo-mucarela-bari',
-  //   titulo: 'Guia Técnico — Queijo Muçarela Bari 4 kg',
-  //   subtitulo: 'Qualidade premium para pizzarias, restaurantes e food service',
-  //   categoria: 'Ficha Técnica',
-  //   destaque: false,
-  //   dataPublicacao: '2026-02-10',
-  //   paginas: 6,
-  //   tempoLeitura: '6 min',
-  //   resumo: 'Texto curto de 2 a 3 linhas que aparece no card da home.',
-  //   descricao:
-  //     'Texto longo que aparece na seção "Sobre este material". Pode ter 3, 4, 5 parágrafos. Aqui você conta tudo: matéria-prima, processo, diferenciais, aplicações, conservação etc.',
-  //   destaques: [
-  //     'Queijo muçarela de alta qualidade',
-  //     'Peso padrão de 4 kg por peça',
-  //     'Ideal para pizzarias e restaurantes',
-  //     'Validade e conservação controladas',
-  //     'Registro SIF/inspeção oficial',
-  //   ],
-  //   arquivo: 'Guia-Tecnico-Queijo-Mucarela-Bari-MarquesVendas.pdf',
-  //   capa: '/ebook/capas/guia-mucarela-bari.jpg',
-  //   produtoUrl: 'https://www.marquesvendaspmg.shop/produto/XXXX',
-  //   cor: '#095400',
-  //   tags: ['muçarela', 'queijo', 'Bari', 'pizzaria', 'food service'],
-  // },
+  // ============ EBOOK 2 — MANTEIGA TRÊS MARIAS ============
+  {
+    slug: 'guia-premium-manteiga-sem-sal-tres-marias',
+    titulo: 'Guia Premium — Manteiga Comum Sem Sal Três Marias',
+    subtitulo:
+      'O sabor puro do leite com inspeção federal SIF/DIPOA, na caixa de 5 kg que abastece padarias, confeitarias e restaurantes.',
+    categoria: 'Guia Premium',
+    destaque: true,
+    dataPublicacao: '2026-11-17',
+    paginas: 8,
+    tempoLeitura: '8 min',
+    resumo:
+      'Um único ingrediente — creme de soro de leite — batido até virar uma massa compacta e de sabor suave. Ficha técnica completa, inspeção SIF/DIPOA, conservação e rendimento da caixa de 5 kg para o food service.',
+    descricao:
+      'A Manteiga Comum Sem Sal Três Marias é uma manteiga de verdade: um único ingrediente — creme de soro de leite — batido até virar uma massa compacta, firme e de sabor suave. Sem sal adicionado, ela entrega a gordura e o corpo que a cozinha em volume precisa, e deixa o tempero nas suas mãos. Este guia reúne a ficha técnica oficial, o registro SIF/DIPOA nº 0002/1555, o padrão sensorial definido pelo fabricante, as regras de conservação (até 5 °C fechada, 10 dias após aberta), o rendimento da caixa de 5 kg e as aplicações para padarias, confeitarias, restaurantes, lanchonetes, hotéis e revendas.',
+    destaques: [
+      'Um único ingrediente: creme de soro de leite',
+      'Sem sal adicionado — controle total do tempero',
+      'Caixa fechada de 5 kg — formato atacadista',
+      'Registro SIF/DIPOA nº 0002/1555 — venda em todo o Brasil',
+      'Conservação: até 5 °C fechada, 10 dias após aberta',
+      'Rendimento: cerca de 333 porções de 15 g por caixa',
+    ],
+    arquivo: 'Guia-Premium-Manteiga-Sem-Sal-Tres-Marias-MarquesVendas.pdf',
+    capa: '/ebook/capas/guia-manteiga-tres-marias.jpg',
+    produtoUrl: 'https://www.marquesvendaspmg.shop/produto/706',
+    cor: '#095400',
+    tags: ['manteiga', 'sem sal', 'três marias', 'food service', 'SIF', 'atacado'],
+  },
 ];
