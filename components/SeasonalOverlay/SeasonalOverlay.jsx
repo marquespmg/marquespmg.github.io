@@ -22,10 +22,38 @@ const getThemeAtivo = () => {
 // ========== DETECTAR SE ESTÁ RODANDO NO APP ==========
 const isRunningInApp = () => {
   if (typeof window === 'undefined') return false;
+  
   const ua = navigator.userAgent.toLowerCase();
+  const platform = (navigator.platform || '').toLowerCase();
+  
+  // ===== DETECÇÃO APPLE (iOS / iPadOS / macOS) =====
+  // iPhone, iPod
+  const isIPhone = /iphone|ipod/.test(ua);
+  // iPad moderno se passa por Mac (iPadOS 13+)
+  const isIPad = /ipad/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1);
+  // Mac desktop
+  const isMac = /macintosh|mac os x/.test(ua) && !isIPad;
+  
+  // Safari no iOS (inclui Chrome/Firefox/Edge iOS, que usam WebKit)
+  const isIOS = isIPhone || isIPad;
+  
+  // Navegadores no macOS (Safari, Chrome, Firefox, Edge, etc.)
+  const isMacBrowser = isMac && (
+    /safari/.test(ua) ||
+    /chrome/.test(ua) ||
+    /firefox/.test(ua) ||
+    /edg/.test(ua)
+  );
+  
+  // ===== DETECÇÃO ANDROID / OUTROS =====
   const isWebView = ua.includes('wv') || ua.includes('androidwebview');
   const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
                 window.navigator.standalone === true;
+  
+  // Bloqueia em QUALQUER dispositivo/navegador Apple
+  if (isIOS || isMacBrowser) return true;
+  
+  // Bloqueia WebView e PWA (Android e outros)
   return isWebView || isPWA;
 };
 // ========== FIM ==========
