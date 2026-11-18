@@ -3670,34 +3670,28 @@ const isRunningInApp = () => {
   if (typeof window === 'undefined') return false;
   
   const ua = navigator.userAgent.toLowerCase();
+  const platform = (navigator.platform || '').toLowerCase();
   
-  // ========== 1. ANDROID WEBVIEW ==========
+  // ========== 1. APPLE (iPhone / iPad / Mac) ==========
+  const isIPhone = /iphone|ipod/.test(ua);
+  const isIPad = /ipad/.test(ua) || (platform === 'macintel' && navigator.maxTouchPoints > 1);
+  const isMac = /macintosh|mac os x/.test(ua) && !isIPad;
+  
+  // Bloqueia QUALQUER dispositivo Apple (Safari, Chrome iOS, Firefox iOS, Edge iOS, Mac)
+  if (isIPhone || isIPad || isMac) return true;
+  
+  // ========== 2. ANDROID WEBVIEW ==========
   const isAndroidWebView = 
     ua.includes('wv') || 
     ua.includes('androidwebview') ||
     (ua.includes('android') && !ua.includes('chrome'));
   
-  // ========== 2. iOS WEBVIEW (NOVO!) ==========
-  const isIOS = /iphone|ipad|ipod/.test(ua);
-  
-  const isIOSWebView = 
-    isIOS && (
-      // 2.1. PWA instalado (iOS)
-      window.navigator.standalone === true ||
-      // 2.2. React Native WebView
-      (window.ReactNativeWebView && window.ReactNativeWebView.postMessage) ||
-      // 2.3. Sem window.safari (Safari normal tem window.safari)
-      (typeof window.safari === 'undefined' && !ua.includes('safari')) ||
-      // 2.4. User Agent típico de WebView iOS
-      /(iphone|ipod|ipad).*applewebkit(?!.*safari)/i.test(ua)
-    );
-  
-  // ========== 3. PWA (instalado, Android ou iOS) ==========
+  // ========== 3. PWA (instalado) ==========
   const isPWA = 
     window.matchMedia('(display-mode: standalone)').matches || 
     window.navigator.standalone === true;
   
-  // ========== 4. REDES SOCIAIS ==========
+  // ========== 4. REDES SOCIAIS (WebView interno) ==========
   const isWhatsApp = ua.includes('whatsapp');
   const isInstagram = ua.includes('instagram');
   const isFacebook = ua.includes('fb') || ua.includes('facebook');
@@ -3705,7 +3699,6 @@ const isRunningInApp = () => {
   // ========== 5. RESULTADO ==========
   return (
     isAndroidWebView || 
-    isIOSWebView || 
     isPWA || 
     isWhatsApp || 
     isInstagram || 
