@@ -8,6 +8,7 @@ import { produtosArray } from './produtos';
 
 // ✅ IMPORTA O HOOK DE VALIDADE
 import { useProdutoIdPmg } from '../hook/useProdutoIdPmg';
+import { useEstoque } from '../hook/useEstoque';
 
 // ==============================================
 // 🎁 CONFIGURAÇÃO DAS CAMPANHAS "COMPRE E GANHE"
@@ -66,28 +67,38 @@ const CUPONS = {
 const CART_STORAGE_KEY = 'cart_data';
 
 // ==============================================
-// ✅ FUNÇÃO PARA FILTRAR PRODUTOS COM PREÇO ZERADO
+// ✅ FUNÇÃO PARA FILTRAR PRODUTOS INDISPONÍVEIS
+// (preço zerado OU estoque 0-3)
 // ==============================================
-const filtrarProdutosZerados = (cartItems) => {
+const filtrarProdutosZerados = (cartItems, temEstoque) => {
   if (!cartItems || cartItems.length === 0) return cartItems;
-  
+
   const itensFiltrados = cartItems.filter(item => {
-    // Verifica se o preço é maior que 0
+    // 1️⃣ Verifica preço
     const temPrecoValido = item.price > 0;
-    
-    // Se o preço for 0 ou menor, remove do carrinho
+
     if (!temPrecoValido) {
       console.log(`🗑️ Removendo produto ID ${item.id} - ${item.name} (preço zerado)`);
       return false;
     }
+
+    // 2️⃣ Verifica estoque (se a função foi passada)
+    if (typeof temEstoque === 'function') {
+      const temNoEstoque = temEstoque(item.id);
+      if (!temNoEstoque) {
+        console.log(`🗑️ Removendo produto ID ${item.id} - ${item.name} (sem estoque)`);
+        return false;
+      }
+    }
+
     return true;
   });
-  
+
   const removidos = cartItems.length - itensFiltrados.length;
   if (removidos > 0) {
-    console.log(`🗑️ ${removidos} produto(s) com preço zerado removido(s) do carrinho`);
+    console.log(`🗑️ ${removidos} produto(s) indisponível(eis) removido(s) do carrinho`);
   }
-  
+
   return itensFiltrados;
 };
 
@@ -194,6 +205,7 @@ const Cart = ({ cart, setCart, removeFromCart }) => {
 
   // Hook para validade dos produtos
   const { getIdPmg, loading: loadingIdPmg } = useProdutoIdPmg();
+  const { temEstoque, loading: loadingEstoque } = useEstoque();
 
   // ==============================================
   // ✅ FUNÇÃO PARA REMOVER DO CARRINHO COM VERIFICAÇÃO DE CUPOM
@@ -443,8 +455,8 @@ const handleQuantityChange = (productId, newQuantity) => {
           const parsedCart = JSON.parse(savedCart);
           
           // ✅ PRIMEIRO: FILTRA PRODUTOS ZERADOS
-          const cartSemZerados = filtrarProdutosZerados(parsedCart);
-          
+          const cartSemZerados = filtrarProdutosZerados(parsedCart, temEstoque);  
+		  
           // ✅ SEGUNDO: ATUALIZA PREÇOS
           const updatedCart = updateCartPrices(cartSemZerados);
           
@@ -468,7 +480,7 @@ const handleQuantityChange = (productId, newQuantity) => {
     };
     
     initializeCart();
-  }, []);
+  }, [loadingEstoque]);   // ← ⬅️ SÓ ISSO MUDA
 
   // Verificação de mobile
   useEffect(() => {
@@ -510,7 +522,7 @@ const handleQuantityChange = (productId, newQuantity) => {
       console.log('🛒 Carrinho aberto, verificando preços...');
       
       // ✅ PRIMEIRO: FILTRA PRODUTOS ZERADOS
-      const cartSemZerados = filtrarProdutosZerados(cart);
+      const cartSemZerados = filtrarProdutosZerados(cart, temEstoque);
       
       // ✅ SEGUNDO: ATUALIZA PREÇOS
       const updatedCart = updateCartPrices(cartSemZerados);
@@ -539,15 +551,15 @@ const handleQuantityChange = (productId, newQuantity) => {
         }
       }
     }
-  }, [isOpen, isCollapsed, isMobile, cart, user]);
-
+  }, [isOpen, isCollapsed, isMobile, cart, user, loadingEstoque]);
+  
   // Sincroniza com Supabase (COM FILTRO)
   useEffect(() => {
     const syncWithSupabase = async () => {
       if (!user || cart.length === 0 || isSyncing) return;
       
       // ✅ FILTRA PRODUTOS ZERADOS ANTES DE SALVAR
-      const cartFiltrado = filtrarProdutosZerados(cart);
+      const cartFiltrado = filtrarProdutosZerados(cart, temEstoque);
       
       // Se o carrinho filtrado é diferente, atualiza o estado
       if (cartFiltrado.length !== cart.length) {
@@ -575,8 +587,8 @@ const handleQuantityChange = (productId, newQuantity) => {
 
     const timeoutId = setTimeout(syncWithSupabase, 1000);
     return () => clearTimeout(timeoutId);
-  }, [cart, user]);
-
+  }, [cart, user, loadingEstoque]);
+  
   // Feedback visual
   useEffect(() => {
     if (cart.length > 0) {
@@ -714,7 +726,7 @@ const handleQuantityChange = (productId, newQuantity) => {
       setFinalizando(false);
     }
   };
-
+  
   // ==============================================
   // ✅ FUNÇÃO PARA FECHAR A MENSAGEM DE LOGIN
   // ==============================================
